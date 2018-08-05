@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li, td, th, label {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 800;
+    line-height: 2em;
+}
+
+.header-logo {
+    max-height: 30px;
+    margin-top: 5px;
+}
+
+.shift-canvas {
+    padding: 10px;
+}
+
+.shift-canvas:hover {
+    cursor: pointer;
+    outline: 2px solid gray;
+}
+
+.clickable-component:hover {
+    cursor: pointer;
+    outline: 1px solid gray;
+}
+
+.sidebar-heading {
+    font-size: 1.5em;
+}
+
+.sidebar-label {
+    margin-left: 10px;
+}
+
+.sidebar-control {
+    padding: 10px;
+}
+
