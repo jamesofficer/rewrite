@@ -3,7 +3,7 @@
         <el-button type="primary" icon="el-icon-edit" circle @click="dialogVisible = true"></el-button>
 
         <el-dialog title="Add Component" :visible.sync="dialogVisible" width="50%">
-            <el-button type="primary" @click="addHeadingComponent()">Heading</el-button>
+            <el-button type="primary" @click="addHeadingComponent">Heading</el-button>
         </el-dialog>
     </div>
 </template>

@@ -1,16 +1,5 @@
 import defaultCanvas from './defaults/Canvas'
-
-// ========================================= //
-// Helper Functions
-// ========================================= //
-function getSelectedComponent(state) {
-    return state.canvases[state.currentlySelectedComponent.canvasIndex].components[state.currentlySelectedComponent.componentIndex];
-}
-
-function duplicateObject(object) {
-    return JSON.parse(JSON.stringify(object));
-}
-// ========================================= //
+import { duplicateObject, getSelectedComponent } from './helpers'
 
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => {

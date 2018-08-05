@@ -1,6 +1,7 @@
 import defaultCanvas from './defaults/Canvas'
+import { duplicateObject } from './helpers'
 
 export default {
-    canvases: [defaultCanvas],
+    canvases: [duplicateObject(defaultCanvas)],
     currentlySelectedComponent: undefined,
 };
