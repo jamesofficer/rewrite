@@ -6,6 +6,7 @@
                 textAlign: getElement(indexes).textAlign,
                 fontSize: getElement(indexes).fontSize + 'pt',
                 fontFamily: getElement(indexes).fontFamily,
+                fontWeight: getElement(indexes).fontWeight,
                 color: getElement(indexes).textColor,
                 backgroundColor: getElement(indexes).backgroundColor,
             }">

@@ -89,6 +89,10 @@ export default {
         padding: 0;
     }
 
+    .el-container {
+        background: #ddd;
+    }
+
     .el-aside {
         background: #eee;
     }
