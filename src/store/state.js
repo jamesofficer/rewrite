@@ -3,5 +3,5 @@ import { duplicateObject } from './helpers'
 
 export default {
     canvases: [duplicateObject(defaultCanvas)],
-    currentlySelectedComponent: undefined,
+    selectedComponent: undefined,
 };

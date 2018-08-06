@@ -3,8 +3,13 @@
 // NOT USED AT THE MOMENT
 // ========================================= //
 
-export const getSelectedComponent = (state) => {
-    return state.canvases[state.currentlySelectedComponent.canvasIndex].components[state.currentlySelectedComponent.componentIndex];
+// Returns the selected Canvas or Component
+export const getSelectedElement = (state) => {
+    if (state.selectedComponent.componentIndex === undefined) {
+        return state.canvases[state.selectedComponent.canvasIndex];
+    }
+
+    return state.canvases[state.selectedComponent.canvasIndex].components[state.selectedComponent.componentIndex];
 }
 
 export const duplicateObject = (object) => {

@@ -2,8 +2,10 @@
     <div>
         <el-button type="primary" icon="el-icon-edit" circle @click="dialogVisible = true"></el-button>
 
-        <el-dialog title="Add Component" :visible.sync="dialogVisible" width="50%">
-            <el-button type="primary" @click="addHeadingComponent">Heading</el-button>
+        <el-dialog title="Add Component" :visible.sync="dialogVisible" width="50%" center>
+            <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="addHeadingComponent">Heading</el-button>
+            </span>
         </el-dialog>
     </div>
 </template>
@@ -38,3 +40,10 @@ export default {
     },
 };
 </script>
+
+<style>
+    .el-dialog {
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    }
+</style>
+

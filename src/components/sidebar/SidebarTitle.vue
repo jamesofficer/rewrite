@@ -23,7 +23,6 @@ export default {
 
     methods: {
         closeComponent() {
-            console.log('closing...');
             this.$store.commit('closeComponent');
         }
     }

@@ -2,6 +2,7 @@
     <div id="app">
 
         <el-container>
+            <!-- Top Bar/Header -->
             <el-header>
                 <el-row>
                     <el-col :span="16">
@@ -15,10 +16,18 @@
             </el-header>
 
             <el-container>
+                <!-- Main Workspace -->
                 <el-main>
-                    <component v-for="(canvas, index) in canvases" v-bind:is="'Canvas'" v-bind:key="index" :index="index"></component>
+                    <component v-for="(canvas, index) in canvases"
+                        v-bind:is="'Canvas'"
+                        v-bind:key="index"
+                        :index="index"
+                        @click.native="selectCanvas(index)"
+                        class="clickable-canvas"
+                    ></component>
                 </el-main>
 
+                <!-- Sidebar -->
                 <el-aside width="400px" v-if="componentIsSelected">
                     <portal-target name="top-bar" class="sidebar">
                         <!-- Components Settings will appear in here. -->
@@ -26,6 +35,7 @@
                 </el-aside>
             </el-container>
 
+            <!-- Footer -->
             <el-footer>
                 <el-button @click="addCanvas">Add Canvas</el-button>
             </el-footer>
@@ -46,7 +56,7 @@ export default {
 
     computed: {
         componentIsSelected() {
-            return this.$store.getters.componentIsSelected
+            return this.$store.getters.elementIsSelected
         },
     },
 
@@ -59,7 +69,11 @@ export default {
     methods: {
         addCanvas() {
             this.$store.commit('addCanvas');
-        }
+        },
+
+        selectCanvas(index) {
+            this.$store.commit('selectCanvas', index);
+        },
     },
 };
 </script>

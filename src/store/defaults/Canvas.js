@@ -1,7 +1,8 @@
 import defaultHeading from './Heading'
 
 export default {
-    background: 'red',
+    selected: false,
+    backgroundColor: 'white',
     components: [defaultHeading],
 };
 
