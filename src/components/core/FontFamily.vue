@@ -1,5 +1,5 @@
 <template>
-    <sidebar-control :label="'Font Family'">
+    <sidebar-control label="Font Family">
         <el-select v-model="fontFamily" size="mini" style="display: block">
             <el-option :value="'Times New Roman'">Times New Roman</el-option>
             <el-option :value="'Arial'">Arial</el-option>
@@ -22,8 +22,7 @@ export default {
     computed: {
         fontFamily: {
             get () {
-                const indexes = this.$store.getters.getCurrentIndexes;
-                return this.$store.state.canvases[indexes.canvasIndex].components[indexes.componentIndex].fontFamily;
+                return this.$store.getters.getCurrentElement.fontFamily;
             },
             set (fontFamily) {
                 this.$store.commit('setFontFamily', fontFamily);

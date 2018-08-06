@@ -1,5 +1,5 @@
 <template>
-    <sidebar-control :label="'Font Weight and Size'">
+    <sidebar-control label="Font Weight and Size">
         <el-select v-model="fontWeight" placeholder="Normal" size="mini" style="margin-right: 5px;">
             <el-option :value="100">Lightest</el-option>
             <el-option :value="300">Light</el-option>
@@ -23,7 +23,7 @@ export default {
     computed: {
         fontWeight: {
             get () {
-                return this.$store.state.canvases[this.indexes.canvasIndex].components[this.indexes.componentIndex].fontWeight;
+                return this.$store.getters.getCurrentElement.fontWeight;
             },
             set (weight) {
                 this.$store.commit('setFontWeight', weight);
@@ -32,7 +32,7 @@ export default {
 
         fontSize: {
             get () {
-                return this.$store.state.canvases[this.indexes.canvasIndex].components[this.indexes.componentIndex].fontSize;
+                return this.$store.getters.getCurrentElement.fontSize;
             },
             set (size) {
                 this.$store.commit('setFontSize', size);

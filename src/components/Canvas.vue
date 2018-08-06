@@ -1,9 +1,10 @@
 <template>
-    <div :style="{
-        backgroundColor: backgroundColor,
-        padding: '20px',
-    }">
-        <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false">
+    <div>
+        <!-- CANVAS -->
+        <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false" :style="{
+            backgroundColor: backgroundColor,
+            padding: '20px',
+        }">
             <add-component-modal :canvasIndex="index" v-show="hovering" style="float: right"></add-component-modal>
 
             <component v-for="(component, componentIndex) in canvasComponents"
@@ -15,19 +16,11 @@
             ></component>
         </div>
 
+        <!-- SIDEBAR -->
         <sidebar v-if="canvasIsSelected">
             <sidebar-title title="Canvas"></sidebar-title>
 
-            <sidebar-control label="Background Color">
-                <el-select v-model="backgroundColor" placeholder="White" size="mini">
-                    <el-option :value="'white'">White</el-option>
-                    <el-option :value="'red'">Red</el-option>
-                    <el-option :value="'blue'">Blue</el-option>
-                    <el-option :value="'green'">Green</el-option>
-                    <el-option :value="'black'">Black</el-option>
-                </el-select>
-            </sidebar-control>
-
+            <background-color></background-color>
         </sidebar>
     </div>
 </template>
@@ -39,11 +32,15 @@ import Sidebar           from './sidebar/Sidebar'
 import SidebarTitle      from './sidebar/SidebarTitle'
 import SidebarControl    from './sidebar/SidebarControl'
 
+// Property Imports:
+import BackgroundColor from './core/BackgroundColor'
+
 export default {
     name: "Canvas",
 
     components: {
-        Heading, AddComponentModal, Sidebar, SidebarTitle, SidebarControl
+        Heading, AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
+        BackgroundColor,
     },
 
     props: {
@@ -57,13 +54,8 @@ export default {
             return this.$store.getters.canvasIsSelected(this.index);
         },
 
-        backgroundColor: {
-            get () {
-                return this.$store.state.canvases[this.index].backgroundColor;
-            },
-            set(color) {
-                this.$store.commit('setBackgroundColor', color);
-            }
+        backgroundColor() {
+            return this.$store.state.canvases[this.index].backgroundColor;
         },
     },
 

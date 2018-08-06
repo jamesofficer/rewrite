@@ -3,11 +3,13 @@
         <!-- COMPONENT -->
         <div class="clickable-component">
             <h1 :style="{
-                textAlign: textAlign,
-                fontSize: fontSize + 'pt',
-                fontFamily: fontFamily,
+                textAlign: getElement(indexes).textAlign,
+                fontSize: getElement(indexes).fontSize + 'pt',
+                fontFamily: getElement(indexes).fontFamily,
+                color: getElement(indexes).textColor,
+                backgroundColor: getElement(indexes).backgroundColor,
             }">
-                {{ content }}
+                {{ getElement(indexes).content }}
             </h1>
         </div>
 
@@ -22,8 +24,11 @@
             <text-alignment></text-alignment>
 
             <font-weight-and-size></font-weight-and-size>
-        </sidebar>
 
+            <text-color></text-color>
+
+            <background-color></background-color>
+        </sidebar>
     </div>
 </template>
 
@@ -34,56 +39,49 @@ import SidebarTitle   from './sidebar/SidebarTitle'
 import SidebarControl from './sidebar/SidebarControl'
 
 // Property Imports:
-import TextContent    from './core/TextContent'
-import TextAlignment  from './core/TextAlignment'
-import FontFamily     from './core/FontFamily'
+import TextContent     from './core/TextContent'
+import TextAlignment   from './core/TextAlignment'
+import FontFamily      from './core/FontFamily'
 import FontWeightAndSize from './core/FontWeightAndSize'
+import TextColor       from './core/TextColor'
+import BackgroundColor from './core/BackgroundColor'
 
 export default {
     name: "Heading",
 
     components: {
         Sidebar, SidebarControl, SidebarTitle,
-        TextContent, FontFamily, TextAlignment, FontWeightAndSize
+        TextContent, FontFamily, TextAlignment, FontWeightAndSize, TextColor, BackgroundColor
     },
 
     props: {
         index: {
             type: Number,
+            required: true,
         },
 
         canvasIndex: {
-            type: Number
+            type: Number,
+            required: true,
         }
     },
 
     computed: {
         ...mapGetters({
             componentIsSelected: 'componentIsSelected',
+            getElement: 'getElement',
         }),
-
-        fontFamily() {
-            return this.$store.state.canvases[this.canvasIndex].components[this.index].fontFamily;
-        },
-
-        content() {
-            return this.$store.state.canvases[this.canvasIndex].components[this.index].content;
-        },
-
-        fontWeight() {
-            return this.$store.state.canvases[this.canvasIndex].components[this.index].fontWeight;
-        },
-
-        fontSize() {
-            return this.$store.state.canvases[this.canvasIndex].components[this.index].fontSize;
-        },
-
-        textAlign() {
-            return this.$store.state.canvases[this.canvasIndex].components[this.index].textAlign;
-        },
     },
-}
 
+    data() {
+        return {
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                componentIndex: this.index,
+            }
+        }
+    }
+}
 </script>
 
 <style scoped>

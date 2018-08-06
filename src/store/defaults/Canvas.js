@@ -5,6 +5,6 @@ export default {
     components: [defaultHeading],
 
     // Properties:
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
 };
 

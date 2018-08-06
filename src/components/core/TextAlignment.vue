@@ -1,5 +1,5 @@
 <template>
-    <sidebar-control :label="'Text Alignment'">
+    <sidebar-control label="Text Alignment">
         <el-button-group>
             <el-button size="mini" @click="alignText('left')">Left</el-button>
             <el-button size="mini" @click="alignText('center')">Center</el-button>

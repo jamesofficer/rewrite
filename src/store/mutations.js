@@ -34,11 +34,6 @@ export const closeComponent = (state) => {
     state.selectedComponent = undefined;
 }
 
-// Sets the background colour on a Canvas
-export const setBackgroundColor = (state, color) => {
-    window.Vue.set(getSelectedElement(state), 'backgroundColor', color);
-};
-
 // Sets the string value of a Text Component
 export const updateTextContent = (state, value) => {
     window.Vue.set(getSelectedElement(state), 'content', value);
@@ -64,3 +59,12 @@ export const setFontFamily = (state, family) => {
     window.Vue.set(getSelectedElement(state), 'fontFamily', family);
 };
 
+// Sets the Text Colour on a Text Component
+export const setTextColor = (state, color) => {
+    window.Vue.set(getSelectedElement(state), 'textColor', color);
+};
+
+// Sets the Background Colour on a Component
+export const setBackgroundColor = (state, color) => {
+    window.Vue.set(getSelectedElement(state), 'backgroundColor', color);
+};

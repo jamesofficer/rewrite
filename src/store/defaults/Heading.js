@@ -1,5 +1,5 @@
 export default {
-    type: "Heading",
+    type: 'Heading',
     selected: false,
 
     // Properties:
@@ -7,5 +7,7 @@ export default {
     textAlign: 'left',
     fontSize: 24,
     fontWeight: 500,
-    fontFamily: "Times New Roman",
+    fontFamily: 'Times New Roman',
+    textColor: '#000000',
+    backgroundColor: null,
 }
