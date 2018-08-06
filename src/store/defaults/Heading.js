@@ -1,8 +1,11 @@
 export default {
     type: "Heading",
     selected: false,
+
+    // Properties:
     content: 'Enter your text...',
-    align: 'left',
+    textAlign: 'left',
     fontSize: 24,
     fontWeight: 500,
+    fontFamily: "Times New Roman",
 }

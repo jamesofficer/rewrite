@@ -45,8 +45,8 @@ export const updateTextContent = (state, value) => {
 };
 
 // Sets the Text Alignment on a Text Component
-export const alignText = (state, position) => {
-    window.Vue.set(getSelectedElement(state), 'align', position);
+export const setTextAlignment = (state, position) => {
+    window.Vue.set(getSelectedElement(state), 'textAlign', position);
 };
 
 // Sets the Font Size on a Text Component
@@ -57,5 +57,10 @@ export const setFontSize = (state, size) => {
 // Sets the Font Weight on a Text Component
 export const setFontWeight = (state, weight) => {
     window.Vue.set(getSelectedElement(state), 'fontWeight', weight);
+};
+
+// Sets the Font Family on a Text Component
+export const setFontFamily = (state, family) => {
+    window.Vue.set(getSelectedElement(state), 'fontFamily', family);
 };
 

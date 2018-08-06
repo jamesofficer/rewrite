@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Heading           from './core/Heading';
+import Heading           from './Heading';
 import AddComponentModal from './dialogs/AddComponentModal';
 import Sidebar           from './sidebar/Sidebar'
 import SidebarTitle      from './sidebar/SidebarTitle'
