@@ -19,8 +19,8 @@
                     <component v-for="(canvas, index) in canvases" v-bind:is="'Canvas'" v-bind:key="index" :index="index"></component>
                 </el-main>
 
-                <el-aside width="400px">
-                    <portal-target name="top-bar">
+                <el-aside width="400px" v-if="componentIsSelected">
+                    <portal-target name="top-bar" class="sidebar">
                         <!-- Components Settings will appear in here. -->
                     </portal-target>
                 </el-aside>
@@ -42,6 +42,12 @@ export default {
 
     components: {
         Canvas
+    },
+
+    computed: {
+        componentIsSelected() {
+            return this.$store.getters.componentIsSelected
+        },
     },
 
     data() {

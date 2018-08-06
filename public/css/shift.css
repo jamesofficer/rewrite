@@ -32,8 +32,10 @@ label {
     outline: 1px solid gray;
 }
 
-.sidebar-heading {
-    font-size: 1.5em;
+.sidebar {
+    overflow: hidden;
+    padding: 10px;
+    border-left: 2px solid #ccc;
 }
 
 .sidebar-label {

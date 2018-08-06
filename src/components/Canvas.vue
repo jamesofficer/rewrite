@@ -1,14 +1,18 @@
 <template>
-    <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false">
-        <add-component-modal :canvasIndex="index" v-show="hovering" style="float: right"></add-component-modal>
+    <div>
+        <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false">
+            <add-component-modal :canvasIndex="index" v-show="hovering" style="float: right"></add-component-modal>
 
-        <component v-for="(component, componentIndex) in canvasComponents"
-            v-bind:is="component.type"
-            v-bind:key="componentIndex"
-            v-bind:index="componentIndex"
-            v-bind:canvasIndex="index"
-            @click.native="selectComponent(componentIndex)"
-        ></component>
+            <component v-for="(component, componentIndex) in canvasComponents"
+                v-bind:is="component.type"
+                v-bind:key="componentIndex"
+                v-bind:index="componentIndex"
+                v-bind:canvasIndex="index"
+                @click.native="selectComponent(componentIndex)"
+            ></component>
+        </div>
+
+
     </div>
 </template>
 

@@ -20,6 +20,10 @@ export const setSelectedComponent = (state, selectedComponent) => {
     getSelectedComponent(state).selected = true;
 };
 
+export const closeComponent = (state) => {
+    state.currentlySelectedComponent = undefined;
+}
+
 // Sets the string value of a Text Component
 export const updateTextContent = (state, value) => {
     window.Vue.set(getSelectedComponent(state), 'content', value);

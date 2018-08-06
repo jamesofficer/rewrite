@@ -12,33 +12,22 @@
 
         <div v-if="selected">
             <portal to="top-bar">
-                <!-- Heading -->
-                <el-row class="sidebar-control">
-                    <el-col :span="24">
-                        <h1 class="sidebar-heading">{{ this.$options.name }}</h1>
-                    </el-col>
-                </el-row>
-                <!-- Text Content -->
-                <el-row class="sidebar-control">
-                    <label>Text</label>
+                <!-- Title -->
+                <sidebar-title title="Heading"></sidebar-title>
 
-                    <el-col :span="24">
-                        <el-input v-model="content"></el-input>
-                    </el-col>
-                </el-row>
+                <!-- Text Content -->
+                <sidebar-control :label="'Text Content'">
+                    <el-input v-model="content"></el-input>
+                </sidebar-control>
 
                 <!-- Font Family -->
-                <el-row class="sidebar-control">
-                    <label>Font Family</label>
-
-                    <el-col :span="24">
-                        <el-select v-model="fontFamily" size="mini" style="display: block" placeholder="Arial">
-                            <el-option :value="'Times New Roman'">Times New Roman</el-option>
-                            <el-option :value="'Arial'">Arial</el-option>
-                            <el-option :value="'Verdana'">Verdana</el-option>
-                        </el-select>
-                    </el-col>
-                </el-row>
+                <sidebar-control :label="'Font Family'">
+                    <el-select v-model="fontFamily" size="mini" style="display: block" placeholder="Arial">
+                        <el-option :value="'Times New Roman'">Times New Roman</el-option>
+                        <el-option :value="'Arial'">Arial</el-option>
+                        <el-option :value="'Verdana'">Verdana</el-option>
+                    </el-select>
+                </sidebar-control>
 
                 <!-- Font Weight and Size -->
                 <el-row :gutter="4" class="sidebar-control">
@@ -60,17 +49,14 @@
                     </el-col>
                 </el-row>
 
-                <el-row class="sidebar-control">
-                    <label>Text Alignment</label>
-
-                    <el-col :span="24">
-                        <el-button-group>
-                            <el-button size="mini" @click="alignText('left')">Left</el-button>
-                            <el-button size="mini" @click="alignText('center')">Center</el-button>
-                            <el-button size="mini" @click="alignText('right')">Right</el-button>
-                        </el-button-group>
-                    </el-col>
-                </el-row>
+                <!-- Text Alignment -->
+                <sidebar-control :label="'Text Alignment'">
+                    <el-button-group>
+                        <el-button size="mini" @click="alignText('left')">Left</el-button>
+                        <el-button size="mini" @click="alignText('center')">Center</el-button>
+                        <el-button size="mini" @click="alignText('right')">Right</el-button>
+                    </el-button-group>
+                </sidebar-control>
             </portal>
         </div>
 
@@ -79,9 +65,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import SidebarControl from '../sidebar/SidebarControl'
+import SidebarTitle   from '../sidebar/SidebarTitle'
 
 export default {
     name: "Heading",
+
+    components: {
+        SidebarControl, SidebarTitle
+    },
 
     props: {
         index: {
