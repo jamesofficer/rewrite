@@ -27,6 +27,7 @@
 
 <script>
 import Heading           from './Heading';
+import Paragraph         from './Paragraph';
 import AddComponentModal from './dialogs/AddComponentModal';
 import Sidebar           from './sidebar/Sidebar'
 import SidebarTitle      from './sidebar/SidebarTitle'
@@ -39,7 +40,8 @@ export default {
     name: "Canvas",
 
     components: {
-        Heading, AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
+        Heading, Paragraph,
+        AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
         BackgroundColor,
     },
 

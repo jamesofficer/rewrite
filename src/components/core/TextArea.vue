@@ -1,6 +1,6 @@
 <template>
     <sidebar-control label="Text Content">
-        <el-input v-model="content"></el-input>
+        <el-input type="textarea" :autosize="{ minRows: 4, maxRows: 16}" v-model="content"></el-input>
     </sidebar-control>
 </template>
 
@@ -8,7 +8,7 @@
 import SidebarControl from '../sidebar/SidebarControl'
 
 export default {
-    name: "TextContent",
+    name: "TextArea",
 
     components: { SidebarControl },
 
@@ -24,3 +24,4 @@ export default {
     },
 }
 </script>
+

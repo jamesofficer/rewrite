@@ -43,9 +43,9 @@ export const elementIsSelected = state => state.selectedComponent ? true : false
 /**
  * Returns true only if ANY component is selected (returns false if a Canvas is selected).
  */
-export const componentIsSelected = state => {
+export const componentIsSelected = state => i => {
     if (state.selectedComponent !== undefined) {
-        if (state.selectedComponent.componentIndex !== undefined) {
+        if (state.selectedComponent.canvasIndex === i.canvasIndex && state.selectedComponent.componentIndex === i.componentIndex) {
             return true;
         }
     }
