@@ -3,14 +3,18 @@
         <!-- COMPONENT -->
         <div class="clickable-component">
             <h1 :style="{
-                textAlign: getElement(indexes).textAlign,
-                fontSize: getElement(indexes).fontSize + 'pt',
-                fontFamily: getElement(indexes).fontFamily,
-                fontWeight: getElement(indexes).fontWeight,
-                color: getElement(indexes).textColor,
-                backgroundColor: getElement(indexes).backgroundColor,
+                textAlign: element.textAlign,
+                fontSize: element.fontSize + 'pt',
+                fontFamily: element.fontFamily,
+                fontWeight: element.fontWeight,
+                color: element.textColor,
+                backgroundColor: element.backgroundColor,
+                paddingTop: element.padding.top + 'px',
+                paddingRight: element.padding.right + 'px',
+                paddingBottom: element.padding.bottom + 'px',
+                paddingLeft: element.padding.left + 'px',
             }">
-                {{ getElement(indexes).content }}
+                {{ element.content }}
             </h1>
         </div>
 
@@ -29,6 +33,8 @@
             <text-color></text-color>
 
             <background-color></background-color>
+
+            <padding></padding>
         </sidebar>
     </div>
 </template>
@@ -46,13 +52,15 @@ import FontFamily      from './core/FontFamily'
 import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor       from './core/TextColor'
 import BackgroundColor from './core/BackgroundColor'
+import Padding         from './core/Padding'
 
 export default {
     name: "Heading",
 
     components: {
         Sidebar, SidebarControl, SidebarTitle,
-        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor, BackgroundColor
+        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
+        BackgroundColor, Padding,
     },
 
     props: {
@@ -73,6 +81,10 @@ export default {
             componentIsSelected: 'componentIsSelected',
             getElement: 'getElement',
         }),
+
+        element() {
+            return this.getElement(this.indexes);
+        }
     },
 
     data() {

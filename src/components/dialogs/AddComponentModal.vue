@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-button type="primary" icon="el-icon-edit" circle @click="dialogVisible = true"></el-button>
+        <el-button type="primary" icon="el-icon-plus" circle @click="dialogVisible = true"></el-button>
 
         <el-dialog title="Add Component" :visible.sync="dialogVisible" width="50%" center>
             <span slot="footer" class="dialog-footer">
@@ -47,7 +47,7 @@ export default {
                     duplicateObject(deafultParagraph)
                 );
             }
-            
+
         }
     },
 };

@@ -20,6 +20,16 @@
         <sidebar v-if="canvasIsSelected">
             <sidebar-title title="Canvas"></sidebar-title>
 
+            <!-- Components on this Canvas -->
+            <sidebar-control label="Components on Canvas">
+                <el-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
+                    <el-button-group class="component-button-group">
+                        <el-button size="mini">{{ component.type }}</el-button>
+                        <el-button size="mini" icon="el-icon-delete" @click="deleteComponent(componentIndex)"></el-button>
+                    </el-button-group>
+                </el-row>
+            </sidebar-control>
+
             <background-color></background-color>
         </sidebar>
     </div>
@@ -69,13 +79,27 @@ export default {
     },
 
     methods: {
-        selectComponent(index) {
+        selectComponent(componentIndex) {
             this.$store.commit('setSelectedComponent', {
                 canvasIndex: this.index,
-                componentIndex: index,
+                componentIndex: componentIndex,
             });
         },
+
+        deleteComponent(componentIndex) {
+            this.$store.commit('deleteComponent', {
+                canvasIndex: this.index,
+                componentIndex: componentIndex,
+            });
+        }
     },
 }
 
 </script>
+
+<style scoped>
+    .component-button-group {
+        margin-bottom: 5px;
+    }
+</style>
+
