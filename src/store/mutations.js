@@ -30,6 +30,7 @@ export const setSelectedComponent = (state, component) => {
     getSelectedElement(state).selected = true;
 };
 
+// Triggers when the X button is pressed on the sidebar.
 export const closeComponent = (state) => {
     state.selectedComponent = undefined;
 }
@@ -37,6 +38,26 @@ export const closeComponent = (state) => {
 export const deleteComponent = (state, i) => {
     state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1);
 }
+
+// export const moveComponentUp = (state, i) => {
+//     if (i.componentIndex === 0) {
+//         return;
+//     }
+
+//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
+
+//     state.canvases[i.canvasIndex].components.splice(i.componentIndex - 1, 0, component);
+// }
+
+// export const moveComponentDown = (state, i) => {
+//     if (i.componentIndex === state.canvases[i.canvasIndex].components.length) {
+//         return;
+//     }
+
+//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
+
+//     state.canvases[i.canvasIndex].components.splice(i.componentIndex = 1, 0, component);
+// }
 
 // ===================================================== //
 // CSS Property Mutators.

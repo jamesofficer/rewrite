@@ -24,7 +24,9 @@
             <sidebar-control label="Components on Canvas">
                 <el-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
                     <el-button-group class="component-button-group">
-                        <el-button size="mini">{{ component.type }}</el-button>
+                        <el-button size="mini" @click.native.stop="selectComponent(componentIndex)">{{ component.type }}</el-button>
+                        <!-- <el-button size="mini" icon="el-icon-arrow-up" @click="moveComponentUp(componentIndex)"></el-button> -->
+                        <!-- <el-button size="mini" icon="el-icon-arrow-down" @click="moveComponentDown(componentIndex)"></el-button> -->
                         <el-button size="mini" icon="el-icon-delete" @click="deleteComponent(componentIndex)"></el-button>
                     </el-button-group>
                 </el-row>
@@ -91,7 +93,21 @@ export default {
                 canvasIndex: this.index,
                 componentIndex: componentIndex,
             });
-        }
+        },
+
+        moveComponentUp(componentIndex) {
+            this.$store.commit('moveComponentUp', {
+                canvasIndex: this.index,
+                componentIndex: componentIndex,
+            });
+        },
+
+        moveComponentDown(componentIndex) {
+            this.$store.commit('moveComponentDown', {
+                canvasIndex: this.index,
+                componentIndex: componentIndex,
+            });
+        },
     },
 }
 
