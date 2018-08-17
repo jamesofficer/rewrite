@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    background: #aaa;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li, td, th, label {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 2em;
+}
+
+.sub-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    font-weight: 600;
+    color: gray;
+}
+
+.shift-canvas {
+    padding: 10px;
+}
+
+.shift-canvas:hover {
+    cursor: pointer;
+}
+
+.clickable-canvas:hover {
+    cursor: pointer;
+    border: 3px solid #bbb;
+}
+
+.clickable-component:hover {
+    cursor: pointer;
+    outline: 1px solid #ddd;
+}
+
+.sidebar {
+    overflow: scroll;
+    padding: 10px;
+    border-left: 2px solid #ccc;
+}
+
+.sidebar-label {
+    margin-left: 10px;
+}
+
+.sidebar-control {
+    padding: 10px;
+}
