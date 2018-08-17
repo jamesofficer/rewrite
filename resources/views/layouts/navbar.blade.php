@@ -18,12 +18,6 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">
-                            <button class="btn btn-outline-light">Login</button>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">
                             <button class="btn btn-outline-light">Register</button>
                         </a>
