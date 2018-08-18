@@ -1,61 +1,40 @@
+import Vuex from 'vuex';
+import PortalVue from 'portal-vue';
+import BootstrapVue from 'bootstrap-vue';
+import Shift from './Shift.vue';
+import Icon from 'vue-awesome/components/Icon'
+import { store } from './store/index';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Icon Imports
+// https://fontawesome.com/icons?d=gallery
+import 'vue-awesome/icons/align-left'
+import 'vue-awesome/icons/align-center'
+import 'vue-awesome/icons/align-right'
+import 'vue-awesome/icons/align-justify'
+import 'vue-awesome/icons/times-circle' // close icon
+import 'vue-awesome/icons/plus'
+import 'vue-awesome/icons/plus-circle'
+import 'vue-awesome/icons/trash-alt'
+import 'vue-awesome/icons/arrow-up'
+import 'vue-awesome/icons/arrow-down'
+
+
 
 require('./bootstrap');
 
 window.Vue = require('vue');
 
-
-// =============================== //
-// MERGED STUFF FROM SHIFT
-// =============================== //
-
-import Vuex from 'vuex';
-
-// Element UI
-import ElementUI from 'element-ui';
-import locale from 'element-ui/lib/locale/lang/en';
-import 'element-ui/lib/theme-chalk/index.css';
-
-// Portal Vue
-import PortalVue from 'portal-vue';
-
-// Custom Imports
-import App from './App.vue';
-import { store } from './store/index';
-
 Vue.use(Vuex);
-Vue.use(ElementUI, { locale });
+Vue.use(BootstrapVue);
 Vue.use(PortalVue);
+Vue.component('icon', Icon)
 
 Vue.config.productionTip = false;
 
 // The Shift Article creation application.
 new Vue({
   store: store,
-  render: h => h(App)
+  render: h => h(Shift)
 }).$mount('#shift')
-
-// =============================== //
-// FINISH MERGED STUFF
-// =============================== //
-
-
-
-
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-// const app = new Vue({
-//     el: '#app'
-// });

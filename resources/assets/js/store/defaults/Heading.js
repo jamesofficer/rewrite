@@ -4,7 +4,7 @@ export default {
 
     // Properties:
     content: 'New Heading',
-    fontFamily: 'Helvetica, Arial, sans-serif',
+    fontFamily: 'Times New Roman',
     fontWeight: 500,
     fontSize: 24,
     textAlign: 'left',

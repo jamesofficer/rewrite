@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <portal to="top-bar">
+    <portal to="top-bar">
+        <b-container>
             <slot></slot>
-        </portal>
-    </div>
+        </b-container>
+    </portal>
 </template>
 
 <script>

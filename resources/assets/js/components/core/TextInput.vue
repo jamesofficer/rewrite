@@ -1,6 +1,6 @@
 <template>
     <sidebar-control label="Text Content">
-        <el-input v-model="content"></el-input>
+        <b-form-input v-model="content"></b-form-input>
     </sidebar-control>
 </template>
 

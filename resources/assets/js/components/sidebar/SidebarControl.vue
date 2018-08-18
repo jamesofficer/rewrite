@@ -1,31 +1,31 @@
 <template>
-    <el-row class="sidebar-control">
+    <div>
+        <b-row class="sidebar-control">
+            <!-- Two Columns -->
+            <template v-if="double">
+                <b-col cols="6">
+                    <b-form-group :label="label">
+                        <slot name="first"></slot>
+                    </b-form-group>
+                </b-col>
 
-        <!-- Two Columns -->
-        <template v-if="double">
-            <el-row v-if="label">
-                <label>{{ label }}</label>
-            </el-row>
+                <b-col cols="6">
+                    <b-form-group label="&nbsp;">
+                        <slot name="second"></slot>
+                    </b-form-group>
+                </b-col>
+            </template>
 
-            <el-col :span="12">
-                <slot name="first"></slot>
-            </el-col>
-
-            <el-col :span="12">
-                <slot name="second"></slot>
-            </el-col>
-        </template>
-
-        <!-- Single Column -->
-        <template v-else>
-            <label v-if="label">{{ label }}</label>
-
-            <el-col :span="24">
-                <slot></slot>
-            </el-col>
-        </template>
-
-    </el-row>
+            <!-- Single Column -->
+            <template v-else>
+                <b-col>
+                    <b-form-group :label="label">
+                        <slot></slot>
+                    </b-form-group>
+                </b-col>
+            </template>
+        </b-row>
+    </div>
 </template>
 
 <script>

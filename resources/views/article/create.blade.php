@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="shift">
-        <App></App>
+        <Shift></Shift>
     </div>
 @endsection
 

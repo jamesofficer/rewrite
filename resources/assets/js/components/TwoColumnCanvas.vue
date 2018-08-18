@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- CANVAS -->
+        <!-- TWO COLUMN CANVAS -->
         <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false" :style="{
             backgroundColor: backgroundColor,
             padding: '20px',
@@ -22,27 +22,14 @@
 
             <!-- Components on this Canvas -->
             <sidebar-control label="Components on Canvas">
-                <b-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
-                    <b-col>
-                        <b-button-group class="component-button-group">
-                            <b-button size="sm" variant="success" @click.native.stop="selectComponent(componentIndex)">
-                                {{ component.type }}
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentUp(componentIndex)" disabled>
-                                <icon name="arrow-up"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentDown(componentIndex)" disabled>
-                                <icon name="arrow-down"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="deleteComponent(componentIndex)">
-                                <icon name="trash-alt"></icon>
-                            </b-button>
-                        </b-button-group>
-                    </b-col>
-                </b-row>
+                <el-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
+                    <el-button-group class="component-button-group">
+                        <el-button size="mini" @click.native.stop="selectComponent(componentIndex)">{{ component.type }}</el-button>
+                        <!-- <el-button size="mini" icon="el-icon-arrow-up" @click="moveComponentUp(componentIndex)"></el-button> -->
+                        <!-- <el-button size="mini" icon="el-icon-arrow-down" @click="moveComponentDown(componentIndex)"></el-button> -->
+                        <el-button size="mini" icon="el-icon-delete" @click="deleteComponent(componentIndex)"></el-button>
+                    </el-button-group>
+                </el-row>
             </sidebar-control>
 
             <background-color></background-color>
@@ -62,7 +49,7 @@ import SidebarControl    from './sidebar/SidebarControl'
 import BackgroundColor from './core/BackgroundColor'
 
 export default {
-    name: "Canvas",
+    name: "TwoColumnCanvas",
 
     components: {
         Heading, Paragraph,
@@ -123,10 +110,12 @@ export default {
         },
     },
 }
+
 </script>
 
-<style>
-.component-button-group {
-    margin: 3px 0;
-}
+<style scoped>
+    .component-button-group {
+        margin-bottom: 5px;
+    }
 </style>
+

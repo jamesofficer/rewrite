@@ -1,13 +1,13 @@
 <template>
-    <el-row class="sidebar-control">
-        <el-col :span="18">
+    <b-row class="sidebar-control">
+        <b-col cols="10">
             <h1 class="sidebar-title">{{ title }}</h1>
-        </el-col>
+        </b-col>
 
-        <el-col :span="6">
-            <el-button icon="el-icon-close" size="mini" circle class="sidebar-close-button" @click="closeComponent"></el-button>
-        </el-col>
-    </el-row>
+        <b-col cols="2">
+            <b-button size="sm" @click="closeComponent">x</b-button>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
@@ -42,4 +42,3 @@ export default {
         margin: 5px 5px 0 0;
     }
 </style>
-

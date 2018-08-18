@@ -1,14 +1,12 @@
 <template>
-    <sidebar-control label="Font Weight and Size">
-        <el-select v-model="fontWeight" placeholder="Normal" size="mini" style="margin-right: 5px;">
-            <el-option :value="100">Lightest</el-option>
-            <el-option :value="300">Light</el-option>
-            <el-option :value="500">Normal</el-option>
-            <el-option :value="700">Bold</el-option>
-            <el-option :value="900">Boldest</el-option>
-        </el-select>
+    <sidebar-control label="Font Weight and Size" double>
+        <template slot="first">
+            <b-form-select v-model="fontWeight" :options="fontSizes"></b-form-select>
+        </template>
 
-        <el-input-number v-model="fontSize" :min="10" :max="64" size="mini" controls-position="right"></el-input-number>
+        <template slot="second">
+            <b-form-input type="number" v-model="fontSize" :min="10" :max="64"></b-form-input>
+        </template>
     </sidebar-control>
 </template>
 
@@ -42,7 +40,29 @@ export default {
 
     data() {
         return {
-            indexes: this.$store.getters.getCurrentIndexes
+            indexes: this.$store.getters.getCurrentIndexes,
+            fontSizes: [
+            {
+                text: 'Lightest',
+                value: 100,
+            },
+            {
+                text: 'Light',
+                value: 300,
+            },
+            {
+                text: 'Normal',
+                value: 500,
+            },
+            {
+                text: 'Bold',
+                value: 700,
+            },
+            {
+                text: 'Boldest',
+                value: 900,
+            },
+            ]
         }
     }
 }

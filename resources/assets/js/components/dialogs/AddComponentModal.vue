@@ -1,13 +1,13 @@
 <template>
     <div>
-        <el-button type="primary" icon="el-icon-plus" circle @click="dialogVisible = true"></el-button>
+        <b-btn v-b-modal.addComponentModal variant="link" size="sm" @click="dialogVisible = true">
+            <icon name="plus-circle" scale="2"></icon>
+        </b-btn>
 
-        <el-dialog title="Add Component" :visible.sync="dialogVisible" width="50%" center>
-            <span slot="footer" class="dialog-footer">
-                <el-button type="primary" @click="addHeadingComponent('Heading')">Heading</el-button>
-                <el-button type="primary" @click="addHeadingComponent('Paragraph')">Paragraph</el-button>
-            </span>
-        </el-dialog>
+        <b-modal id="addComponentModal" title="Add Component to Canvas" v-if="dialogVisible" hide-footer>
+            <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
+            <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
+        </b-modal>
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
     },
 
     methods: {
-        addHeadingComponent(componentType) {
+        addComponent(componentType) {
             this.dialogVisible = false;
 
             if (componentType === 'Heading') {

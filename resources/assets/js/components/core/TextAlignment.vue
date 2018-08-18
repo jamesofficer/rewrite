@@ -1,11 +1,11 @@
 <template>
     <sidebar-control label="Text Alignment">
-        <el-button-group>
-            <el-button size="mini" @click="alignText('left')">Left</el-button>
-            <el-button size="mini" @click="alignText('center')">Center</el-button>
-            <el-button size="mini" @click="alignText('right')">Right</el-button>
-            <el-button size="mini" @click="alignText('justified')">Justified</el-button>
-        </el-button-group>
+        <b-button-group>
+            <b-button variant="success" @click="alignText('left')"><icon name="align-left"></icon></b-button>
+            <b-button variant="success" @click="alignText('center')"><icon name="align-center"></icon></b-button>
+            <b-button variant="success" @click="alignText('right')"><icon name="align-right"></icon></b-button>
+            <b-button variant="success" @click="alignText('justified')"><icon name="align-justify"></icon></b-button>
+        </b-button-group>
     </sidebar-control>
 </template>
 

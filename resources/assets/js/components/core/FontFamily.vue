@@ -1,13 +1,6 @@
 <template>
     <sidebar-control label="Font Family">
-        <el-select v-model="fontFamily" size="mini" style="display: block">
-            <el-option :value="'Times New Roman'">Times New Roman</el-option>
-            <el-option :value="'Arial'">Arial</el-option>
-            <el-option :value="'Verdana'">Verdana</el-option>
-            <el-option :value="'Courier'">Courier</el-option>
-            <el-option :value="'Georgia'">Georgia</el-option>
-            <el-option :value="'Comic Sans MS'">Comic Sans MS</el-option>
-        </el-select>
+        <b-form-select v-model="fontFamily" :options="fonts"></b-form-select>
     </sidebar-control>
 </template>
 
@@ -29,5 +22,13 @@ export default {
             }
         },
     },
+
+    data() {
+        return {
+            fonts: [
+                'Times New Roman', 'Helvetica', 'Arial', 'Verdana', 'Courier', 'Georgia', 'Comic Sans MS',
+            ],
+        }
+    }
 }
 </script>

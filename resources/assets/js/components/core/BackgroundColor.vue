@@ -1,6 +1,6 @@
 <template>
     <sidebar-control label="Background Colour">
-        <el-color-picker v-model="backgroundColor"></el-color-picker>
+        <b-form-input type="color" v-model="backgroundColor"></b-form-input>
     </sidebar-control>
 </template>
 

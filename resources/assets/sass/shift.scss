@@ -16,8 +16,8 @@ label {
 
 .sub-label {
     display: block;
-    text-transform: uppercase;
-    font-size: 0.6em;
+    margin: 0;
+    font-size: 0.5em;
     font-weight: 600;
     color: gray;
 }
@@ -42,14 +42,9 @@ label {
 
 .sidebar {
     overflow: scroll;
-    padding: 10px;
-    border-left: 2px solid #ccc;
+    padding: 10px 5px;
 }
 
 .sidebar-label {
     margin-left: 10px;
-}
-
-.sidebar-control {
-    padding: 10px;
 }
