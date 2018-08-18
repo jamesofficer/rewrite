@@ -1,11 +1,11 @@
 <template>
     <sidebar-control label="Font Weight and Size" double>
         <template slot="first">
-            <b-form-select v-model="fontWeight" :options="fontSizes"></b-form-select>
+            <b-form-select size="sm" v-model="fontWeight" :options="fontSizes"></b-form-select>
         </template>
 
         <template slot="second">
-            <b-form-input type="number" v-model="fontSize" :min="10" :max="64"></b-form-input>
+            <b-form-input size="sm" type="number" v-model="fontSize" :min="10" :max="64"></b-form-input>
         </template>
     </sidebar-control>
 </template>

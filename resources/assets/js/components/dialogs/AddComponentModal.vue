@@ -1,10 +1,10 @@
 <template>
     <div>
-        <b-btn v-b-modal.addComponentModal variant="link" size="sm" @click="dialogVisible = true">
+        <b-btn v-b-modal.addComponentModal variant="link" size="sm" class="toggle-modal-btn">
             <icon name="plus-circle" scale="2"></icon>
         </b-btn>
 
-        <b-modal id="addComponentModal" title="Add Component to Canvas" v-if="dialogVisible" hide-footer>
+        <b-modal id="addComponentModal" ref="addComponentModal" title="Add Component to Canvas" hide-footer>
             <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
             <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
         </b-modal>
@@ -33,6 +33,10 @@ export default {
     },
 
     methods: {
+        hideModal () {
+            this.$refs.addComponentModal.hide()
+        },
+
         addComponent(componentType) {
             this.dialogVisible = false;
 
@@ -48,13 +52,18 @@ export default {
                 );
             }
 
+            this.hideModal();
         }
     },
 };
 </script>
 
 <style>
-    .el-dialog {
-        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    .toggle-modal-btn {
+        color: gray;
+    }
+
+    .toggle-modal-btn:hover {
+        color: green;
     }
 </style>

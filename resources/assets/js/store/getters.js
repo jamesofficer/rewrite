@@ -32,6 +32,10 @@ export const getCurrentElement = state => {
  * This is used on Components, as their indexes can be passed in.
  */
 export const getElement = (state) => (i) => {
+    if (i.componentIndex === undefined) {
+        return state.canvases[i.canvasIndex];
+    }
+
     return state.canvases[i.canvasIndex].components[i.componentIndex];
 }
 

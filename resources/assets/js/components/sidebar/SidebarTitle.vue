@@ -5,7 +5,9 @@
         </b-col>
 
         <b-col cols="2">
-            <b-button size="sm" @click="closeComponent">x</b-button>
+            <b-button variant="link" @click="closeComponent" class="close-icon">
+                <icon name="times" scale="2"></icon>
+            </b-button>
         </b-col>
     </b-row>
 </template>
@@ -37,8 +39,8 @@ export default {
         font-size: 2em;
     }
 
-    .sidebar-close-button {
-        float: right;
-        margin: 5px 5px 0 0;
+    .close-icon {
+        color: gray;
+        margin: 10px 0 0 0;
     }
 </style>

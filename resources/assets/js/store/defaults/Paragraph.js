@@ -4,7 +4,7 @@ export default {
 
     // Properties:
     content: 'New paragraph. Enter your paragraph text here...',
-    fontFamily: 'Helvetica, Arial, sans-serif',
+    fontFamily: 'Times New Roman',
     fontWeight: 500,
     fontSize: 12,
     textAlign: 'left',

@@ -4,6 +4,10 @@
         <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false" :style="{
             backgroundColor: backgroundColor,
             padding: '20px',
+            paddingTop: element.padding.top + 'px',
+            paddingRight: element.padding.right + 'px',
+            paddingBottom: element.padding.bottom + 'px',
+            paddingLeft: element.padding.left + 'px',
         }">
             <add-component-modal :canvasIndex="index" v-show="hovering" style="float: right"></add-component-modal>
 
@@ -45,12 +49,17 @@
                 </b-row>
             </sidebar-control>
 
+            <hr>
+
             <background-color></background-color>
+
+            <padding></padding>
         </sidebar>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Heading           from './Heading';
 import Paragraph         from './Paragraph';
 import AddComponentModal from './dialogs/AddComponentModal';
@@ -60,6 +69,7 @@ import SidebarControl    from './sidebar/SidebarControl'
 
 // Property Imports:
 import BackgroundColor from './core/BackgroundColor'
+import Padding from './core/Padding'
 
 export default {
     name: "Canvas",
@@ -67,7 +77,7 @@ export default {
     components: {
         Heading, Paragraph,
         AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
-        BackgroundColor,
+        BackgroundColor, Padding
     },
 
     props: {
@@ -77,6 +87,14 @@ export default {
     },
 
     computed: {
+        ...mapGetters({
+            getElement: 'getElement',
+        }),
+
+        element() {
+            return this.getElement(this.indexes);
+        },
+
         canvasIsSelected() {
             return this.$store.getters.canvasIsSelected(this.index);
         },
@@ -90,6 +108,9 @@ export default {
         return {
             hovering: false,    // used to show and hide the edit button
             canvasComponents: this.$store.state.canvases[this.index].components,
+            indexes: {
+                canvasIndex: this.index,
+            }
         }
     },
 

@@ -26759,7 +26759,13 @@ module.exports = Component.exports
     components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */]],
 
     // Properties:
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
+    padding: {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 20
+    }
 });
 
 /***/ }),
@@ -26794,12 +26800,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_awesome_icons_align_center__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_awesome_icons_align_right__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_vue_awesome_icons_align_justify__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_awesome_icons_times_circle__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_awesome_icons_plus__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_awesome_icons_plus_circle__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_awesome_icons_trash_alt__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_awesome_icons_arrow_up__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_vue_awesome_icons_arrow_down__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_awesome_icons_times__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_awesome_icons_times_circle__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_awesome_icons_plus__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_awesome_icons_plus_circle__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_awesome_icons_trash_alt__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_vue_awesome_icons_arrow_up__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_vue_awesome_icons_arrow_down__ = __webpack_require__(471);
 
 
 
@@ -26815,7 +26822,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
- // close icon
+
+
 
 
 
@@ -50391,20 +50399,25 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Heading__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Heading__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Paragraph__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Paragraph__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialogs_AddComponentModal__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarTitle__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarTitle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarControl__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Heading__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Paragraph__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialogs_AddComponentModal__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_Sidebar__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarTitle__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarTitle__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sidebar_SidebarControl__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_BackgroundColor__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Padding__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -50457,6 +50470,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -50468,13 +50490,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // Property Imports:
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Canvas",
 
     components: {
-        Heading: __WEBPACK_IMPORTED_MODULE_0__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_1__Paragraph___default.a,
-        AddComponentModal: __WEBPACK_IMPORTED_MODULE_2__dialogs_AddComponentModal___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarTitle___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarControl___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor___default.a
+        Heading: __WEBPACK_IMPORTED_MODULE_1__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_2__Paragraph___default.a,
+        AddComponentModal: __WEBPACK_IMPORTED_MODULE_3__dialogs_AddComponentModal___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_4__sidebar_Sidebar___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_5__sidebar_SidebarTitle___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_6__sidebar_SidebarControl___default.a,
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_7__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_8__core_Padding___default.a
     },
 
     props: {
@@ -50483,19 +50506,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
-    computed: {
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        getElement: 'getElement'
+    }), {
+        element: function element() {
+            return this.getElement(this.indexes);
+        },
         canvasIsSelected: function canvasIsSelected() {
             return this.$store.getters.canvasIsSelected(this.index);
         },
         backgroundColor: function backgroundColor() {
             return this.$store.state.canvases[this.index].backgroundColor;
         }
-    },
+    }),
 
     data: function data() {
         return {
             hovering: false, // used to show and hide the edit button
-            canvasComponents: this.$store.state.canvases[this.index].components
+            canvasComponents: this.$store.state.canvases[this.index].components,
+            indexes: {
+                canvasIndex: this.index
+            }
         };
     },
 
@@ -50824,7 +50855,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, "\n.sidebar-title[data-v-95ed6134] {\n    margin: 0;\n    padding: 0;\n    line-height: 2em;\n    font-size: 2em;\n}\n.sidebar-close-button[data-v-95ed6134] {\n    float: right;\n    margin: 5px 5px 0 0;\n}\n", ""]);
+exports.push([module.i, "\n.sidebar-title[data-v-95ed6134] {\n    margin: 0;\n    padding: 0;\n    line-height: 2em;\n    font-size: 2em;\n}\n.close-icon[data-v-95ed6134] {\n    color: gray;\n    margin: 10px 0 0 0;\n}\n", ""]);
 
 // exports
 
@@ -50835,6 +50866,8 @@ exports.push([module.i, "\n.sidebar-title[data-v-95ed6134] {\n    margin: 0;\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -50887,8 +50920,13 @@ var render = function() {
         [
           _c(
             "b-button",
-            { attrs: { size: "sm" }, on: { click: _vm.closeComponent } },
-            [_vm._v("x")]
+            {
+              staticClass: "close-icon",
+              attrs: { variant: "link" },
+              on: { click: _vm.closeComponent }
+            },
+            [_c("icon", { attrs: { name: "times", scale: "2" } })],
+            1
           )
         ],
         1
@@ -51134,6 +51172,7 @@ var render = function() {
     { attrs: { label: "Text Content" } },
     [
       _c("b-form-input", {
+        attrs: { size: "lg" },
         model: {
           value: _vm.content,
           callback: function($$v) {
@@ -51330,7 +51369,7 @@ var render = function() {
     { attrs: { label: "Font Family" } },
     [
       _c("b-form-select", {
-        attrs: { options: _vm.fonts },
+        attrs: { size: "sm", options: _vm.fonts },
         model: {
           value: _vm.fontFamily,
           callback: function($$v) {
@@ -51441,7 +51480,7 @@ var render = function() {
         { slot: "first" },
         [
           _c("b-form-select", {
-            attrs: { options: _vm.fontSizes },
+            attrs: { size: "sm", options: _vm.fontSizes },
             model: {
               value: _vm.fontWeight,
               callback: function($$v) {
@@ -51459,7 +51498,7 @@ var render = function() {
         { slot: "second" },
         [
           _c("b-form-input", {
-            attrs: { type: "number", min: 10, max: 64 },
+            attrs: { size: "sm", type: "number", min: 10, max: 64 },
             model: {
               value: _vm.fontSize,
               callback: function($$v) {
@@ -52335,7 +52374,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, "\n.el-dialog {\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n", ""]);
+exports.push([module.i, "\n.toggle-modal-btn {\n    color: gray;\n}\n.toggle-modal-btn:hover {\n    color: green;\n}\n", ""]);
 
 // exports
 
@@ -52385,6 +52424,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        hideModal: function hideModal() {
+            this.$refs.addComponentModal.hide();
+        },
         addComponent: function addComponent(componentType) {
             this.dialogVisible = false;
 
@@ -52395,6 +52437,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (componentType === 'Paragraph') {
                 this.$store.state.canvases[this.index].components.push(Object(__WEBPACK_IMPORTED_MODULE_2__store_helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__store_defaults_Paragraph__["a" /* default */]));
             }
+
+            this.hideModal();
         }
     }
 });
@@ -52410,7 +52454,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     // Properties:
     content: 'New paragraph. Enter your paragraph text here...',
-    fontFamily: 'Helvetica, Arial, sans-serif',
+    fontFamily: 'Times New Roman',
     fontWeight: 500,
     fontSize: 12,
     textAlign: 'left',
@@ -52445,57 +52489,52 @@ var render = function() {
               modifiers: { addComponentModal: true }
             }
           ],
-          attrs: { variant: "link", size: "sm" },
-          on: {
-            click: function($event) {
-              _vm.dialogVisible = true
-            }
-          }
+          staticClass: "toggle-modal-btn",
+          attrs: { variant: "link", size: "sm" }
         },
         [_c("icon", { attrs: { name: "plus-circle", scale: "2" } })],
         1
       ),
       _vm._v(" "),
-      _vm.dialogVisible
-        ? _c(
-            "b-modal",
+      _c(
+        "b-modal",
+        {
+          ref: "addComponentModal",
+          attrs: {
+            id: "addComponentModal",
+            title: "Add Component to Canvas",
+            "hide-footer": ""
+          }
+        },
+        [
+          _c(
+            "b-btn",
             {
-              attrs: {
-                id: "addComponentModal",
-                title: "Add Component to Canvas",
-                "hide-footer": ""
+              attrs: { type: "primary" },
+              on: {
+                click: function($event) {
+                  _vm.addComponent("Heading")
+                }
               }
             },
-            [
-              _c(
-                "b-btn",
-                {
-                  attrs: { type: "primary" },
-                  on: {
-                    click: function($event) {
-                      _vm.addComponent("Heading")
-                    }
-                  }
-                },
-                [_vm._v("Heading")]
-              ),
-              _vm._v(" "),
-              _c(
-                "b-btn",
-                {
-                  attrs: { type: "primary" },
-                  on: {
-                    click: function($event) {
-                      _vm.addComponent("Paragraph")
-                    }
-                  }
-                },
-                [_vm._v("Paragraph")]
-              )
-            ],
-            1
+            [_vm._v("Heading")]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-btn",
+            {
+              attrs: { type: "primary" },
+              on: {
+                click: function($event) {
+                  _vm.addComponent("Paragraph")
+                }
+              }
+            },
+            [_vm._v("Paragraph")]
           )
-        : _vm._e()
+        ],
+        1
+      )
     ],
     1
   )
@@ -52612,6 +52651,10 @@ var getCurrentElement = function getCurrentElement(state) {
  */
 var getElement = function getElement(state) {
     return function (i) {
+        if (i.componentIndex === undefined) {
+            return state.canvases[i.canvasIndex];
+        }
+
         return state.canvases[i.canvasIndex].components[i.componentIndex];
     };
 };
@@ -70174,7 +70217,11 @@ var render = function() {
           staticClass: "shift-canvas",
           style: {
             backgroundColor: _vm.backgroundColor,
-            padding: "20px"
+            padding: "20px",
+            paddingTop: _vm.element.padding.top + "px",
+            paddingRight: _vm.element.padding.right + "px",
+            paddingBottom: _vm.element.padding.bottom + "px",
+            paddingLeft: _vm.element.padding.left + "px"
           },
           on: {
             mouseover: function($event) {
@@ -70321,7 +70368,11 @@ var render = function() {
                 })
               ),
               _vm._v(" "),
-              _c("background-color")
+              _c("hr"),
+              _vm._v(" "),
+              _c("background-color"),
+              _vm._v(" "),
+              _c("padding")
             ],
             1
           )
@@ -70427,6 +70478,18 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"arrow-up
 
 
 __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"arrow-down":{"width":448,"height":512,"paths":[{"d":"M413.1 222.5L435.3 244.7C444.7 254.1 444.7 269.3 435.3 278.6L241 473C231.6 482.4 216.4 482.4 207.1 473L12.7 278.6C3.3 269.2 3.3 254 12.7 244.7L34.9 222.5C44.4 213 59.9 213.2 69.2 222.9L184 343.4V56C184 42.7 194.7 32 208 32H240C253.3 32 264 42.7 264 56V343.4L378.8 222.9C388.1 213.1 403.6 212.9 413.1 222.5z"}]}})
+
+
+/***/ }),
+/* 472 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"times":{"width":352,"height":512,"paths":[{"d":"M242.7 256L342.8 155.9C355.1 143.6 355.1 123.7 342.8 111.4L320.6 89.2C308.3 76.9 288.4 76.9 276.1 89.2L176 189.3 75.9 89.2C63.6 76.9 43.7 76.9 31.4 89.2L9.2 111.4C-3.1 123.7-3.1 143.6 9.2 155.9L109.3 256 9.2 356.1C-3.1 368.4-3.1 388.3 9.2 400.6L31.4 422.8C43.7 435.1 63.6 435.1 75.9 422.8L176 322.7 276.1 422.8C288.4 435.1 308.3 435.1 320.6 422.8L342.8 400.6C355.1 388.3 355.1 368.4 342.8 356.1L242.7 256z"}]}})
 
 
 /***/ })
