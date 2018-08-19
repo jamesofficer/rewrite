@@ -1,5 +1,33 @@
 <template>
     <b-container fluid class="shift-container">
+        <!-- Session Alert Message -->
+        <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
+            {{ sessionAlert.message }}
+        </b-alert>
+
+        <!-- Top Bar -->
+        <b-row class="shift-top-bar">
+            <b-col>
+                <b-btn variant="outline-success" size="sm" @click="addCanvas">
+                    <icon name="plus"></icon> Add Canvas
+                </b-btn>
+
+                <b-btn variant="outline-success" size="sm" disabled>
+                    <icon name="eye"></icon> Preview Article
+                </b-btn>
+            </b-col>
+
+            <b-col class="text-right">
+                <b-btn variant="outline-primary" size="sm" disabled>
+                    <icon name="folder-open"></icon> Load Article
+                </b-btn>
+
+                <b-btn variant="outline-success" size="sm" @click="saveArticle">
+                    <icon name="save"></icon> Save Article
+                </b-btn>
+            </b-col>
+        </b-row>
+
         <!-- Main Workspace -->
         <b-row>
             <b-col class="shift-workspace">
@@ -10,13 +38,6 @@
                     @click.native="selectCanvas(index)"
                     class="clickable-canvas"
                 ></component>
-
-                <!-- Add Canvas Button -->
-                <div class="text-center">
-                    <b-btn variant="link" @click="addCanvas">
-                        <icon name="plus" scale="3" class="add-canvas-icon"></icon>
-                    </b-btn>
-                </div>
             </b-col>
 
             <!-- Sidebar -->
@@ -47,6 +68,12 @@ export default {
 
     data() {
         return {
+            sessionAlert: {
+                show: false,
+                message: '',
+                type: 'success',
+            },
+
             canvases: this.$store.getters.canvases,
         }
     },
@@ -59,45 +86,70 @@ export default {
         selectCanvas(index) {
             this.$store.commit('selectCanvas', index);
         },
+
+        saveArticle() {
+            const canvases = this.$store.getters.canvases;
+
+            axios.post('/article/store', {
+                article_json: canvases
+            })
+            .then(response => {
+                this.sessionAlert = {
+                    show: true,
+                    message: 'Article saved successfully!',
+                    type: 'success',
+                };
+            })
+            .catch(error => {
+                this.sessionAlert = {
+                    show: true,
+                    message: 'Uh oh! Something went wrong saving your article.',
+                    type: 'danger',
+                };
+            });
+        }
     },
 };
 </script>
 
 <style>
-    .b-container {
-        background: #999;
-    }
+.shift-container {
+    background: #eee;
+    height: 100vh;
+    padding-top: 15px;
+}
 
-    .shift-container {
-        background: #eee;
-    }
+.shift-top-bar {
+    padding: 5px;
+}
 
-    .shift-workspace {
-        height: fit-content;
-        margin: 20px;
-        padding: 0;
-        box-shadow: 0 0 20px #ccc;
-    }
+.shift-workspace {
+    height: fit-content;
+    margin: 20px;
+    padding: 0;
+    box-shadow: 0 0 20px #ccc;
+    overflow: hidden;
+}
 
-    .shift-sidebar {
-        margin: 20px 20px 20px 0;
-        background: #fff;
-        box-shadow: 0 0 20px #ccc;
-    }
+.shift-sidebar {
+    margin: 20px 20px 20px 0;
+    background: #fff;
+    box-shadow: 0 0 20px #ccc;
+}
 
-    .add-canvas-icon {
-        cursor: pointer;
-        color: green;
-        margin-bottom: 20px;
-    }
+.add-canvas-icon {
+    cursor: pointer;
+    color: green;
+    margin-bottom: 20px;
+}
 
-    .add-canvas-icon {
-        margin: 20px 0;
-        cursor: pointer;
-        color: #38c172;
-    }
+.add-canvas-icon {
+    margin: 20px 0;
+    cursor: pointer;
+    color: #38c172;
+}
 
-    .add-canvas-icon:hover {
-        color: green;
-    }
+.add-canvas-icon:hover {
+    color: green;
+}
 </style>

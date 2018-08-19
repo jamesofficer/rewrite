@@ -1,6 +1,6 @@
 <template>
     <sidebar-control label="Text Content">
-        <el-input type="textarea" :autosize="{ minRows: 4, maxRows: 16}" v-model="content"></el-input>
+        <b-form-textarea v-model="content" :rows="5"></b-form-textarea>
     </sidebar-control>
 </template>
 

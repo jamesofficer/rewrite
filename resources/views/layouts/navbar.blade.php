@@ -23,13 +23,18 @@
                         </a>
                     </li>
                 @else
-                    <li class="nav-item">
-                        <a href="{{ route('create-article') }}" class="nav-link">Create New Article</a>
-                    </li>
+                    {{-- When creating articles --}}
+                    @if (request()->route()->getName() !== 'create-article')
+                        <li class="nav-item">
+                            <a href="{{ route('create-article') }}" class="nav-link">
+                                <button class="btn btn-outline-light">Create New Article</button>
+                            </a>
+                        </li>
+                    @endif
 
                     <li class="nav-item">
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <button class="btn btn-outline-danger">Logout</button>
+                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <button class="btn btn-outline-light">Logout</button>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

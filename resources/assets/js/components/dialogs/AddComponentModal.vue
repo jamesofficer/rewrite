@@ -1,10 +1,10 @@
 <template>
     <div>
-        <b-btn v-b-modal.addComponentModal variant="link" size="sm" class="toggle-modal-btn">
+        <b-btn v-b-modal="'addComponentModal' + canvasIndex" variant="link" size="sm" class="toggle-modal-btn">
             <icon name="plus-circle" scale="2"></icon>
         </b-btn>
 
-        <b-modal id="addComponentModal" ref="addComponentModal" title="Add Component to Canvas" hide-footer>
+        <b-modal :id="'addComponentModal' + canvasIndex" ref="addComponentModal" title="Add Component to Canvas" hide-footer>
             <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
             <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
         </b-modal>
@@ -59,11 +59,11 @@ export default {
 </script>
 
 <style>
-    .toggle-modal-btn {
-        color: gray;
-    }
+.toggle-modal-btn {
+    color: gray;
+}
 
-    .toggle-modal-btn:hover {
-        color: green;
-    }
+.toggle-modal-btn:hover {
+    color: green;
+}
 </style>

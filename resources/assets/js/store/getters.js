@@ -23,7 +23,9 @@ export const getCurrentElement = state => {
     if (element.componentIndex === undefined) {
         return state.canvases[element.canvasIndex];
     } else {
-        return state.canvases[element.canvasIndex].components[element.componentIndex];
+        return state.canvases[element.canvasIndex].components[
+            element.componentIndex
+        ];
     }
 };
 
@@ -31,41 +33,48 @@ export const getCurrentElement = state => {
  * Returns an element based off the index values that are passed in.
  * This is used on Components, as their indexes can be passed in.
  */
-export const getElement = (state) => (i) => {
+export const getElement = state => i => {
     if (i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex];
     }
 
     return state.canvases[i.canvasIndex].components[i.componentIndex];
-}
+};
 
 /**
  * If this returns true the sidebar will be displayed, as something is selected (Canvas or Component).
  */
-export const elementIsSelected = state => state.selectedComponent ? true : false;
+export const elementIsSelected = state =>
+    state.selectedComponent ? true : false;
 
 /**
  * Returns true only if ANY component is selected (returns false if a Canvas is selected).
  */
 export const componentIsSelected = state => i => {
     if (state.selectedComponent !== undefined) {
-        if (state.selectedComponent.canvasIndex === i.canvasIndex && state.selectedComponent.componentIndex === i.componentIndex) {
+        if (
+            state.selectedComponent.canvasIndex === i.canvasIndex &&
+            state.selectedComponent.componentIndex === i.componentIndex
+        ) {
             return true;
         }
     }
 
     return false;
-}
+};
 
 // Determines whether the SPECIFIED Canvas is selected and should appear in the sidebar.
 // If the componentIndex value of the 'selectedElement' object in the state is
 // undefined, then we know no component is selected, but a canvas has been.
-export const canvasIsSelected = (state) => (canvasIndex) => {
+export const canvasIsSelected = state => canvasIndex => {
     if (state.selectedComponent !== undefined) {
-        if (state.selectedComponent.canvasIndex === canvasIndex && state.selectedComponent.componentIndex === undefined) {
+        if (
+            state.selectedComponent.canvasIndex === canvasIndex &&
+            state.selectedComponent.componentIndex === undefined
+        ) {
             return true;
         }
     }
 
     return false;
-}
+};

@@ -29,7 +29,7 @@
                 <b-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
                     <b-col>
                         <b-button-group class="component-button-group">
-                            <b-button size="sm" variant="success" @click.native.stop="selectComponent(componentIndex)">
+                            <b-button size="sm" variant="success" @click="selectComponent(componentIndex)">
                                 {{ component.type }}
                             </b-button>
 
