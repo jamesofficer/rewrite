@@ -18,7 +18,7 @@
             </b-col>
 
             <b-col class="text-right">
-                <b-btn variant="outline-primary" size="sm" disabled>
+                <b-btn v-b-modal.loadArticleModal variant="outline-primary" size="sm">
                     <icon name="folder-open"></icon> Load Article
                 </b-btn>
 
@@ -47,23 +47,31 @@
                 </portal-target>
             </b-col>
         </b-row>
+
+        <!-- Load Article Modal -->
+        <load-article-modal></load-article-modal>
     </b-container>
 </template>
 
 <script>
 import Canvas from "./components/Canvas.vue";
+import LoadArticleModal from './components/dialogs/LoadArticleModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas
+        Canvas, LoadArticleModal
     },
 
     computed: {
         componentIsSelected() {
             return this.$store.getters.elementIsSelected
         },
+
+         canvases() {
+             return this.$store.getters.canvases
+         },
     },
 
     data() {
@@ -73,8 +81,6 @@ export default {
                 message: '',
                 type: 'success',
             },
-
-            canvases: this.$store.getters.canvases,
         }
     },
 

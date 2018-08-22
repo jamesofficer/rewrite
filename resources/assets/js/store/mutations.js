@@ -1,5 +1,11 @@
-import defaultCanvas from './defaults/Canvas'
-import { duplicateObject, getSelectedElement } from './helpers'
+import defaultCanvas from "./defaults/Canvas";
+import { duplicateObject, getSelectedElement } from "./helpers";
+
+// Loads an existing article (updates the canvases).
+export const loadArticle = (state, article) => {
+    // state.canvases = JSON.parse(article);
+    window.Vue.set(state, "canvases", JSON.parse(article));
+};
 
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => {
@@ -10,8 +16,8 @@ export const addCanvas = state => {
 export const selectCanvas = (state, canvasIndex) => {
     state.selectedComponent = {
         canvasIndex: canvasIndex,
-        componentIndex: undefined,
-    }
+        componentIndex: undefined
+    };
 
     state.canvases[canvasIndex].selected = true;
 };
@@ -24,20 +30,20 @@ export const setSelectedComponent = (state, component) => {
 
     state.selectedComponent = {
         canvasIndex: component.canvasIndex,
-        componentIndex: component.componentIndex,
-    }
+        componentIndex: component.componentIndex
+    };
 
     getSelectedElement(state).selected = true;
 };
 
 // Triggers when the X button is pressed on the sidebar.
-export const closeComponent = (state) => {
+export const closeComponent = state => {
     state.selectedComponent = undefined;
-}
+};
 
 export const deleteComponent = (state, i) => {
     state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1);
-}
+};
 
 // export const moveComponentUp = (state, i) => {
 //     if (i.componentIndex === 0) {
@@ -64,28 +70,39 @@ export const deleteComponent = (state, i) => {
 // ===================================================== //
 
 // Sets the string value of a Text Component
-export const updateTextContent = (state, value) => window.Vue.set(getSelectedElement(state), 'content', value);
+export const updateTextContent = (state, value) =>
+    window.Vue.set(getSelectedElement(state), "content", value);
 
 // Sets the Text Alignment on a Text Component
-export const setTextAlignment = (state, position) => window.Vue.set(getSelectedElement(state), 'textAlign', position);
+export const setTextAlignment = (state, position) =>
+    window.Vue.set(getSelectedElement(state), "textAlign", position);
 
 // Sets the Font Size on a Text Component
-export const setFontSize = (state, size) => window.Vue.set(getSelectedElement(state), 'fontSize', size);
+export const setFontSize = (state, size) =>
+    window.Vue.set(getSelectedElement(state), "fontSize", size);
 
 // Sets the Font Weight on a Text Component
-export const setFontWeight = (state, weight) => window.Vue.set(getSelectedElement(state), 'fontWeight', weight);
+export const setFontWeight = (state, weight) =>
+    window.Vue.set(getSelectedElement(state), "fontWeight", weight);
 
 // Sets the Font Family on a Text Component
-export const setFontFamily = (state, family) => window.Vue.set(getSelectedElement(state), 'fontFamily', family);
+export const setFontFamily = (state, family) =>
+    window.Vue.set(getSelectedElement(state), "fontFamily", family);
 
 // Sets the Text Colour on a Text Component
-export const setTextColor = (state, color) => window.Vue.set(getSelectedElement(state), 'textColor', color)
+export const setTextColor = (state, color) =>
+    window.Vue.set(getSelectedElement(state), "textColor", color);
 
 // Sets the Background Colour on a Component
-export const setBackgroundColor = (state, color) => window.Vue.set(getSelectedElement(state), 'backgroundColor', color);
+export const setBackgroundColor = (state, color) =>
+    window.Vue.set(getSelectedElement(state), "backgroundColor", color);
 
 // Padding Mutations
-export const setPaddingTop    = (state, padding) => window.Vue.set(getSelectedElement(state).padding, 'top', padding);
-export const setPaddingRight  = (state, padding) => window.Vue.set(getSelectedElement(state).padding, 'right', padding);
-export const setPaddingBottom = (state, padding) => window.Vue.set(getSelectedElement(state).padding, 'bottom', padding);
-export const setPaddingLeft   = (state, padding) => window.Vue.set(getSelectedElement(state).padding, 'left', padding);
+export const setPaddingTop = (state, padding) =>
+    window.Vue.set(getSelectedElement(state).padding, "top", padding);
+export const setPaddingRight = (state, padding) =>
+    window.Vue.set(getSelectedElement(state).padding, "right", padding);
+export const setPaddingBottom = (state, padding) =>
+    window.Vue.set(getSelectedElement(state).padding, "bottom", padding);
+export const setPaddingLeft = (state, padding) =>
+    window.Vue.set(getSelectedElement(state).padding, "left", padding);
