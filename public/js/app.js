@@ -44842,7 +44842,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-container {\n    background: #eee;\n    height: 100vh;\n    padding-top: 15px;\n}\n.shift-top-bar {\n    padding: 5px;\n}\n.shift-workspace {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 20px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-sidebar {\n    margin: 20px 20px 20px 0;\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.add-canvas-icon {\n    cursor: pointer;\n    color: green;\n    margin-bottom: 20px;\n}\n.add-canvas-icon {\n    margin: 20px 0;\n    cursor: pointer;\n    color: #38c172;\n}\n.add-canvas-icon:hover {\n    color: green;\n}\n", ""]);
+exports.push([module.i, "\n.shift-container {\n    background: #eee;\n    height: 100vh;\n    padding-top: 15px;\n}\n.shift-article-name {\n    padding: 10px;\n    margin-bottom: 15px;\n    color: #38c172;\n}\n.shift-article-name-input {\n    padding: 10px;\n    margin-top: 5px;\n    margin-bottom: 15px;\n}\n.shift-article-name:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar {\n    padding: 5px;\n}\n.shift-workspace {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 20px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-sidebar {\n    margin: 20px 20px 20px 0;\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.add-canvas-icon {\n    cursor: pointer;\n    color: green;\n    margin-bottom: 20px;\n}\n.add-canvas-icon {\n    margin: 20px 0;\n    cursor: pointer;\n    color: #38c172;\n}\n.add-canvas-icon:hover {\n    color: green;\n}\n", ""]);
 
 // exports
 
@@ -44945,6 +44945,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44957,16 +44973,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
-        componentIsSelected: function componentIsSelected() {
-            return this.$store.getters.elementIsSelected;
+        articleName: {
+            get: function get() {
+                var articleName = this.$store.getters.articleName;
+
+                return articleName === null ? "Untitled article..." : articleName;
+            },
+            set: function set(value) {
+                this.$store.commit('updateArticleName', value);
+            }
         },
+
         canvases: function canvases() {
             return this.$store.getters.canvases;
+        },
+        componentIsSelected: function componentIsSelected() {
+            return this.$store.getters.elementIsSelected;
         }
     },
 
     data: function data() {
         return {
+            settingArticleName: false,
+
             sessionAlert: {
                 show: false,
                 message: '',
@@ -44977,6 +45006,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        setArticleName: function setArticleName() {
+            this.settingArticleName = true;
+
+            // We can't focus the input until it has rendered on the next tick.
+            this.$nextTick(function () {
+                this.$refs.articleNameInput.focus();
+            });
+        },
         addCanvas: function addCanvas() {
             this.$store.commit('addCanvas');
         },
@@ -47762,6 +47799,47 @@ var render = function() {
       _vm._v(" "),
       _c(
         "b-row",
+        [
+          _c(
+            "b-col",
+            [
+              !_vm.settingArticleName
+                ? _c("em", [
+                    _c(
+                      "h2",
+                      {
+                        staticClass: "shift-article-name",
+                        on: { click: _vm.setArticleName }
+                      },
+                      [_vm._v(_vm._s(_vm.articleName))]
+                    )
+                  ])
+                : _c("b-input", {
+                    ref: "articleNameInput",
+                    staticClass: "shift-article-name-input",
+                    attrs: { size: "lg" },
+                    nativeOn: {
+                      blur: function($event) {
+                        _vm.settingArticleName = false
+                      }
+                    },
+                    model: {
+                      value: _vm.articleName,
+                      callback: function($$v) {
+                        _vm.articleName = $$v
+                      },
+                      expression: "articleName"
+                    }
+                  })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
         { staticClass: "shift-top-bar" },
         [
           _c(
@@ -48281,6 +48359,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+    articleName: null,
     canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
     selectedComponent: undefined
 });
@@ -48292,6 +48371,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvases", function() { return canvases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleName", function() { return articleName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentIndexes", function() { return getCurrentIndexes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElement", function() { return getElement; });
@@ -48303,6 +48383,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 var canvases = function canvases(state) {
     return state.canvases;
+};
+
+/**
+ * Returns the name of the article.
+ */
+var articleName = function articleName(state) {
+    return state.articleName;
 };
 
 /**
@@ -48389,6 +48476,7 @@ var canvasIsSelected = function canvasIsSelected(state) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleName", function() { return updateArticleName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setSelectedComponent", function() { return setSelectedComponent; });
@@ -48414,6 +48502,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var loadArticle = function loadArticle(state, article) {
     // state.canvases = JSON.parse(article);
     window.Vue.set(state, "canvases", JSON.parse(article));
+};
+
+// Sets the name of the article.
+var updateArticleName = function updateArticleName(state, name) {
+    return window.Vue.set(state, "articleName", name);
 };
 
 // Adds another Canvas to the Workspace.

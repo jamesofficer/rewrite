@@ -4,6 +4,11 @@
 export const canvases = state => state.canvases;
 
 /**
+ * Returns the name of the article.
+ */
+export const articleName = state => state.articleName;
+
+/**
  * Returns the indexes of currently selected canvas and component (or undefined if nothing selected)
  */
 export const getCurrentIndexes = state => state.selectedComponent;

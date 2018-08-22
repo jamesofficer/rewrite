@@ -7,6 +7,10 @@ export const loadArticle = (state, article) => {
     window.Vue.set(state, "canvases", JSON.parse(article));
 };
 
+// Sets the name of the article.
+export const updateArticleName = (state, name) =>
+    window.Vue.set(state, "articleName", name);
+
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => {
     state.canvases.push(duplicateObject(defaultCanvas));

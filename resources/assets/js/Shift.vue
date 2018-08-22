@@ -5,6 +5,22 @@
             {{ sessionAlert.message }}
         </b-alert>
 
+        <!-- Article Name -->
+        <b-row>
+            <b-col>
+                <em v-if="! settingArticleName">
+                    <h2 class="shift-article-name" @click="setArticleName">{{ articleName }}</h2>
+                </em>
+
+                <b-input size="lg" v-model="articleName"
+                    v-else
+                    @blur.native="settingArticleName = false"
+                    ref="articleNameInput"
+                    class="shift-article-name-input"
+                ></b-input>
+            </b-col>
+        </b-row>
+
         <!-- Top Bar -->
         <b-row class="shift-top-bar">
             <b-col>
@@ -65,17 +81,30 @@ export default {
     },
 
     computed: {
+        articleName: {
+            get () {
+                const articleName = this.$store.getters.articleName;
+
+                return articleName === null ? "Untitled article..." : articleName;
+            },
+            set (value) {
+                this.$store.commit('updateArticleName', value);
+            }
+        },
+
+        canvases() {
+             return this.$store.getters.canvases
+         },
+
         componentIsSelected() {
             return this.$store.getters.elementIsSelected
         },
-
-         canvases() {
-             return this.$store.getters.canvases
-         },
     },
 
     data() {
         return {
+            settingArticleName: false,
+
             sessionAlert: {
                 show: false,
                 message: '',
@@ -85,6 +114,15 @@ export default {
     },
 
     methods: {
+        setArticleName() {
+            this.settingArticleName = true;
+
+            // We can't focus the input until it has rendered on the next tick.
+            this.$nextTick(function() {
+                this.$refs.articleNameInput.focus();
+            });
+        },
+
         addCanvas() {
             this.$store.commit('addCanvas');
         },
@@ -123,6 +161,24 @@ export default {
     background: #eee;
     height: 100vh;
     padding-top: 15px;
+}
+
+.shift-article-name {
+    padding: 10px;
+    margin-bottom: 15px;
+    color: #38c172;
+}
+
+.shift-article-name-input {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.shift-article-name:hover {
+    cursor: pointer;
+    color: gray;
+    border-bottom: 1px dashed gray;
 }
 
 .shift-top-bar {
