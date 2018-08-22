@@ -7,14 +7,19 @@
         <b-modal :id="'addComponentModal' + canvasIndex" ref="addComponentModal" title="Add Component to Canvas" hide-footer>
             <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
             <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
+            <b-btn type="primary" @click="addComponent('BlockQuote')">BlockQuote</b-btn>
+
+            
         </b-modal>
     </div>
 </template>
 
 <script>
 import defaultHeading from '../../store/defaults/Heading'
-import deafultParagraph from '../../store/defaults/Paragraph'
+import defaultParagraph from '../../store/defaults/Paragraph'
+import defaultBlockQuote from '../../store/defaults/BlockQuote'
 import { duplicateObject } from '../../store/helpers'
+
 
 export default {
     name: "AddComponentModal",
@@ -48,7 +53,13 @@ export default {
 
             if (componentType === 'Paragraph') {
                 this.$store.state.canvases[this.index].components.push(
-                    duplicateObject(deafultParagraph)
+                    duplicateObject(defaultParagraph)
+                );
+            }
+
+             if (componentType === 'BlockQuote') {
+                this.$store.state.canvases[this.index].components.push(
+                    duplicateObject(defaultBlockQuote)
                 );
             }
 

@@ -62,6 +62,7 @@
 import { mapGetters } from 'vuex';
 import Heading           from './Heading';
 import Paragraph         from './Paragraph';
+import BlockQuote        from './BlockQuote';
 import AddComponentModal from './dialogs/AddComponentModal';
 import Sidebar           from './sidebar/Sidebar'
 import SidebarTitle      from './sidebar/SidebarTitle'
@@ -75,7 +76,7 @@ export default {
     name: "Canvas",
 
     components: {
-        Heading, Paragraph,
+        Heading, Paragraph, BlockQuote,
         AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
         BackgroundColor, Padding
     },
