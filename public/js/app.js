@@ -44961,6 +44961,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -44995,6 +45007,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             settingArticleTitle: false,
+            showArticleOverwriteAlert: false,
 
             sessionAlert: {
                 show: false,
@@ -45027,26 +45040,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 type: type
             };
         },
+        checkArticleExistsWhenSaving: function checkArticleExistsWhenSaving(title) {
+            return axios.post('/article/check-exists', {
+                title: title
+            }).then(function (response) {
+                return response.data;
+            });
+        },
         saveArticle: function saveArticle() {
             var _this = this;
 
-            var canvases = this.$store.getters.canvases;
             var title = this.$store.getters.articleTitle;
 
             // Don't let users save an article that doesn't have a title.
             if (title === null || title === undefined) {
+                window.scrollTo(0, 0);
                 this.setSessionAlert('You must give your article a title first.', 'danger');
+
                 return;
             }
 
-            axios.post('/article/store', {
-                article_title: title,
-                article_json: canvases
-            }).then(function (response) {
-                _this.setSessionAlert('Article saved successfully!', 'success');
-            }).catch(function (error) {
-                _this.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
+            this.checkArticleExistsWhenSaving(title).then(function (response) {
+                if (response === true) {
+                    _this.showArticleOverwriteAlert = true;
+                } else {
+                    _this.storeArticle(false);
+                }
             });
+        },
+        storeArticle: function storeArticle(overwrite) {
+            var _this2 = this;
+
+            var canvases = this.$store.getters.canvases;
+            var title = this.$store.getters.articleTitle;
+
+            axios.post('/article/store', {
+                title: title,
+                article_json: canvases,
+                overwrite: overwrite
+            }).then(function (response) {
+                _this2.setSessionAlert('Article saved successfully!', 'success');
+            }).catch(function (error) {
+                _this2.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
+            });
+
+            window.scrollTo(0, 0);
+            this.showArticleOverwriteAlert = false;
         }
     }
 });
@@ -47908,18 +47947,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.commit('loadArticle', this.articles[index]);
 
             this.$refs.loadArticleModal.hide();
+        },
+        getSavedArticles: function getSavedArticles() {
+            var _this = this;
+
+            axios.get('/articles').then(function (response) {
+                _this.articles = response.data;
+                _this.showStatusText = false;
+            }).catch(function (error) {
+                _this.statusText = "Oops, something went wrong. We could not retrieve your articles.";
+            });
         }
-    },
-
-    mounted: function mounted() {
-        var _this = this;
-
-        axios.get('/articles').then(function (response) {
-            _this.articles = response.data;
-            _this.showStatusText = false;
-        }).catch(function (error) {
-            _this.statusText = "Oops, something went wrong. We could not retrieve your articles.";
-        });
     }
 });
 
@@ -47941,7 +47979,8 @@ var render = function() {
         size: "lg",
         centered: "",
         "hide-footer": ""
-      }
+      },
+      on: { shown: _vm.getSavedArticles }
     },
     [
       _vm.showStatusText
@@ -48022,6 +48061,58 @@ var render = function() {
         },
         [_vm._v("\n        " + _vm._s(_vm.sessionAlert.message) + "\n    ")]
       ),
+      _vm._v(" "),
+      _vm.showArticleOverwriteAlert
+        ? _c("b-alert", { attrs: { show: "", variant: "warning" } }, [
+            _c("h4", { staticClass: "alert-heading" }, [
+              _vm._v("Article already exists! Overwrite?")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "An article already exists with the title: " +
+                  _vm._s(_vm.articleTitle)
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Do you want to overwrite it?")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "mb-0" },
+              [
+                _c(
+                  "b-btn",
+                  {
+                    attrs: { variant: "danger" },
+                    on: {
+                      click: function($event) {
+                        _vm.storeArticle(true)
+                      }
+                    }
+                  },
+                  [_vm._v("Overwrite")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-btn",
+                  {
+                    attrs: { variant: "secondary" },
+                    on: {
+                      click: function($event) {
+                        _vm.showArticleOverwriteAlert = false
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "b-row",

@@ -1,5 +1,5 @@
 <template>
-    <b-modal :id="'loadArticleModal'" title="Load a Saved Article" size="lg" ref="loadArticleModal" centered hide-footer>
+    <b-modal @shown="getSavedArticles" :id="'loadArticleModal'" title="Load a Saved Article" size="lg" ref="loadArticleModal" centered hide-footer>
         <p id="loadingText" v-if="showStatusText">{{ statusText }}</p>
 
         <template v-if="articles.length > 0" v-for="(article, index) in articles">
@@ -30,17 +30,17 @@ export default {
             this.$store.commit('loadArticle', this.articles[index]);
 
             this.$refs.loadArticleModal.hide();
+        },
+
+        getSavedArticles() {
+            axios.get('/articles').then(response => {
+                this.articles = response.data;
+                this.showStatusText = false;
+            }).catch(error => {
+                this.statusText = "Oops, something went wrong. We could not retrieve your articles.";
+            });
         }
     },
-
-    mounted() {
-        axios.get('/articles').then(response => {
-            this.articles = response.data;
-            this.showStatusText = false;
-        }).catch(error => {
-            this.statusText = "Oops, something went wrong. We could not retrieve your articles.";
-        });
-    }
 }
 </script>
 

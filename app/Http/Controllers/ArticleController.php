@@ -24,16 +24,47 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
+    /**
+     * Stores an article in the database. Typically only an title and the json are stored.
+     * If an article with a title already exists, the user is prompted to choose to
+     * overwrite the article. If 'overwrite' is true, the article will be overwritten.
+     *
+     * @return void
+     */
     public function store(Request $request)
     {
-        $articleJson = json_encode($request['article_json']);
+        if ($request['overwrite'] === true) {
+            Article::where('user_id', Auth::id())
+                ->where('title', $request['title'])
+                ->update([
+                    'title' => $request['title'],
+                    'article_json' => json_encode($request['article_json']),
+                ]);
+        } else {
+            Article::create([
+                'user_id' => Auth::id(),
+                'title'   => $request['title'],
+                'article_json' => json_encode($request['article_json']),
+            ]);
+        }
+    }
 
-        $article = Article::create([
-            'user_id' => Auth::id(),
-            'title'   => 'Some Article name.',
-            'article_json' => $articleJson,
-        ]);
+    /**
+     * When the user saves an article, we need to check if it already exists.
+     * or not If it does we return true, otherwise we return false.
+     *
+     * @return boolean
+     */
+    public function checkArticleExists(Request $request)
+    {
+        $article = Article::where('user_id', Auth::id())
+                                ->where('title', $request['title'])
+                                ->get();
 
-        Session::flash('success', 'Article saved successfully!');
+        if ($article->isEmpty()) {
+            return response()->json(false);
+        }
+
+        return response()->json(true);
     }
 }

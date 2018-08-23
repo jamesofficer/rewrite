@@ -22,4 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/articles', 'ArticleController@index')->name('users-articles');
 Route::get('/article/create', 'ArticleController@create')->name('create-article');
 Route::post('/article/store', 'ArticleController@store')->name('store-article');
+Route::post('/article/check-exists', 'ArticleController@checkArticleExists')->name('check-article-exists');
 
