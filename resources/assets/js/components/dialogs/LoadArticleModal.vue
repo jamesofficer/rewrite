@@ -1,10 +1,12 @@
 <template>
-    <b-modal :id="'loadArticleModal'" title="Load a Saved Article" ref="loadArticleModal" hide-footer>
+    <b-modal :id="'loadArticleModal'" title="Load a Saved Article" size="lg" ref="loadArticleModal" centered hide-footer>
         <p id="loadingText" v-if="showStatusText">{{ statusText }}</p>
 
         <template v-if="articles.length > 0" v-for="(article, index) in articles">
-            <b-card class="text-center article-card" v-bind:key="index" @click="loadArticle(index)">
-                An article you have saved.
+            <b-card class="text-left article-card" v-bind:key="index" @click="loadArticle(index)">
+                <h4>{{ article.title }}</h4>
+
+                <em slot="footer"><small>Last Updated: {{ article.formatted_updated_at }}</small></em>
             </b-card>
         </template>
     </b-modal>
@@ -25,7 +27,7 @@ export default {
 
     methods: {
         loadArticle(index) {
-            this.$store.commit('loadArticle', this.articles[index].article_json);
+            this.$store.commit('loadArticle', this.articles[index]);
 
             this.$refs.loadArticleModal.hide();
         }

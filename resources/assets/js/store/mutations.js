@@ -3,13 +3,13 @@ import { duplicateObject, getSelectedElement } from "./helpers";
 
 // Loads an existing article (updates the canvases).
 export const loadArticle = (state, article) => {
-    // state.canvases = JSON.parse(article);
-    window.Vue.set(state, "canvases", JSON.parse(article));
+    window.Vue.set(state, "articleTitle", article.title);
+    window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
 
-// Sets the name of the article.
-export const updateArticleName = (state, name) =>
-    window.Vue.set(state, "articleName", name);
+// Sets the title of the article.
+export const updateArticleTitle = (state, title) =>
+    window.Vue.set(state, "articleTitle", title);
 
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => {

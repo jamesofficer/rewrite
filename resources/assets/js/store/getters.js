@@ -4,9 +4,14 @@
 export const canvases = state => state.canvases;
 
 /**
- * Returns the name of the article.
+ * Returns the list of Components for this particular canvas.
  */
-export const articleName = state => state.articleName;
+export const getComponentsForCanvas = state => canvasIndex => state.canvases[canvasIndex].components;
+
+/**
+ * Returns the title of the article.
+ */
+export const articleTitle = state => state.articleTitle;
 
 /**
  * Returns the indexes of currently selected canvas and component (or undefined if nothing selected)

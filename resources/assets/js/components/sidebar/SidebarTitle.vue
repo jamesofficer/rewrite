@@ -1,7 +1,7 @@
 <template>
     <b-row class="sidebar-control">
         <b-col cols="10">
-            <h1 class="sidebar-title">{{ title }}</h1>
+            <h1 class="sidebar-title"><strong>{{ title }}</strong></h1>
         </b-col>
 
         <b-col cols="2">
@@ -33,14 +33,13 @@ export default {
 
 <style scoped>
     .sidebar-title {
-        margin: 0;
-        padding: 0;
+        margin-top: 10px;
         line-height: 2em;
         font-size: 2em;
     }
 
     .close-icon {
         color: gray;
-        margin: 10px 0 0 0;
+        margin: 20px 0 0 0;
     }
 </style>

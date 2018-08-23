@@ -103,7 +103,7 @@ export default {
 blockquote {
 
     border-left: 5px solid #ccc;
-   
+
 }
 
 </style>

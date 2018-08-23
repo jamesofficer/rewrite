@@ -92,6 +92,10 @@ export default {
             getElement: 'getElement',
         }),
 
+        canvasComponents() {
+            return this.$store.getters.getComponentsForCanvas(this.index);
+        },
+
         element() {
             return this.getElement(this.indexes);
         },
@@ -108,7 +112,6 @@ export default {
     data() {
         return {
             hovering: false,    // used to show and hide the edit button
-            canvasComponents: this.$store.state.canvases[this.index].components,
             indexes: {
                 canvasIndex: this.index,
             }

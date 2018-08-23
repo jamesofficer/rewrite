@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="../img/shift_logo_white.png" class="header-logo">
         </a>

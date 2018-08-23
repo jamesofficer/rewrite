@@ -8,14 +8,14 @@
         <!-- Article Name -->
         <b-row>
             <b-col>
-                <em v-if="! settingArticleName">
-                    <h2 class="shift-article-name" @click="setArticleName">{{ articleName }}</h2>
+                <em v-if="! settingArticleTitle">
+                    <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
                 </em>
 
-                <b-input size="lg" v-model="articleName"
+                <b-input size="lg" v-model="articleTitle"
                     v-else
-                    @blur.native="settingArticleName = false"
-                    ref="articleNameInput"
+                    @blur.native="settingArticleTitle = false"
+                    ref="articleTitleInput"
                     class="shift-article-name-input"
                 ></b-input>
             </b-col>
@@ -81,14 +81,14 @@ export default {
     },
 
     computed: {
-        articleName: {
+        articleTitle: {
             get () {
-                const articleName = this.$store.getters.articleName;
+                const articleTitle = this.$store.getters.articleTitle;
 
-                return articleName === null ? "Untitled article..." : articleName;
+                return articleTitle === null ? "Untitled article..." : articleTitle;
             },
             set (value) {
-                this.$store.commit('updateArticleName', value);
+                this.$store.commit('updateArticleTitle', value);
             }
         },
 
@@ -103,7 +103,7 @@ export default {
 
     data() {
         return {
-            settingArticleName: false,
+            settingArticleTitle: false,
 
             sessionAlert: {
                 show: false,
@@ -114,12 +114,12 @@ export default {
     },
 
     methods: {
-        setArticleName() {
-            this.settingArticleName = true;
+        setArticleTitle() {
+            this.settingArticleTitle = true;
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function() {
-                this.$refs.articleNameInput.focus();
+                this.$refs.articleTitleInput.focus();
             });
         },
 
@@ -131,25 +131,33 @@ export default {
             this.$store.commit('selectCanvas', index);
         },
 
+        setSessionAlert(message, type) {
+            this.sessionAlert = {
+                    show: true,
+                    message: message,
+                    type: type,
+                };
+        },
+
         saveArticle() {
             const canvases = this.$store.getters.canvases;
+            const title    = this.$store.getters.articleTitle;
+
+            // Don't let users save an article that doesn't have a title.
+            if (title === null || title === undefined) {
+                this.setSessionAlert('You must give your article a title first.', 'danger');
+                return;
+            }
 
             axios.post('/article/store', {
+                article_title: title,
                 article_json: canvases
             })
             .then(response => {
-                this.sessionAlert = {
-                    show: true,
-                    message: 'Article saved successfully!',
-                    type: 'success',
-                };
+                this.setSessionAlert('Article saved successfully!', 'success');
             })
             .catch(error => {
-                this.sessionAlert = {
-                    show: true,
-                    message: 'Uh oh! Something went wrong saving your article.',
-                    type: 'danger',
-                };
+                this.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
             });
         }
     },
