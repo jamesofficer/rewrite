@@ -9,7 +9,7 @@
             <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
             <b-btn type="primary" @click="addComponent('BlockQuote')">BlockQuote</b-btn>
 
-            
+
         </b-modal>
     </div>
 </template>
@@ -26,6 +26,9 @@ export default {
 
     props: {
         canvasIndex: {
+            type: Number,
+        },
+        columnIndex: {
             type: Number,
         }
     },

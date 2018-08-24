@@ -69,6 +69,11 @@ export default {
             required: true,
         },
 
+        columnIndex: {
+            type: Number,
+            required: true,
+        },
+
         canvasIndex: {
             type: Number,
             required: true,
@@ -91,6 +96,7 @@ export default {
         return {
             indexes: {
                 canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
                 componentIndex: this.index,
             }
         }
@@ -99,8 +105,8 @@ export default {
 </script>
 
 <style scoped>
-    h1 {
-        margin: 0;
-        padding: 0;
-    }
+h1 {
+    margin: 0;
+    padding: 0;
+}
 </style>

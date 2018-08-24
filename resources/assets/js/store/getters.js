@@ -4,9 +4,16 @@
 export const canvases = state => state.canvases;
 
 /**
+ * Returns the number of columns on this Canvas.
+ */
+export const columnCount = state => canvasIndex =>
+    state.canvases[canvasIndex].columns.length;
+
+/**
  * Returns the list of Components for this particular canvas.
  */
-export const getComponentsForCanvas = state => canvasIndex => state.canvases[canvasIndex].components;
+export const getComponentsForCanvas = state => canvasIndex =>
+    state.canvases[canvasIndex].columns;
 
 /**
  * Returns the title of the article.
@@ -33,7 +40,7 @@ export const getCurrentElement = state => {
     if (element.componentIndex === undefined) {
         return state.canvases[element.canvasIndex];
     } else {
-        return state.canvases[element.canvasIndex].components[
+        return state.canvases[element.canvasIndex].columns[element.columnIndex][
             element.componentIndex
         ];
     }
@@ -48,7 +55,9 @@ export const getElement = state => i => {
         return state.canvases[i.canvasIndex];
     }
 
-    return state.canvases[i.canvasIndex].components[i.componentIndex];
+    return state.canvases[i.canvasIndex].columns[i.columnIndex][
+        i.componentIndex
+    ];
 };
 
 /**
@@ -73,9 +82,11 @@ export const componentIsSelected = state => i => {
     return false;
 };
 
-// Determines whether the SPECIFIED Canvas is selected and should appear in the sidebar.
-// If the componentIndex value of the 'selectedElement' object in the state is
-// undefined, then we know no component is selected, but a canvas has been.
+/**
+ * Determines whether the SPECIFIED Canvas is selected and should appear in the sidebar.
+ * If the componentIndex value of the 'selectedElement' object in the state is
+ * undefined, then we know no component is selected, but a canvas has been.
+ */
 export const canvasIsSelected = state => canvasIndex => {
     if (state.selectedComponent !== undefined) {
         if (

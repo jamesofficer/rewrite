@@ -67,6 +67,11 @@ export default {
             required: true,
         },
 
+        columnIndex: {
+            type: Number,
+            required: true,
+        },
+
         canvasIndex: {
             type: Number,
             required: true,
@@ -88,6 +93,7 @@ export default {
         return {
             indexes: {
                 canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
                 componentIndex: this.index,
             }
         }

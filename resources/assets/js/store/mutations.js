@@ -12,8 +12,14 @@ export const updateArticleTitle = (state, title) =>
     window.Vue.set(state, "articleTitle", title);
 
 // Adds another Canvas to the Workspace.
-export const addCanvas = state => {
+export const addCanvas = state =>
     state.canvases.push(duplicateObject(defaultCanvas));
+
+// Adds another column to the specified canvas.
+export const addColumnToCanvas = state => {
+    state.canvases[state.selectedComponent.canvasIndex].columns.push(
+        duplicateObject(defaultCanvas)
+    );
 };
 
 // Sets the currently selected component to whatever the used clicked on.
@@ -34,6 +40,7 @@ export const setSelectedComponent = (state, component) => {
 
     state.selectedComponent = {
         canvasIndex: component.canvasIndex,
+        columnIndex: component.columnIndex,
         componentIndex: component.componentIndex
     };
 
@@ -46,28 +53,11 @@ export const closeComponent = state => {
 };
 
 export const deleteComponent = (state, i) => {
-    state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1);
+    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(
+        i.componentIndex,
+        1
+    );
 };
-
-// export const moveComponentUp = (state, i) => {
-//     if (i.componentIndex === 0) {
-//         return;
-//     }
-
-//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
-
-//     state.canvases[i.canvasIndex].components.splice(i.componentIndex - 1, 0, component);
-// }
-
-// export const moveComponentDown = (state, i) => {
-//     if (i.componentIndex === state.canvases[i.canvasIndex].components.length) {
-//         return;
-//     }
-
-//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
-
-//     state.canvases[i.canvasIndex].components.splice(i.componentIndex = 1, 0, component);
-// }
 
 // ===================================================== //
 // CSS Property Mutators.

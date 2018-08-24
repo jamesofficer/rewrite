@@ -1,17 +1,16 @@
-// ========================================= //
-// Helper Functions
-// NOT USED AT THE MOMENT
-// ========================================= //
-
 // Returns the selected Canvas or Component
-export const getSelectedElement = (state) => {
-    if (state.selectedComponent.componentIndex === undefined) {
-        return state.canvases[state.selectedComponent.canvasIndex];
+export const getSelectedElement = state => {
+    const component = state.selectedComponent;
+
+    if (component.componentIndex === undefined) {
+        return state.canvases[component.canvasIndex];
     }
 
-    return state.canvases[state.selectedComponent.canvasIndex].components[state.selectedComponent.componentIndex];
-}
+    return state.canvases[component.canvasIndex].columns[component.columnIndex][
+        component.componentIndex
+    ];
+};
 
-export const duplicateObject = (object) => {
+export const duplicateObject = object => {
     return JSON.parse(JSON.stringify(object));
-}
+};

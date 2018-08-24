@@ -1,12 +1,11 @@
-import defaultColumn from "./Column";
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 
 export default {
-    type: "Canvas",
+    type: "Column",
     selected: false,
 
-    columns: [defaultColumn, defaultColumn],
+    components: [[defaultHeading], [defaultHeading, defaultParagraph]],
 
     // Properties:
     backgroundColor: "#ffffff",
