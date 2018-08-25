@@ -9,6 +9,8 @@
                 <icon name="times" scale="2"></icon>
             </b-button>
         </b-col>
+
+        <hr>
     </b-row>
 </template>
 
@@ -32,14 +34,14 @@ export default {
 </script>
 
 <style scoped>
-    .sidebar-title {
-        margin-top: 10px;
-        line-height: 2em;
-        font-size: 2em;
-    }
+.sidebar-title {
+    margin-top: 10px;
+    line-height: 2em;
+    font-size: 2em;
+}
 
-    .close-icon {
-        color: gray;
-        margin: 20px 0 0 0;
-    }
+.close-icon {
+    color: gray;
+    margin: 20px 0 0 0;
+}
 </style>

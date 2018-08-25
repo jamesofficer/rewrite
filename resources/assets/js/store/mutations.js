@@ -1,48 +1,47 @@
 import defaultCanvas from "./defaults/Canvas";
-import { duplicateObject, getSelectedElement } from "./helpers";
-
-// Loads an existing article (updates the canvases).
-export const loadArticle = (state, article) => {
-    window.Vue.set(state, "articleTitle", article.title);
-    window.Vue.set(state, "canvases", JSON.parse(article.article_json));
-};
-
-// Sets the title of the article.
-export const updateArticleTitle = (state, title) =>
-    window.Vue.set(state, "articleTitle", title);
+import defaultColumn from "./defaults/Column";
+import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 // Adds another Canvas to the Workspace.
-export const addCanvas = state =>
-    state.canvases.push(duplicateObject(defaultCanvas));
+export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
 
 // Adds another column to the specified canvas.
 export const addColumnToCanvas = state => {
-    state.canvases[state.selectedComponent.canvasIndex].columns.push(
-        duplicateObject(defaultCanvas)
+    state.canvases[state.currentCanvas].columns.push(
+        duplicateObject(defaultColumn)
     );
 };
 
 // Sets the currently selected component to whatever the used clicked on.
 export const selectCanvas = (state, canvasIndex) => {
-    state.selectedComponent = {
-        canvasIndex: canvasIndex,
-        componentIndex: undefined
-    };
+    console.log('canvInd: ' + canvasIndex);
 
-    state.canvases[canvasIndex].selected = true;
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = canvasIndex;
+    state.currentColumn    = undefined;
+    state.currentComponent = undefined;
+
+    getSelectedElement(state).selected = true;
+};
+
+export const selectColumn = (state, i) => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = i.canvasIndex;
+    state.currentColumn    = i.columnIndex;
+    state.currentComponent = undefined;
+
+    getSelectedElement(state).selected = true;
 };
 
 // Sets the currently selected component to whatever the used clicked on.
-export const setSelectedComponent = (state, component) => {
-    if (state.selectedComponent !== undefined) {
-        getSelectedElement(state).selected = false;
-    }
+export const selectComponent = (state, i) => {
+    deselectCurrentElement(state);
 
-    state.selectedComponent = {
-        canvasIndex: component.canvasIndex,
-        columnIndex: component.columnIndex,
-        componentIndex: component.componentIndex
-    };
+    state.currentCanvas    = i.canvasIndex;
+    state.currentColumn    = i.columnIndex;
+    state.currentComponent = i.componentIndex;
 
     getSelectedElement(state).selected = true;
 };
@@ -53,11 +52,43 @@ export const closeComponent = state => {
 };
 
 export const deleteComponent = (state, i) => {
-    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(
-        i.componentIndex,
-        1
-    );
+    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
 };
+
+// Adds a component to the specified column.
+export const addComponentToColumn = state => component => {
+    if (component.type === "Heading") {
+        state.canvases[component.indexes.canvasIndex].columns[
+            component.indexes.columnIndex
+        ].push(duplicateObject(defaultHeading));
+    }
+
+    if (component.type === "Paragraph") {
+        state.canvases[component.indexes.canvasIndex].columns[
+            component.indexes.columnIndex
+        ].push(duplicateObject(defaultParagraph));
+    }
+
+    if (component.type === "BlockQuote") {
+        state.canvases[component.indexes.canvasIndex].columns[
+            component.indexes.columnIndex
+        ].push(duplicateObject(defaultBlockQuote));
+    }
+};
+
+// ===================================================== //
+// Saving/Loading Articles. (should probably be actions)
+// ===================================================== //
+
+// Loads an existing article (updates the canvases).
+export const loadArticle = (state, article) => {
+    window.Vue.set(state, "articleTitle", article.title);
+    window.Vue.set(state, "canvases", JSON.parse(article.article_json));
+};
+
+// Sets the title of the article.
+export const updateArticleTitle = (state, title) =>
+    window.Vue.set(state, "articleTitle", title);
 
 // ===================================================== //
 // CSS Property Mutators.

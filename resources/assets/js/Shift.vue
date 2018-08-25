@@ -59,17 +59,17 @@
         <!-- Main Workspace -->
         <b-row>
             <b-col class="shift-workspace">
-                <component v-for="(canvas, index) in canvases"
+                <component v-for="(canvas, canvasIndex) in canvases"
                     v-bind:is="canvas.type"
-                    v-bind:key="index"
-                    :index="index"
-                    @click.native="selectCanvas(index)"
+                    v-bind:key="canvasIndex"
+                    :canvasIndex="canvasIndex"
+                    @click.native="selectCanvas(canvasIndex)"
                     class="clickable-canvas"
                 ></component>
             </b-col>
 
             <!-- Sidebar -->
-            <b-col cols="4" v-if="componentIsSelected" class="shift-sidebar">
+            <b-col cols="4" v-if="showSidebar" class="shift-sidebar">
                 <portal-target name="top-bar" class="sidebar">
                     <!-- Components Settings will appear in here. -->
                 </portal-target>
@@ -108,8 +108,8 @@ export default {
              return this.$store.getters.canvases
          },
 
-        componentIsSelected() {
-            return this.$store.getters.elementIsSelected
+        showSidebar() {
+            return this.$store.getters.showSidebar
         },
     },
 
@@ -140,8 +140,8 @@ export default {
             this.$store.commit('addCanvas');
         },
 
-        selectCanvas(index) {
-            this.$store.commit('selectCanvas', index);
+        selectCanvas(canvasIndex) {
+            this.$store.commit('selectCanvas', canvasIndex);
         },
 
         setSessionAlert(message, type) {

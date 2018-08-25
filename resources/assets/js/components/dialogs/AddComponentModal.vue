@@ -8,8 +8,6 @@
             <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
             <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
             <b-btn type="primary" @click="addComponent('BlockQuote')">BlockQuote</b-btn>
-
-
         </b-modal>
     </div>
 </template>
@@ -20,22 +18,22 @@ import defaultParagraph from '../../store/defaults/Paragraph'
 import defaultBlockQuote from '../../store/defaults/BlockQuote'
 import { duplicateObject } from '../../store/helpers'
 
-
 export default {
     name: "AddComponentModal",
 
     props: {
         canvasIndex: {
             type: Number,
+            required: true,
         },
         columnIndex: {
             type: Number,
+            required: true,
         }
     },
 
     data() {
         return {
-            index: this.canvasIndex,
             dialogVisible: false,
         };
     },
@@ -48,23 +46,13 @@ export default {
         addComponent(componentType) {
             this.dialogVisible = false;
 
-            if (componentType === 'Heading') {
-                this.$store.state.canvases[this.index].components.push(
-                    duplicateObject(defaultHeading)
-                );
-            }
-
-            if (componentType === 'Paragraph') {
-                this.$store.state.canvases[this.index].components.push(
-                    duplicateObject(defaultParagraph)
-                );
-            }
-
-             if (componentType === 'BlockQuote') {
-                this.$store.state.canvases[this.index].components.push(
-                    duplicateObject(defaultBlockQuote)
-                );
-            }
+            this.$store.commit('addComponentToColumn', {
+                type: componentType,
+                indexes: {
+                    canvasIndex: this.canvasIndex,
+                    columnIndex: this.columnIndex,
+                }
+            })
 
             this.hideModal();
         }

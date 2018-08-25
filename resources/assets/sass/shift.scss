@@ -3,7 +3,18 @@ body {
     background: #aaa;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, li, td, th, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+td,
+th,
+label {
     font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -20,10 +31,6 @@ label {
     font-size: 0.5em;
     font-weight: 600;
     color: gray;
-}
-
-.shift-canvas {
-    padding: 10px;
 }
 
 .shift-canvas:hover {

@@ -19386,21 +19386,42 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getSelectedElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
-// Returns the selected Canvas or Component
-var getSelectedElement = function getSelectedElement(state) {
-    var component = state.selectedComponent;
-
-    if (component.componentIndex === undefined) {
-        return state.canvases[component.canvasIndex];
-    }
-
-    return state.canvases[component.canvasIndex].columns[component.columnIndex][component.componentIndex];
-};
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return duplicateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return deselectCurrentElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getSelectedElement; });
 var duplicateObject = function duplicateObject(object) {
     return JSON.parse(JSON.stringify(object));
+};
+
+var deselectCurrentElement = function deselectCurrentElement(state) {
+    if (state.currentCanvas !== undefined) {
+        if (state.currentColumn === undefined && state.currentComponent === undefined) {
+            state.canvases[state.currentCanvas].selected = false;
+        } else if (state.currentColumn !== undefined && state.currentComponent === undefined) {
+            state.canvases[state.currentCanvas].columns[state.currentColumn].selected = false;
+            state.canvases[state.currentCanvas].selected = false;
+        } else {
+            state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent].selected = false;
+            state.canvases[state.currentCanvas].columns[state.currentColumn].selected = false;
+            state.canvases[state.currentCanvas].selected = false;
+        }
+    }
+};
+
+// Returns the selected Canvas, Column, or Component
+var getSelectedElement = function getSelectedElement(state) {
+    // Return a Canvas
+    if (state.currentColumn === undefined && state.currentComponent === undefined) {
+        return state.canvases[state.currentCanvas];
+    }
+
+    // Return a Column
+    if (state.currentColumn !== undefined && state.currentComponent === undefined) {
+        return state.canvases[state.currentCanvas].columns[state.currentColumn];
+    }
+
+    // Return a Component
+    return state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
 };
 
 /***/ }),
@@ -22293,9 +22314,11 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Column__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Heading__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Paragraph__ = __webpack_require__(261);
+
 
 
 
@@ -22304,15 +22327,15 @@ module.exports = Component.exports
     type: "Canvas",
     selected: false,
 
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
+    columns: [Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__Column__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__Column__["a" /* default */])],
 
     // Properties:
     backgroundColor: "#ffffff",
     padding: {
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 20
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
     }
 });
 
@@ -45001,8 +45024,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         canvases: function canvases() {
             return this.$store.getters.canvases;
         },
-        componentIsSelected: function componentIsSelected() {
-            return this.$store.getters.elementIsSelected;
+        showSidebar: function showSidebar() {
+            return this.$store.getters.showSidebar;
         }
     },
 
@@ -45032,8 +45055,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addCanvas: function addCanvas() {
             this.$store.commit('addCanvas');
         },
-        selectCanvas: function selectCanvas(index) {
-            this.$store.commit('selectCanvas', index);
+        selectCanvas: function selectCanvas(canvasIndex) {
+            this.$store.commit('selectCanvas', canvasIndex);
         },
         setSessionAlert: function setSessionAlert(message, type) {
             this.sessionAlert = {
@@ -45097,10 +45120,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(216)
-}
 var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(218)
@@ -45109,7 +45128,7 @@ var __vue_template__ = __webpack_require__(264)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -45144,46 +45163,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 216 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(217);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(15)("1dd0c41c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0328c362\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Canvas.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0328c362\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Canvas.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 217 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.component-button-group {\n    margin: 3px 0;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 216 */,
+/* 217 */,
 /* 218 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -45192,26 +45173,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Column__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Heading__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Heading__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Paragraph__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Paragraph__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BlockQuote__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BlockQuote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__BlockQuote__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dialogs_AddComponentModal__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sidebar_ColumnControl__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sidebar_ColumnControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__sidebar_ColumnControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarTitle__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarTitle__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_ColumnControl__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sidebar_ColumnControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__sidebar_ColumnControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -45245,47 +45218,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
 
 
 
@@ -45303,13 +45235,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     name: "Canvas",
 
     components: {
-        Column: __WEBPACK_IMPORTED_MODULE_1__Column___default.a, Heading: __WEBPACK_IMPORTED_MODULE_2__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_3__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_4__BlockQuote___default.a,
-        ColumnControl: __WEBPACK_IMPORTED_MODULE_6__sidebar_ColumnControl___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_5__dialogs_AddComponentModal___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a
+        Column: __WEBPACK_IMPORTED_MODULE_1__Column___default.a, ColumnControl: __WEBPACK_IMPORTED_MODULE_5__sidebar_ColumnControl___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarTitle___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default.a,
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_6__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a
     },
 
     props: {
-        index: {
+        canvasIndex: {
             type: Number
         }
     },
@@ -45320,24 +45251,21 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
         columnCount: {
             get: function get() {
-                return this.$store.getters.columnCount(this.index);
+                return this.$store.getters.columnCount(this.canvasIndex);
             },
             set: function set(amount) {
                 this.$store.commit('addColumnsToCanvas', amount);
             }
         },
 
-        canvasComponents: function canvasComponents() {
-            return this.$store.getters.getComponentsForCanvas(this.index);
-        },
         element: function element() {
             return this.getElement(this.indexes);
         },
-        canvasIsSelected: function canvasIsSelected() {
-            return this.$store.getters.canvasIsSelected(this.index);
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
         },
         backgroundColor: function backgroundColor() {
-            return this.$store.state.canvases[this.index].backgroundColor;
+            return this.$store.state.canvases[this.canvasIndex].backgroundColor;
         }
     }),
 
@@ -45345,37 +45273,36 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         return {
             hovering: false, // used to show and hide the edit button
             indexes: {
-                canvasIndex: this.index
+                canvasIndex: this.canvasIndex
             }
         };
     },
 
 
     methods: {
-        selectComponent: function selectComponent(componentIndex, columnIndex) {
-            this.$store.commit('setSelectedComponent', {
-                canvasIndex: this.index,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex
+        selectColumn: function selectColumn(columnIndex) {
+            this.$store.commit('selectColumn', {
+                canvasIndex: this.canvasIndex,
+                columnIndex: columnIndex
             });
         },
         deleteComponent: function deleteComponent(componentIndex, columnIndex) {
             this.$store.commit('deleteComponent', {
-                canvasIndex: this.index,
+                canvasIndex: this.canvasIndex,
                 columnIndex: columnIndex,
                 componentIndex: componentIndex
             });
         },
         moveComponentUp: function moveComponentUp(componentIndex, columnIndex) {
             this.$store.commit('moveComponentUp', {
-                canvasIndex: this.index,
+                canvasIndex: this.canvasIndex,
                 columnIndex: columnIndex,
                 componentIndex: componentIndex
             });
         },
         moveComponentDown: function moveComponentDown(componentIndex, columnIndex) {
             this.$store.commit('moveComponentDown', {
-                canvasIndex: this.index,
+                canvasIndex: this.canvasIndex,
                 columnIndex: columnIndex,
                 componentIndex: componentIndex
             });
@@ -45586,12 +45513,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
 
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        elementIsSelected: 'elementIsSelected',
-        componentIsSelected: 'componentIsSelected',
         getElement: 'getElement'
     }), {
         element: function element() {
             return this.getElement(this.indexes);
+        },
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
         }
     }),
 
@@ -45710,6 +45638,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "SidebarTitle",
@@ -45762,7 +45692,9 @@ var render = function() {
           )
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("hr")
     ],
     1
   )
@@ -46227,7 +46159,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            indexes: this.$store.getters.getCurrentIndexes,
             fontSizes: [{
                 text: 'Lightest',
                 value: 100
@@ -46681,7 +46612,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm.componentIsSelected(_vm.indexes)
+      _vm.elementIsSelected
         ? _c(
             "sidebar",
             [
@@ -46875,9 +46806,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
 
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        componentIsSelected: 'componentIsSelected',
         getElement: 'getElement'
     }), {
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        },
         element: function element() {
             return this.getElement(this.indexes);
         }
@@ -47042,7 +46975,7 @@ var render = function() {
         [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
       ),
       _vm._v(" "),
-      _vm.componentIsSelected(_vm.indexes)
+      _vm.elementIsSelected
         ? _c(
             "sidebar",
             [
@@ -47482,8 +47415,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -47495,16 +47426,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     props: {
         canvasIndex: {
-            type: Number
+            type: Number,
+            required: true
         },
         columnIndex: {
-            type: Number
+            type: Number,
+            required: true
         }
     },
 
     data: function data() {
         return {
-            index: this.canvasIndex,
             dialogVisible: false
         };
     },
@@ -47517,17 +47449,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addComponent: function addComponent(componentType) {
             this.dialogVisible = false;
 
-            if (componentType === 'Heading') {
-                this.$store.state.canvases[this.index].components.push(Object(__WEBPACK_IMPORTED_MODULE_3__store_helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__store_defaults_Heading__["a" /* default */]));
-            }
-
-            if (componentType === 'Paragraph') {
-                this.$store.state.canvases[this.index].components.push(Object(__WEBPACK_IMPORTED_MODULE_3__store_helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__store_defaults_Paragraph__["a" /* default */]));
-            }
-
-            if (componentType === 'BlockQuote') {
-                this.$store.state.canvases[this.index].components.push(Object(__WEBPACK_IMPORTED_MODULE_3__store_helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__store_defaults_BlockQuote__["a" /* default */]));
-            }
+            this.$store.commit('addComponentToColumn', {
+                type: componentType,
+                indexes: {
+                    canvasIndex: this.canvasIndex,
+                    columnIndex: this.columnIndex
+                }
+            });
 
             this.hideModal();
         }
@@ -47564,7 +47492,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
+/* unused harmony default export */ var _unused_webpack_default_export = ({
     type: "BlockQuote",
     selected: false,
 
@@ -47689,218 +47617,57 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass: "shift-canvas",
+      style: {
+        backgroundColor: _vm.backgroundColor,
+        paddingTop: _vm.element.padding.top + "px",
+        paddingRight: _vm.element.padding.right + "px",
+        paddingBottom: _vm.element.padding.bottom + "px",
+        paddingLeft: _vm.element.padding.left + "px"
+      },
+      on: {
+        mouseover: function($event) {
+          _vm.hovering = true
+        },
+        mouseout: function($event) {
+          _vm.hovering = false
+        }
+      }
+    },
     [
       _c(
         "b-row",
+        { staticStyle: { border: "2px solid green" } },
         _vm._l(_vm.columnCount, function(column, columnIndex) {
-          return _c("column", { key: columnIndex }, [
-            _c(
-              "div",
-              {
-                staticClass: "shift-canvas",
-                style: {
-                  backgroundColor: _vm.backgroundColor,
-                  padding: "20px",
-                  paddingTop: _vm.element.padding.top + "px",
-                  paddingRight: _vm.element.padding.right + "px",
-                  paddingBottom: _vm.element.padding.bottom + "px",
-                  paddingLeft: _vm.element.padding.left + "px"
-                },
-                on: {
-                  mouseover: function($event) {
-                    _vm.hovering = true
-                  },
-                  mouseout: function($event) {
-                    _vm.hovering = false
-                  }
-                }
-              },
-              [
-                _c("add-component-modal", {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.hovering,
-                      expression: "hovering"
-                    }
-                  ],
-                  staticStyle: { float: "right" },
-                  attrs: { canvasIndex: _vm.index }
-                }),
-                _vm._v(" "),
-                _vm._l(_vm.canvasComponents[columnIndex], function(
-                  component,
-                  componentIndex
-                ) {
-                  return _c(component.type, {
-                    key: componentIndex,
-                    tag: "component",
-                    attrs: {
-                      index: componentIndex,
-                      canvasIndex: _vm.index,
-                      columnIndex: columnIndex
-                    },
-                    nativeOn: {
-                      click: function($event) {
-                        $event.stopPropagation()
-                        _vm.selectComponent(componentIndex, columnIndex)
-                      }
-                    }
-                  })
-                }),
-                _vm._v(" "),
-                _vm.canvasIsSelected
-                  ? _c(
-                      "sidebar",
-                      [
-                        _c("sidebar-title", { attrs: { title: "Canvas" } }),
-                        _vm._v(" "),
-                        _c(
-                          "sidebar-control",
-                          { attrs: { label: "Components on Canvas" } },
-                          _vm._l(_vm.canvasComponents, function(
-                            component,
-                            componentIndex
-                          ) {
-                            return _c(
-                              "b-row",
-                              { key: componentIndex },
-                              [
-                                _c(
-                                  "b-col",
-                                  [
-                                    _c(
-                                      "b-button-group",
-                                      { staticClass: "component-button-group" },
-                                      [
-                                        _c(
-                                          "b-button",
-                                          {
-                                            attrs: {
-                                              size: "sm",
-                                              variant: "success"
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.selectComponent(
-                                                  componentIndex,
-                                                  columnIndex
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                        " +
-                                                _vm._s(component.type) +
-                                                "\n                                    "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-button",
-                                          {
-                                            attrs: {
-                                              size: "sm",
-                                              variant: "success",
-                                              disabled: ""
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.moveComponentUp(
-                                                  componentIndex,
-                                                  columnIndex
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("icon", {
-                                              attrs: { name: "arrow-up" }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-button",
-                                          {
-                                            attrs: {
-                                              size: "sm",
-                                              variant: "success",
-                                              disabled: ""
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.moveComponentDown(
-                                                  componentIndex,
-                                                  columnIndex
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("icon", {
-                                              attrs: { name: "arrow-down" }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "b-button",
-                                          {
-                                            attrs: {
-                                              size: "sm",
-                                              variant: "success"
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.deleteComponent(
-                                                  componentIndex,
-                                                  columnIndex
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("icon", {
-                                              attrs: { name: "trash-alt" }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          })
-                        ),
-                        _vm._v(" "),
-                        _c("hr"),
-                        _vm._v(" "),
-                        _c("columns"),
-                        _vm._v(" "),
-                        _c("background-color"),
-                        _vm._v(" "),
-                        _c("padding")
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ],
-              2
-            )
-          ])
+          return _c("column", {
+            key: columnIndex,
+            attrs: { canvasIndex: _vm.canvasIndex, columnIndex: columnIndex },
+            nativeOn: {
+              click: function($event) {
+                $event.stopPropagation()
+                _vm.selectColumn(columnIndex)
+              }
+            }
+          })
         })
-      )
+      ),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "sidebar",
+            [
+              _c("sidebar-title", { attrs: { title: "Canvas" } }),
+              _vm._v(" "),
+              _c("column-control"),
+              _vm._v(" "),
+              _c("background-color"),
+              _vm._v(" "),
+              _c("padding")
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )
@@ -48340,22 +48107,22 @@ var render = function() {
           _c(
             "b-col",
             { staticClass: "shift-workspace" },
-            _vm._l(_vm.canvases, function(canvas, index) {
+            _vm._l(_vm.canvases, function(canvas, canvasIndex) {
               return _c(canvas.type, {
-                key: index,
+                key: canvasIndex,
                 tag: "component",
                 staticClass: "clickable-canvas",
-                attrs: { index: index },
+                attrs: { canvasIndex: canvasIndex },
                 nativeOn: {
                   click: function($event) {
-                    _vm.selectCanvas(index)
+                    _vm.selectCanvas(canvasIndex)
                   }
                 }
               })
             })
           ),
           _vm._v(" "),
-          _vm.componentIsSelected
+          _vm.showSidebar
             ? _c(
                 "b-col",
                 { staticClass: "shift-sidebar", attrs: { cols: "4" } },
@@ -48775,8 +48542,11 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     articleTitle: null,
-    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
-    selectedComponent: undefined
+    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
+
+    currentCanvas: undefined,
+    currentColumn: undefined,
+    currentComponent: undefined
 });
 
 /***/ }),
@@ -48787,14 +48557,15 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvases", function() { return canvases; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columnCount", function() { return columnCount; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComponentsForCanvas", function() { return getComponentsForCanvas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComponentsForColumn", function() { return getComponentsForColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentIndexes", function() { return getCurrentIndexes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElement", function() { return getElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showSidebar", function() { return showSidebar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "elementIsSelected", function() { return elementIsSelected; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "componentIsSelected", function() { return componentIsSelected; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvasIsSelected", function() { return canvasIsSelected; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(50);
+
+
 /**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
  */
@@ -48814,9 +48585,9 @@ var columnCount = function columnCount(state) {
 /**
  * Returns the list of Components for this particular canvas.
  */
-var getComponentsForCanvas = function getComponentsForCanvas(state) {
-    return function (canvasIndex) {
-        return state.canvases[canvasIndex].columns;
+var getComponentsForColumn = function getComponentsForColumn(state) {
+    return function (i) {
+        return state.canvases[i.canvasIndex].columns[i.columnIndex].components;
     };
 };
 
@@ -48828,29 +48599,16 @@ var articleTitle = function articleTitle(state) {
 };
 
 /**
- * Returns the indexes of currently selected canvas and component (or undefined if nothing selected)
- */
-var getCurrentIndexes = function getCurrentIndexes(state) {
-    return state.selectedComponent;
-};
-
-/**
  * Returns the currently selected element. This can be either a Canvas or a Component.
  * This is used for 'core' components, as they have no knowledge of their indexes.
  */
 var getCurrentElement = function getCurrentElement(state) {
-    var element = state.selectedComponent;
-
-    // selectedComponent will be undefined when the app first starts. Return null to fix errors.
-    if (state.selectedComponent === undefined) {
+    // currentCanvas will be undefined when the app first starts. Return null to fix errors.
+    if (state.currentCanvas === undefined) {
         return null;
     }
 
-    if (element.componentIndex === undefined) {
-        return state.canvases[element.canvasIndex];
-    } else {
-        return state.canvases[element.canvasIndex].columns[element.columnIndex][element.componentIndex];
-    }
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state);
 };
 
 /**
@@ -48859,50 +48617,52 @@ var getCurrentElement = function getCurrentElement(state) {
  */
 var getElement = function getElement(state) {
     return function (i) {
-        if (i.componentIndex === undefined) {
+        // If component and column are undefined, return the canvas.
+        if (i.componentIndex === undefined && i.columnIndex === undefined) {
             return state.canvases[i.canvasIndex];
         }
 
-        return state.canvases[i.canvasIndex].columns[i.columnIndex][i.componentIndex];
+        // If the component is undefined, return the column.
+        if (i.componentIndex === undefined) {
+            return state.canvases[i.canvasIndex].columns[i.columnIndex];
+        }
+
+        // Otherwise, return the component.
+        return state.canvases[i.canvasIndex].columns[i.columnIndex].components[i.componentIndex];
     };
 };
 
 /**
- * If this returns true the sidebar will be displayed, as something is selected (Canvas or Component).
+ * We want to show the sidebar if something is selected.
  */
-var elementIsSelected = function elementIsSelected(state) {
-    return state.selectedComponent ? true : false;
+var showSidebar = function showSidebar(state) {
+    return state.currentCanvas === undefined ? false : true;
 };
 
 /**
  * Returns true only if ANY component is selected (returns false if a Canvas is selected).
  */
-var componentIsSelected = function componentIsSelected(state) {
+var elementIsSelected = function elementIsSelected(state) {
     return function (i) {
-        if (state.selectedComponent !== undefined) {
-            if (state.selectedComponent.canvasIndex === i.canvasIndex && state.selectedComponent.componentIndex === i.componentIndex) {
-                return true;
-            }
+        // If nothing is selected, return false.
+        if (state.currentCanvas === undefined) {
+            return false;
         }
 
-        return false;
-    };
-};
-
-/**
- * Determines whether the SPECIFIED Canvas is selected and should appear in the sidebar.
- * If the componentIndex value of the 'selectedElement' object in the state is
- * undefined, then we know no component is selected, but a canvas has been.
- */
-var canvasIsSelected = function canvasIsSelected(state) {
-    return function (canvasIndex) {
-        if (state.selectedComponent !== undefined) {
-            if (state.selectedComponent.canvasIndex === canvasIndex && state.selectedComponent.componentIndex === undefined) {
-                return true;
-            }
+        // Has a Canvas been selected?
+        if (state.currentCanvas === i.canvasIndex && state.currentColumn === undefined && state.currentComponent === undefined) {
+            return state.canvases[i.canvasIndex];
         }
 
-        return false;
+        // Has a Column been selected?
+        if (state.currentCanvas === i.canvasIndex && state.currentColumn === i.columnIndex && state.currentComponent === undefined) {
+            return true;
+        }
+
+        // Has a Component been selected?
+        if (state.currentCanvas === i.canvasIndex && state.currentColumn === i.columnIndex && state.currentComponent === i.componentIndex) {
+            return true;
+        }
     };
 };
 
@@ -48912,14 +48672,16 @@ var canvasIsSelected = function canvasIsSelected(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumnToCanvas", function() { return addColumnToCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setSelectedComponent", function() { return setSelectedComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectColumn", function() { return selectColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectComponent", function() { return selectComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeComponent", function() { return closeComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComponentToColumn", function() { return addComponentToColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTextContent", function() { return updateTextContent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextAlignment", function() { return setTextAlignment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontSize", function() { return setFontSize; });
@@ -48932,9 +48694,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingBottom", function() { return setPaddingBottom; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingLeft", function() { return setPaddingLeft; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaults_Column__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers__ = __webpack_require__(50);
 
 
+
+
+// Adds another Canvas to the Workspace.
+var addCanvas = function addCanvas(state) {
+    return state.canvases.push(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]));
+};
+
+// Adds another column to the specified canvas.
+var addColumnToCanvas = function addColumnToCanvas(state) {
+    state.canvases[state.currentCanvas].columns.push(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__defaults_Column__["a" /* default */]));
+};
+
+// Sets the currently selected component to whatever the used clicked on.
+var selectCanvas = function selectCanvas(state, canvasIndex) {
+    console.log('canvInd: ' + canvasIndex);
+
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* deselectCurrentElement */])(state);
+
+    state.currentCanvas = canvasIndex;
+    state.currentColumn = undefined;
+    state.currentComponent = undefined;
+
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).selected = true;
+};
+
+var selectColumn = function selectColumn(state, i) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* deselectCurrentElement */])(state);
+
+    state.currentCanvas = i.canvasIndex;
+    state.currentColumn = i.columnIndex;
+    state.currentComponent = undefined;
+
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).selected = true;
+};
+
+// Sets the currently selected component to whatever the used clicked on.
+var selectComponent = function selectComponent(state, i) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* deselectCurrentElement */])(state);
+
+    state.currentCanvas = i.canvasIndex;
+    state.currentColumn = i.columnIndex;
+    state.currentComponent = i.componentIndex;
+
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).selected = true;
+};
+
+// Triggers when the X button is pressed on the sidebar.
+var closeComponent = function closeComponent(state) {
+    state.selectedComponent = undefined;
+};
+
+var deleteComponent = function deleteComponent(state, i) {
+    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
+};
+
+// Adds a component to the specified column.
+var addComponentToColumn = function addComponentToColumn(state) {
+    return function (component) {
+        if (component.type === "Heading") {
+            state.canvases[component.indexes.canvasIndex].columns[component.indexes.columnIndex].push(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* duplicateObject */])(defaultHeading));
+        }
+
+        if (component.type === "Paragraph") {
+            state.canvases[component.indexes.canvasIndex].columns[component.indexes.columnIndex].push(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* duplicateObject */])(defaultParagraph));
+        }
+
+        if (component.type === "BlockQuote") {
+            state.canvases[component.indexes.canvasIndex].columns[component.indexes.columnIndex].push(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* duplicateObject */])(defaultBlockQuote));
+        }
+    };
+};
+
+// ===================================================== //
+// Saving/Loading Articles. (should probably be actions)
+// ===================================================== //
 
 // Loads an existing article (updates the canvases).
 var loadArticle = function loadArticle(state, article) {
@@ -48947,101 +48785,57 @@ var updateArticleTitle = function updateArticleTitle(state, title) {
     return window.Vue.set(state, "articleTitle", title);
 };
 
-// Adds another Canvas to the Workspace.
-var addCanvas = function addCanvas(state) {
-    return state.canvases.push(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]));
-};
-
-// Adds another column to the specified canvas.
-var addColumnToCanvas = function addColumnToCanvas(state) {
-    state.canvases[state.selectedComponent.canvasIndex].columns.push(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]));
-};
-
-// Sets the currently selected component to whatever the used clicked on.
-var selectCanvas = function selectCanvas(state, canvasIndex) {
-    state.selectedComponent = {
-        canvasIndex: canvasIndex,
-        componentIndex: undefined
-    };
-
-    state.canvases[canvasIndex].selected = true;
-};
-
-// Sets the currently selected component to whatever the used clicked on.
-var setSelectedComponent = function setSelectedComponent(state, component) {
-    if (state.selectedComponent !== undefined) {
-        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).selected = false;
-    }
-
-    state.selectedComponent = {
-        canvasIndex: component.canvasIndex,
-        columnIndex: component.columnIndex,
-        componentIndex: component.componentIndex
-    };
-
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).selected = true;
-};
-
-// Triggers when the X button is pressed on the sidebar.
-var closeComponent = function closeComponent(state) {
-    state.selectedComponent = undefined;
-};
-
-var deleteComponent = function deleteComponent(state, i) {
-    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
-};
-
 // ===================================================== //
 // CSS Property Mutators.
 // ===================================================== //
 
 // Sets the string value of a Text Component
 var updateTextContent = function updateTextContent(state, value) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "content", value);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "content", value);
 };
 
 // Sets the Text Alignment on a Text Component
 var setTextAlignment = function setTextAlignment(state, position) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "textAlign", position);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "textAlign", position);
 };
 
 // Sets the Font Size on a Text Component
 var setFontSize = function setFontSize(state, size) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "fontSize", size);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "fontSize", size);
 };
 
 // Sets the Font Weight on a Text Component
 var setFontWeight = function setFontWeight(state, weight) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "fontWeight", weight);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "fontWeight", weight);
 };
 
 // Sets the Font Family on a Text Component
 var setFontFamily = function setFontFamily(state, family) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "fontFamily", family);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "fontFamily", family);
 };
 
 // Sets the Text Colour on a Text Component
 var setTextColor = function setTextColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "textColor", color);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "textColor", color);
 };
 
 // Sets the Background Colour on a Component
 var setBackgroundColor = function setBackgroundColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state), "backgroundColor", color);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state), "backgroundColor", color);
 };
 
 // Padding Mutations
 var setPaddingTop = function setPaddingTop(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).padding, "top", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).padding, "top", padding);
 };
 var setPaddingRight = function setPaddingRight(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).padding, "right", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).padding, "right", padding);
 };
 var setPaddingBottom = function setPaddingBottom(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).padding, "bottom", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).padding, "bottom", padding);
 };
 var setPaddingLeft = function setPaddingLeft(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getSelectedElement */])(state).padding, "left", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["c" /* getSelectedElement */])(state).padding, "left", padding);
 };
 
 /***/ }),
@@ -71386,6 +71180,10 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(340)
+}
 var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(331)
@@ -71394,7 +71192,7 @@ var __vue_template__ = __webpack_require__(332)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -71434,6 +71232,79 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Heading__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Paragraph__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BlockQuote__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BlockQuote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__BlockQuote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Padding__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_BackgroundColor__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialogs_AddComponentModal__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -71441,8 +71312,72 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Column"
+    name: "Column",
+
+    components: {
+        Heading: __WEBPACK_IMPORTED_MODULE_1__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_2__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_3__BlockQuote___default.a,
+        AddComponentModal: __WEBPACK_IMPORTED_MODULE_6__dialogs_AddComponentModal___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_7__sidebar_Sidebar___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_8__sidebar_SidebarTitle___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_9__sidebar_SidebarControl___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_4__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_5__core_BackgroundColor___default.a
+    },
+
+    props: {
+        canvasIndex: {
+            type: Number,
+            required: true
+        },
+        columnIndex: {
+            type: Number,
+            required: true
+        }
+    },
+
+    computed: {
+        // ...mapGetters({
+        //     getElement: 'getElement',
+        // }),
+
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        },
+        columnComponents: function columnComponents() {
+            return this.$store.getters.getComponentsForColumn(this.indexes);
+        }
+    },
+
+    data: function data() {
+        return {
+            hovering: false, // used to show and hide the edit button
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex
+            }
+        };
+    },
+
+
+    methods: {
+        selectComponent: function selectComponent(componentIndex) {
+            this.$store.commit('selectComponent', {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
+                componentIndex: componentIndex
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -71454,10 +71389,70 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-col",
-    { staticStyle: { border: "1px solid red" } },
-    [_vm._t("default")],
-    2
+    "div",
+    [
+      _c(
+        "b-col",
+        {
+          staticClass: "clickable-component",
+          staticStyle: { outline: "1px solid red" }
+        },
+        [
+          _c("add-component-modal", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.hovering,
+                expression: "hovering"
+              }
+            ],
+            staticClass: "add-component-modal-btn",
+            attrs: {
+              canvasIndex: this.canvasIndex,
+              columnIndex: this.columnIndex
+            }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.columnComponents, function(component, componentIndex) {
+            return _c(component.type, {
+              key: componentIndex,
+              tag: "component",
+              staticStyle: { border: "1px solid blue" },
+              attrs: {
+                index: componentIndex,
+                canvasIndex: _vm.canvasIndex,
+                columnIndex: _vm.columnIndex
+              },
+              nativeOn: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  _vm.selectComponent(componentIndex)
+                }
+              }
+            })
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "sidebar",
+            [
+              _c("sidebar-title", { attrs: { title: "Column" } }),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("background-color"),
+              _vm._v(" "),
+              _c("padding")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -71579,8 +71574,10 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Heading__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Paragraph__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Heading__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Paragraph__ = __webpack_require__(261);
+
 
 
 
@@ -71588,7 +71585,7 @@ if (false) {
     type: "Column",
     selected: false,
 
-    components: [[__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */]], [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]]],
+    components: [Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__Heading__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__Paragraph__["a" /* default */])],
 
     // Properties:
     backgroundColor: "#ffffff",
@@ -71599,6 +71596,46 @@ if (false) {
         left: 20
     }
 });
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(341);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(15)("09f3a5a3", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b4cd4d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Column.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29b4cd4d\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Column.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.add-component-modal-btn {\n    float: right;\n}\n.component-button-group {\n    margin: 3px 0;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

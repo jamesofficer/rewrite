@@ -19,7 +19,7 @@
         </div>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="componentIsSelected(indexes)">
+        <sidebar v-if="elementIsSelected">
             <sidebar-title title="Heading"></sidebar-title>
 
             <text-input></text-input>
@@ -82,13 +82,15 @@ export default {
 
     computed: {
         ...mapGetters({
-            elementIsSelected: 'elementIsSelected',
-            componentIsSelected: 'componentIsSelected',
             getElement: 'getElement',
         }),
 
         element() {
             return this.getElement(this.indexes);
+        },
+
+        elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
         }
     },
 

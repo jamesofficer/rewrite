@@ -1,3 +1,4 @@
+import { duplicateObject } from "../helpers";
 import defaultColumn from "./Column";
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
@@ -6,14 +7,14 @@ export default {
     type: "Canvas",
     selected: false,
 
-    columns: [defaultColumn, defaultColumn],
+    columns: [duplicateObject(defaultColumn), duplicateObject(defaultColumn)],
 
     // Properties:
     backgroundColor: "#ffffff",
     padding: {
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 20
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
     }
 };
