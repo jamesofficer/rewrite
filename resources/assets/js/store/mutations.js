@@ -2,6 +2,15 @@ import defaultCanvas from "./defaults/Canvas";
 import defaultColumn from "./defaults/Column";
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
+// Triggers when the X button is pressed on the sidebar.
+export const closeSidebar = state => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = undefined;
+    state.currentColumn    = undefined;
+    state.currentComponent = undefined;
+};
+
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
 
@@ -12,9 +21,14 @@ export const addColumnToCanvas = state => {
     );
 };
 
+// Removes a column from the specified canvas.
+export const removeColumnFromCanvas = state => {
+    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+};
+
 // Sets the currently selected component to whatever the used clicked on.
 export const selectCanvas = (state, canvasIndex) => {
-    console.log('canvInd: ' + canvasIndex);
+    console.log('Selecting Canvas: ' + canvasIndex);
 
     deselectCurrentElement(state);
 
@@ -26,6 +40,8 @@ export const selectCanvas = (state, canvasIndex) => {
 };
 
 export const selectColumn = (state, i) => {
+    console.log('Selecting Column: ' + i.canvasIndex + ', ' + i.columnIndex);
+
     deselectCurrentElement(state);
 
     state.currentCanvas    = i.canvasIndex;
@@ -37,6 +53,8 @@ export const selectColumn = (state, i) => {
 
 // Sets the currently selected component to whatever the used clicked on.
 export const selectComponent = (state, i) => {
+    console.log('Selecting Component: ' + i.canvasIndex + ', ' + i.columnIndex + ', ' + i.componentIndex);
+
     deselectCurrentElement(state);
 
     state.currentCanvas    = i.canvasIndex;
@@ -44,11 +62,6 @@ export const selectComponent = (state, i) => {
     state.currentComponent = i.componentIndex;
 
     getSelectedElement(state).selected = true;
-};
-
-// Triggers when the X button is pressed on the sidebar.
-export const closeComponent = state => {
-    state.selectedComponent = undefined;
 };
 
 export const deleteComponent = (state, i) => {

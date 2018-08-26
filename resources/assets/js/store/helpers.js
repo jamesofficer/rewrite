@@ -8,11 +8,8 @@ export const deselectCurrentElement = state => {
             state.canvases[state.currentCanvas].selected = false;
         } else if (state.currentColumn !== undefined && state.currentComponent === undefined) {
             state.canvases[state.currentCanvas].columns[state.currentColumn].selected = false;
-            state.canvases[state.currentCanvas].selected = false;
         } else {
             state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent].selected = false;
-            state.canvases[state.currentCanvas].columns[state.currentColumn].selected = false;
-            state.canvases[state.currentCanvas].selected = false;
         }
     }
 }

@@ -38,31 +38,28 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
-// Sidebar imports
-import Sidebar        from './sidebar/Sidebar'
-import SidebarTitle   from './sidebar/SidebarTitle'
-import SidebarControl from './sidebar/SidebarControl'
+import Sidebar           from './sidebar/Sidebar'
+import SidebarControl    from './sidebar/SidebarControl'
 
 // Property imports
-import TextArea        from './core/TextArea'
-import FontFamily      from './core/FontFamily'
-import TextAlignment   from './core/TextAlignment'
+import TextArea          from './core/TextArea'
+import FontFamily        from './core/FontFamily'
+import TextAlignment     from './core/TextAlignment'
 import FontWeightAndSize from './core/FontWeightAndSize'
-import TextColor       from './core/TextColor'
-import BackgroundColor from './core/BackgroundColor'
-import Padding         from './core/Padding'
+import TextColor         from './core/TextColor'
+import BackgroundColor   from './core/BackgroundColor'
+import Padding           from './core/Padding'
 
 export default {
 
     components: {
-        Sidebar, SidebarTitle, SidebarControl,
+        Sidebar, SidebarControl,
         TextArea, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding
     },
 
     props: {
-        index: {
+        componentIndex: {
             type: Number,
             required: true,
         },
@@ -97,7 +94,7 @@ export default {
             indexes: {
                 canvasIndex: this.canvasIndex,
                 columnIndex: this.columnIndex,
-                componentIndex: this.index,
+                componentIndex: this.componentIndex,
             }
         }
     },

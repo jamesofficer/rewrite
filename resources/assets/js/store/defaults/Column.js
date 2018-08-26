@@ -1,4 +1,3 @@
-import { duplicateObject } from "../helpers";
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 
@@ -6,10 +5,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [
-        duplicateObject(defaultHeading),
-        duplicateObject(defaultParagraph)
-    ],
+    components: [defaultHeading],
 
     // Properties:
     backgroundColor: "#ffffff",

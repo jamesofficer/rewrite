@@ -1,6 +1,8 @@
 <template>
-    <sidebar-control label="Number of Columns">
-        <b-btn @click="addColumn">Add Column</b-btn>
+    <sidebar-control>
+        <b-btn @click="addColumn" size="sm" variant="success">
+            <icon name="plus"></icon> Add Column
+        </b-btn>
     </sidebar-control>
 </template>
 
@@ -8,14 +10,14 @@
 import SidebarControl from '../sidebar/SidebarControl'
 
 export default {
-    name: "Columns",
+    name: "AddColumnControl",
 
     components: { SidebarControl },
 
     methods: {
         addColumn() {
             this.$store.commit('addColumnToCanvas');
-        }
+        },
     }
 }
 </script>

@@ -19,9 +19,7 @@
         </div>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected">
-            <sidebar-title title="Heading"></sidebar-title>
-
+        <sidebar v-if="elementIsSelected" title="Heading">
             <text-input></text-input>
 
             <font-family></font-family>
@@ -40,31 +38,30 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Sidebar        from './sidebar/Sidebar'
-import SidebarTitle   from './sidebar/SidebarTitle'
-import SidebarControl from './sidebar/SidebarControl'
+import { mapGetters }    from 'vuex';
+import Sidebar           from './sidebar/Sidebar'
+import SidebarControl    from './sidebar/SidebarControl'
 
 // Property Imports:
-import TextInput       from './core/TextInput'
-import TextAlignment   from './core/TextAlignment'
-import FontFamily      from './core/FontFamily'
+import TextInput         from './core/TextInput'
+import TextAlignment     from './core/TextAlignment'
+import FontFamily        from './core/FontFamily'
 import FontWeightAndSize from './core/FontWeightAndSize'
-import TextColor       from './core/TextColor'
-import BackgroundColor from './core/BackgroundColor'
-import Padding         from './core/Padding'
+import TextColor         from './core/TextColor'
+import BackgroundColor   from './core/BackgroundColor'
+import Padding           from './core/Padding'
 
 export default {
     name: "Heading",
 
     components: {
-        Sidebar, SidebarControl, SidebarTitle,
+        Sidebar, SidebarControl,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding,
     },
 
     props: {
-        index: {
+        componentIndex: {
             type: Number,
             required: true,
         },
@@ -99,7 +96,7 @@ export default {
             indexes: {
                 canvasIndex: this.canvasIndex,
                 columnIndex: this.columnIndex,
-                componentIndex: this.index,
+                componentIndex: this.componentIndex,
             }
         }
     }

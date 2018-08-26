@@ -6,6 +6,15 @@ import { getSelectedElement } from "./helpers";
 export const canvases = state => state.canvases;
 
 /**
+ * We want to show the sidebar if something is selected. We don't
+ * need to check for Columns and Components being selected, as
+ * a Canvas by itself means something has been selected.
+ */
+export const showSidebar = state => {
+    return state.currentCanvas === undefined ? false : true;
+};
+
+/**
  * Returns the number of columns on this Canvas.
  */
 export const columnCount = state => canvasIndex =>
@@ -38,7 +47,7 @@ export const getCurrentElement = state => {
 
 /**
  * Returns an element based off the index values that are passed in.
- * This is used on Components, as their indexes can be passed in.
+ * This is used to make styling elements easier.
  */
 export const getElement = state => i => {
     // If component and column are undefined, return the canvas.
@@ -58,40 +67,9 @@ export const getElement = state => i => {
 };
 
 /**
- * We want to show the sidebar if something is selected.
- */
-export const showSidebar = state => {
-    return state.currentCanvas === undefined ? false : true;
-};
-
-/**
- * Returns true only if ANY component is selected (returns false if a Canvas is selected).
+ * Returns true if the specified element (based off the indexes) has been selected.
  */
 export const elementIsSelected = state => i => {
-    // If nothing is selected, return false.
-    if (state.currentCanvas === undefined) {
-        return false;
-    }
-
-    // Has a Canvas been selected?
-    if (
-        state.currentCanvas    === i.canvasIndex &&
-        state.currentColumn    === undefined &&
-        state.currentComponent === undefined
-    ) {
-        return state.canvases[i.canvasIndex];
-    }
-
-    // Has a Column been selected?
-    if (
-        state.currentCanvas    === i.canvasIndex &&
-        state.currentColumn    === i.columnIndex &&
-        state.currentComponent === undefined
-    ) {
-        return true;
-    }
-
-    // Has a Component been selected?
     if (
         state.currentCanvas    === i.canvasIndex &&
         state.currentColumn    === i.columnIndex &&
@@ -99,4 +77,6 @@ export const elementIsSelected = state => i => {
     ) {
         return true;
     }
+
+    return false;
 };

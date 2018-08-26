@@ -1,28 +1,30 @@
 <template>
-    <div>
-        <b-col class="clickable-component" style="outline: 1px solid red">
-            <add-component-modal
-                :canvasIndex="this.canvasIndex"
-                :columnIndex="this.columnIndex"
-                v-show="hovering"
-                class="add-component-modal-btn"
-            ></add-component-modal>
+    <b-col :style="{
+        backgroundColor: element.backgroundColor,
+        paddingTop: element.padding.top + 'px',
+        paddingRight: element.padding.right + 'px',
+        paddingBottom: element.padding.bottom + 'px',
+        paddingLeft: element.padding.left + 'px',
+    }">
+        <add-component-modal
+            :canvasIndex="this.canvasIndex"
+            :columnIndex="this.columnIndex"
+            v-show="hovering"
+            class="add-component-modal-btn"
+        ></add-component-modal>
 
-            <component v-for="(component, componentIndex) in columnComponents"
-                :is="component.type"
-                :key="componentIndex"
-                :index="componentIndex"
-                :canvasIndex="canvasIndex"
-                :columnIndex="columnIndex"
-                @click.native.stop="selectComponent(componentIndex)"
-                style="border: 1px solid blue"
-            ></component>
-        </b-col>
+        <component v-for="(component, componentIndex) in columnComponents"
+            :is="component.type"
+            :key="componentIndex"
+            :componentIndex="componentIndex"
+            :canvasIndex="canvasIndex"
+            :columnIndex="columnIndex"
+            @click.native.stop="selectComponent(componentIndex)"
+            class="shift-component"
+        ></component>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected">
-            <sidebar-title title="Column"></sidebar-title>
-
+        <sidebar v-if="elementIsSelected" title="Column">
             <!-- Components on this Column -->
             <!-- <sidebar-control label="Components on Canvas">
                 <b-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
@@ -48,36 +50,36 @@
                 </b-row>
             </sidebar-control> -->
 
-            <hr>
+            <remove-column-control></remove-column-control>
 
             <background-color></background-color>
 
             <padding></padding>
         </sidebar>
-
-    </div>
+    </b-col>
 </template>
 
 <script>
-import { mapGetters }    from 'vuex'
-import Heading           from './Heading'
-import Paragraph         from './Paragraph'
-import BlockQuote        from './BlockQuote'
+import { mapGetters }      from 'vuex'
+import AddComponentModal   from './dialogs/AddComponentModal'
 
-import Padding           from './core/Padding'
-import BackgroundColor   from './core/BackgroundColor'
+import RemoveColumnControl from './sidebar/RemoveColumnControl'
+import Sidebar             from './sidebar/Sidebar'
+import SidebarControl      from './sidebar/SidebarControl'
 
-import AddComponentModal from './dialogs/AddComponentModal'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarTitle      from './sidebar/SidebarTitle'
-import SidebarControl    from './sidebar/SidebarControl'
+import Heading             from './Heading'
+import Paragraph           from './Paragraph'
+import BlockQuote          from './BlockQuote'
+
+import Padding             from './core/Padding'
+import BackgroundColor     from './core/BackgroundColor'
 
 export default {
     name: "Column",
 
     components: {
+        AddComponentModal, RemoveColumnControl, Sidebar, SidebarControl,
         Heading, Paragraph, BlockQuote,
-        AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
         Padding, BackgroundColor
     },
 
@@ -93,9 +95,9 @@ export default {
     },
 
     computed: {
-        // ...mapGetters({
-        //     getElement: 'getElement',
-        // }),
+        ...mapGetters({
+            getElement: 'getElement',
+        }),
 
         elementIsSelected() {
             return this.$store.getters.elementIsSelected(this.indexes);
@@ -105,9 +107,9 @@ export default {
             return this.$store.getters.getComponentsForColumn(this.indexes);
         },
 
-        // element() {
-        //     return this.getElement(this.indexes);
-        // },
+        element() {
+            return this.getElement(this.indexes);
+        },
     },
 
     data() {
@@ -132,7 +134,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.shift-component:hover {
+    cursor: pointer;
+    outline: 1px solid #abf3c9;
+}
+
 .add-component-modal-btn {
     float: right;
 }

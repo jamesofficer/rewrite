@@ -40,8 +40,8 @@
                     <icon name="plus"></icon> Add Canvas
                 </b-btn>
 
-                <b-btn variant="outline-success" size="sm" disabled>
-                    <icon name="eye"></icon> Preview Article
+                <b-btn variant="outline-danger" size="sm" @click="removeCanvas" disabled>
+                    <icon name="minus"></icon> Remove Canvas
                 </b-btn>
             </b-col>
 
@@ -59,18 +59,20 @@
         <!-- Main Workspace -->
         <b-row>
             <b-col class="shift-workspace">
-                <component v-for="(canvas, canvasIndex) in canvases"
-                    v-bind:is="canvas.type"
-                    v-bind:key="canvasIndex"
-                    :canvasIndex="canvasIndex"
-                    @click.native="selectCanvas(canvasIndex)"
-                    class="clickable-canvas"
-                ></component>
+                <b-container fluid>
+                    <component v-for="(canvas, canvasIndex) in canvases"
+                        v-bind:is="canvas.type"
+                        v-bind:key="canvasIndex"
+                        :canvasIndex="canvasIndex"
+                        @click.native.stop="selectCanvas(canvasIndex)"
+                        class="shift-canvas"
+                    ></component>
+                </b-container>
             </b-col>
 
             <!-- Sidebar -->
             <b-col cols="4" v-if="showSidebar" class="shift-sidebar">
-                <portal-target name="top-bar" class="sidebar">
+                <portal-target name="sidebar" class="sidebar">
                     <!-- Components Settings will appear in here. -->
                 </portal-target>
             </b-col>
@@ -240,16 +242,15 @@ export default {
     overflow: hidden;
 }
 
+.shift-canvas:hover {
+    cursor: pointer;
+    border: 3px solid #38c172;
+}
+
 .shift-sidebar {
     margin: 20px 20px 20px 0;
     background: #fff;
     box-shadow: 0 0 20px #ccc;
-}
-
-.add-canvas-icon {
-    cursor: pointer;
-    color: green;
-    margin-bottom: 20px;
 }
 
 .add-canvas-icon {
@@ -259,6 +260,6 @@ export default {
 }
 
 .add-canvas-icon:hover {
-    color: green;
+    color: #38c172;
 }
 </style>

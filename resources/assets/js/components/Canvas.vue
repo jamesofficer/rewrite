@@ -1,52 +1,47 @@
 <template>
     <!-- CANVAS -->
-    <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false" :style="{
-        backgroundColor: backgroundColor,
+    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :style="{
+        backgroundColor: element.backgroundColor,
         paddingTop: element.padding.top + 'px',
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
     }">
-        <b-row style="border: 2px solid green">
-            <column v-for="(column, columnIndex) in columnCount"
-                v-bind:key="columnIndex"
-                v-bind:canvasIndex="canvasIndex"
-                v-bind:columnIndex="columnIndex"
-                @click.native.stop="selectColumn(columnIndex)"
-            ></column>
-        </b-row>
+        <column v-for="(column, columnIndex) in columnCount"
+            v-bind:key="columnIndex"
+            v-bind:canvasIndex="canvasIndex"
+            v-bind:columnIndex="columnIndex"
+            @click.native.stop="selectColumn(columnIndex)"
+            class="shift-column"
+        ></column>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected">
-            <sidebar-title title="Canvas"></sidebar-title>
-
-            <column-control></column-control>
+        <sidebar v-if="elementIsSelected" title="Canvas">
+            <add-column-control></add-column-control>
 
             <background-color></background-color>
 
             <padding></padding>
         </sidebar>
-    </div>
+    </b-row>
 </template>
 
 <script>
 import { mapGetters }    from 'vuex'
-import Column            from './Column'
 
 import Sidebar           from './sidebar/Sidebar'
-import SidebarTitle      from './sidebar/SidebarTitle'
 import SidebarControl    from './sidebar/SidebarControl'
-import ColumnControl     from './sidebar/ColumnControl'
+import AddColumnControl  from './sidebar/AddColumnControl'
 
-// Property Imports:
-import BackgroundColor from './core/BackgroundColor'
-import Padding from './core/Padding'
+import Column            from './Column'
+import BackgroundColor   from './core/BackgroundColor'
+import Padding           from './core/Padding'
 
 export default {
     name: "Canvas",
 
     components: {
-        Column, ColumnControl, Sidebar, SidebarTitle, SidebarControl,
+        Column, AddColumnControl, Sidebar, SidebarControl,
         BackgroundColor, Padding
     },
 
@@ -76,10 +71,6 @@ export default {
 
         elementIsSelected() {
             return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
-        backgroundColor() {
-            return this.$store.state.canvases[this.canvasIndex].backgroundColor;
         },
     },
 
@@ -126,3 +117,10 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.shift-column:hover {
+    cursor: pointer;
+    outline: 2px solid #66e99d;
+}
+</style>
