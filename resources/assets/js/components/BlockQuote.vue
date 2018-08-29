@@ -11,6 +11,7 @@
             paddingRight: element.padding.right + 'px',
             paddingBottom: element.padding.bottom + 'px',
             paddingLeft: element.padding.left + 'px',
+            
         }">
             {{ element.content }}
         </blockquote>
@@ -32,6 +33,9 @@
             <background-color></background-color>
 
             <padding></padding>
+
+            <border-set></border-set>
+
         </sidebar>
     </div>
 </template>
@@ -50,6 +54,7 @@ import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor       from './core/TextColor'
 import BackgroundColor from './core/BackgroundColor'
 import Padding         from './core/Padding'
+import BorderSet        from './core/BorderSet'
 
 export default {
     name: "BlockQuote",
@@ -57,7 +62,7 @@ export default {
     components: {
         Sidebar, SidebarControl, SidebarTitle,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
-        BackgroundColor, Padding,
+        BackgroundColor, Padding, BorderSet
     },
 
     props: {

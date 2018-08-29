@@ -110,3 +110,15 @@ export const setPaddingBottom = (state, padding) =>
     window.Vue.set(getSelectedElement(state).padding, "bottom", padding);
 export const setPaddingLeft = (state, padding) =>
     window.Vue.set(getSelectedElement(state).padding, "left", padding);
+
+
+
+// Border Mutations
+export const setBorderTop = (state, borderVal) =>
+    window.Vue.set(getSelectedElement(state).bordertop, "top", borderVal);
+export const setBorderRight = (state, borderVal) =>
+    window.Vue.set(getSelectedElement(state).padding, "right", borderVal);
+export const setBorderBottom = (state, borderVal) =>
+    window.Vue.set(getSelectedElement(state).padding, "bottom", borderVal);
+export const setBorderLeft = (state, borderVal) =>
+    window.Vue.set(getSelectedElement(state).padding, "left", borderVal);
