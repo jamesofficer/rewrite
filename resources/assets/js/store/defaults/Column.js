@@ -8,7 +8,7 @@ export default {
     components: [defaultHeading],
 
     // Properties:
-    backgroundColor: "#ffffff",
+    backgroundColor: null,
     padding: {
         top: 20,
         right: 20,

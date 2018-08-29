@@ -7,5 +7,7 @@ export default {
 
     currentCanvas: undefined,
     currentColumn: undefined,
-    currentComponent: undefined
+    currentComponent: undefined,
+
+    showAddComponentModal: false,
 };

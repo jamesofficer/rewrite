@@ -15,10 +15,15 @@
             class="shift-column"
         ></column>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <remove-canvas></remove-canvas>
+
+            <add-column></add-column>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Canvas">
-            <add-column-control></add-column-control>
-
             <background-color></background-color>
 
             <padding></padding>
@@ -31,7 +36,10 @@ import { mapGetters }    from 'vuex'
 
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
-import AddColumnControl  from './sidebar/AddColumnControl'
+
+import TopBar            from './topbar/TopBar'
+import RemoveCanvas      from './topbar/RemoveCanvas'
+import AddColumn         from './topbar/AddColumn'
 
 import Column            from './Column'
 import BackgroundColor   from './core/BackgroundColor'
@@ -41,8 +49,9 @@ export default {
     name: "Canvas",
 
     components: {
-        Column, AddColumnControl, Sidebar, SidebarControl,
-        BackgroundColor, Padding
+        Sidebar, SidebarControl,
+        TopBar, RemoveCanvas, AddColumn,
+        Column, BackgroundColor, Padding
     },
 
     props: {
@@ -88,30 +97,6 @@ export default {
             this.$store.commit('selectColumn', {
                 canvasIndex: this.canvasIndex,
                 columnIndex: columnIndex,
-            });
-        },
-
-        deleteComponent(componentIndex, columnIndex) {
-            this.$store.commit('deleteComponent', {
-                canvasIndex: this.canvasIndex,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex,
-            });
-        },
-
-        moveComponentUp(componentIndex, columnIndex) {
-            this.$store.commit('moveComponentUp', {
-                canvasIndex: this.canvasIndex,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex,
-            });
-        },
-
-        moveComponentDown(componentIndex, columnIndex) {
-            this.$store.commit('moveComponentDown', {
-                canvasIndex: this.canvasIndex,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex,
             });
         },
     },

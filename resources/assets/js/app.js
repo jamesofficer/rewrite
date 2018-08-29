@@ -10,6 +10,9 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // Icon Imports
 // https://fontawesome.com/icons?d=gallery
+import "vue-awesome/icons/palette";
+import "vue-awesome/icons/columns";
+import "vue-awesome/icons/sitemap";
 import "vue-awesome/icons/align-left";
 import "vue-awesome/icons/align-center";
 import "vue-awesome/icons/align-right";

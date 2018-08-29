@@ -36,21 +36,21 @@
         <!-- Top Bar -->
         <b-row class="shift-top-bar">
             <b-col>
-                <b-btn variant="outline-success" size="sm" @click="addCanvas">
-                    <icon name="plus"></icon> Add Canvas
+                <b-btn variant="success" size="sm" @click="addCanvas">
+                    <icon name="palette"></icon> Add Canvas
                 </b-btn>
 
-                <b-btn variant="outline-danger" size="sm" @click="removeCanvas" disabled>
-                    <icon name="minus"></icon> Remove Canvas
-                </b-btn>
+                <portal-target name="top-bar" class="top-bar-portal-target">
+                    <!-- Top Bar settings will appear here. -->
+                </portal-target>
             </b-col>
 
             <b-col class="text-right">
-                <b-btn v-b-modal.loadArticleModal variant="outline-primary" size="sm">
+                <b-btn v-b-modal.loadArticleModal variant="primary" size="sm">
                     <icon name="folder-open"></icon> Load Article
                 </b-btn>
 
-                <b-btn variant="outline-success" size="sm" @click="saveArticle">
+                <b-btn variant="success" size="sm" @click="saveArticle">
                     <icon name="save"></icon> Save Article
                 </b-btn>
             </b-col>
@@ -78,20 +78,25 @@
             </b-col>
         </b-row>
 
+        <!-- Add Component Modal -->
+        <add-component-modal></add-component-modal>
+
         <!-- Load Article Modal -->
         <load-article-modal></load-article-modal>
+
     </b-container>
 </template>
 
 <script>
-import Canvas from "./components/Canvas.vue";
-import LoadArticleModal from './components/dialogs/LoadArticleModal';
+import Canvas            from "./components/Canvas.vue";
+import AddComponentModal from './components/dialogs/AddComponentModal';
+import LoadArticleModal  from './components/dialogs/LoadArticleModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas, LoadArticleModal
+        Canvas, AddComponentModal, LoadArticleModal
     },
 
     computed: {
@@ -232,6 +237,10 @@ export default {
 
 .shift-top-bar {
     padding: 5px;
+}
+
+.top-bar-portal-target {
+    display: inline;
 }
 
 .shift-workspace {

@@ -6,13 +6,6 @@
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
     }">
-        <add-component-modal
-            :canvasIndex="this.canvasIndex"
-            :columnIndex="this.columnIndex"
-            v-show="hovering"
-            class="add-component-modal-btn"
-        ></add-component-modal>
-
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -23,35 +16,15 @@
             class="shift-component"
         ></component>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <remove-column></remove-column>
+
+            <add-component-button></add-component-button>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Column">
-            <!-- Components on this Column -->
-            <!-- <sidebar-control label="Components on Canvas">
-                <b-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
-                    <b-col>
-                        <b-button-group class="component-button-group">
-                            <b-button size="sm" variant="success" @click="selectComponent(componentIndex, columnIndex)">
-                                {{ component.type }}
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentUp(componentIndex, columnIndex)" disabled>
-                                <icon name="arrow-up"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentDown(componentIndex, columnIndex)" disabled>
-                                <icon name="arrow-down"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="deleteComponent(componentIndex, columnIndex)">
-                                <icon name="trash-alt"></icon>
-                            </b-button>
-                        </b-button-group>
-                    </b-col>
-                </b-row>
-            </sidebar-control> -->
-
-            <remove-column-control></remove-column-control>
-
             <background-color></background-color>
 
             <padding></padding>
@@ -61,11 +34,13 @@
 
 <script>
 import { mapGetters }      from 'vuex'
-import AddComponentModal   from './dialogs/AddComponentModal'
 
-import RemoveColumnControl from './sidebar/RemoveColumnControl'
 import Sidebar             from './sidebar/Sidebar'
 import SidebarControl      from './sidebar/SidebarControl'
+
+import TopBar              from './topbar/TopBar'
+import AddComponentButton  from './topbar/AddComponentButton'
+import RemoveColumn        from './topbar/RemoveColumn'
 
 import Heading             from './Heading'
 import Paragraph           from './Paragraph'
@@ -78,7 +53,8 @@ export default {
     name: "Column",
 
     components: {
-        AddComponentModal, RemoveColumnControl, Sidebar, SidebarControl,
+        Sidebar, SidebarControl,
+        TopBar, AddComponentButton, RemoveColumn,
         Heading, Paragraph, BlockQuote,
         Padding, BackgroundColor
     },
@@ -88,6 +64,7 @@ export default {
             type: Number,
             required: true,
         },
+
         columnIndex: {
             type: Number,
             required: true,
@@ -138,10 +115,6 @@ export default {
 .shift-component:hover {
     cursor: pointer;
     outline: 1px solid #abf3c9;
-}
-
-.add-component-modal-btn {
-    float: right;
 }
 
 .component-button-group {

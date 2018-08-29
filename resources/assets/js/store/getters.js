@@ -14,6 +14,10 @@ export const showSidebar = state => {
     return state.currentCanvas === undefined ? false : true;
 };
 
+export const showAddComponentModal = state => {
+    return state.showAddComponentModal;
+};
+
 /**
  * Returns the number of columns on this Canvas.
  */

@@ -16,7 +16,7 @@
         </blockquote>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="componentIsSelected(indexes)" title="BlockQuote">
+        <sidebar v-if="elementIsSelected(indexes)" title="BlockQuote">
             <text-input></text-input>
 
             <font-family></font-family>
@@ -77,13 +77,12 @@ export default {
     computed: {
         ...mapGetters({
             elementIsSelected: 'elementIsSelected',
-            componentIsSelected: 'componentIsSelected',
             getElement: 'getElement',
         }),
 
         element() {
             return this.getElement(this.indexes);
-        }
+        },
     },
 
     data() {
