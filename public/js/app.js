@@ -47154,8 +47154,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BorderSet__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BorderSet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BorderSet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_SetBorder__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_SetBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_SetBorder__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -47222,7 +47222,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, SidebarTitle: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarTitle___default.a,
         TextInput: __WEBPACK_IMPORTED_MODULE_4__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_6__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_5__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a, BorderSet: __WEBPACK_IMPORTED_MODULE_11__core_BorderSet___default.a
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a, SetBorder: __WEBPACK_IMPORTED_MODULE_11__core_SetBorder___default.a
     },
 
     props: {
@@ -47283,7 +47283,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\core\\BorderSet.vue"
+Component.options.__file = "resources\\assets\\js\\components\\core\\SetBorder.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47292,9 +47292,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-12c0ef10", Component.options)
+    hotAPI.createRecord("data-v-bb3344b0", Component.options)
   } else {
-    hotAPI.reload("data-v-12c0ef10", Component.options)
+    hotAPI.reload("data-v-bb3344b0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47497,7 +47497,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-12c0ef10", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-bb3344b0", module.exports)
   }
 }
 
@@ -47552,7 +47552,7 @@ var render = function() {
               _vm._v(" "),
               _c("padding"),
               _vm._v(" "),
-              _c("border-set")
+              _c("set-border")
             ],
             1
           )

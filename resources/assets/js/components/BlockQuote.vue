@@ -34,7 +34,7 @@
 
             <padding></padding>
 
-            <border-set></border-set>
+            <set-border></set-border>
 
         </sidebar>
     </div>
@@ -54,7 +54,7 @@ import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor       from './core/TextColor'
 import BackgroundColor from './core/BackgroundColor'
 import Padding         from './core/Padding'
-import BorderSet        from './core/BorderSet'
+import SetBorder        from './core/SetBorder'
 
 export default {
     name: "BlockQuote",
@@ -62,7 +62,7 @@ export default {
     components: {
         Sidebar, SidebarControl, SidebarTitle,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
-        BackgroundColor, Padding, BorderSet
+        BackgroundColor, Padding, SetBorder
     },
 
     props: {
