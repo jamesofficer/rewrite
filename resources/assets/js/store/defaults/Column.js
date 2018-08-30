@@ -1,15 +1,14 @@
-import defaultColumn from "./Column";
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 
 export default {
-    type: "Canvas",
+    type: "Column",
     selected: false,
 
-    columns: [defaultColumn],
+    components: [defaultHeading],
 
     // Properties:
-    backgroundColor: "#ffffff",
+    backgroundColor: null,
     padding: {
         top: 20,
         right: 20,

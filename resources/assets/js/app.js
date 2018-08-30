@@ -10,12 +10,16 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // Icon Imports
 // https://fontawesome.com/icons?d=gallery
+import "vue-awesome/icons/palette";
+import "vue-awesome/icons/columns";
+import "vue-awesome/icons/sitemap";
 import "vue-awesome/icons/align-left";
 import "vue-awesome/icons/align-center";
 import "vue-awesome/icons/align-right";
 import "vue-awesome/icons/align-justify";
 import "vue-awesome/icons/times";
 import "vue-awesome/icons/times-circle";
+import "vue-awesome/icons/minus";
 import "vue-awesome/icons/plus";
 import "vue-awesome/icons/plus-circle";
 import "vue-awesome/icons/trash-alt";

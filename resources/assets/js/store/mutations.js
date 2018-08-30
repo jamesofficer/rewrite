@@ -1,5 +1,103 @@
-import defaultCanvas from "./defaults/Canvas";
-import { duplicateObject, getSelectedElement } from "./helpers";
+import defaultCanvas     from "./defaults/Canvas";
+import defaultColumn     from "./defaults/Column";
+import defaultHeading    from "./defaults/Heading";
+import defaultParagraph  from "./defaults/Paragraph";
+import defaultBlockQuote from "./defaults/BlockQuote";
+import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
+
+// Triggers when the X button is pressed on the sidebar.
+export const closeSidebar = state => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = undefined;
+    state.currentColumn    = undefined;
+    state.currentComponent = undefined;
+};
+
+// Sets the status of the "Add Component" Modal window.
+export const toggleAddComponentModal = (state, toggle) => {
+    state.showAddComponentModal = toggle;
+};
+
+// Adds another Canvas to the Workspace.
+export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
+
+// Deletes the selected Canvas
+export const removeCanvas = state => {
+    state.canvases.splice(state.currentCanvas, 1);
+    state.currentCanvas = undefined;
+}
+
+// Adds another column to the specified canvas.
+export const addColumnToCanvas = state => {
+    state.canvases[state.currentCanvas].columns.push(
+        duplicateObject(defaultColumn)
+    );
+};
+
+// Removes a column from the specified canvas. We deselect it first to prevent errors.
+export const removeColumnFromCanvas = state => {
+    state.currentColumn = undefined;
+    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+};
+
+// Sets the currently selected component to whatever the used clicked on.
+export const selectCanvas = (state, canvasIndex) => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = canvasIndex;
+    state.currentColumn    = undefined;
+    state.currentComponent = undefined;
+
+    getSelectedElement(state).selected = true;
+};
+
+export const selectColumn = (state, i) => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = i.canvasIndex;
+    state.currentColumn    = i.columnIndex;
+    state.currentComponent = undefined;
+
+    getSelectedElement(state).selected = true;
+};
+
+// Sets the currently selected component to whatever the used clicked on.
+export const selectComponent = (state, i) => {
+    deselectCurrentElement(state);
+
+    state.currentCanvas    = i.canvasIndex;
+    state.currentColumn    = i.columnIndex;
+    state.currentComponent = i.componentIndex;
+
+    getSelectedElement(state).selected = true;
+};
+
+export const deleteComponent = (state, i) => {
+    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
+};
+
+// Adds a component to the specified column.
+export const addComponentToColumn = (state, componentType) => {
+    if (componentType === "Heading") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultHeading));
+    }
+
+    if (componentType === "Paragraph") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultParagraph));
+    }
+
+    if (componentType === "BlockQuote") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultBlockQuote));
+    }
+};
+
+// ===================================================== //
+// Saving/Loading Articles. (should probably be actions)
+// ===================================================== //
 
 // Loads an existing article (updates the canvases).
 export const loadArticle = (state, article) => {
@@ -10,64 +108,6 @@ export const loadArticle = (state, article) => {
 // Sets the title of the article.
 export const updateArticleTitle = (state, title) =>
     window.Vue.set(state, "articleTitle", title);
-
-// Adds another Canvas to the Workspace.
-export const addCanvas = state => {
-    state.canvases.push(duplicateObject(defaultCanvas));
-};
-
-// Sets the currently selected component to whatever the used clicked on.
-export const selectCanvas = (state, canvasIndex) => {
-    state.selectedComponent = {
-        canvasIndex: canvasIndex,
-        componentIndex: undefined
-    };
-
-    state.canvases[canvasIndex].selected = true;
-};
-
-// Sets the currently selected component to whatever the used clicked on.
-export const setSelectedComponent = (state, component) => {
-    if (state.selectedComponent !== undefined) {
-        getSelectedElement(state).selected = false;
-    }
-
-    state.selectedComponent = {
-        canvasIndex: component.canvasIndex,
-        componentIndex: component.componentIndex
-    };
-
-    getSelectedElement(state).selected = true;
-};
-
-// Triggers when the X button is pressed on the sidebar.
-export const closeComponent = state => {
-    state.selectedComponent = undefined;
-};
-
-export const deleteComponent = (state, i) => {
-    state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1);
-};
-
-// export const moveComponentUp = (state, i) => {
-//     if (i.componentIndex === 0) {
-//         return;
-//     }
-
-//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
-
-//     state.canvases[i.canvasIndex].components.splice(i.componentIndex - 1, 0, component);
-// }
-
-// export const moveComponentDown = (state, i) => {
-//     if (i.componentIndex === state.canvases[i.canvasIndex].components.length) {
-//         return;
-//     }
-
-//     const component = state.canvases[i.canvasIndex].components.splice(i.componentIndex, 1)[0];
-
-//     state.canvases[i.canvasIndex].components.splice(i.componentIndex = 1, 0, component);
-// }
 
 // ===================================================== //
 // CSS Property Mutators.

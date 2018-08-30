@@ -17,9 +17,7 @@
         </blockquote>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="componentIsSelected(indexes)">
-            <sidebar-title title="BlockQuote"></sidebar-title>
-
+        <sidebar v-if="elementIsSelected(indexes)" title="BlockQuote">
             <text-input></text-input>
 
             <font-family></font-family>
@@ -43,7 +41,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import Sidebar        from './sidebar/Sidebar'
-import SidebarTitle   from './sidebar/SidebarTitle'
 import SidebarControl from './sidebar/SidebarControl'
 
 // Property Imports:
@@ -60,13 +57,18 @@ export default {
     name: "BlockQuote",
 
     components: {
-        Sidebar, SidebarControl, SidebarTitle,
+        Sidebar, SidebarControl,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding, SetBorder
     },
 
     props: {
-        index: {
+        componentIndex: {
+            type: Number,
+            required: true,
+        },
+
+        columnIndex: {
             type: Number,
             required: true,
         },
@@ -80,20 +82,20 @@ export default {
     computed: {
         ...mapGetters({
             elementIsSelected: 'elementIsSelected',
-            componentIsSelected: 'componentIsSelected',
             getElement: 'getElement',
         }),
 
         element() {
             return this.getElement(this.indexes);
-        }
+        },
     },
 
     data() {
         return {
             indexes: {
                 canvasIndex: this.canvasIndex,
-                componentIndex: this.index,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex,
             }
         }
     }
@@ -101,15 +103,10 @@ export default {
 </script>
 
 <style scoped>
-
-
 /* Blockquote Line for now */
 
 blockquote {
-
     border-left: 5px solid #ccc;
-
 }
-
 </style>
 

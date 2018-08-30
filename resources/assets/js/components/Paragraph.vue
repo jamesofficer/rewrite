@@ -16,7 +16,7 @@
         </p>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="componentIsSelected(indexes)">
+        <sidebar v-if="elementIsSelected">
             <sidebar-title title="Paragraph"></sidebar-title>
 
             <text-area></text-area>
@@ -38,31 +38,33 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
-// Sidebar imports
-import Sidebar        from './sidebar/Sidebar'
-import SidebarTitle   from './sidebar/SidebarTitle'
-import SidebarControl from './sidebar/SidebarControl'
+import Sidebar           from './sidebar/Sidebar'
+import SidebarControl    from './sidebar/SidebarControl'
 
 // Property imports
-import TextArea        from './core/TextArea'
-import FontFamily      from './core/FontFamily'
-import TextAlignment   from './core/TextAlignment'
+import TextArea          from './core/TextArea'
+import FontFamily        from './core/FontFamily'
+import TextAlignment     from './core/TextAlignment'
 import FontWeightAndSize from './core/FontWeightAndSize'
-import TextColor       from './core/TextColor'
-import BackgroundColor from './core/BackgroundColor'
-import Padding         from './core/Padding'
+import TextColor         from './core/TextColor'
+import BackgroundColor   from './core/BackgroundColor'
+import Padding           from './core/Padding'
 
 export default {
 
     components: {
-        Sidebar, SidebarTitle, SidebarControl,
+        Sidebar, SidebarControl,
         TextArea, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding
     },
 
     props: {
-        index: {
+        componentIndex: {
+            type: Number,
+            required: true,
+        },
+
+        columnIndex: {
             type: Number,
             required: true,
         },
@@ -75,9 +77,12 @@ export default {
 
     computed: {
         ...mapGetters({
-            componentIsSelected: 'componentIsSelected',
             getElement: 'getElement',
         }),
+
+        elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        },
 
         element() {
             return this.getElement(this.indexes);
@@ -88,7 +93,8 @@ export default {
         return {
             indexes: {
                 canvasIndex: this.canvasIndex,
-                componentIndex: this.index,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex,
             }
         }
     },

@@ -1,6 +1,15 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
   background: #aaa;
+}
+
+main {
+  height: 100%;
 }
 
 h1,
@@ -31,24 +40,6 @@ label {
   font-size: 0.5em;
   font-weight: 600;
   color: gray;
-}
-
-.shift-canvas {
-  padding: 10px;
-}
-
-.shift-canvas:hover {
-  cursor: pointer;
-}
-
-.clickable-canvas:hover {
-  cursor: pointer;
-  border: 3px solid #bbb;
-}
-
-.clickable-component:hover {
-  cursor: pointer;
-  outline: 1px solid #ddd;
 }
 
 .sidebar {

@@ -40,7 +40,6 @@ export default {
 
     data() {
         return {
-            indexes: this.$store.getters.getCurrentIndexes,
             fontSizes: [
             {
                 text: 'Lightest',

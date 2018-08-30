@@ -36,60 +36,71 @@
         <!-- Top Bar -->
         <b-row class="shift-top-bar">
             <b-col>
-                <b-btn variant="outline-success" size="sm" @click="addCanvas">
-                    <icon name="plus"></icon> Add Canvas
+                <b-btn variant="success" size="sm" @click="addCanvas">
+                    <icon name="palette"></icon> Add Canvas
                 </b-btn>
 
-                <b-btn variant="outline-success" size="sm" disabled>
-                    <icon name="eye"></icon> Preview Article
-                </b-btn>
+                <portal-target name="top-bar" class="top-bar-portal-target">
+                    <!-- Top Bar settings will appear here. -->
+                </portal-target>
             </b-col>
 
             <b-col class="text-right">
-                <b-btn v-b-modal.loadArticleModal variant="outline-primary" size="sm">
+                <b-btn v-b-modal.loadArticleModal variant="primary" size="sm">
                     <icon name="folder-open"></icon> Load Article
                 </b-btn>
 
-                <b-btn variant="outline-success" size="sm" @click="saveArticle">
+                <b-btn variant="success" size="sm" @click="saveArticle">
                     <icon name="save"></icon> Save Article
                 </b-btn>
             </b-col>
         </b-row>
 
         <!-- Main Workspace -->
-        <b-row>
-            <b-col class="shift-workspace">
-                <component v-for="(canvas, index) in canvases"
-                    v-bind:is="canvas.type"
-                    v-bind:key="index"
-                    :index="index"
-                    @click.native="selectCanvas(index)"
-                    class="clickable-canvas"
-                ></component>
+        <b-row class="shift-wrapper">
+            <b-col col>
+                <div class="shift-workspace">
+                    <b-container fluid>
+                        <component v-for="(canvas, canvasIndex) in canvases"
+                            v-bind:is="canvas.type"
+                            v-bind:key="canvasIndex"
+                            :canvasIndex="canvasIndex"
+                            @click.native.stop="selectCanvas(canvasIndex)"
+                            class="shift-canvas"
+                        ></component>
+                    </b-container>
+                </div>
             </b-col>
 
             <!-- Sidebar -->
-            <b-col cols="4" v-if="componentIsSelected" class="shift-sidebar">
-                <portal-target name="top-bar" class="sidebar">
-                    <!-- Components Settings will appear in here. -->
-                </portal-target>
+            <b-col cols="4" v-if="showSidebar">
+                <div class="shift-sidebar sticky-top">
+                    <portal-target name="sidebar" class="sidebar">
+                        <!-- Components Settings will appear in here. -->
+                    </portal-target>
+                </div>
             </b-col>
         </b-row>
 
+        <!-- Add Component Modal -->
+        <add-component-modal></add-component-modal>
+
         <!-- Load Article Modal -->
         <load-article-modal></load-article-modal>
+
     </b-container>
 </template>
 
 <script>
-import Canvas from "./components/Canvas.vue";
-import LoadArticleModal from './components/dialogs/LoadArticleModal';
+import Canvas            from "./components/Canvas.vue";
+import AddComponentModal from './components/dialogs/AddComponentModal';
+import LoadArticleModal  from './components/dialogs/LoadArticleModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas, LoadArticleModal
+        Canvas, AddComponentModal, LoadArticleModal
     },
 
     computed: {
@@ -108,8 +119,8 @@ export default {
              return this.$store.getters.canvases
          },
 
-        componentIsSelected() {
-            return this.$store.getters.elementIsSelected
+        showSidebar() {
+            return this.$store.getters.showSidebar
         },
     },
 
@@ -140,8 +151,8 @@ export default {
             this.$store.commit('addCanvas');
         },
 
-        selectCanvas(index) {
-            this.$store.commit('selectCanvas', index);
+        selectCanvas(canvasIndex) {
+            this.$store.commit('selectCanvas', canvasIndex);
         },
 
         setSessionAlert(message, type) {
@@ -206,8 +217,7 @@ export default {
 <style>
 .shift-container {
     background: #eee;
-    height: 100vh;
-    padding-top: 15px;
+    padding: 15px 20px;
 }
 
 .shift-article-name {
@@ -232,33 +242,31 @@ export default {
     padding: 5px;
 }
 
+.top-bar-portal-target {
+    display: inline;
+}
+
+.shift-wrapper {
+    margin-top: 10px;
+}
+
 .shift-workspace {
     height: fit-content;
-    margin: 20px;
+    margin-bottom: 50px;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
 }
 
+.shift-canvas:hover {
+    cursor: pointer;
+    border: 3px solid #38c172;
+}
+
 .shift-sidebar {
-    margin: 20px 20px 20px 0;
     background: #fff;
     box-shadow: 0 0 20px #ccc;
-}
-
-.add-canvas-icon {
-    cursor: pointer;
-    color: green;
-    margin-bottom: 20px;
-}
-
-.add-canvas-icon {
-    margin: 20px 0;
-    cursor: pointer;
-    color: #38c172;
-}
-
-.add-canvas-icon:hover {
-    color: green;
+    padding: 5px 10px;
+    top: 20px;
 }
 </style>

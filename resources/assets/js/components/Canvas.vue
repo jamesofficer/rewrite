@@ -1,88 +1,61 @@
 <template>
-    <div>
-        <!-- CANVAS -->
-        <div class="shift-canvas" @mouseover="hovering = true" @mouseout="hovering = false" :style="{
-            backgroundColor: backgroundColor,
-            padding: '20px',
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-        }">
-            <add-component-modal :canvasIndex="index" v-show="hovering" style="float: right"></add-component-modal>
+    <!-- CANVAS -->
+    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :style="{
+        backgroundColor: element.backgroundColor,
+        paddingTop: element.padding.top + 'px',
+        paddingRight: element.padding.right + 'px',
+        paddingBottom: element.padding.bottom + 'px',
+        paddingLeft: element.padding.left + 'px',
+    }">
+        <column v-for="(column, columnIndex) in columnCount"
+            v-bind:key="columnIndex"
+            v-bind:canvasIndex="canvasIndex"
+            v-bind:columnIndex="columnIndex"
+            @click.native.stop="selectColumn(columnIndex)"
+            class="shift-column"
+        ></column>
 
-            <component v-for="(component, componentIndex) in canvasComponents"
-                v-bind:is="component.type"
-                v-bind:key="componentIndex"
-                v-bind:index="componentIndex"
-                v-bind:canvasIndex="index"
-                @click.native.stop="selectComponent(componentIndex)"
-            ></component>
-        </div>
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <remove-canvas></remove-canvas>
+
+            <add-column></add-column>
+        </top-bar>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="canvasIsSelected">
-            <sidebar-title title="Canvas"></sidebar-title>
-
-            <!-- Components on this Canvas -->
-            <sidebar-control label="Components on Canvas">
-                <b-row v-for="(component, componentIndex) in canvasComponents" :key="componentIndex">
-                    <b-col>
-                        <b-button-group class="component-button-group">
-                            <b-button size="sm" variant="success" @click="selectComponent(componentIndex)">
-                                {{ component.type }}
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentUp(componentIndex)" disabled>
-                                <icon name="arrow-up"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="moveComponentDown(componentIndex)" disabled>
-                                <icon name="arrow-down"></icon>
-                            </b-button>
-
-                            <b-button size="sm" variant="success" @click="deleteComponent(componentIndex)">
-                                <icon name="trash-alt"></icon>
-                            </b-button>
-                        </b-button-group>
-                    </b-col>
-                </b-row>
-            </sidebar-control>
-
-            <hr>
-
+        <sidebar v-if="elementIsSelected" title="Canvas">
             <background-color></background-color>
 
             <padding></padding>
         </sidebar>
-    </div>
+    </b-row>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Heading           from './Heading';
-import Paragraph         from './Paragraph';
-import BlockQuote        from './BlockQuote';
-import AddComponentModal from './dialogs/AddComponentModal';
+import { mapGetters }    from 'vuex'
+
 import Sidebar           from './sidebar/Sidebar'
-import SidebarTitle      from './sidebar/SidebarTitle'
 import SidebarControl    from './sidebar/SidebarControl'
 
-// Property Imports:
-import BackgroundColor from './core/BackgroundColor'
-import Padding from './core/Padding'
+import TopBar            from './topbar/TopBar'
+import RemoveCanvas      from './topbar/RemoveCanvas'
+import AddColumn         from './topbar/AddColumn'
+
+import Column            from './Column'
+import BackgroundColor   from './core/BackgroundColor'
+import Padding           from './core/Padding'
 
 export default {
     name: "Canvas",
 
     components: {
-        Heading, Paragraph, BlockQuote,
-        AddComponentModal, Sidebar, SidebarTitle, SidebarControl,
-        BackgroundColor, Padding
+        Sidebar, SidebarControl,
+        TopBar, RemoveCanvas, AddColumn,
+        Column, BackgroundColor, Padding
     },
 
     props: {
-        index: {
+        canvasIndex: {
             type: Number,
         },
     },
@@ -92,20 +65,21 @@ export default {
             getElement: 'getElement',
         }),
 
-        canvasComponents() {
-            return this.$store.getters.getComponentsForCanvas(this.index);
+        columnCount: {
+            get() {
+                return this.$store.getters.columnCount(this.canvasIndex);
+            },
+            set(amount) {
+                this.$store.commit('addColumnsToCanvas', amount);
+            }
         },
 
         element() {
             return this.getElement(this.indexes);
         },
 
-        canvasIsSelected() {
-            return this.$store.getters.canvasIsSelected(this.index);
-        },
-
-        backgroundColor() {
-            return this.$store.state.canvases[this.index].backgroundColor;
+        elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
         },
     },
 
@@ -113,45 +87,25 @@ export default {
         return {
             hovering: false,    // used to show and hide the edit button
             indexes: {
-                canvasIndex: this.index,
+                canvasIndex: this.canvasIndex,
             }
         }
     },
 
     methods: {
-        selectComponent(componentIndex) {
-            this.$store.commit('setSelectedComponent', {
-                canvasIndex: this.index,
-                componentIndex: componentIndex,
-            });
-        },
-
-        deleteComponent(componentIndex) {
-            this.$store.commit('deleteComponent', {
-                canvasIndex: this.index,
-                componentIndex: componentIndex,
-            });
-        },
-
-        moveComponentUp(componentIndex) {
-            this.$store.commit('moveComponentUp', {
-                canvasIndex: this.index,
-                componentIndex: componentIndex,
-            });
-        },
-
-        moveComponentDown(componentIndex) {
-            this.$store.commit('moveComponentDown', {
-                canvasIndex: this.index,
-                componentIndex: componentIndex,
+        selectColumn(columnIndex) {
+            this.$store.commit('selectColumn', {
+                canvasIndex: this.canvasIndex,
+                columnIndex: columnIndex,
             });
         },
     },
 }
 </script>
 
-<style>
-.component-button-group {
-    margin: 3px 0;
+<style scoped>
+.shift-column:hover {
+    cursor: pointer;
+    outline: 2px solid #66e99d;
 }
 </style>

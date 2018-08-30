@@ -3,6 +3,13 @@ import { duplicateObject } from "./helpers";
 
 export default {
     articleTitle: null,
-    canvases: [duplicateObject(defaultCanvas)],
-    selectedComponent: undefined
+    canvases: [
+        duplicateObject(defaultCanvas),
+    ],
+
+    currentCanvas: undefined,
+    currentColumn: undefined,
+    currentComponent: undefined,
+
+    showAddComponentModal: false,
 };
