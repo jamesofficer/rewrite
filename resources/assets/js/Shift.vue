@@ -269,14 +269,4 @@ export default {
     padding: 5px 10px;
     top: 20px;
 }
-
-.add-canvas-icon {
-    margin: 20px 0;
-    cursor: pointer;
-    color: #38c172;
-}
-
-.add-canvas-icon:hover {
-    color: #38c172;
-}
 </style>
