@@ -3,7 +3,9 @@ import { duplicateObject } from "./helpers";
 
 export default {
     articleTitle: null,
-    canvases: [duplicateObject(defaultCanvas)],
+    canvases: [
+        duplicateObject(defaultCanvas),
+    ],
 
     currentCanvas: undefined,
     currentColumn: undefined,

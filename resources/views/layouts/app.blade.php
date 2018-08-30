@@ -26,12 +26,10 @@
     @endif
 </head>
 <body>
-    <div id="app">
-        @include('layouts.navbar')
+    @include('layouts.navbar')
 
-        <main>
-            @yield('content')
-        </main>
-    </div>
+    <main>
+        @yield('content')
+    </main>
 </body>
 </html>

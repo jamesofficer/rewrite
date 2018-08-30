@@ -57,24 +57,28 @@
         </b-row>
 
         <!-- Main Workspace -->
-        <b-row>
-            <b-col class="shift-workspace">
-                <b-container fluid>
-                    <component v-for="(canvas, canvasIndex) in canvases"
-                        v-bind:is="canvas.type"
-                        v-bind:key="canvasIndex"
-                        :canvasIndex="canvasIndex"
-                        @click.native.stop="selectCanvas(canvasIndex)"
-                        class="shift-canvas"
-                    ></component>
-                </b-container>
+        <b-row class="shift-wrapper">
+            <b-col col>
+                <div class="shift-workspace">
+                    <b-container fluid>
+                        <component v-for="(canvas, canvasIndex) in canvases"
+                            v-bind:is="canvas.type"
+                            v-bind:key="canvasIndex"
+                            :canvasIndex="canvasIndex"
+                            @click.native.stop="selectCanvas(canvasIndex)"
+                            class="shift-canvas"
+                        ></component>
+                    </b-container>
+                </div>
             </b-col>
 
             <!-- Sidebar -->
-            <b-col cols="4" v-if="showSidebar" class="shift-sidebar">
-                <portal-target name="sidebar" class="sidebar">
-                    <!-- Components Settings will appear in here. -->
-                </portal-target>
+            <b-col cols="4" v-if="showSidebar">
+                <div class="shift-sidebar sticky-top">
+                    <portal-target name="sidebar" class="sidebar">
+                        <!-- Components Settings will appear in here. -->
+                    </portal-target>
+                </div>
             </b-col>
         </b-row>
 
@@ -213,8 +217,7 @@ export default {
 <style>
 .shift-container {
     background: #eee;
-    height: 100vh;
-    padding-top: 15px;
+    padding: 15px 20px;
 }
 
 .shift-article-name {
@@ -243,9 +246,13 @@ export default {
     display: inline;
 }
 
+.shift-wrapper {
+    margin-top: 10px;
+}
+
 .shift-workspace {
     height: fit-content;
-    margin: 20px;
+    margin-bottom: 50px;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
@@ -257,9 +264,10 @@ export default {
 }
 
 .shift-sidebar {
-    margin: 20px 20px 20px 0;
     background: #fff;
     box-shadow: 0 0 20px #ccc;
+    padding: 5px 10px;
+    top: 20px;
 }
 
 .add-canvas-icon {
