@@ -106,6 +106,6 @@ export default {
 <style scoped>
 .shift-column:hover {
     cursor: pointer;
-    outline: 2px solid #66e99d;
+    outline: 1px solid #66e99d;
 }
 </style>

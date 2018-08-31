@@ -138,8 +138,10 @@ export const setTextColor = (state, color) =>
     window.Vue.set(getSelectedElement(state), "textColor", color);
 
 // Sets the Background Colour on a Component
-export const setBackgroundColor = (state, color) =>
+export const setBackgroundColor = (state, color) => {
+    console.log(color);
     window.Vue.set(getSelectedElement(state), "backgroundColor", color);
+}
 
 // Padding Mutations
 export const setPaddingTop = (state, padding) =>

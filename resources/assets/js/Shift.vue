@@ -260,7 +260,7 @@ export default {
 
 .shift-canvas:hover {
     cursor: pointer;
-    border: 3px solid #38c172;
+    border: 1px solid #38c172;
 }
 
 .shift-sidebar {

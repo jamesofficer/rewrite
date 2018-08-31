@@ -30,8 +30,6 @@
 
             <text-color></text-color>
 
-            <background-color></background-color>
-
             <padding></padding>
         </sidebar>
     </div>
@@ -48,7 +46,6 @@ import TextAlignment     from './core/TextAlignment'
 import FontFamily        from './core/FontFamily'
 import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor         from './core/TextColor'
-import BackgroundColor   from './core/BackgroundColor'
 import Padding           from './core/Padding'
 
 export default {
@@ -56,8 +53,7 @@ export default {
 
     components: {
         Sidebar, SidebarControl,
-        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
-        BackgroundColor, Padding,
+        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor, Padding,
     },
 
     props: {
