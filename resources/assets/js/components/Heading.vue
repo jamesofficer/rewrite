@@ -2,7 +2,7 @@
     <div>
         <!-- COMPONENT -->
         <div class="clickable-component">
-            <h1 :style="{
+            <h1 v-if="! editingText" @click="selectInput" :style="{
                 textAlign: element.textAlign,
                 fontSize: element.fontSize + 'pt',
                 fontFamily: element.fontFamily,
@@ -16,12 +16,18 @@
             }">
                 {{ element.content }}
             </h1>
+
+            <text-input v-else @focusout.native="editingText = false" :style="{
+                    fontFamily: element.fontFamily,
+                    fontSize: element.fontSize + 'pt',
+                    textAlign: element.textAlign,
+                    color: element.textColor,
+                }" size="lg" id="heading-input"
+            ></text-input>
         </div>
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Heading">
-            <text-input></text-input>
-
             <font-family></font-family>
 
             <text-alignment></text-alignment>
@@ -89,12 +95,28 @@ export default {
 
     data() {
         return {
+            editingText: false,
+
             indexes: {
                 canvasIndex: this.canvasIndex,
                 columnIndex: this.columnIndex,
                 componentIndex: this.componentIndex,
             }
         }
+    },
+
+    methods: {
+        selectInput() {
+            this.editingText = true;
+
+            this.$nextTick(function () {
+                let input = document.getElementById('heading-input');
+                let strLength = input.value.length;
+
+                input.focus();
+                input.setSelectionRange(strLength, strLength);
+            });
+        },
     }
 }
 </script>

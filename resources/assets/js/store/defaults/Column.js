@@ -5,7 +5,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading],
+    components: [defaultHeading, defaultParagraph],
 
     // Properties:
     backgroundColor: null,

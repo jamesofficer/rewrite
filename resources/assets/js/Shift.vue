@@ -10,7 +10,9 @@
             <h4 class="alert-heading">Article already exists! Overwrite?</h4>
             <p>An article already exists with the title: {{ articleTitle }}</p>
             <p>Do you want to overwrite it?</p>
+
             <hr>
+
             <p class="mb-0">
                 <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
                 <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
@@ -157,10 +159,10 @@ export default {
 
         setSessionAlert(message, type) {
             this.sessionAlert = {
-                    show: true,
-                    message: message,
-                    type: type,
-                };
+                show: true,
+                message: message,
+                type: type,
+            };
         },
 
         checkArticleExistsWhenSaving (title) {

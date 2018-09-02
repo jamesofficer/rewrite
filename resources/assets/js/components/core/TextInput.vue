@@ -1,16 +1,29 @@
 <template>
-    <sidebar-control label="Text Content">
-        <b-form-input size="lg" v-model="content"></b-form-input>
-    </sidebar-control>
+    <b-textarea v-if="textarea"
+                size="lg"
+                :rows="5"
+                v-model="content"
+                class="text-input"
+    ></b-textarea>
+
+    <b-input v-else
+            size="lg"
+            v-model="content"
+            class="text-input"
+    ></b-input>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
-
 export default {
     name: "TextInput",
 
-    components: { SidebarControl },
+    props: {
+        textarea: {
+            type: Boolean,
+            required: false,
+            default: false
+        }
+    },
 
     computed: {
         content: {
@@ -24,3 +37,10 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.text-input {
+    background: none;
+    border: none;
+}
+</style>
