@@ -6,7 +6,7 @@
                 fontSize: element.fontSize + 'pt',
                 fontFamily: element.fontFamily,
                 fontWeight: element.fontWeight,
-                color: element.textColor,
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
                 backgroundColor: element.backgroundColor,
                 paddingTop: element.padding.top + 'px',
                 paddingRight: element.padding.right + 'px',

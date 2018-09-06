@@ -1,7 +1,7 @@
 <template>
     <!-- CANVAS -->
     <b-row @mouseover="hovering = true" @mouseout="hovering = false" :style="{
-        backgroundColor: element.backgroundColor,
+        backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
         paddingTop: element.padding.top + 'px',
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',

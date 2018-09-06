@@ -8,8 +8,7 @@ export default {
     fontWeight: 500,
     fontSize: 24,
     textAlign: 'left',
-    textColor: '#000000',
-    backgroundColor: null,
+    textColor: { r: 0, g: 0, b: 0, a: 1 },
     padding: {
         top: 0,
         right: 0,

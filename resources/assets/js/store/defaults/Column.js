@@ -9,7 +9,7 @@ export default {
     components: [defaultHeading, defaultParagraph],
 
     // Properties:
-    backgroundColor: null,
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,
         right: 20,

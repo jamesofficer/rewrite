@@ -5,13 +5,13 @@
             fontSize: element.fontSize + 'pt',
             fontFamily: element.fontFamily,
             fontWeight: element.fontWeight,
-            color: element.textColor,
-            backgroundColor: element.backgroundColor,
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            BackgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
             paddingTop: element.padding.top + 'px',
             paddingRight: element.padding.right + 'px',
             paddingBottom: element.padding.bottom + 'px',
             paddingLeft: element.padding.left + 'px',
-            
+
         }">
             {{ element.content }}
         </blockquote>
@@ -103,8 +103,6 @@ export default {
 </script>
 
 <style scoped>
-/* Blockquote Line for now */
-
 blockquote {
     border-left: 5px solid #ccc;
 }

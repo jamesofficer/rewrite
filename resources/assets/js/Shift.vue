@@ -244,8 +244,8 @@ export default {
     background: none;
     color: #38c172;
     font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-weight: 600;
     font-size: 1.8rem;
+    font-weight: 500;
     font-style: italic;
     line-height: 1.2;
     outline-width: 0;

@@ -1,5 +1,5 @@
 <template>
-    
+
         <div>
         <sidebar-control label="SetBorder">
             <b-row>

@@ -1,30 +1,38 @@
 <template>
     <div>
-        <b-row class="sidebar-control">
-            <!-- Two Columns -->
-            <template v-if="double">
+        <!-- Double Column -->
+        <template v-if="double">
+            <b-row>
+                <b-col cols="12">
+                    <label>{{ label }}</label>
+                </b-col>
+            </b-row>
+
+            <b-row class="sidebar-control">
                 <b-col cols="6">
-                    <b-form-group :label="label">
+                    <b-form-group>
                         <slot name="first"></slot>
                     </b-form-group>
                 </b-col>
 
                 <b-col cols="6">
-                    <b-form-group label="&nbsp;">
+                    <b-form-group>
                         <slot name="second"></slot>
                     </b-form-group>
                 </b-col>
-            </template>
+            </b-row>
+        </template>
 
-            <!-- Single Column -->
-            <template v-else>
+        <!-- Single Column -->
+        <template v-else>
+            <b-row class="sidebar-control">
                 <b-col>
                     <b-form-group :label="label">
                         <slot></slot>
                     </b-form-group>
                 </b-col>
-            </template>
-        </b-row>
+            </b-row>
+        </template>
     </div>
 </template>
 
@@ -45,7 +53,15 @@ export default {
             required: false,
             default: false,
         }
-
     },
 }
 </script>
+
+<style scoped>
+label {
+    display: block;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 1rem;
+}
+</style>

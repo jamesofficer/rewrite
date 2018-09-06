@@ -147,6 +147,7 @@ export const setTextColor = (state, color) =>
 export const setBackgroundColor = (state, color) =>
     window.Vue.set(getSelectedElement(state), "backgroundColor", color);
 
+// Sets the Source of an Image
 export const setImageSource = (state, image) =>
     window.Vue.set(getSelectedElement(state), "imageSource", image);
 

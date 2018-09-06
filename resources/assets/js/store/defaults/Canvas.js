@@ -7,7 +7,7 @@ export default {
     columns: [defaultColumn],
 
     // Properties:
-    backgroundColor: "#ffffff",
+    backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
     padding: {
         top: 20,
         right: 20,
