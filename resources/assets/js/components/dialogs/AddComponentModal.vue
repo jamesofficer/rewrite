@@ -1,8 +1,53 @@
 <template>
-    <b-modal id="addComponentModal" title="Add Component to Canvas" hide-footer v-model="showModal">
-        <b-btn type="primary" @click="addComponent('Heading')">Heading</b-btn>
-        <b-btn type="primary" @click="addComponent('Paragraph')">Paragraph</b-btn>
-        <b-btn type="primary" @click="addComponent('BlockQuote')">BlockQuote</b-btn>
+    <b-modal id="addComponentModal" title="Add Component to Column" size="lg" hide-footer v-model="showModal">
+        <div class="modal-card">
+            <b-card title="Heading"
+                    img-src="../img/heading_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('Heading')"
+            ></b-card>
+        </div>
+
+        <div class="modal-card">
+            <b-card title="Paragraph"
+                    img-src="../img/paragraph_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('Paragraph')"
+            ></b-card>
+        </div>
+
+        <div class="modal-card">
+            <b-card title="Quote"
+                    img-src="../img/blockquote_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('BlockQuote')"
+            ></b-card>
+        </div>
+
+        <div class="modal-card">
+            <b-card title="Image"
+                    img-src="../img/image_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('Picture')"
+            ></b-card>
+        </div>
+
     </b-modal>
 </template>
 
@@ -35,3 +80,19 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.modal-card {
+    display: inline-flex;
+    margin: 0 5px;
+}
+
+.card:hover {
+    cursor: pointer;
+    background: #38c172;
+}
+
+.card-img-top {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+</style>

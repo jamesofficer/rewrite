@@ -1,0 +1,19 @@
+NEW COMPONENTS:
+- Border control components.
+- Margin components.
+- Create an Image component.
+- Create an Instagram component.
+- Create an Pinterest component.
+
+FEATURES:
+- Let users delete components off columns.
+- Users can drag and rearrange columns?
+- Let users add hyperlinks and bold/italic text to paragraph text.
+- Export document as HTML.
+- Let users delete articles.
+- Highlight the background of a component when selecting it (instead of a border).
+- Add more fonts. Download via Google Fonts, and hard code them in for now.
+- Editing title keeps styles from the heading.
+- Fix blockquote text entry.
+
+

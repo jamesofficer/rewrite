@@ -3,6 +3,7 @@ import defaultColumn     from "./defaults/Column";
 import defaultHeading    from "./defaults/Heading";
 import defaultParagraph  from "./defaults/Paragraph";
 import defaultBlockQuote from "./defaults/BlockQuote";
+import defaultPicture      from "./defaults/Picture";
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 // Triggers when the X button is pressed on the sidebar.
@@ -93,6 +94,11 @@ export const addComponentToColumn = (state, componentType) => {
         state.canvases[state.currentCanvas].columns[state.currentColumn].components
             .push(duplicateObject(defaultBlockQuote));
     }
+
+    if (componentType === "Picture") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultPicture));
+    }
 };
 
 // ===================================================== //
@@ -138,10 +144,11 @@ export const setTextColor = (state, color) =>
     window.Vue.set(getSelectedElement(state), "textColor", color);
 
 // Sets the Background Colour on a Component
-export const setBackgroundColor = (state, color) => {
-    console.log(color);
+export const setBackgroundColor = (state, color) =>
     window.Vue.set(getSelectedElement(state), "backgroundColor", color);
-}
+
+export const setImageSource = (state, image) =>
+    window.Vue.set(getSelectedElement(state), "imageSource", image);
 
 // Padding Mutations
 export const setPaddingTop = (state, padding) =>
@@ -153,14 +160,12 @@ export const setPaddingBottom = (state, padding) =>
 export const setPaddingLeft = (state, padding) =>
     window.Vue.set(getSelectedElement(state).padding, "left", padding);
 
-
-
 // Border Mutations
 export const setBorderTop = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).bordertop, "top", borderVal);
+    window.Vue.set(getSelectedElement(state).border.top, "top", borderVal);
 export const setBorderRight = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).padding, "right", borderVal);
+    window.Vue.set(getSelectedElement(state).border.right, "right", borderVal);
 export const setBorderBottom = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).padding, "bottom", borderVal);
+    window.Vue.set(getSelectedElement(state).border.bottom, "bottom", borderVal);
 export const setBorderLeft = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).padding, "left", borderVal);
+    window.Vue.set(getSelectedElement(state).border.left, "left", borderVal);

@@ -1,5 +1,6 @@
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
+import defaultPicture from "./Picture";
 
 export default {
     type: "Column",

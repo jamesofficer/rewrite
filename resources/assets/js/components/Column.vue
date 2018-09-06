@@ -45,6 +45,7 @@ import RemoveColumn        from './topbar/RemoveColumn'
 import Heading             from './Heading'
 import Paragraph           from './Paragraph'
 import BlockQuote          from './BlockQuote'
+import Picture             from './Picture'
 
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
@@ -55,7 +56,7 @@ export default {
     components: {
         Sidebar, SidebarControl,
         TopBar, AddComponentButton, RemoveColumn,
-        Heading, Paragraph, BlockQuote,
+        Heading, Paragraph, BlockQuote, Picture,
         Padding, BackgroundColor
     },
 
