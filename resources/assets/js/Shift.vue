@@ -145,7 +145,16 @@ export default {
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function() {
-                this.$refs.articleTitleInput.focus();
+                // this.$refs.articleTitleInput.focus();
+
+                let input = document.querySelector('.shift-article-name-input');
+
+                console.log(input);
+
+                let strLength = input.value.length;
+
+                input.focus();
+                input.setSelectionRange(strLength, strLength);
             });
         },
 
@@ -216,7 +225,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .shift-container {
     background: #eee;
     padding: 15px 20px;
@@ -228,10 +237,22 @@ export default {
     color: #38c172;
 }
 
-.shift-article-name-input {
-    padding: 10px;
+.shift-article-name-input[type='text'] {
+    padding: 30px 10px;
     margin-top: 5px;
     margin-bottom: 15px;
+    background: none;
+    color: #38c172;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.2;
+    outline-width: 0;
+}
+
+.shift-article-name-input[type='text']:focus {
+    outline: 0;
 }
 
 .shift-article-name:hover {

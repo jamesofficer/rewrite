@@ -44971,19 +44971,19 @@ function removeBVPO(el) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(216)
+  __webpack_require__(373)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(219)
 /* template */
-var __vue_template__ = __webpack_require__(297)
+var __vue_template__ = __webpack_require__(375)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0839e31a"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -45016,46 +45016,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 216 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(217);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(13)("e612b12c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0839e31a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Shift.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0839e31a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Shift.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 217 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.shift-container {\r\n    background: #eee;\r\n    padding: 15px 20px;\n}\n.shift-article-name {\r\n    padding: 10px;\r\n    margin-bottom: 15px;\r\n    color: #38c172;\n}\n.shift-article-name-input {\r\n    padding: 10px;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\n}\n.shift-article-name:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar {\r\n    padding: 5px;\n}\n.top-bar-portal-target {\r\n    display: inline;\n}\n.shift-wrapper {\r\n    margin-top: 10px;\n}\n.shift-workspace {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin-bottom: 50px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.shift-sidebar {\r\n    background: #fff;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    padding: 5px 10px;\r\n    top: 20px;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 216 */,
+/* 217 */,
 /* 218 */
 /***/ (function(module, exports) {
 
@@ -45247,7 +45209,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function () {
-                this.$refs.articleTitleInput.focus();
+                // this.$refs.articleTitleInput.focus();
+
+                var input = document.querySelector('.shift-article-name-input');
+
+                console.log(input);
+
+                var strLength = input.value.length;
+
+                input.focus();
+                input.setSelectionRange(strLength, strLength);
             });
         },
         addCanvas: function addCanvas() {
@@ -49144,267 +49115,7 @@ if (false) {
 }
 
 /***/ }),
-/* 297 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-container",
-    { staticClass: "shift-container", attrs: { fluid: "" } },
-    [
-      _c(
-        "b-alert",
-        {
-          attrs: {
-            variant: _vm.sessionAlert.type,
-            dismissible: "",
-            fade: "",
-            show: _vm.sessionAlert.show
-          },
-          on: {
-            dismissed: function($event) {
-              _vm.sessionAlert.show = false
-            }
-          }
-        },
-        [_vm._v("\n        " + _vm._s(_vm.sessionAlert.message) + "\n    ")]
-      ),
-      _vm._v(" "),
-      _vm.showArticleOverwriteAlert
-        ? _c("b-alert", { attrs: { show: "", variant: "warning" } }, [
-            _c("h4", { staticClass: "alert-heading" }, [
-              _vm._v("Article already exists! Overwrite?")
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "An article already exists with the title: " +
-                  _vm._s(_vm.articleTitle)
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Do you want to overwrite it?")]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "p",
-              { staticClass: "mb-0" },
-              [
-                _c(
-                  "b-btn",
-                  {
-                    attrs: { variant: "danger" },
-                    on: {
-                      click: function($event) {
-                        _vm.storeArticle(true)
-                      }
-                    }
-                  },
-                  [_vm._v("Overwrite")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-btn",
-                  {
-                    attrs: { variant: "secondary" },
-                    on: {
-                      click: function($event) {
-                        _vm.showArticleOverwriteAlert = false
-                      }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ],
-              1
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "b-row",
-        [
-          _c(
-            "b-col",
-            [
-              !_vm.settingArticleTitle
-                ? _c("em", [
-                    _c(
-                      "h2",
-                      {
-                        staticClass: "shift-article-name",
-                        on: { click: _vm.setArticleTitle }
-                      },
-                      [_vm._v(_vm._s(_vm.articleTitle))]
-                    )
-                  ])
-                : _c("b-input", {
-                    ref: "articleTitleInput",
-                    staticClass: "shift-article-name-input",
-                    attrs: { size: "lg" },
-                    nativeOn: {
-                      blur: function($event) {
-                        _vm.settingArticleTitle = false
-                      }
-                    },
-                    model: {
-                      value: _vm.articleTitle,
-                      callback: function($$v) {
-                        _vm.articleTitle = $$v
-                      },
-                      expression: "articleTitle"
-                    }
-                  })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-row",
-        { staticClass: "shift-top-bar" },
-        [
-          _c(
-            "b-col",
-            [
-              _c(
-                "b-btn",
-                {
-                  attrs: { variant: "success", size: "sm" },
-                  on: { click: _vm.addCanvas }
-                },
-                [
-                  _c("icon", { attrs: { name: "palette" } }),
-                  _vm._v(" Add Canvas\n            ")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("portal-target", {
-                staticClass: "top-bar-portal-target",
-                attrs: { name: "top-bar" }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            { staticClass: "text-right" },
-            [
-              _c(
-                "b-btn",
-                {
-                  directives: [
-                    {
-                      name: "b-modal",
-                      rawName: "v-b-modal.loadArticleModal",
-                      modifiers: { loadArticleModal: true }
-                    }
-                  ],
-                  attrs: { variant: "primary", size: "sm" }
-                },
-                [
-                  _c("icon", { attrs: { name: "folder-open" } }),
-                  _vm._v(" Load Article\n            ")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-btn",
-                {
-                  attrs: { variant: "success", size: "sm" },
-                  on: { click: _vm.saveArticle }
-                },
-                [
-                  _c("icon", { attrs: { name: "save" } }),
-                  _vm._v(" Save Article\n            ")
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-row",
-        { staticClass: "shift-wrapper" },
-        [
-          _c("b-col", { attrs: { col: "" } }, [
-            _c(
-              "div",
-              { staticClass: "shift-workspace" },
-              [
-                _c(
-                  "b-container",
-                  { attrs: { fluid: "" } },
-                  _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-                    return _c(canvas.type, {
-                      key: canvasIndex,
-                      tag: "component",
-                      staticClass: "shift-canvas",
-                      attrs: { canvasIndex: canvasIndex },
-                      nativeOn: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.selectCanvas(canvasIndex)
-                        }
-                      }
-                    })
-                  })
-                )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _vm.showSidebar
-            ? _c("b-col", { attrs: { cols: "4" } }, [
-                _c(
-                  "div",
-                  { staticClass: "shift-sidebar sticky-top" },
-                  [
-                    _c("portal-target", {
-                      staticClass: "sidebar",
-                      attrs: { name: "sidebar" }
-                    })
-                  ],
-                  1
-                )
-              ])
-            : _vm._e()
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("add-component-modal"),
-      _vm._v(" "),
-      _c("load-article-modal")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0839e31a", module.exports)
-  }
-}
-
-/***/ }),
+/* 297 */,
 /* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -73020,6 +72731,307 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-68265b50", module.exports)
+  }
+}
+
+/***/ }),
+/* 373 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(374);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(13)("7f1a1391", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0839e31a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Shift.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0839e31a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Shift.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 374 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.shift-container[data-v-0839e31a] {\r\n    background: #eee;\r\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-0839e31a] {\r\n    padding: 10px;\r\n    margin-bottom: 15px;\r\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a] {\r\n    padding: 30px 10px;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-weight: 600;\r\n    font-size: 1.8rem;\r\n    font-style: italic;\r\n    line-height: 1.2;\r\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-0839e31a] {\r\n    padding: 5px;\n}\n.top-bar-portal-target[data-v-0839e31a] {\r\n    display: inline;\n}\n.shift-wrapper[data-v-0839e31a] {\r\n    margin-top: 10px;\n}\n.shift-workspace[data-v-0839e31a] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin-bottom: 50px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-0839e31a] {\r\n    background: #fff;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    padding: 5px 10px;\r\n    top: 20px;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-container",
+    { staticClass: "shift-container", attrs: { fluid: "" } },
+    [
+      _c(
+        "b-alert",
+        {
+          attrs: {
+            variant: _vm.sessionAlert.type,
+            dismissible: "",
+            fade: "",
+            show: _vm.sessionAlert.show
+          },
+          on: {
+            dismissed: function($event) {
+              _vm.sessionAlert.show = false
+            }
+          }
+        },
+        [_vm._v("\n        " + _vm._s(_vm.sessionAlert.message) + "\n    ")]
+      ),
+      _vm._v(" "),
+      _vm.showArticleOverwriteAlert
+        ? _c("b-alert", { attrs: { show: "", variant: "warning" } }, [
+            _c("h4", { staticClass: "alert-heading" }, [
+              _vm._v("Article already exists! Overwrite?")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "An article already exists with the title: " +
+                  _vm._s(_vm.articleTitle)
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Do you want to overwrite it?")]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "mb-0" },
+              [
+                _c(
+                  "b-btn",
+                  {
+                    attrs: { variant: "danger" },
+                    on: {
+                      click: function($event) {
+                        _vm.storeArticle(true)
+                      }
+                    }
+                  },
+                  [_vm._v("Overwrite")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-btn",
+                  {
+                    attrs: { variant: "secondary" },
+                    on: {
+                      click: function($event) {
+                        _vm.showArticleOverwriteAlert = false
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        [
+          _c(
+            "b-col",
+            [
+              !_vm.settingArticleTitle
+                ? _c("em", [
+                    _c(
+                      "h2",
+                      {
+                        staticClass: "shift-article-name",
+                        on: { click: _vm.setArticleTitle }
+                      },
+                      [_vm._v(_vm._s(_vm.articleTitle))]
+                    )
+                  ])
+                : _c("b-input", {
+                    ref: "articleTitleInput",
+                    staticClass: "shift-article-name-input",
+                    attrs: { size: "lg" },
+                    nativeOn: {
+                      blur: function($event) {
+                        _vm.settingArticleTitle = false
+                      }
+                    },
+                    model: {
+                      value: _vm.articleTitle,
+                      callback: function($$v) {
+                        _vm.articleTitle = $$v
+                      },
+                      expression: "articleTitle"
+                    }
+                  })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "shift-top-bar" },
+        [
+          _c(
+            "b-col",
+            [
+              _c(
+                "b-btn",
+                {
+                  attrs: { variant: "success", size: "sm" },
+                  on: { click: _vm.addCanvas }
+                },
+                [
+                  _c("icon", { attrs: { name: "palette" } }),
+                  _vm._v(" Add Canvas\n            ")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("portal-target", {
+                staticClass: "top-bar-portal-target",
+                attrs: { name: "top-bar" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "b-btn",
+                {
+                  directives: [
+                    {
+                      name: "b-modal",
+                      rawName: "v-b-modal.loadArticleModal",
+                      modifiers: { loadArticleModal: true }
+                    }
+                  ],
+                  attrs: { variant: "primary", size: "sm" }
+                },
+                [
+                  _c("icon", { attrs: { name: "folder-open" } }),
+                  _vm._v(" Load Article\n            ")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-btn",
+                {
+                  attrs: { variant: "success", size: "sm" },
+                  on: { click: _vm.saveArticle }
+                },
+                [
+                  _c("icon", { attrs: { name: "save" } }),
+                  _vm._v(" Save Article\n            ")
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "shift-wrapper" },
+        [
+          _c("b-col", { attrs: { col: "" } }, [
+            _c(
+              "div",
+              { staticClass: "shift-workspace" },
+              [
+                _c(
+                  "b-container",
+                  { attrs: { fluid: "" } },
+                  _vm._l(_vm.canvases, function(canvas, canvasIndex) {
+                    return _c(canvas.type, {
+                      key: canvasIndex,
+                      tag: "component",
+                      staticClass: "shift-canvas",
+                      attrs: { canvasIndex: canvasIndex },
+                      nativeOn: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.selectCanvas(canvasIndex)
+                        }
+                      }
+                    })
+                  })
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm.showSidebar
+            ? _c("b-col", { attrs: { cols: "4" } }, [
+                _c(
+                  "div",
+                  { staticClass: "shift-sidebar sticky-top" },
+                  [
+                    _c("portal-target", {
+                      staticClass: "sidebar",
+                      attrs: { name: "sidebar" }
+                    })
+                  ],
+                  1
+                )
+              ])
+            : _vm._e()
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("add-component-modal"),
+      _vm._v(" "),
+      _c("load-article-modal")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0839e31a", module.exports)
   }
 }
 
