@@ -7,14 +7,11 @@
                 fontFamily: element.fontFamily,
                 fontWeight: element.fontWeight,
                 color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                backgroundColor: element.backgroundColor,
                 paddingTop: element.padding.top + 'px',
                 paddingRight: element.padding.right + 'px',
                 paddingBottom: element.padding.bottom + 'px',
                 paddingLeft: element.padding.left + 'px',
-            }">
-                {{ element.content }}
-            </p>
+            }" v-html="element.content"></p>
 
             <text-input v-else :textarea="true" @focusout.native="editingText = false"
                 :style="{
@@ -36,8 +33,6 @@
 
             <text-color></text-color>
 
-            <background-color></background-color>
-
             <padding></padding>
         </sidebar>
     </div>
@@ -55,7 +50,6 @@ import FontFamily        from './core/FontFamily'
 import TextAlignment     from './core/TextAlignment'
 import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor         from './core/TextColor'
-import BackgroundColor   from './core/BackgroundColor'
 import Padding           from './core/Padding'
 
 export default {
@@ -63,7 +57,7 @@ export default {
     components: {
         Sidebar, SidebarControl, TextInput,
         TextArea, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
-        BackgroundColor, Padding
+        Padding
     },
 
     props: {

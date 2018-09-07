@@ -4,6 +4,7 @@ NEW COMPONENTS:
 - Create an Image component.
 - Create an Instagram component.
 - Create an Pinterest component.
+- Create a Youtube component.
 
 FEATURES:
 - Let users delete components off columns.
@@ -13,7 +14,6 @@ FEATURES:
 - Let users delete articles.
 - Highlight the background of a component when selecting it (instead of a border).
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
-- Editing title keeps styles from the heading.
 - Fix blockquote text entry.
 
 

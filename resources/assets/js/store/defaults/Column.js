@@ -6,7 +6,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultPicture],
 
     // Properties:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },

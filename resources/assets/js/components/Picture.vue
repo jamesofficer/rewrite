@@ -1,12 +1,14 @@
 <template>
     <div>
-        <img :src="imageSource" alt="Image" :style="{
+        <!-- <img :src="imageSource" alt="Image" :style="{
             width: '100%',
             paddingTop: element.padding.top + 'px',
             paddingRight: element.padding.right + 'px',
             paddingBottom: element.padding.bottom + 'px',
             paddingLeft: element.padding.left + 'px',
-        }">
+        }"> -->
+
+        <p>some image here...</p>
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Image">

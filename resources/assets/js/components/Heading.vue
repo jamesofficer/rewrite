@@ -13,9 +13,7 @@
                 paddingRight: element.padding.right + 'px',
                 paddingBottom: element.padding.bottom + 'px',
                 paddingLeft: element.padding.left + 'px',
-            }">
-                {{ element.content }}
-            </h1>
+            }" v-html="element.content"></h1>
 
             <text-input v-else @focusout.native="editingText = false" :style="{
                     fontFamily: element.fontFamily,

@@ -48,6 +48,10 @@
             </b-col>
 
             <b-col class="text-right">
+                <b-btn v-b-modal.myImagesModal variant="secondary" size="sm">
+                    <icon name="images"></icon> My Images
+                </b-btn>
+
                 <b-btn v-b-modal.loadArticleModal variant="primary" size="sm">
                     <icon name="folder-open"></icon> Load Article
                 </b-btn>
@@ -90,6 +94,9 @@
         <!-- Load Article Modal -->
         <load-article-modal></load-article-modal>
 
+        <!-- My Images Modal -->
+        <my-images-modal></my-images-modal>
+
     </b-container>
 </template>
 
@@ -97,12 +104,13 @@
 import Canvas            from "./components/Canvas.vue";
 import AddComponentModal from './components/dialogs/AddComponentModal';
 import LoadArticleModal  from './components/dialogs/LoadArticleModal';
+import MyImagesModal     from './components/dialogs/MyImagesModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas, AddComponentModal, LoadArticleModal
+        Canvas, AddComponentModal, LoadArticleModal, MyImagesModal
     },
 
     computed: {
@@ -145,12 +153,7 @@ export default {
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function() {
-                // this.$refs.articleTitleInput.focus();
-
                 let input = document.querySelector('.shift-article-name-input');
-
-                console.log(input);
-
                 let strLength = input.value.length;
 
                 input.focus();
@@ -179,7 +182,7 @@ export default {
                 title: title,
             }).then(response => {
                 return response.data;
-            })
+            });
         },
 
         saveArticle() {
@@ -227,6 +230,7 @@ export default {
 
 <style scoped>
 .shift-container {
+    height: 100%;
     background: #eee;
     padding: 15px 20px;
 }

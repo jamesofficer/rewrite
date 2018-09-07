@@ -22462,7 +22462,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */]],
 
     // Properties:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -33181,6 +33181,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_vue_awesome_icons_eye__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_awesome_icons_save__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_vue_awesome_icons_folder_open__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_vue_awesome_icons_images__ = __webpack_require__(375);
 
 
 
@@ -33193,6 +33194,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // Icon Imports
 // https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -45030,7 +45032,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-container[data-v-667f58a0] {\n    background: #eee;\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-667f58a0] {\n    padding: 10px;\n    margin-bottom: 15px;\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    padding: 30px 10px;\n    margin-top: 5px;\n    margin-bottom: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-667f58a0] {\n    padding: 5px;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: inline;\n}\n.shift-wrapper[data-v-667f58a0] {\n    margin-top: 10px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin-bottom: 50px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-667f58a0] {\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    padding: 5px 10px;\n    top: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.shift-container[data-v-667f58a0] {\n    height: 100%;\n    background: #eee;\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-667f58a0] {\n    padding: 10px;\n    margin-bottom: 15px;\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    padding: 30px 10px;\n    margin-top: 5px;\n    margin-bottom: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-667f58a0] {\n    padding: 5px;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: inline;\n}\n.shift-wrapper[data-v-667f58a0] {\n    margin-top: 10px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin-bottom: 50px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-667f58a0] {\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    padding: 5px 10px;\n    top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -45080,6 +45082,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_dialogs_AddComponentModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_dialogs_LoadArticleModal__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_dialogs_MyImagesModal__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_dialogs_MyImagesModal__);
 //
 //
 //
@@ -45175,6 +45179,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -45184,7 +45196,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Shift",
 
     components: {
-        Canvas: __WEBPACK_IMPORTED_MODULE_0__components_Canvas_vue___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_1__components_dialogs_AddComponentModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_2__components_dialogs_LoadArticleModal___default.a
+        Canvas: __WEBPACK_IMPORTED_MODULE_0__components_Canvas_vue___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_1__components_dialogs_AddComponentModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_2__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_3__components_dialogs_MyImagesModal___default.a
     },
 
     computed: {
@@ -45227,12 +45239,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function () {
-                // this.$refs.articleTitleInput.focus();
-
                 var input = document.querySelector('.shift-article-name-input');
-
-                console.log(input);
-
                 var strLength = input.value.length;
 
                 input.focus();
@@ -46837,8 +46844,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
 
 
 
@@ -47655,40 +47660,31 @@ var render = function() {
         { staticClass: "clickable-component" },
         [
           !_vm.editingText
-            ? _c(
-                "h1",
-                {
-                  style: {
-                    textAlign: _vm.element.textAlign,
-                    fontSize: _vm.element.fontSize + "pt",
-                    fontFamily: _vm.element.fontFamily,
-                    fontWeight: _vm.element.fontWeight,
-                    color:
-                      "rgba(" +
-                      _vm.element.textColor.r +
-                      ", " +
-                      _vm.element.textColor.g +
-                      ", " +
-                      _vm.element.textColor.b +
-                      ", " +
-                      _vm.element.textColor.a +
-                      ")",
-                    backgroundColor: _vm.element.backgroundColor,
-                    paddingTop: _vm.element.padding.top + "px",
-                    paddingRight: _vm.element.padding.right + "px",
-                    paddingBottom: _vm.element.padding.bottom + "px",
-                    paddingLeft: _vm.element.padding.left + "px"
-                  },
-                  on: { click: _vm.selectInput }
+            ? _c("h1", {
+                style: {
+                  textAlign: _vm.element.textAlign,
+                  fontSize: _vm.element.fontSize + "pt",
+                  fontFamily: _vm.element.fontFamily,
+                  fontWeight: _vm.element.fontWeight,
+                  color:
+                    "rgba(" +
+                    _vm.element.textColor.r +
+                    ", " +
+                    _vm.element.textColor.g +
+                    ", " +
+                    _vm.element.textColor.b +
+                    ", " +
+                    _vm.element.textColor.a +
+                    ")",
+                  backgroundColor: _vm.element.backgroundColor,
+                  paddingTop: _vm.element.padding.top + "px",
+                  paddingRight: _vm.element.padding.right + "px",
+                  paddingBottom: _vm.element.padding.bottom + "px",
+                  paddingLeft: _vm.element.padding.left + "px"
                 },
-                [
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.element.content) +
-                      "\n        "
-                  )
-                ]
-              )
+                domProps: { innerHTML: _vm._s(_vm.element.content) },
+                on: { click: _vm.selectInput }
+              })
             : _c("text-input", {
                 style: {
                   fontFamily: _vm.element.fontFamily,
@@ -47809,17 +47805,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-//
-//
-//
-//
-//
 //
 //
 //
@@ -47874,13 +47863,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a, TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a,
         TextArea: __WEBPACK_IMPORTED_MODULE_4__core_TextArea___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a
+        Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a
     },
 
     props: {
@@ -48135,40 +48123,30 @@ var render = function() {
         { staticClass: "clickable-component" },
         [
           !_vm.editingText
-            ? _c(
-                "p",
-                {
-                  style: {
-                    textAlign: _vm.element.textAlign,
-                    fontSize: _vm.element.fontSize + "pt",
-                    fontFamily: _vm.element.fontFamily,
-                    fontWeight: _vm.element.fontWeight,
-                    color:
-                      "rgba(" +
-                      _vm.element.textColor.r +
-                      ", " +
-                      _vm.element.textColor.g +
-                      ", " +
-                      _vm.element.textColor.b +
-                      ", " +
-                      _vm.element.textColor.a +
-                      ")",
-                    backgroundColor: _vm.element.backgroundColor,
-                    paddingTop: _vm.element.padding.top + "px",
-                    paddingRight: _vm.element.padding.right + "px",
-                    paddingBottom: _vm.element.padding.bottom + "px",
-                    paddingLeft: _vm.element.padding.left + "px"
-                  },
-                  on: { click: _vm.selectInput }
+            ? _c("p", {
+                style: {
+                  textAlign: _vm.element.textAlign,
+                  fontSize: _vm.element.fontSize + "pt",
+                  fontFamily: _vm.element.fontFamily,
+                  fontWeight: _vm.element.fontWeight,
+                  color:
+                    "rgba(" +
+                    _vm.element.textColor.r +
+                    ", " +
+                    _vm.element.textColor.g +
+                    ", " +
+                    _vm.element.textColor.b +
+                    ", " +
+                    _vm.element.textColor.a +
+                    ")",
+                  paddingTop: _vm.element.padding.top + "px",
+                  paddingRight: _vm.element.padding.right + "px",
+                  paddingBottom: _vm.element.padding.bottom + "px",
+                  paddingLeft: _vm.element.padding.left + "px"
                 },
-                [
-                  _vm._v(
-                    "\n            " +
-                      _vm._s(_vm.element.content) +
-                      "\n        "
-                  )
-                ]
-              )
+                domProps: { innerHTML: _vm._s(_vm.element.content) },
+                on: { click: _vm.selectInput }
+              })
             : _c("text-input", {
                 style: {
                   fontFamily: _vm.element.fontFamily,
@@ -48199,8 +48177,6 @@ var render = function() {
               _c("font-weight-and-size"),
               _vm._v(" "),
               _c("text-color"),
-              _vm._v(" "),
-              _c("background-color"),
               _vm._v(" "),
               _c("padding")
             ],
@@ -48857,6 +48833,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
 
 
 
@@ -49044,16 +49022,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("img", {
-        style: {
-          width: "100%",
-          paddingTop: _vm.element.padding.top + "px",
-          paddingRight: _vm.element.padding.right + "px",
-          paddingBottom: _vm.element.padding.bottom + "px",
-          paddingLeft: _vm.element.padding.left + "px"
-        },
-        attrs: { src: _vm.imageSource, alt: "Image" }
-      }),
+      _c("p", [_vm._v("some image here...")]),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -49344,7 +49313,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "LoadArticleModal",
 
@@ -49608,6 +49576,25 @@ var render = function() {
                   directives: [
                     {
                       name: "b-modal",
+                      rawName: "v-b-modal.myImagesModal",
+                      modifiers: { myImagesModal: true }
+                    }
+                  ],
+                  attrs: { variant: "secondary", size: "sm" }
+                },
+                [
+                  _c("icon", { attrs: { name: "images" } }),
+                  _vm._v(" My Images\n            ")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-btn",
+                {
+                  directives: [
+                    {
+                      name: "b-modal",
                       rawName: "v-b-modal.loadArticleModal",
                       modifiers: { loadArticleModal: true }
                     }
@@ -49693,7 +49680,9 @@ var render = function() {
       _vm._v(" "),
       _c("add-component-modal"),
       _vm._v(" "),
-      _c("load-article-modal")
+      _c("load-article-modal"),
+      _vm._v(" "),
+      _c("my-images-modal")
     ],
     1
   )
@@ -73160,6 +73149,184 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-3736ce7d", module.exports)
+  }
+}
+
+/***/ }),
+/* 375 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"images":{"width":576,"height":512,"paths":[{"d":"M480 416V432C480 458.5 458.5 480 432 480H48C21.5 480 0 458.5 0 432V176C0 149.5 21.5 128 48 128H64V336C64 380.1 99.9 416 144 416H480zM576 336V80C576 53.5 554.5 32 528 32H144C117.5 32 96 53.5 96 80V336C96 362.5 117.5 384 144 384H528C554.5 384 576 362.5 576 336zM256 128C256 154.5 234.5 176 208 176S160 154.5 160 128 181.5 80 208 80 256 101.5 256 128zM160 272L215.5 216.5C220.2 211.8 227.8 211.8 232.5 216.5L272 256 407.5 120.5C412.2 115.8 419.8 115.8 424.5 120.5L512 208V320H160V272z"}]}})
+
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(377)
+/* template */
+var __vue_template__ = __webpack_require__(378)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dialogs/MyImagesModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-00d63ebe", Component.options)
+  } else {
+    hotAPI.reload("data-v-00d63ebe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 377 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "MyImagesModal",
+
+    data: function data() {
+        return {
+            images: []
+        };
+    },
+
+
+    methods: {
+        uploadImage: function uploadImage(e) {
+            console.log(e);
+
+            return axios.post('/images/store', {
+                image: e.target.value
+            }).then(function (response) {
+                console.log(response.data);
+            });
+        },
+        getImages: function getImages() {
+            var _this = this;
+
+            axios.get('/images').then(function (response) {
+                if (response.data.length === 0) {
+                    _this.images.push('Sorry no images found...');
+                } else {
+                    _this.images = response.data;
+                }
+            }).catch(function (error) {
+                console.log('something fucked up');
+                console.log(error);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 378 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      ref: "myImagesModal",
+      attrs: { id: "myImagesModal", title: "My Images", size: "lg" },
+      on: { shown: _vm.getImages }
+    },
+    [
+      _c("h6", [_vm._v("Upload Image:")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        { attrs: { enctype: "multipart/form-data", novalidate: "" } },
+        [
+          _c("input", {
+            attrs: { type: "file", name: "imageUpload", accept: "image/*" },
+            on: {
+              change: function($event) {
+                _vm.uploadImage($event)
+              }
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h6", [_vm._v("Your Images:")]),
+      _vm._v(" "),
+      _vm._l(_vm.images, function(image, index) {
+        return [
+          _c("pre", { key: index }, [
+            _vm._v(_vm._s(index) + ". " + _vm._s(image))
+          ])
+        ]
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-00d63ebe", module.exports)
   }
 }
 
