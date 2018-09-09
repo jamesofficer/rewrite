@@ -74,32 +74,24 @@ export const selectComponent = (state, i) => {
     getSelectedElement(state).selected = true;
 };
 
-export const deleteComponent = (state, i) => {
-    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
-};
-
 // Adds a component to the specified column.
 export const addComponentToColumn = (state, componentType) => {
-    if (componentType === "Heading") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components
-            .push(duplicateObject(defaultHeading));
-    }
+    const components = {
+        "Heading": duplicateObject(defaultHeading),
+        "Paragraph": duplicateObject(defaultParagraph),
+        "BlockQuote": duplicateObject(defaultBlockQuote),
+        "Picture": duplicateObject(defaultPicture),
+    };
 
-    if (componentType === "Paragraph") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components
-            .push(duplicateObject(defaultParagraph));
-    }
-
-    if (componentType === "BlockQuote") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components
-            .push(duplicateObject(defaultBlockQuote));
-    }
-
-    if (componentType === "Picture") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components
-            .push(duplicateObject(defaultPicture));
-    }
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(components[componentType]);
 };
+
+// Deletes a component from a column.
+export const deleteComponent = (state) => {
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    state.currentComponent = undefined;
+}
 
 // ===================================================== //
 // Saving/Loading Articles. (should probably be actions)

@@ -46908,22 +46908,26 @@ exports.push([module.i, "\nh1[data-v-5502c91b] {\n    margin: 0;\n    padding: 0
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextColor__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -46967,6 +46971,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -46984,8 +46996,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     name: "Heading",
 
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_8__core_Padding___default.a
+        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a
     },
 
     props: {
@@ -47912,7 +47924,16 @@ var render = function() {
                   fontFamily: _vm.element.fontFamily,
                   fontSize: _vm.element.fontSize + "pt",
                   textAlign: _vm.element.textAlign,
-                  color: _vm.element.textColor
+                  color:
+                    "rgba(" +
+                    _vm.element.textColor.r +
+                    ", " +
+                    _vm.element.textColor.g +
+                    ", " +
+                    _vm.element.textColor.b +
+                    ", " +
+                    _vm.element.textColor.a +
+                    ")"
                 },
                 attrs: { size: "lg", id: "heading-input" },
                 nativeOn: {
@@ -47924,6 +47945,10 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -48011,24 +48036,28 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextArea__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextArea___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextArea__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextArea__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextArea___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextArea__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextAlignment__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -48071,6 +48100,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -48088,9 +48124,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a, TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a,
-        TextArea: __WEBPACK_IMPORTED_MODULE_4__core_TextArea___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_7__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a
+        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, TextArea: __WEBPACK_IMPORTED_MODULE_6__core_TextArea___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_8__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a
     },
 
     props: {
@@ -48326,6 +48362,10 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.elementIsSelected
         ? _c(
             "sidebar",
             { attrs: { title: "Paragraph" } },
@@ -48455,26 +48495,30 @@ exports.push([module.i, "\nblockquote[data-v-159317e6] {\n    border-left: 5px s
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextColor__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_SetBorder__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_SetBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_SetBorder__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_SetBorder__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_SetBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_SetBorder__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -48517,6 +48561,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -48536,9 +48587,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     name: "BlockQuote",
 
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, SetBorder: __WEBPACK_IMPORTED_MODULE_10__core_SetBorder___default.a
+        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a,
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a, SetBorder: __WEBPACK_IMPORTED_MODULE_12__core_SetBorder___default.a
     },
 
     props: {
@@ -49042,6 +49093,10 @@ var render = function() {
         [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
       ),
       _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
+      _vm._v(" "),
       _vm.elementIsSelected(_vm.indexes)
         ? _c(
             "sidebar",
@@ -49134,14 +49189,18 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_ImageSource__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_ImageSource___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_ImageSource__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageSource__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageSource___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_ImageSource__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Padding__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -49166,6 +49225,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -49178,8 +49244,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     name: "Picture",
 
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        ImageSource: __WEBPACK_IMPORTED_MODULE_3__core_ImageSource___default.a, Padding: __WEBPACK_IMPORTED_MODULE_4__core_Padding___default.a
+        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        ImageSource: __WEBPACK_IMPORTED_MODULE_5__core_ImageSource___default.a, Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a
     },
 
     props: {
@@ -49354,6 +49420,10 @@ var render = function() {
     "div",
     [
       _c("p", [_vm._v("some image here...")]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -50716,8 +50786,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectColumn", function() { return selectColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectComponent", function() { return selectComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComponentToColumn", function() { return addComponentToColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTextContent", function() { return updateTextContent; });
@@ -50819,27 +50889,22 @@ var selectComponent = function selectComponent(state, i) {
     Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).selected = true;
 };
 
-var deleteComponent = function deleteComponent(state, i) {
-    state.canvases[i.canvasIndex].columns[i.columnIndex].splice(i.componentIndex, 1);
-};
-
 // Adds a component to the specified column.
 var addComponentToColumn = function addComponentToColumn(state, componentType) {
-    if (componentType === "Heading") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__defaults_Heading__["a" /* default */]));
-    }
+    var components = {
+        "Heading": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__defaults_Heading__["a" /* default */]),
+        "Paragraph": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_3__defaults_Paragraph__["a" /* default */]),
+        "BlockQuote": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_4__defaults_BlockQuote__["a" /* default */]),
+        "Picture": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_5__defaults_Picture__["a" /* default */])
+    };
 
-    if (componentType === "Paragraph") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_3__defaults_Paragraph__["a" /* default */]));
-    }
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(components[componentType]);
+};
 
-    if (componentType === "BlockQuote") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_4__defaults_BlockQuote__["a" /* default */]));
-    }
-
-    if (componentType === "Picture") {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_5__defaults_Picture__["a" /* default */]));
-    }
+// Deletes a component from a column.
+var deleteComponent = function deleteComponent(state) {
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    state.currentComponent = undefined;
 };
 
 // ===================================================== //
@@ -73319,6 +73384,118 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 369 */,
+/* 370 */,
+/* 371 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(372)
+/* template */
+var __vue_template__ = __webpack_require__(373)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/DeleteComponentButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0ac54aac", Component.options)
+  } else {
+    hotAPI.reload("data-v-0ac54aac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 372 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "DeleteComponentButton",
+
+    methods: {
+        deleteComponent: function deleteComponent() {
+            this.$store.commit('deleteComponent');
+        }
+    }
+});
+
+/***/ }),
+/* 373 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticStyle: { display: "inline" } },
+    [
+      _c(
+        "b-btn",
+        {
+          attrs: { size: "sm", variant: "outline-danger" },
+          on: { click: _vm.deleteComponent }
+        },
+        [
+          _c("icon", { attrs: { name: "times" } }),
+          _vm._v(" Delete Component\n    ")
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0ac54aac", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -7,7 +7,7 @@ NEW COMPONENTS:
 - Create a Youtube component.
 
 FEATURES:
-- Let users delete components off columns.
+- Outline selected component.
 - Users can drag and rearrange columns?
 - Let users add hyperlinks and bold/italic text to paragraph text.
 - Export document as HTML.

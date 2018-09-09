@@ -16,6 +16,11 @@
             {{ element.content }}
         </blockquote>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <delete-component-button></delete-component-button>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected(indexes)" title="BlockQuote">
             <text-input></text-input>
@@ -40,8 +45,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import TopBar         from './topbar/TopBar'
 import Sidebar        from './sidebar/Sidebar'
 import SidebarControl from './sidebar/SidebarControl'
+import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 // Property Imports:
 import TextInput       from './core/TextInput'
@@ -51,13 +58,13 @@ import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor       from './core/TextColor'
 import BackgroundColor from './core/BackgroundColor'
 import Padding         from './core/Padding'
-import SetBorder        from './core/SetBorder'
+import SetBorder       from './core/SetBorder'
 
 export default {
     name: "BlockQuote",
 
     components: {
-        Sidebar, SidebarControl,
+        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding, SetBorder
     },

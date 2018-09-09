@@ -10,6 +10,11 @@
 
         <p>some image here...</p>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <delete-component-button></delete-component-button>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Image">
             <image-source></image-source>
@@ -22,9 +27,11 @@
 
 <script>
 import { mapGetters }    from 'vuex';
+import TopBar            from './topbar/TopBar'
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
 
+import DeleteComponentButton from './topbar/DeleteComponentButton'
 import ImageSource       from './core/ImageSource'
 import Padding           from './core/Padding'
 
@@ -32,7 +39,7 @@ export default {
     name: "Picture",
 
     components: {
-        Sidebar, SidebarControl,
+        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
         ImageSource, Padding
     },
 

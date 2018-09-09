@@ -23,6 +23,11 @@
             ></text-input>
         </div>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <delete-component-button></delete-component-button>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Paragraph">
             <font-family></font-family>
@@ -39,9 +44,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
+import { mapGetters }     from 'vuex';
+import TopBar            from './topbar/TopBar'
+import Sidebar            from './sidebar/Sidebar'
+import SidebarControl     from './sidebar/SidebarControl'
+import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 // Property imports
 import TextInput         from './core/TextInput'
@@ -55,8 +62,8 @@ import Padding           from './core/Padding'
 export default {
 
     components: {
-        Sidebar, SidebarControl, TextInput,
-        TextArea, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
+        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
+        TextInput, TextArea, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         Padding
     },
 
