@@ -48,6 +48,42 @@
             ></b-card>
         </div>
 
+        <div class="modal-card">
+            <b-card title="Instagram Embed"
+                    img-src="../img/instagram-embed_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('InstagramEmbed')"
+            ></b-card>
+        </div>
+
+        <div class="modal-card">
+            <b-card title="Facebook Embed"
+                    img-src="../img/facebook-embed_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('FacebookEmbed')"
+            ></b-card>
+        </div>
+
+        <div class="modal-card">
+            <b-card title="Youtube Embed"
+                    img-src="../img/youtube-embed_component_icon.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                    style="max-width: 10rem;"
+                    class="mb-2 text-center"
+                    @click="addComponent('YouTubeEmbed')"
+            ></b-card>
+        </div>
+
     </b-modal>
 </template>
 
@@ -56,6 +92,8 @@ import { duplicateObject } from '../../store/helpers'
 import defaultHeading      from '../../store/defaults/Heading'
 import defaultParagraph    from '../../store/defaults/Paragraph'
 import defaultBlockQuote   from '../../store/defaults/BlockQuote'
+import defaultInstagramEmbed   from '../../store/defaults/InstagramEmbed'
+import defaultFacebookEmbed   from '../../store/defaults/FacebookEmbed'
 
 export default {
     name: "AddComponentModal",

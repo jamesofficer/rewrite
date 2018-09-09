@@ -1,6 +1,9 @@
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 import defaultPicture from "./Picture";
+import defaultInstagramEmbed from "./InstagramEmbed";
+import defaultFacebookEmbed from "./FacebookEmbed";
+import defaultYouTubeEmbed from "./YouTubeEmbed";
 
 export default {
     type: "Column",

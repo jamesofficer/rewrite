@@ -46,6 +46,9 @@ import Heading             from './Heading'
 import Paragraph           from './Paragraph'
 import BlockQuote          from './BlockQuote'
 import Picture             from './Picture'
+import InstagramEmbed      from './InstagramEmbed'
+import FacebookEmbed      from './FacebookEmbed'
+import YouTubeEmbed      from './YouTubeEmbed'
 
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
@@ -56,7 +59,7 @@ export default {
     components: {
         Sidebar, SidebarControl,
         TopBar, AddComponentButton, RemoveColumn,
-        Heading, Paragraph, BlockQuote, Picture,
+        Heading, Paragraph, BlockQuote, Picture, InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         Padding, BackgroundColor
     },
 

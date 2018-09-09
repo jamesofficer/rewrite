@@ -22459,6 +22459,12 @@ module.exports = Component.exports
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Heading__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Paragraph__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Picture__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InstagramEmbed__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__FacebookEmbed__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__YouTubeEmbed__ = __webpack_require__(385);
+
+
+
 
 
 
@@ -46213,10 +46219,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__BlockQuote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__BlockQuote__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Picture__ = __webpack_require__(294);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Picture___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__Picture__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__InstagramEmbed__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__InstagramEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__InstagramEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__FacebookEmbed__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__FacebookEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__FacebookEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundColor__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_BackgroundColor__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -46271,14 +46283,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Column",
 
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
         TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_AddComponentButton___default.a, RemoveColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_RemoveColumn___default.a,
-        Heading: __WEBPACK_IMPORTED_MODULE_6__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_7__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_8__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_9__Picture___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default.a
+        Heading: __WEBPACK_IMPORTED_MODULE_6__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_7__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_8__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_9__Picture___default.a, InstagramEmbed: __WEBPACK_IMPORTED_MODULE_10__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_11__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_13__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_14__core_BackgroundColor___default.a
     },
 
     props: {
@@ -46459,6 +46474,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_defaults_Heading__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_defaults_Paragraph__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_defaults_BlockQuote__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store_defaults_InstagramEmbed__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store_defaults_FacebookEmbed__ = __webpack_require__(375);
 //
 //
 //
@@ -46512,6 +46529,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -46655,6 +46710,78 @@ var render = function() {
             on: {
               click: function($event) {
                 _vm.addComponent("Picture")
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "modal-card" },
+        [
+          _c("b-card", {
+            staticClass: "mb-2 text-center",
+            staticStyle: { "max-width": "10rem" },
+            attrs: {
+              title: "Instagram Embed",
+              "img-src": "../img/instagram-embed_component_icon.png",
+              "img-alt": "Image",
+              "img-top": "",
+              tag: "article"
+            },
+            on: {
+              click: function($event) {
+                _vm.addComponent("InstagramEmbed")
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "modal-card" },
+        [
+          _c("b-card", {
+            staticClass: "mb-2 text-center",
+            staticStyle: { "max-width": "10rem" },
+            attrs: {
+              title: "Facebook Embed",
+              "img-src": "../img/facebook-embed_component_icon.png",
+              "img-alt": "Image",
+              "img-top": "",
+              tag: "article"
+            },
+            on: {
+              click: function($event) {
+                _vm.addComponent("FacebookEmbed")
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "modal-card" },
+        [
+          _c("b-card", {
+            staticClass: "mb-2 text-center",
+            staticStyle: { "max-width": "10rem" },
+            attrs: {
+              title: "Youtube Embed",
+              "img-src": "../img/youtube-embed_component_icon.png",
+              "img-alt": "Image",
+              "img-top": "",
+              tag: "article"
+            },
+            on: {
+              click: function($event) {
+                _vm.addComponent("YouTubeEmbed")
               }
             }
           })
@@ -73496,6 +73623,682 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-0ac54aac", module.exports)
   }
 }
+
+/***/ }),
+/* 374 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+    type: 'InstagramEmbed',
+    selected: false,
+
+    // Properties:
+    content: 'Insert Instagram Embed Code to the Textbox',
+
+    padding: {
+        top: 40,
+        right: 0,
+        bottom: 40,
+        left: 0
+    }
+
+});
+
+/***/ }),
+/* 375 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+    type: 'FacebookEmbed',
+    selected: false,
+
+    // Properties:
+    content: 'Insert Facebook Embed Code to the Textbox',
+
+    padding: {
+        top: 40,
+        right: 0,
+        bottom: 40,
+        left: 0
+    }
+
+});
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(377)
+/* template */
+var __vue_template__ = __webpack_require__(378)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/InstagramEmbed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-719da0be", Component.options)
+  } else {
+    hotAPI.reload("data-v-719da0be", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 377 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+// Property Imports:
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "InstagramEmbed",
+
+    components: {
+        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
+    },
+
+    props: {
+        componentIndex: {
+            type: Number,
+            required: true
+        },
+
+        columnIndex: {
+            type: Number,
+            required: true
+        },
+
+        canvasIndex: {
+            type: Number,
+            required: true
+        }
+    },
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        getElement: 'getElement'
+    }), {
+        element: function element() {
+            return this.getElement(this.indexes);
+        },
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        }
+    }),
+
+    data: function data() {
+        return {
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex
+            }
+        };
+    },
+
+
+    methods: {
+        refreshComponent: function refreshComponent() {
+            this.$forceUpdate();
+        }
+    }
+
+});
+
+/***/ }),
+/* 378 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "clickable-component" }, [
+        _c("code", {
+          style: {
+            paddingTop: _vm.element.padding.top + "px",
+            paddingRight: _vm.element.padding.right + "px",
+            paddingBottom: _vm.element.padding.bottom + "px",
+            paddingLeft: _vm.element.padding.left + "px"
+          },
+          domProps: { innerHTML: _vm._s(_vm.element.content) }
+        })
+      ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "sidebar",
+            { attrs: { title: "InstagramEmbed" } },
+            [
+              _c("text-input", {
+                attrs: { textarea: "true" },
+                on: { input: _vm.forceUpdate }
+              }),
+              _vm._v(" "),
+              _c("padding")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-719da0be", module.exports)
+  }
+}
+
+/***/ }),
+/* 379 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(380)
+/* template */
+var __vue_template__ = __webpack_require__(381)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FacebookEmbed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b7b094e8", Component.options)
+  } else {
+    hotAPI.reload("data-v-b7b094e8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 380 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+// Property Imports:
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "FacebookEmbed",
+
+    components: {
+        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
+    },
+
+    props: {
+        componentIndex: {
+            type: Number,
+            required: true
+        },
+
+        columnIndex: {
+            type: Number,
+            required: true
+        },
+
+        canvasIndex: {
+            type: Number,
+            required: true
+        }
+    },
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        getElement: 'getElement'
+    }), {
+        element: function element() {
+            return this.getElement(this.indexes);
+        },
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        }
+    }),
+
+    data: function data() {
+        return {
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex
+            }
+        };
+    }
+});
+
+/***/ }),
+/* 381 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "clickable-component" }, [
+        _c("code", {
+          style: {
+            paddingTop: _vm.element.padding.top + "px",
+            paddingRight: _vm.element.padding.right + "px",
+            paddingBottom: _vm.element.padding.bottom + "px",
+            paddingLeft: _vm.element.padding.left + "px"
+          },
+          domProps: { innerHTML: _vm._s(_vm.element.content) }
+        })
+      ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "sidebar",
+            { attrs: { title: "FacebookEmbed" } },
+            [
+              _c("text-input", {
+                ref: "urlInput",
+                attrs: { textarea: "true" },
+                on: { input: _vm.forceUpdate }
+              }),
+              _vm._v(" "),
+              _c("padding")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b7b094e8", module.exports)
+  }
+}
+
+/***/ }),
+/* 382 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(383)
+/* template */
+var __vue_template__ = __webpack_require__(384)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/YouTubeEmbed.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1f90480d", Component.options)
+  } else {
+    hotAPI.reload("data-v-1f90480d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 383 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+// Property Imports:
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "YouTubeEmbed",
+
+    components: {
+        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
+    },
+
+    props: {
+        componentIndex: {
+            type: Number,
+            required: true
+        },
+
+        columnIndex: {
+            type: Number,
+            required: true
+        },
+
+        canvasIndex: {
+            type: Number,
+            required: true
+        }
+    },
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        getElement: 'getElement'
+    }), {
+        element: function element() {
+            return this.getElement(this.indexes);
+        },
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        }
+    }),
+
+    data: function data() {
+        return {
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex
+            }
+        };
+    }
+});
+
+/***/ }),
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "clickable-component" }, [
+        _c("code", {
+          style: {
+            paddingTop: _vm.element.padding.top + "px",
+            paddingRight: _vm.element.padding.right + "px",
+            paddingBottom: _vm.element.padding.bottom + "px",
+            paddingLeft: _vm.element.padding.left + "px"
+          },
+          domProps: { innerHTML: _vm._s(_vm.element.content) }
+        })
+      ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "sidebar",
+            { attrs: { title: "YouTubeEmbed" } },
+            [
+              _c("text-input", {
+                ref: "urlInput",
+                attrs: { textarea: "true" },
+                on: { input: _vm.forceUpdate }
+              }),
+              _vm._v(" "),
+              _c("padding")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1f90480d", module.exports)
+  }
+}
+
+/***/ }),
+/* 385 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony default export */ var _unused_webpack_default_export = ({
+    type: 'YouTubeEmbed',
+    selected: false,
+
+    // Properties:
+    content: 'Insert YouTube Embed Code to the Textbox',
+
+    padding: {
+        top: 40,
+        right: 0,
+        bottom: 40,
+        left: 0
+    }
+
+});
 
 /***/ })
 /******/ ]);
