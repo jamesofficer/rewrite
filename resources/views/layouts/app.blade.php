@@ -16,20 +16,20 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    {{-- Only show this stylesheet when creating an article. --}}
-    @if (str_contains(url()->current(), 'article/create'))
-        <link href="{{ asset('css/shift.css') }}" rel="stylesheet">
-    @endif
+    <link href="{{ asset('css/shift.css') }}" rel="stylesheet">
 </head>
 <body>
     @include('layouts.navbar')
 
-    <main>
+    <main @if (Route::currentRouteName() === "login") class="login-page-bg" @endif>
+        @if (Route::currentRouteName() === "login")
+            <div class="login-page-bg-img"></div>
+        @endif
+
         @yield('content')
     </main>
 </body>

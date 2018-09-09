@@ -12,19 +12,60 @@ main {
     height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-li,
-td,
-th,
-label {
-    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+* {
+    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.login-page-bg {
+    position: relative;
+    height: 100%;
+    background: radial-gradient(#6FCF97, #219653);
+}
+
+.login-page-bg-img {
+    height: inherit;
+    position: absolute;
+    height: 600px;
+    width: 850px;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../../public/img/login_page_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-page-container {
+    margin-top: 20px;
+}
+
+.login-page-form {
+    margin-top: 25px;
+
+    .card {
+        background: none;
+        border: 1px solid white;
+        box-shadow: 0 0 20px #265339;
+
+        .card-header {
+            background: #eee;
+            border-bottom: 1px solid white;
+        }
+
+        .card-body {
+            background: rgba(56, 193, 114, 0.8);
+        }
+    }
+
+    .remember-me-label {
+        text-transform: lowercase;
+        margin: 10px 0 0 5px;
+        color: white;
+    }
+}
+
+.login-page-logo {
+    max-width: 250px;
+    margin-bottom: 25px;
 }
 
 label {
