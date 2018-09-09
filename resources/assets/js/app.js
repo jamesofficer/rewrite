@@ -28,6 +28,7 @@ import "vue-awesome/icons/arrow-down";
 import "vue-awesome/icons/eye";
 import "vue-awesome/icons/save";
 import "vue-awesome/icons/folder-open";
+import "vue-awesome/icons/images";
 
 require("./bootstrap");
 

@@ -1,39 +1,44 @@
 <template>
     <div>
-        <!-- <img :src="imageSource" alt="Image" :style="{
-            width: '100%',
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-        }"> -->
-
-        <p>some image here...</p>
+        <!-- COMPONENT -->
+        <div class="clickable-component">
+            <code :style="{
+                paddingTop: element.padding.top + 'px',
+                paddingRight: element.padding.right + 'px',
+                paddingBottom: element.padding.bottom + 'px',
+                paddingLeft: element.padding.left + 'px',              
+                }" v-html="element.content">
+            </code>
+          
+        </div>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Image">
-            <image-source></image-source>
-
+        <sidebar v-if="elementIsSelected" title="YouTubeEmbed">
+            <text-input @input="forceUpdate" textarea="true" ref="urlInput"></text-input>
             <padding></padding>
         </sidebar>
-
     </div>
 </template>
+
+
 
 <script>
 import { mapGetters }    from 'vuex';
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
 
-import ImageSource       from './core/ImageSource'
+// Property Imports:
+import TextInput         from './core/TextInput'
+import FontWeightAndSize from './core/FontWeightAndSize'
 import Padding           from './core/Padding'
 
+
 export default {
-    name: "Picture",
+    name: "YouTubeEmbed",
 
     components: {
         Sidebar, SidebarControl,
-        ImageSource, Padding
+        TextInput, FontWeightAndSize, Padding,
     },
 
     props: {
@@ -58,18 +63,14 @@ export default {
             getElement: 'getElement',
         }),
 
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
         element() {
             return this.getElement(this.indexes);
         },
 
-        imageSource() {
-            console.log('getting image source');
-            return this.$store.getters.getCurrentElement.imageSource;
-        }
+        elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        },
+
     },
 
     data() {
@@ -83,3 +84,4 @@ export default {
     },
 }
 </script>
+

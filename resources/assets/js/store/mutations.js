@@ -4,6 +4,10 @@ import defaultHeading    from "./defaults/Heading";
 import defaultParagraph  from "./defaults/Paragraph";
 import defaultBlockQuote from "./defaults/BlockQuote";
 import defaultPicture      from "./defaults/Picture";
+import defaultInstagramEmbed     from "./defaults/InstagramEmbed";
+import defaultFacebookEmbed     from "./defaults/FacebookEmbed";
+import defaultYouTubeEmbed     from "./defaults/YouTubeEmbed";
+
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 // Triggers when the X button is pressed on the sidebar.
@@ -98,6 +102,20 @@ export const addComponentToColumn = (state, componentType) => {
     if (componentType === "Picture") {
         state.canvases[state.currentCanvas].columns[state.currentColumn].components
             .push(duplicateObject(defaultPicture));
+    }
+
+    if (componentType === "InstagramEmbed") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultInstagramEmbed));
+    }
+
+    if (componentType === "FacebookEmbed") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultFacebookEmbed));
+    }
+    if (componentType === "YouTubeEmbed") {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components
+            .push(duplicateObject(defaultYouTubeEmbed));
     }
 };
 
