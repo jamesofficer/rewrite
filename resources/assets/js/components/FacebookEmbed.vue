@@ -3,37 +3,30 @@
         <!-- COMPONENT -->
         <div class="clickable-component">
             <code :style="{
-                paddingTop: element.padding.top + 'px',
-                paddingRight: element.padding.right + 'px',
-                paddingBottom: element.padding.bottom + 'px',
-                paddingLeft: element.padding.left + 'px',              
+                    paddingTop: element.padding.top + 'px',
+                    paddingRight: element.padding.right + 'px',
+                    paddingBottom: element.padding.bottom + 'px',
+                    paddingLeft: element.padding.left + 'px',
                 }" v-html="element.content">
             </code>
-           <!-- OLD
-            <h4>Please paste in a URL.</h4>
--->
         </div>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="FacebookEmbed">
-            <text-input @input="forceUpdate" textarea="true" ref="urlInput"></text-input>
+        <sidebar v-if="elementIsSelected" title="Facebook">
+            <text-input :textarea="true" :inSidebar="true"></text-input>
             <padding></padding>
         </sidebar>
     </div>
 </template>
-
-
 
 <script>
 import { mapGetters }    from 'vuex';
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
 
-// Property Imports:
 import TextInput         from './core/TextInput'
 import FontWeightAndSize from './core/FontWeightAndSize'
 import Padding           from './core/Padding'
-
 
 export default {
     name: "FacebookEmbed",
@@ -72,18 +65,6 @@ export default {
         elementIsSelected() {
             return this.$store.getters.elementIsSelected(this.indexes);
         },
-/*
-        waitingForUrl() {
-            if (this.$refs.urlInput !== undefined) {
-                if (this.$refs.urlInput.length === 0) {
-                    return true;
-                }
-
-                return false;
-            }
-            
-        }
-        */
     },
 
     data() {

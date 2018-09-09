@@ -3,7 +3,12 @@ import defaultColumn     from "./defaults/Column";
 import defaultHeading    from "./defaults/Heading";
 import defaultParagraph  from "./defaults/Paragraph";
 import defaultBlockQuote from "./defaults/BlockQuote";
-import defaultPicture      from "./defaults/Picture";
+import defaultPicture    from "./defaults/Picture";
+import defaultInstagram  from "./defaults/InstagramEmbed";
+import defaultFacebook   from "./defaults/FacebookEmbed";
+import defaultYouTube    from "./defaults/YouTubeEmbed";
+
+
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 // Triggers when the X button is pressed on the sidebar.
@@ -81,6 +86,9 @@ export const addComponentToColumn = (state, componentType) => {
         "Paragraph": duplicateObject(defaultParagraph),
         "BlockQuote": duplicateObject(defaultBlockQuote),
         "Picture": duplicateObject(defaultPicture),
+        "InstagramEmbed": duplicateObject(defaultInstagram),
+        "FacebookEmbed": duplicateObject(defaultFacebook),
+        "YouTubeEmbed": duplicateObject(defaultYouTube),
     };
 
     state.canvases[state.currentCanvas].columns[state.currentColumn].components

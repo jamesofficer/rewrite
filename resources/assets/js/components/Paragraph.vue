@@ -18,7 +18,7 @@
                     fontFamily: element.fontFamily,
                     fontSize: element.fontSize + 'pt',
                     textAlign: element.textAlign,
-                    color: element.textColor,
+                    color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
                 }" size="lg" id="paragraph-input"
             ></text-input>
         </div>

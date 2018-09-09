@@ -47218,7 +47218,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.text-input[data-v-26e26b64] {\n    background: none;\n    border: none;\n}\n", ""]);
+exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\n    background: none;\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\n    margin-bottom: 15px;\n}\n", ""]);
 
 // exports
 
@@ -47244,12 +47244,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextInput",
 
     props: {
         textarea: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+
+        inSidebar: {
             type: Boolean,
             required: false,
             default: false
@@ -47278,8 +47290,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.textarea
     ? _c("b-textarea", {
-        staticClass: "text-input",
-        attrs: { size: "lg", rows: 5 },
+        class: {
+          "hide-input-styles": !_vm.inSidebar,
+          "add-bottom-margin": _vm.inSidebar
+        },
+        attrs: { size: _vm.inSidebar ? "sm" : "lg", rows: 5 },
         model: {
           value: _vm.content,
           callback: function($$v) {
@@ -47289,7 +47304,10 @@ var render = function() {
         }
       })
     : _c("b-input", {
-        staticClass: "text-input",
+        class: {
+          "hide-input-styles": !_vm.inSidebar,
+          "add-bottom-margin": _vm.inSidebar
+        },
         attrs: { size: "lg" },
         model: {
           value: _vm.content,
@@ -48475,7 +48493,16 @@ var render = function() {
                   fontFamily: _vm.element.fontFamily,
                   fontSize: _vm.element.fontSize + "pt",
                   textAlign: _vm.element.textAlign,
-                  color: _vm.element.textColor
+                  color:
+                    "rgba(" +
+                    _vm.element.textColor.r +
+                    ", " +
+                    _vm.element.textColor.g +
+                    ", " +
+                    _vm.element.textColor.b +
+                    ", " +
+                    _vm.element.textColor.a +
+                    ")"
                 },
                 attrs: { textarea: true, size: "lg", id: "paragraph-input" },
                 nativeOn: {
@@ -50939,7 +50966,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__defaults_Paragraph__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__defaults_BlockQuote__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__defaults_Picture__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__helpers__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__defaults_InstagramEmbed__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__defaults_FacebookEmbed__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__defaults_YouTubeEmbed__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__helpers__ = __webpack_require__(31);
+
+
+
+
 
 
 
@@ -50950,7 +50984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // Triggers when the X button is pressed on the sidebar.
 var closeSidebar = function closeSidebar(state) {
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["a" /* deselectCurrentElement */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["a" /* deselectCurrentElement */])(state);
 
     state.currentCanvas = undefined;
     state.currentColumn = undefined;
@@ -50964,7 +50998,7 @@ var toggleAddComponentModal = function toggleAddComponentModal(state, toggle) {
 
 // Adds another Canvas to the Workspace.
 var addCanvas = function addCanvas(state) {
-    return state.canvases.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]));
+    return state.canvases.push(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]));
 };
 
 // Deletes the selected Canvas
@@ -50975,7 +51009,7 @@ var removeCanvas = function removeCanvas(state) {
 
 // Adds another column to the specified canvas.
 var addColumnToCanvas = function addColumnToCanvas(state) {
-    state.canvases[state.currentCanvas].columns.push(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__defaults_Column__["a" /* default */]));
+    state.canvases[state.currentCanvas].columns.push(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__defaults_Column__["a" /* default */]));
 };
 
 // Removes a column from the specified canvas. We deselect it first to prevent errors.
@@ -50986,43 +51020,46 @@ var removeColumnFromCanvas = function removeColumnFromCanvas(state) {
 
 // Sets the currently selected component to whatever the used clicked on.
 var selectCanvas = function selectCanvas(state, canvasIndex) {
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["a" /* deselectCurrentElement */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["a" /* deselectCurrentElement */])(state);
 
     state.currentCanvas = canvasIndex;
     state.currentColumn = undefined;
     state.currentComponent = undefined;
 
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).selected = true;
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).selected = true;
 };
 
 var selectColumn = function selectColumn(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["a" /* deselectCurrentElement */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["a" /* deselectCurrentElement */])(state);
 
     state.currentCanvas = i.canvasIndex;
     state.currentColumn = i.columnIndex;
     state.currentComponent = undefined;
 
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).selected = true;
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).selected = true;
 };
 
 // Sets the currently selected component to whatever the used clicked on.
 var selectComponent = function selectComponent(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["a" /* deselectCurrentElement */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["a" /* deselectCurrentElement */])(state);
 
     state.currentCanvas = i.canvasIndex;
     state.currentColumn = i.columnIndex;
     state.currentComponent = i.componentIndex;
 
-    Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).selected = true;
+    Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).selected = true;
 };
 
 // Adds a component to the specified column.
 var addComponentToColumn = function addComponentToColumn(state, componentType) {
     var components = {
-        "Heading": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__defaults_Heading__["a" /* default */]),
-        "Paragraph": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_3__defaults_Paragraph__["a" /* default */]),
-        "BlockQuote": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_4__defaults_BlockQuote__["a" /* default */]),
-        "Picture": Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_5__defaults_Picture__["a" /* default */])
+        "Heading": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_2__defaults_Heading__["a" /* default */]),
+        "Paragraph": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_3__defaults_Paragraph__["a" /* default */]),
+        "BlockQuote": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_4__defaults_BlockQuote__["a" /* default */]),
+        "Picture": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_5__defaults_Picture__["a" /* default */]),
+        "InstagramEmbed": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_6__defaults_InstagramEmbed__["a" /* default */]),
+        "FacebookEmbed": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_7__defaults_FacebookEmbed__["a" /* default */]),
+        "YouTubeEmbed": Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_8__defaults_YouTubeEmbed__["a" /* default */])
     };
 
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.push(components[componentType]);
@@ -51055,70 +51092,70 @@ var updateArticleTitle = function updateArticleTitle(state, title) {
 
 // Sets the string value of a Text Component
 var updateTextContent = function updateTextContent(state, value) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "content", value);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "content", value);
 };
 
 // Sets the Text Alignment on a Text Component
 var setTextAlignment = function setTextAlignment(state, position) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "textAlign", position);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "textAlign", position);
 };
 
 // Sets the Font Size on a Text Component
 var setFontSize = function setFontSize(state, size) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "fontSize", size);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "fontSize", size);
 };
 
 // Sets the Font Weight on a Text Component
 var setFontWeight = function setFontWeight(state, weight) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "fontWeight", weight);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "fontWeight", weight);
 };
 
 // Sets the Font Family on a Text Component
 var setFontFamily = function setFontFamily(state, family) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "fontFamily", family);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "fontFamily", family);
 };
 
 // Sets the Text Colour on a Text Component
 var setTextColor = function setTextColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "textColor", color);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "textColor", color);
 };
 
 // Sets the Background Colour on a Component
 var setBackgroundColor = function setBackgroundColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "backgroundColor", color);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "backgroundColor", color);
 };
 
 // Sets the Source of an Image
 var setImageSource = function setImageSource(state, image) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state), "imageSource", image);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state), "imageSource", image);
 };
 
 // Padding Mutations
 var setPaddingTop = function setPaddingTop(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).padding, "top", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).padding, "top", padding);
 };
 var setPaddingRight = function setPaddingRight(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).padding, "right", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).padding, "right", padding);
 };
 var setPaddingBottom = function setPaddingBottom(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).padding, "bottom", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).padding, "bottom", padding);
 };
 var setPaddingLeft = function setPaddingLeft(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).padding, "left", padding);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).padding, "left", padding);
 };
 
 // Border Mutations
 var setBorderTop = function setBorderTop(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).border.top, "top", borderVal);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).border.top, "top", borderVal);
 };
 var setBorderRight = function setBorderRight(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).border.right, "right", borderVal);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).border.right, "right", borderVal);
 };
 var setBorderBottom = function setBorderBottom(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).border.bottom, "bottom", borderVal);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).border.bottom, "bottom", borderVal);
 };
 var setBorderLeft = function setBorderLeft(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_6__helpers__["c" /* getSelectedElement */])(state).border.left, "left", borderVal);
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_9__helpers__["c" /* getSelectedElement */])(state).border.left, "left", borderVal);
 };
 
 /***/ }),
@@ -73629,7 +73666,7 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ({
+/* harmony default export */ __webpack_exports__["a"] = ({
     type: 'InstagramEmbed',
     selected: false,
 
@@ -73650,7 +73687,7 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ({
+/* harmony default export */ __webpack_exports__["a"] = ({
     type: 'FacebookEmbed',
     selected: false,
 
@@ -73753,19 +73790,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 
-// Property Imports:
 
 
 
@@ -73814,15 +73843,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 componentIndex: this.componentIndex
             }
         };
-    },
-
-
-    methods: {
-        refreshComponent: function refreshComponent() {
-            this.$forceUpdate();
-        }
     }
-
 });
 
 /***/ }),
@@ -73851,12 +73872,9 @@ var render = function() {
       _vm.elementIsSelected
         ? _c(
             "sidebar",
-            { attrs: { title: "InstagramEmbed" } },
+            { attrs: { title: "Instagram" } },
             [
-              _c("text-input", {
-                attrs: { textarea: "true" },
-                on: { input: _vm.forceUpdate }
-              }),
+              _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
               _vm._v(" "),
               _c("padding")
             ],
@@ -73964,17 +73982,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
 
 
-// Property Imports:
 
 
 
@@ -74052,13 +74064,9 @@ var render = function() {
       _vm.elementIsSelected
         ? _c(
             "sidebar",
-            { attrs: { title: "FacebookEmbed" } },
+            { attrs: { title: "Facebook" } },
             [
-              _c("text-input", {
-                ref: "urlInput",
-                attrs: { textarea: "true" },
-                on: { input: _vm.forceUpdate }
-              }),
+              _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
               _vm._v(" "),
               _c("padding")
             ],
@@ -74166,15 +74174,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
 
 
 
 
 
-// Property Imports:
 
 
 
@@ -74252,13 +74256,9 @@ var render = function() {
       _vm.elementIsSelected
         ? _c(
             "sidebar",
-            { attrs: { title: "YouTubeEmbed" } },
+            { attrs: { title: "YouTube" } },
             [
-              _c("text-input", {
-                ref: "urlInput",
-                attrs: { textarea: "true" },
-                on: { input: _vm.forceUpdate }
-              }),
+              _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
               _vm._v(" "),
               _c("padding")
             ],
@@ -74284,7 +74284,7 @@ if (false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ({
+/* harmony default export */ __webpack_exports__["a"] = ({
     type: 'YouTubeEmbed',
     selected: false,
 
