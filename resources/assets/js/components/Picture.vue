@@ -4,7 +4,13 @@
             <icon name="image" scale="5" style="color: gray"></icon>
         </div>
 
-        <img v-else :src="element.src" style="max-width: 100%">
+        <img v-else :src="element.src" :style="{
+            maxWidth: element.width,
+            paddingTop: element.padding.top + 'px',
+            paddingRight: element.padding.right + 'px',
+            paddingBottom: element.padding.bottom + 'px',
+            paddingLeft: element.padding.left + 'px',
+        }">
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -21,7 +27,8 @@
 </template>
 
 <script>
-import { mapGetters }    from 'vuex';
+import GetElement        from './mixins/GetElement'
+
 import TopBar            from './topbar/TopBar'
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
@@ -33,50 +40,11 @@ import Padding           from './core/Padding'
 export default {
     name: "Picture",
 
+    mixins: [GetElement],
+
     components: {
-        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
+        TopBar, Sidebar, SidebarControl, DeleteComponentButton,
         ImageSelector, Padding
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true,
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true,
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true,
-        }
-    },
-
-    computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
-        element() {
-            return this.getElement(this.indexes);
-        },
-    },
-
-    data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex,
-            }
-        }
     },
 }
 </script>

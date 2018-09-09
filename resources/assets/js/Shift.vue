@@ -299,5 +299,6 @@ export default {
     box-shadow: 0 0 20px #ccc;
     padding: 5px 10px;
     top: 20px;
+    margin-bottom: 25px;
 }
 </style>

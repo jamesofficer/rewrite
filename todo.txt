@@ -1,10 +1,7 @@
 NEW COMPONENTS:
-- Border control components.
+- Complete Border control component.
 - Margin components.
-- Create an Image component.
-- Create an Instagram component.
-- Create an Pinterest component.
-- Create a Youtube component.
+- Image control components (width, height, alt-text, position)
 
 FEATURES:
 - Outline selected component.
@@ -12,8 +9,14 @@ FEATURES:
 - Let users add hyperlinks and bold/italic text to paragraph text.
 - Export document as HTML.
 - Let users delete articles.
+- Let users delete images.
 - Highlight the background of a component when selecting it (instead of a border).
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
 - Fix blockquote text entry.
+- Add optional citation to BlockQuote.
+- Move article saving methods to actions.
+- Display placeholder icons for Social Media embeds.
+- Editing a paragraph should match the height of the paragraph.
+
 
 

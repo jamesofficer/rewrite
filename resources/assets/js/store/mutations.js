@@ -41,8 +41,8 @@ export const addColumnToCanvas = state => {
 
 // Removes a column from the specified canvas. We deselect it first to prevent errors.
 export const removeColumnFromCanvas = state => {
-    state.currentColumn = undefined;
     state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+    state.currentColumn = undefined;
 };
 
 // Sets the currently selected component to whatever the used clicked on.

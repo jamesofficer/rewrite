@@ -1,8 +1,7 @@
 <template>
     <b-modal id="addComponentModal" title="Add Component to Column" size="lg" hide-footer v-model="showModal">
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Heading')"
             >
                 <icon name="heading" scale="4"></icon>
@@ -12,8 +11,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Paragraph')"
             >
                 <icon name="paragraph" scale="4"></icon>
@@ -23,8 +21,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('BlockQuote')"
             >
                 <icon name="quote-right" scale="4"></icon>
@@ -34,8 +31,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Picture')"
             >
                 <icon name="image" scale="4"></icon>
@@ -45,8 +41,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('InstagramEmbed')"
             >
                 <icon name="brands/instagram" scale="4"></icon>
@@ -56,8 +51,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('FacebookEmbed')"
             >
                 <icon name="brands/facebook" scale="4"></icon>
@@ -67,8 +61,7 @@
         </div>
 
         <div class="modal-card">
-            <b-card style="width: 150px;"
-                    class="mb-2 text-center"
+            <b-card class="mb-2 text-center component-card"
                     @click="addComponent('YouTubeEmbed')"
             >
                 <icon name="brands/youtube" scale="4"></icon>
@@ -125,5 +118,10 @@ export default {
 
 .card-img-top {
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.component-card {
+    width: 150px;
+    height: 175px;
 }
 </style>

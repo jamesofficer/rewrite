@@ -22,7 +22,7 @@
         </top-bar>
 
         <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected(indexes)" title="BlockQuote">
+        <sidebar v-if="elementIsSelected" title="BlockQuote">
             <text-input></text-input>
 
             <font-family></font-family>
@@ -38,19 +38,18 @@
             <padding></padding>
 
             <set-border></set-border>
-
         </sidebar>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import GetElement     from './mixins/GetElement'
+
 import TopBar         from './topbar/TopBar'
 import Sidebar        from './sidebar/Sidebar'
 import SidebarControl from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
-// Property Imports:
 import TextInput       from './core/TextInput'
 import TextAlignment   from './core/TextAlignment'
 import FontFamily      from './core/FontFamily'
@@ -63,49 +62,13 @@ import SetBorder       from './core/SetBorder'
 export default {
     name: "BlockQuote",
 
+    mixins: [GetElement],
+
     components: {
         Sidebar, SidebarControl, TopBar, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
         BackgroundColor, Padding, SetBorder
     },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true,
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true,
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true,
-        }
-    },
-
-    computed: {
-        ...mapGetters({
-            elementIsSelected: 'elementIsSelected',
-            getElement: 'getElement',
-        }),
-
-        element() {
-            return this.getElement(this.indexes);
-        },
-    },
-
-    data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex,
-            }
-        }
-    }
 }
 </script>
 

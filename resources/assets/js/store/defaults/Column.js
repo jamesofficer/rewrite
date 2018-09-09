@@ -1,6 +1,7 @@
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 import defaultPicture from "./Picture";
+import defaultBlockQuote from "./BlockQuote";
 import defaultInstagramEmbed from "./InstagramEmbed";
 import defaultFacebookEmbed from "./FacebookEmbed";
 import defaultYouTubeEmbed from "./YouTubeEmbed";
@@ -9,7 +10,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultPicture],
+    components: [defaultHeading, defaultParagraph, defaultPicture, defaultBlockQuote],
 
     // Properties:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },

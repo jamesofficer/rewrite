@@ -21,6 +21,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/shift.css') }}" rel="stylesheet">
+
+    <script async defer src="http://www.instagram.com/embed.js"></script>
 </head>
 <body>
     <main @if (Route::currentRouteName() === "login") class="login-page-bg" @endif>

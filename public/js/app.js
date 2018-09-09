@@ -22507,6 +22507,12 @@ module.exports = Component.exports
         right: 0,
         bottom: 0,
         left: 20
+    },
+    border: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
     }
 });
 
@@ -22548,9 +22554,11 @@ module.exports = Component.exports
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Heading__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Paragraph__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Picture__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InstagramEmbed__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__FacebookEmbed__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__YouTubeEmbed__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BlockQuote__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InstagramEmbed__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__FacebookEmbed__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__YouTubeEmbed__ = __webpack_require__(94);
+
 
 
 
@@ -22562,7 +22570,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__BlockQuote__["a" /* default */]],
 
     // Properties:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -22584,6 +22592,8 @@ module.exports = Component.exports
     selected: false,
 
     src: null,
+
+    width: '100%',
 
     // Properties:
     padding: {
@@ -45167,7 +45177,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-container[data-v-667f58a0] {\n    height: 100%;\n    background: #eee;\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-667f58a0] {\n    padding: 10px;\n    margin-bottom: 15px;\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    padding: 30px 10px;\n    margin-top: 5px;\n    margin-bottom: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-667f58a0] {\n    padding: 5px;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: inline;\n}\n.shift-wrapper[data-v-667f58a0] {\n    margin-top: 10px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin-bottom: 50px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-667f58a0] {\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    padding: 5px 10px;\n    top: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.shift-container[data-v-667f58a0] {\n    height: 100%;\n    background: #eee;\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-667f58a0] {\n    padding: 10px;\n    margin-bottom: 15px;\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    padding: 30px 10px;\n    margin-top: 5px;\n    margin-bottom: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-667f58a0] {\n    padding: 5px;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: inline;\n}\n.shift-wrapper[data-v-667f58a0] {\n    margin-top: 10px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin-bottom: 50px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-667f58a0] {\n    background: #fff;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    padding: 5px 10px;\n    top: 20px;\n    margin-bottom: 25px;\n}\n", ""]);
 
 // exports
 
@@ -46589,7 +46599,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\n    cursor: pointer;\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n", ""]);
+exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\n    cursor: pointer;\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\n    width: 150px;\n    height: 175px;\n}\n", ""]);
 
 // exports
 
@@ -46606,13 +46616,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_defaults_BlockQuote__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store_defaults_InstagramEmbed__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store_defaults_FacebookEmbed__ = __webpack_require__(52);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -46751,8 +46754,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("Heading")
@@ -46779,8 +46781,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("Paragraph")
@@ -46807,8 +46808,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("BlockQuote")
@@ -46835,8 +46835,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("Picture")
@@ -46863,8 +46862,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("InstagramEmbed")
@@ -46891,8 +46889,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("FacebookEmbed")
@@ -46919,8 +46916,7 @@ var render = function() {
           _c(
             "b-card",
             {
-              staticClass: "mb-2 text-center",
-              staticStyle: { width: "150px" },
+              staticClass: "mb-2 text-center component-card",
               on: {
                 click: function($event) {
                   _vm.addComponent("YouTubeEmbed")
@@ -47185,7 +47181,7 @@ exports.push([module.i, "\nh1[data-v-5502c91b] {\n    margin: 0;\n    padding: 0
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
@@ -47206,55 +47202,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -47273,48 +47268,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Heading",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
         TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a
     },
 
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        element: function element() {
-            return this.getElement(this.indexes);
-        },
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        }
-    }),
-
     data: function data() {
         return {
-            editingText: false,
-
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
+            editingText: false
         };
     },
 
@@ -48394,7 +48357,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
@@ -48417,8 +48380,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextColor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 //
 //
 //
@@ -48471,7 +48432,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
-// Property imports
+
 
 
 
@@ -48481,6 +48442,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Paragraph",
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
 
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
@@ -48488,43 +48452,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a
     },
 
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-        element: function element() {
-            return this.getElement(this.indexes);
-        }
-    }),
-
     data: function data() {
         return {
-            editingText: false,
-
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
+            editingText: false
         };
     },
 
@@ -48542,7 +48472,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             });
         }
     }
-
 });
 
 /***/ }),
@@ -48862,7 +48791,7 @@ exports.push([module.i, "\nblockquote[data-v-159317e6] {\n    border-left: 5px s
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
@@ -48887,9 +48816,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_SetBorder__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_SetBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_SetBorder__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-//
 //
 //
 //
@@ -48941,7 +48867,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
-// Property Imports:
+
 
 
 
@@ -48954,46 +48880,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BlockQuote",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
         Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
         TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a,
         BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a, SetBorder: __WEBPACK_IMPORTED_MODULE_12__core_SetBorder___default.a
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        elementIsSelected: 'elementIsSelected',
-        getElement: 'getElement'
-    }), {
-        element: function element() {
-            return this.getElement(this.indexes);
-        }
-    }),
-
-    data: function data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
-        };
     }
 });
 
@@ -49465,7 +49357,7 @@ var render = function() {
         ? _c("top-bar", [_c("delete-component-button")], 1)
         : _vm._e(),
       _vm._v(" "),
-      _vm.elementIsSelected(_vm.indexes)
+      _vm.elementIsSelected
         ? _c(
             "sidebar",
             { attrs: { title: "BlockQuote" } },
@@ -49556,7 +49448,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
@@ -49569,30 +49461,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_ImageSelector__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -49606,47 +49503,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Picture",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
         ImageSelector: __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector___default.a, Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-        element: function element() {
-            return this.getElement(this.indexes);
-        }
-    }),
-
-    data: function data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
-        };
     }
 });
 
@@ -49674,7 +49535,13 @@ var render = function() {
             1
           )
         : _c("img", {
-            staticStyle: { "max-width": "100%" },
+            style: {
+              maxWidth: _vm.element.width,
+              paddingTop: _vm.element.padding.top + "px",
+              paddingRight: _vm.element.padding.right + "px",
+              paddingBottom: _vm.element.padding.bottom + "px",
+              paddingLeft: _vm.element.padding.left + "px"
+            },
             attrs: { src: _vm.element.src }
           }),
       _vm._v(" "),
@@ -49757,40 +49624,50 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -49803,47 +49680,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "InstagramEmbed",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        element: function element() {
-            return this.getElement(this.indexes);
-        },
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        }
-    }),
-
-    data: function data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
-        };
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a
     }
 });
 
@@ -49859,7 +49700,7 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "clickable-component" }, [
-        _c("code", {
+        _c("div", {
           style: {
             paddingTop: _vm.element.padding.top + "px",
             paddingRight: _vm.element.padding.right + "px",
@@ -49869,6 +49710,10 @@ var render = function() {
           domProps: { innerHTML: _vm._s(_vm.element.content) }
         })
       ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -49949,40 +49794,50 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -49995,47 +49850,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "FacebookEmbed",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        element: function element() {
-            return this.getElement(this.indexes);
-        },
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        }
-    }),
-
-    data: function data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
-        };
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a
     }
 });
 
@@ -50061,6 +49880,10 @@ var render = function() {
           domProps: { innerHTML: _vm._s(_vm.element.content) }
         })
       ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -50141,40 +49964,50 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -50187,47 +50020,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "YouTubeEmbed",
 
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_1__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_2__sidebar_SidebarControl___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_4__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true
-        }
-    },
-
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
-        getElement: 'getElement'
-    }), {
-        element: function element() {
-            return this.getElement(this.indexes);
-        },
-        elementIsSelected: function elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        }
-    }),
-
-    data: function data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex
-            }
-        };
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a
     }
 });
 
@@ -50253,6 +50050,10 @@ var render = function() {
           domProps: { innerHTML: _vm._s(_vm.element.content) }
         })
       ]),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c("top-bar", [_c("delete-component-button")], 1)
+        : _vm._e(),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
@@ -51825,8 +51626,8 @@ var addColumnToCanvas = function addColumnToCanvas(state) {
 
 // Removes a column from the specified canvas. We deselect it first to prevent errors.
 var removeColumnFromCanvas = function removeColumnFromCanvas(state) {
-    state.currentColumn = undefined;
     state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+    state.currentColumn = undefined;
 };
 
 // Sets the currently selected component to whatever the used clicked on.
@@ -74859,6 +74660,56 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-66db236b", module.exports)
   }
 }
+
+/***/ }),
+/* 406 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(12);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    props: {
+        componentIndex: {
+            type: Number,
+            required: true
+        },
+
+        columnIndex: {
+            type: Number,
+            required: true
+        },
+
+        canvasIndex: {
+            type: Number,
+            required: true
+        }
+    },
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
+        getElement: 'getElement'
+    }), {
+        element: function element() {
+            return this.getElement(this.indexes);
+        },
+        elementIsSelected: function elementIsSelected() {
+            return this.$store.getters.elementIsSelected(this.indexes);
+        }
+    }),
+
+    data: function data() {
+        return {
+            indexes: {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex,
+                componentIndex: this.componentIndex
+            }
+        };
+    }
+});
 
 /***/ })
 /******/ ]);

@@ -11,6 +11,11 @@
             </code>
         </div>
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <delete-component-button></delete-component-button>
+        </top-bar>
+
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="YouTube">
             <text-input :textarea="true" :inSidebar="true"></text-input>
@@ -20,9 +25,12 @@
 </template>
 
 <script>
-import { mapGetters }    from 'vuex';
+import GetElement        from './mixins/GetElement'
+
+import TopBar            from './topbar/TopBar'
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
+import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
 import FontWeightAndSize from './core/FontWeightAndSize'
@@ -31,51 +39,11 @@ import Padding           from './core/Padding'
 export default {
     name: "YouTubeEmbed",
 
+    mixins: [GetElement],
+
     components: {
-        Sidebar, SidebarControl,
+        TopBar, Sidebar, SidebarControl, DeleteComponentButton,
         TextInput, FontWeightAndSize, Padding,
-    },
-
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true,
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true,
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true,
-        }
-    },
-
-    computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
-        element() {
-            return this.getElement(this.indexes);
-        },
-
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
-    },
-
-    data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex,
-            }
-        }
     },
 }
 </script>

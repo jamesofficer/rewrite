@@ -44,13 +44,13 @@
 </template>
 
 <script>
-import { mapGetters }     from 'vuex';
+import GetElement        from './mixins/GetElement'
+
 import TopBar            from './topbar/TopBar'
-import Sidebar            from './sidebar/Sidebar'
-import SidebarControl     from './sidebar/SidebarControl'
+import Sidebar           from './sidebar/Sidebar'
+import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
-// Property imports
 import TextInput         from './core/TextInput'
 import TextArea          from './core/TextArea'
 import FontFamily        from './core/FontFamily'
@@ -60,6 +60,9 @@ import TextColor         from './core/TextColor'
 import Padding           from './core/Padding'
 
 export default {
+    name: "Paragraph",
+
+    mixins: [GetElement],
 
     components: {
         Sidebar, SidebarControl, TopBar, DeleteComponentButton,
@@ -67,46 +70,9 @@ export default {
         Padding
     },
 
-    props: {
-        componentIndex: {
-            type: Number,
-            required: true,
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true,
-        },
-
-        canvasIndex: {
-            type: Number,
-            required: true,
-        }
-    },
-
-    computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
-        element() {
-            return this.getElement(this.indexes);
-        }
-    },
-
     data() {
         return {
             editingText: false,
-
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-                componentIndex: this.componentIndex,
-            }
         }
     },
 
@@ -123,6 +89,5 @@ export default {
             });
         },
     }
-
 }
 </script>

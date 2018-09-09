@@ -4,6 +4,8 @@ export default {
 
     src: null,
 
+    width: '100%',
+
     // Properties:
     padding: {
         top: 0,
