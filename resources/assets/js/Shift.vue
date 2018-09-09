@@ -97,6 +97,9 @@
         <!-- My Images Modal -->
         <my-images-modal></my-images-modal>
 
+        <!-- Image Gallery Modal -->
+        <image-gallery-modal></image-gallery-modal>
+
     </b-container>
 </template>
 
@@ -105,12 +108,13 @@ import Canvas            from "./components/Canvas.vue";
 import AddComponentModal from './components/dialogs/AddComponentModal';
 import LoadArticleModal  from './components/dialogs/LoadArticleModal';
 import MyImagesModal     from './components/dialogs/MyImagesModal';
+import ImageGalleryModal from './components/dialogs/ImageGalleryModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas, AddComponentModal, LoadArticleModal, MyImagesModal
+        Canvas, AddComponentModal, LoadArticleModal, MyImagesModal, ImageGalleryModal
     },
 
     computed: {

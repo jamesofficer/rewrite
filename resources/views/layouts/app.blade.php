@@ -23,11 +23,11 @@
     <link href="{{ asset('css/shift.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('layouts.navbar')
-
     <main @if (Route::currentRouteName() === "login") class="login-page-bg" @endif>
         @if (Route::currentRouteName() === "login")
             <div class="login-page-bg-img"></div>
+        @else
+            @include('layouts.navbar')
         @endif
 
         @yield('content')

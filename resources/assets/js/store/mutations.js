@@ -1,3 +1,4 @@
+import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 import defaultCanvas     from "./defaults/Canvas";
 import defaultColumn     from "./defaults/Column";
 import defaultHeading    from "./defaults/Heading";
@@ -7,9 +8,6 @@ import defaultPicture    from "./defaults/Picture";
 import defaultInstagram  from "./defaults/InstagramEmbed";
 import defaultFacebook   from "./defaults/FacebookEmbed";
 import defaultYouTube    from "./defaults/YouTubeEmbed";
-
-
-import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 // Triggers when the X button is pressed on the sidebar.
 export const closeSidebar = state => {
@@ -101,6 +99,14 @@ export const deleteComponent = (state) => {
     state.currentComponent = undefined;
 }
 
+// Sets the title of the article.
+export const updateArticleTitle = (state, title) =>
+    window.Vue.set(state, "articleTitle", title);
+
+// Selects an Image from the Image Gallery and sets it for the current image component.
+export const selectImage = (state, image) =>
+    window.Vue.set(getSelectedElement(state), "src", image.url);
+
 // ===================================================== //
 // Saving/Loading Articles. (should probably be actions)
 // ===================================================== //
@@ -110,10 +116,6 @@ export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
-
-// Sets the title of the article.
-export const updateArticleTitle = (state, title) =>
-    window.Vue.set(state, "articleTitle", title);
 
 // ===================================================== //
 // CSS Property Mutators.

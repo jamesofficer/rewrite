@@ -1,87 +1,80 @@
 <template>
     <b-modal id="addComponentModal" title="Add Component to Column" size="lg" hide-footer v-model="showModal">
         <div class="modal-card">
-            <b-card title="Heading"
-                    img-src="../img/heading_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('Heading')"
-            ></b-card>
+            >
+                <icon name="heading" scale="4"></icon>
+                <hr>
+                <p>Heading</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Paragraph"
-                    img-src="../img/paragraph_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('Paragraph')"
-            ></b-card>
+            >
+                <icon name="paragraph" scale="4"></icon>
+                <hr>
+                <p>Paragraph</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Quote"
-                    img-src="../img/blockquote_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('BlockQuote')"
-            ></b-card>
+            >
+                <icon name="quote-right" scale="4"></icon>
+                <hr>
+                <p>BlockQuote</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Image"
-                    img-src="../img/image_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('Picture')"
-            ></b-card>
+            >
+                <icon name="image" scale="4"></icon>
+                <hr>
+                <p>Image</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Instagram Embed"
-                    img-src="../img/instagram-embed_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('InstagramEmbed')"
-            ></b-card>
+            >
+                <icon name="brands/instagram" scale="4"></icon>
+                <hr>
+                <p>Instagram</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Facebook Embed"
-                    img-src="../img/facebook-embed_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('FacebookEmbed')"
-            ></b-card>
+            >
+                <icon name="brands/facebook" scale="4"></icon>
+                <hr>
+                <p>Facebook</p>
+            </b-card>
         </div>
 
         <div class="modal-card">
-            <b-card title="Youtube Embed"
-                    img-src="../img/youtube-embed_component_icon.png"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 10rem;"
+            <b-card style="width: 150px;"
                     class="mb-2 text-center"
                     @click="addComponent('YouTubeEmbed')"
-            ></b-card>
+            >
+                <icon name="brands/youtube" scale="4"></icon>
+                <hr>
+                <p>YouTube</p>
+            </b-card>
         </div>
 
     </b-modal>

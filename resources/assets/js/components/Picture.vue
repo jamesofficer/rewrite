@@ -1,14 +1,10 @@
 <template>
     <div>
-        <!-- <img :src="imageSource" alt="Image" :style="{
-            width: '100%',
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-        }"> -->
+        <div class="text-center" v-if="! element.src">
+            <icon name="image" scale="5" style="color: gray"></icon>
+        </div>
 
-        <p>some image here...</p>
+        <img v-else :src="element.src" style="max-width: 100%">
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -17,11 +13,10 @@
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Image">
-            <image-source></image-source>
+            <image-selector></image-selector>
 
             <padding></padding>
         </sidebar>
-
     </div>
 </template>
 
@@ -30,9 +25,9 @@ import { mapGetters }    from 'vuex';
 import TopBar            from './topbar/TopBar'
 import Sidebar           from './sidebar/Sidebar'
 import SidebarControl    from './sidebar/SidebarControl'
-
 import DeleteComponentButton from './topbar/DeleteComponentButton'
-import ImageSource       from './core/ImageSource'
+
+import ImageSelector     from './core/ImageSelector'
 import Padding           from './core/Padding'
 
 export default {
@@ -40,7 +35,7 @@ export default {
 
     components: {
         Sidebar, SidebarControl, TopBar, DeleteComponentButton,
-        ImageSource, Padding
+        ImageSelector, Padding
     },
 
     props: {
@@ -72,11 +67,6 @@ export default {
         element() {
             return this.getElement(this.indexes);
         },
-
-        imageSource() {
-            console.log('getting image source');
-            return this.$store.getters.getCurrentElement.imageSource;
-        }
     },
 
     data() {

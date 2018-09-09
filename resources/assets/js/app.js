@@ -28,7 +28,14 @@ import "vue-awesome/icons/arrow-down";
 import "vue-awesome/icons/eye";
 import "vue-awesome/icons/save";
 import "vue-awesome/icons/folder-open";
+import "vue-awesome/icons/image";
 import "vue-awesome/icons/images";
+import "vue-awesome/icons/heading";
+import "vue-awesome/icons/paragraph";
+import "vue-awesome/icons/quote-right";
+import "vue-awesome/icons/brands/instagram";
+import "vue-awesome/icons/brands/facebook";
+import "vue-awesome/icons/brands/youtube";
 
 require("./bootstrap");
 

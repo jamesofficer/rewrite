@@ -3,6 +3,8 @@
 namespace Shift\Http\Controllers;
 
 use Auth;
+use File;
+use Storage;
 use Carbon\Carbon;
 use Shift\ArticleImage;
 use Illuminate\Http\Request;
@@ -20,28 +22,21 @@ class ArticleImageController extends Controller
             'image' => 'required|image'
         ]);
 
-        $image    = $request->file('image');
-        $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-        $filePath = storage_path('/images/' . Auth::id() . '/');
+        $filePath = storage_path('public/user-images/' . Auth::id() . '/');
 
         if (! File::isDirectory($filePath)) {
             File::makeDirectory($filePath, 0777, true, true);
         }
 
-        Image::make($request->get('image'))->save($filePath . $fileName);
+        $pathToFile = Storage::put('public/user-images/' . Auth::id(), $request->file('image'));
 
         ArticleImage::create([
-            'url'     => $filePath  . $fileName,
+            'url'     => str_replace('public', '/storage', $pathToFile),
             'user_id' => Auth::id(),
         ]);
 
-        return 'Uploaded successfully.';
-
-        // If there is no folder for this user. Create one first.
-
-
-        // Store the image.
-
-
+        return response()->json([
+            'message' => 'Image uploaded successfully!',
+        ]);
     }
 }

@@ -19,7 +19,11 @@
 
         <div class="col-md-6 login-page-form">
             <div class="card">
-                <div class="card-header text-lowercase">Login</div>
+                <div class="card-header text-lowercase">
+                    Login
+
+                    <a href="{{ route('register') }}" class="float-right">or register</a>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

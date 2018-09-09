@@ -1,0 +1,49 @@
+<template>
+    <b-modal @shown="getImages" :id="'imageGalleryModal'" title="My Images" size="lg" ref="imageGalleryModal">
+        <b-form-checkbox id="show-all-images-checkbox"
+                     v-model="showAllImages">
+            Show all images
+        </b-form-checkbox>
+
+        <br>
+        <br>
+
+        <template v-if="images.length > 0">
+            <div v-for="(image, index) in images" :key="index" style="display: inline;">
+                <img :src="image.url" :key="index" class="gallery-image" @click="selectImage(index)">
+            </div>
+        </template>
+    </b-modal>
+</template>
+
+<script>
+import getImages from '../mixins/GetImages'
+
+export default {
+    name: "ImageGalleryModal",
+
+    mixins: [getImages],
+
+    data() {
+        return {
+            showAllImages: true,
+        }
+    },
+
+    methods: {
+        selectImage(index) {
+            this.$store.commit('selectImage', this.images[index]);
+
+            this.$refs.imageGalleryModal.hide();
+        }
+    }
+}
+</script>
+
+<style scoped>
+.gallery-image:hover {
+    cursor: pointer;
+    background: #38c172;
+    border: 1px solid green;
+}
+</style>
