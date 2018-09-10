@@ -26,8 +26,9 @@
                     <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
                 </em>
 
-                <b-input size="lg" v-model="articleTitle"
-                    v-else
+                <b-input v-else
+                    size="lg"
+                    v-model="articleTitle"
                     @blur.native="settingArticleTitle = false"
                     ref="articleTitleInput"
                     class="shift-article-name-input"
@@ -48,7 +49,7 @@
             </b-col>
 
             <b-col class="text-right">
-                <b-btn v-b-modal.myImagesModal variant="secondary" size="sm">
+                <b-btn v-b-modal.myImagesModal variant="info" size="sm">
                     <icon name="images"></icon> My Images
                 </b-btn>
 
@@ -63,17 +64,19 @@
         </b-row>
 
         <!-- Main Workspace -->
-        <b-row class="shift-wrapper">
+        <b-row>
             <b-col col>
                 <div class="shift-workspace">
                     <b-container fluid>
-                        <component v-for="(canvas, canvasIndex) in canvases"
-                            v-bind:is="canvas.type"
-                            v-bind:key="canvasIndex"
-                            :canvasIndex="canvasIndex"
-                            @click.native.stop="selectCanvas(canvasIndex)"
-                            class="shift-canvas"
-                        ></component>
+                        <shift-article ref="shiftArticle">
+                            <component v-for="(canvas, canvasIndex) in canvases"
+                                v-bind:is="canvas.type"
+                                v-bind:key="canvasIndex"
+                                :canvasIndex="canvasIndex"
+                                @click.native.stop="selectCanvas(canvasIndex)"
+                                class="shift-canvas"
+                            ></component>
+                        </shift-article>
                     </b-container>
                 </div>
             </b-col>
@@ -85,6 +88,19 @@
                         <!-- Components Settings will appear in here. -->
                     </portal-target>
                 </div>
+            </b-col>
+        </b-row>
+
+        <!-- Bottom Bar -->
+        <b-row class="shift-bottom-bar">
+            <b-col class="text-right">
+                <b-btn v-b-modal variant="secondary" size="sm" @click="previewArticleInNewWindow">
+                    <icon name="eye"></icon> Preview Article
+                </b-btn>
+
+                <b-btn variant="warning" size="sm" @click="showExportArticleModal">
+                    <icon name="file-export"></icon> Export Article
+                </b-btn>
             </b-col>
         </b-row>
 
@@ -100,21 +116,26 @@
         <!-- Image Gallery Modal -->
         <image-gallery-modal></image-gallery-modal>
 
+        <!-- Export Article Modal -->
+        <export-article-modal ref="exportArticleModal" :articleHtml="articleHtml"></export-article-modal>
+
     </b-container>
 </template>
 
 <script>
-import Canvas            from "./components/Canvas.vue";
-import AddComponentModal from './components/dialogs/AddComponentModal';
-import LoadArticleModal  from './components/dialogs/LoadArticleModal';
-import MyImagesModal     from './components/dialogs/MyImagesModal';
-import ImageGalleryModal from './components/dialogs/ImageGalleryModal';
+import ShiftArticle       from "./components/ShiftArticle.vue";
+import Canvas             from "./components/Canvas.vue";
+import AddComponentModal  from './components/dialogs/AddComponentModal';
+import LoadArticleModal   from './components/dialogs/LoadArticleModal';
+import MyImagesModal      from './components/dialogs/MyImagesModal';
+import ImageGalleryModal  from './components/dialogs/ImageGalleryModal';
+import ExportArticleModal from './components/dialogs/ExportArticleModal';
 
 export default {
     name: "Shift",
 
     components: {
-        Canvas, AddComponentModal, LoadArticleModal, MyImagesModal, ImageGalleryModal
+        ShiftArticle, Canvas, AddComponentModal, LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal
     },
 
     computed: {
@@ -140,6 +161,7 @@ export default {
 
     data() {
         return {
+            articleHtml: null,
             settingArticleTitle: false,
             showArticleOverwriteAlert: false,
 
@@ -228,6 +250,23 @@ export default {
             window.scrollTo(0, 0);
             this.showArticleOverwriteAlert = false;
         },
+
+        getArticleHtml() {
+            this.articleHtml = this.$refs.shiftArticle.$el.innerHTML;
+        },
+
+        showExportArticleModal() {
+            this.getArticleHtml();
+            this.$refs.exportArticleModal.$children[0].show();
+        },
+
+        previewArticleInNewWindow() {
+            this.getArticleHtml();
+
+            let newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(screen.height-400)+",left="+(screen.width-840));
+            newWindow.document.body.innerHTML = this.articleHtml;
+            newWindow.document.body.style.margins = 0;
+        }
     },
 };
 </script>
@@ -271,19 +310,21 @@ export default {
 
 .shift-top-bar {
     padding: 5px;
+    margin-bottom: 10px;
+}
+
+.shift-bottom-bar {
+    padding: 5px;
+    margin-bottom: 50px;
 }
 
 .top-bar-portal-target {
     display: inline;
 }
 
-.shift-wrapper {
-    margin-top: 10px;
-}
-
 .shift-workspace {
     height: fit-content;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;

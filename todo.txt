@@ -2,21 +2,21 @@ NEW COMPONENTS:
 - Complete Border control component.
 - Margin components.
 - Image control components (width, height, alt-text, position)
+- Let users add hyperlinks and bold/italic text to paragraph text.
+- Add optional citation to BlockQuote.
 
 FEATURES:
+- Saving an article with a new name should ask to overwrite the old one.
 - Outline selected component.
 - Users can drag and rearrange columns?
-- Let users add hyperlinks and bold/italic text to paragraph text.
-- Export document as HTML.
+- Clean up HTML export with Regex.
 - Let users delete articles.
 - Let users delete images.
 - Highlight the background of a component when selecting it (instead of a border).
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
 - Fix blockquote text entry.
-- Add optional citation to BlockQuote.
 - Move article saving methods to actions.
-- Display placeholder icons for Social Media embeds.
-- Editing a paragraph should match the height of the paragraph.
+- Editing a Paragraph or Heading should match the height of the paragraph.
 
 
 
