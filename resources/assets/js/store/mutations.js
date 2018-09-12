@@ -153,6 +153,16 @@ export const setBackgroundColor = (state, color) =>
 export const setImageSource = (state, image) =>
     window.Vue.set(getSelectedElement(state), "imageSource", image);
 
+// Margin Mutations
+export const setMarginTop = (state, margin) =>
+    window.Vue.set(getSelectedElement(state).margin, "top", margin);
+export const setMarginRight = (state, margin) =>
+    window.Vue.set(getSelectedElement(state).margin, "right", margin);
+export const setMarginBottom = (state, margin) =>
+    window.Vue.set(getSelectedElement(state).margin, "bottom", margin);
+export const setMarginLeft = (state, margin) =>
+    window.Vue.set(getSelectedElement(state).margin, "left", margin);
+
 // Padding Mutations
 export const setPaddingTop = (state, padding) =>
     window.Vue.set(getSelectedElement(state).padding, "top", padding);

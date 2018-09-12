@@ -263,9 +263,19 @@ export default {
         previewArticleInNewWindow() {
             this.getArticleHtml();
 
-            let newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(screen.height-400)+",left="+(screen.width-840));
+            const newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(screen.height-400)+",left="+(screen.width-840));
+            const normalize = document.createElement("link");
+            const bootstrap = document.createElement("link");
+
+            normalize.setAttribute("href", "https://unpkg.com/normalize.css@8.0.0/normalize.css");
+            normalize.setAttribute("rel", "stylesheet");
+
+            bootstrap.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
+            bootstrap.setAttribute("rel", "stylesheet");
+
+            newWindow.document.head.appendChild(normalize);
+            newWindow.document.head.appendChild(bootstrap);
             newWindow.document.body.innerHTML = this.articleHtml;
-            newWindow.document.body.style.margins = 0;
         }
     },
 };
@@ -273,7 +283,6 @@ export default {
 
 <style scoped>
 .shift-container {
-    height: 100%;
     background: #eee;
     padding: 15px 20px;
 }

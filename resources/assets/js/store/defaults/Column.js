@@ -10,7 +10,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultPicture, defaultBlockQuote],
+    components: [defaultHeading, defaultParagraph, defaultBlockQuote, defaultPicture, defaultInstagramEmbed, defaultFacebookEmbed, defaultYouTubeEmbed],
 
     // Properties:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },

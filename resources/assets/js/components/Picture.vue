@@ -1,16 +1,18 @@
 <template>
     <div>
-        <div class="text-center" v-if="! element.src">
+        <div v-if="! element.src">
             <icon name="image" scale="5" style="color: gray"></icon>
         </div>
 
-        <img v-else :src="element.src" :style="{
-            maxWidth: element.width,
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-        }">
+        <div v-else :style="{ textAlign: element.textAlign }">
+            <img :src="element.src" :style="{
+                maxWidth: element.width,
+                marginTop: element.margin.top + 'px',
+                marginRight: element.margin.right + 'px',
+                marginBottom: element.margin.bottom + 'px',
+                marginLeft: element.margin.left + 'px',
+            }">
+        </div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -21,7 +23,11 @@
         <sidebar v-if="elementIsSelected" title="Image">
             <image-selector></image-selector>
 
-            <padding></padding>
+            <template v-if="element.src">
+                <text-alignment></text-alignment>
+
+                <margin></margin>
+            </template>
         </sidebar>
     </div>
 </template>
@@ -35,7 +41,8 @@ import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import ImageSelector     from './core/ImageSelector'
-import Padding           from './core/Padding'
+import TextAlignment     from './core/TextAlignment'
+import Margin            from './core/Margin'
 
 export default {
     name: "Picture",
@@ -44,7 +51,7 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        ImageSelector, Padding
+        ImageSelector, TextAlignment, Margin,
     },
 }
 </script>

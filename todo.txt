@@ -4,10 +4,12 @@ NEW COMPONENTS:
 - Image control components (width, height, alt-text, position)
 - Let users add hyperlinks and bold/italic text to paragraph text.
 - Add optional citation to BlockQuote.
+- Add width controls to column component.
 
 FEATURES:
+- Add bold/italic/linebreak/hr controls to Paragraph component.
 - Saving an article with a new name should ask to overwrite the old one.
-- Outline selected component.
+- Highlight selected component.
 - Users can drag and rearrange columns?
 - Clean up HTML export with Regex.
 - Let users delete articles.

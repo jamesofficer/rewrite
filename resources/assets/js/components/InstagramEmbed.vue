@@ -3,10 +3,10 @@
         <!-- COMPONENT -->
         <div class="clickable-component">
             <div :style="{
-                    paddingTop: element.padding.top + 'px',
-                    paddingRight: element.padding.right + 'px',
-                    paddingBottom: element.padding.bottom + 'px',
-                    paddingLeft: element.padding.left + 'px',
+                    marginTop: element.margin.top + 'px',
+                    marginRight: element.margin.right + 'px',
+                    marginBottom: element.margin.bottom + 'px',
+                    marginLeft: element.margin.left + 'px',
                 }" v-html="element.content">
             </div>
         </div>
@@ -19,7 +19,8 @@
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Instagram">
             <text-input :textarea="true" :inSidebar="true"></text-input>
-            <padding></padding>
+
+            <margin></margin>
         </sidebar>
     </div>
 </template>
@@ -34,7 +35,7 @@ import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
 import FontWeightAndSize from './core/FontWeightAndSize'
-import Padding           from './core/Padding'
+import Margin            from './core/Margin'
 
 export default {
     name: "InstagramEmbed",
@@ -43,7 +44,7 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        TextInput, FontWeightAndSize, Padding,
+        TextInput, FontWeightAndSize, Margin,
     },
 }
 </script>

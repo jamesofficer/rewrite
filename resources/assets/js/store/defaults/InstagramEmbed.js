@@ -3,14 +3,13 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'Insert Instagram Embed Code to the Textbox',
+    content: 'Insert Instagram Embed Code here...',
 
-
-    padding: {
-        top: 40,
+    margin: {
+        top: 0,
         right: 0,
-        bottom: 40,
+        bottom: 0,
         left: 0,
-    }
-    
+    },
+
 }
