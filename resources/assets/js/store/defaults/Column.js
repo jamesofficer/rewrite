@@ -13,6 +13,7 @@ export default {
     components: [defaultHeading, defaultParagraph, defaultBlockQuote, defaultPicture, defaultInstagramEmbed, defaultFacebookEmbed, defaultYouTubeEmbed],
 
     // Properties:
+    columnWidth: 12,
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,

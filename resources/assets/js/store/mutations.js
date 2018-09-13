@@ -121,6 +121,10 @@ export const loadArticle = (state, article) => {
 // CSS Property Mutators.
 // ===================================================== //
 
+// Sets the column width on the specified column.
+export const setColumnWidth = (state, columns) =>
+    window.Vue.set(getSelectedElement(state), "columnWidth", columns);
+
 // Sets the string value of a Text Component
 export const updateTextContent = (state, value) =>
     window.Vue.set(getSelectedElement(state), "content", value);

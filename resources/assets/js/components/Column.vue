@@ -5,7 +5,7 @@
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
-    }">
+    }" :cols="element.columnWidth">
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -25,6 +25,8 @@
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Column">
+            <column-width></column-width>
+
             <background-color></background-color>
 
             <padding></padding>
@@ -47,9 +49,10 @@ import Paragraph           from './Paragraph'
 import BlockQuote          from './BlockQuote'
 import Picture             from './Picture'
 import InstagramEmbed      from './InstagramEmbed'
-import FacebookEmbed      from './FacebookEmbed'
-import YouTubeEmbed      from './YouTubeEmbed'
+import FacebookEmbed       from './FacebookEmbed'
+import YouTubeEmbed        from './YouTubeEmbed'
 
+import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
 
@@ -60,7 +63,7 @@ export default {
         Sidebar, SidebarControl,
         TopBar, AddComponentButton, RemoveColumn,
         Heading, Paragraph, BlockQuote, Picture, InstagramEmbed, FacebookEmbed, YouTubeEmbed,
-        Padding, BackgroundColor
+        ColumnWidth, Padding, BackgroundColor
     },
 
     props: {

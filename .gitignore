@@ -2,6 +2,7 @@
 node_modules
 /dist
 /public/js/app.js
+/public/storage
 
 # local env files
 .env.local
@@ -21,5 +22,4 @@ yarn-error.log*
 *.sln
 *.sw*
 .env
-public/js/app.js
 public/js/app.js

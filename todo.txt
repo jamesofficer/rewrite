@@ -1,6 +1,5 @@
 NEW COMPONENTS:
 - Complete Border control component.
-- Margin components.
 - Image control components (width, height, alt-text, position)
 - Let users add hyperlinks and bold/italic text to paragraph text.
 - Add optional citation to BlockQuote.
