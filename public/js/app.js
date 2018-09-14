@@ -50735,7 +50735,7 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "clickable-component" }, [
-        _c("div", {
+        _c("iframe", {
           style: {
             marginTop: _vm.element.margin.top + "px",
             marginRight: _vm.element.margin.right + "px",

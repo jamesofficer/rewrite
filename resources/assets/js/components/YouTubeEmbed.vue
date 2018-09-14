@@ -2,7 +2,7 @@
     <div>
         <!-- COMPONENT -->
         <div class="clickable-component">
-            <div :style="{
+            <iframe :style="{
                     marginTop: element.margin.top + 'px',
                     marginRight: element.margin.right + 'px',
                     marginBottom: element.margin.bottom + 'px',
@@ -15,8 +15,8 @@
                 :frameborder="0"
                 
 
-            >
-            </div>
+            ></iframe>
+            
         </div>
 
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VmQNo8xtcAg" 
