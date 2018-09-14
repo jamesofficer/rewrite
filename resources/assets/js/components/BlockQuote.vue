@@ -1,6 +1,6 @@
 <template>
-    <div class="clickable-component">
-        <blockquote :style="{
+    <div :class="{ 'selected-element': elementIsSelected }">
+        <blockquote v-if="! editingText" @dblclick="selectInput" :style="{
             textAlign: element.textAlign,
             fontSize: element.fontSize + 'pt',
             fontFamily: element.fontFamily,
@@ -15,9 +15,23 @@
             marginRight: element.margin.right + 'px',
             marginBottom: element.margin.bottom + 'px',
             marginLeft: element.margin.left + 'px',
-        }">
+        }" id="text-input">
             {{ element.content }}
         </blockquote>
+
+        <text-input v-else @focusout.native="editingText = false" :style="{
+            textAlign: element.textAlign,
+            fontSize: element.fontSize + 'pt',
+            fontFamily: element.fontFamily,
+            fontWeight: element.fontWeight,
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
+            marginTop: element.margin.top + 'px',
+            marginRight: element.margin.right + 'px',
+            marginBottom: element.margin.bottom + 'px',
+            marginLeft: element.margin.left + 'px',
+        }" size="lg" id="text-input">
+        </text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -26,8 +40,6 @@
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="BlockQuote">
-            <text-input></text-input>
-
             <font-family></font-family>
 
             <text-alignment></text-alignment>
@@ -38,8 +50,6 @@
 
             <background-color></background-color>
 
-            <set-border></set-border>
-
             <padding></padding>
 
             <margin></margin>
@@ -49,6 +59,7 @@
 
 <script>
 import GetElement     from './mixins/GetElement'
+import EditableText   from './mixins/EditableText'
 
 import TopBar         from './topbar/TopBar'
 import Sidebar        from './sidebar/Sidebar'
@@ -61,19 +72,18 @@ import FontFamily        from './core/FontFamily'
 import FontWeightAndSize from './core/FontWeightAndSize'
 import TextColor         from './core/TextColor'
 import BackgroundColor   from './core/BackgroundColor'
-import SetBorder         from './core/SetBorder'
 import Padding           from './core/Padding'
 import Margin            from './core/Margin'
 
 export default {
     name: "BlockQuote",
 
-    mixins: [GetElement],
+    mixins: [GetElement, EditableText],
 
     components: {
         Sidebar, SidebarControl, TopBar, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
-        BackgroundColor, Margin, Padding, SetBorder
+        BackgroundColor, Margin, Padding
     },
 }
 </script>

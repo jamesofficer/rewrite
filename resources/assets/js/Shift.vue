@@ -283,7 +283,6 @@ export default {
 
 <style scoped>
 .shift-container {
-    background: #eee;
     padding: 15px 20px;
 }
 

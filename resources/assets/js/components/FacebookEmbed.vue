@@ -1,14 +1,12 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <div class="clickable-component">
-            <div :style="{
-                    marginTop: element.margin.top + 'px',
-                    marginRight: element.margin.right + 'px',
-                    marginBottom: element.margin.bottom + 'px',
-                    marginLeft: element.margin.left + 'px',
-                }" v-html="element.content">
-            </div>
+        <div :style="{
+                marginTop: element.margin.top + 'px',
+                marginRight: element.margin.right + 'px',
+                marginBottom: element.margin.bottom + 'px',
+                marginLeft: element.margin.left + 'px',
+            }" v-html="element.content">
         </div>
 
         <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarter.ace.94%2Fposts%2F2191153857786326&width=500" width="500" height="391" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->

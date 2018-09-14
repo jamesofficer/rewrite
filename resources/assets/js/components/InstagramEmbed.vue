@@ -1,20 +1,13 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <div class="clickable-component">
-            <iframe :style="{
-                    marginTop: element.margin.top + 'px',
-                    marginRight: element.margin.right + 'px',
-                    marginBottom: element.margin.bottom + 'px',
-                    marginLeft: element.margin.left + 'px',
-                }" 
-                
-                
-                :src="element.content + '/embed'"
-            ></iframe>
-        </div>
+        <iframe :src="element.content + '/embed'" :style="{
+            marginTop: element.margin.top + 'px',
+            marginRight: element.margin.right + 'px',
+            marginBottom: element.margin.bottom + 'px',
+            marginLeft: element.margin.left + 'px',
+        }"></iframe>
 
-       
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>

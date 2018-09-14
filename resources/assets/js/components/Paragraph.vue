@@ -1,31 +1,29 @@
 <template>
-    <div>
-        <div class="clickable-component">
-            <p v-if="! editingText" @click="selectInput"  :style="{
-                textAlign: element.textAlign,
-                fontSize: element.fontSize + 'pt',
-                fontFamily: element.fontFamily,
-                fontWeight: element.fontWeight,
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                paddingTop: element.padding.top + 'px',
-                paddingRight: element.padding.right + 'px',
-                paddingBottom: element.padding.bottom + 'px',
-                paddingLeft: element.padding.left + 'px',
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
-            }" v-html="element.content"></p>
+    <div :class="{ 'selected-element': elementIsSelected }">
+        <p v-if="! editingText" @dblclick="selectInput"  :style="{
+            textAlign: element.textAlign,
+            fontSize: element.fontSize + 'pt',
+            fontFamily: element.fontFamily,
+            fontWeight: element.fontWeight,
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            paddingTop: element.padding.top + 'px',
+            paddingRight: element.padding.right + 'px',
+            paddingBottom: element.padding.bottom + 'px',
+            paddingLeft: element.padding.left + 'px',
+            marginTop: element.margin.top + 'px',
+            marginRight: element.margin.right + 'px',
+            marginBottom: element.margin.bottom + 'px',
+            marginLeft: element.margin.left + 'px',
+        }" v-html="element.content"></p>
 
-            <text-input v-else :textarea="true" @focusout.native="editingText = false"
-                :style="{
-                    fontFamily: element.fontFamily,
-                    fontSize: element.fontSize + 'pt',
-                    textAlign: element.textAlign,
-                    color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                }" size="lg" id="paragraph-input"
-            ></text-input>
-        </div>
+        <text-input v-else :textarea="true" @focusout.native="editingText = false"
+            :style="{
+                fontFamily: element.fontFamily,
+                fontSize: element.fontSize + 'pt',
+                textAlign: element.textAlign,
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }" size="lg" id="paragraph-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

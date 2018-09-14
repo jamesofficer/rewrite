@@ -5,15 +5,20 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background: #aaa;
-}
-
-main {
-    height: 100%;
+    background: #eee !important;
 }
 
 * {
     font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.selected-canvas {
+    border: 3px solid rgb(56, 193, 114) !important;
+}
+
+.selected-element {
+    outline: 3px solid rgb(56, 193, 114) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .login-page-bg {

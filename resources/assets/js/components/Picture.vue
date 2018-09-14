@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <div v-if="! element.src">
             <icon name="image" scale="5" style="color: gray"></icon>
         </div>
@@ -23,11 +23,11 @@
         <sidebar v-if="elementIsSelected" title="Image">
             <image-selector></image-selector>
 
-            <template v-if="element.src">
-                <text-alignment></text-alignment>
+            <!-- <template v-if="element.src"> -->
+                <image-alignment></image-alignment>
 
                 <margin></margin>
-            </template>
+            <!-- </template> -->
         </sidebar>
     </div>
 </template>
@@ -36,12 +36,13 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
+import Sidebar           from './sidebar/Sidebar'
+import SidebarControl    from './sidebar/SidebarControl'
+
 import ImageSelector     from './core/ImageSelector'
-import TextAlignment     from './core/TextAlignment'
+import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
 
 export default {
@@ -51,7 +52,7 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        ImageSelector, TextAlignment, Margin,
+        ImageSelector, ImageAlignment, Margin,
     },
 }
 </script>

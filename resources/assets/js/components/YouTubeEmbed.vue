@@ -1,25 +1,18 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <div class="clickable-component">
-            <iframe :style="{
-                    marginTop: element.margin.top + 'px',
-                    marginRight: element.margin.right + 'px',
-                    marginBottom: element.margin.bottom + 'px',
-                    marginLeft: element.margin.left + 'px',
-                }" 
-                
-                :width="560"
-                :height="315"
-                :src="element.content"
-                :frameborder="0"
-                
+        <iframe :src="element.content" :style="{
+                marginTop: element.margin.top + 'px',
+                marginRight: element.margin.right + 'px',
+                marginBottom: element.margin.bottom + 'px',
+                marginLeft: element.margin.left + 'px',
+            }"
+            :width="560"
+            :height="315"
+            :frameborder="0"
+        ></iframe>
 
-            ></iframe>
-            
-        </div>
-
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VmQNo8xtcAg" 
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VmQNo8xtcAg"
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 
         <!-- TOP BAR -->
@@ -59,4 +52,3 @@ export default {
     },
 }
 </script>
-

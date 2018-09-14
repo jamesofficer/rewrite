@@ -1,6 +1,6 @@
 <template>
     <!-- CANVAS -->
-    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :style="{
+    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :class="{ 'selected-canvas': elementIsSelected }" :style="{
         backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
         paddingTop: element.padding.top + 'px',
         paddingRight: element.padding.right + 'px',

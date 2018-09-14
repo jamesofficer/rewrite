@@ -1,37 +1,35 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <div class="clickable-component">
-            <h1 v-if="! editingText" @click="selectInput" :style="{
-                    textAlign: element.textAlign,
-                    fontSize: element.fontSize + 'pt',
-                    fontFamily: element.fontFamily,
-                    fontWeight: element.fontWeight,
-                    color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    paddingTop: element.padding.top + 'px',
-                    paddingRight: element.padding.right + 'px',
-                    paddingBottom: element.padding.bottom + 'px',
-                    paddingLeft: element.padding.left + 'px',
-                    marginTop: element.margin.top + 'px',
-                    marginRight: element.margin.right + 'px',
-                    marginBottom: element.margin.bottom + 'px',
-                    marginLeft: element.margin.left + 'px',
-                }" v-html="element.content"
-            ></h1>
+        <h1 v-if="! editingText" @dblclick="selectInput" :style="{
+                textAlign: element.textAlign,
+                fontSize: element.fontSize + 'pt',
+                fontFamily: element.fontFamily,
+                fontWeight: element.fontWeight,
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                paddingTop: element.padding.top + 'px',
+                paddingRight: element.padding.right + 'px',
+                paddingBottom: element.padding.bottom + 'px',
+                paddingLeft: element.padding.left + 'px',
+                marginTop: element.margin.top + 'px',
+                marginRight: element.margin.right + 'px',
+                marginBottom: element.margin.bottom + 'px',
+                marginLeft: element.margin.left + 'px',
+            }" v-html="element.content"
+        ></h1>
 
-            <text-input v-else @focusout.native="editingText = false" :style="{
-                    textAlign: element.textAlign,
-                    fontSize: element.fontSize + 'pt',
-                    fontFamily: element.fontFamily,
-                    fontWeight: element.fontWeight,
-                    color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    marginTop: element.margin.top + 'px',
-                    marginRight: element.margin.right + 'px',
-                    marginBottom: element.margin.bottom + 'px',
-                    marginLeft: element.margin.left + 'px',
-                }" size="lg" id="heading-input"
-            ></text-input>
-        </div>
+        <text-input v-else @focusout.native="editingText = false" :style="{
+                textAlign: element.textAlign,
+                fontSize: element.fontSize + 'pt',
+                fontFamily: element.fontFamily,
+                fontWeight: element.fontWeight,
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                marginTop: element.margin.top + 'px',
+                marginRight: element.margin.right + 'px',
+                marginBottom: element.margin.bottom + 'px',
+                marginLeft: element.margin.left + 'px',
+            }" size="lg" id="heading-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -105,8 +103,8 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    margin: 0;
-    padding: 0;
-}
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
 </style>

@@ -4,20 +4,26 @@ NEW COMPONENTS:
 - Let users add hyperlinks and bold/italic text to paragraph text.
 - Add optional citation to BlockQuote.
 - Add width controls to column component.
+- Add Recipe Component.
+- Add Recipe Summary Component.
 
 FEATURES:
+- Sticky top bar.
 - Add bold/italic/linebreak/hr controls to Paragraph component.
 - Saving an article with a new name should ask to overwrite the old one.
-- Highlight selected component.
 - Users can drag and rearrange columns?
 - Clean up HTML export with Regex.
 - Let users delete articles.
 - Let users delete images.
-- Highlight the background of a component when selecting it (instead of a border).
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
-- Fix blockquote text entry.
 - Move article saving methods to actions.
 - Editing a Paragraph or Heading should match the height of the paragraph.
+- Improve backend validation and error output.
+- Add tabs to Add Component Modal.
 
 
-
+CHANGELOG [Newest to Oldest]:
+- Select elements/canvas are now given an outline or border (changing bg color didn't work out well due to custom background colours).
+- Fixed blockquote text entry.
+- Now have to double click on a text element to edit it.
+- Added Image Align Component.

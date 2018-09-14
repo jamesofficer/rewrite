@@ -22716,7 +22716,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__BlockQuote__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_4__InstagramEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_5__FacebookEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_6__YouTubeEmbed__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__BlockQuote__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_5__FacebookEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_6__YouTubeEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_4__InstagramEmbed__["a" /* default */]],
 
     // Properties:
     columnWidth: 12,
@@ -45332,7 +45332,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-container[data-v-0839e31a] {\r\n    background: #eee;\r\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-0839e31a] {\r\n    padding: 10px;\r\n    margin-bottom: 15px;\r\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a] {\r\n    padding: 30px 10px;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\r\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-0839e31a] {\r\n    padding: 5px;\r\n    margin-bottom: 10px;\n}\n.shift-bottom-bar[data-v-0839e31a] {\r\n    padding: 5px;\r\n    margin-bottom: 50px;\n}\n.top-bar-portal-target[data-v-0839e31a] {\r\n    display: inline;\n}\n.shift-workspace[data-v-0839e31a] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin-bottom: 10px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-0839e31a] {\r\n    background: #fff;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    padding: 5px 10px;\r\n    top: 20px;\r\n    margin-bottom: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-container[data-v-0839e31a] {\r\n    padding: 15px 20px;\n}\n.shift-article-name[data-v-0839e31a] {\r\n    padding: 10px;\r\n    margin-bottom: 15px;\r\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a] {\r\n    padding: 30px 10px;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\r\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-0839e31a]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.shift-top-bar[data-v-0839e31a] {\r\n    padding: 5px;\r\n    margin-bottom: 10px;\n}\n.shift-bottom-bar[data-v-0839e31a] {\r\n    padding: 5px;\r\n    margin-bottom: 50px;\n}\n.top-bar-portal-target[data-v-0839e31a] {\r\n    display: inline;\n}\n.shift-workspace[data-v-0839e31a] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin-bottom: 10px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-0839e31a]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.shift-sidebar[data-v-0839e31a] {\r\n    background: #fff;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    padding: 5px 10px;\r\n    top: 20px;\r\n    margin-bottom: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -46775,6 +46775,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 componentIndex: componentIndex
             });
         }
+    },
+
+    created: function created() {
+        // When this column is created we want to set it to the correct width.
+        // e.g if there are two columns in the canvas already, set it's width to 1/4
     }
 });
 
@@ -47464,7 +47469,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c1473db] {\r\n    margin: 0;\r\n    padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\nh1[data-v-2c1473db] {\n    margin: 0;\n    padding: 0;\n}\n", ""]);
 
 // exports
 
@@ -47498,8 +47503,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Margin__);
-//
-//
 //
 //
 //
@@ -48713,71 +48716,65 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c(
-        "div",
-        { staticClass: "clickable-component" },
-        [
-          !_vm.editingText
-            ? _c("h1", {
-                style: {
-                  textAlign: _vm.element.textAlign,
-                  fontSize: _vm.element.fontSize + "pt",
-                  fontFamily: _vm.element.fontFamily,
-                  fontWeight: _vm.element.fontWeight,
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")",
-                  paddingTop: _vm.element.padding.top + "px",
-                  paddingRight: _vm.element.padding.right + "px",
-                  paddingBottom: _vm.element.padding.bottom + "px",
-                  paddingLeft: _vm.element.padding.left + "px",
-                  marginTop: _vm.element.margin.top + "px",
-                  marginRight: _vm.element.margin.right + "px",
-                  marginBottom: _vm.element.margin.bottom + "px",
-                  marginLeft: _vm.element.margin.left + "px"
-                },
-                domProps: { innerHTML: _vm._s(_vm.element.content) },
-                on: { click: _vm.selectInput }
-              })
-            : _c("text-input", {
-                style: {
-                  textAlign: _vm.element.textAlign,
-                  fontSize: _vm.element.fontSize + "pt",
-                  fontFamily: _vm.element.fontFamily,
-                  fontWeight: _vm.element.fontWeight,
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")",
-                  marginTop: _vm.element.margin.top + "px",
-                  marginRight: _vm.element.margin.right + "px",
-                  marginBottom: _vm.element.margin.bottom + "px",
-                  marginLeft: _vm.element.margin.left + "px"
-                },
-                attrs: { size: "lg", id: "heading-input" },
-                nativeOn: {
-                  focusout: function($event) {
-                    _vm.editingText = false
-                  }
-                }
-              })
-        ],
-        1
-      ),
+      !_vm.editingText
+        ? _c("h1", {
+            style: {
+              textAlign: _vm.element.textAlign,
+              fontSize: _vm.element.fontSize + "pt",
+              fontFamily: _vm.element.fontFamily,
+              fontWeight: _vm.element.fontWeight,
+              color:
+                "rgba(" +
+                _vm.element.textColor.r +
+                ", " +
+                _vm.element.textColor.g +
+                ", " +
+                _vm.element.textColor.b +
+                ", " +
+                _vm.element.textColor.a +
+                ")",
+              paddingTop: _vm.element.padding.top + "px",
+              paddingRight: _vm.element.padding.right + "px",
+              paddingBottom: _vm.element.padding.bottom + "px",
+              paddingLeft: _vm.element.padding.left + "px",
+              marginTop: _vm.element.margin.top + "px",
+              marginRight: _vm.element.margin.right + "px",
+              marginBottom: _vm.element.margin.bottom + "px",
+              marginLeft: _vm.element.margin.left + "px"
+            },
+            domProps: { innerHTML: _vm._s(_vm.element.content) },
+            on: { dblclick: _vm.selectInput }
+          })
+        : _c("text-input", {
+            style: {
+              textAlign: _vm.element.textAlign,
+              fontSize: _vm.element.fontSize + "pt",
+              fontFamily: _vm.element.fontFamily,
+              fontWeight: _vm.element.fontWeight,
+              color:
+                "rgba(" +
+                _vm.element.textColor.r +
+                ", " +
+                _vm.element.textColor.g +
+                ", " +
+                _vm.element.textColor.b +
+                ", " +
+                _vm.element.textColor.a +
+                ")",
+              marginTop: _vm.element.margin.top + "px",
+              marginRight: _vm.element.margin.right + "px",
+              marginBottom: _vm.element.margin.bottom + "px",
+              marginLeft: _vm.element.margin.left + "px"
+            },
+            attrs: { size: "lg", id: "heading-input" },
+            nativeOn: {
+              focusout: function($event) {
+                _vm.editingText = false
+              }
+            }
+          }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -48895,8 +48892,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Margin__);
-//
-//
 //
 //
 //
@@ -49123,66 +49118,60 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c(
-        "div",
-        { staticClass: "clickable-component" },
-        [
-          !_vm.editingText
-            ? _c("p", {
-                style: {
-                  textAlign: _vm.element.textAlign,
-                  fontSize: _vm.element.fontSize + "pt",
-                  fontFamily: _vm.element.fontFamily,
-                  fontWeight: _vm.element.fontWeight,
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")",
-                  paddingTop: _vm.element.padding.top + "px",
-                  paddingRight: _vm.element.padding.right + "px",
-                  paddingBottom: _vm.element.padding.bottom + "px",
-                  paddingLeft: _vm.element.padding.left + "px",
-                  marginTop: _vm.element.margin.top + "px",
-                  marginRight: _vm.element.margin.right + "px",
-                  marginBottom: _vm.element.margin.bottom + "px",
-                  marginLeft: _vm.element.margin.left + "px"
-                },
-                domProps: { innerHTML: _vm._s(_vm.element.content) },
-                on: { click: _vm.selectInput }
-              })
-            : _c("text-input", {
-                style: {
-                  fontFamily: _vm.element.fontFamily,
-                  fontSize: _vm.element.fontSize + "pt",
-                  textAlign: _vm.element.textAlign,
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")"
-                },
-                attrs: { textarea: true, size: "lg", id: "paragraph-input" },
-                nativeOn: {
-                  focusout: function($event) {
-                    _vm.editingText = false
-                  }
-                }
-              })
-        ],
-        1
-      ),
+      !_vm.editingText
+        ? _c("p", {
+            style: {
+              textAlign: _vm.element.textAlign,
+              fontSize: _vm.element.fontSize + "pt",
+              fontFamily: _vm.element.fontFamily,
+              fontWeight: _vm.element.fontWeight,
+              color:
+                "rgba(" +
+                _vm.element.textColor.r +
+                ", " +
+                _vm.element.textColor.g +
+                ", " +
+                _vm.element.textColor.b +
+                ", " +
+                _vm.element.textColor.a +
+                ")",
+              paddingTop: _vm.element.padding.top + "px",
+              paddingRight: _vm.element.padding.right + "px",
+              paddingBottom: _vm.element.padding.bottom + "px",
+              paddingLeft: _vm.element.padding.left + "px",
+              marginTop: _vm.element.margin.top + "px",
+              marginRight: _vm.element.margin.right + "px",
+              marginBottom: _vm.element.margin.bottom + "px",
+              marginLeft: _vm.element.margin.left + "px"
+            },
+            domProps: { innerHTML: _vm._s(_vm.element.content) },
+            on: { dblclick: _vm.selectInput }
+          })
+        : _c("text-input", {
+            style: {
+              fontFamily: _vm.element.fontFamily,
+              fontSize: _vm.element.fontSize + "pt",
+              textAlign: _vm.element.textAlign,
+              color:
+                "rgba(" +
+                _vm.element.textColor.r +
+                ", " +
+                _vm.element.textColor.g +
+                ", " +
+                _vm.element.textColor.b +
+                ", " +
+                _vm.element.textColor.a +
+                ")"
+            },
+            attrs: { textarea: true, size: "lg", id: "paragraph-input" },
+            nativeOn: {
+              focusout: function($event) {
+                _vm.editingText = false
+              }
+            }
+          }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -49320,32 +49309,41 @@ exports.push([module.i, "\nblockquote[data-v-32ff15b4] {\r\n    border-left: 5px
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_SetBorder__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_SetBorder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_SetBorder__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EditableText__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_DeleteComponentButton__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextInput__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_Margin__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49416,12 +49414,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BlockQuote",
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__mixins_EditableText__["a" /* default */]],
 
     components: {
-        Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_8__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, Margin: __WEBPACK_IMPORTED_MODULE_13__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_12__core_Padding___default.a, SetBorder: __WEBPACK_IMPORTED_MODULE_11__core_SetBorder___default.a
+        Sidebar: __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_5__topbar_DeleteComponentButton___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_6__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_9__core_FontWeightAndSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default.a,
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default.a, Margin: __WEBPACK_IMPORTED_MODULE_13__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_12__core_Padding___default.a
     }
 });
 
@@ -49597,250 +49595,9 @@ if (false) {
 }
 
 /***/ }),
-/* 304 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(305)
-/* template */
-var __vue_template__ = __webpack_require__(306)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\core\\SetBorder.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-bb3344b0", Component.options)
-  } else {
-    hotAPI.reload("data-v-bb3344b0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 305 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "SetBorder",
-
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a },
-
-    computed: {
-        borderTop: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.border.top;
-            },
-            set: function set(amount) {
-                this.$store.commit('setBorderTop', amount);
-            }
-        },
-
-        borderRight: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.border.right;
-            },
-            set: function set(amount) {
-                this.$store.commit('setBorderRight', amount);
-            }
-        },
-
-        borderBottom: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.border.bottom;
-            },
-            set: function set(amount) {
-                this.$store.commit('setBorderBottom', amount);
-            }
-        },
-
-        borderLeft: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.padding.left;
-            },
-            set: function set(amount) {
-                this.$store.commit('setBorderLeft', amount);
-            }
-        }
-    }
-});
-
-/***/ }),
-/* 306 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "sidebar-control",
-        { attrs: { label: "SetBorder" } },
-        [
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Top")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 10, size: "sm" },
-                    model: {
-                      value: _vm.borderTop,
-                      callback: function($$v) {
-                        _vm.borderTop = $$v
-                      },
-                      expression: "borderTop"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 10, size: "sm" },
-                    model: {
-                      value: _vm.borderRight,
-                      callback: function($$v) {
-                        _vm.borderRight = $$v
-                      },
-                      expression: "borderRight"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 10, size: "sm" },
-                    model: {
-                      value: _vm.borderBottom,
-                      callback: function($$v) {
-                        _vm.borderBottom = $$v
-                      },
-                      expression: "borderBottom"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Left")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 10, size: "sm" },
-                    model: {
-                      value: _vm.borderLeft,
-                      callback: function($$v) {
-                        _vm.borderLeft = $$v
-                      },
-                      expression: "borderLeft"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-bb3344b0", module.exports)
-  }
-}
-
-/***/ }),
+/* 304 */,
+/* 305 */,
+/* 306 */,
 /* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49850,48 +49607,89 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "clickable-component" },
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c(
-        "blockquote",
-        {
-          style: {
-            textAlign: _vm.element.textAlign,
-            fontSize: _vm.element.fontSize + "pt",
-            fontFamily: _vm.element.fontFamily,
-            fontWeight: _vm.element.fontWeight,
-            color:
-              "rgba(" +
-              _vm.element.textColor.r +
-              ", " +
-              _vm.element.textColor.g +
-              ", " +
-              _vm.element.textColor.b +
-              ", " +
-              _vm.element.textColor.a +
-              ")",
-            backgroundColor:
-              "rgba(" +
-              _vm.element.backgroundColor.r +
-              ", " +
-              _vm.element.backgroundColor.g +
-              ", " +
-              _vm.element.backgroundColor.b +
-              ", " +
-              _vm.element.backgroundColor.a +
-              ")",
-            paddingTop: _vm.element.padding.top + "px",
-            paddingRight: _vm.element.padding.right + "px",
-            paddingBottom: _vm.element.padding.bottom + "px",
-            paddingLeft: _vm.element.padding.left + "px",
-            marginTop: _vm.element.margin.top + "px",
-            marginRight: _vm.element.margin.right + "px",
-            marginBottom: _vm.element.margin.bottom + "px",
-            marginLeft: _vm.element.margin.left + "px"
-          }
-        },
-        [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
-      ),
+      !_vm.editingText
+        ? _c(
+            "blockquote",
+            {
+              style: {
+                textAlign: _vm.element.textAlign,
+                fontSize: _vm.element.fontSize + "pt",
+                fontFamily: _vm.element.fontFamily,
+                fontWeight: _vm.element.fontWeight,
+                color:
+                  "rgba(" +
+                  _vm.element.textColor.r +
+                  ", " +
+                  _vm.element.textColor.g +
+                  ", " +
+                  _vm.element.textColor.b +
+                  ", " +
+                  _vm.element.textColor.a +
+                  ")",
+                backgroundColor:
+                  "rgba(" +
+                  _vm.element.backgroundColor.r +
+                  ", " +
+                  _vm.element.backgroundColor.g +
+                  ", " +
+                  _vm.element.backgroundColor.b +
+                  ", " +
+                  _vm.element.backgroundColor.a +
+                  ")",
+                paddingTop: _vm.element.padding.top + "px",
+                paddingRight: _vm.element.padding.right + "px",
+                paddingBottom: _vm.element.padding.bottom + "px",
+                paddingLeft: _vm.element.padding.left + "px",
+                marginTop: _vm.element.margin.top + "px",
+                marginRight: _vm.element.margin.right + "px",
+                marginBottom: _vm.element.margin.bottom + "px",
+                marginLeft: _vm.element.margin.left + "px"
+              },
+              attrs: { id: "text-input" },
+              on: { dblclick: _vm.selectInput }
+            },
+            [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
+          )
+        : _c("text-input", {
+            style: {
+              textAlign: _vm.element.textAlign,
+              fontSize: _vm.element.fontSize + "pt",
+              fontFamily: _vm.element.fontFamily,
+              fontWeight: _vm.element.fontWeight,
+              color:
+                "rgba(" +
+                _vm.element.textColor.r +
+                ", " +
+                _vm.element.textColor.g +
+                ", " +
+                _vm.element.textColor.b +
+                ", " +
+                _vm.element.textColor.a +
+                ")",
+              backgroundColor:
+                "rgba(" +
+                _vm.element.backgroundColor.r +
+                ", " +
+                _vm.element.backgroundColor.g +
+                ", " +
+                _vm.element.backgroundColor.b +
+                ", " +
+                _vm.element.backgroundColor.a +
+                ")",
+              marginTop: _vm.element.margin.top + "px",
+              marginRight: _vm.element.margin.right + "px",
+              marginBottom: _vm.element.margin.bottom + "px",
+              marginLeft: _vm.element.margin.left + "px"
+            },
+            attrs: { size: "lg", id: "text-input" },
+            nativeOn: {
+              focusout: function($event) {
+                _vm.editingText = false
+              }
+            }
+          }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -49902,8 +49700,6 @@ var render = function() {
             "sidebar",
             { attrs: { title: "BlockQuote" } },
             [
-              _c("text-input"),
-              _vm._v(" "),
               _c("font-family"),
               _vm._v(" "),
               _c("text-alignment"),
@@ -49913,8 +49709,6 @@ var render = function() {
               _c("text-color"),
               _vm._v(" "),
               _c("background-color"),
-              _vm._v(" "),
-              _c("set-border"),
               _vm._v(" "),
               _c("padding"),
               _vm._v(" "),
@@ -49993,16 +49787,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__topbar_TopBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_ImageSelector__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
 //
@@ -50051,14 +49845,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Picture",
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        ImageSelector: __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_6__core_TextAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_3__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_4__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default.a,
+        ImageSelector: __WEBPACK_IMPORTED_MODULE_5__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
     }
 });
 
@@ -50189,6 +49984,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
       !_vm.element.src
         ? _c(
@@ -50225,11 +50021,11 @@ var render = function() {
             [
               _c("image-selector"),
               _vm._v(" "),
-              _vm.element.src
-                ? [_c("text-alignment"), _vm._v(" "), _c("margin")]
-                : _vm._e()
+              _c("image-alignment"),
+              _vm._v(" "),
+              _c("margin")
             ],
-            2
+            1
           )
         : _vm._e()
     ],
@@ -50338,13 +50134,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -50378,18 +50167,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c("div", { staticClass: "clickable-component" }, [
-        _c("iframe", {
-          style: {
-            marginTop: _vm.element.margin.top + "px",
-            marginRight: _vm.element.margin.right + "px",
-            marginBottom: _vm.element.margin.bottom + "px",
-            marginLeft: _vm.element.margin.left + "px"
-          },
-          attrs: { src: _vm.element.content + "/embed" }
-        })
-      ]),
+      _c("iframe", {
+        style: {
+          marginTop: _vm.element.margin.top + "px",
+          marginRight: _vm.element.margin.right + "px",
+          marginBottom: _vm.element.margin.bottom + "px",
+          marginLeft: _vm.element.margin.left + "px"
+        },
+        attrs: { src: _vm.element.content + "/embed" }
+      }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -50516,8 +50304,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -50551,18 +50337,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c("div", { staticClass: "clickable-component" }, [
-        _c("div", {
-          style: {
-            marginTop: _vm.element.margin.top + "px",
-            marginRight: _vm.element.margin.right + "px",
-            marginBottom: _vm.element.margin.bottom + "px",
-            marginLeft: _vm.element.margin.left + "px"
-          },
-          domProps: { innerHTML: _vm._s(_vm.element.content) }
-        })
-      ]),
+      _c("div", {
+        style: {
+          marginTop: _vm.element.margin.top + "px",
+          marginRight: _vm.element.margin.right + "px",
+          marginBottom: _vm.element.margin.bottom + "px",
+          marginLeft: _vm.element.margin.left + "px"
+        },
+        domProps: { innerHTML: _vm._s(_vm.element.content) }
+      }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -50693,13 +50478,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -50733,23 +50511,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
-      _c("div", { staticClass: "clickable-component" }, [
-        _c("iframe", {
-          style: {
-            marginTop: _vm.element.margin.top + "px",
-            marginRight: _vm.element.margin.right + "px",
-            marginBottom: _vm.element.margin.bottom + "px",
-            marginLeft: _vm.element.margin.left + "px"
-          },
-          attrs: {
-            width: 560,
-            height: 315,
-            src: _vm.element.content,
-            frameborder: 0
-          }
-        })
-      ]),
+      _c("iframe", {
+        style: {
+          marginTop: _vm.element.margin.top + "px",
+          marginRight: _vm.element.margin.right + "px",
+          marginBottom: _vm.element.margin.bottom + "px",
+          marginLeft: _vm.element.margin.left + "px"
+        },
+        attrs: {
+          src: _vm.element.content,
+          width: 560,
+          height: 315,
+          frameborder: 0
+        }
+      }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -50929,6 +50706,7 @@ var render = function() {
   return _c(
     "b-col",
     {
+      class: { "selected-element": _vm.elementIsSelected },
       style: {
         backgroundColor:
           "rgba(" +
@@ -51014,6 +50792,7 @@ var render = function() {
   return _c(
     "b-row",
     {
+      class: { "selected-canvas": _vm.elementIsSelected },
       style: {
         backgroundColor:
           "rgba(" +
@@ -75612,6 +75391,195 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(420)
+/* template */
+var __vue_template__ = __webpack_require__(421)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\core\\ImageAlignment.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c1d55884", Component.options)
+  } else {
+    hotAPI.reload("data-v-c1d55884", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 420 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ImageAlign",
+
+    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a },
+
+    methods: {
+        alignImage: function alignImage(position) {
+            // Image Align actually uses the text-align css property to align the image.
+            this.$store.commit('setTextAlignment', position);
+        }
+    }
+});
+
+/***/ }),
+/* 421 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "sidebar-control",
+    { attrs: { label: "Image Alignment" } },
+    [
+      _c(
+        "b-button-group",
+        [
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "success" },
+              on: {
+                click: function($event) {
+                  _vm.alignImage("left")
+                }
+              }
+            },
+            [_vm._v("Left")]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "success" },
+              on: {
+                click: function($event) {
+                  _vm.alignImage("center")
+                }
+              }
+            },
+            [_vm._v("Center")]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "success" },
+              on: {
+                click: function($event) {
+                  _vm.alignImage("right")
+                }
+              }
+            },
+            [_vm._v("Right")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c1d55884", module.exports)
+  }
+}
+
+/***/ }),
+/* 422 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * Elements such as Heading, Paragraph and BlockQuote allow the user to input text directly
+ * into the Canvas. All those elements share that logic, which is located in this file.
+ *
+ */
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data: function data() {
+        return {
+            editingText: false
+        };
+    },
+
+
+    methods: {
+        selectInput: function selectInput() {
+            this.editingText = true;
+
+            this.$nextTick(function () {
+                var input = document.getElementById('text-input');
+                var strLength = input.value.length;
+
+                input.focus();
+                input.setSelectionRange(strLength, strLength);
+            });
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

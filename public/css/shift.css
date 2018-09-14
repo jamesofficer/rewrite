@@ -5,15 +5,21 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background: #aaa;
-}
-
-main {
-  height: 100%;
+  background: #eee !important;
 }
 
 * {
   font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.selected-canvas {
+  border: 3px solid #38c172 !important;
+}
+
+.selected-element {
+  outline: 3px solid #38c172 !important;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .login-page-bg {

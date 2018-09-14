@@ -1,11 +1,11 @@
 <template>
-    <b-col :style="{
+    <b-col :cols="element.columnWidth" :class="{ 'selected-element': elementIsSelected }" :style="{
         backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
         paddingTop: element.padding.top + 'px',
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
-    }" :cols="element.columnWidth">
+    }">
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -114,6 +114,11 @@ export default {
                 componentIndex: componentIndex,
             });
         },
+    },
+
+    created() {
+        // When this column is created we want to set it to the correct width.
+        // e.g if there are two columns in the canvas already, set it's width to 1/4
     }
 }
 </script>
