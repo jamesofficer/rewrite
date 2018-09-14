@@ -3,7 +3,7 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'Insert YouTube Embed Code here...',
+    content: 'https://www.youtube.com/embed/VmQNo8xtcAg',
 
     margin: {
         top: 0,

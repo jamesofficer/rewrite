@@ -3,7 +3,7 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'Insert Instagram Embed Code here...',
+    content: 'https://www.instagram.com/p/BnfqF_8l1tt',
 
     margin: {
         top: 0,

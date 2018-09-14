@@ -19586,7 +19586,7 @@ var ToolTip = function () {
     selected: false,
 
     // Properties:
-    content: 'Insert Instagram Embed Code here...',
+    content: 'https://www.instagram.com/p/BnfqF_8l1tt',
 
     margin: {
         top: 0,
@@ -22767,7 +22767,7 @@ module.exports = Component.exports
     selected: false,
 
     // Properties:
-    content: 'Insert YouTube Embed Code here...',
+    content: 'https://www.youtube.com/embed/VmQNo8xtcAg',
 
     margin: {
         top: 0,
@@ -50341,6 +50341,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -50376,14 +50380,14 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "clickable-component" }, [
-        _c("div", {
+        _c("iframe", {
           style: {
             marginTop: _vm.element.margin.top + "px",
             marginRight: _vm.element.margin.right + "px",
             marginBottom: _vm.element.margin.bottom + "px",
             marginLeft: _vm.element.margin.left + "px"
           },
-          domProps: { innerHTML: _vm._s(_vm.element.content) }
+          attrs: { src: _vm.element.content + "/embed" }
         })
       ]),
       _vm._v(" "),
@@ -50485,6 +50489,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
+//
+//
 //
 //
 //
@@ -50683,6 +50689,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50725,7 +50742,12 @@ var render = function() {
             marginBottom: _vm.element.margin.bottom + "px",
             marginLeft: _vm.element.margin.left + "px"
           },
-          domProps: { innerHTML: _vm._s(_vm.element.content) }
+          attrs: {
+            width: 560,
+            height: 315,
+            src: _vm.element.content,
+            frameborder: 0
+          }
         })
       ]),
       _vm._v(" "),

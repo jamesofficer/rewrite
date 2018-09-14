@@ -7,9 +7,20 @@
                     marginRight: element.margin.right + 'px',
                     marginBottom: element.margin.bottom + 'px',
                     marginLeft: element.margin.left + 'px',
-                }" v-html="element.content">
+                }" 
+                
+                :width="560"
+                :height="315"
+                :src="element.content"
+                :frameborder="0"
+                
+
+            >
             </div>
         </div>
+
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VmQNo8xtcAg" 
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

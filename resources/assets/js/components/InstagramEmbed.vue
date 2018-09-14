@@ -2,15 +2,19 @@
     <div>
         <!-- COMPONENT -->
         <div class="clickable-component">
-            <div :style="{
+            <iframe :style="{
                     marginTop: element.margin.top + 'px',
                     marginRight: element.margin.right + 'px',
                     marginBottom: element.margin.bottom + 'px',
                     marginLeft: element.margin.left + 'px',
-                }" v-html="element.content">
-            </div>
+                }" 
+                
+                
+                :src="element.content + '/embed'"
+            ></iframe>
         </div>
 
+       
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
