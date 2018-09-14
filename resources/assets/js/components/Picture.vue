@@ -23,11 +23,11 @@
         <sidebar v-if="elementIsSelected" title="Image">
             <image-selector></image-selector>
 
-            <!-- <template v-if="element.src"> -->
+            <template v-if="element.src">
                 <image-alignment></image-alignment>
 
                 <margin></margin>
-            <!-- </template> -->
+            </template>
         </sidebar>
     </div>
 </template>

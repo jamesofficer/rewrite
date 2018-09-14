@@ -12,6 +12,7 @@ FEATURES:
 - Add bold/italic/linebreak/hr controls to Paragraph component.
 - Saving an article with a new name should ask to overwrite the old one.
 - Users can drag and rearrange columns?
+- Users can rearrange canvas positions.
 - Clean up HTML export with Regex.
 - Let users delete articles.
 - Let users delete images.

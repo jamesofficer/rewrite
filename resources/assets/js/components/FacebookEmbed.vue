@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
         <!-- COMPONENT -->
         <div :style="{
                 marginTop: element.margin.top + 'px',
@@ -9,8 +9,6 @@
             }" v-html="element.content">
         </div>
 
-        <!-- <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarter.ace.94%2Fposts%2F2191153857786326&width=500" width="500" height="391" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
-
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
@@ -18,7 +16,9 @@
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="Facebook">
-            <text-input :textarea="true" :inSidebar="true"></text-input>
+            <text-input :inSidebar="true"></text-input>
+
+            <image-alignment></image-alignment>
 
             <margin></margin>
         </sidebar>
@@ -34,7 +34,7 @@ import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
-import FontWeightAndSize from './core/FontWeightAndSize'
+import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
 
 export default {
@@ -44,7 +44,7 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        TextInput, FontWeightAndSize, Margin,
+        TextInput, ImageAlignment, Margin,
     },
 }
 </script>

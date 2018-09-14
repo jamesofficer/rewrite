@@ -4,7 +4,7 @@ export default {
 
     // Properties:
     content: 'Insert Facebook Embed Code here...',
-
+    textAlign: 'left',
     margin: {
         top: 0,
         right: 0,

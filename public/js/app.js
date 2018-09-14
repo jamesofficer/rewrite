@@ -19587,7 +19587,7 @@ var ToolTip = function () {
 
     // Properties:
     content: 'https://www.instagram.com/p/BnfqF_8l1tt',
-
+    textAlign: 'left',
     margin: {
         top: 0,
         right: 0,
@@ -19608,7 +19608,7 @@ var ToolTip = function () {
 
     // Properties:
     content: 'Insert Facebook Embed Code here...',
-
+    textAlign: 'left',
     margin: {
         top: 0,
         right: 0,
@@ -22716,7 +22716,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__BlockQuote__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_5__FacebookEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_6__YouTubeEmbed__["a" /* default */], __WEBPACK_IMPORTED_MODULE_4__InstagramEmbed__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__BlockQuote__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_6__YouTubeEmbed__["a" /* default */]],
 
     // Properties:
     columnWidth: 12,
@@ -22767,8 +22767,8 @@ module.exports = Component.exports
     selected: false,
 
     // Properties:
-    content: 'https://www.youtube.com/embed/VmQNo8xtcAg',
-
+    videoUrl: null,
+    textAlign: 'left',
     margin: {
         top: 0,
         right: 0,
@@ -50021,11 +50021,11 @@ var render = function() {
             [
               _c("image-selector"),
               _vm._v(" "),
-              _c("image-alignment"),
-              _vm._v(" "),
-              _c("margin")
+              _vm.element.src
+                ? [_c("image-alignment"), _vm._v(" "), _c("margin")]
+                : _vm._e()
             ],
-            1
+            2
           )
         : _vm._e()
     ],
@@ -50106,10 +50106,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
+//
+//
 //
 //
 //
@@ -50153,7 +50155,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
     }
 });
 
@@ -50167,7 +50169,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: { "selected-element": _vm.elementIsSelected } },
+    {
+      class: { "selected-element": _vm.elementIsSelected },
+      style: { textAlign: _vm.element.textAlign }
+    },
     [
       _c("iframe", {
         style: {
@@ -50189,6 +50194,8 @@ var render = function() {
             { attrs: { title: "Instagram" } },
             [
               _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
+              _vm._v(" "),
+              _c("image-alignment"),
               _vm._v(" "),
               _c("margin")
             ],
@@ -50273,8 +50280,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
 //
@@ -50323,7 +50330,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
     }
 });
 
@@ -50337,7 +50344,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: { "selected-element": _vm.elementIsSelected } },
+    {
+      class: { "selected-element": _vm.elementIsSelected },
+      style: { textAlign: _vm.element.textAlign }
+    },
     [
       _c("div", {
         style: {
@@ -50358,7 +50368,9 @@ var render = function() {
             "sidebar",
             { attrs: { title: "Facebook" } },
             [
-              _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
+              _c("text-input", { attrs: { inSidebar: true } }),
+              _vm._v(" "),
+              _c("image-alignment"),
               _vm._v(" "),
               _c("margin")
             ],
@@ -50443,10 +50455,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
+//
+//
+//
 //
 //
 //
@@ -50497,7 +50512,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, Sidebar: __WEBPACK_IMPORTED_MODULE_2__sidebar_Sidebar___default.a, SidebarControl: __WEBPACK_IMPORTED_MODULE_3__sidebar_SidebarControl___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontWeightAndSize: __WEBPACK_IMPORTED_MODULE_6__core_FontWeightAndSize___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_6__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a
+    },
+
+    data: function data() {
+        return {
+            videoUrl: null
+        };
+    },
+
+
+    methods: {
+        updateYouTubeUrl: function updateYouTubeUrl() {
+            var videoId = this.videoUrl.split('/watch?v=', 2)[1];
+            var newUrl = 'https://www.youtube.com/embed/' + videoId;
+
+            this.$store.commit('setVideoUrl', newUrl);
+        }
     }
 });
 
@@ -50511,22 +50542,27 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: { "selected-element": _vm.elementIsSelected } },
+    {
+      class: { "selected-element": _vm.elementIsSelected },
+      style: { textAlign: _vm.element.textAlign }
+    },
     [
-      _c("iframe", {
-        style: {
-          marginTop: _vm.element.margin.top + "px",
-          marginRight: _vm.element.margin.right + "px",
-          marginBottom: _vm.element.margin.bottom + "px",
-          marginLeft: _vm.element.margin.left + "px"
-        },
-        attrs: {
-          src: _vm.element.content,
-          width: 560,
-          height: 315,
-          frameborder: 0
-        }
-      }),
+      !_vm.videoUrl
+        ? _c("icon", { attrs: { name: "brands/youtube", scale: "8" } })
+        : _c("iframe", {
+            style: {
+              marginTop: _vm.element.margin.top + "px",
+              marginRight: _vm.element.margin.right + "px",
+              marginBottom: _vm.element.margin.bottom + "px",
+              marginLeft: _vm.element.margin.left + "px"
+            },
+            attrs: {
+              src: _vm.element.videoUrl,
+              width: 560,
+              height: 315,
+              frameborder: 0
+            }
+          }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("delete-component-button")], 1)
@@ -50537,7 +50573,32 @@ var render = function() {
             "sidebar",
             { attrs: { title: "YouTube" } },
             [
-              _c("text-input", { attrs: { textarea: true, inSidebar: true } }),
+              _c(
+                "sidebar-control",
+                [
+                  _c("b-input", {
+                    attrs: {
+                      size: "lg",
+                      placeholder: "Paste YouTube video URL here..."
+                    },
+                    nativeOn: {
+                      blur: function($event) {
+                        return _vm.updateYouTubeUrl($event)
+                      }
+                    },
+                    model: {
+                      value: _vm.videoUrl,
+                      callback: function($$v) {
+                        _vm.videoUrl = $$v
+                      },
+                      expression: "videoUrl"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("image-alignment"),
               _vm._v(" "),
               _c("margin")
             ],
@@ -52672,6 +52733,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextColor", function() { return setTextColor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBackgroundColor", function() { return setBackgroundColor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setImageSource", function() { return setImageSource; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setVideoUrl", function() { return setVideoUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginTop", function() { return setMarginTop; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginRight", function() { return setMarginRight; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginBottom", function() { return setMarginBottom; });
@@ -52861,6 +52923,11 @@ var setBackgroundColor = function setBackgroundColor(state, color) {
 // Sets the Source of an Image
 var setImageSource = function setImageSource(state, image) {
     return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "imageSource", image);
+};
+
+// Sets the Source/URL of a Video (e.g. YouTubeEmbed)
+var setVideoUrl = function setVideoUrl(state, url) {
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "videoUrl", url);
 };
 
 // Margin Mutations

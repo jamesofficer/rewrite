@@ -1,19 +1,18 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+        <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
+
         <!-- COMPONENT -->
-        <iframe :src="element.content" :style="{
+        <iframe v-else :src="element.videoUrl" :style="{
                 marginTop: element.margin.top + 'px',
                 marginRight: element.margin.right + 'px',
                 marginBottom: element.margin.bottom + 'px',
                 marginLeft: element.margin.left + 'px',
             }"
-            :width="560"
-            :height="315"
-            :frameborder="0"
+               :width="560"
+               :height="315"
+               :frameborder="0"
         ></iframe>
-
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/VmQNo8xtcAg"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -22,7 +21,11 @@
 
         <!-- SIDEBAR -->
         <sidebar v-if="elementIsSelected" title="YouTube">
-            <text-input :textarea="true" :inSidebar="true"></text-input>
+            <sidebar-control>
+                <b-input size="lg" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste YouTube video URL here..."></b-input>
+            </sidebar-control>
+
+            <image-alignment></image-alignment>
 
             <margin></margin>
         </sidebar>
@@ -38,8 +41,9 @@ import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
-import FontWeightAndSize from './core/FontWeightAndSize'
-import Margin           from './core/Margin'
+import ImageAlignment    from './core/ImageAlignment'
+import Margin            from './core/Margin'
+
 
 export default {
     name: "YouTubeEmbed",
@@ -48,7 +52,22 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        TextInput, FontWeightAndSize, Margin,
+        TextInput, ImageAlignment, Margin,
     },
+
+    data() {
+        return {
+            videoUrl: null,
+        }
+    },
+
+    methods: {
+        updateYouTubeUrl() {
+            const videoId = this.videoUrl.split('/watch?v=', 2)[1];
+            const newUrl  = 'https://www.youtube.com/embed/' + videoId;
+
+            this.$store.commit('setVideoUrl', newUrl);
+        }
+    }
 }
 </script>

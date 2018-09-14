@@ -3,8 +3,8 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'https://www.youtube.com/embed/VmQNo8xtcAg',
-
+    videoUrl: null,
+    textAlign: 'left',
     margin: {
         top: 0,
         right: 0,

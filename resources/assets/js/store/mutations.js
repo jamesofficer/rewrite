@@ -157,6 +157,10 @@ export const setBackgroundColor = (state, color) =>
 export const setImageSource = (state, image) =>
     window.Vue.set(getSelectedElement(state), "imageSource", image);
 
+// Sets the Source/URL of a Video (e.g. YouTubeEmbed)
+export const setVideoUrl = (state, url) =>
+    window.Vue.set(getSelectedElement(state), "videoUrl", url);
+
 // Margin Mutations
 export const setMarginTop = (state, margin) =>
     window.Vue.set(getSelectedElement(state).margin, "top", margin);

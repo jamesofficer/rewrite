@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
         <!-- COMPONENT -->
         <iframe :src="element.content + '/embed'" :style="{
             marginTop: element.margin.top + 'px',
@@ -17,6 +17,8 @@
         <sidebar v-if="elementIsSelected" title="Instagram">
             <text-input :textarea="true" :inSidebar="true"></text-input>
 
+            <image-alignment></image-alignment>
+
             <margin></margin>
         </sidebar>
     </div>
@@ -31,7 +33,7 @@ import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
-import FontWeightAndSize from './core/FontWeightAndSize'
+import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
 
 export default {
@@ -41,7 +43,7 @@ export default {
 
     components: {
         TopBar, Sidebar, SidebarControl, DeleteComponentButton,
-        TextInput, FontWeightAndSize, Margin,
+        TextInput, ImageAlignment, Margin,
     },
 }
 </script>
