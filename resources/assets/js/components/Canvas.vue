@@ -20,22 +20,16 @@
             <remove-canvas></remove-canvas>
 
             <add-column></add-column>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Canvas">
             <background-color></background-color>
 
             <padding></padding>
-        </sidebar>
+        </top-bar>
     </b-row>
 </template>
 
 <script>
 import { mapGetters }    from 'vuex'
-
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 
 import TopBar            from './topbar/TopBar'
 import RemoveCanvas      from './topbar/RemoveCanvas'
@@ -49,7 +43,6 @@ export default {
     name: "Canvas",
 
     components: {
-        Sidebar, SidebarControl,
         TopBar, RemoveCanvas, AddColumn,
         Column, BackgroundColor, Padding
     },

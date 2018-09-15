@@ -82,6 +82,10 @@ body {
   margin-bottom: 25px;
 }
 
+.top-bar-control {
+  margin-right: 5px;
+}
+
 .sub-label {
   display: block;
   margin: 0;

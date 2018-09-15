@@ -10,6 +10,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // Icon Imports
 // https://fontawesome.com/icons?d=gallery
+import "vue-awesome/icons/bars";
 import "vue-awesome/icons/palette";
 import "vue-awesome/icons/columns";
 import "vue-awesome/icons/sitemap";
@@ -34,6 +35,10 @@ import "vue-awesome/icons/images";
 import "vue-awesome/icons/heading";
 import "vue-awesome/icons/paragraph";
 import "vue-awesome/icons/quote-right";
+import "vue-awesome/icons/fill";
+import "vue-awesome/icons/expand";
+import "vue-awesome/icons/expand-arrows-alt";
+import "vue-awesome/icons/paint-roller";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";
 import "vue-awesome/icons/brands/youtube";

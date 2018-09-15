@@ -38,28 +38,50 @@
 
         <!-- Top Bar -->
         <b-row class="shift-top-bar">
-            <b-col>
-                <b-btn variant="success" size="sm" @click="addCanvas">
-                    <icon name="palette"></icon> Add Canvas
-                </b-btn>
-
+            <b-col cols="10">
                 <portal-target name="top-bar" class="top-bar-portal-target">
                     <!-- Top Bar settings will appear here. -->
                 </portal-target>
             </b-col>
 
-            <b-col class="text-right">
-                <b-btn v-b-modal.myImagesModal variant="info" size="sm">
-                    <icon name="images"></icon> My Images
-                </b-btn>
+            <!-- Menu -->
+            <b-col cols="2" class="text-right">
+                <!-- Dropdown Menu -->
+                <b-dropdown variant="success" size="sm" right>
+                    <template slot="button-content">
+                        <icon name="bars"></icon> Menu
+                    </template>
 
-                <b-btn v-b-modal.loadArticleModal variant="primary" size="sm">
-                    <icon name="folder-open"></icon> Load Article
-                </b-btn>
+                    <b-dropdown-item @click="addCanvas">
+                        <icon name="palette"></icon> &nbsp; Add Canvas
+                    </b-dropdown-item>
 
-                <b-btn variant="success" size="sm" @click="saveArticle">
-                    <icon name="save"></icon> Save Article
-                </b-btn>
+                    <b-dropdown-divider></b-dropdown-divider>
+
+                    <b-dropdown-item v-b-modal.myImagesModal>
+                        <icon name="images"></icon> &nbsp; My Images
+                    </b-dropdown-item>
+
+                    <b-dropdown-divider></b-dropdown-divider>
+
+                    <b-dropdown-item @click="saveArticle">
+                        <icon name="save"></icon> &nbsp; Save Article
+                    </b-dropdown-item>
+
+                    <b-dropdown-item v-b-modal.loadArticleModal>
+                        <icon name="folder-open"></icon> &nbsp; Load Article
+                    </b-dropdown-item>
+
+                    <b-dropdown-divider></b-dropdown-divider>
+
+                    <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
+                        <icon name="eye"></icon> &nbsp; Preview Article
+                    </b-dropdown-item>
+
+                    <b-dropdown-item variant="warning" @click="showExportArticleModal">
+                        <icon name="file-export"></icon> &nbsp; Export Article
+                    </b-dropdown-item>
+                </b-dropdown>
             </b-col>
         </b-row>
 
@@ -91,19 +113,6 @@
             </b-col>
         </b-row>
 
-        <!-- Bottom Bar -->
-        <b-row class="shift-bottom-bar">
-            <b-col class="text-right">
-                <b-btn v-b-modal variant="secondary" size="sm" @click="previewArticleInNewWindow">
-                    <icon name="eye"></icon> Preview Article
-                </b-btn>
-
-                <b-btn variant="warning" size="sm" @click="showExportArticleModal">
-                    <icon name="file-export"></icon> Export Article
-                </b-btn>
-            </b-col>
-        </b-row>
-
         <!-- Add Component Modal -->
         <add-component-modal></add-component-modal>
 
@@ -123,8 +132,8 @@
 </template>
 
 <script>
-import ShiftArticle       from "./components/ShiftArticle.vue";
-import Canvas             from "./components/Canvas.vue";
+import ShiftArticle       from "./components/ShiftArticle";
+import Canvas             from "./components/Canvas";
 import AddComponentModal  from './components/dialogs/AddComponentModal';
 import LoadArticleModal   from './components/dialogs/LoadArticleModal';
 import MyImagesModal      from './components/dialogs/MyImagesModal';
@@ -161,6 +170,8 @@ export default {
 
     data() {
         return {
+            show: false,
+
             articleHtml: null,
             settingArticleTitle: false,
             showArticleOverwriteAlert: false,
@@ -321,13 +332,14 @@ export default {
     margin-bottom: 10px;
 }
 
-.shift-bottom-bar {
-    padding: 5px;
-    margin-bottom: 50px;
+.shift-top-bar-sticky {
+    margin: 0 0 20px 0;
+    background: #fff;
+    box-shadow: 0 0 20px #ccc;
 }
 
 .top-bar-portal-target {
-    display: inline;
+    display: inline-flex;
 }
 
 .shift-workspace {

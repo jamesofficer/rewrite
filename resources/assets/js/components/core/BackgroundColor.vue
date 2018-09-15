@@ -1,29 +1,21 @@
 <template>
-    <sidebar-control label="Background Colour">
-        <b-row>
-            <b-col>
-                <div class="color-box" @click="toggleColorPicker" :style="{
-                     backgroundColor: 'rgba(' + bgColor.r + ', ' + bgColor.g + ', ' + bgColor.b + ', ' + bgColor.a + ')',
-                }"></div>
-            </b-col>
-        </b-row>
+    <div>
+        <top-bar-control icon="fill" tooltip="Background Colour" id="background-color-popover"></top-bar-control>
 
-        <b-row v-if="showColorPicker">
-            <b-col>
-                <sketch-color-picker :value="colors" @input="updateValue" class="color-picker"></sketch-color-picker>
-            </b-col>
-        </b-row>
-    </sidebar-control>
+        <b-popover target="background-color-popover" placement="bottom">
+            <sketch-color-picker :value="colors" @input="updateValue"></sketch-color-picker>
+        </b-popover>
+    </div>
 </template>
 
 <script>
-import SidebarControl  from '../sidebar/SidebarControl'
 import { Sketch as SketchColorPicker } from 'vue-color'
+import TopBarControl from '../topbar/TopBarControl';
 
 export default {
     name: "BackgroundColor",
 
-    components: { SidebarControl, SketchColorPicker },
+    components: { TopBarControl, SketchColorPicker },
 
     computed: {
         bgColor() {
@@ -39,10 +31,6 @@ export default {
     },
 
     methods: {
-        toggleColorPicker() {
-            this.showColorPicker = !this.showColorPicker;
-        },
-
         updateValue(color) {
             this.$store.commit('setBackgroundColor', color.rgba);
         }
@@ -53,17 +41,13 @@ export default {
 <style scoped>
     .color-box {
         height: 30px;
-        width: 100%;
+        width: 100px;
         border: 1px solid #ced4da;
-        border-radius: 5px;
+        border-radius: 3px;
         padding: 5px;
     }
 
     .color-box:hover {
         cursor: pointer;
-    }
-
-    .color-picker {
-        margin-top: 5px;
     }
 </style>

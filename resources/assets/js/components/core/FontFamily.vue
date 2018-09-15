@@ -1,16 +1,10 @@
 <template>
-    <sidebar-control label="Font Family">
-        <b-form-select size="sm" v-model="fontFamily" :options="fonts"></b-form-select>
-    </sidebar-control>
+    <b-form-select size="sm" v-model="fontFamily" :options="fonts" class="top-bar-control" v-b-tooltip.hover title="Font"></b-form-select>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
-
 export default {
     name: "FontFamily",
-
-    components: { SidebarControl },
 
     computed: {
         fontFamily: {

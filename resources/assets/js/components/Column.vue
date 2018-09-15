@@ -18,19 +18,14 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
+            <add-component-button></add-component-button>
+
             <remove-column></remove-column>
 
-            <add-component-button></add-component-button>
-        </top-bar>
-
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Column">
             <column-width></column-width>
 
             <background-color></background-color>
-
-            <padding></padding>
-        </sidebar>
+        </top-bar>
     </b-col>
 </template>
 

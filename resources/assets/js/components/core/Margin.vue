@@ -1,6 +1,8 @@
 <template>
     <div>
-        <sidebar-control label="Margin">
+        <top-bar-control icon="expand" tooltip="Margins" id="margin-popover"></top-bar-control>
+
+        <b-popover target="margin-popover" placement="bottom">
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>
@@ -11,7 +13,9 @@
                     <label class="sub-label">Right</label>
                     <b-form-input type="number" v-model="marginRight" :min="0" :max="500" size="sm"></b-form-input>
                 </b-col>
+            </b-row>
 
+            <b-row>
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input type="number" v-model="marginBottom" :min="0" :max="500" size="sm"></b-form-input>
@@ -22,17 +26,17 @@
                     <b-form-input type="number" v-model="marginLeft" :min="0" :max="500" size="sm"></b-form-input>
                 </b-col>
             </b-row>
-        </sidebar-control>
+        </b-popover>
     </div>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl';
+import TopBarControl from '../topbar/TopBarControl';
 
 export default {
     name: "Margin",
 
-    components: { SidebarControl },
+    components: { TopBarControl },
 
     computed: {
         marginTop: {

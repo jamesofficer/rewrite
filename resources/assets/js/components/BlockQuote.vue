@@ -36,24 +36,21 @@
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="BlockQuote">
+            <margin></margin>
+
+            <padding></padding>
+
+            <text-color></text-color>
+
             <font-family></font-family>
 
             <text-alignment></text-alignment>
 
-            <font-weight-and-size></font-weight-and-size>
+            <font-weight></font-weight>
 
-            <text-color></text-color>
-
-            <background-color></background-color>
-
-            <padding></padding>
-
-            <margin></margin>
-        </sidebar>
+            <font-size></font-size>
+        </top-bar>
     </div>
 </template>
 
@@ -69,7 +66,8 @@ import DeleteComponentButton from './topbar/DeleteComponentButton'
 import TextInput         from './core/TextInput'
 import TextAlignment     from './core/TextAlignment'
 import FontFamily        from './core/FontFamily'
-import FontWeightAndSize from './core/FontWeightAndSize'
+import FontWeight        from './core/FontWeight'
+import FontSize          from './core/FontSize'
 import TextColor         from './core/TextColor'
 import BackgroundColor   from './core/BackgroundColor'
 import Padding           from './core/Padding'
@@ -82,7 +80,7 @@ export default {
 
     components: {
         Sidebar, SidebarControl, TopBar, DeleteComponentButton,
-        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor,
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
         BackgroundColor, Margin, Padding
     },
 }

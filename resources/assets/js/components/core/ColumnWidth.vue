@@ -1,28 +1,14 @@
 <template>
-    <sidebar-control label="Column Width">
-        <b-form-select v-model="columnWidth" :options="widths" class="mb-3" />
-    </sidebar-control>
+    <b-dropdown id="ddown1" text="Column Width" variant="outline-primary" size="sm" class="top-bar-control">
+        <b-dropdown-item v-for="(width, index) in widths" :key="index" @click="setColumnWidth(width.value)">
+            {{ width.text }}
+        </b-dropdown-item>
+    </b-dropdown>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
-
 export default {
     name: "ColumnWidth",
-
-    components: { SidebarControl },
-
-    computed: {
-        columnWidth: {
-            get () {
-                return this.$store.getters.getCurrentElement.columnWidth;
-            },
-            set (columnWidth) {
-                console.log('new width is: ' + columnWidth)
-                this.$store.commit('setColumnWidth', columnWidth);
-            }
-        },
-    },
 
     data() {
         return {
@@ -44,6 +30,12 @@ export default {
                     value: 3,
                 },
             ]
+        }
+    },
+
+    methods: {
+        setColumnWidth(columnWidth) {
+            this.$store.commit('setColumnWidth', columnWidth);
         }
     }
 }

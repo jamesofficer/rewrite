@@ -1,29 +1,21 @@
 <template>
-    <sidebar-control label="Text Colour">
-        <b-row>
-            <b-col>
-                <div class="color-box" @click="toggleColorPicker" :style="{
-                     backgroundColor: 'rgba(' + bgColor.r + ', ' + bgColor.g + ', ' + bgColor.b + ', ' + bgColor.a + ')',
-                }"></div>
-            </b-col>
-        </b-row>
+    <div>
+        <top-bar-control icon="paint-roller" tooltip="Text Colour" id="text-color-popover"></top-bar-control>
 
-        <b-row v-if="showColorPicker">
-            <b-col>
-                <sketch-color-picker :value="colors" @input="updateValue" class="color-picker"></sketch-color-picker>
-            </b-col>
-        </b-row>
-    </sidebar-control>
+        <b-popover target="text-color-popover" placement="bottom">
+            <sketch-color-picker :value="colors" @input="updateValue" class="color-picker"></sketch-color-picker>
+        </b-popover>
+    </div>
 </template>
 
 <script>
-import SidebarControl  from '../sidebar/SidebarControl'
 import { Sketch as SketchColorPicker } from 'vue-color'
+import TopBarControl from '../topbar/TopBarControl'
 
 export default {
     name: "TextColor",
 
-    components: { SidebarControl, SketchColorPicker },
+    components: { TopBarControl, SketchColorPicker },
 
     computed: {
         bgColor() {

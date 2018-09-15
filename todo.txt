@@ -24,6 +24,7 @@ FEATURES:
 
 
 CHANGELOG [Newest to Oldest]:
+- Added alignment to Social Media Components and cleaned up YouTube component.
 - Select elements/canvas are now given an outline or border (changing bg color didn't work out well due to custom background colours).
 - Fixed blockquote text entry.
 - Now have to double click on a text element to edit it.

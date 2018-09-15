@@ -34,22 +34,21 @@
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Heading">
+            <margin></margin>
+
+            <padding></padding>
+
+            <text-color></text-color>
+
             <font-family></font-family>
 
             <text-alignment></text-alignment>
 
-            <font-weight-and-size></font-weight-and-size>
+            <font-weight></font-weight>
 
-            <text-color></text-color>
-
-            <padding></padding>
-
-            <margin></margin>
-        </sidebar>
+            <font-size></font-size>
+        </top-bar>
     </div>
 </template>
 
@@ -57,15 +56,14 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 // Property Imports:
 import TextInput         from './core/TextInput'
 import TextAlignment     from './core/TextAlignment'
 import FontFamily        from './core/FontFamily'
-import FontWeightAndSize from './core/FontWeightAndSize'
+import FontWeight        from './core/FontWeight'
+import FontSize          from './core/FontSize'
 import TextColor         from './core/TextColor'
 import Padding           from './core/Padding'
 import Margin            from './core/Margin'
@@ -76,8 +74,8 @@ export default {
     mixins: [GetElement],
 
     components: {
-        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
-        TextInput, FontFamily, TextAlignment, FontWeightAndSize, TextColor, Padding, Margin,
+        TopBar, DeleteComponentButton,
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, Padding, Margin,
     },
 
     data() {

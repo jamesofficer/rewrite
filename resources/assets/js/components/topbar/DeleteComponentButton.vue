@@ -1,14 +1,14 @@
 <template>
-    <div style="display: inline">
-        <b-btn size="sm" variant="outline-danger" @click="deleteComponent">
-            <icon name="times"></icon> Delete Component
-        </b-btn>
-    </div>
+    <top-bar-control @click.native="deleteComponent" variant="outline-danger" icon="times" label="Delete Component"></top-bar-control>
 </template>
 
 <script>
+import TopBarControl from './TopBarControl';
+
 export default {
     name: "DeleteComponentButton",
+
+    components: { TopBarControl },
 
     methods: {
         deleteComponent() {

@@ -1,12 +1,14 @@
 <template>
-    <b-btn @click="addColumn" size="sm" variant="outline-success">
-        <icon name="columns"></icon> Add Column
-    </b-btn>
+    <top-bar-control @click.native="addColumn" variant="outline-success" icon="columns" label="Add Column"></top-bar-control>
 </template>
 
 <script>
+import TopBarControl from './TopBarControl';
+
 export default {
     name: "AddColumn",
+
+    components: { TopBarControl },
 
     methods: {
         addColumn() {

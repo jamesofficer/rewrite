@@ -1,12 +1,14 @@
 <template>
-    <b-btn @click="removeColumn" size="sm" variant="outline-danger">
-        <icon name="columns"></icon> Remove Column
-    </b-btn>
+    <top-bar-control @click.native="removeColumn" variant="outline-danger" icon="columns" label="Remove Column"></top-bar-control>
 </template>
 
 <script>
+import TopBarControl from './TopBarControl';
+
 export default {
     name: "RemoveColumn",
+
+    components: { TopBarControl },
 
     methods: {
         removeColumn() {

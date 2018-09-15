@@ -1,19 +1,16 @@
 <template>
-    <div style="display: inline">
-        <b-btn size="sm" variant="outline-primary" @click="showAddComponentModal">
-            <icon name="sitemap"></icon> Add Component
-        </b-btn>
-    </div>
+    <top-bar-control @click.native="showAddComponentModal" variant="outline-success" icon="sitemap" label="Add Component"></top-bar-control>
 </template>
 
 <script>
 import AddComponentModal from '../dialogs/AddComponentModal'
+import TopBarControl     from './TopBarControl';
 
 export default {
     name: "AddComponentButton",
 
     components: {
-        AddComponentModal,
+        AddComponentModal, TopBarControl,
     },
 
     methods: {

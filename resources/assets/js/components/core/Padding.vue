@@ -1,6 +1,8 @@
 <template>
     <div>
-        <sidebar-control label="Padding">
+        <top-bar-control icon="expand-arrows-alt" tooltip="Padding" id="padding-popover"></top-bar-control>
+
+        <b-popover target="padding-popover" placement="bottom">
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>
@@ -11,7 +13,9 @@
                     <label class="sub-label">Right</label>
                     <b-form-input type="number" v-model="paddingRight" :min="0" :max="500" size="sm"></b-form-input>
                 </b-col>
+            </b-row>
 
+            <b-row>
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input type="number" v-model="paddingBottom" :min="0" :max="500" size="sm"></b-form-input>
@@ -22,17 +26,17 @@
                     <b-form-input type="number" v-model="paddingLeft" :min="0" :max="500" size="sm"></b-form-input>
                 </b-col>
             </b-row>
-        </sidebar-control>
+        </b-popover>
     </div>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl';
+import TopBarControl from '../topbar/TopBarControl';
 
 export default {
     name: "Padding",
 
-    components: { SidebarControl },
+    components: { TopBarControl },
 
     computed: {
         paddingTop: {
