@@ -1,19 +1,16 @@
 <template>
-    <sidebar-control>
-        <b-btn v-b-modal.imageGalleryModal variant="success">
-            <icon name="image"></icon> Select Image
-        </b-btn>
-    </sidebar-control>
+    <top-bar-control v-b-modal.imageGalleryModal variant="success" icon="image" label="Select Image">
+    </top-bar-control>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
+import TopBarControl from '../topbar/TopBarControl'
 
 export default {
     name: "ImageSelector",
 
     components: {
-        SidebarControl,
+        TopBarControl,
     }
 }
 </script>

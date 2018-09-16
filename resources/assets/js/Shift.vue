@@ -102,15 +102,6 @@
                     </b-container>
                 </div>
             </b-col>
-
-            <!-- Sidebar -->
-            <b-col cols="4" v-if="showSidebar">
-                <div class="shift-sidebar sticky-top">
-                    <portal-target name="sidebar" class="sidebar">
-                        <!-- Components Settings will appear in here. -->
-                    </portal-target>
-                </div>
-            </b-col>
         </b-row>
 
         <!-- Add Component Modal -->

@@ -1,14 +1,21 @@
 <template>
-    <b-dropdown id="ddown1" text="Column Width" variant="outline-primary" size="sm" class="top-bar-control">
-        <b-dropdown-item v-for="(width, index) in widths" :key="index" @click="setColumnWidth(width.value)">
-            {{ width.text }}
-        </b-dropdown-item>
-    </b-dropdown>
+    <b-form-select size="sm" v-model="fontFamily" :options="widths" class="top-bar-control" v-b-tooltip.hover title="Column Width"></b-form-select>
 </template>
 
 <script>
 export default {
     name: "ColumnWidth",
+
+    computed: {
+        fontFamily: {
+            get () {
+                return this.$store.getters.getCurrentElement.columnWidth;
+            },
+            set (columnWidth) {
+                this.$store.commit('setColumnWidth', columnWidth);
+            }
+        },
+    },
 
     data() {
         return {
@@ -18,26 +25,20 @@ export default {
                     value: 12,
                 },
                 {
-                    text: '3/4 - Three Quarters',
+                    text: 'Three Quarters',
                     value: 9,
                 },
                 {
-                    text: '1/2 - One Half',
+                    text: 'One Half',
                     value: 6,
                 },
                 {
-                    text: '1/4 - One Quarter',
+                    text: 'One Quarter',
                     value: 3,
                 },
             ]
         }
     },
-
-    methods: {
-        setColumnWidth(columnWidth) {
-            this.$store.commit('setColumnWidth', columnWidth);
-        }
-    }
 }
 </script>
 

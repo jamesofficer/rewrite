@@ -9,15 +9,6 @@ import defaultInstagram  from "./defaults/InstagramEmbed";
 import defaultFacebook   from "./defaults/FacebookEmbed";
 import defaultYouTube    from "./defaults/YouTubeEmbed";
 
-// Triggers when the X button is pressed on the sidebar.
-export const closeSidebar = state => {
-    deselectCurrentElement(state);
-
-    state.currentCanvas    = undefined;
-    state.currentColumn    = undefined;
-    state.currentComponent = undefined;
-};
-
 // Sets the status of the "Add Component" Modal window.
 export const toggleAddComponentModal = (state, toggle) => {
     state.showAddComponentModal = toggle;
@@ -157,9 +148,9 @@ export const setBackgroundColor = (state, color) =>
 export const setImageSource = (state, image) =>
     window.Vue.set(getSelectedElement(state), "imageSource", image);
 
-// Sets the Source/URL of a Video (e.g. YouTubeEmbed)
-export const setVideoUrl = (state, url) =>
-    window.Vue.set(getSelectedElement(state), "videoUrl", url);
+// Sets the Source/URL of a Social Media Component or Video.
+export const setUrl = (state, url) =>
+    window.Vue.set(getSelectedElement(state), "url", url);
 
 // Margin Mutations
 export const setMarginTop = (state, margin) =>

@@ -10,7 +10,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultBlockQuote, defaultParagraph, defaultPicture, defaultYouTubeEmbed],
+    components: [defaultHeading, defaultBlockQuote, defaultParagraph, defaultPicture, defaultYouTubeEmbed, defaultFacebookEmbed, defaultInstagramEmbed],
 
     // Properties:
     columnWidth: 12,

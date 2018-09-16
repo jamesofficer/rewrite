@@ -1,7 +1,9 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+        <icon v-if="! instagramUrl" name="brands/instagram" scale="8"></icon>
+
         <!-- COMPONENT -->
-        <iframe :src="element.content + '/embed'" :style="{
+        <iframe v-else :src="element.url" :style="{
             marginTop: element.margin.top + 'px',
             marginRight: element.margin.right + 'px',
             marginBottom: element.margin.bottom + 'px',
@@ -11,16 +13,14 @@
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Instagram">
-            <text-input :textarea="true" :inSidebar="true"></text-input>
+            <b-input size="sm" v-model="instagramUrl" @blur.native="updateInstagramUrl" placeholder="Paste Instagram url here..."
+                    class="top-bar-control" v-b-tooltip.hover title="Instagram URL"></b-input>
 
             <image-alignment></image-alignment>
 
             <margin></margin>
-        </sidebar>
+        </top-bar>
     </div>
 </template>
 
@@ -28,8 +28,6 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
@@ -42,9 +40,29 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Sidebar, SidebarControl, DeleteComponentButton,
+        TopBar, DeleteComponentButton,
         TextInput, ImageAlignment, Margin,
     },
+
+    data() {
+        return {
+            instagramUrl: null,
+        }
+    },
+
+    methods: {
+        updateInstagramUrl() {
+            // Strip this out if it's there as it will break the string split below.
+            if (this.instagramUrl.includes('?utm_source=ig_web_copy_link')) {
+                this.instagramUrl = this.instagramUrl.replace('?utm_source=ig_web_copy_link', '');
+            }
+
+            const imageId = this.instagramUrl.split('instagram.com/p/', 2)[1];
+            const newUrl  = 'https://www.instagram.com/p/' + imageId + 'embed';
+
+            this.$store.commit('setUrl', newUrl);
+        }
+    }
 }
 </script>
 

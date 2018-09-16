@@ -1,21 +1,13 @@
 <template>
     <b-textarea v-if="textarea"
-            :size="inSidebar ? 'sm' : 'lg'"
+            size="lg"
             :rows="5"
             v-model="content"
-            :class="{
-                'hide-input-styles' : ! inSidebar,
-                'add-bottom-margin' : inSidebar
-            }"
     ></b-textarea>
 
     <b-input v-else
-            size="lg"
+            size="sm"
             v-model="content"
-            :class="{
-                'hide-input-styles' : ! inSidebar,
-                'add-bottom-margin' : inSidebar
-            }"
     ></b-input>
 </template>
 
@@ -29,12 +21,6 @@ export default {
             required: false,
             default: false
         },
-
-        inSidebar: {
-            type: Boolean,
-            required: false,
-            default: false
-        }
     },
 
     computed: {

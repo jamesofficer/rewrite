@@ -37,11 +37,11 @@
 
             <font-family></font-family>
 
-            <text-alignment></text-alignment>
+            <font-size></font-size>
 
             <font-weight></font-weight>
 
-            <font-size></font-size>
+            <text-alignment></text-alignment>
         </top-bar>
     </div>
 </template>

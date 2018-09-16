@@ -3,7 +3,7 @@ export default {
     selected: false,
 
     // Properties:
-    videoUrl: null,
+    url: null,
     textAlign: 'left',
     margin: {
         top: 0,

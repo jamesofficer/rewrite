@@ -21,9 +21,9 @@
 
             <add-column></add-column>
 
-            <background-color></background-color>
-
             <padding></padding>
+
+            <background-color></background-color>
         </top-bar>
     </b-row>
 </template>

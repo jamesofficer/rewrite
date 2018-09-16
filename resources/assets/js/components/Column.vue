@@ -22,9 +22,9 @@
 
             <remove-column></remove-column>
 
-            <column-width></column-width>
-
             <background-color></background-color>
+
+            <column-width></column-width>
         </top-bar>
     </b-col>
 </template>

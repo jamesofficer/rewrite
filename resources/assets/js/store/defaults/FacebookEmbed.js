@@ -3,7 +3,7 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'Insert Facebook Embed Code here...',
+    url: null,
     textAlign: 'left',
     margin: {
         top: 0,

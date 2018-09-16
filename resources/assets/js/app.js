@@ -13,6 +13,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "vue-awesome/icons/bars";
 import "vue-awesome/icons/palette";
 import "vue-awesome/icons/columns";
+import "vue-awesome/icons/arrows-alt-h";
 import "vue-awesome/icons/sitemap";
 import "vue-awesome/icons/align-left";
 import "vue-awesome/icons/align-center";
@@ -42,6 +43,7 @@ import "vue-awesome/icons/paint-roller";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";
 import "vue-awesome/icons/brands/youtube";
+import "vue-awesome/icons/brands/pintrest";
 
 require("./bootstrap");
 

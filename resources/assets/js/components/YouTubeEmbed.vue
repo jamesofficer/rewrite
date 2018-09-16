@@ -3,7 +3,7 @@
         <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <iframe v-else :src="element.videoUrl" :style="{
+        <iframe v-else :src="element.url" :style="{
                 marginTop: element.margin.top + 'px',
                 marginRight: element.margin.right + 'px',
                 marginBottom: element.margin.bottom + 'px',
@@ -17,18 +17,14 @@
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="YouTube">
-            <sidebar-control>
-                <b-input size="lg" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste YouTube video URL here..."></b-input>
-            </sidebar-control>
-
-            <image-alignment></image-alignment>
+            <b-input size="sm" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste video url here..."
+                    class="top-bar-control" v-b-tooltip.hover title="YouTube Video URL"></b-input>
 
             <margin></margin>
-        </sidebar>
+
+            <image-alignment></image-alignment>
+        </top-bar>
     </div>
 </template>
 
@@ -36,8 +32,6 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
@@ -51,7 +45,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Sidebar, SidebarControl, DeleteComponentButton,
+        TopBar, DeleteComponentButton,
         TextInput, ImageAlignment, Margin,
     },
 
@@ -66,7 +60,9 @@ export default {
             const videoId = this.videoUrl.split('/watch?v=', 2)[1];
             const newUrl  = 'https://www.youtube.com/embed/' + videoId;
 
-            this.$store.commit('setVideoUrl', newUrl);
+            console.log(newUrl);
+
+            this.$store.commit('setUrl', newUrl);
         }
     }
 }

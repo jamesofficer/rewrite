@@ -3,7 +3,7 @@ export default {
     selected: false,
 
     // Properties:
-    content: 'https://www.instagram.com/p/BnfqF_8l1tt',
+    url: null,
     textAlign: 'left',
     margin: {
         top: 0,

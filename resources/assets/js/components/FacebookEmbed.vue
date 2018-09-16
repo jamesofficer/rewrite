@@ -1,27 +1,26 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+        <icon v-if="! facebookUrl" name="brands/facebook" scale="8"></icon>
+
         <!-- COMPONENT -->
-        <div :style="{
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
-            }" v-html="element.content">
-        </div>
+        <div v-else v-html="element.url" :style="{
+            marginTop: element.margin.top + 'px',
+            marginRight: element.margin.right + 'px',
+            marginBottom: element.margin.bottom + 'px',
+            marginLeft: element.margin.left + 'px',
+        }"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
-        </top-bar>
 
-        <!-- SIDEBAR -->
-        <sidebar v-if="elementIsSelected" title="Facebook">
-            <text-input :inSidebar="true"></text-input>
+            <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook url here..."
+                    class="top-bar-control" v-b-tooltip.hover title="Facebook URL"></b-input>
 
             <image-alignment></image-alignment>
 
             <margin></margin>
-        </sidebar>
+        </top-bar>
     </div>
 </template>
 
@@ -29,8 +28,6 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import Sidebar           from './sidebar/Sidebar'
-import SidebarControl    from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
@@ -43,9 +40,21 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Sidebar, SidebarControl, DeleteComponentButton,
+        TopBar, DeleteComponentButton,
         TextInput, ImageAlignment, Margin,
     },
+
+    data() {
+        return {
+            facebookUrl: null,
+        }
+    },
+
+    methods: {
+        updateFacebookUrl() {
+            this.$store.commit('setUrl', this.facebookUrl);
+        }
+    }
 }
 </script>
 

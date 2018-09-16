@@ -1,20 +1,22 @@
 <template>
-    <sidebar-control label="Image Alignment">
-        <b-button-group>
-            <b-button variant="success" @click="alignImage('left')">Left</b-button>
-            <b-button variant="success" @click="alignImage('center')">Center</b-button>
-            <b-button variant="success" @click="alignImage('right')">Right</b-button>
-        </b-button-group>
-    </sidebar-control>
+    <b-button-group size="sm" class="top-bar-control">
+        <b-button variant="outline-success" @click="alignImage('left')" v-b-tooltip.hover title="Align Left">
+            Left
+        </b-button>
+
+        <b-button variant="outline-success" @click="alignImage('center')" v-b-tooltip.hover title="Align Center">
+            Center
+        </b-button>
+
+        <b-button variant="outline-success" @click="alignImage('right')" v-b-tooltip.hover title="Align Right">
+            Right
+        </b-button>
+    </b-button-group>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
-
 export default {
     name: "ImageAlign",
-
-    components: { SidebarControl },
 
     methods: {
         alignImage(position) {

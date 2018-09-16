@@ -6,14 +6,8 @@ import { getSelectedElement } from "./helpers";
 export const canvases = state => state.canvases;
 
 /**
- * We want to show the sidebar if something is selected. We don't
- * need to check for Columns and Components being selected, as
- * a Canvas by itself means something has been selected.
+ * Shows the Add Component Modal window.
  */
-export const showSidebar = state => {
-    return state.currentCanvas === undefined ? false : true;
-};
-
 export const showAddComponentModal = state => {
     return state.showAddComponentModal;
 };
