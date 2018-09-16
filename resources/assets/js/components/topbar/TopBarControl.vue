@@ -1,5 +1,5 @@
 <template>
-    <b-btn size="sm" :variant="variant" v-b-tooltip.hover :title="tooltip" class="control">
+    <b-btn size="sm" :variant="variant" v-b-tooltip.hover :title="tooltip" class="top-bar-control" :disabled="disabled">
         <icon :name="icon"></icon> {{ label }}
     </b-btn>
 </template>
@@ -28,14 +28,13 @@ export default {
         label: {
             type: String,
             required: false,
+        },
+
+        disabled: {
+            type: Boolean,
+            required: false,
+            default: false,
         }
     }
 }
 </script>
-
-<style scoped>
-    .control {
-        margin-right: 5px;
-    }
-</style>
-

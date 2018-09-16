@@ -8,15 +8,30 @@ export const canvases = state => state.canvases;
 /**
  * Shows the Add Component Modal window.
  */
-export const showAddComponentModal = state => {
-    return state.showAddComponentModal;
-};
+export const showAddComponentModal = state =>
+    state.showAddComponentModal;
 
 /**
  * Returns the number of columns on this Canvas.
  */
 export const columnCount = state => canvasIndex =>
     state.canvases[canvasIndex].columns.length;
+
+
+/**
+ * Returns the total widths of all the columns on the current canvas.
+ */
+export const totalColumnWidth = state => {
+    if (state.currentCanvas !== undefined) {
+        let totalColumnWidth = 0;
+
+        state.canvases[state.currentCanvas].columns.forEach(column => {
+            totalColumnWidth += column.columnWidth;
+        });
+
+        return totalColumnWidth;
+    }
+}
 
 /**
  * Returns the list of Components for this particular canvas.

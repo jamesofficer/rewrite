@@ -1,5 +1,5 @@
 <template>
-    <b-form-select size="sm" v-model="fontFamily" :options="widths" class="top-bar-control" v-b-tooltip.hover title="Column Width"></b-form-select>
+    <b-form-select size="sm" v-model="columnWidth" :options="widths" class="top-bar-control" v-b-tooltip.hover title="Column Width"></b-form-select>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
     name: "ColumnWidth",
 
     computed: {
-        fontFamily: {
+        columnWidth: {
             get () {
                 return this.$store.getters.getCurrentElement.columnWidth;
             },
@@ -31,6 +31,10 @@ export default {
                 {
                     text: 'One Half',
                     value: 6,
+                },
+                {
+                    text: 'One Third',
+                    value: 4,
                 },
                 {
                     text: 'One Quarter',

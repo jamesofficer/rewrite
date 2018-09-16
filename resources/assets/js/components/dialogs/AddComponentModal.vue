@@ -74,10 +74,6 @@
 </template>
 
 <script>
-import { duplicateObject } from '../../store/helpers'
-import defaultHeading      from '../../store/defaults/Heading'
-import defaultParagraph    from '../../store/defaults/Paragraph'
-import defaultBlockQuote   from '../../store/defaults/BlockQuote'
 import defaultInstagramEmbed   from '../../store/defaults/InstagramEmbed'
 import defaultFacebookEmbed   from '../../store/defaults/FacebookEmbed'
 

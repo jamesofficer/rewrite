@@ -24,10 +24,12 @@ export const removeCanvas = state => {
 }
 
 // Adds another column to the specified canvas.
-export const addColumnToCanvas = state => {
-    state.canvases[state.currentCanvas].columns.push(
-        duplicateObject(defaultColumn)
-    );
+export const addColumnToCanvas = (state, columnWidth) => {
+    let newColumn = duplicateObject(defaultColumn);
+
+    newColumn.columnWidth = columnWidth;
+
+    state.canvases[state.currentCanvas].columns.push(newColumn);
 };
 
 // Removes a column from the specified canvas. We deselect it first to prevent errors.

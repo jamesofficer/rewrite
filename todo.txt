@@ -6,9 +6,10 @@ NEW COMPONENTS:
 - Add width controls to column component.
 - Add Recipe Component.
 - Add Recipe Summary Component.
+- Add Background image component (for Canvases and Columns).
 
 FEATURES:
-- Sticky top bar.
+- When adding a column, it auto-sizes to fit.
 - Add bold/italic/linebreak/hr controls to Paragraph component.
 - Saving an article with a new name should ask to overwrite the old one.
 - Users can drag and rearrange columns?
@@ -18,12 +19,15 @@ FEATURES:
 - Let users delete images.
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
 - Move article saving methods to actions.
-- Editing a Paragraph or Heading should match the height of the paragraph.
 - Improve backend validation and error output.
 - Add tabs to Add Component Modal.
 
 
 CHANGELOG [Newest to Oldest]:
+- Can no longer have more than 4 columns on a canvas.
+- Textareas now autosize to fit the height of their content.
+- Added sticky topbar.
+- Removed sidebar and moved all component controls to the top-bar.
 - Added alignment to Social Media Components and cleaned up YouTube component.
 - Select elements/canvas are now given an outline or border (changing bg color didn't work out well due to custom background colours).
 - Fixed blockquote text entry.

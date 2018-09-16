@@ -16,7 +16,7 @@
             marginLeft: element.margin.left + 'px',
         }" v-html="element.content"></p>
 
-        <text-input v-else :textarea="true" @focusout.native="editingText = false"
+        <text-input v-else @focusout.native="editingText = false"
             :style="{
                 fontFamily: element.fontFamily,
                 fontSize: element.fontSize + 'pt',
@@ -53,7 +53,6 @@ import TopBar            from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
-import TextArea          from './core/TextArea'
 import FontFamily        from './core/FontFamily'
 import TextAlignment     from './core/TextAlignment'
 import FontWeight        from './core/FontWeight'
@@ -69,7 +68,7 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        TextInput, TextArea, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
         Padding, Margin,
     },
 

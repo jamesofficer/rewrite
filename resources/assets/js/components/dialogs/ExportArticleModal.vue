@@ -12,8 +12,7 @@
             Copied to clipboard!
         </b-alert>
 
-        <b-form-textarea type="text" placeholder="Loading..." rows="5" id="article-html-textarea" v-text="articleHtml">
-        </b-form-textarea>
+        <b-form-textarea type="text" placeholder="Loading..." rows="5" id="article-html-textarea" v-text="articleHtml"></b-form-textarea>
 
         <hr>
 
