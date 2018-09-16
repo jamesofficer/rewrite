@@ -59,8 +59,6 @@ import GetElement     from './mixins/GetElement'
 import EditableText   from './mixins/EditableText'
 
 import TopBar         from './topbar/TopBar'
-import Sidebar        from './sidebar/Sidebar'
-import SidebarControl from './sidebar/SidebarControl'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
@@ -79,7 +77,7 @@ export default {
     mixins: [GetElement, EditableText],
 
     components: {
-        Sidebar, SidebarControl, TopBar, DeleteComponentButton,
+        TopBar, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
         BackgroundColor, Margin, Padding
     },

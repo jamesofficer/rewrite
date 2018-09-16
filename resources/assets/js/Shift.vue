@@ -1,125 +1,130 @@
 <template>
-    <b-container fluid class="shift-container">
-        <!-- Session Alert Message -->
-        <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
-            {{ sessionAlert.message }}
-        </b-alert>
+    <div>
+        <b-container fluid>
+            <!-- Session Alert Message -->
+            <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
+                {{ sessionAlert.message }}
+            </b-alert>
 
-        <!-- Overwrite Article Alert -->
-        <b-alert show variant="warning" v-if="showArticleOverwriteAlert">
-            <h4 class="alert-heading">Article already exists! Overwrite?</h4>
-            <p>An article already exists with the title: {{ articleTitle }}</p>
-            <p>Do you want to overwrite it?</p>
+            <!-- Overwrite Article Alert -->
+            <b-alert show variant="warning" v-if="showArticleOverwriteAlert">
+                <h4 class="alert-heading">Article already exists! Overwrite?</h4>
+                <p>An article already exists with the title: {{ articleTitle }}</p>
+                <p>Do you want to overwrite it?</p>
 
-            <hr>
+                <hr>
 
-            <p class="mb-0">
-                <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
-                <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
-            </p>
-        </b-alert>
+                <p class="mb-0">
+                    <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
+                    <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
+                </p>
+            </b-alert>
 
-        <!-- Article Name -->
-        <b-row>
-            <b-col>
-                <em v-if="! settingArticleTitle">
-                    <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
-                </em>
+            <!-- Article Name -->
+            <b-row>
+                <b-col>
+                    <em v-if="! settingArticleTitle">
+                        <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
+                    </em>
 
-                <b-input v-else
-                    size="lg"
-                    v-model="articleTitle"
-                    @blur.native="settingArticleTitle = false"
-                    ref="articleTitleInput"
-                    class="shift-article-name-input"
-                ></b-input>
-            </b-col>
-        </b-row>
+                    <b-input v-else
+                        size="lg"
+                        v-model="articleTitle"
+                        @blur.native="settingArticleTitle = false"
+                        ref="articleTitleInput"
+                        class="shift-article-name-input"
+                    ></b-input>
+                </b-col>
+            </b-row>
+        </b-container>
 
-        <!-- Top Bar -->
-        <b-row class="shift-top-bar">
-            <b-col cols="10">
-                <portal-target name="top-bar" class="top-bar-portal-target">
-                    <!-- Top Bar settings will appear here. -->
-                </portal-target>
-            </b-col>
+        <b-container fluid id="shift-top-bar">
+            <!-- Top Bar -->
+            <b-row class="top-bar-styles">
+                <b-col :cols="10">
+                    <portal-target name="top-bar" class="top-bar-portal-target">
+                        <!-- Top Bar settings will appear here. -->
+                    </portal-target>
+                </b-col>
 
-            <!-- Menu -->
-            <b-col cols="2" class="text-right">
-                <!-- Dropdown Menu -->
-                <b-dropdown variant="success" size="sm" right>
-                    <template slot="button-content">
-                        <icon name="bars"></icon> Menu
-                    </template>
+                <!-- Menu -->
+                <b-col :cols="2" class="text-right">
+                    <!-- Dropdown Menu -->
+                    <b-dropdown variant="success" size="sm" right>
+                        <template slot="button-content">
+                            <icon name="bars"></icon> Menu
+                        </template>
 
-                    <b-dropdown-item @click="addCanvas">
-                        <icon name="palette"></icon> &nbsp; Add Canvas
-                    </b-dropdown-item>
+                        <b-dropdown-item @click="addCanvas">
+                            <icon name="palette"></icon> &nbsp; Add Canvas
+                        </b-dropdown-item>
 
-                    <b-dropdown-divider></b-dropdown-divider>
+                        <b-dropdown-divider></b-dropdown-divider>
 
-                    <b-dropdown-item v-b-modal.myImagesModal>
-                        <icon name="images"></icon> &nbsp; My Images
-                    </b-dropdown-item>
+                        <b-dropdown-item v-b-modal.myImagesModal>
+                            <icon name="images"></icon> &nbsp; My Images
+                        </b-dropdown-item>
 
-                    <b-dropdown-divider></b-dropdown-divider>
+                        <b-dropdown-divider></b-dropdown-divider>
 
-                    <b-dropdown-item @click="saveArticle">
-                        <icon name="save"></icon> &nbsp; Save Article
-                    </b-dropdown-item>
+                        <b-dropdown-item @click="saveArticle">
+                            <icon name="save"></icon> &nbsp; Save Article
+                        </b-dropdown-item>
 
-                    <b-dropdown-item v-b-modal.loadArticleModal>
-                        <icon name="folder-open"></icon> &nbsp; Load Article
-                    </b-dropdown-item>
+                        <b-dropdown-item v-b-modal.loadArticleModal>
+                            <icon name="folder-open"></icon> &nbsp; Load Article
+                        </b-dropdown-item>
 
-                    <b-dropdown-divider></b-dropdown-divider>
+                        <b-dropdown-divider></b-dropdown-divider>
 
-                    <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
-                        <icon name="eye"></icon> &nbsp; Preview Article
-                    </b-dropdown-item>
+                        <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
+                            <icon name="eye"></icon> &nbsp; Preview Article
+                        </b-dropdown-item>
 
-                    <b-dropdown-item variant="warning" @click="showExportArticleModal">
-                        <icon name="file-export"></icon> &nbsp; Export Article
-                    </b-dropdown-item>
-                </b-dropdown>
-            </b-col>
-        </b-row>
+                        <b-dropdown-item variant="warning" @click="showExportArticleModal">
+                            <icon name="file-export"></icon> &nbsp; Export Article
+                        </b-dropdown-item>
+                    </b-dropdown>
+                </b-col>
+            </b-row>
+        </b-container>
 
-        <!-- Main Workspace -->
-        <b-row>
-            <b-col col>
-                <div class="shift-workspace">
-                    <b-container fluid>
-                        <shift-article ref="shiftArticle">
-                            <component v-for="(canvas, canvasIndex) in canvases"
-                                v-bind:is="canvas.type"
-                                v-bind:key="canvasIndex"
-                                :canvasIndex="canvasIndex"
-                                @click.native.stop="selectCanvas(canvasIndex)"
-                                class="shift-canvas"
-                            ></component>
-                        </shift-article>
-                    </b-container>
-                </div>
-            </b-col>
-        </b-row>
+        <b-container fluid>
+            <!-- Main Workspace -->
+            <b-row>
+                <b-col col>
+                    <div class="shift-workspace">
+                        <b-container fluid>
+                            <shift-article ref="shiftArticle">
+                                <component v-for="(canvas, canvasIndex) in canvases"
+                                    v-bind:is="canvas.type"
+                                    v-bind:key="canvasIndex"
+                                    :canvasIndex="canvasIndex"
+                                    @click.native.stop="selectCanvas(canvasIndex)"
+                                    class="shift-canvas"
+                                ></component>
+                            </shift-article>
+                        </b-container>
+                    </div>
+                </b-col>
+            </b-row>
 
-        <!-- Add Component Modal -->
-        <add-component-modal></add-component-modal>
+            <!-- Add Component Modal -->
+            <add-component-modal></add-component-modal>
 
-        <!-- Load Article Modal -->
-        <load-article-modal></load-article-modal>
+            <!-- Load Article Modal -->
+            <load-article-modal></load-article-modal>
 
-        <!-- My Images Modal -->
-        <my-images-modal></my-images-modal>
+            <!-- My Images Modal -->
+            <my-images-modal></my-images-modal>
 
-        <!-- Image Gallery Modal -->
-        <image-gallery-modal></image-gallery-modal>
+            <!-- Image Gallery Modal -->
+            <image-gallery-modal></image-gallery-modal>
 
-        <!-- Export Article Modal -->
-        <export-article-modal ref="exportArticleModal" :articleHtml="articleHtml"></export-article-modal>
-
-    </b-container>
+            <!-- Export Article Modal -->
+            <export-article-modal ref="exportArticleModal" :articleHtml="articleHtml"></export-article-modal>
+        </b-container>
+    </div>
 </template>
 
 <script>
@@ -153,10 +158,6 @@ export default {
         canvases() {
              return this.$store.getters.canvases
          },
-
-        showSidebar() {
-            return this.$store.getters.showSidebar
-        },
     },
 
     data() {
@@ -278,19 +279,39 @@ export default {
             newWindow.document.head.appendChild(normalize);
             newWindow.document.head.appendChild(bootstrap);
             newWindow.document.body.innerHTML = this.articleHtml;
-        }
+        },
+
     },
+
+    mounted() {
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the header
+        var header = document.getElementById("shift-top-bar");
+
+        console.log(header);
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    }
 };
 </script>
 
 <style scoped>
-.shift-container {
-    padding: 15px 20px;
-}
-
 .shift-article-name {
+    margin: 15px;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #38c172;
 }
 
@@ -318,14 +339,11 @@ export default {
     border-bottom: 1px dashed gray;
 }
 
-.shift-top-bar {
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.shift-top-bar-sticky {
-    margin: 0 0 20px 0;
-    background: #fff;
+.top-bar-styles {
+    background: white;
+    margin: 0 15px 10px 15px;
+    padding: 10px 0;
+    border-bottom: 1px dashed gray;
     box-shadow: 0 0 20px #ccc;
 }
 
@@ -335,7 +353,7 @@ export default {
 
 .shift-workspace {
     height: fit-content;
-    margin-bottom: 10px;
+    margin: 5px 15px 30px 15px;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
@@ -346,11 +364,22 @@ export default {
     border: 1px solid #38c172;
 }
 
-.shift-sidebar {
-    background: #fff;
-    box-shadow: 0 0 20px #ccc;
-    padding: 5px 10px;
-    top: 20px;
-    margin-bottom: 25px;
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
 }
 </style>

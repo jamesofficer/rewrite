@@ -1,16 +1,10 @@
 <template>
-    <sidebar-control label="Text Content">
-        <b-form-textarea v-model="content" :rows="5"></b-form-textarea>
-    </sidebar-control>
+    <b-form-textarea v-model="content" :rows="5"></b-form-textarea>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
-
 export default {
     name: "TextArea",
-
-    components: { SidebarControl },
 
     computed: {
         content: {

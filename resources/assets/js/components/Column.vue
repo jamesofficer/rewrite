@@ -32,9 +32,6 @@
 <script>
 import { mapGetters }      from 'vuex'
 
-import Sidebar             from './sidebar/Sidebar'
-import SidebarControl      from './sidebar/SidebarControl'
-
 import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
 import RemoveColumn        from './topbar/RemoveColumn'
@@ -55,7 +52,6 @@ export default {
     name: "Column",
 
     components: {
-        Sidebar, SidebarControl,
         TopBar, AddComponentButton, RemoveColumn,
         Heading, Paragraph, BlockQuote, Picture, InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         ColumnWidth, Padding, BackgroundColor

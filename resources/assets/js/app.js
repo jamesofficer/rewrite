@@ -43,7 +43,7 @@ import "vue-awesome/icons/paint-roller";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";
 import "vue-awesome/icons/brands/youtube";
-import "vue-awesome/icons/brands/pintrest";
+import "vue-awesome/icons/brands/pinterest";
 
 require("./bootstrap");
 

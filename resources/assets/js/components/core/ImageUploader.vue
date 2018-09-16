@@ -24,12 +24,8 @@
 </template>
 
 <script>
-import SidebarControl  from '../sidebar/SidebarControl'
-
 export default {
     name: "ImageUploader",
-
-    components: { SidebarControl },
 
     data() {
         return {
