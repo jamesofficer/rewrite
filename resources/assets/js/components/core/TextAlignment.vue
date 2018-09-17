@@ -12,7 +12,7 @@
             <icon name="align-right"></icon>
         </b-button>
 
-        <b-button variant="outline-success" @click="alignText('justified')" v-b-tooltip.hover title="Justify">
+        <b-button variant="outline-success" @click="alignText('justify')" v-b-tooltip.hover title="Justify">
             <icon name="align-justify"></icon>
         </b-button>
     </b-button-group>
@@ -24,7 +24,7 @@ export default {
 
     methods: {
         alignText(position) {
-            this.$store.commit('setTextAlignment', position);
+            this.$store.commit('setComponentProperty', { property: 'textAlign', value: position });
         },
     }
 }

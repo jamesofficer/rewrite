@@ -52,7 +52,7 @@ export default {
 
     methods: {
         updateFacebookUrl() {
-            this.$store.commit('setUrl', this.facebookUrl);
+            this.$store.commit('setComponentProperty', { property: 'url', value: this.facebookUrl });
         }
     }
 }

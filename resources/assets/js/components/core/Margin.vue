@@ -44,7 +44,11 @@ export default {
                 return this.$store.getters.getCurrentElement.margin.top;
             },
             set(amount) {
-                this.$store.commit('setMarginTop', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'top',
+                    value: amount,
+                });
             }
         },
 
@@ -53,7 +57,11 @@ export default {
                 return this.$store.getters.getCurrentElement.margin.right;
             },
             set(amount) {
-                this.$store.commit('setMarginRight', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'right',
+                    value: amount,
+                });
             }
         },
 
@@ -62,7 +70,11 @@ export default {
                 return this.$store.getters.getCurrentElement.margin.bottom;
             },
             set(amount) {
-                this.$store.commit('setMarginBottom', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'bottom',
+                    value: amount,
+                });
             }
         },
 
@@ -71,7 +83,11 @@ export default {
                 return this.$store.getters.getCurrentElement.margin.left;
             },
             set(amount) {
-                this.$store.commit('setMarginLeft', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'left',
+                    value: amount,
+                });
             }
         },
     },

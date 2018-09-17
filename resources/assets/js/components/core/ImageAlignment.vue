@@ -21,7 +21,7 @@ export default {
     methods: {
         alignImage(position) {
             // Image Align actually uses the text-align css property to align the image.
-            this.$store.commit('setTextAlignment', position);
+            this.$store.commit('setComponentProperty', { property: 'textAlign', value: position });
         },
     }
 }

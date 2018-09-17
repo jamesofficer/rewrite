@@ -19572,21 +19572,17 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(278)
-}
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(280)
 /* template */
-var __vue_template__ = __webpack_require__(281)
+var __vue_template__ = __webpack_require__(447)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-3736ce7d"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -19623,21 +19619,17 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(298)
-}
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(300)
 /* template */
-var __vue_template__ = __webpack_require__(301)
+var __vue_template__ = __webpack_require__(446)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-2db8b05c"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -47622,7 +47614,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.content;
             },
             set: function set(value) {
-                this.$store.commit('updateTextContent', value);
+                this.$store.commit('setComponentProperty', { property: 'content', value: value });
             }
         }
     }
@@ -47696,7 +47688,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         alignText: function alignText(position) {
-            this.$store.commit('setTextAlignment', position);
+            this.$store.commit('setComponentProperty', { property: 'textAlign', value: position });
         }
     }
 });
@@ -47789,7 +47781,7 @@ var render = function() {
           attrs: { variant: "outline-success", title: "Justify" },
           on: {
             click: function($event) {
-              _vm.alignText("justified")
+              _vm.alignText("justify")
             }
           }
         },
@@ -47829,8 +47821,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             get: function get() {
                 return this.$store.getters.getCurrentElement.fontFamily;
             },
-            set: function set(fontFamily) {
-                this.$store.commit('setFontFamily', fontFamily);
+            set: function set(font) {
+                this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font });
             }
         }
     },
@@ -47899,7 +47891,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.fontWeight;
             },
             set: function set(weight) {
-                this.$store.commit('setFontWeight', weight);
+                this.$store.commit('setComponentProperty', { property: 'fontWeight', value: weight });
             }
         }
     },
@@ -47983,7 +47975,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.fontSize;
             },
             set: function set(size) {
-                this.$store.commit('setFontSize', size);
+                this.$store.commit('setComponentProperty', { property: 'fontSize', value: size });
             }
         }
     }
@@ -48027,46 +48019,8 @@ if (false) {
 }
 
 /***/ }),
-/* 278 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(279);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(9)("2708a118", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3736ce7d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TextColor.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3736ce7d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TextColor.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 279 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.color-box[data-v-3736ce7d] {\n    height: 30px;\n    width: 100%;\n    border: 1px solid #ced4da;\n    border-radius: 5px;\n    padding: 5px;\n}\n.color-box[data-v-3736ce7d]:hover {\n    cursor: pointer;\n}\n.color-picker[data-v-3736ce7d] {\n    margin-top: 5px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 278 */,
+/* 279 */,
 /* 280 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -48114,57 +48068,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.showColorPicker = !this.showColorPicker;
         },
         updateValue: function updateValue(color) {
-            this.$store.commit('setTextColor', color.rgba);
+            this.$store.commit('setComponentProperty', { property: 'textColor', value: color.rgba });
         }
     }
 });
 
 /***/ }),
-/* 281 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          icon: "paint-roller",
-          tooltip: "Text Colour",
-          id: "text-color-popover"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        { attrs: { target: "text-color-popover", placement: "bottom" } },
-        [
-          _c("sketch-color-picker", {
-            staticClass: "color-picker",
-            attrs: { value: _vm.colors },
-            on: { input: _vm.updateValue }
-          })
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3736ce7d", module.exports)
-  }
-}
-
-/***/ }),
+/* 281 */,
 /* 282 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -48218,7 +48128,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.padding.top;
             },
             set: function set(amount) {
-                this.$store.commit('setPaddingTop', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'padding',
+                    subproperty: 'top',
+                    value: amount
+                });
             }
         },
 
@@ -48227,7 +48141,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.padding.right;
             },
             set: function set(amount) {
-                this.$store.commit('setPaddingRight', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'padding',
+                    subproperty: 'right',
+                    value: amount
+                });
             }
         },
 
@@ -48236,7 +48154,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.padding.bottom;
             },
             set: function set(amount) {
-                this.$store.commit('setPaddingBottom', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'padding',
+                    subproperty: 'bottom',
+                    value: amount
+                });
             }
         },
 
@@ -48245,7 +48167,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.padding.left;
             },
             set: function set(amount) {
-                this.$store.commit('setPaddingLeft', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'padding',
+                    subproperty: 'left',
+                    value: amount
+                });
             }
         }
     }
@@ -48432,7 +48358,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.margin.top;
             },
             set: function set(amount) {
-                this.$store.commit('setMarginTop', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'top',
+                    value: amount
+                });
             }
         },
 
@@ -48441,7 +48371,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.margin.right;
             },
             set: function set(amount) {
-                this.$store.commit('setMarginRight', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'right',
+                    value: amount
+                });
             }
         },
 
@@ -48450,7 +48384,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.margin.bottom;
             },
             set: function set(amount) {
-                this.$store.commit('setMarginBottom', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'bottom',
+                    value: amount
+                });
             }
         },
 
@@ -48459,7 +48397,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.margin.left;
             },
             set: function set(amount) {
-                this.$store.commit('setMarginLeft', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'margin',
+                    subproperty: 'left',
+                    value: amount
+                });
             }
         }
     }
@@ -49201,46 +49143,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 298 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(299);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(9)("c19727b0", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2db8b05c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackgroundColor.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2db8b05c\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackgroundColor.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 299 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.color-box[data-v-2db8b05c] {\n    height: 30px;\n    width: 100px;\n    border: 1px solid #ced4da;\n    border-radius: 3px;\n    padding: 5px;\n}\n.color-box[data-v-2db8b05c]:hover {\n    cursor: pointer;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 298 */,
+/* 299 */,
 /* 300 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -49285,56 +49189,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         updateValue: function updateValue(color) {
-            this.$store.commit('setBackgroundColor', color.rgba);
+            this.$store.commit('setComponentProperty', { property: 'backgroundColor', value: color.rgba });
         }
     }
 });
 
 /***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          icon: "fill",
-          tooltip: "Background Colour",
-          id: "background-color-popover"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        { attrs: { target: "background-color-popover", placement: "bottom" } },
-        [
-          _c("sketch-color-picker", {
-            attrs: { value: _vm.colors },
-            on: { input: _vm.updateValue }
-          })
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2db8b05c", module.exports)
-  }
-}
-
-/***/ }),
+/* 301 */,
 /* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49715,7 +49576,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         alignImage: function alignImage(position) {
             // Image Align actually uses the text-align css property to align the image.
-            this.$store.commit('setTextAlignment', position);
+            this.$store.commit('setComponentProperty', { property: 'textAlign', value: position });
         }
     }
 });
@@ -50003,7 +49864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var imageId = this.instagramUrl.split('instagram.com/p/', 2)[1];
             var newUrl = 'https://www.instagram.com/p/' + imageId + 'embed';
 
-            this.$store.commit('setUrl', newUrl);
+            this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
         }
     }
 });
@@ -50209,7 +50070,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         updateFacebookUrl: function updateFacebookUrl() {
-            this.$store.commit('setUrl', this.facebookUrl);
+            this.$store.commit('setComponentProperty', { property: 'url', value: this.facebookUrl });
         }
     }
 });
@@ -50426,9 +50287,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var videoId = this.videoUrl.split('/watch?v=', 2)[1];
                 var newUrl = 'https://www.youtube.com/embed/' + videoId;
 
-                console.log(newUrl);
-
-                this.$store.commit('setUrl', newUrl);
+                this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
             }
         }
     }
@@ -50587,8 +50446,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             get: function get() {
                 return this.$store.getters.getCurrentElement.columnWidth;
             },
-            set: function set(columnWidth) {
-                this.$store.commit('setColumnWidth', columnWidth);
+            set: function set(width) {
+                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
             }
         }
     },
@@ -53013,9 +52872,11 @@ var elementIsSelected = function elementIsSelected(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleAddComponentModal", function() { return toggleAddComponentModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCanvas", function() { return removeCanvas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleAddComponentModal", function() { return toggleAddComponentModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumnToCanvas", function() { return addColumnToCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeColumnFromCanvas", function() { return removeColumnFromCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
@@ -53026,30 +52887,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectImage", function() { return selectImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setColumnWidth", function() { return setColumnWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setElementWidth", function() { return setElementWidth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTextContent", function() { return updateTextContent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextAlignment", function() { return setTextAlignment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontSize", function() { return setFontSize; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontWeight", function() { return setFontWeight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontFamily", function() { return setFontFamily; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLineHeight", function() { return setLineHeight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextColor", function() { return setTextColor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBackgroundColor", function() { return setBackgroundColor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setImageSource", function() { return setImageSource; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUrl", function() { return setUrl; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginTop", function() { return setMarginTop; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginRight", function() { return setMarginRight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginBottom", function() { return setMarginBottom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setMarginLeft", function() { return setMarginLeft; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingTop", function() { return setPaddingTop; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingRight", function() { return setPaddingRight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingBottom", function() { return setPaddingBottom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaddingLeft", function() { return setPaddingLeft; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBorderTop", function() { return setBorderTop; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBorderRight", function() { return setBorderRight; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBorderBottom", function() { return setBorderBottom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBorderLeft", function() { return setBorderLeft; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaults_Canvas__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__defaults_Column__ = __webpack_require__(93);
@@ -53071,11 +52908,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// Sets the status of the "Add Component" Modal window.
-var toggleAddComponentModal = function toggleAddComponentModal(state, toggle) {
-    state.showAddComponentModal = toggle;
-};
-
 // Adds another Canvas to the Workspace.
 var addCanvas = function addCanvas(state) {
     return state.canvases.push(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_1__defaults_Canvas__["a" /* default */]));
@@ -53085,6 +52917,21 @@ var addCanvas = function addCanvas(state) {
 var removeCanvas = function removeCanvas(state) {
     state.canvases.splice(state.currentCanvas, 1);
     state.currentCanvas = undefined;
+};
+
+// Used to set CSS properties on components.
+var setComponentProperty = function setComponentProperty(state, component) {
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), component.property, component.value);
+};
+
+// Some Components like Margin and Padding have a subproperty we may need to set.
+var setComponentSubProperty = function setComponentSubProperty(state, component) {
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state)[component.property], component.subproperty, component.value);
+};
+
+// Sets the status of the "Add Component" Modal window.
+var toggleAddComponentModal = function toggleAddComponentModal(state, toggle) {
+    return state.showAddComponentModal = toggle;
 };
 
 // Adds another column to the specified canvas.
@@ -53165,120 +53012,10 @@ var selectImage = function selectImage(state, image) {
     return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "src", image.url);
 };
 
-// ===================================================== //
-// Saving/Loading Articles. (should probably be actions)
-// ===================================================== //
-
 // Loads an existing article (updates the canvases).
 var loadArticle = function loadArticle(state, article) {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
-};
-
-// ===================================================== //
-// CSS Property Mutators.
-// ===================================================== //
-
-// Sets the column width on the specified column.
-var setColumnWidth = function setColumnWidth(state, columns) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "columnWidth", columns);
-};
-
-// Sets the width on the specified element as a percentage.
-var setElementWidth = function setElementWidth(state, width) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "width", width);
-};
-
-// Sets the string value of a Text Component
-var updateTextContent = function updateTextContent(state, value) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "content", value);
-};
-
-// Sets the Text Alignment on a Text Component
-var setTextAlignment = function setTextAlignment(state, position) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "textAlign", position);
-};
-
-// Sets the Font Size on a Text Component
-var setFontSize = function setFontSize(state, size) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "fontSize", size);
-};
-
-// Sets the Font Weight on a Text Component
-var setFontWeight = function setFontWeight(state, weight) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "fontWeight", weight);
-};
-
-// Sets the Font Family on a Text Component
-var setFontFamily = function setFontFamily(state, family) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "fontFamily", family);
-};
-
-// Sets the Font Family on a Text Component
-var setLineHeight = function setLineHeight(state, height) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "lineHeight", height);
-};
-
-// Sets the Text Colour on a Text Component
-var setTextColor = function setTextColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "textColor", color);
-};
-
-// Sets the Background Colour on a Component
-var setBackgroundColor = function setBackgroundColor(state, color) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "backgroundColor", color);
-};
-
-// Sets the Source of an Image
-var setImageSource = function setImageSource(state, image) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "imageSource", image);
-};
-
-// Sets the Source/URL of a Social Media Component or Video.
-var setUrl = function setUrl(state, url) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "url", url);
-};
-
-// Margin Mutations
-var setMarginTop = function setMarginTop(state, margin) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).margin, "top", margin);
-};
-var setMarginRight = function setMarginRight(state, margin) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).margin, "right", margin);
-};
-var setMarginBottom = function setMarginBottom(state, margin) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).margin, "bottom", margin);
-};
-var setMarginLeft = function setMarginLeft(state, margin) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).margin, "left", margin);
-};
-
-// Padding Mutations
-var setPaddingTop = function setPaddingTop(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).padding, "top", padding);
-};
-var setPaddingRight = function setPaddingRight(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).padding, "right", padding);
-};
-var setPaddingBottom = function setPaddingBottom(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).padding, "bottom", padding);
-};
-var setPaddingLeft = function setPaddingLeft(state, padding) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).padding, "left", padding);
-};
-
-// Border Mutations
-var setBorderTop = function setBorderTop(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).border.top, "top", borderVal);
-};
-var setBorderRight = function setBorderRight(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).border.right, "right", borderVal);
-};
-var setBorderBottom = function setBorderBottom(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).border.bottom, "bottom", borderVal);
-};
-var setBorderLeft = function setBorderLeft(state, borderVal) {
-    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state).border.left, "left", borderVal);
 };
 
 /***/ }),
@@ -80624,7 +80361,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.lineHeight;
             },
             set: function set(height) {
-                this.$store.commit('setLineHeight', height);
+                this.$store.commit('setComponentProperty', { property: 'lineHeight', value: height });
             }
         }
     }
@@ -80741,7 +80478,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.width;
             },
             set: function set(width) {
-                this.$store.commit('setElementWidth', width);
+                this.$store.commit('setComponentProperty', { property: 'width', value: width });
             }
         }
     }
@@ -80788,6 +80525,95 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-53ad358d", module.exports)
+  }
+}
+
+/***/ }),
+/* 446 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          icon: "fill",
+          tooltip: "Background Colour",
+          id: "background-color-popover"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        { attrs: { target: "background-color-popover", placement: "bottom" } },
+        [
+          _c("sketch-color-picker", {
+            attrs: { value: _vm.colors },
+            on: { input: _vm.updateValue }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2db8b05c", module.exports)
+  }
+}
+
+/***/ }),
+/* 447 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          icon: "paint-roller",
+          tooltip: "Text Colour",
+          id: "text-color-popover"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        { attrs: { target: "text-color-popover", placement: "bottom" } },
+        [
+          _c("sketch-color-picker", {
+            staticClass: "color-picker",
+            attrs: { value: _vm.colors },
+            on: { input: _vm.updateValue }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3736ce7d", module.exports)
   }
 }
 

@@ -11,8 +11,8 @@ export default {
             get () {
                 return this.$store.getters.getCurrentElement.fontFamily;
             },
-            set (fontFamily) {
-                this.$store.commit('setFontFamily', fontFamily);
+            set (font) {
+                this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font });
             }
         },
     },

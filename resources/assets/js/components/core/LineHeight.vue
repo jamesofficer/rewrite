@@ -12,7 +12,7 @@ export default {
                 return this.$store.getters.getCurrentElement.lineHeight;
             },
             set (height) {
-                this.$store.commit('setLineHeight', height);
+                this.$store.commit('setComponentProperty', { property: 'lineHeight', value: height });
             }
         },
     },

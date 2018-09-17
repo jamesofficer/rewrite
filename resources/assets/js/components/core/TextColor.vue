@@ -36,26 +36,8 @@ export default {
         },
 
         updateValue(color) {
-            this.$store.commit('setTextColor', color.rgba);
+            this.$store.commit('setComponentProperty', { property: 'textColor', value: color.rgba });
         }
     }
 }
 </script>
-
-<style scoped>
-    .color-box {
-        height: 30px;
-        width: 100%;
-        border: 1px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    .color-box:hover {
-        cursor: pointer;
-    }
-
-    .color-picker {
-        margin-top: 5px;
-    }
-</style>

@@ -60,7 +60,7 @@ export default {
             const imageId = this.instagramUrl.split('instagram.com/p/', 2)[1];
             const newUrl  = 'https://www.instagram.com/p/' + imageId + 'embed';
 
-            this.$store.commit('setUrl', newUrl);
+            this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
         }
     }
 }

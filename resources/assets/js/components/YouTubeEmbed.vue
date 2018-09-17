@@ -64,9 +64,7 @@ export default {
                 const videoId = this.videoUrl.split('/watch?v=', 2)[1];
                 const newUrl  = 'https://www.youtube.com/embed/' + videoId;
 
-                console.log(newUrl);
-
-                this.$store.commit('setUrl', newUrl);
+                this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
             }
         }
     }

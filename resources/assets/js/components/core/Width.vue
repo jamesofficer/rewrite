@@ -12,7 +12,7 @@ export default {
                 return this.$store.getters.getCurrentElement.width;
             },
             set (width) {
-                this.$store.commit('setElementWidth', width);
+                this.$store.commit('setComponentProperty', { property: 'width', value: width });
             }
         },
     },

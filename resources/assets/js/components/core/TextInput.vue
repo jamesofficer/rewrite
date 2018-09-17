@@ -12,7 +12,7 @@ export default {
                 return this.$store.getters.getCurrentElement.content;
             },
             set (value) {
-                this.$store.commit('updateTextContent', value);
+                this.$store.commit('setComponentProperty', { property: 'content', value: value });
             }
         },
     },

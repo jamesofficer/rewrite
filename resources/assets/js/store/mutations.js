@@ -9,11 +9,6 @@ import defaultInstagram  from "./defaults/InstagramEmbed";
 import defaultFacebook   from "./defaults/FacebookEmbed";
 import defaultYouTube    from "./defaults/YouTubeEmbed";
 
-// Sets the status of the "Add Component" Modal window.
-export const toggleAddComponentModal = (state, toggle) => {
-    state.showAddComponentModal = toggle;
-};
-
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
 
@@ -22,6 +17,18 @@ export const removeCanvas = state => {
     state.canvases.splice(state.currentCanvas, 1);
     state.currentCanvas = undefined;
 }
+
+// Used to set CSS properties on components.
+export const setComponentProperty = (state, component) =>
+    window.Vue.set(getSelectedElement(state), component.property, component.value);
+
+// Some Components like Margin and Padding have a subproperty we may need to set.
+export const setComponentSubProperty = (state, component) =>
+    window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
+
+// Sets the status of the "Add Component" Modal window.
+export const toggleAddComponentModal = (state, toggle) =>
+    state.showAddComponentModal = toggle;
 
 // Adds another column to the specified canvas.
 export const addColumnToCanvas = (state, columnWidth) => {
@@ -100,94 +107,8 @@ export const updateArticleTitle = (state, title) =>
 export const selectImage = (state, image) =>
     window.Vue.set(getSelectedElement(state), "src", image.url);
 
-// ===================================================== //
-// Saving/Loading Articles. (should probably be actions)
-// ===================================================== //
-
 // Loads an existing article (updates the canvases).
 export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
-
-// ===================================================== //
-// CSS Property Mutators.
-// ===================================================== //
-
-// Sets the column width on the specified column.
-export const setColumnWidth = (state, columns) =>
-    window.Vue.set(getSelectedElement(state), "columnWidth", columns);
-
-// Sets the width on the specified element as a percentage.
-export const setElementWidth = (state, width) =>
-    window.Vue.set(getSelectedElement(state), "width", width);
-
-// Sets the string value of a Text Component
-export const updateTextContent = (state, value) =>
-    window.Vue.set(getSelectedElement(state), "content", value);
-
-// Sets the Text Alignment on a Text Component
-export const setTextAlignment = (state, position) =>
-    window.Vue.set(getSelectedElement(state), "textAlign", position);
-
-// Sets the Font Size on a Text Component
-export const setFontSize = (state, size) =>
-    window.Vue.set(getSelectedElement(state), "fontSize", size);
-
-// Sets the Font Weight on a Text Component
-export const setFontWeight = (state, weight) =>
-    window.Vue.set(getSelectedElement(state), "fontWeight", weight);
-
-// Sets the Font Family on a Text Component
-export const setFontFamily = (state, family) =>
-    window.Vue.set(getSelectedElement(state), "fontFamily", family);
-
-// Sets the Font Family on a Text Component
-export const setLineHeight = (state, height) =>
-    window.Vue.set(getSelectedElement(state), "lineHeight", height);
-
-// Sets the Text Colour on a Text Component
-export const setTextColor = (state, color) =>
-    window.Vue.set(getSelectedElement(state), "textColor", color);
-
-// Sets the Background Colour on a Component
-export const setBackgroundColor = (state, color) =>
-    window.Vue.set(getSelectedElement(state), "backgroundColor", color);
-
-// Sets the Source of an Image
-export const setImageSource = (state, image) =>
-    window.Vue.set(getSelectedElement(state), "imageSource", image);
-
-// Sets the Source/URL of a Social Media Component or Video.
-export const setUrl = (state, url) =>
-    window.Vue.set(getSelectedElement(state), "url", url);
-
-// Margin Mutations
-export const setMarginTop = (state, margin) =>
-    window.Vue.set(getSelectedElement(state).margin, "top", margin);
-export const setMarginRight = (state, margin) =>
-    window.Vue.set(getSelectedElement(state).margin, "right", margin);
-export const setMarginBottom = (state, margin) =>
-    window.Vue.set(getSelectedElement(state).margin, "bottom", margin);
-export const setMarginLeft = (state, margin) =>
-    window.Vue.set(getSelectedElement(state).margin, "left", margin);
-
-// Padding Mutations
-export const setPaddingTop = (state, padding) =>
-    window.Vue.set(getSelectedElement(state).padding, "top", padding);
-export const setPaddingRight = (state, padding) =>
-    window.Vue.set(getSelectedElement(state).padding, "right", padding);
-export const setPaddingBottom = (state, padding) =>
-    window.Vue.set(getSelectedElement(state).padding, "bottom", padding);
-export const setPaddingLeft = (state, padding) =>
-    window.Vue.set(getSelectedElement(state).padding, "left", padding);
-
-// Border Mutations
-export const setBorderTop = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).border.top, "top", borderVal);
-export const setBorderRight = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).border.right, "right", borderVal);
-export const setBorderBottom = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).border.bottom, "bottom", borderVal);
-export const setBorderLeft = (state, borderVal) =>
-    window.Vue.set(getSelectedElement(state).border.left, "left", borderVal);

@@ -32,22 +32,8 @@ export default {
 
     methods: {
         updateValue(color) {
-            this.$store.commit('setBackgroundColor', color.rgba);
+            this.$store.commit('setComponentProperty', { property: 'backgroundColor', value: color.rgba });
         }
     }
 }
 </script>
-
-<style scoped>
-    .color-box {
-        height: 30px;
-        width: 100px;
-        border: 1px solid #ced4da;
-        border-radius: 3px;
-        padding: 5px;
-    }
-
-    .color-box:hover {
-        cursor: pointer;
-    }
-</style>

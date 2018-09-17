@@ -13,6 +13,7 @@ BUGS:
 - Articles titled 'untilted article' should not be saved.
 
 FEATURES:
+- Clean up mutations.
 - Users can move components up and down a canvas.
 - Add tabs to Add Component Modal window.
 - When adding a column, it auto-sizes to fit.

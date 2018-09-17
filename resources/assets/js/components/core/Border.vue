@@ -26,7 +26,7 @@
 
 <script>
 export default {
-    name: "SetBorder",
+    name: "Border",
 
     computed: {
         borderTop: {
@@ -34,7 +34,11 @@ export default {
                 return this.$store.getters.getCurrentElement.border.top;
             },
             set(amount) {
-                this.$store.commit('setBorderTop', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'top',
+                    value: amount,
+                });
             }
         },
 
@@ -43,7 +47,11 @@ export default {
                 return this.$store.getters.getCurrentElement.border.right;
             },
             set(amount) {
-                this.$store.commit('setBorderRight', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'right',
+                    value: amount,
+                });
             }
         },
 
@@ -52,7 +60,11 @@ export default {
                 return this.$store.getters.getCurrentElement.border.bottom;
             },
             set(amount) {
-                this.$store.commit('setBorderBottom', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'bottom',
+                    value: amount,
+                });
             }
         },
 
@@ -61,7 +73,11 @@ export default {
                 return this.$store.getters.getCurrentElement.padding.left;
             },
             set(amount) {
-                this.$store.commit('setBorderLeft', amount);
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'left',
+                    value: amount,
+                });
             }
         },
     },

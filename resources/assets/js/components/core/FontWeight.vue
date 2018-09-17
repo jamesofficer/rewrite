@@ -12,7 +12,7 @@ export default {
                 return this.$store.getters.getCurrentElement.fontWeight;
             },
             set (weight) {
-                this.$store.commit('setFontWeight', weight);
+                this.$store.commit('setComponentProperty', { property: 'fontWeight', value: weight });
             }
         },
     },

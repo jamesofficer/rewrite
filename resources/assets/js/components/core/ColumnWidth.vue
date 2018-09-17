@@ -11,8 +11,8 @@ export default {
             get () {
                 return this.$store.getters.getCurrentElement.columnWidth;
             },
-            set (columnWidth) {
-                this.$store.commit('setColumnWidth', columnWidth);
+            set (width) {
+                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
             }
         },
     },

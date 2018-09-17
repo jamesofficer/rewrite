@@ -12,7 +12,7 @@ export default {
                 return this.$store.getters.getCurrentElement.fontSize;
             },
             set (size) {
-                this.$store.commit('setFontSize', size);
+                this.$store.commit('setComponentProperty', { property: 'fontSize', value: size });
             }
         },
     },
