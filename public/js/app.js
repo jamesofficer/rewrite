@@ -22738,7 +22738,11 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
+var _type$selected$src$wi;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ __webpack_exports__["a"] = (_type$selected$src$wi = {
     type: "Picture",
     selected: false,
 
@@ -22746,20 +22750,18 @@ module.exports = Component.exports
 
     // Properties:
     width: '100%',
-    textAlign: "left",
-    margin: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-    },
-    padding: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-    }
-});
+    textAlign: "left"
+}, _defineProperty(_type$selected$src$wi, "width", 100), _defineProperty(_type$selected$src$wi, "margin", {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+}), _defineProperty(_type$selected$src$wi, "padding", {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+}), _type$selected$src$wi);
 
 /***/ }),
 /* 97 */
@@ -45395,7 +45397,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-article-name[data-v-667f58a0] {\r\n    margin: 15px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\r\n    color: #38c172;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\r\n    padding: 30px 10px;\r\n    margin-top: 5px;\r\n    margin-bottom: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\r\n    outline-width: 0;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    background: white;\r\n    margin: 0 15px 10px 15px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 5px 15px 30px 15px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\r\n\r\n\r\n/* Page content */\n.content[data-v-667f58a0] {\r\n  padding: 16px;\n}\r\n\r\n/* The sticky class is added to the header with JS when it reaches its scroll position */\n.sticky[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 100;\n}\r\n\r\n/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */\n.sticky + .content[data-v-667f58a0] {\r\n  padding-top: 102px;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\r\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\r\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\r\n    margin: 20px 0;\r\n    padding: 0 15px 10px 15px;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 0 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    background: white;\r\n    margin: 0 15px 10px 15px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 5px 15px 30px 15px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 100;\n}\r\n", ""]);
 
 // exports
 
@@ -45455,6 +45457,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_dialogs_ImageGalleryModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_ExportArticleModal__ = __webpack_require__(341);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_dialogs_ExportArticleModal__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46354,6 +46364,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -46399,14 +46411,33 @@ var render = function() {
           }
         }
       })
-    : _c("top-bar-control", {
-        attrs: {
-          variant: "outline-danger",
-          icon: "columns",
-          label: "Need Space or Max Reached",
-          disabled: true
-        }
-      })
+    : _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "b-tooltip",
+              rawName: "v-b-tooltip.hover",
+              modifiers: { hover: true }
+            }
+          ],
+          attrs: {
+            title:
+              "Column limit reached or there is not enough space for a new one."
+          }
+        },
+        [
+          _c("top-bar-control", {
+            attrs: {
+              variant: "outline-danger",
+              icon: "columns",
+              label: "Add Column",
+              disabled: true
+            }
+          })
+        ],
+        1
+      )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49498,6 +49529,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Width__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Width___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Width__);
 //
 //
 //
@@ -49529,6 +49562,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -49546,7 +49582,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default.a,
-        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a
+        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Width: __WEBPACK_IMPORTED_MODULE_6__core_Width___default.a
     }
 });
 
@@ -49795,7 +49831,7 @@ var render = function() {
         : _c("div", { style: { textAlign: _vm.element.textAlign } }, [
             _c("img", {
               style: {
-                maxWidth: _vm.element.width,
+                width: _vm.element.width + "%",
                 marginTop: _vm.element.margin.top + "px",
                 marginRight: _vm.element.margin.right + "px",
                 marginBottom: _vm.element.margin.bottom + "px",
@@ -49814,7 +49850,13 @@ var render = function() {
               _c("image-selector"),
               _vm._v(" "),
               _vm.element.src
-                ? [_c("margin"), _vm._v(" "), _c("image-alignment")]
+                ? [
+                    _c("margin"),
+                    _vm._v(" "),
+                    _c("width"),
+                    _vm._v(" "),
+                    _c("image-alignment")
+                  ]
                 : _vm._e()
             ],
             2
@@ -50348,6 +50390,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -50377,12 +50422,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         updateYouTubeUrl: function updateYouTubeUrl() {
-            var videoId = this.videoUrl.split('/watch?v=', 2)[1];
-            var newUrl = 'https://www.youtube.com/embed/' + videoId;
+            if (this.videoUrl) {
+                var videoId = this.videoUrl.split('/watch?v=', 2)[1];
+                var newUrl = 'https://www.youtube.com/embed/' + videoId;
 
-            console.log(newUrl);
+                console.log(newUrl);
 
-            this.$store.commit('setUrl', newUrl);
+                this.$store.commit('setUrl', newUrl);
+            }
         }
     }
 });
@@ -50453,11 +50500,11 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("margin"),
-              _vm._v(" "),
-              _c("image-alignment")
+              _vm.element.url
+                ? [_c("margin"), _vm._v(" "), _c("image-alignment")]
+                : _vm._e()
             ],
-            1
+            2
           )
         : _vm._e()
     ],
@@ -51712,83 +51759,112 @@ var render = function() {
     [
       _c(
         "b-container",
-        { attrs: { fluid: "" } },
+        { staticClass: "shift-header-container", attrs: { fluid: "" } },
         [
           _c(
-            "b-alert",
-            {
-              attrs: {
-                variant: _vm.sessionAlert.type,
-                dismissible: "",
-                fade: "",
-                show: _vm.sessionAlert.show
-              },
-              on: {
-                dismissed: function($event) {
-                  _vm.sessionAlert.show = false
-                }
-              }
-            },
+            "b-row",
+            { staticClass: "session-alert-message" },
             [
-              _vm._v(
-                "\n            " +
-                  _vm._s(_vm.sessionAlert.message) +
-                  "\n        "
+              _c(
+                "b-col",
+                [
+                  _c(
+                    "b-alert",
+                    {
+                      attrs: {
+                        variant: _vm.sessionAlert.type,
+                        dismissible: "",
+                        fade: "",
+                        show: _vm.sessionAlert.show
+                      },
+                      on: {
+                        dismissed: function($event) {
+                          _vm.sessionAlert.show = false
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.sessionAlert.message) +
+                          "\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
               )
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
-          _vm.showArticleOverwriteAlert
-            ? _c("b-alert", { attrs: { show: "", variant: "warning" } }, [
-                _c("h4", { staticClass: "alert-heading" }, [
-                  _vm._v("Article already exists! Overwrite?")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "An article already exists with the title: " +
-                      _vm._s(_vm.articleTitle)
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Do you want to overwrite it?")]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "mb-0" },
-                  [
-                    _c(
-                      "b-btn",
-                      {
-                        attrs: { variant: "danger" },
-                        on: {
-                          click: function($event) {
-                            _vm.storeArticle(true)
-                          }
-                        }
-                      },
-                      [_vm._v("Overwrite")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-btn",
-                      {
-                        attrs: { variant: "secondary" },
-                        on: {
-                          click: function($event) {
-                            _vm.showArticleOverwriteAlert = false
-                          }
-                        }
-                      },
-                      [_vm._v("Cancel")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            : _vm._e(),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _vm.showArticleOverwriteAlert
+                    ? _c(
+                        "b-alert",
+                        { attrs: { show: "", variant: "warning" } },
+                        [
+                          _c("h4", { staticClass: "alert-heading" }, [
+                            _vm._v("Article already exists! Overwrite?")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "An article already exists with the title: " +
+                                _vm._s(_vm.articleTitle)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Do you want to overwrite it?")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "mb-0" },
+                            [
+                              _c(
+                                "b-btn",
+                                {
+                                  attrs: { variant: "danger" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.storeArticle(true)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Overwrite")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-btn",
+                                {
+                                  attrs: { variant: "secondary" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.showArticleOverwriteAlert = false
+                                    }
+                                  }
+                                },
+                                [_vm._v("Cancel")]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "b-row",
@@ -51802,7 +51878,7 @@ var render = function() {
                           "h2",
                           {
                             staticClass: "shift-article-name",
-                            on: { click: _vm.setArticleTitle }
+                            on: { dblclick: _vm.setArticleTitle }
                           },
                           [_vm._v(_vm._s(_vm.articleTitle))]
                         )
@@ -52951,6 +53027,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectImage", function() { return selectImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setColumnWidth", function() { return setColumnWidth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setElementWidth", function() { return setElementWidth; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTextContent", function() { return updateTextContent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextAlignment", function() { return setTextAlignment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontSize", function() { return setFontSize; });
@@ -53105,6 +53182,11 @@ var loadArticle = function loadArticle(state, article) {
 // Sets the column width on the specified column.
 var setColumnWidth = function setColumnWidth(state, columns) {
     return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "columnWidth", columns);
+};
+
+// Sets the width on the specified element as a percentage.
+var setElementWidth = function setElementWidth(state, width) {
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "width", width);
 };
 
 // Sets the string value of a Text Component
@@ -80589,6 +80671,123 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-6300a084", module.exports)
+  }
+}
+
+/***/ }),
+/* 443 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(444)
+/* template */
+var __vue_template__ = __webpack_require__(445)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/Width.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-53ad358d", Component.options)
+  } else {
+    hotAPI.reload("data-v-53ad358d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 444 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Width",
+
+    computed: {
+        width: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.width;
+            },
+            set: function set(width) {
+                this.$store.commit('setElementWidth', width);
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 445 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("b-form-input", {
+    directives: [
+      {
+        name: "b-tooltip",
+        rawName: "v-b-tooltip.hover",
+        modifiers: { hover: true }
+      }
+    ],
+    staticClass: "top-bar-control",
+    attrs: {
+      size: "sm",
+      type: "number",
+      min: 0,
+      max: 100,
+      step: "1",
+      title: "Width"
+    },
+    model: {
+      value: _vm.width,
+      callback: function($$v) {
+        _vm.width = $$v
+      },
+      expression: "width"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-53ad358d", module.exports)
   }
 }
 

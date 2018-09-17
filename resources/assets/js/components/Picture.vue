@@ -6,7 +6,7 @@
 
         <div v-else :style="{ textAlign: element.textAlign }">
             <img :src="element.src" :style="{
-                maxWidth: element.width,
+                width: element.width + '%',
                 marginTop: element.margin.top + 'px',
                 marginRight: element.margin.right + 'px',
                 marginBottom: element.margin.bottom + 'px',
@@ -23,6 +23,8 @@
             <template v-if="element.src">
                 <margin></margin>
 
+                <width></width>
+
                 <image-alignment></image-alignment>
             </template>
         </top-bar>
@@ -38,6 +40,7 @@ import DeleteComponentButton from './topbar/DeleteComponentButton'
 import ImageSelector     from './core/ImageSelector'
 import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
+import Width            from './core/Width'
 
 export default {
     name: "Picture",
@@ -46,7 +49,7 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        ImageSelector, ImageAlignment, Margin,
+        ImageSelector, ImageAlignment, Margin, Width
     },
 }
 </script>

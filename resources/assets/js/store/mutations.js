@@ -118,6 +118,10 @@ export const loadArticle = (state, article) => {
 export const setColumnWidth = (state, columns) =>
     window.Vue.set(getSelectedElement(state), "columnWidth", columns);
 
+// Sets the width on the specified element as a percentage.
+export const setElementWidth = (state, width) =>
+    window.Vue.set(getSelectedElement(state), "width", width);
+
 // Sets the string value of a Text Component
 export const updateTextContent = (state, value) =>
     window.Vue.set(getSelectedElement(state), "content", value);

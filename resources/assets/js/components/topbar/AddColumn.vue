@@ -7,12 +7,14 @@
                     tooltip="Add Column to Canvas (max 4)"
     ></top-bar-control>
 
-    <top-bar-control v-else
-                    variant="outline-danger"
-                    icon="columns"
-                    label="Need Space or Max Reached"
-                    :disabled="true"
-    ></top-bar-control>
+    <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
+    <div v-else v-b-tooltip.hover title="Column limit reached or there is not enough space for a new one.">
+        <top-bar-control variant="outline-danger"
+                     icon="columns"
+                     label="Add Column"
+                     :disabled="true"
+        ></top-bar-control>
+    </div>
 </template>
 
 <script>

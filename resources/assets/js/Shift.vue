@@ -1,30 +1,38 @@
 <template>
     <div>
-        <b-container fluid>
+        <b-container fluid class="shift-header-container">
             <!-- Session Alert Message -->
-            <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
-                {{ sessionAlert.message }}
-            </b-alert>
+            <b-row class="session-alert-message">
+                <b-col>
+                    <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
+                        {{ sessionAlert.message }}
+                    </b-alert>
+                </b-col>
+            </b-row>
 
             <!-- Overwrite Article Alert -->
-            <b-alert show variant="warning" v-if="showArticleOverwriteAlert">
-                <h4 class="alert-heading">Article already exists! Overwrite?</h4>
-                <p>An article already exists with the title: {{ articleTitle }}</p>
-                <p>Do you want to overwrite it?</p>
+            <b-row>
+                <b-col>
+                    <b-alert show variant="warning" v-if="showArticleOverwriteAlert">
+                        <h4 class="alert-heading">Article already exists! Overwrite?</h4>
+                        <p>An article already exists with the title: {{ articleTitle }}</p>
+                        <p>Do you want to overwrite it?</p>
 
-                <hr>
+                        <hr>
 
-                <p class="mb-0">
-                    <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
-                    <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
-                </p>
-            </b-alert>
+                        <p class="mb-0">
+                            <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
+                            <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
+                        </p>
+                    </b-alert>
+                </b-col>
+            </b-row>
 
             <!-- Article Name -->
             <b-row>
                 <b-col>
                     <em v-if="! settingArticleTitle">
-                        <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
+                        <h2 class="shift-article-name" @dblclick="setArticleTitle">{{ articleTitle }}</h2>
                     </em>
 
                     <b-input v-else
@@ -310,25 +318,31 @@ export default {
 </script>
 
 <style scoped>
+.shift-header-container {
+    padding: 0 25px;
+}
+
+.session-alert-message {
+    margin-top: 15px;
+}
+
 .shift-article-name {
-    margin: 15px;
-    padding: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    padding: 0 15px 10px 15px;
     color: #38c172;
+    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .shift-article-name-input[type='text'] {
-    padding: 30px 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin: 20px 0 30px 0;
+    padding: 0 15px;
     background: none;
     color: #38c172;
-    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1.8rem;
     font-weight: 500;
     font-style: italic;
     line-height: 1.2;
-    outline-width: 0;
 }
 
 .shift-article-name-input[type='text']:focus {
@@ -366,22 +380,10 @@ export default {
     border: 1px solid #38c172;
 }
 
-
-/* Page content */
-.content {
-  padding: 16px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
 }
 </style>

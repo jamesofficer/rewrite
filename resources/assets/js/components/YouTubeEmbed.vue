@@ -21,9 +21,12 @@
             <b-input size="sm" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste video url here..."
                     class="top-bar-control" v-b-tooltip.hover title="YouTube Video URL"></b-input>
 
-            <margin></margin>
+            <template v-if="element.url">
+                <margin></margin>
 
-            <image-alignment></image-alignment>
+                <image-alignment></image-alignment>
+            </template>
+
         </top-bar>
     </div>
 </template>
@@ -57,12 +60,14 @@ export default {
 
     methods: {
         updateYouTubeUrl() {
-            const videoId = this.videoUrl.split('/watch?v=', 2)[1];
-            const newUrl  = 'https://www.youtube.com/embed/' + videoId;
+            if (this.videoUrl) {
+                const videoId = this.videoUrl.split('/watch?v=', 2)[1];
+                const newUrl  = 'https://www.youtube.com/embed/' + videoId;
 
-            console.log(newUrl);
+                console.log(newUrl);
 
-            this.$store.commit('setUrl', newUrl);
+                this.$store.commit('setUrl', newUrl);
+            }
         }
     }
 }

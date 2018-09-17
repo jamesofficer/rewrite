@@ -7,6 +7,7 @@ export default {
     // Properties:
     width: '100%',
     textAlign: "left",
+    width: 100,
     margin: {
         top: 0,
         right: 0,

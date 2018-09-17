@@ -1,7 +1,5 @@
 NEW COMPONENTS:
 - Border component.
-- Image Height and Width.
-- Social Media width.
 - Horizontal line component.
 - Add Recipe Component.
 - Add Recipe Summary Component.
@@ -9,13 +7,12 @@ NEW COMPONENTS:
 
 BUGS:
 - Images not appearing in article preview.
-- Paragraph text is not given the correct font.
 - Loading in an article with a youtube video loses the video.
 - Fix spacing on alert when saving an article with no name.
 - Columns can span more then 12 columns.
+- Articles titled 'untilted article' should not be saved.
 
 FEATURES:
-- Added LineHeight component.
 - Users can move components up and down a canvas.
 - Add tabs to Add Component Modal window.
 - When adding a column, it auto-sizes to fit.
@@ -34,6 +31,8 @@ FEATURES:
 
 
 CHANGELOG [aka. Added Features]:
+- Added Width component.
+- Added LineHeight component.
 - Added Trix editor for editing paragraph content.
 - Can no longer have more than 4 columns on a canvas.
 - Textareas now autosize to fit the height of their content.
