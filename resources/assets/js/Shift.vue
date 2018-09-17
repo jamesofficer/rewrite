@@ -270,7 +270,7 @@ export default {
         previewArticleInNewWindow() {
             this.getArticleHtml();
 
-            const newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(screen.height-400)+",left="+(screen.width-840));
+            const newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(800)+",left="+(600));
             const normalize = document.createElement("link");
             const bootstrap = document.createElement("link");
 

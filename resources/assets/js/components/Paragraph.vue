@@ -5,6 +5,7 @@
             fontSize: element.fontSize + 'pt',
             fontFamily: element.fontFamily,
             fontWeight: element.fontWeight,
+            lineHeight: element.lineHeight,
             color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             paddingTop: element.padding.top + 'px',
             paddingRight: element.padding.right + 'px',
@@ -30,6 +31,12 @@
 
             <font-family></font-family>
 
+            <font-size></font-size>
+
+            <font-weight></font-weight>
+
+            <line-height></line-height>
+
             <text-alignment></text-alignment>
         </top-bar>
     </div>
@@ -44,14 +51,15 @@ import TopBar            from './topbar/TopBar'
 import EditTextButton    from './topbar/EditTextButton'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
+import Margin            from './core/Margin'
+import Padding           from './core/Padding'
 import TextInput         from './core/TextInput'
 import FontFamily        from './core/FontFamily'
 import TextAlignment     from './core/TextAlignment'
 import FontWeight        from './core/FontWeight'
 import FontSize          from './core/FontSize'
 import TextColor         from './core/TextColor'
-import Padding           from './core/Padding'
-import Margin            from './core/Margin'
+import LineHeight        from './core/LineHeight'
 
 export default {
     name: "Paragraph",
@@ -61,7 +69,7 @@ export default {
     components: {
         EditTextModal,
         TopBar, EditTextButton, DeleteComponentButton,
-        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor,
         Padding, Margin,
     },
 

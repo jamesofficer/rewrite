@@ -138,6 +138,10 @@ export const setFontWeight = (state, weight) =>
 export const setFontFamily = (state, family) =>
     window.Vue.set(getSelectedElement(state), "fontFamily", family);
 
+// Sets the Font Family on a Text Component
+export const setLineHeight = (state, height) =>
+    window.Vue.set(getSelectedElement(state), "lineHeight", height);
+
 // Sets the Text Colour on a Text Component
 export const setTextColor = (state, color) =>
     window.Vue.set(getSelectedElement(state), "textColor", color);

@@ -22685,6 +22685,7 @@ module.exports = Component.exports
     fontFamily: 'Times New Roman',
     fontWeight: 500,
     fontSize: 24,
+    lineHeight: 1,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     margin: {
@@ -22711,10 +22712,11 @@ module.exports = Component.exports
     selected: false,
 
     // Properties:
-    content: 'New paragraph. Enter your paragraph text here...',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra eu lectus eu tempor. Duis metus turpis, hendrerit iaculis sem at, venenatis faucibus nisi. Nullam placerat mi nisi, et blandit orci pharetra eu. Praesent posuere suscipit eros eget malesuada. Donec bibendum pellentesque nulla ullamcorper porttitor. In sit amet odio nec nisl vulputate vestibulum. Vestibulum pretium mi non velit dapibus dapibus. Praesent enim tortor, sodales vel lectus non, molestie semper mauris. Morbi luctus convallis maximus. Nunc efficitur quam ut mi feugiat, non condimentum massa egestas. Suspendisse sed sagittis erat. Suspendisse lobortis et tortor non venenatis. Etiam nisi neque, maximus in elit a, porta condimentum ligula. Sed rhoncus, justo non porta aliquet, risus purus viverra odio, at elementum ex velit quis lacus.',
     fontFamily: 'Times New Roman',
     fontWeight: 500,
     fontSize: 12,
+    lineHeight: 1,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     margin: {
@@ -45719,7 +45721,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         previewArticleInNewWindow: function previewArticleInNewWindow() {
             this.getArticleHtml();
 
-            var newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top=" + (screen.height - 400) + ",left=" + (screen.width - 840));
+            var newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top=" + 800 + ",left=" + 600);
             var normalize = document.createElement("link");
             var bootstrap = document.createElement("link");
 
@@ -47349,20 +47351,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeight__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontSize__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Margin__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Margin__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextColor__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeight__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontSize__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_LineHeight__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_LineHeight__);
+//
+//
+//
+//
 //
 //
 //
@@ -47423,7 +47431,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// Property Imports:
+
 
 
 
@@ -47440,7 +47448,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_5__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_4__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_6__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_7__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_10__core_Margin___default.a
+        TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_11__core_LineHeight___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_9__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_10__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_6__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a
     },
 
     data: function data() {
@@ -48568,6 +48576,7 @@ var render = function() {
               fontSize: _vm.element.fontSize + "pt",
               fontFamily: _vm.element.fontFamily,
               fontWeight: _vm.element.fontWeight,
+              lineHeight: _vm.element.lineHeight,
               color:
                 "rgba(" +
                 _vm.element.textColor.r +
@@ -48596,6 +48605,7 @@ var render = function() {
               fontSize: _vm.element.fontSize + "pt",
               fontFamily: _vm.element.fontFamily,
               fontWeight: _vm.element.fontWeight,
+              lineHeight: _vm.element.lineHeight,
               color:
                 "rgba(" +
                 _vm.element.textColor.r +
@@ -48636,6 +48646,8 @@ var render = function() {
               _c("font-size"),
               _vm._v(" "),
               _c("font-weight"),
+              _vm._v(" "),
+              _c("line-height"),
               _vm._v(" "),
               _c("text-alignment")
             ],
@@ -48718,22 +48730,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_EditTextButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_EditTextButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontFamily__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeight__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontSize__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Margin__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontWeight__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontSize__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextColor__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_LineHeight__);
 //
 //
 //
@@ -48771,6 +48785,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -48797,8 +48819,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         EditTextModal: __WEBPACK_IMPORTED_MODULE_0__dialogs_EditTextModal___default.a,
         TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, EditTextButton: __WEBPACK_IMPORTED_MODULE_3__topbar_EditTextButton___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_6__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_7__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_8__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_9__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_10__core_TextColor___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_12__core_Margin___default.a
+        TextInput: __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_10__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_11__core_FontSize___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_12__core_TextColor___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a
     },
 
     data: function data() {
@@ -48844,6 +48866,7 @@ var render = function() {
           fontSize: _vm.element.fontSize + "pt",
           fontFamily: _vm.element.fontFamily,
           fontWeight: _vm.element.fontWeight,
+          lineHeight: _vm.element.lineHeight,
           color:
             "rgba(" +
             _vm.element.textColor.r +
@@ -48881,6 +48904,12 @@ var render = function() {
               _c("text-color"),
               _vm._v(" "),
               _c("font-family"),
+              _vm._v(" "),
+              _c("font-size"),
+              _vm._v(" "),
+              _c("font-weight"),
+              _vm._v(" "),
+              _c("line-height"),
               _vm._v(" "),
               _c("text-alignment")
             ],
@@ -52927,6 +52956,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontSize", function() { return setFontSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontWeight", function() { return setFontWeight; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFontFamily", function() { return setFontFamily; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLineHeight", function() { return setLineHeight; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTextColor", function() { return setTextColor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBackgroundColor", function() { return setBackgroundColor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setImageSource", function() { return setImageSource; });
@@ -53100,6 +53130,11 @@ var setFontWeight = function setFontWeight(state, weight) {
 // Sets the Font Family on a Text Component
 var setFontFamily = function setFontFamily(state, family) {
     return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "fontFamily", family);
+};
+
+// Sets the Font Family on a Text Component
+var setLineHeight = function setLineHeight(state, height) {
+    return window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getSelectedElement */])(state), "lineHeight", height);
 };
 
 // Sets the Text Colour on a Text Component
@@ -80436,6 +80471,126 @@ module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u20
 });
 //# sourceMappingURL=TrixVue.umd.js.map
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(108).setImmediate))
+
+/***/ }),
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(441)
+/* template */
+var __vue_template__ = __webpack_require__(442)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/LineHeight.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6300a084", Component.options)
+  } else {
+    hotAPI.reload("data-v-6300a084", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 441 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "LineHeight",
+
+    computed: {
+        lineHeight: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.lineHeight;
+            },
+            set: function set(height) {
+                this.$store.commit('setLineHeight', height);
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 442 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("b-form-input", {
+    directives: [
+      {
+        name: "b-tooltip",
+        rawName: "v-b-tooltip.hover",
+        modifiers: { hover: true }
+      }
+    ],
+    staticClass: "top-bar-control",
+    attrs: {
+      size: "sm",
+      type: "number",
+      min: 0,
+      max: 5,
+      step: "0.1",
+      title: "Line Height"
+    },
+    model: {
+      value: _vm.lineHeight,
+      callback: function($$v) {
+        _vm.lineHeight = $$v
+      },
+      expression: "lineHeight"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6300a084", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
