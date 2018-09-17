@@ -39,6 +39,7 @@ import "vue-awesome/icons/images";
 import "vue-awesome/icons/heading";
 import "vue-awesome/icons/paragraph";
 import "vue-awesome/icons/quote-right";
+import "vue-awesome/icons/font";
 import "vue-awesome/icons/fill";
 import "vue-awesome/icons/expand";
 import "vue-awesome/icons/expand-arrows-alt";

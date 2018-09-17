@@ -1,0 +1,23 @@
+<template>
+    <top-bar-control v-b-modal.editTextModal variant="outline-success" icon="font" label="Edit Text"></top-bar-control>
+</template>
+
+<script>
+import EditTextModal from '../dialogs/EditTextModal'
+import TopBarControl from './TopBarControl';
+
+export default {
+    name: "EditTextButton",
+
+    components: {
+        EditTextModal, TopBarControl,
+    },
+
+    methods: {
+        showEditTextModal() {
+            this.$store.commit('toggleEditTextModal', true);
+        }
+    }
+}
+</script>
+

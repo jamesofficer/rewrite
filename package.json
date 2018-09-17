@@ -20,6 +20,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "@dymantic/vue-trix-editor": "^0.1.6",
         "ajv": "^6.5.3",
         "bootstrap-vue": "^2.0.0-rc.11",
         "npm": "^6.4.1",

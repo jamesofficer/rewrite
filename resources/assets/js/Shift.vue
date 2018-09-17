@@ -112,6 +112,9 @@
             <!-- Add Component Modal -->
             <add-component-modal></add-component-modal>
 
+            <!-- Edit Text Modal -->
+            <edit-text-modal></edit-text-modal>
+
             <!-- Load Article Modal -->
             <load-article-modal></load-article-modal>
 
@@ -131,6 +134,7 @@
 import ShiftArticle       from "./components/ShiftArticle";
 import Canvas             from "./components/Canvas";
 import AddComponentModal  from './components/dialogs/AddComponentModal';
+import EditTextModal      from './components/dialogs/EditTextModal';
 import LoadArticleModal   from './components/dialogs/LoadArticleModal';
 import MyImagesModal      from './components/dialogs/MyImagesModal';
 import ImageGalleryModal  from './components/dialogs/ImageGalleryModal';
@@ -140,7 +144,7 @@ export default {
     name: "Shift",
 
     components: {
-        ShiftArticle, Canvas, AddComponentModal, LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal
+        ShiftArticle, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal
     },
 
     computed: {
@@ -281,28 +285,26 @@ export default {
             newWindow.document.body.innerHTML = this.articleHtml;
         },
 
+        stickTopBarToWindow() {
+            window.onscroll = () => stickyTopBar();
+
+            let header = document.getElementById("shift-top-bar");
+            let sticky = header.offsetTop;
+
+            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function stickyTopBar() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            }
+        }
+
     },
 
     mounted() {
-        // When the user scrolls the page, execute myFunction
-        window.onscroll = function() {myFunction()};
-
-        // Get the header
-        var header = document.getElementById("shift-top-bar");
-
-        console.log(header);
-
-        // Get the offset position of the navbar
-        var sticky = header.offsetTop;
-
-        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
-        }
+        this.stickTopBarToWindow();
     }
 };
 </script>

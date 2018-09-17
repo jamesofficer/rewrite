@@ -1,6 +1,6 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }">
-        <p v-if="! editingText" @dblclick="selectInput"  :style="{
+        <div :style="{
             textAlign: element.textAlign,
             fontSize: element.fontSize + 'pt',
             fontFamily: element.fontFamily,
@@ -14,20 +14,13 @@
             marginRight: element.margin.right + 'px',
             marginBottom: element.margin.bottom + 'px',
             marginLeft: element.margin.left + 'px',
-        }" v-html="element.content"></p>
-
-        <text-input v-else @focusout.native="editingText = false"
-            :style="{
-                fontFamily: element.fontFamily,
-                fontSize: element.fontSize + 'pt',
-                textAlign: element.textAlign,
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }" size="lg" id="paragraph-input"
-        ></text-input>
+        }" v-html="element.content" />
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
+
+            <edit-text-button></edit-text-button>
 
             <margin></margin>
 
@@ -37,19 +30,18 @@
 
             <font-family></font-family>
 
-            <font-size></font-size>
-
-            <font-weight></font-weight>
-
             <text-alignment></text-alignment>
         </top-bar>
     </div>
 </template>
 
 <script>
+import EditTextModal     from './dialogs/EditTextModal';
+
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
+import EditTextButton    from './topbar/EditTextButton'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
 import TextInput         from './core/TextInput'
@@ -67,7 +59,8 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteComponentButton,
+        EditTextModal,
+        TopBar, EditTextButton, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
         Padding, Margin,
     },
