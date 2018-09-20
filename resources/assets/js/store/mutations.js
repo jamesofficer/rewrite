@@ -114,3 +114,41 @@ export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
+
+// Moves a component UP in a column.
+export const moveComponentUp = state => {
+    const currentComponentPos = state.currentComponent;
+
+    if (currentComponentPos === 0) {
+        return;
+    }
+
+    // Swap positions around:
+    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos - 1];
+    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
+
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos - 1], thisComponent);
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
+
+    // Reselect the moved element:
+    state.currentComponent = currentComponentPos - 1;
+};
+
+// Moves a component DOWN in a column.
+export const moveComponentDown = state => {
+    const currentComponentPos = state.currentComponent;
+
+    if (currentComponentPos === (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
+        return;
+    }
+
+    // Swap positions around:
+    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos + 1];
+    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
+
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos + 1], thisComponent);
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
+
+    // Reselect the moved element:
+    state.currentComponent = currentComponentPos + 1;
+};

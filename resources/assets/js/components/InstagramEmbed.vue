@@ -14,6 +14,10 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <move-component-up></move-component-up>
+
+            <move-component-down></move-component-down>
+
             <b-input size="sm" v-model="instagramUrl" @blur.native="updateInstagramUrl" placeholder="Paste Instagram url here..."
                     class="top-bar-control" v-b-tooltip.hover title="Instagram URL"></b-input>
 
@@ -26,6 +30,7 @@
 
 <script>
 import GetElement        from './mixins/GetElement'
+import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
@@ -37,7 +42,7 @@ import Margin            from './core/Margin'
 export default {
     name: "InstagramEmbed",
 
-    mixins: [GetElement],
+    mixins: [GetElement, MoveComponent],
 
     components: {
         TopBar, DeleteComponentButton,
