@@ -8,6 +8,7 @@ import defaultPicture    from "./defaults/Picture";
 import defaultInstagram  from "./defaults/InstagramEmbed";
 import defaultFacebook   from "./defaults/FacebookEmbed";
 import defaultYouTube    from "./defaults/YouTubeEmbed";
+import defaultRecipeSummary    from "./defaults/RecipeSummary";
 
 // Adds another Canvas to the Workspace.
 export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
@@ -87,6 +88,7 @@ export const addComponentToColumn = (state, componentType) => {
         "InstagramEmbed": duplicateObject(defaultInstagram),
         "FacebookEmbed": duplicateObject(defaultFacebook),
         "YouTubeEmbed": duplicateObject(defaultYouTube),
+        "RecipeSummary": duplicateObject(defaultRecipeSummary),
     };
 
     state.canvases[state.currentCanvas].columns[state.currentColumn].components

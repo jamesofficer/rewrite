@@ -70,6 +70,16 @@
             </b-card>
         </div>
 
+        <div class="modal-card">
+            <b-card class="mb-2 text-center component-card"
+                    @click="addComponent('RecipeSummary')"
+            >
+                <icon name="brands/youtube" scale="4"></icon>
+                <hr>
+                <p>RecipeSummary</p>
+            </b-card>
+        </div>
+
     </b-modal>
 </template>
 

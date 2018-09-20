@@ -5,12 +5,13 @@ import defaultBlockQuote from "./BlockQuote";
 import defaultInstagramEmbed from "./InstagramEmbed";
 import defaultFacebookEmbed from "./FacebookEmbed";
 import defaultYouTubeEmbed from "./YouTubeEmbed";
+import defaultRecipeSummary from "./RecipeSummary";
 
 export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultInstagramEmbed],
+    components: [defaultHeading, defaultParagraph, defaultInstagramEmbed, defaultRecipeSummary],
 
     // Properties:
     columnWidth: 12,
