@@ -12,7 +12,9 @@
     <title>{{ config('app.name', 'Shift') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @if (str_contains(url()->current(), 'article/create'))
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    @endif
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

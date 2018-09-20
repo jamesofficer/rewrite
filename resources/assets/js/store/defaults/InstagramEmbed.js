@@ -3,7 +3,8 @@ export default {
     selected: false,
 
     // Properties:
-    url: null,
+    url: undefined,
+    originalUrl: undefined,
     textAlign: 'left',
     margin: {
         top: 0,

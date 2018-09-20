@@ -44,9 +44,14 @@ export default {
         TextInput, ImageAlignment, Margin,
     },
 
-    data() {
-        return {
-            instagramUrl: null,
+    computed: {
+        instagramUrl: {
+            get() {
+                return this.$store.getters.getElement(this.indexes).originalUrl;
+            },
+            set(url) {
+                this.$store.commit('setComponentProperty', { property: 'originalUrl', value: url });
+            }
         }
     },
 

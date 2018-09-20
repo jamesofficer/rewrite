@@ -32,7 +32,7 @@
             <b-row>
                 <b-col>
                     <em v-if="! settingArticleTitle">
-                        <h2 class="shift-article-name" @dblclick="setArticleTitle">{{ articleTitle }}</h2>
+                        <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
                     </em>
 
                     <b-input v-else
@@ -278,7 +278,9 @@ export default {
         previewArticleInNewWindow() {
             this.getArticleHtml();
 
-            const newWindow = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(800)+",left="+(600));
+            this.appendUrlToImages();
+
+            const newWindow = window.open('', "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(800)+",left="+(600));
             const normalize = document.createElement("link");
             const bootstrap = document.createElement("link");
 
@@ -291,6 +293,16 @@ export default {
             newWindow.document.head.appendChild(normalize);
             newWindow.document.head.appendChild(bootstrap);
             newWindow.document.body.innerHTML = this.articleHtml;
+        },
+
+        /**
+         * When previewing an article, we need to append the hostname to the url for the image to display properly.
+         */
+        appendUrlToImages() {
+            const regex  = /(\/storage\/user-images)/g;
+            const subst  = window.location.hostname + ':' + window.location.port + `\$1`;
+
+            this.articleHtml = this.articleHtml.replace(regex, subst);
         },
 
         stickTopBarToWindow() {

@@ -21,8 +21,8 @@ export default {
 
                 return '';
             },
-            set (value) {
-                this.$store.commit('updateTextContent', value);
+            set (text) {
+                this.$store.commit('setComponentProperty', { property: 'content', value: text });
             }
         },
     },

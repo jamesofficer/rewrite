@@ -16,8 +16,9 @@
                 marginRight: element.margin.right + 'px',
                 marginBottom: element.margin.bottom + 'px',
                 marginLeft: element.margin.left + 'px',
-            }" v-html="element.content"
-        ></h1>
+            }">
+                {{ element.content }}
+            </h1>
 
         <text-input v-else @focusout.native="editingText = false" :style="{
                 textAlign: element.textAlign,

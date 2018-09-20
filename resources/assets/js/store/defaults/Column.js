@@ -10,7 +10,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultInstagramEmbed],
 
     // Properties:
     columnWidth: 12,

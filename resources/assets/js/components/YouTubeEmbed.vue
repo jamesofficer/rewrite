@@ -21,7 +21,7 @@
             <b-input size="sm" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste video url here..."
                     class="top-bar-control" v-b-tooltip.hover title="YouTube Video URL"></b-input>
 
-            <template v-if="element.url">
+            <template v-if="videoUrl">
                 <margin></margin>
 
                 <image-alignment></image-alignment>
@@ -52,9 +52,14 @@ export default {
         TextInput, ImageAlignment, Margin,
     },
 
-    data() {
-        return {
-            videoUrl: null,
+    computed: {
+        videoUrl: {
+            get() {
+                return this.$store.getters.getElement(this.indexes).originalUrl;
+            },
+            set(url) {
+                this.$store.commit('setComponentProperty', { property: 'originalUrl', value: url });
+            }
         }
     },
 
@@ -67,6 +72,6 @@ export default {
                 this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
             }
         }
-    }
+    },
 }
 </script>

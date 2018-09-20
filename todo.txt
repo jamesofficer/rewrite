@@ -6,14 +6,18 @@ NEW COMPONENTS:
 - Add Background image component (for Canvases and Columns).
 
 BUGS:
-- Images not appearing in article preview.
+- Images not appearing in article preview (need to append url when opening article).
+- Say "no images found" when you select an image but have uploaded none.
+- Hide user id on image uploads.
 - Loading in an article with a youtube video loses the video.
-- Fix spacing on alert when saving an article with no name.
 - Columns can span more then 12 columns.
 - Articles titled 'untilted article' should not be saved.
+- Place max file size on image uploads.
 
 FEATURES:
-- Clean up mutations.
+- Have a preloaded "Tutorial" article.
+- "Copy Style" button.
+- Implement loading bar when uploading images.
 - Users can move components up and down a canvas.
 - Add tabs to Add Component Modal window.
 - When adding a column, it auto-sizes to fit.
@@ -32,6 +36,9 @@ FEATURES:
 
 
 CHANGELOG [aka. Added Features]:
+- FIX: images should (hopefully) now display in the article preview.
+- FIX: don't let raw html be placed in heading component.
+- Cleaned up mutations.
 - Added Width component.
 - Added LineHeight component.
 - Added Trix editor for editing paragraph content.
