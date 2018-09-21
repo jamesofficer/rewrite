@@ -74,9 +74,9 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('RecipeSummary')"
             >
-                <icon name="brands/youtube" scale="4"></icon>
+                <icon name="fish" scale="4"></icon>
                 <hr>
-                <p>RecipeSummary</p>
+                <p>Recipe Summary</p>
             </b-card>
         </div>
 

@@ -44,10 +44,13 @@ import "vue-awesome/icons/fill";
 import "vue-awesome/icons/expand";
 import "vue-awesome/icons/expand-arrows-alt";
 import "vue-awesome/icons/paint-roller";
+import "vue-awesome/icons/fish";
+import "vue-awesome/icons/pencil-alt";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";
 import "vue-awesome/icons/brands/youtube";
 import "vue-awesome/icons/brands/pinterest";
+
 
 require("./bootstrap");
 

@@ -1,27 +1,28 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" >
+    <b-row :class="{ 'selected-element': elementIsSelected }" >
+        <b-col>
         <!-- COMPONENT -->
         <div class="main">
-            <div class="c1" style="color:#3CBE01">
+            <div class="c1">
             <h5>SERVES</h5>
-            <p class="big">4</p>
+            <p class="big">{{ element.contentServes }}</p>
             </div>
 
-            <div class="c2" style="color:#3CBE01">
-            <h5>PREPERATION</h5>
-            <p class="big">5</p>
+            <div class="c2">
+            <h5>PREPARATION</h5>
+            <p class="big"> {{ element.contentPreparation }} </p>
             <p class="med">MIN</p>
             </div>
 
-            <div class="c3" style="color:#3CBE01">
+            <div class="c3">
             <h5>COOKING</h5>
-            <p class="big">5</p>
+            <p class="big"> {{ element.contentCooking }} </p>
             <p class="med">MIN</p>
             </div>
 
-            <div class="c4" style="color:#3CBE01">
+            <div class="c4">
             <h5>SKILL LEVEL</h5>
-            <p class="big">EASY</p>
+            <p class="big">{{ element.contentDifficulty }} </p>
             </div>
 
         </div>
@@ -29,9 +30,12 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-           
+            <delete-component-button></delete-component-button>
+
+            <recipe-summary-values></recipe-summary-values>
         </top-bar>
-    </div>
+        </b-col>
+    </b-row>
 </template>
 
 
@@ -42,24 +46,25 @@ import GetElement        from './mixins/GetElement'
 import TopBar            from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
 
-import TextInput         from './core/TextInput'
-import Margin            from './core/Margin'
-import Padding           from './core/Padding'
-import TextColor         from './core/TextColor'
-import TextAlignment     from './core/TextAlignment'
-import FontFamily        from './core/FontFamily'
-import FontWeight        from './core/FontWeight'
-import FontSize          from './core/FontSize'
-import LineHeight        from './core/LineHeight'
+import TextInput            from './core/TextInput'
+import Margin               from './core/Margin'
+import Padding              from './core/Padding'
+import TextColor            from './core/TextColor'
+import TextAlignment        from './core/TextAlignment'
+import FontFamily           from './core/FontFamily'
+import FontWeight           from './core/FontWeight'
+import FontSize             from './core/FontSize'
+import LineHeight           from './core/LineHeight'
+import RecipeSummaryValues  from './core/RecipeSummaryValues'
 
 export default {
-    name: "Rec",
+    name: "RecipeSummary",
 
     mixins: [GetElement],
 
     components: {
         TopBar, DeleteComponentButton,
-        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, Padding, Margin,
+        RecipeSummaryValues,
     },
 
 }
@@ -69,11 +74,13 @@ export default {
     h5 {
     border-bottom: 1px solid #3CBE01;
     
+    
 }
 
 div.main
 {
-font-family: "Arial Black", Gadget, sans-serif
+font-family: "Arial Black", Gadget, sans-serif;
+color: #3CBE01;
 }
 
 div.c1

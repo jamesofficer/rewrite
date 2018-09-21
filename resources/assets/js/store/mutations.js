@@ -46,7 +46,7 @@ export const removeColumnFromCanvas = state => {
     state.currentColumn = undefined;
 };
 
-// Sets the currently selected component to whatever the used clicked on.
+// Sets the currently selected component to whatever the user clicked on.
 export const selectCanvas = (state, canvasIndex) => {
     deselectCurrentElement(state);
 
@@ -67,7 +67,7 @@ export const selectColumn = (state, i) => {
     getSelectedElement(state).selected = true;
 };
 
-// Sets the currently selected component to whatever the used clicked on.
+// Sets the currently selected component to whatever the user clicked on.
 export const selectComponent = (state, i) => {
     deselectCurrentElement(state);
 

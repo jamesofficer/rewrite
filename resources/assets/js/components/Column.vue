@@ -43,7 +43,7 @@ import Picture             from './Picture'
 import InstagramEmbed      from './InstagramEmbed'
 import FacebookEmbed       from './FacebookEmbed'
 import YouTubeEmbed        from './YouTubeEmbed'
-import RecipeSummary      from './RecipeSummary'
+import RecipeSummary       from './RecipeSummary'
 
 import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
