@@ -1,7 +1,8 @@
 <template>
     <!-- CANVAS -->
     <b-row @mouseover="hovering = true" @mouseout="hovering = false" :class="{ 'selected-canvas': elementIsSelected }" :style="{
-        backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
+        background: element.src ? 'url(' + element.src + ')' : backgroundColorString,
+        backgroundSize:  element.backgroundSize,
         paddingTop: element.padding.top + 'px',
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
@@ -23,6 +24,16 @@
 
             <padding></padding>
 
+            <image-selector></image-selector>
+
+            <template v-if="element.src">
+
+                <background-size></background-size>
+
+                <clear-image></clear-image>
+
+            </template>
+
             <background-color></background-color>
         </top-bar>
     </b-row>
@@ -31,20 +42,23 @@
 <script>
 import { mapGetters }    from 'vuex'
 
+import Column            from './Column'
 import TopBar            from './topbar/TopBar'
 import RemoveCanvas      from './topbar/RemoveCanvas'
 import AddColumn         from './topbar/AddColumn'
+import ClearImage        from './topbar/ClearImage'
+import BackgroundSize    from './topbar/BackgroundSize'
 
-import Column            from './Column'
-import BackgroundColor   from './core/BackgroundColor'
 import Padding           from './core/Padding'
+import BackgroundColor   from './core/BackgroundColor'
+import ImageSelector     from './core/ImageSelector'
 
 export default {
     name: "Canvas",
 
     components: {
-        TopBar, RemoveCanvas, AddColumn,
-        Column, BackgroundColor, Padding
+        Column, TopBar, RemoveCanvas, AddColumn, ClearImage, BackgroundSize,
+        Padding, BackgroundColor, ImageSelector,
     },
 
     props: {
@@ -73,6 +87,10 @@ export default {
 
         elementIsSelected() {
             return this.$store.getters.elementIsSelected(this.indexes);
+        },
+
+        backgroundColorString() {
+            return 'rgba(' + this.element.backgroundColor.r + ', ' + this.element.backgroundColor.g + ', ' + this.element.backgroundColor.b + ', ' + this.element.backgroundColor.a + ')';
         },
     },
 

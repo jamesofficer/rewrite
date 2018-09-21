@@ -37,6 +37,10 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <move-component-up></move-component-up>
+
+            <move-component-down></move-component-down>
+
             <margin></margin>
 
             <padding></padding>
@@ -57,6 +61,7 @@
 <script>
 import GetElement     from './mixins/GetElement'
 import EditableText   from './mixins/EditableText'
+import MoveComponent  from './mixins/MoveComponent'
 
 import TopBar         from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
@@ -74,7 +79,7 @@ import Margin            from './core/Margin'
 export default {
     name: "BlockQuote",
 
-    mixins: [GetElement, EditableText],
+    mixins: [GetElement, EditableText, MoveComponent],
 
     components: {
         TopBar, DeleteComponentButton,

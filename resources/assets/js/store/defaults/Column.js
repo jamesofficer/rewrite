@@ -11,7 +11,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultInstagramEmbed, defaultRecipeSummary],
+    components: [defaultHeading, defaultParagraph],
 
     // Properties:
     columnWidth: 12,

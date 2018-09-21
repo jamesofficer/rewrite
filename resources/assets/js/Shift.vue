@@ -168,7 +168,7 @@ export default {
         },
 
         canvases() {
-             return this.$store.getters.canvases
+             return this.$store.getters.canvases;
          },
     },
 
@@ -300,7 +300,7 @@ export default {
          */
         appendUrlToImages() {
             const regex  = /(\/storage\/user-images)/g;
-            const subst  = window.location.hostname + ':' + window.location.port + `\$1`;
+            const subst  = 'https://' + window.location.hostname + `\$1`;
 
             this.articleHtml = this.articleHtml.replace(regex, subst);
         },

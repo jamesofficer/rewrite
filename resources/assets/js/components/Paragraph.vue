@@ -21,6 +21,10 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <move-component-up></move-component-up>
+
+            <move-component-down></move-component-down>
+
             <edit-text-button></edit-text-button>
 
             <margin></margin>
@@ -43,9 +47,10 @@
 </template>
 
 <script>
-import EditTextModal     from './dialogs/EditTextModal';
+import EditTextModal     from './dialogs/EditTextModal'
 
 import GetElement        from './mixins/GetElement'
+import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
 import EditTextButton    from './topbar/EditTextButton'
@@ -64,7 +69,7 @@ import LineHeight        from './core/LineHeight'
 export default {
     name: "Paragraph",
 
-    mixins: [GetElement],
+    mixins: [GetElement, MoveComponent],
 
     components: {
         EditTextModal,

@@ -38,6 +38,10 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <move-component-up></move-component-up>
+
+            <move-component-down></move-component-down>
+
             <margin></margin>
 
             <padding></padding>
@@ -59,6 +63,7 @@
 
 <script>
 import GetElement        from './mixins/GetElement'
+import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
@@ -76,7 +81,7 @@ import LineHeight        from './core/LineHeight'
 export default {
     name: "Heading",
 
-    mixins: [GetElement],
+    mixins: [GetElement, MoveComponent],
 
     components: {
         TopBar, DeleteComponentButton,
