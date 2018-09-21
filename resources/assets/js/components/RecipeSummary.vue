@@ -1,44 +1,79 @@
 <template>
-    <b-row :class="{ 'selected-element': elementIsSelected }" >
-        <b-col>
-        <!-- COMPONENT -->
-        <div class="main">
-            <div class="c1">
-            <h5>SERVES</h5>
-            <p class="big">{{ element.contentServes }}</p>
-            </div>
+    <b-row :class="{ 'selected-element': elementIsSelected }" :style="{
+        marginTop: element.margin.top + 'px',
+        marginRight: element.margin.right + 'px',
+        marginBottom: element.margin.bottom + 'px',
+        marginLeft: element.margin.left + 'px',
+        paddingTop: element.padding.top + 'px',
+        paddingRight: element.padding.right + 'px',
+        paddingBottom: element.padding.bottom + 'px',
+        paddingLeft: element.padding.left + 'px',
+    }">
 
-            <div class="c2">
-            <h5>PREPARATION</h5>
+        <b-col :style="{
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+        }">
+            <h5 :style="{
+                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }">
+                SERVES
+            </h5>
+
+            <p class="big">{{ element.contentServes }}</p>
+        </b-col>
+
+        <b-col :style="{
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+        }">
+            <h5 :style="{
+                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }">
+                PREPARATION
+            </h5>
+
             <p class="big"> {{ element.contentPreparation }} </p>
             <p class="med">MIN</p>
-            </div>
+        </b-col>
 
-            <div class="c3">
-            <h5>COOKING</h5>
+        <b-col :style="{
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+        }">
+            <h5 :style="{
+                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }">
+                COOKING
+            </h5>
+
             <p class="big"> {{ element.contentCooking }} </p>
             <p class="med">MIN</p>
-            </div>
+        </b-col>
 
-            <div class="c4">
-            <h5>SKILL LEVEL</h5>
+        <b-col :style="{
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+        }">
+            <h5 :style="{
+                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }">
+                SKILL LEVEL
+            </h5>
+
             <p class="big">{{ element.contentDifficulty }} </p>
-            </div>
-
-        </div>
+        </b-col>
         
-
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
             <recipe-summary-values></recipe-summary-values>
+
+            <margin></margin>
+
+            <padding></padding>
+
+            <text-color></text-color>
         </top-bar>
-        </b-col>
     </b-row>
 </template>
-
-
 
 <script>
 import GetElement        from './mixins/GetElement'
@@ -64,64 +99,27 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        RecipeSummaryValues,
+        RecipeSummaryValues, Margin, Padding, TextColor,
     },
-
 }
 </script>
 
 <style scoped>
-    h5 {
-    border-bottom: 1px solid #3CBE01;
-    
-    
+.main {
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: #3CBE01;
 }
 
-div.main
-{
-font-family: "Arial Black", Gadget, sans-serif;
-color: #3CBE01;
+.big {
+    line-height: 0px;
+    font-size: 220%;
+    font-weight: bold;
+    padding-top: 25px;
 }
 
-div.c1
-{
-    
-width: 100px;
-float: left;
-
-}
-
-div.c2
-{
-width: 150px;
-float: left;
-margin-left: 20px;
-}
-
-div.c3
-{
-width: 120px;
-float: left;
-margin-left: 20px;
-}
-
-div.c4
-{
-width: 150px;
-float: left;
-margin-left: 20px;
-}
-
-p.big {
-line-height: 0px;
-font-size: 220%;
-font-weight: bold;
-padding-top: 25px;
-}
-
-p.med {
-line-height: 0px;
-font-size: 100%;
-padding-top: 10px;
+.med {
+    line-height: 0px;
+    font-size: 100%;
+    padding-top: 10px;
 }
 </style>

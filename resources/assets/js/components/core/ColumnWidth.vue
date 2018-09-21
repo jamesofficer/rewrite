@@ -12,6 +12,20 @@ export default {
                 return this.$store.getters.getCurrentElement.columnWidth;
             },
             set (width) {
+                let currentColumnsUsed = this.$store.getters.totalColumnWidth;
+
+                let itWillBe = currentColumnsUsed + width;
+
+                if (itWillBe > 12) {
+                    console.log('sorry but too big')
+                    return;
+                }
+
+                console.log('used: ' + currentColumnsUsed)
+                console.log(width);
+
+
+
                 this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
             }
         },

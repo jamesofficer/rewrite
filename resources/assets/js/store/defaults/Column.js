@@ -14,7 +14,7 @@ export default {
     components: [defaultHeading, defaultParagraph],
 
     // Properties:
-    columnWidth: 12,
+    columnWidth: 6,
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,
