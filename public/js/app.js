@@ -22820,7 +22820,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_7__RecipeSummary__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */]],
 
     // Properties:
     columnWidth: 12,
