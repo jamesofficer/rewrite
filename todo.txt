@@ -6,6 +6,7 @@ NEW COMPONENTS:
 - Add Background image component (for Canvases and Columns).
 
 BUGS:
+- Column width selection a little buggy.
 - Time code in a YouTube video breaks the embed.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.

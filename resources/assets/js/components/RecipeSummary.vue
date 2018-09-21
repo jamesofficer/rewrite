@@ -15,11 +15,16 @@
         }">
             <h5 :style="{
                 borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                fontFamily: element.fontFamily,
             }">
                 SERVES
             </h5>
 
-            <p class="big">{{ element.contentServes }}</p>
+            <p class="big" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                {{ element.contentServes }}
+            </p>
         </b-col>
 
         <b-col :style="{
@@ -27,12 +32,22 @@
         }">
             <h5 :style="{
                 borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                fontFamily: element.fontFamily,
             }">
                 PREPARATION
             </h5>
 
-            <p class="big"> {{ element.contentPreparation }} </p>
-            <p class="med">MIN</p>
+            <p class="big" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                {{ element.contentPreparation }}
+            </p>
+
+            <p class="med" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                MIN
+            </p>
         </b-col>
 
         <b-col :style="{
@@ -40,12 +55,22 @@
         }">
             <h5 :style="{
                 borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                fontFamily: element.fontFamily,
             }">
                 COOKING
             </h5>
 
-            <p class="big"> {{ element.contentCooking }} </p>
-            <p class="med">MIN</p>
+            <p class="big" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                {{ element.contentCooking }}
+            </p>
+
+            <p class="med" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                MIN
+            </p>
         </b-col>
 
         <b-col :style="{
@@ -53,13 +78,18 @@
         }">
             <h5 :style="{
                 borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                fontFamily: element.fontFamily,
             }">
                 SKILL LEVEL
             </h5>
 
-            <p class="big">{{ element.contentDifficulty }} </p>
+            <p class="big" :style="{
+                fontFamily: element.fontFamily,
+            }">
+                {{ element.contentDifficulty }}
+            </p>
         </b-col>
-        
+
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
@@ -71,6 +101,8 @@
             <padding></padding>
 
             <text-color></text-color>
+
+            <font-family></font-family>
         </top-bar>
     </b-row>
 </template>
@@ -99,7 +131,7 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        RecipeSummaryValues, Margin, Padding, TextColor,
+        RecipeSummaryValues, Margin, Padding, TextColor, FontFamily,
     },
 }
 </script>

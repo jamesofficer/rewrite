@@ -1,38 +1,19 @@
 <template>
-    <b-form-select size="sm" v-model="columnWidth" :options="widths" class="top-bar-control" v-b-tooltip.hover title="Column Width"></b-form-select>
+    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm">
+        <option v-for="width in widths" :value="width.value" :disabled="checkColumnWidth(width.value)">
+            {{ width.text }}
+        </option>
+    </b-form-select>
 </template>
 
 <script>
 export default {
     name: "ColumnWidth",
 
-    computed: {
-        columnWidth: {
-            get () {
-                return this.$store.getters.getCurrentElement.columnWidth;
-            },
-            set (width) {
-                let currentColumnsUsed = this.$store.getters.totalColumnWidth;
-
-                let itWillBe = currentColumnsUsed + width;
-
-                if (itWillBe > 12) {
-                    console.log('sorry but too big')
-                    return;
-                }
-
-                console.log('used: ' + currentColumnsUsed)
-                console.log(width);
-
-
-
-                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
-            }
-        },
-    },
-
     data() {
         return {
+            selectedWidth: 6,
+
             widths: [
                 {
                     text: 'Full Width',
@@ -57,6 +38,32 @@ export default {
             ]
         }
     },
+
+    methods: {
+        isSelected(width) {
+            console.log(this.$store.getters.getCurrentElement.columnWidth + ' === ' + width);
+            console.log(this.$store.getters.getCurrentElement.columnWidth === width);
+
+            return this.$store.getters.getCurrentElement.columnWidth === width;
+        },
+
+        checkColumnWidth(newWidth) {
+            const currentTotalWidth = this.$store.getters.totalColumnWidth;
+            const oldWidth = this.$store.getters.getCurrentElement.columnWidth;
+
+            const newTotalWidth = (currentTotalWidth - oldWidth) + newWidth;
+
+            if (newTotalWidth > 12) {
+                return true;
+            }
+
+            return false;
+        },
+
+        setColumnWidth(value) {
+            this.$store.commit('setComponentProperty', { property: 'columnWidth', value: value });
+        }
+    }
 }
 </script>
 

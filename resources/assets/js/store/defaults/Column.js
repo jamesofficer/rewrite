@@ -11,10 +11,10 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultRecipeSummary],
 
     // Properties:
-    columnWidth: 6,
+    columnWidth: 12,
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,

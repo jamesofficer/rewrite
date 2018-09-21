@@ -20,7 +20,7 @@ export const removeCanvas = state => {
 }
 
 // Used to set CSS properties on components.
-export const setComponentProperty = (state, component) =>
+export const setComponentProperty = (state, component) => 
     window.Vue.set(getSelectedElement(state), component.property, component.value);
 
 // Some Components like Margin and Padding have a subproperty we may need to set.

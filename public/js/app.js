@@ -22780,7 +22780,7 @@ module.exports = Component.exports
     type: "Canvas",
     selected: false,
 
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
+    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
 
     // Properties:
     src: undefined,
@@ -22820,10 +22820,10 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_7__RecipeSummary__["a" /* default */]],
 
     // Properties:
-    columnWidth: 6,
+    columnWidth: 12,
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,
@@ -55613,35 +55613,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ColumnWidth",
 
-    computed: {
-        columnWidth: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.columnWidth;
-            },
-            set: function set(width) {
-                var currentColumnsUsed = this.$store.getters.totalColumnWidth;
-
-                var itWillBe = currentColumnsUsed + width;
-
-                if (itWillBe > 12) {
-                    console.log('sorry but too big');
-                    return;
-                }
-
-                console.log('used: ' + currentColumnsUsed);
-                console.log(width);
-
-                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
-            }
-        }
-    },
-
     data: function data() {
         return {
+            selectedWidth: 6,
+
             widths: [{
                 text: 'Full Width',
                 value: 12
@@ -55659,6 +55642,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 value: 3
             }]
         };
+    },
+
+
+    methods: {
+        isSelected: function isSelected(width) {
+            console.log(this.$store.getters.getCurrentElement.columnWidth + ' === ' + width);
+            console.log(this.$store.getters.getCurrentElement.columnWidth === width);
+
+            return this.$store.getters.getCurrentElement.columnWidth === width;
+        },
+        checkColumnWidth: function checkColumnWidth(newWidth) {
+            var currentTotalWidth = this.$store.getters.totalColumnWidth;
+            var oldWidth = this.$store.getters.getCurrentElement.columnWidth;
+
+            var newTotalWidth = currentTotalWidth - oldWidth + newWidth;
+
+            if (newTotalWidth > 12) {
+                return true;
+            }
+
+            return false;
+        },
+        setColumnWidth: function setColumnWidth(value) {
+            this.$store.commit('setComponentProperty', { property: 'columnWidth', value: value });
+        }
     }
 });
 
@@ -55670,24 +55678,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("b-form-select", {
-    directives: [
-      {
-        name: "b-tooltip",
-        rawName: "v-b-tooltip.hover",
-        modifiers: { hover: true }
+  return _c(
+    "b-form-select",
+    {
+      attrs: { size: "sm" },
+      on: { change: _vm.setColumnWidth },
+      model: {
+        value: _vm.selectedWidth,
+        callback: function($$v) {
+          _vm.selectedWidth = $$v
+        },
+        expression: "selectedWidth"
       }
-    ],
-    staticClass: "top-bar-control",
-    attrs: { size: "sm", options: _vm.widths, title: "Column Width" },
-    model: {
-      value: _vm.columnWidth,
-      callback: function($$v) {
-        _vm.columnWidth = $$v
-      },
-      expression: "columnWidth"
-    }
-  })
+    },
+    _vm._l(_vm.widths, function(width) {
+      return _c(
+        "option",
+        {
+          attrs: { disabled: _vm.checkColumnWidth(width.value) },
+          domProps: { value: width.value }
+        },
+        [_vm._v("\n        " + _vm._s(width.text) + "\n    ")]
+      )
+    })
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -80864,12 +80878,11 @@ module.exports = function spread(callback) {
     selected: false,
 
     // Properties:
-
     contentServes: 1,
     contentPreparation: 30,
     contentCooking: 10,
     contentDifficulty: "EASY",
-
+    fontFamily: 'Times New Roman',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
 
     margin: {
@@ -81293,6 +81306,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -81317,7 +81362,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default.a,
-        RecipeSummaryValues: __WEBPACK_IMPORTED_MODULE_12__core_RecipeSummaryValues___default.a, Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_6__core_TextColor___default.a
+        RecipeSummaryValues: __WEBPACK_IMPORTED_MODULE_12__core_RecipeSummaryValues___default.a, Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_6__core_TextColor___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default.a
     }
 });
 
@@ -81375,15 +81420,29 @@ var render = function() {
                   _vm.element.textColor.b +
                   ", " +
                   _vm.element.textColor.a +
-                  ")"
+                  ")",
+                fontFamily: _vm.element.fontFamily
               }
             },
             [_vm._v("\n            SERVES\n        ")]
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "big" }, [
-            _vm._v(_vm._s(_vm.element.contentServes))
-          ])
+          _c(
+            "p",
+            {
+              staticClass: "big",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.element.contentServes) +
+                  "\n        "
+              )
+            ]
+          )
         ]
       ),
       _vm._v(" "),
@@ -81417,17 +81476,40 @@ var render = function() {
                   _vm.element.textColor.b +
                   ", " +
                   _vm.element.textColor.a +
-                  ")"
+                  ")",
+                fontFamily: _vm.element.fontFamily
               }
             },
             [_vm._v("\n            PREPARATION\n        ")]
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "big" }, [
-            _vm._v(" " + _vm._s(_vm.element.contentPreparation) + " ")
-          ]),
+          _c(
+            "p",
+            {
+              staticClass: "big",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.element.contentPreparation) +
+                  "\n        "
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("p", { staticClass: "med" }, [_vm._v("MIN")])
+          _c(
+            "p",
+            {
+              staticClass: "med",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [_vm._v("\n            MIN\n        ")]
+          )
         ]
       ),
       _vm._v(" "),
@@ -81461,17 +81543,40 @@ var render = function() {
                   _vm.element.textColor.b +
                   ", " +
                   _vm.element.textColor.a +
-                  ")"
+                  ")",
+                fontFamily: _vm.element.fontFamily
               }
             },
             [_vm._v("\n            COOKING\n        ")]
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "big" }, [
-            _vm._v(" " + _vm._s(_vm.element.contentCooking) + " ")
-          ]),
+          _c(
+            "p",
+            {
+              staticClass: "big",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.element.contentCooking) +
+                  "\n        "
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("p", { staticClass: "med" }, [_vm._v("MIN")])
+          _c(
+            "p",
+            {
+              staticClass: "med",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [_vm._v("\n            MIN\n        ")]
+          )
         ]
       ),
       _vm._v(" "),
@@ -81505,15 +81610,29 @@ var render = function() {
                   _vm.element.textColor.b +
                   ", " +
                   _vm.element.textColor.a +
-                  ")"
+                  ")",
+                fontFamily: _vm.element.fontFamily
               }
             },
             [_vm._v("\n            SKILL LEVEL\n        ")]
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "big" }, [
-            _vm._v(_vm._s(_vm.element.contentDifficulty) + " ")
-          ])
+          _c(
+            "p",
+            {
+              staticClass: "big",
+              style: {
+                fontFamily: _vm.element.fontFamily
+              }
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.element.contentDifficulty) +
+                  "\n        "
+              )
+            ]
+          )
         ]
       ),
       _vm._v(" "),
@@ -81529,7 +81648,9 @@ var render = function() {
               _vm._v(" "),
               _c("padding"),
               _vm._v(" "),
-              _c("text-color")
+              _c("text-color"),
+              _vm._v(" "),
+              _c("font-family")
             ],
             1
           )
