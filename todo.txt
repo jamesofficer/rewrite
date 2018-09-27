@@ -2,8 +2,9 @@ NEW COMPONENTS:
 - Border component.
 - Horizontal line component.
 - Add Recipe Component.
-- Add Recipe Summary Component.
+- Add Recipe Summary Component - Done, needs Improvements
 - Add Background image component (for Canvases and Columns).
+- Other Social Media Components (Pintrest, Facebook, Twitter)
 
 BUGS:
 - Column width selection a little buggy.
@@ -14,6 +15,7 @@ BUGS:
 - Columns can span more then 12 columns.
 - Articles titled 'untilted article' should not be saved.
 - Place max file size on image uploads.
+- Instagram Component doesn't work for all URL's
 
 FEATURES:
 - Have a preloaded "Tutorial" article.
