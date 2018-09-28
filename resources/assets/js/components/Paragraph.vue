@@ -15,6 +15,11 @@
             marginRight: element.margin.right + 'px',
             marginBottom: element.margin.bottom + 'px',
             marginLeft: element.margin.left + 'px',
+
+            borderTop: element.border.top + 'px ' + 'solid ' + ' black',
+            borderRight: element.border.right + 'px ' + 'solid' + 'black',
+            borderBottom: element.border.bottom + 'px ' + 'solid' + 'black',
+            borderLeft: element.border.left + 'px ' + 'solid' + 'black',
         }" v-html="element.content" />
 
         <!-- TOP BAR -->
@@ -32,6 +37,8 @@
             <padding></padding>
 
             <text-color></text-color>
+
+            <border></border>
 
             <font-family></font-family>
 
@@ -65,6 +72,7 @@ import FontWeight        from './core/FontWeight'
 import FontSize          from './core/FontSize'
 import TextColor         from './core/TextColor'
 import LineHeight        from './core/LineHeight'
+import Border            from './core/Border'
 
 export default {
     name: "Paragraph",
@@ -75,7 +83,7 @@ export default {
         EditTextModal,
         TopBar, EditTextButton, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor,
-        Padding, Margin,
+        Padding, Margin, Border,
     },
 
     data() {
