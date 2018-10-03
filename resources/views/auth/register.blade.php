@@ -3,10 +3,23 @@
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center py-5 login-page-container">
+        <div class="col-md-6">
+            <img src="{{ asset('img/shift_logo_white.png') }}" alt="Shift Logo" class="login-page-logo">
+
+            <p class="text-white">
+                The internet has revolutionised the way we consume news and media content. No longer are we tied to fixed schedules and physical media.
+                However, most online news articles today don't feel very revolutionary. There are so many amazing web technologies out there, but so
+                few of them can be easily used by our journalists.
+            </p>
+            <p class="text-white">
+                That's where Shift comes in. With Shift, we aim to allow any journalist of any background to build and create beautiful, interactive articles.
+                Putting the power of modern web technologies, in your hands.
+            </p>
+        </div>
+        <div class="col-md-6 login-page-form">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
@@ -63,7 +76,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary text-lowercase">
                                     {{ __('Register') }}
                                 </button>
                             </div>

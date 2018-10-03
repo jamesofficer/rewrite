@@ -27,8 +27,8 @@
     <script async defer src="http://www.instagram.com/embed.js"></script>
 </head>
 <body>
-    <main @if (Route::currentRouteName() === "login") class="login-page-bg" @endif>
-        @if (Route::currentRouteName() === "login")
+    <main @if (Route::currentRouteName() === "login"||Route::currentRouteName() === "register") class="login-page-bg" @endif>
+        @if (Route::currentRouteName() === "login"||Route::currentRouteName() === "register")
             <div class="login-page-bg-img"></div>
         @else
             @include('layouts.navbar')
