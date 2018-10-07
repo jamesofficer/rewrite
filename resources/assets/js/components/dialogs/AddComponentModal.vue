@@ -80,6 +80,18 @@
             </b-card>
         </div>
 
+         <div class="modal-card">
+            <b-card class="mb-2 text-center component-card"
+                    @click="addComponent('RecipeIngredients')"
+            >
+                <icon name="fish" scale="4"></icon>
+                <hr>
+                <p>Recipe Ingredients</p>
+            </b-card>
+        </div>
+
+
+
     </b-modal>
 </template>
 

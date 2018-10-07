@@ -44,6 +44,7 @@ import InstagramEmbed      from './InstagramEmbed'
 import FacebookEmbed       from './FacebookEmbed'
 import YouTubeEmbed        from './YouTubeEmbed'
 import RecipeSummary       from './RecipeSummary'
+import RecipeIngredients      from './RecipeIngredients'
 
 import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
@@ -55,6 +56,7 @@ export default {
     components: {
         TopBar, AddComponentButton, RemoveColumn,
         Heading, Paragraph, BlockQuote, Picture, InstagramEmbed, FacebookEmbed, YouTubeEmbed, RecipeSummary,
+        RecipeIngredients,
         ColumnWidth, Padding, BackgroundColor
     },
 
