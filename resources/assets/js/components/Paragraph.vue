@@ -15,7 +15,6 @@
             marginRight: element.margin.right + 'px',
             marginBottom: element.margin.bottom + 'px',
             marginLeft: element.margin.left + 'px',
-
             borderTop: element.border.top + 'px ' + 'solid ' + ' black',
             borderRight: element.border.right + 'px ' + 'solid' + 'black',
             borderBottom: element.border.bottom + 'px ' + 'solid' + 'black',
@@ -49,6 +48,8 @@
             <line-height></line-height>
 
             <text-alignment></text-alignment>
+
+            <border></border>
         </top-bar>
     </div>
 </template>
