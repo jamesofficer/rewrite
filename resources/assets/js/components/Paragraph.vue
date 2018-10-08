@@ -7,18 +7,11 @@
             fontWeight: element.fontWeight,
             lineHeight: element.lineHeight,
             color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-            marginTop: element.margin.top + 'px',
-            marginRight: element.margin.right + 'px',
-            marginBottom: element.margin.bottom + 'px',
-            marginLeft: element.margin.left + 'px',
-            borderTop: element.border.top + 'px ' + 'solid ' + ' black',
-            borderRight: element.border.right + 'px ' + 'solid' + 'black',
-            borderBottom: element.border.bottom + 'px ' + 'solid' + 'black',
-            borderLeft: element.border.left + 'px ' + 'solid' + 'black',
+            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
+            borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+            borderStyle: element.border.style,
+            borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
         }" v-html="element.content" />
 
         <!-- TOP BAR -->
@@ -35,9 +28,9 @@
 
             <padding></padding>
 
-            <text-color></text-color>
-
             <border></border>
+
+            <text-color></text-color>
 
             <font-family></font-family>
 
@@ -48,8 +41,6 @@
             <line-height></line-height>
 
             <text-alignment></text-alignment>
-
-            <border></border>
         </top-bar>
     </div>
 </template>
@@ -59,6 +50,7 @@ import EditTextModal     from './dialogs/EditTextModal'
 
 import GetElement        from './mixins/GetElement'
 import MoveComponent     from './mixins/MoveComponent'
+import GetBorderStyle    from './mixins/GetBorderStyle'
 
 import TopBar            from './topbar/TopBar'
 import EditTextButton    from './topbar/EditTextButton'
@@ -78,7 +70,7 @@ import Border            from './core/Border'
 export default {
     name: "Paragraph",
 
-    mixins: [GetElement, MoveComponent],
+    mixins: [GetElement, MoveComponent, GetBorderStyle],
 
     components: {
         EditTextModal,

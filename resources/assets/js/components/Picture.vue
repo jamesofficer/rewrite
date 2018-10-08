@@ -7,10 +7,10 @@
         <div v-else :style="{ textAlign: element.textAlign }">
             <img :src="element.src" :style="{
                 width: element.width + '%',
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
+                margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+                borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+                borderStyle: element.border.style,
+                borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
             }">
         </div>
 
@@ -26,6 +26,8 @@
 
             <template v-if="element.src">
                 <margin></margin>
+
+                <border></border>
 
                 <width></width>
 
@@ -46,6 +48,7 @@ import ImageSelector     from './core/ImageSelector'
 import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
 import Width             from './core/Width'
+import Border            from './core/Border'
 
 export default {
     name: "Picture",
@@ -54,7 +57,7 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        ImageSelector, ImageAlignment, Margin, Width
+        ImageSelector, ImageAlignment, Margin, Width, Border
     },
 }
 </script>

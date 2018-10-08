@@ -1,27 +1,29 @@
 <template>
     <div>
-        <top-bar-control icon="columns" tooltip="Border" id="border-popover"></top-bar-control>
+        <top-bar-control icon="regular/square" tooltip="Borders" id="border-popover"></top-bar-control>
 
         <b-popover target="border-popover" placement="bottom">
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>
-                    <b-form-input type="number" v-model="borderTop" :min="0" :max="10" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model="borderTop" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Right</label>
-                    <b-form-input type="number" v-model="borderRight" :min="0" :max="10" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model="borderRight" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
+            </b-row>
 
+            <b-row>
                 <b-col>
                     <label class="sub-label">Bottom</label>
-                    <b-form-input type="number" v-model="borderBottom" :min="0" :max="10" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model="borderBottom" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Left</label>
-                    <b-form-input type="number" v-model="borderLeft" :min="0" :max="10" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model="borderLeft" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
             </b-row>
 
@@ -32,25 +34,39 @@
                 </b-col>
             </b-row>
 
-            <!--<b-row>
-                <label class="sub-label">Colour</label>
-                <sketch-color-picker :value="colors" @input="updateValue" class="color-picker"></sketch-color-picker>
-            </b-row> !-->
+            <b-row>
+                <b-col>
+                    <label class="sub-label">Colour</label>
+                    <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
+                </b-col>
+            </b-row>
         </b-popover>
     </div>
 </template>
 
 <script>
 import TopBarControl from '../topbar/TopBarControl';
-import { Sketch as SketchColorPicker } from 'vue-color'
-
+import { Sketch as ColorPicker } from 'vue-color'
 
 export default {
     name: "Border",
 
-    components: { TopBarControl, SketchColorPicker },
+    components: { TopBarControl, ColorPicker },
 
     computed: {
+        borderStyle: {
+            get() {
+                return this.$store.getters.getCurrentElement.border.style;
+            },
+            set(style) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'style',
+                    value: style,
+                });
+            }
+        },
+
         borderTop: {
             get() {
                 return this.$store.getters.getCurrentElement.border.top;
@@ -92,7 +108,7 @@ export default {
 
         borderLeft: {
             get() {
-                return this.$store.getters.getCurrentElement.padding.left;
+                return this.$store.getters.getCurrentElement.border.left;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -115,46 +131,39 @@ export default {
 
     data() {
         return {
-            borderStyles: [
-            {
-                text: 'solid',
-                value: 'solid',
-            },
-            {
-                text: 'dashed',
-                value: 'dashed',
-            },
-            {
-                text: 'dotted',
-                value: 'dotted',
-            },
-            {
-                text: 'double',
-                value: 'double',
-            },
+            showColorPicker: false,
+            colors: { r: 0, g: 0, b: 0, a: 1 },
+
+            borderStyles:
+            [
+                {
+                    text: 'Solid',
+                    value: 'solid',
+                },
+                {
+                    text: 'Dashed',
+                    value: 'dashed',
+                },
+                {
+                    text: 'Dotted',
+                    value: 'dotted',
+                },
+                {
+                    text: 'Double',
+                    value: 'double',
+                },
             ]
         }
     },
 
-    /*bgColor() {
-            return this.$store.getters.getCurrentElement.borderColor;
-        },
-
-    data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 0, g: 0, b: 0, a: 1 },
-        }
-    },
-
     methods: {
-        toggleColorPicker() {
-            this.showColorPicker = !this.showColorPicker;
+        setColor(color) {
+            this.$store.commit('setComponentSubProperty', {
+                property: 'border',
+                subproperty: 'color',
+                value: color.rgba,
+            });
         },
-
-        updateValue(color) {
-            this.$store.commit('setComponentProperty', { property: 'borderColor', value: color.rgba });
-        }
-    }*/
+    }
 }
 </script>

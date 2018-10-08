@@ -4,7 +4,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Heading')"
             >
-                <icon name="heading" scale="4"></icon>
+                <icon name="heading" scale="3.5"></icon>
                 <hr>
                 <p>Heading</p>
             </b-card>
@@ -14,7 +14,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Paragraph')"
             >
-                <icon name="paragraph" scale="4"></icon>
+                <icon name="paragraph" scale="3.5"></icon>
                 <hr>
                 <p>Paragraph</p>
             </b-card>
@@ -24,7 +24,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('BlockQuote')"
             >
-                <icon name="quote-right" scale="4"></icon>
+                <icon name="quote-right" scale="3.5"></icon>
                 <hr>
                 <p>BlockQuote</p>
             </b-card>
@@ -34,7 +34,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('Picture')"
             >
-                <icon name="image" scale="4"></icon>
+                <icon name="image" scale="3.5"></icon>
                 <hr>
                 <p>Image</p>
             </b-card>
@@ -44,7 +44,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('InstagramEmbed')"
             >
-                <icon name="brands/instagram" scale="4"></icon>
+                <icon name="brands/instagram" scale="3.5"></icon>
                 <hr>
                 <p>Instagram</p>
             </b-card>
@@ -54,7 +54,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('FacebookEmbed')"
             >
-                <icon name="brands/facebook" scale="4"></icon>
+                <icon name="brands/facebook" scale="3.5"></icon>
                 <hr>
                 <p>Facebook</p>
             </b-card>
@@ -64,7 +64,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('YouTubeEmbed')"
             >
-                <icon name="brands/youtube" scale="4"></icon>
+                <icon name="brands/youtube" scale="3.5"></icon>
                 <hr>
                 <p>YouTube</p>
             </b-card>
@@ -74,7 +74,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('RecipeSummary')"
             >
-                <icon name="fish" scale="4"></icon>
+                <icon name="fish" scale="3.5"></icon>
                 <hr>
                 <p>Recipe Summary</p>
             </b-card>
@@ -84,7 +84,7 @@
             <b-card class="mb-2 text-center component-card"
                     @click="addComponent('RecipeIngredients')"
             >
-                <icon name="fish" scale="4"></icon>
+                <icon name="fish" scale="3.5"></icon>
                 <hr>
                 <p>Recipe Ingredients</p>
             </b-card>
@@ -139,7 +139,7 @@ export default {
 }
 
 .component-card {
-    width: 150px;
+    width: 135px;
     height: 175px;
 }
 </style>

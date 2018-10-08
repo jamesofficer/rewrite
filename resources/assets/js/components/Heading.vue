@@ -8,14 +8,11 @@
                 fontWeight: element.fontWeight,
                 lineHeight: element.lineHeight,
                 color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                paddingTop: element.padding.top + 'px',
-                paddingRight: element.padding.right + 'px',
-                paddingBottom: element.padding.bottom + 'px',
-                paddingLeft: element.padding.left + 'px',
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
+                margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+                padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
+                borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+                borderStyle: element.border.style,
+                borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
             }">
                 {{ element.content }}
             </h1>
@@ -27,10 +24,11 @@
                 fontWeight: element.fontWeight,
                 lineHeight: element.lineHeight,
                 color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
+                margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+                padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
+                borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+                borderStyle: element.border.style,
+                borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
             }" size="lg" id="heading-input"
         ></text-input>
 
@@ -45,6 +43,8 @@
             <margin></margin>
 
             <padding></padding>
+
+            <border></border>
 
             <text-color></text-color>
 
@@ -71,6 +71,7 @@ import DeleteComponentButton from './topbar/DeleteComponentButton'
 import TextInput         from './core/TextInput'
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
+import Border            from './core/Border'
 import TextColor         from './core/TextColor'
 import TextAlignment     from './core/TextAlignment'
 import FontFamily        from './core/FontFamily'
@@ -85,7 +86,7 @@ export default {
 
     components: {
         TopBar, DeleteComponentButton,
-        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, Padding, Margin,
+        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, Padding, Margin, Border,
     },
 
     data() {

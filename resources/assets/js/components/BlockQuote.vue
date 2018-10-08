@@ -7,14 +7,11 @@
             fontWeight: element.fontWeight,
             color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
-            paddingTop: element.padding.top + 'px',
-            paddingRight: element.padding.right + 'px',
-            paddingBottom: element.padding.bottom + 'px',
-            paddingLeft: element.padding.left + 'px',
-            marginTop: element.margin.top + 'px',
-            marginRight: element.margin.right + 'px',
-            marginBottom: element.margin.bottom + 'px',
-            marginLeft: element.margin.left + 'px',
+            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
+            borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+            borderStyle: element.border.style,
+            borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
         }" id="text-input">
             {{ element.content }}
         </blockquote>
@@ -26,10 +23,11 @@
             fontWeight: element.fontWeight,
             color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
-            marginTop: element.margin.top + 'px',
-            marginRight: element.margin.right + 'px',
-            marginBottom: element.margin.bottom + 'px',
-            marginLeft: element.margin.left + 'px',
+            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
+            borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+            borderStyle: element.border.style,
+            borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
         }" size="lg" id="text-input">
         </text-input>
 
@@ -44,6 +42,8 @@
             <margin></margin>
 
             <padding></padding>
+
+            <border></border>
 
             <text-color></text-color>
 
@@ -75,6 +75,7 @@ import TextColor         from './core/TextColor'
 import BackgroundColor   from './core/BackgroundColor'
 import Padding           from './core/Padding'
 import Margin            from './core/Margin'
+import Border            from './core/Border'
 
 export default {
     name: "BlockQuote",
@@ -84,14 +85,8 @@ export default {
     components: {
         TopBar, DeleteComponentButton,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor,
-        BackgroundColor, Margin, Padding
+        BackgroundColor, Margin, Padding, Border
     },
 }
 </script>
-
-<style scoped>
-blockquote {
-    border-left: 5px solid #ccc;
-}
-</style>
 

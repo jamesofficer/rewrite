@@ -26,6 +26,8 @@ export default {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 0
-    },
+        left: 5,
+        style: 'solid',
+        color: { r: 100, g: 100, b: 100, a: 1 },
+    }
 };

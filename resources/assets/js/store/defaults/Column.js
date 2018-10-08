@@ -11,7 +11,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading],
+    components: [defaultHeading, defaultParagraph],
 
     // Properties:
     columnWidth: 12,
