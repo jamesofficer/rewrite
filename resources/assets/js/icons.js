@@ -34,6 +34,7 @@ import "vue-awesome/icons/paint-roller";
 import "vue-awesome/icons/fish";
 import "vue-awesome/icons/pencil-alt";
 import "vue-awesome/icons/ban";
+import "vue-awesome/icons/utensils";
 import "vue-awesome/icons/regular/square";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";

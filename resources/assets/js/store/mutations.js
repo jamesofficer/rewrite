@@ -18,10 +18,54 @@ export const addCanvas = state => state.canvases.push(duplicateObject(defaultCan
 export const removeCanvas = state => {
     state.canvases.splice(state.currentCanvas, 1);
     state.currentCanvas = undefined;
-}
+};
+
+// Deletes a component from a column.
+export const deleteComponent = (state) => {
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    state.currentComponent = undefined;
+};
+
+// Moves a component UP in a column.
+export const moveComponentUp = state => {
+    const currentComponentPos = state.currentComponent;
+
+    if (currentComponentPos === 0) {
+        return;
+    }
+
+    // Swap positions around:
+    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos - 1];
+    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
+
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos - 1], thisComponent);
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
+
+    // Reselect the moved element:
+    state.currentComponent = currentComponentPos - 1;
+};
+
+// Moves a component DOWN in a column.
+export const moveComponentDown = state => {
+    const currentComponentPos = state.currentComponent;
+
+    if (currentComponentPos === (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
+        return;
+    }
+
+    // Swap positions around:
+    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos + 1];
+    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
+
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos + 1], thisComponent);
+    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
+
+    // Reselect the moved element:
+    state.currentComponent = currentComponentPos + 1;
+};
 
 // Used to set CSS properties on components.
-export const setComponentProperty = (state, component) => 
+export const setComponentProperty = (state, component) =>
     window.Vue.set(getSelectedElement(state), component.property, component.value);
 
 // Some Components like Margin and Padding have a subproperty we may need to set.
@@ -97,12 +141,6 @@ export const addComponentToColumn = (state, componentType) => {
             .push(components[componentType]);
 };
 
-// Deletes a component from a column.
-export const deleteComponent = (state) => {
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
-    state.currentComponent = undefined;
-}
-
 // Sets the title of the article.
 export const updateArticleTitle = (state, title) =>
     window.Vue.set(state, "articleTitle", title);
@@ -115,42 +153,4 @@ export const selectImage = (state, image) =>
 export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
-};
-
-// Moves a component UP in a column.
-export const moveComponentUp = state => {
-    const currentComponentPos = state.currentComponent;
-
-    if (currentComponentPos === 0) {
-        return;
-    }
-
-    // Swap positions around:
-    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos - 1];
-    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
-
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos - 1], thisComponent);
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
-
-    // Reselect the moved element:
-    state.currentComponent = currentComponentPos - 1;
-};
-
-// Moves a component DOWN in a column.
-export const moveComponentDown = state => {
-    const currentComponentPos = state.currentComponent;
-
-    if (currentComponentPos === (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
-        return;
-    }
-
-    // Swap positions around:
-    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos + 1];
-    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
-
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos + 1], thisComponent);
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
-
-    // Reselect the moved element:
-    state.currentComponent = currentComponentPos + 1;
 };

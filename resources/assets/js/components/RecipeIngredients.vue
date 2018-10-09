@@ -26,7 +26,7 @@
                 <b-col :style="{
                             color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
                         }">
-                            <b>80 ml</b> 
+                            <b>80 ml</b>
                 </b-col>
 
                         <!-- Column 2 -->
@@ -35,7 +35,7 @@
                         }">
 
                         <p> (⅓ cup) ghee </p>
-                            
+
                 </b-col>
 
                 <!-- Cooks Notes -->
@@ -65,6 +65,7 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <recipe-ingredients-button></recipe-ingredients-button>
 
             <margin></margin>
 
@@ -82,32 +83,21 @@ import GetElement from "./mixins/GetElement";
 
 import TopBar from "./topbar/TopBar";
 import DeleteComponentButton from "./topbar/DeleteComponentButton";
+import RecipeIngredientsButton from "./topbar/RecipeIngredientsButton";
 
-import TextInput from "./core/TextInput";
 import Margin from "./core/Margin";
 import Padding from "./core/Padding";
 import TextColor from "./core/TextColor";
-import TextAlignment from "./core/TextAlignment";
 import FontFamily from "./core/FontFamily";
-import FontWeight from "./core/FontWeight";
-import FontSize from "./core/FontSize";
-import LineHeight from "./core/LineHeight";
 
 export default {
-  name: "RecipeIngredients",
+    name: "RecipeIngredients",
 
-  mixins: [GetElement],
+    mixins: [GetElement],
 
-  components: {
-    TopBar,
-    DeleteComponentButton,
-    Margin,
-    Padding,
-    TextColor,
-    FontFamily
-  }
+    components: {
+    TopBar, DeleteComponentButton, RecipeIngredientsButton,
+    Margin, Padding, TextColor, FontFamily
+    }
 };
 </script>
-
-<style scoped>
-</style>

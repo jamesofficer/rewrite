@@ -1,94 +1,101 @@
 <template>
-    <b-row :class="{ 'selected-element': elementIsSelected }" :style="{
-        marginTop: element.margin.top + 'px',
-        marginRight: element.margin.right + 'px',
-        marginBottom: element.margin.bottom + 'px',
-        marginLeft: element.margin.left + 'px',
-        paddingTop: element.padding.top + 'px',
-        paddingRight: element.padding.right + 'px',
-        paddingBottom: element.padding.bottom + 'px',
-        paddingLeft: element.padding.left + 'px',
-    }">
-
-        <b-col :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+    <div>
+        <b-row :class="{ 'selected-element': elementIsSelected }" :style="{
+            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
+            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
         }">
-            <h5 :style="{
-                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                fontFamily: element.fontFamily,
-            }">
-                SERVES
-            </h5>
 
-            <p class="big" :style="{
-                fontFamily: element.fontFamily,
+            <!-- Serves -->
+            <b-col :style="{
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-                {{ element.contentServes }}
-            </p>
-        </b-col>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    fontFamily: element.fontFamily,
+                }">
+                    SERVES
+                </h5>
 
-        <b-col :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-        }">
-            <h5 :style="{
-                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                fontFamily: element.fontFamily,
-            }">
-                PREPARATION
-            </h5>
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    <strong style="font-size: 2em; padding: 0;">{{ element.contentServes }}</strong>
+                </p>
+            </b-col>
 
-            <p class="big" :style="{
-                fontFamily: element.fontFamily,
+            <!-- Preparation Time -->
+            <b-col :style="{
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-                {{ element.contentPreparation }}
-            </p>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    fontFamily: element.fontFamily,
+                }">
+                    PREPARATION
+                </h5>
 
-            <p class="med" :style="{
-                fontFamily: element.fontFamily,
-            }">
-                MIN
-            </p>
-        </b-col>
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    <strong style="font-size: 2em;">{{ element.contentPreparation }}</strong>
+                </p>
 
-        <b-col :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-        }">
-            <h5 :style="{
-                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                fontFamily: element.fontFamily,
-            }">
-                COOKING
-            </h5>
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    MIN
+                </p>
+            </b-col>
 
-            <p class="big" :style="{
-                fontFamily: element.fontFamily,
+            <!-- Cooking Time -->
+            <b-col :style="{
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-                {{ element.contentCooking }}
-            </p>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    fontFamily: element.fontFamily,
+                }">
+                    COOKING
+                </h5>
 
-            <p class="med" :style="{
-                fontFamily: element.fontFamily,
-            }">
-                MIN
-            </p>
-        </b-col>
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    <strong style="font-size: 2em; padding: 0;">{{ element.contentCooking }}</strong>
+                </p>
 
-        <b-col :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-        }">
-            <h5 :style="{
-                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                fontFamily: element.fontFamily,
-            }">
-                SKILL LEVEL
-            </h5>
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    MIN
+                </p>
+            </b-col>
 
-            <p class="big" :style="{
-                fontFamily: element.fontFamily,
+            <!-- Skill Level -->
+            <b-col :style="{
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-                {{ element.contentDifficulty }}
-            </p>
-        </b-col>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    fontFamily: element.fontFamily,
+                }">
+                    SKILL LEVEL
+                </h5>
+
+                <p :style="{
+                    fontFamily: element.fontFamily,
+                    marginBottom: 0,
+                }">
+                    <strong style="font-size: 2em; padding: 0;">{{ element.contentDifficulty }}</strong>
+                </p>
+            </b-col>
+        </b-row>
+
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -104,7 +111,7 @@
 
             <font-family></font-family>
         </top-bar>
-    </b-row>
+    </div>
 </template>
 
 <script>
@@ -135,23 +142,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.main {
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: #3CBE01;
-}
-
-.big {
-    line-height: 0px;
-    font-size: 220%;
-    font-weight: bold;
-    padding-top: 25px;
-}
-
-.med {
-    line-height: 0px;
-    font-size: 100%;
-    padding-top: 10px;
-}
-</style>

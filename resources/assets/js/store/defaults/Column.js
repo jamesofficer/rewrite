@@ -6,12 +6,13 @@ import defaultInstagramEmbed from "./InstagramEmbed";
 import defaultFacebookEmbed from "./FacebookEmbed";
 import defaultYouTubeEmbed from "./YouTubeEmbed";
 import defaultRecipeSummary from "./RecipeSummary";
+import defaultRecipeIngredients from "./RecipeIngredients";
 
 export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultRecipeIngredients],
 
     // Properties:
     columnWidth: 12,

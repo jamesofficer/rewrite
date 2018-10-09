@@ -134,25 +134,31 @@
 
             <!-- Export Article Modal -->
             <export-article-modal ref="exportArticleModal" :articleHtml="articleHtml"></export-article-modal>
+
+            <!-- Recipe Ingredients Modal -->
+            <recipe-ingredients-modal></recipe-ingredients-modal>
         </b-container>
     </div>
 </template>
 
 <script>
-import ShiftArticle       from "./components/ShiftArticle";
-import Canvas             from "./components/Canvas";
-import AddComponentModal  from './components/dialogs/AddComponentModal';
-import EditTextModal      from './components/dialogs/EditTextModal';
-import LoadArticleModal   from './components/dialogs/LoadArticleModal';
-import MyImagesModal      from './components/dialogs/MyImagesModal';
-import ImageGalleryModal  from './components/dialogs/ImageGalleryModal';
-import ExportArticleModal from './components/dialogs/ExportArticleModal';
+import ShiftArticle           from "./components/ShiftArticle";
+import Canvas                 from "./components/Canvas";
+import AddComponentModal      from './components/dialogs/AddComponentModal';
+import EditTextModal          from './components/dialogs/EditTextModal';
+import LoadArticleModal       from './components/dialogs/LoadArticleModal';
+import MyImagesModal          from './components/dialogs/MyImagesModal';
+import ImageGalleryModal      from './components/dialogs/ImageGalleryModal';
+import ExportArticleModal     from './components/dialogs/ExportArticleModal';
+import RecipeIngredientsModal from './components/dialogs/RecipeIngredientsModal';
 
 export default {
     name: "Shift",
 
     components: {
-        ShiftArticle, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal
+        ShiftArticle, Canvas,
+        AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
+        ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
     },
 
     computed: {
