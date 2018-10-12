@@ -12,7 +12,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultRecipeIngredients],
+    components: [defaultHeading, defaultParagraph, defaultRecipeIngredients, defaultYouTubeEmbed],
 
     // Properties:
     columnWidth: 12,

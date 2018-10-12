@@ -63,12 +63,21 @@ export default {
     methods: {
         updateInstagramUrl() {
             // Strip this out if it's there as it will break the string split below.
-            if (this.instagramUrl.includes('?utm_source=ig_web_copy_link')) {
-                this.instagramUrl = this.instagramUrl.replace('?utm_source=ig_web_copy_link', '');
-            }
+           
 
-            const imageId = this.instagramUrl.split('instagram.com/p/', 2)[1];
-            const newUrl  = 'https://www.instagram.com/p/' + imageId + 'embed';
+            const targetIndex = this.instagramUrl.indexOf("?"); 
+            let newUrl;
+
+            console.log(targetIndex);
+           
+            
+             if (targetIndex > 0)
+             {
+                 newUrl = this.instagramUrl.substring(0, targetIndex);
+            
+             }
+
+             console.log(newUrl);
 
             this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
         }
