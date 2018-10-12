@@ -59,7 +59,16 @@
                 </b-col>
             </b-row>
         </div>
+
+         <b-row>
+            <b-col>
+                <h5>Cooks Notes</h5>
+                <textarea class="cooksnotes" id="cooksnotes"></textarea>
+            </b-col>
+        </b-row>
     </b-modal>
+
+    
 </template>
 
 <script>
@@ -141,5 +150,10 @@ export default {
 <style scoped>
 .ingredient-input {
     margin-bottom: 5px;
+}
+
+.cooksnotes
+{
+    resize: none
 }
 </style>

@@ -10,55 +10,75 @@
         paddingLeft: element.padding.left + 'px',
     }">
 
-        <b-col :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+        <div class="row">
+
+            <div class="col-sm-12" :style="{
+                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+            }">
+
+                <!-- Heading -->
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    fontFamily: element.fontFamily,
+                }">
+                    Ingredients
+                </h5>
+
+            </div>
+
+<div id="group">
+    <div class="row">
+
+        <div class="col-sm-6" :style="{
+        color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
         }">
 
-        <!-- Heading -->
-            <h5 :style="{
-                borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                fontFamily: element.fontFamily,
+        <!-- Column 1 -->
+        {{ element.amount }}
+                                        
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-sm-6" :style="{
+            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-                Ingredients
-            </h5>
+            {{ element.food }}
+                                        
+                                                
+        </div>
 
-                <!-- Column 1 -->
-                <b-col :style="{
-                            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                        }">
-                            <b>80 ml</b>
-                </b-col>
+    </div>
 
-                        <!-- Column 2 -->
-                <b-col :style="{
-                            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                        }">
+</div>
 
-                        <p> (⅓ cup) ghee </p>
 
-                </b-col>
 
-                <!-- Cooks Notes -->
+    <div class="col-sm-12">
+                    <!-- Cooks Notes -->
 
-                <h6 :style="{
-                fontFamily: element.fontFamily,
-                opacity: 0.5
-            }">
-                Cooks Notes
-            </h6>
+                    <h6 :style="{
+                    fontFamily: element.fontFamily,
+                    opacity: 0.5
+                }">
+                    Cooks Notes
+                </h6>
 
-            <p :style="{
-                fontFamily: element.fontFamily,
-                opacity: 0.5
-            }">
+                <i :style="{
+                    fontFamily: element.fontFamily,
+                    opacity: 0.5
+                }">
+                {{element.notes}}
+                </i>
 
-            </p>
+    </div>
+
+    </div>
 
 
 
 
 
-        </b-col>
+       
 
 
         <!-- TOP BAR -->
