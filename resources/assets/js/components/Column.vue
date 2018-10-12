@@ -40,11 +40,12 @@ import Heading             from './Heading'
 import Paragraph           from './Paragraph'
 import BlockQuote          from './BlockQuote'
 import Picture             from './Picture'
+import HorizontalLine      from './HorizontalLine'
 import InstagramEmbed      from './InstagramEmbed'
 import FacebookEmbed       from './FacebookEmbed'
 import YouTubeEmbed        from './YouTubeEmbed'
 import RecipeSummary       from './RecipeSummary'
-import RecipeIngredients      from './RecipeIngredients'
+import RecipeIngredients   from './RecipeIngredients'
 
 import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
@@ -55,8 +56,9 @@ export default {
 
     components: {
         TopBar, AddComponentButton, RemoveColumn,
-        Heading, Paragraph, BlockQuote, Picture, InstagramEmbed, FacebookEmbed, YouTubeEmbed, RecipeSummary,
-        RecipeIngredients,
+        Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
+        InstagramEmbed, FacebookEmbed, YouTubeEmbed,
+        RecipeSummary, RecipeIngredients,
         ColumnWidth, Padding, BackgroundColor
     },
 
@@ -92,7 +94,6 @@ export default {
 
     data() {
         return {
-            hovering: false,    // used to show and hide the edit button
             indexes: {
                 canvasIndex: this.canvasIndex,
                 columnIndex: this.columnIndex,
@@ -109,11 +110,6 @@ export default {
             });
         },
     },
-
-    created() {
-        // When this column is created we want to set it to the correct width.
-        // e.g if there are two columns in the canvas already, set it's width to 1/4
-    }
 }
 </script>
 

@@ -1,26 +1,21 @@
 NEW COMPONENTS:
-- Horizontal line component.
-- Add Recipe Component.
-- Add Background image component (for Canvases and Columns).
-- Other Social Media Components (Pintrest, Facebook, Twitter)
+- Other Social Media Components (Pintrest, Twitter)
 
 BUGS:
 - Column width selection a little buggy.
-- Time code in a YouTube video breaks the embed.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
-- Loading in an article with a youtube video loses the video.
-- Columns can span more then 12 columns.
 - Articles titled 'untilted article' should not be saved.
 - Place max file size on image uploads.
-- Instagram Component doesn't work for all URL's
+- Instagram Component is fussy.
 
 FEATURES:
+- Add login/register tabs on homepage.
+- Undo/Redo lol.
 - Have a preloaded "Tutorial" article.
 - "Copy Style" button.
 - Implement loading bar when uploading images.
 - Add tabs to Add Component Modal window.
-- When adding a column, it auto-sizes to fit.
 - Saving an article with a new name should ask to overwrite the old one.
 - Users can drag and rearrange columns?
 - Users can rearrange canvas positions.

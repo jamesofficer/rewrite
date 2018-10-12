@@ -1,6 +1,7 @@
 import defaultHeading from "./Heading";
 import defaultParagraph from "./Paragraph";
 import defaultPicture from "./Picture";
+import defaultHorizontalLine from "./HorizontalLine";
 import defaultBlockQuote from "./BlockQuote";
 import defaultInstagramEmbed from "./InstagramEmbed";
 import defaultFacebookEmbed from "./FacebookEmbed";
@@ -12,7 +13,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph, defaultRecipeIngredients],
+    components: [defaultHeading, defaultParagraph, defaultHorizontalLine],
 
     // Properties:
     columnWidth: 12,

@@ -1,14 +1,15 @@
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
-import defaultCanvas     from "./defaults/Canvas";
-import defaultColumn     from "./defaults/Column";
-import defaultHeading    from "./defaults/Heading";
-import defaultParagraph  from "./defaults/Paragraph";
-import defaultBlockQuote from "./defaults/BlockQuote";
-import defaultPicture    from "./defaults/Picture";
-import defaultInstagram  from "./defaults/InstagramEmbed";
-import defaultFacebook   from "./defaults/FacebookEmbed";
-import defaultYouTube    from "./defaults/YouTubeEmbed";
-import defaultRecipeSummary    from "./defaults/RecipeSummary";
+import defaultCanvas         from "./defaults/Canvas";
+import defaultColumn         from "./defaults/Column";
+import defaultHeading        from "./defaults/Heading";
+import defaultParagraph      from "./defaults/Paragraph";
+import defaultBlockQuote     from "./defaults/BlockQuote";
+import defaultPicture        from "./defaults/Picture";
+import defaultHorizontalLine from "./defaults/HorizontalLine";
+import defaultInstagram      from "./defaults/InstagramEmbed";
+import defaultFacebook       from "./defaults/FacebookEmbed";
+import defaultYouTube        from "./defaults/YouTubeEmbed";
+import defaultRecipeSummary  from "./defaults/RecipeSummary";
 import defaultRecipeIngredients  from "./defaults/RecipeIngredients";
 
 // Adds another Canvas to the Workspace.
@@ -130,6 +131,7 @@ export const addComponentToColumn = (state, componentType) => {
         "Paragraph": duplicateObject(defaultParagraph),
         "BlockQuote": duplicateObject(defaultBlockQuote),
         "Picture": duplicateObject(defaultPicture),
+        "HorizontalLine": duplicateObject(defaultHorizontalLine),
         "InstagramEmbed": duplicateObject(defaultInstagram),
         "FacebookEmbed": duplicateObject(defaultFacebook),
         "YouTubeEmbed": duplicateObject(defaultYouTube),

@@ -24,17 +24,15 @@
 
             <padding></padding>
 
+            <background-color></background-color>
+
             <image-selector></image-selector>
 
             <template v-if="element.src">
-
                 <background-size></background-size>
 
                 <clear-image></clear-image>
-
             </template>
-
-            <background-color></background-color>
         </top-bar>
     </b-row>
 </template>
