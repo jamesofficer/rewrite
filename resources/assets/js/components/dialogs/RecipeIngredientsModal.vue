@@ -63,7 +63,7 @@
          <b-row>
             <b-col>
                 <h5>Cooks Notes</h5>
-                <textarea class="cooksnotes" id="cooksnotes"></textarea>
+                <b-textarea rows="3" v-model="cooksNotes"></b-textarea>
             </b-col>
         </b-row>
     </b-modal>
@@ -83,31 +83,11 @@ export default {
 
     data() {
         return {
-            foods: [
-                {
-                    name: 'Pastry',
-                    ingredients: [
-                        {
-                            amount: 240,
-                            measurement: 'g',
-                            name: 'plain flour',
-                        },
-                        {
-                            amount: 20,
-                            measurement: 'g',
-                            name: 'caster sugar',
-                        },
-                        {
-                            amount: 5,
-                            measurement: 'g',
-                            name: 'active dry yeast',
-                        },
-                    ]
-                },
-            ],
+            foods: [],
 
             newFoodName: '',
             measurements: ['', 'l', 'ml', 'g', 'mg'],
+            cooksNotes: '',
         }
     },
 
@@ -139,9 +119,14 @@ export default {
 
         saveRecipe() {
             this.$store.commit('setComponentProperty', {
-                property: 'ingredients',
+                property: 'foods',
                 value: this.foods,
-            })
+            });
+            
+            this.$store.commit('setComponentProperty', {
+                property: 'cooksNotes',
+                value: this.cooksNotes,
+            });
         },
     }
 }
@@ -150,10 +135,5 @@ export default {
 <style scoped>
 .ingredient-input {
     margin-bottom: 5px;
-}
-
-.cooksnotes
-{
-    resize: none
 }
 </style>

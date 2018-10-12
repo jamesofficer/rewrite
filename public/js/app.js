@@ -23204,7 +23204,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         bottom: 0,
         left: 0
     }
-
 });
 
 /***/ }),
@@ -23216,16 +23215,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     type: 'RecipeIngredients',
     selected: false,
 
-    ingredients: undefined,
+    foods: [],
+    cooksNotes: undefined,
 
     // Properties:
     fontFamily: 'Times New Roman',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
-
-    amount: '80 ml',
-    food: '(⅓ cup) ghee',
-
-    notes: 'Oven temperatures are for conventional; if using fan-forced (convection), reduce the temperature by 20˚C. | We use Australian tablespoons and cups: 1 teaspoon equals 5 ml; 1 tablespoon equals 20 ml; 1 cup equals 250 ml. | All herbs are fresh (unless specified) and cups are lightly packed. | All vegetables are medium size and peeled, unless specified. | All eggs are 55-60 g, unless specified',
 
     margin: {
         top: 0,
@@ -23239,7 +23234,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         bottom: 0,
         left: 0
     }
-
 });
 
 /***/ }),
@@ -45653,7 +45647,7 @@ var content = __webpack_require__(234);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("017ec4bc", content, false, {});
+var update = __webpack_require__(14)("2ed4d7c9", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -45677,7 +45671,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\r\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\r\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\r\n    margin: 20px 0;\r\n    padding: 0 15px 10px 15px;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 0 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    background: white;\r\n    margin: 0 15px 10px 15px;\r\n    padding: 10px 0;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 5px 15px 30px 15px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 100;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\n    margin: 20px 0;\n    padding: 0 15px 10px 15px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    margin: 20px 0 30px 0;\n    padding: 0 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\n    background: white;\n    margin: 0 15px 10px 15px;\n    padding: 10px 0;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 100;\n}\n", ""]);
 
 // exports
 
@@ -46216,7 +46210,7 @@ var content = __webpack_require__(242);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("7d057787", content, false, {});
+var update = __webpack_require__(14)("034af327", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46240,7 +46234,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-column[data-v-0328c362]:hover {\r\n    cursor: pointer;\r\n    outline: 1px solid #66e99d;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-column[data-v-0328c362]:hover {\n    cursor: pointer;\n    outline: 1px solid #66e99d;\n}\n", ""]);
 
 // exports
 
@@ -46447,7 +46441,7 @@ var content = __webpack_require__(246);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("c9928da4", content, false, {});
+var update = __webpack_require__(14)("217c34ce", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46471,7 +46465,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-component[data-v-29b4cd4d]:hover {\r\n    cursor: pointer;\r\n    outline: 1px solid #abf3c9;\n}\n.component-button-group[data-v-29b4cd4d] {\r\n    margin: 3px 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-component[data-v-29b4cd4d]:hover {\n    cursor: pointer;\n    outline: 1px solid #abf3c9;\n}\n.component-button-group[data-v-29b4cd4d] {\n    margin: 3px 0;\n}\n", ""]);
 
 // exports
 
@@ -46757,7 +46751,7 @@ var content = __webpack_require__(253);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("cc33fa54", content, false, {});
+var update = __webpack_require__(14)("05b6557a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46781,7 +46775,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\r\n    width: 135px;\r\n    height: 175px;\n}\r\n", ""]);
+exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\n    cursor: pointer;\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\n    width: 135px;\n    height: 175px;\n}\n", ""]);
 
 // exports
 
@@ -47485,7 +47479,7 @@ var content = __webpack_require__(264);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("60fb652d", content, false, {});
+var update = __webpack_require__(14)("b93544e6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47934,7 +47928,7 @@ var content = __webpack_require__(275);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("899c7ebe", content, false, {});
+var update = __webpack_require__(14)("04952b4e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47958,7 +47952,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\r\n    background: none;\r\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\r\n    margin-bottom: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\n    background: none;\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\n    margin-bottom: 15px;\n}\n", ""]);
 
 // exports
 
@@ -57053,17 +57047,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(469)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(339)
 /* template */
-var __vue_template__ = __webpack_require__(347)
+var __vue_template__ = __webpack_require__(471)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-d6f949a6"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -57194,28 +57192,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -57236,6 +57212,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteComponentButton___default.a, RecipeIngredientsButton: __WEBPACK_IMPORTED_MODULE_3__topbar_RecipeIngredientsButton___default.a,
         Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_6__core_TextColor___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_7__core_FontFamily___default.a
+    },
+
+    data: function data() {
+        return {
+            fields: ['measurement', 'name']
+        };
     }
 });
 
@@ -57323,7 +57305,7 @@ var content = __webpack_require__(343);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("53954e6e", content, false, {});
+var update = __webpack_require__(14)("5ac9f821", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57347,7 +57329,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\r\n    margin-bottom: 5px;\n}\n.cooksnotes[data-v-2e109094]\r\n{\r\n    resize: none\n}\r\n", ""]);
+exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\n    margin-bottom: 5px;\n}\n", ""]);
 
 // exports
 
@@ -57443,25 +57425,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            foods: [{
-                name: 'Pastry',
-                ingredients: [{
-                    amount: 240,
-                    measurement: 'g',
-                    name: 'plain flour'
-                }, {
-                    amount: 20,
-                    measurement: 'g',
-                    name: 'caster sugar'
-                }, {
-                    amount: 5,
-                    measurement: 'g',
-                    name: 'active dry yeast'
-                }]
-            }],
+            foods: [],
 
             newFoodName: '',
-            measurements: ['', 'l', 'ml', 'g', 'mg']
+            measurements: ['', 'l', 'ml', 'g', 'mg'],
+            cooksNotes: ''
         };
     },
 
@@ -57490,8 +57458,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         saveRecipe: function saveRecipe() {
             this.$store.commit('setComponentProperty', {
-                property: 'ingredients',
+                property: 'foods',
                 value: this.foods
+            });
+
+            this.$store.commit('setComponentProperty', {
+                property: 'cooksNotes',
+                value: this.cooksNotes
             });
         }
     }
@@ -57692,14 +57665,24 @@ var render = function() {
       _c(
         "b-row",
         [
-          _c("b-col", [
-            _c("h5", [_vm._v("Cooks Notes")]),
-            _vm._v(" "),
-            _c("textarea", {
-              staticClass: "cooksnotes",
-              attrs: { id: "cooksnotes" }
-            })
-          ])
+          _c(
+            "b-col",
+            [
+              _c("h5", [_vm._v("Cooks Notes")]),
+              _vm._v(" "),
+              _c("b-textarea", {
+                attrs: { rows: "3" },
+                model: {
+                  value: _vm.cooksNotes,
+                  callback: function($$v) {
+                    _vm.cooksNotes = $$v
+                  },
+                  expression: "cooksNotes"
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -57751,191 +57734,7 @@ if (false) {
 }
 
 /***/ }),
-/* 347 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-row",
-    {
-      class: { "selected-element": _vm.elementIsSelected },
-      style: {
-        marginTop: _vm.element.margin.top + "px",
-        marginRight: _vm.element.margin.right + "px",
-        marginBottom: _vm.element.margin.bottom + "px",
-        marginLeft: _vm.element.margin.left + "px",
-        paddingTop: _vm.element.padding.top + "px",
-        paddingRight: _vm.element.padding.right + "px",
-        paddingBottom: _vm.element.padding.bottom + "px",
-        paddingLeft: _vm.element.padding.left + "px"
-      }
-    },
-    [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          {
-            staticClass: "col-sm-12",
-            style: {
-              color:
-                "rgba(" +
-                _vm.element.textColor.r +
-                ", " +
-                _vm.element.textColor.g +
-                ", " +
-                _vm.element.textColor.b +
-                ", " +
-                _vm.element.textColor.a +
-                ")"
-            }
-          },
-          [
-            _c(
-              "h5",
-              {
-                style: {
-                  borderBottom:
-                    "1px solid rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")",
-                  fontFamily: _vm.element.fontFamily
-                }
-              },
-              [_vm._v("\n                    Ingredients\n                ")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "group" } }, [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-sm-6",
-                style: {
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")"
-                }
-              },
-              [
-                _vm._v(
-                  "\n        " +
-                    _vm._s(_vm.element.amount) +
-                    "\n                                        \n        "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-sm-6",
-                style: {
-                  color:
-                    "rgba(" +
-                    _vm.element.textColor.r +
-                    ", " +
-                    _vm.element.textColor.g +
-                    ", " +
-                    _vm.element.textColor.b +
-                    ", " +
-                    _vm.element.textColor.a +
-                    ")"
-                }
-              },
-              [
-                _vm._v(
-                  "\n            " +
-                    _vm._s(_vm.element.food) +
-                    "\n                                        \n                                                \n        "
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-12" }, [
-          _c(
-            "h6",
-            {
-              style: {
-                fontFamily: _vm.element.fontFamily,
-                opacity: 0.5
-              }
-            },
-            [_vm._v("\n                    Cooks Notes\n                ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "i",
-            {
-              style: {
-                fontFamily: _vm.element.fontFamily,
-                opacity: 0.5
-              }
-            },
-            [
-              _vm._v(
-                "\n                " +
-                  _vm._s(_vm.element.notes) +
-                  "\n                "
-              )
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.elementIsSelected
-        ? _c(
-            "top-bar",
-            [
-              _c("delete-component-button"),
-              _vm._v(" "),
-              _c("recipe-ingredients-button"),
-              _vm._v(" "),
-              _c("margin"),
-              _vm._v(" "),
-              _c("padding"),
-              _vm._v(" "),
-              _c("text-color"),
-              _vm._v(" "),
-              _c("font-family")
-            ],
-            1
-          )
-        : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d6f949a6", module.exports)
-  }
-}
-
-/***/ }),
+/* 347 */,
 /* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -58798,7 +58597,7 @@ var content = __webpack_require__(367);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("6d0e7ff8", content, false, {});
+var update = __webpack_require__(14)("590f6bf7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58822,7 +58621,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.article-card {\r\n    margin-bottom: 10px;\n}\n.article-card:hover {\r\n    cursor: pointer;\r\n    border: 3px solid #38c172;\n}\r\n", ""]);
+exports.push([module.i, "\n.article-card {\n    margin-bottom: 10px;\n}\n.article-card:hover {\n    cursor: pointer;\n    border: 3px solid #38c172;\n}\n", ""]);
 
 // exports
 
@@ -59350,7 +59149,7 @@ var content = __webpack_require__(378);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("ff87c3aa", content, false, {});
+var update = __webpack_require__(14)("390a1ed0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59374,7 +59173,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    border: 1px solid green;\n}\r\n", ""]);
+exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\n    cursor: pointer;\n    background: #38c172;\n    border: 1px solid green;\n}\n", ""]);
 
 // exports
 
@@ -60063,7 +59862,7 @@ var content = __webpack_require__(386);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("38b53ac2", content, false, {});
+var update = __webpack_require__(14)("2baff68c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -83863,6 +83662,237 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 467 */,
+/* 468 */,
+/* 469 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(470);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(14)("6761b757", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d6f949a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeIngredients.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d6f949a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RecipeIngredients.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 470 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(9)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.food-name[data-v-d6f949a6] {\n    padding: 5px 0;\n    color: #666666;\n}\n.cooks-notes-text[data-v-d6f949a6] {\n    color: #666666;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 471 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      class: { "selected-element": _vm.elementIsSelected },
+      style: {
+        marginTop: _vm.element.margin.top + "px",
+        marginRight: _vm.element.margin.right + "px",
+        marginBottom: _vm.element.margin.bottom + "px",
+        marginLeft: _vm.element.margin.left + "px",
+        paddingTop: _vm.element.padding.top + "px",
+        paddingRight: _vm.element.padding.right + "px",
+        paddingBottom: _vm.element.padding.bottom + "px",
+        paddingLeft: _vm.element.padding.left + "px"
+      }
+    },
+    [
+      _c(
+        "b-row",
+        [
+          _c(
+            "b-col",
+            {
+              style: {
+                color:
+                  "rgba(" +
+                  _vm.element.textColor.r +
+                  ", " +
+                  _vm.element.textColor.g +
+                  ", " +
+                  _vm.element.textColor.b +
+                  ", " +
+                  _vm.element.textColor.a +
+                  ")"
+              }
+            },
+            [
+              _c(
+                "h5",
+                {
+                  style: {
+                    borderBottom:
+                      "3px solid rgba(" +
+                      _vm.element.textColor.r +
+                      ", " +
+                      _vm.element.textColor.g +
+                      ", " +
+                      _vm.element.textColor.b +
+                      ", " +
+                      _vm.element.textColor.a +
+                      ")",
+                    fontFamily: _vm.element.fontFamily,
+                    fontSize: "1.5em"
+                  }
+                },
+                [_vm._v("\n                Ingredients\n            ")]
+              ),
+              _vm._v(" "),
+              _vm.element.foods.length === 0
+                ? _c("p", [
+                    _vm._v(
+                      "\n                Please add some ingredients! 🍑 🍔 🥐\n            "
+                    )
+                  ])
+                : _vm._e()
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.element.foods, function(food, index) {
+        return _c(
+          "div",
+          { key: index },
+          [
+            _c(
+              "b-row",
+              [
+                _c("b-col", [
+                  _c("h5", { staticClass: "food-name" }, [
+                    _vm._v(_vm._s(food.name))
+                  ])
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-row",
+              [
+                _c(
+                  "b-col",
+                  [
+                    _c("b-table", {
+                      attrs: {
+                        fields: _vm.fields,
+                        items: food.ingredients,
+                        small: "",
+                        fixed: "",
+                        "thead-class": "hidden-header"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "measurement",
+                          fn: function(data) {
+                            return [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(data.item.amount) +
+                                  _vm._s(data.item.measurement) +
+                                  "\n                    "
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      }),
+      _vm._v(" "),
+      _vm.element.cooksNotes
+        ? _c(
+            "b-row",
+            [
+              _c("b-col", [
+                _c("hr"),
+                _vm._v(" "),
+                _c("h6", { staticClass: "cooks-notes-text" }, [
+                  _vm._v("Cook's Notes")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "cooks-notes-text" }, [
+                  _vm._v(_vm._s(_vm.element.cooksNotes))
+                ])
+              ])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.elementIsSelected
+        ? _c(
+            "top-bar",
+            [
+              _c("delete-component-button"),
+              _vm._v(" "),
+              _c("recipe-ingredients-button"),
+              _vm._v(" "),
+              _c("margin"),
+              _vm._v(" "),
+              _c("padding"),
+              _vm._v(" "),
+              _c("text-color"),
+              _vm._v(" "),
+              _c("font-family")
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d6f949a6", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

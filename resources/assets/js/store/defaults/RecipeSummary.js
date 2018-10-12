@@ -23,5 +23,4 @@ export default {
     	bottom: 0,
     	left: 0,
     },
-
 }

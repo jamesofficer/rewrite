@@ -1,5 +1,5 @@
 <template>
-    <b-row :class="{ 'selected-element': elementIsSelected }" :style="{
+    <div :class="{ 'selected-element': elementIsSelected }" :style="{
         marginTop: element.margin.top + 'px',
         marginRight: element.margin.right + 'px',
         marginBottom: element.margin.bottom + 'px',
@@ -10,76 +10,53 @@
         paddingLeft: element.padding.left + 'px',
     }">
 
-        <div class="row">
-
-            <div class="col-sm-12" :style="{
+        <!-- Ingredients Heading -->
+        <b-row>
+            <b-col :style="{
                 color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
             }">
-
                 <!-- Heading -->
                 <h5 :style="{
-                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
+                    borderBottom: '3px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
                     fontFamily: element.fontFamily,
+                    fontSize: '1.5em',
                 }">
                     Ingredients
                 </h5>
 
-            </div>
+                <p v-if="element.foods.length === 0">
+                    Please add some ingredients! 🍑 🍔 🥐
+                </p>
+            </b-col>
+        </b-row>
 
-<div id="group">
-    <div class="row">
+        <!-- Ingredients Table -->
+        <div v-for="(food, index) in element.foods" :key="index">
+            <b-row>
+                <b-col>
+                    <h5 class="food-name">{{ food.name }}</h5>
+                </b-col>
+            </b-row>
 
-        <div class="col-sm-6" :style="{
-        color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-        }">
-
-        <!-- Column 1 -->
-        {{ element.amount }}
-                                        
+            <b-row>
+                <b-col>
+                    <b-table :fields="fields" :items="food.ingredients" small fixed thead-class="hidden-header">
+                        <template slot="measurement" slot-scope="data">
+                            {{ data.item.amount }}{{ data.item.measurement }}
+                        </template>
+                    </b-table>
+                </b-col>
+            </b-row>
         </div>
 
-        <!-- Column 2 -->
-        <div class="col-sm-6" :style="{
-            color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
-            {{ element.food }}
-                                        
-                                                
-        </div>
-
-    </div>
-
-</div>
-
-
-
-    <div class="col-sm-12">
-                    <!-- Cooks Notes -->
-
-                    <h6 :style="{
-                    fontFamily: element.fontFamily,
-                    opacity: 0.5
-                }">
-                    Cooks Notes
-                </h6>
-
-                <i :style="{
-                    fontFamily: element.fontFamily,
-                    opacity: 0.5
-                }">
-                {{element.notes}}
-                </i>
-
-    </div>
-
-    </div>
-
-
-
-
-
-       
-
+        <!-- Cook Notes -->
+        <b-row v-if="element.cooksNotes">
+            <b-col>
+                <hr>
+                <h6 class="cooks-notes-text">Cook's Notes</h6>
+                <p class="cooks-notes-text">{{ element.cooksNotes }}</p>
+            </b-col>
+        </b-row>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -95,7 +72,8 @@
 
             <font-family></font-family>
         </top-bar>
-    </b-row>
+
+    </div>
 </template>
 
 <script>
@@ -116,8 +94,28 @@ export default {
     mixins: [GetElement],
 
     components: {
-    TopBar, DeleteComponentButton, RecipeIngredientsButton,
-    Margin, Padding, TextColor, FontFamily
-    }
+        TopBar, DeleteComponentButton, RecipeIngredientsButton,
+        Margin, Padding, TextColor, FontFamily
+    },
+
+    data() {
+        return {
+            fields: [
+                'measurement',
+                'name',
+            ],
+        }
+    },
 };
 </script>
+
+<style scoped>
+.food-name {
+    padding: 5px 0;
+    color: #666666;
+}
+
+.cooks-notes-text {
+    color: #666666;
+}
+</style>
