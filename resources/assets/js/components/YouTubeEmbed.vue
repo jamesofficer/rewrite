@@ -71,7 +71,7 @@ export default {
     methods: {
         updateYouTubeUrl() {
 
-            let searchIndex;
+                       let searchIndex;
 
             searchIndex = this.videoUrl.search("youtu.be");
 
@@ -80,7 +80,7 @@ export default {
 
                 searchIndex = this.videoUrl.search("t=");
 
-                    if (searchIndex == -1)
+                   if (searchIndex == -1)
                     {// It doesn't exist (non Timed)
 
                         const urlStart = this.videoUrl.split('.')[0];
@@ -104,7 +104,7 @@ export default {
 
                         const newEnd = urlEnd.split("be/")[1];
 
-                        const newUrl  = part1 + 'be.com/embed/' + newEnd + '?start=' + timeVal;
+                        const newUrl  = urlStart + 'be.com/embed/' + newEnd + '?start=' + timeVal;
 
                         this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
                         
@@ -112,9 +112,8 @@ export default {
                     }
 
             }
-            else{
-
-            
+            else
+            {
 
                 if (this.videoUrl) {
                     const videoId = this.videoUrl.split('/watch?v=', 2)[1];
