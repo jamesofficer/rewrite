@@ -13,7 +13,11 @@ export default {
     type: "Column",
     selected: false,
 
+<<<<<<< HEAD
     components: [defaultHeading, defaultParagraph, defaultHorizontalLine],
+=======
+    components: [defaultHeading, defaultParagraph, defaultRecipeIngredients, defaultYouTubeEmbed],
+>>>>>>> 5be6f4d37f1215e91a95e137365c4b6868f4b341
 
     // Properties:
     columnWidth: 12,

@@ -70,13 +70,68 @@ export default {
 
     methods: {
         updateYouTubeUrl() {
-            if (this.videoUrl) {
-                const videoId = this.videoUrl.split('/watch?v=', 2)[1];
-                const newUrl  = 'https://www.youtube.com/embed/' + videoId;
 
-                this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
+            let searchIndex;
+
+            searchIndex = this.videoUrl.search("youtu.be");
+
+            if (searchIndex != -1)
+            {// It Does (yout.be)
+
+                searchIndex = this.videoUrl.search("t=");
+
+                    if (searchIndex == -1)
+                    {// It doesn't exist (non Timed)
+
+                        const urlStart = this.videoUrl.split('.')[0];
+                        const urlEnd = this.videoUrl.split('.')[1];
+
+                        const newEnd = urlEnd.split("be/")[1];
+
+                        const newUrl  = urlStart + 'be.com/embed/' + newEnd;
+
+                        this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
+
+                    }
+                    else
+                    {// Timed
+
+                    let dotUrl = this.videoUrl.split('?t=')[0];
+                    const timeVal = this.videoUrl.split('?t=')[1];
+
+                        const urlStart = dotUrl.split('.')[0];
+                        const urlEnd = dotUrl.split('.')[1];
+
+                        const newEnd = urlEnd.split("be/")[1];
+
+                        const newUrl  = part1 + 'be.com/embed/' + newEnd + '?start=' + timeVal;
+
+                        this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
+                        
+
+                    }
+
             }
+            else{
+
+            
+
+                if (this.videoUrl) {
+                    const videoId = this.videoUrl.split('/watch?v=', 2)[1];
+                    const newUrl  = 'https://www.youtube.com/embed/' + videoId;
+
+                    this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
+                }
+            
+            }
+        
+        
+
+
+            
+            
         }
+        
     },
 }
 </script>
