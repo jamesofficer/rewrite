@@ -56925,7 +56925,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.contentPreparation;
             },
             set: function set(amount) {
-                this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: amount });
+
+                if (amount > 59) {
+
+                    var hours = 0;
+
+                    while (amount > 59) {
+
+                        amount = amount - 60;
+                        hours++;
+                    }
+
+                    var total = void 0;
+
+                    if (amount == 0) // Complete Hours
+                        {
+
+                            total = hours + ' hr';
+
+                            this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                        } else // Hour + Min
+                        {
+                            total = hours + ' hr ' + amount;
+
+                            this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                        }
+                } else {
+                    this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: amount });
+                }
             }
         },
 
@@ -56934,7 +56961,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getCurrentElement.contentCooking;
             },
             set: function set(amount) {
-                this.$store.commit('setComponentProperty', { property: 'contentCooking', value: amount });
+
+                if (amount > 59) {
+
+                    var hours = 0;
+
+                    while (amount > 59) {
+
+                        amount = amount - 60;
+                        hours++;
+                    }
+
+                    var total = void 0;
+
+                    if (amount == 0) // Complete Hours
+                        {
+
+                            total = hours + ' hr';
+
+                            this.$store.commit('setComponentProperty', { property: 'contentCooking', value: total });
+                        } else // Hour + Min
+                        {
+                            total = hours + ' hr ' + amount;
+
+                            this.$store.commit('setComponentProperty', { property: 'contentCooking', value: total });
+                        }
+                } else {
+                    this.$store.commit('setComponentProperty', { property: 'contentCooking', value: amount });
+                }
             }
         },
 
