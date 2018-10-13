@@ -10,6 +10,7 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
+- Have the "Add Component" button permamently visible, and remember last selected column.
 - Add login/register tabs on homepage.
 - Undo/Redo lol.
 - Have a preloaded "Tutorial" article.

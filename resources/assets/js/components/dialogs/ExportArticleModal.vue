@@ -24,9 +24,9 @@
 export default {
     name: "ExportArticleModal",
 
-    props: {
-        articleHtml: {
-            type: String,
+    computed: {
+        articleHtml() {
+            return this.$store.getters.articleHtml;
         }
     },
 

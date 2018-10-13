@@ -4,11 +4,11 @@
                     variant="outline-success"
                     icon="columns"
                     label="Add Column"
-                    tooltip="Add Column to Canvas (max 4)"
+                    tooltip="Add Column to Canvas"
     ></top-bar-control>
 
     <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
-    <div v-else v-b-tooltip.hover title="Column limit reached or there is not enough space for a new one.">
+    <div v-else v-b-tooltip.hover title="Can't add column as there is not enough room.">
         <top-bar-control variant="outline-danger"
                      icon="columns"
                      label="Add Column"

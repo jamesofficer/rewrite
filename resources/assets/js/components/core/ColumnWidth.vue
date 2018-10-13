@@ -1,6 +1,6 @@
 <template>
-    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm">
-        <option v-for="width in widths" :value="width.value" :disabled="checkColumnWidth(width.value)">
+    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm" title="Column Width">
+        <option v-for="(width, index) in widths" :value="width.value" :disabled="checkColumnWidth(width.value)" :key="index">
             {{ width.text }}
         </option>
     </b-form-select>
@@ -10,22 +10,51 @@
 export default {
     name: "ColumnWidth",
 
+    computed: {
+        selectedWidth: {
+            get() {
+                return this.$store.getters.getCurrentElement.columnWidth;
+            },
+            set(width) {
+                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
+            }
+        }
+    },
+
     data() {
         return {
-            selectedWidth: 6,
-
             widths: [
                 {
                     text: 'Full Width',
                     value: 12,
                 },
                 {
+                    text: '11',
+                    value: 11,
+                },
+                {
+                    text: '10',
+                    value: 10,
+                },
+                {
                     text: 'Three Quarters',
                     value: 9,
                 },
                 {
-                    text: 'One Half',
+                    text: 'Two Thirds',
+                    value: 8,
+                },
+                {
+                    text: '7',
+                    value: 7,
+                },
+                {
+                    text: 'Half',
                     value: 6,
+                },
+                {
+                    text: '5',
+                    value: 5,
                 },
                 {
                     text: 'One Third',
@@ -34,6 +63,14 @@ export default {
                 {
                     text: 'One Quarter',
                     value: 3,
+                },
+                {
+                    text: '2',
+                    value: 2,
+                },
+                {
+                    text: 'Single Column',
+                    value: 1,
                 },
             ]
         }

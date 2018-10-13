@@ -1,33 +1,36 @@
+import defaults from "./defaults/_defaults";
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
-import defaultCanvas         from "./defaults/Canvas";
-import defaultColumn         from "./defaults/Column";
-import defaultHeading        from "./defaults/Heading";
-import defaultParagraph      from "./defaults/Paragraph";
-import defaultBlockQuote     from "./defaults/BlockQuote";
-import defaultPicture        from "./defaults/Picture";
-import defaultHorizontalLine from "./defaults/HorizontalLine";
-import defaultInstagram      from "./defaults/InstagramEmbed";
-import defaultFacebook       from "./defaults/FacebookEmbed";
-import defaultYouTube        from "./defaults/YouTubeEmbed";
-import defaultRecipeSummary  from "./defaults/RecipeSummary";
-import defaultRecipeIngredients  from "./defaults/RecipeIngredients";
 
-// Adds another Canvas to the Workspace.
-export const addCanvas = state => state.canvases.push(duplicateObject(defaultCanvas));
+/**
+ * Adds another Canvas to the Workspace.
+ * 
+ */
+export const addCanvas = state => {
+    state.canvases.push(duplicateObject(defaults.canvas));
+}
 
-// Deletes the selected Canvas
+/**
+ * Deletes the selected Canvas
+ * 
+ */
 export const removeCanvas = state => {
     state.canvases.splice(state.currentCanvas, 1);
     state.currentCanvas = undefined;
 };
 
-// Deletes a component from a column.
+/**
+ * Deletes a component from a column.
+ * 
+ */
 export const deleteComponent = (state) => {
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
     state.currentComponent = undefined;
 };
 
-// Moves a component UP in a column.
+/**
+ * Moves a component UP in a column.
+ * 
+ */
 export const moveComponentUp = state => {
     const currentComponentPos = state.currentComponent;
 
@@ -46,7 +49,10 @@ export const moveComponentUp = state => {
     state.currentComponent = currentComponentPos - 1;
 };
 
-// Moves a component DOWN in a column.
+/**
+ * Moves a component DOWN in a column.
+ * 
+ */
 export const moveComponentDown = state => {
     const currentComponentPos = state.currentComponent;
 
@@ -65,34 +71,55 @@ export const moveComponentDown = state => {
     state.currentComponent = currentComponentPos + 1;
 };
 
-// Used to set CSS properties on components.
-export const setComponentProperty = (state, component) =>
+/**
+ * Used to set CSS properties on components.
+ * 
+ */
+export const setComponentProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state), component.property, component.value);
+}
 
-// Some Components like Margin and Padding have a subproperty we may need to set.
-export const setComponentSubProperty = (state, component) =>
+/**
+ * Some Components like Margin and Padding have a subproperty we may need to set.
+ * 
+ */
+export const setComponentSubProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
+}
 
-// Sets the status of the "Add Component" Modal window.
-export const toggleAddComponentModal = (state, toggle) =>
+/**
+ * Sets the status of the "Add Component" Modal window.
+ * 
+ */
+export const toggleAddComponentModal = (state, toggle) => {
     state.showAddComponentModal = toggle;
+}
 
-// Adds another column to the specified canvas.
+/**
+ * Adds another column to the specified canvas.
+ * 
+ */
 export const addColumnToCanvas = (state, columnWidth) => {
-    let newColumn = duplicateObject(defaultColumn);
+    let newColumn = duplicateObject(defaults.column);
 
     newColumn.columnWidth = columnWidth;
 
     state.canvases[state.currentCanvas].columns.push(newColumn);
 };
 
-// Removes a column from the specified canvas. We deselect it first to prevent errors.
+/**
+ * Removes a column from the specified canvas. We deselect it first to prevent errors.
+ * 
+ */
 export const removeColumnFromCanvas = state => {
     state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
     state.currentColumn = undefined;
 };
 
-// Sets the currently selected component to whatever the user clicked on.
+/**
+ * Sets the currently selected component to whatever the user clicked on.
+ * 
+ */
 export const selectCanvas = (state, canvasIndex) => {
     deselectCurrentElement(state);
 
@@ -103,6 +130,10 @@ export const selectCanvas = (state, canvasIndex) => {
     getSelectedElement(state).selected = true;
 };
 
+/**
+ * Sets the currently selected column to the one that the user clicked on.
+ * 
+ */
 export const selectColumn = (state, i) => {
     deselectCurrentElement(state);
 
@@ -113,7 +144,10 @@ export const selectColumn = (state, i) => {
     getSelectedElement(state).selected = true;
 };
 
-// Sets the currently selected component to whatever the user clicked on.
+/**
+ * Sets the currently selected component to whatever the user clicked on.
+ * 
+ */
 export const selectComponent = (state, i) => {
     deselectCurrentElement(state);
 
@@ -124,34 +158,69 @@ export const selectComponent = (state, i) => {
     getSelectedElement(state).selected = true;
 };
 
-// Adds a component to the specified column.
+/**
+ * Adds a component to the specified column.
+ * 
+ */
 export const addComponentToColumn = (state, componentType) => {
     const components = {
-        "Heading": duplicateObject(defaultHeading),
-        "Paragraph": duplicateObject(defaultParagraph),
-        "BlockQuote": duplicateObject(defaultBlockQuote),
-        "Picture": duplicateObject(defaultPicture),
-        "HorizontalLine": duplicateObject(defaultHorizontalLine),
-        "InstagramEmbed": duplicateObject(defaultInstagram),
-        "FacebookEmbed": duplicateObject(defaultFacebook),
-        "YouTubeEmbed": duplicateObject(defaultYouTube),
-        "RecipeSummary": duplicateObject(defaultRecipeSummary),
-        "RecipeIngredients": duplicateObject(defaultRecipeIngredients),
+        "Heading": duplicateObject(defaults.heading),
+        "Paragraph": duplicateObject(defaults.paragraph),
+        "BlockQuote": duplicateObject(defaults.blockQuote),
+        "Picture": duplicateObject(defaults.picture),
+        "HorizontalLine": duplicateObject(defaults.horizontalLine),
+        "InstagramEmbed": duplicateObject(defaults.instagram),
+        "FacebookEmbed": duplicateObject(defaults.facebook),
+        "YouTubeEmbed": duplicateObject(defaults.youtube),
+        "RecipeSummary": duplicateObject(defaults.recipeSummary),
+        "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
     state.canvases[state.currentCanvas].columns[state.currentColumn].components
             .push(components[componentType]);
 };
 
-// Sets the title of the article.
-export const updateArticleTitle = (state, title) =>
+/**
+ * Sets the articleHtml variable in state, to whatever is in the main workspace.
+ * 
+ */
+export const setArticleHtml = (state, html) => {
+    const newHtml = this.appendImageUrlsToHtml(html);
+
+    window.Vue.set(state, "articleHtml", newHtml);
+} 
+
+/**
+ * When previewing an article, we need to append the hostname to the url for images to display properly.
+ * 
+ */
+export const appendImageUrlsToHtml = (html) => {
+    const regex  = /(\/storage\/user-images)/g;
+    const subst  = 'https://' + window.location.hostname + `\$1`;
+
+    return html.replace(regex, subst);
+}
+
+/**
+ * Sets the title of the article.
+ * 
+ */
+export const updateArticleTitle = (state, title) => {
     window.Vue.set(state, "articleTitle", title);
+}
 
-// Selects an Image from the Image Gallery and sets it for the current image component.
-export const selectImage = (state, image) =>
+/**
+ * Selects an Image from the Image Gallery and sets it for the current image component.
+ * 
+ */
+export const selectImage = (state, image) => {
     window.Vue.set(getSelectedElement(state), "src", image.url);
+}
 
-// Loads an existing article (updates the canvases).
+/**
+ * Loads an existing article (updates the canvases).
+ * 
+ */
 export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));

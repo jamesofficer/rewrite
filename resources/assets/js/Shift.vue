@@ -58,41 +58,7 @@
                 <!-- Menu -->
                 <b-col :cols="2" class="text-right">
                     <!-- Dropdown Menu -->
-                    <b-dropdown variant="success" size="sm" right>
-                        <template slot="button-content">
-                            <icon name="bars"></icon> Menu
-                        </template>
-
-                        <b-dropdown-item @click="addCanvas">
-                            <icon name="palette"></icon> &nbsp; Add Canvas
-                        </b-dropdown-item>
-
-                        <b-dropdown-divider></b-dropdown-divider>
-
-                        <b-dropdown-item v-b-modal.myImagesModal>
-                            <icon name="images"></icon> &nbsp; My Images
-                        </b-dropdown-item>
-
-                        <b-dropdown-divider></b-dropdown-divider>
-
-                        <b-dropdown-item @click="saveArticle">
-                            <icon name="save"></icon> &nbsp; Save Article
-                        </b-dropdown-item>
-
-                        <b-dropdown-item v-b-modal.loadArticleModal>
-                            <icon name="folder-open"></icon> &nbsp; Load Article
-                        </b-dropdown-item>
-
-                        <b-dropdown-divider></b-dropdown-divider>
-
-                        <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
-                            <icon name="eye"></icon> &nbsp; Preview Article
-                        </b-dropdown-item>
-
-                        <b-dropdown-item variant="warning" @click="showExportArticleModal">
-                            <icon name="file-export"></icon> &nbsp; Export Article
-                        </b-dropdown-item>
-                    </b-dropdown>
+                    <shift-menu></shift-menu>
                 </b-col>
             </b-row>
         </b-container>
@@ -133,7 +99,7 @@
             <image-gallery-modal></image-gallery-modal>
 
             <!-- Export Article Modal -->
-            <export-article-modal ref="exportArticleModal" :articleHtml="articleHtml"></export-article-modal>
+            <export-article-modal ref="exportArticleModal"></export-article-modal>
 
             <!-- Recipe Ingredients Modal -->
             <recipe-ingredients-modal></recipe-ingredients-modal>
@@ -142,8 +108,9 @@
 </template>
 
 <script>
-import ShiftArticle           from "./components/ShiftArticle";
+import ShiftMenu              from "./components/ShiftMenu";
 import Canvas                 from "./components/Canvas";
+import ShiftArticle           from "./components/ShiftArticle";
 import AddComponentModal      from './components/dialogs/AddComponentModal';
 import EditTextModal          from './components/dialogs/EditTextModal';
 import LoadArticleModal       from './components/dialogs/LoadArticleModal';
@@ -156,7 +123,7 @@ export default {
     name: "Shift",
 
     components: {
-        ShiftArticle, Canvas,
+        ShiftMenu, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
     },
@@ -182,7 +149,6 @@ export default {
         return {
             show: false,
 
-            articleHtml: null,
             settingArticleTitle: false,
             showArticleOverwriteAlert: false,
 
@@ -208,10 +174,6 @@ export default {
             });
         },
 
-        addCanvas() {
-            this.$store.commit('addCanvas');
-        },
-
         selectCanvas(canvasIndex) {
             this.$store.commit('selectCanvas', canvasIndex);
         },
@@ -229,26 +191,6 @@ export default {
                 title: title,
             }).then(response => {
                 return response.data;
-            });
-        },
-
-        saveArticle() {
-            const title = this.$store.getters.articleTitle;
-
-            // Don't let users save an article that doesn't have a title.
-            if (title === null || title === undefined) {
-                window.scrollTo(0, 0);
-                this.setSessionAlert('You must give your article a title first.', 'danger');
-
-                return;
-            }
-
-            this.checkArticleExistsWhenSaving(title).then((response) => {
-                if (response === true) {
-                    this.showArticleOverwriteAlert = true;
-                } else {
-                    this.storeArticle(false);
-                }
             });
         },
 
@@ -270,45 +212,6 @@ export default {
 
             window.scrollTo(0, 0);
             this.showArticleOverwriteAlert = false;
-        },
-
-        getArticleHtml() {
-            this.articleHtml = this.$refs.shiftArticle.$el.innerHTML;
-        },
-
-        showExportArticleModal() {
-            this.getArticleHtml();
-            this.$refs.exportArticleModal.$children[0].show();
-        },
-
-        previewArticleInNewWindow() {
-            this.getArticleHtml();
-
-            this.appendUrlToImages();
-
-            const newWindow = window.open('', "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+(800)+",left="+(600));
-            const normalize = document.createElement("link");
-            const bootstrap = document.createElement("link");
-
-            normalize.setAttribute("href", "https://unpkg.com/normalize.css@8.0.0/normalize.css");
-            normalize.setAttribute("rel", "stylesheet");
-
-            bootstrap.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
-            bootstrap.setAttribute("rel", "stylesheet");
-
-            newWindow.document.head.appendChild(normalize);
-            newWindow.document.head.appendChild(bootstrap);
-            newWindow.document.body.innerHTML = this.articleHtml;
-        },
-
-        /**
-         * When previewing an article, we need to append the hostname to the url for the image to display properly.
-         */
-        appendUrlToImages() {
-            const regex  = /(\/storage\/user-images)/g;
-            const subst  = 'https://' + window.location.hostname + `\$1`;
-
-            this.articleHtml = this.articleHtml.replace(regex, subst);
         },
 
         stickTopBarToWindow() {
