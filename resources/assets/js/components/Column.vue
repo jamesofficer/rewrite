@@ -22,6 +22,8 @@
 
             <remove-column></remove-column>
 
+            <move-column></move-column>
+
             <background-color></background-color>
 
             <column-width></column-width>
@@ -35,6 +37,7 @@ import { mapGetters }      from 'vuex'
 import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
 import RemoveColumn        from './topbar/RemoveColumn'
+import MoveColumn          from './topbar/MoveColumn'
 
 import Heading             from './Heading'
 import Paragraph           from './Paragraph'
@@ -55,7 +58,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, RemoveColumn,
+        TopBar, AddComponentButton, RemoveColumn, MoveColumn,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,

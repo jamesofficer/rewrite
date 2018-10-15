@@ -17,6 +17,8 @@ import "vue-awesome/icons/plus-circle";
 import "vue-awesome/icons/trash-alt";
 import "vue-awesome/icons/arrow-up";
 import "vue-awesome/icons/arrow-down";
+import "vue-awesome/icons/arrow-left";
+import "vue-awesome/icons/arrow-right";
 import "vue-awesome/icons/eye";
 import "vue-awesome/icons/save";
 import "vue-awesome/icons/folder-open";

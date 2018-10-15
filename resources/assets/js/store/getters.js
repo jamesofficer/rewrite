@@ -37,6 +37,26 @@ export const totalColumnWidth = state => {
 }
 
 /**
+ * Returns true if there is another column to the left of this one i.e: we can move it left.
+ * 
+ */
+export const canMoveColumnLeft = state => {
+    if (state.currentColumn !== undefined) {
+        return state.currentColumn > 0;
+    }
+}
+
+/**
+ * Returns true if there is another column to the right of this one i.e: we can move it right.
+ * 
+ */
+export const canMoveColumnRight = state => {
+    if (state.currentCanvas !== undefined) {
+        return (state.canvases[state.currentCanvas].columns.length > 1) && (state.currentColumn < (state.canvases[state.currentCanvas].columns.length + 1));
+    }
+}
+
+/**
  * Returns the list of Components for this particular canvas.
  */
 export const getComponentsForColumn = state => i => {

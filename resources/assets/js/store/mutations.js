@@ -22,10 +22,23 @@ export const removeCanvas = state => {
  * Deletes a component from a column.
  * 
  */
-export const deleteComponent = (state) => {
+export const deleteComponent = state => {
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
     state.currentComponent = undefined;
 };
+
+/**
+ * Moves a Column left within a Canvas.
+ * 
+ */
+export const moveColumnLeft = state => {
+    const currentColumnPos = state.currentColumn;
+
+    if (currentComponentPos === 0) {
+        return;
+    }
+
+}
 
 /**
  * Moves a component UP in a column.

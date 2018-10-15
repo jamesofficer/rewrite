@@ -2,10 +2,9 @@ NEW COMPONENTS:
 - Other Social Media Components (Pintrest, Twitter)
 
 BUGS:
-- Column width selection a little buggy.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
-- Articles titled 'untilted article' should not be saved.
+- Articles titled 'untitled article' should not be saved.
 - Place max file size on image uploads.
 - Instagram Component is fussy.
 
@@ -16,7 +15,6 @@ FEATURES:
 - Have a preloaded "Tutorial" article.
 - "Copy Style" button.
 - Implement loading bar when uploading images.
-- Add tabs to Add Component Modal window.
 - Saving an article with a new name should ask to overwrite the old one.
 - Users can drag and rearrange columns?
 - Users can rearrange canvas positions.
