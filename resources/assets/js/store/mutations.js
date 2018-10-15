@@ -32,12 +32,37 @@ export const deleteComponent = state => {
  * 
  */
 export const moveColumnLeft = state => {
-    const currentColumnPos = state.currentColumn;
+    if (state.currentColumn !== 0) {
+        // Get the current column and the one to the left of it.
+        const thisColumn   = state.canvases[state.currentCanvas].columns[state.currentColumn];
+        const columnToLeft = state.canvases[state.currentCanvas].columns[state.currentColumn - 1];
 
-    if (currentComponentPos === 0) {
-        return;
+        // Now we can swap them around.
+        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn], columnToLeft);
+        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn - 1], thisColumn);
+
+        // Reselect the moved element:
+        state.currentColumn = state.currentColumn - 1;
     }
+}
 
+/**
+ * Moves a Column right within a Canvas.
+ *
+ */
+export const moveColumnRight = state => {
+    if (state.currentColumn !== (state.canvases[state.currentCanvas].columns.length - 1)) {
+        // Get the current column and the one to the right of it.
+        const thisColumn   = state.canvases[state.currentCanvas].columns[state.currentColumn];
+        const columnToLeft = state.canvases[state.currentCanvas].columns[state.currentColumn + 1];
+
+        // Now we can swap them around.
+        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn], columnToLeft);
+        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn + 1], thisColumn);
+
+        // Reselect the moved element:
+        state.currentColumn = state.currentColumn + 1;
+    }
 }
 
 /**
@@ -198,9 +223,10 @@ export const addComponentToColumn = (state, componentType) => {
  * 
  */
 export const setArticleHtml = (state, html) => {
-    const newHtml = this.appendImageUrlsToHtml(html);
+    html = this.appendImageUrlsToHtml(html);
+    html = this.cleanHtml(html);
 
-    window.Vue.set(state, "articleHtml", newHtml);
+    window.Vue.set(state, "articleHtml", html);
 } 
 
 /**
@@ -212,6 +238,21 @@ export const appendImageUrlsToHtml = (html) => {
     const subst  = 'https://' + window.location.hostname + `\$1`;
 
     return html.replace(regex, subst);
+}
+
+/**
+ * When getting an articles html, we want to strip out unnecessary text such as Vue's
+ * 'data-v' properties, and any comments in the html (in the form of "<!-- -->");
+ *
+ */
+export const cleanHtml = (html) => {
+    const matchDataVText = /(data-v-\w*=""\s)/g;
+    const matchComments  = /(<!-*>)/g;
+
+    html = html.replace(matchDataVText, "");
+    html = html.replace(matchComments, "");
+
+    return html;
 }
 
 /**

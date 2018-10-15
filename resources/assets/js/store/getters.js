@@ -51,8 +51,8 @@ export const canMoveColumnLeft = state => {
  * 
  */
 export const canMoveColumnRight = state => {
-    if (state.currentCanvas !== undefined) {
-        return (state.canvases[state.currentCanvas].columns.length > 1) && (state.currentColumn < (state.canvases[state.currentCanvas].columns.length + 1));
+    if (state.currentColumn !== undefined) {
+        return state.currentColumn !== (state.canvases[state.currentCanvas].columns.length - 1);
     }
 }
 

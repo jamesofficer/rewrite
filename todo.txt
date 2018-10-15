@@ -9,18 +9,17 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
-- Have the "Add Component" button permamently visible, and remember last selected column.
-- Add login/register tabs on homepage.
-- Undo/Redo lol.
-- Have a preloaded "Tutorial" article.
+- Users can rearrange canvas positions.
 - "Copy Style" button.
+- Undo/Redo lol.
+- Have the "Add Component" button permanently visible, and remember last selected column.
+- Add more fonts. Download via Google Fonts, and hard code them in for now.
+- Add login/register tabs on homepage.
+- Have a pre-loaded "Tutorial" article.
 - Implement loading bar when uploading images.
 - Saving an article with a new name should ask to overwrite the old one.
-- Users can drag and rearrange columns?
-- Users can rearrange canvas positions.
-- Clean up HTML export with Regex.
 - Let users delete articles.
 - Let users delete images.
-- Add more fonts. Download via Google Fonts, and hard code them in for now.
 - Move article saving methods to actions.
 - Improve backend validation and error output.
+- Users can drag and rearrange columns?
