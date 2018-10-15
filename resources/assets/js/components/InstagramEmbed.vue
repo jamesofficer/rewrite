@@ -14,9 +14,9 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
-            <move-component-up></move-component-up>
+            <move-component></move-component>
 
-            <move-component-down></move-component-down>
+
 
             <b-input size="sm" v-model="instagramUrl" @blur.native="updateInstagramUrl" placeholder="Paste Instagram url here..."
                     class="top-bar-control" v-b-tooltip.hover title="Instagram URL"></b-input>

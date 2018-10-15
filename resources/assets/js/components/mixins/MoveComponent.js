@@ -1,8 +1,7 @@
-import MoveComponentUp   from '../topbar/MoveComponentUp'
-import MoveComponentDown from '../topbar/MoveComponentDown'
+import MoveComponent   from '../topbar/MoveComponent'
 
 export default {
     components: {
-        MoveComponentUp, MoveComponentDown,
+        MoveComponent,
     }
 }

@@ -18,9 +18,9 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
-            <move-component-up></move-component-up>
+            <move-component></move-component>
 
-            <move-component-down></move-component-down>
+
 
             <image-selector></image-selector>
 

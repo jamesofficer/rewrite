@@ -28,6 +28,43 @@ export const deleteComponent = state => {
 };
 
 /**
+ * Moves a Canvas UP the workspace.
+ *
+ */
+export const moveCanvasUp = state => {
+    if (state.currentCanvas !== 0) {
+        const canvasAbove = state.canvases[state.currentCanvas - 1];
+        const thisCanvas  = state.canvases[state.currentCanvas];
+
+        // Swap positions around:
+        window.Vue.set(state.canvases, [state.currentCanvas - 1], thisCanvas);
+        window.Vue.set(state.canvases, [state.currentCanvas], canvasAbove);
+
+        // Reselect the moved element:
+        state.currentCanvas = state.currentCanvas - 1;
+    }
+};
+
+/**
+ * Moves a Canvas DOWN the workspace.
+ *
+ */
+export const moveCanvasDown = state => {
+    if (state.currentCanvas !== (state.canvases.length - 1)) {
+        const canvasBelow = state.canvases[state.currentCanvas + 1];
+        const thisCanvas  = state.canvases[state.currentCanvas];
+
+        // Swap positions around:
+        window.Vue.set(state.canvases, [state.currentCanvas + 1], thisCanvas);
+        window.Vue.set(state.canvases, [state.currentCanvas], canvasBelow);
+
+        // Reselect the moved element:
+        state.currentCanvas = state.currentCanvas + 1;
+    }
+};
+
+
+/**
  * Moves a Column left within a Canvas.
  * 
  */
@@ -70,21 +107,17 @@ export const moveColumnRight = state => {
  * 
  */
 export const moveComponentUp = state => {
-    const currentComponentPos = state.currentComponent;
+    if (state.currentComponent !== 0) {
+        const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
+        const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent - 1];
 
-    if (currentComponentPos === 0) {
-        return;
+        // Swap positions around:
+        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent - 1], thisComponent);
+        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent], componentAbove);
+
+        // Reselect the moved element:
+        state.currentComponent = state.currentComponent - 1;
     }
-
-    // Swap positions around:
-    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos - 1];
-    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
-
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos - 1], thisComponent);
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
-
-    // Reselect the moved element:
-    state.currentComponent = currentComponentPos - 1;
 };
 
 /**
@@ -92,21 +125,17 @@ export const moveComponentUp = state => {
  * 
  */
 export const moveComponentDown = state => {
-    const currentComponentPos = state.currentComponent;
+    if (state.currentComponent !== (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
+        const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
+        const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent + 1];
 
-    if (currentComponentPos === (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
-        return;
+        // Swap positions around:
+        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent + 1], thisComponent);
+        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent], componentAbove);
+
+        // Reselect the moved element:
+        state.currentComponent = state.currentComponent + 1;
     }
-
-    // Swap positions around:
-    const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos + 1];
-    const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[currentComponentPos];
-
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos + 1], thisComponent);
-    window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [currentComponentPos], componentAbove);
-
-    // Reselect the moved element:
-    state.currentComponent = currentComponentPos + 1;
 };
 
 /**

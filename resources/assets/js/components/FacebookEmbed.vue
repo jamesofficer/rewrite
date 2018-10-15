@@ -14,9 +14,9 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
-            <move-component-up></move-component-up>
+            <move-component></move-component>
 
-            <move-component-down></move-component-down>
+
 
             <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook url here..."
                     class="top-bar-control" v-b-tooltip.hover title="Facebook URL"></b-input>

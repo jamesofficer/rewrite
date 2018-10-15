@@ -18,9 +18,9 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
-            <move-component-up></move-component-up>
+            <move-component></move-component>
 
-            <move-component-down></move-component-down>
+
 
             <b-input size="sm" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste video url here..."
                     class="top-bar-control" v-b-tooltip.hover title="YouTube Video URL"></b-input>

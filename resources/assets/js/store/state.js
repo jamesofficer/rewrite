@@ -7,6 +7,7 @@ export default {
 
     canvases: [
         duplicateObject(defaultCanvas),
+        duplicateObject(defaultCanvas),
     ],
 
     currentCanvas: undefined,

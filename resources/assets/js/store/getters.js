@@ -37,7 +37,27 @@ export const totalColumnWidth = state => {
 }
 
 /**
- * Returns true if there is another column to the left of this one i.e: we can move it left.
+ * Returns true if there is a Canvas above this one.
+ *
+ */
+export const canMoveCanvasUp = state => {
+    if (state.currentCanvas !== undefined) {
+        return state.currentCanvas > 0;
+    }
+}
+
+/**
+ * Returns true if there is a component below this one.
+ *
+ */
+export const canMoveCanvasDown = state => {
+    if (state.currentCanvas !== undefined) {
+        return state.currentCanvas !== (state.canvases.length - 1);
+    }
+}
+
+/**
+ * Returns true if there is another column to the left of this one.
  * 
  */
 export const canMoveColumnLeft = state => {
@@ -48,11 +68,33 @@ export const canMoveColumnLeft = state => {
 
 /**
  * Returns true if there is another column to the right of this one i.e: we can move it right.
- * 
+ *
  */
 export const canMoveColumnRight = state => {
     if (state.currentColumn !== undefined) {
         return state.currentColumn !== (state.canvases[state.currentCanvas].columns.length - 1);
+    }
+}
+
+/**
+ * Returns true if there is a component above this one.
+ *
+ */
+export const canMoveComponentUp = state => {
+    if (state.currentComponent !== undefined) {
+        return state.currentComponent !== 0;
+    }
+}
+
+/**
+ * Returns true if there is a component below this one.
+ *
+ */
+export const canMoveComponentDown = state => {
+    if (state.currentComponent !== undefined) {
+        const numComponents = state.canvases[state.currentCanvas].columns[state.currentColumn].components.length;
+
+        return state.currentComponent < (numComponents - 1);
     }
 }
 

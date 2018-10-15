@@ -20,6 +20,8 @@
         <top-bar v-if="elementIsSelected">
             <remove-canvas></remove-canvas>
 
+            <move-canvas></move-canvas>
+
             <add-column></add-column>
 
             <padding></padding>
@@ -43,6 +45,7 @@ import { mapGetters }    from 'vuex'
 import Column            from './Column'
 import TopBar            from './topbar/TopBar'
 import RemoveCanvas      from './topbar/RemoveCanvas'
+import MoveCanvas        from './topbar/MoveCanvas'
 import AddColumn         from './topbar/AddColumn'
 import ClearImage        from './topbar/ClearImage'
 import BackgroundSize    from './topbar/BackgroundSize'
@@ -55,7 +58,7 @@ export default {
     name: "Canvas",
 
     components: {
-        Column, TopBar, RemoveCanvas, AddColumn, ClearImage, BackgroundSize,
+        Column, TopBar, RemoveCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
         Padding, BackgroundColor, ImageSelector,
     },
 
