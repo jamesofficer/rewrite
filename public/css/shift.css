@@ -117,3 +117,7 @@ button,
   display: none;
 }
 
+.top-bar-number-input {
+  max-width: 100px;
+}
+

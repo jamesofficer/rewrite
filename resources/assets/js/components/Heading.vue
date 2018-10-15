@@ -36,6 +36,8 @@
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
 
+            <clone-component></clone-component>
+
             <move-component></move-component>
 
             <margin></margin>
@@ -65,6 +67,7 @@ import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
+import CloneComponent    from './topbar/CloneComponent'
 
 import TextInput         from './core/TextInput'
 import Margin            from './core/Margin'
@@ -83,7 +86,7 @@ export default {
     mixins: [GetElement, MoveComponent],
 
     components: {
-        TopBar, DeleteComponentButton,
+        TopBar, DeleteComponentButton, CloneComponent,
         TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, Padding, Margin, Border,
     },
 

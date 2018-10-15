@@ -1,5 +1,5 @@
 <template>
-    <b-form-input size="sm" type="number" v-model="fontSize" :min="10" :max="64" v-b-tooltip.hover title="Font Size" class="top-bar-control"></b-form-input>
+    <b-form-input size="sm" type="number" v-model="fontSize" :min="10" :max="64" v-b-tooltip.hover title="Font Size" class="top-bar-control top-bar-number-input"></b-form-input>
 </template>
 
 <script>

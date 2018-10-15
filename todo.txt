@@ -1,5 +1,5 @@
 NEW COMPONENTS:
-- Other Social Media Components (Pintrest, Twitter)
+- Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
 - Say "no images found" when you select an image but have uploaded none.
@@ -9,7 +9,7 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
-- Users can rearrange canvas positions.
+- Combine Delete+Clone+Move Component buttons (make new component).
 - "Copy Style" button.
 - Undo/Redo lol.
 - Have the "Add Component" button permanently visible, and remember last selected column.

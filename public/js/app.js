@@ -22940,7 +22940,7 @@ module.exports = Component.exports
     type: "Canvas",
     selected: false,
 
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
+    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
 
     // Properties:
     src: undefined,
@@ -22987,13 +22987,21 @@ module.exports = Component.exports
     components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
 
     // Properties:
-    columnWidth: 6,
+    columnWidth: 12,
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     padding: {
         top: 20,
         right: 20,
         bottom: 20,
         left: 20
+    },
+    border: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        style: 'solid',
+        color: { r: 0, g: 0, b: 0, a: 1 }
     }
 });
 
@@ -46635,6 +46643,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_Border__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__core_Border__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -46670,6 +46680,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -46701,7 +46717,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         Heading: __WEBPACK_IMPORTED_MODULE_5__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_6__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_7__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_8__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_9__HorizontalLine___default.a,
         InstagramEmbed: __WEBPACK_IMPORTED_MODULE_10__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_11__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed___default.a,
         RecipeSummary: __WEBPACK_IMPORTED_MODULE_13__RecipeSummary___default.a, RecipeIngredients: __WEBPACK_IMPORTED_MODULE_14__RecipeIngredients___default.a,
-        ColumnWidth: __WEBPACK_IMPORTED_MODULE_15__core_ColumnWidth___default.a, Padding: __WEBPACK_IMPORTED_MODULE_16__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default.a
+        ColumnWidth: __WEBPACK_IMPORTED_MODULE_15__core_ColumnWidth___default.a, Padding: __WEBPACK_IMPORTED_MODULE_16__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default.a, Border: __WEBPACK_IMPORTED_MODULE_18__core_Border___default.a
     },
 
     props: {
@@ -47869,26 +47885,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteComponentButton__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteComponentButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextInput__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Border__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_LineHeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneComponent__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_CloneComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Margin__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Border__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontFamily__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontWeight__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontSize__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LineHeight__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_LineHeight__);
 //
 //
 //
@@ -47950,6 +47968,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -47974,8 +47995,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__mixins_MoveComponent__["a" /* default */]],
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_4__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_8__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a
+        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteComponentButton___default.a, CloneComponent: __WEBPACK_IMPORTED_MODULE_4__topbar_CloneComponent___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_5__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_11__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_14__core_LineHeight___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_12__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_13__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a, Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_6__core_Margin___default.a, Border: __WEBPACK_IMPORTED_MODULE_8__core_Border___default.a
     },
 
     data: function data() {
@@ -48106,7 +48127,7 @@ var render = function() {
           variant: "outline-primary",
           icon: "arrow-up",
           tooltip: "Move Up",
-          disabled: _vm.canMoveDown
+          disabled: !_vm.canMoveUp
         },
         nativeOn: {
           click: function($event) {
@@ -48120,7 +48141,7 @@ var render = function() {
           variant: "outline-primary",
           icon: "arrow-down",
           tooltip: "Move Down",
-          disabled: _vm.canMoveUp
+          disabled: !_vm.canMoveDown
         },
         nativeOn: {
           click: function($event) {
@@ -48181,7 +48202,7 @@ var render = function() {
     attrs: {
       variant: "outline-danger",
       icon: "times",
-      label: "Delete Component"
+      tooltip: "Delete Component"
     },
     nativeOn: {
       click: function($event) {
@@ -49555,7 +49576,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control",
+    staticClass: "top-bar-control top-bar-number-input",
     attrs: { size: "sm", type: "number", min: 10, max: 64, title: "Font Size" },
     model: {
       value: _vm.fontSize,
@@ -49618,7 +49639,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control",
+    staticClass: "top-bar-control top-bar-number-input",
     attrs: {
       size: "sm",
       type: "number",
@@ -49795,6 +49816,8 @@ var render = function() {
             [
               _c("delete-component-button"),
               _vm._v(" "),
+              _c("clone-component"),
+              _vm._v(" "),
               _c("move-component"),
               _vm._v(" "),
               _c("margin"),
@@ -49896,26 +49919,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_EditTextButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_EditTextButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_DeleteComponentButton__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_DeleteComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_DeleteComponentButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextInput__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_TextAlignment__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontWeight__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontSize__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextColor__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_LineHeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_Border__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_CloneComponent__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_CloneComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__topbar_CloneComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Margin__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextInput__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontFamily__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextAlignment__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontWeight__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_FontSize__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_TextColor__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LineHeight__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_LineHeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_Border__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__core_Border__);
 //
 //
 //
@@ -49961,6 +49986,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -49990,9 +50018,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         EditTextModal: __WEBPACK_IMPORTED_MODULE_0__dialogs_EditTextModal___default.a,
-        TopBar: __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar___default.a, EditTextButton: __WEBPACK_IMPORTED_MODULE_5__topbar_EditTextButton___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_6__topbar_DeleteComponentButton___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_9__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_11__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_12__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_13__core_FontSize___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_14__core_TextColor___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_8__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_7__core_Margin___default.a, Border: __WEBPACK_IMPORTED_MODULE_16__core_Border___default.a
+        TopBar: __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar___default.a, EditTextButton: __WEBPACK_IMPORTED_MODULE_5__topbar_EditTextButton___default.a, DeleteComponentButton: __WEBPACK_IMPORTED_MODULE_6__topbar_DeleteComponentButton___default.a, CloneComponent: __WEBPACK_IMPORTED_MODULE_7__topbar_CloneComponent___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_10__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_11__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_12__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_13__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_14__core_FontSize___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_16__core_LineHeight___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_15__core_TextColor___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, Margin: __WEBPACK_IMPORTED_MODULE_8__core_Margin___default.a, Border: __WEBPACK_IMPORTED_MODULE_17__core_Border___default.a
     },
 
     data: function data() {
@@ -54743,6 +54771,8 @@ var render = function() {
             [
               _c("delete-component-button"),
               _vm._v(" "),
+              _c("clone-component"),
+              _vm._v(" "),
               _c("move-component"),
               _vm._v(" "),
               _c("edit-text-button"),
@@ -56321,8 +56351,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Margin__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Margin__);
-//
-//
 //
 //
 //
@@ -58703,6 +58731,14 @@ var render = function() {
   return _c(
     "b-form-select",
     {
+      directives: [
+        {
+          name: "b-tooltip",
+          rawName: "v-b-tooltip.hover",
+          modifiers: { hover: true }
+        }
+      ],
+      staticClass: "top-bar-control",
       attrs: { size: "sm", title: "Column Width" },
       on: { change: _vm.setColumnWidth },
       model: {
@@ -58762,7 +58798,27 @@ var render = function() {
         paddingTop: _vm.element.padding.top + "px",
         paddingRight: _vm.element.padding.right + "px",
         paddingBottom: _vm.element.padding.bottom + "px",
-        paddingLeft: _vm.element.padding.left + "px"
+        paddingLeft: _vm.element.padding.left + "px",
+        borderWidth:
+          _vm.element.border.top +
+          "px " +
+          _vm.element.border.right +
+          "px " +
+          _vm.element.border.bottom +
+          "px " +
+          _vm.element.border.left +
+          "px ",
+        borderStyle: _vm.element.border.style,
+        borderColor:
+          "rgba(" +
+          _vm.element.border.color.r +
+          ", " +
+          _vm.element.border.color.g +
+          ", " +
+          _vm.element.border.color.b +
+          ", " +
+          _vm.element.border.color.a +
+          ")"
       },
       attrs: { cols: _vm.element.columnWidth }
     },
@@ -58796,9 +58852,11 @@ var render = function() {
               _vm._v(" "),
               _c("move-column"),
               _vm._v(" "),
+              _c("column-width"),
+              _vm._v(" "),
               _c("background-color"),
               _vm._v(" "),
-              _c("column-width")
+              _c("border")
             ],
             1
           )
@@ -61423,13 +61481,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_awesome_icons_utensils__ = __webpack_require__(437);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_awesome_icons_stopwatch__ = __webpack_require__(438);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_awesome_icons_minus_square__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_regular_square__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_brands_instagram__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_brands_facebook__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_brands_youtube__ = __webpack_require__(443);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brands_pinterest__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_clone__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_regular_square__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_brands_instagram__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_brands_facebook__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brands_youtube__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_pinterest__ = __webpack_require__(444);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -62050,11 +62110,13 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     articleTitle: null,
     articleHtml: undefined,
 
-    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
+    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
 
     currentCanvas: undefined,
     currentColumn: undefined,
     currentComponent: undefined,
+
+    copiedStyle: undefined,
 
     showAddComponentModal: false
 });
@@ -62263,6 +62325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCanvas", function() { return removeCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasUp", function() { return moveCanvasUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasDown", function() { return moveCanvasDown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveColumnLeft", function() { return moveColumnLeft; });
@@ -62315,6 +62378,16 @@ var removeCanvas = function removeCanvas(state) {
 var deleteComponent = function deleteComponent(state) {
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
     state.currentComponent = undefined;
+};
+
+/**
+ * Clones the specified component below it's current position.
+ *
+ */
+var cloneComponent = function cloneComponent(state) {
+    var component = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
+
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(component));
 };
 
 /**
@@ -84954,6 +85027,131 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-7c58aeb3", module.exports)
+  }
+}
+
+/***/ }),
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"clone":{"width":512,"height":512,"paths":[{"d":"M464 0C490.5 0 512 21.5 512 48V336C512 362.5 490.5 384 464 384H176C149.5 384 128 362.5 128 336V48C128 21.5 149.5 0 176 0H464M176 416C131.9 416 96 380.1 96 336V128H48C21.5 128 0 149.5 0 176V464C0 490.5 21.5 512 48 512H336C362.5 512 384 490.5 384 464V416H176z"}]}})
+
+
+/***/ }),
+/* 495 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(496)
+/* template */
+var __vue_template__ = __webpack_require__(497)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/CloneComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-65a7e46c", Component.options)
+  } else {
+    hotAPI.reload("data-v-65a7e46c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 496 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "CloneComponent",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        cloneComponent: function cloneComponent() {
+            this.$store.commit('cloneComponent');
+        }
+    }
+});
+
+/***/ }),
+/* 497 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: {
+      variant: "outline-primary",
+      icon: "clone",
+      tooltip: "Clone Component"
+    },
+    nativeOn: {
+      click: function($event) {
+        return _vm.cloneComponent($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-65a7e46c", module.exports)
   }
 }
 

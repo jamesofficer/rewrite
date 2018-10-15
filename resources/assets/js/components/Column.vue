@@ -5,6 +5,9 @@
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
+        borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
+        borderStyle: element.border.style,
+        borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
     }">
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
@@ -24,9 +27,11 @@
 
             <move-column></move-column>
 
+            <column-width></column-width>
+
             <background-color></background-color>
 
-            <column-width></column-width>
+            <border></border>
         </top-bar>
     </b-col>
 </template>
@@ -53,6 +58,7 @@ import RecipeIngredients   from './RecipeIngredients'
 import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
+import Border              from './core/Border'
 
 export default {
     name: "Column",
@@ -62,7 +68,7 @@ export default {
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
-        ColumnWidth, Padding, BackgroundColor
+        ColumnWidth, Padding, BackgroundColor, Border
     },
 
     props: {

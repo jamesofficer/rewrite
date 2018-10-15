@@ -1,18 +1,18 @@
 <template>
-    <top-bar-control @click.native="copyComponentStyle" variant="outline-primary" icon="clone" tooltip="Clone Component"></top-bar-control>
+    <top-bar-control @click.native="cloneComponent" variant="outline-primary" icon="clone" tooltip="Clone Component"></top-bar-control>
 </template>
 
 <script>
 import TopBarControl from './TopBarControl';
 
 export default {
-    name: "CopyStyle",
+    name: "CloneComponent",
 
     components: { TopBarControl },
 
     methods: {
-        copyComponentStyle() {
-            console.log('copied');
+        cloneComponent() {
+            this.$store.commit('cloneComponent');
         }
     }
 }

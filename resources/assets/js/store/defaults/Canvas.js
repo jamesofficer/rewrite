@@ -4,7 +4,7 @@ export default {
     type: "Canvas",
     selected: false,
 
-    columns: [defaultColumn, defaultColumn],
+    columns: [defaultColumn],
 
     // Properties:
     src: undefined,

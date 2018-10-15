@@ -7,7 +7,7 @@ import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./h
  */
 export const addCanvas = state => {
     state.canvases.push(duplicateObject(defaults.canvas));
-}
+};
 
 /**
  * Deletes the selected Canvas
@@ -25,6 +25,16 @@ export const removeCanvas = state => {
 export const deleteComponent = state => {
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
     state.currentComponent = undefined;
+};
+
+/**
+ * Clones the specified component below it's current position.
+ *
+ */
+export const cloneComponent = state => {
+    const component = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
+
+    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent + 1, 0, duplicateObject(component));
 };
 
 /**

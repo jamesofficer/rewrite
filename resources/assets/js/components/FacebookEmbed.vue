@@ -16,8 +16,6 @@
 
             <move-component></move-component>
 
-
-
             <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook url here..."
                     class="top-bar-control" v-b-tooltip.hover title="Facebook URL"></b-input>
 

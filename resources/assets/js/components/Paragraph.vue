@@ -12,11 +12,13 @@
             borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
             borderStyle: element.border.style,
             borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
-        }" v-html="element.content" />
+        }" v-html="element.content"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-component-button></delete-component-button>
+
+            <clone-component></clone-component>
 
             <move-component></move-component>
 
@@ -53,6 +55,7 @@ import GetBorderStyle    from './mixins/GetBorderStyle'
 import TopBar            from './topbar/TopBar'
 import EditTextButton    from './topbar/EditTextButton'
 import DeleteComponentButton from './topbar/DeleteComponentButton'
+import CloneComponent    from './topbar/CloneComponent'
 
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
@@ -72,7 +75,7 @@ export default {
 
     components: {
         EditTextModal,
-        TopBar, EditTextButton, DeleteComponentButton,
+        TopBar, EditTextButton, DeleteComponentButton, CloneComponent,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor,
         Padding, Margin, Border,
     },

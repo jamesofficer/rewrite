@@ -123,14 +123,7 @@ export default {
                 }
             
             }
-        
-        
-
-
-            
-            
         }
-        
     },
 }
 </script>

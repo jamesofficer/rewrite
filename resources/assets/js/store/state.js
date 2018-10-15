@@ -7,12 +7,13 @@ export default {
 
     canvases: [
         duplicateObject(defaultCanvas),
-        duplicateObject(defaultCanvas),
     ],
 
     currentCanvas: undefined,
     currentColumn: undefined,
     currentComponent: undefined,
+
+    copiedStyle: undefined,
 
     showAddComponentModal: false,
 };
