@@ -6,7 +6,7 @@
             <b-row>
                 <b-col>
                     <label class="sub-label">Serves</label>
-                    <b-form-input type="number" min="1" v-model="serves" size="sm"></b-form-input>
+                    <b-form-input type="text" v-model="serves" size="sm"></b-form-input>
                 </b-col>
 
                 <b-col>
@@ -70,6 +70,7 @@ export default {
                     }
 
                     let total;
+                    let unit = 'MIN';
 
                     if (amount == 0) // Complete Hours
                     {
@@ -77,21 +78,24 @@ export default {
                         total = hours + ' hr';
 
                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                        this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: undefined });
+
+                        console.log("Wetk");
                     }
                     else // Hour + Min
                     {
                         total = hours + ' hr ' + amount;
 
                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                        this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
                     }
-                    
-
-
+                   
                     
                 }
                 else
                 {
                     this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: amount });
+                    this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
                 }
 
             }
@@ -103,12 +107,11 @@ export default {
             },
             set (amount) {
 
-                
-
                 if (amount > 59)
                 {
 
                     let hours = 0;
+                    let unit = 'MIN';
 
                     while(amount > 59)
                     {
@@ -126,26 +129,23 @@ export default {
                         total = hours + ' hr';
 
                         this.$store.commit('setComponentProperty', { property: 'contentCooking', value: total });
+                        this.$store.commit('setComponentProperty', { property: 'unitCooking', value: undefined });
                     }
                     else // Hour + Min
                     {
                         total = hours + ' hr ' + amount;
 
                         this.$store.commit('setComponentProperty', { property: 'contentCooking', value: total });
+                        this.$store.commit('setComponentProperty', { property: 'unitCooking', value: unit });
                     }
-                    
-
-
-                    
+                   
                 }
                 else
                 {
                     this.$store.commit('setComponentProperty', { property: 'contentCooking', value: amount });
+                    this.$store.commit('setComponentProperty', { property: 'unitCooking', value: unit });
                 }
 
-
-
-                
             }
         },
 

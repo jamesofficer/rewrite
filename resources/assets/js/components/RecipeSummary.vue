@@ -46,7 +46,7 @@
                     fontFamily: element.fontFamily,
                     marginBottom: 0,
                 }">
-                    MIN
+                    {{ element.unitPreparation }}
                 </p>
             </b-col>
 
@@ -72,7 +72,7 @@
                     fontFamily: element.fontFamily,
                     marginBottom: 0,
                 }">
-                    MIN
+                    {{ element.unitCooking }}
                 </p>
             </b-col>
 
