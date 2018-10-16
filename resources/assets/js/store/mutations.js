@@ -285,11 +285,11 @@ export const appendImageUrlsToHtml = (html) => {
  *
  */
 export const cleanHtml = (html) => {
-    const matchDataVText = /(data-v-\w*=""\s)/g;
-    const matchComments  = /(<!-*>)/g;
+    const matchDataVText   = /(data-v-\w*=""\s)/g;
+    const matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
 
     html = html.replace(matchDataVText, "");
-    html = html.replace(matchComments, "");
+    html = html.replace(matchBoilerplate, "");
 
     return html;
 }

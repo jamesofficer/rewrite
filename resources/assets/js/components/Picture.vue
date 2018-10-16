@@ -16,11 +16,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-component-button></delete-component-button>
-
-            <move-component></move-component>
-
-
+            <delete-clone-move></delete-clone-move>
 
             <image-selector></image-selector>
 
@@ -39,10 +35,9 @@
 
 <script>
 import GetElement        from './mixins/GetElement'
-import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
-import DeleteComponentButton from './topbar/DeleteComponentButton'
+import DeleteCloneMove   from './topbar/DeleteCloneMove'
 
 import ImageSelector     from './core/ImageSelector'
 import ImageAlignment    from './core/ImageAlignment'
@@ -53,10 +48,10 @@ import Border            from './core/Border'
 export default {
     name: "Picture",
 
-    mixins: [GetElement, MoveComponent],
+    mixins: [GetElement],
 
     components: {
-        TopBar, DeleteComponentButton,
+        TopBar, DeleteCloneMove,
         ImageSelector, ImageAlignment, Margin, Width, Border
     },
 }

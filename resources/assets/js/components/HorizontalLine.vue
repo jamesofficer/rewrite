@@ -11,11 +11,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-component-button></delete-component-button>
-
-            <move-component></move-component>
-
-
+            <delete-clone-move></delete-clone-move>
 
             <margin></margin>
 
@@ -31,12 +27,10 @@
 
 <script>
 import GetElement        from './mixins/GetElement'
-import MoveComponent     from './mixins/MoveComponent'
 
 import TopBar            from './topbar/TopBar'
-import DeleteComponentButton from './topbar/DeleteComponentButton'
+import DeleteCloneMove   from './topbar/DeleteCloneMove'
 
-import TextInput         from './core/TextInput'
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
 import Border            from './core/Border'
@@ -46,10 +40,10 @@ export default {
     name: "HorizontalLine",
 
     components: {
-        TopBar, DeleteComponentButton,
+        TopBar, DeleteCloneMove,
         Margin, Padding, Border, BackgroundColor,
     },
 
-    mixins: [GetElement, MoveComponent],
+    mixins: [GetElement],
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <top-bar-control @click.native="cloneComponent" variant="outline-primary" icon="clone" tooltip="Clone Component"></top-bar-control>
+    <top-bar-control @click.native="cloneComponent" variant="outline-info" icon="clone" tooltip="Clone Component"></top-bar-control>
 </template>
 
 <script>

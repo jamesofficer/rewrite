@@ -60,7 +60,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-component-button></delete-component-button>
+            <delete-clone-move></delete-clone-move>
 
             <recipe-ingredients-button></recipe-ingredients-button>
 
@@ -79,13 +79,14 @@
 <script>
 import GetElement from "./mixins/GetElement";
 
-import TopBar from "./topbar/TopBar";
-import DeleteComponentButton from "./topbar/DeleteComponentButton";
+import TopBar                  from "./topbar/TopBar";
+import DeleteCloneMove         from "./topbar/DeleteCloneMove";
+import DeleteComponentButton   from "./topbar/DeleteComponent";
 import RecipeIngredientsButton from "./topbar/RecipeIngredientsButton";
 
-import Margin from "./core/Margin";
-import Padding from "./core/Padding";
-import TextColor from "./core/TextColor";
+import Margin     from "./core/Margin";
+import Padding    from "./core/Padding";
+import TextColor  from "./core/TextColor";
 import FontFamily from "./core/FontFamily";
 
 export default {
@@ -94,7 +95,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteComponentButton, RecipeIngredientsButton,
+        TopBar, DeleteCloneMove, DeleteComponentButton, RecipeIngredientsButton,
         Margin, Padding, TextColor, FontFamily
     },
 

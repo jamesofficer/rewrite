@@ -9,7 +9,7 @@
 
     <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
     <div v-else v-b-tooltip.hover title="Can't add column as there is not enough room.">
-        <top-bar-control variant="outline-danger"
+        <top-bar-control variant="outline-success"
                      icon="columns"
                      label="Add Column"
                      :disabled="true"

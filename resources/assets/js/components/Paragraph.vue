@@ -16,11 +16,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-component-button></delete-component-button>
-
-            <clone-component></clone-component>
-
-            <move-component></move-component>
+            <delete-clone-move></delete-clone-move>
 
             <edit-text-button></edit-text-button>
 
@@ -49,13 +45,11 @@
 import EditTextModal     from './dialogs/EditTextModal'
 
 import GetElement        from './mixins/GetElement'
-import MoveComponent     from './mixins/MoveComponent'
 import GetBorderStyle    from './mixins/GetBorderStyle'
 
 import TopBar            from './topbar/TopBar'
+import DeleteCloneMove   from './topbar/DeleteCloneMove'
 import EditTextButton    from './topbar/EditTextButton'
-import DeleteComponentButton from './topbar/DeleteComponentButton'
-import CloneComponent    from './topbar/CloneComponent'
 
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
@@ -71,11 +65,11 @@ import Border            from './core/Border'
 export default {
     name: "Paragraph",
 
-    mixins: [GetElement, MoveComponent, GetBorderStyle],
+    mixins: [GetElement, GetBorderStyle],
 
     components: {
         EditTextModal,
-        TopBar, EditTextButton, DeleteComponentButton, CloneComponent,
+        TopBar, EditTextButton, DeleteCloneMove,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor,
         Padding, Margin, Border,
     },

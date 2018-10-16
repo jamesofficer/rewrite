@@ -1,7 +1,7 @@
 <template>
     <div style="display: inherit">
-        <top-bar-control @click.native="moveColumnLeft" variant="outline-primary" icon="arrow-left" tooltip="Move Left" :disabled="! canMoveLeft"></top-bar-control>
-        <top-bar-control @click.native="moveColumnRight" variant="outline-primary" icon="arrow-right" tooltip="Move Right" :disabled="! canMoveRight"></top-bar-control>
+        <top-bar-control @click.native="moveColumnLeft" variant="outline-info" icon="arrow-left" tooltip="Move Left" :disabled="! canMoveLeft"></top-bar-control>
+        <top-bar-control @click.native="moveColumnRight" variant="outline-info" icon="arrow-right" tooltip="Move Right" :disabled="! canMoveRight"></top-bar-control>
     </div>
 </template>
 

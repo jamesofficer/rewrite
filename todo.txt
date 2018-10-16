@@ -9,6 +9,8 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
+- Move all styles on a component into a "styles" object.
+- Cloning a component should ask what canvas and column we want to clone it to.
 - Combine Delete+Clone+Move Component buttons (make new component).
 - "Copy Style" button.
 - Undo/Redo lol.
