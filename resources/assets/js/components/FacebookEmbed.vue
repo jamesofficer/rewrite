@@ -14,8 +14,8 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move></delete-clone-move>
 
-            <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook url here..."
-                    class="top-bar-control" v-b-tooltip.hover title="Facebook URL"></b-input>
+            <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook Embed Code here..."
+                    class="top-bar-control" v-b-tooltip.hover title="Facebook Embed Code"></b-input>
 
             <image-alignment></image-alignment>
 

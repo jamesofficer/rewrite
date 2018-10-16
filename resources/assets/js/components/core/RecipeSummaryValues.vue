@@ -54,7 +54,7 @@ export default {
             },
             set (amount) {
 
-                
+                /*
 
                 if (amount > 59)
                 {
@@ -70,7 +70,7 @@ export default {
                     }
 
                     let total;
-                    let unit = 'MIN';
+                   // let unit = 'MIN';
 
                     if (amount == 0) // Complete Hours
                     {
@@ -78,27 +78,26 @@ export default {
                         total = hours + ' hr';
 
                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
-                        this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: undefined });
+                       // this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: undefined });
 
-                        console.log("Wetk");
                     }
                     else // Hour + Min
                     {
                         total = hours + ' hr ' + amount;
-
+                    
                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
-                        this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
+                       // this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
                     }
                    
                     
                 }
                 else
-                {
+                {*/
                     this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: amount });
-                    this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
-                }
+                    //this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: unit });
+                //}
 
-            }
+            },
         },
 
         cooking: {
@@ -106,7 +105,7 @@ export default {
                 return this.$store.getters.getCurrentElement.contentCooking;
             },
             set (amount) {
-
+/*
                 if (amount > 59)
                 {
 
@@ -141,10 +140,10 @@ export default {
                    
                 }
                 else
-                {
+                {*/
                     this.$store.commit('setComponentProperty', { property: 'contentCooking', value: amount });
-                    this.$store.commit('setComponentProperty', { property: 'unitCooking', value: unit });
-                }
+                   // this.$store.commit('setComponentProperty', { property: 'unitCooking', value: unit });
+                //}
 
             }
         },

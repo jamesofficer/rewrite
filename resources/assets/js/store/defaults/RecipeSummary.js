@@ -8,8 +8,8 @@ export default {
     contentCooking: 10,
     contentDifficulty: "EASY",
     fontFamily: 'Times New Roman',
-    unitCooking: 'MIN',
-    unitPreparation: 'MIN',
+    //unitCooking: 'MIN',
+    //unitPreparation: 'MIN',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
 
     margin: {
