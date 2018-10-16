@@ -48157,6 +48157,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -48165,9 +48195,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
 
+    computed: {
+        canvases: function canvases() {
+            var canvasOptions = [];
+
+            this.$store.getters.canvases.forEach(function (canvas, index) {
+                canvasOptions.push({
+                    text: 'Canvas #' + (index + 1),
+                    value: index
+                });
+            });
+
+            return canvasOptions;
+        },
+        columns: function columns() {
+            var columnOptions = [];
+            var columnCount = this.$store.getters.columnCount(this.canvasIndex);
+
+            for (var i = 0; i < columnCount; i++) {
+                columnOptions.push({
+                    text: 'Column #' + (i + 1),
+                    value: i
+                });
+            }
+
+            return columnOptions;
+        }
+    },
+
+    data: function data() {
+        return {
+            showPopover: false,
+            canvasIndex: 0,
+            columnIndex: 0
+        };
+    },
+
+
     methods: {
         cloneComponent: function cloneComponent() {
-            this.$store.commit('cloneComponent');
+            this.$store.commit('cloneComponent', {
+                canvasIndex: this.canvasIndex,
+                columnIndex: this.columnIndex
+            });
+
+            this.showPopover = false;
         }
     }
 });
@@ -48180,18 +48252,119 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-info",
-      icon: "clone",
-      tooltip: "Clone Component"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.cloneComponent($event)
-      }
-    }
-  })
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          variant: "outline-info",
+          icon: "clone",
+          tooltip: "Clone Component",
+          id: "clone-component-popover"
+        },
+        on: {
+          click: function($event) {
+            _vm.showPopover = true
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        {
+          attrs: {
+            target: "clone-component-popover",
+            placement: "bottomright",
+            show: _vm.showPopover
+          },
+          on: {
+            "update:show": function($event) {
+              _vm.showPopover = $event
+            }
+          }
+        },
+        [
+          _c(
+            "b-row",
+            { staticStyle: { width: "250px" } },
+            [
+              _c(
+                "b-col",
+                [
+                  _c("h6", [_vm._v("Destination Canvas")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { options: _vm.canvases },
+                    model: {
+                      value: _vm.canvasIndex,
+                      callback: function($$v) {
+                        _vm.canvasIndex = $$v
+                      },
+                      expression: "canvasIndex"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("h6", [_vm._v("Destination Column")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { options: _vm.columns },
+                    model: {
+                      value: _vm.columnIndex,
+                      callback: function($$v) {
+                        _vm.columnIndex = $$v
+                      },
+                      expression: "columnIndex"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { variant: "success" },
+                      on: { click: _vm.cloneComponent }
+                    },
+                    [_vm._v("Clone")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -58581,40 +58754,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             widths: [{
-                text: 'Full Width',
+                text: 'Twelve Columns',
                 value: 12
             }, {
-                text: '11',
+                text: 'Eleven Columns',
                 value: 11
             }, {
-                text: '10',
+                text: 'Ten Columns',
                 value: 10
             }, {
-                text: 'Three Quarters',
+                text: 'Nine Columns (3/4)',
                 value: 9
             }, {
-                text: 'Two Thirds',
+                text: 'Eight Columns (2/3)',
                 value: 8
             }, {
-                text: '7',
+                text: 'Seven Columns',
                 value: 7
             }, {
-                text: 'Half',
+                text: 'Six Columns (1/2)',
                 value: 6
             }, {
-                text: '5',
+                text: 'Five Columns',
                 value: 5
             }, {
-                text: 'One Third',
+                text: 'Four Columns (1/3)',
                 value: 4
             }, {
-                text: 'One Quarter',
+                text: 'Three Columns (1/4)',
                 value: 3
             }, {
-                text: '2',
+                text: 'Two Columns',
                 value: 2
             }, {
-                text: 'Single Column',
+                text: 'One Column',
                 value: 1
             }]
         };
@@ -62464,10 +62637,10 @@ var deleteComponent = function deleteComponent(state) {
  * Clones the specified component below it's current position.
  *
  */
-var cloneComponent = function cloneComponent(state) {
+var cloneComponent = function cloneComponent(state, indexes) {
     var component = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
 
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(component));
+    state.canvases[indexes.canvasIndex].columns[indexes.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(component));
 };
 
 /**

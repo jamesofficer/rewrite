@@ -25,51 +25,51 @@ export default {
         return {
             widths: [
                 {
-                    text: 'Full Width',
+                    text: 'Twelve Columns',
                     value: 12,
                 },
                 {
-                    text: '11',
+                    text: 'Eleven Columns',
                     value: 11,
                 },
                 {
-                    text: '10',
+                    text: 'Ten Columns',
                     value: 10,
                 },
                 {
-                    text: 'Three Quarters',
+                    text: 'Nine Columns (3/4)',
                     value: 9,
                 },
                 {
-                    text: 'Two Thirds',
+                    text: 'Eight Columns (2/3)',
                     value: 8,
                 },
                 {
-                    text: '7',
+                    text: 'Seven Columns',
                     value: 7,
                 },
                 {
-                    text: 'Half',
+                    text: 'Six Columns (1/2)',
                     value: 6,
                 },
                 {
-                    text: '5',
+                    text: 'Five Columns',
                     value: 5,
                 },
                 {
-                    text: 'One Third',
+                    text: 'Four Columns (1/3)',
                     value: 4,
                 },
                 {
-                    text: 'One Quarter',
+                    text: 'Three Columns (1/4)',
                     value: 3,
                 },
                 {
-                    text: '2',
+                    text: 'Two Columns',
                     value: 2,
                 },
                 {
-                    text: 'Single Column',
+                    text: 'One Column',
                     value: 1,
                 },
             ]

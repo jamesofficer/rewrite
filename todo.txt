@@ -2,6 +2,7 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
+- Deleting all columns should delete the canvas too.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
 - Articles titled 'untitled article' should not be saved.
@@ -10,9 +11,6 @@ BUGS:
 
 FEATURES:
 - Move all styles on a component into a "styles" object.
-- Cloning a component should ask what canvas and column we want to clone it to.
-- Combine Delete+Clone+Move Component buttons (make new component).
-- "Copy Style" button.
 - Undo/Redo lol.
 - Have the "Add Component" button permanently visible, and remember last selected column.
 - Add more fonts. Download via Google Fonts, and hard code them in for now.

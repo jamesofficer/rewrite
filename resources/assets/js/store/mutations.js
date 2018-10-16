@@ -31,10 +31,10 @@ export const deleteComponent = state => {
  * Clones the specified component below it's current position.
  *
  */
-export const cloneComponent = state => {
+export const cloneComponent = (state, indexes) => {
     const component = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
 
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent + 1, 0, duplicateObject(component));
+    state.canvases[indexes.canvasIndex].columns[indexes.columnIndex].components.splice(0, 0, duplicateObject(component));
 };
 
 /**
