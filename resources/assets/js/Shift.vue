@@ -103,6 +103,10 @@
             <!-- Recipe Ingredients Modal -->
             <recipe-ingredients-modal></recipe-ingredients-modal>
         </b-container>
+
+        <div class="footer-logo-wrapper">
+            <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
+        </div>
     </div>
 </template>
 
@@ -206,6 +210,7 @@ export default {
 
 <style scoped>
 .shift-header-container {
+    border-top: 5px solid #38c172;
     padding: 0 25px;
 }
 
@@ -272,5 +277,16 @@ export default {
     top: 0;
     width: 100%;
     z-index: 100;
+}
+
+.footer-logo-wrapper {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    filter: gray;
+    width: 200px;
+    margin: 0 auto;
 }
 </style>

@@ -33,6 +33,12 @@
         <b-dropdown-item variant="warning" @click="showExportArticleModal">
             <icon name="file-export"></icon> &nbsp; Export Article
         </b-dropdown-item>
+
+        <b-dropdown-divider></b-dropdown-divider>
+
+        <b-dropdown-item variant="warning" @click="signOut">
+            <icon name="sign-out-alt"></icon> &nbsp; Logout
+        </b-dropdown-item>
     </b-dropdown>    
 </template>
 
@@ -126,6 +132,12 @@ export default {
         showExportArticleModal() {
             this.setArticleHtml();
             this.$parent.$refs.exportArticleModal.$children[0].show();
+        },
+
+        signOut() {
+            axios.post('/logout').then(response => {
+                window.location = location.protocol + '//' + window.location.hostname;
+            });
         },
     },
 };

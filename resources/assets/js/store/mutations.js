@@ -274,7 +274,7 @@ export const setArticleHtml = (state, html) => {
  */
 export const appendImageUrlsToHtml = (html) => {
     const regex  = /(\/storage\/user-images)/g;
-    const subst  = 'https://' + window.location.hostname + `\$1`;
+    const subst  = location.protocol + '//' + window.location.hostname + `\$1`;
 
     return html.replace(regex, subst);
 }

@@ -45764,7 +45764,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\n    margin: 20px 0;\n    padding: 0 15px 10px 15px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    margin: 20px 0 30px 0;\n    padding: 0 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\n    background: white;\n    margin: 0 15px 10px 15px;\n    padding: 10px 0;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 100;\n}\n", ""]);
+exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\n    border-top: 5px solid #38c172;\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\n    margin: 20px 0;\n    padding: 0 15px 10px 15px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    margin: 20px 0 30px 0;\n    padding: 0 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\n    background: white;\n    margin: 0 15px 10px 15px;\n    padding: 10px 0;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 100;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\n    padding: 50px 0;\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\n    -webkit-filter: gray;\n            filter: gray;\n    width: 200px;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -45828,6 +45828,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal__);
+//
+//
+//
+//
 //
 //
 //
@@ -46124,6 +46128,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ShiftMenu",
@@ -46209,6 +46219,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         showExportArticleModal: function showExportArticleModal() {
             this.setArticleHtml();
             this.$parent.$refs.exportArticleModal.$children[0].show();
+        },
+        signOut: function signOut() {
+            axios.post('/logout').then(function (response) {
+                window.location = location.protocol + '//' + window.location.hostname;
+            });
         }
     }
 });
@@ -46316,6 +46331,18 @@ var render = function() {
         [
           _c("icon", { attrs: { name: "file-export" } }),
           _vm._v("   Export Article\n    ")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("b-dropdown-divider"),
+      _vm._v(" "),
+      _c(
+        "b-dropdown-item",
+        { attrs: { variant: "warning" }, on: { click: _vm.signOut } },
+        [
+          _c("icon", { attrs: { name: "sign-out-alt" } }),
+          _vm._v("   Logout\n    ")
         ],
         1
       )
@@ -55409,6 +55436,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -55644,7 +55672,8 @@ var render = function() {
                   _vm.element.border.color.b +
                   ", " +
                   _vm.element.border.color.a +
-                  ")"
+                  ")",
+                borderRadius: _vm.element.border.radius + "px"
               },
               attrs: { id: "text-input" },
               on: { dblclick: _vm.selectInput }
@@ -61349,12 +61378,26 @@ var render = function() {
           _c("recipe-ingredients-modal")
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(0)
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer-logo-wrapper" }, [
+      _c("img", {
+        staticClass: "footer-logo",
+        attrs: { src: "/img/shift_logo_white.png", alt: "Shift Logo" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -62119,13 +62162,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_clone__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_file_alt__ = __webpack_require__(494);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_sun__ = __webpack_require__(495);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_regular_square__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brands_instagram__ = __webpack_require__(452);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_facebook__ = __webpack_require__(453);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_youtube__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_pinterest__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_sign_out_alt__ = __webpack_require__(499);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_regular_square__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_instagram__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_facebook__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_youtube__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_brands_pinterest__ = __webpack_require__(455);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -63276,7 +63321,7 @@ var setArticleHtml = function setArticleHtml(state, html) {
  */
 var appendImageUrlsToHtml = function appendImageUrlsToHtml(html) {
     var regex = /(\/storage\/user-images)/g;
-    var subst = 'https://' + window.location.hostname + "$1";
+    var subst = location.protocol + '//' + window.location.hostname + "$1";
 
     return html.replace(regex, subst);
 };
@@ -85867,6 +85912,18 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-5a216c92", module.exports)
   }
 }
+
+/***/ }),
+/* 499 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"sign-out-alt":{"width":512,"height":512,"paths":[{"d":"M497 273L329 441C314 456 288 445.5 288 424V328H152C138.7 328 128 317.3 128 304V208C128 194.7 138.7 184 152 184H288V88C288 66.6 313.9 56 329 71L497 239C506.3 248.4 506.3 263.6 497 273zM192 436V396C192 389.4 186.6 384 180 384H96C78.3 384 64 369.7 64 352V160C64 142.3 78.3 128 96 128H180C186.6 128 192 122.6 192 116V76C192 69.4 186.6 64 180 64H96C43 64 0 107 0 160V352C0 405 43 448 96 448H180C186.6 448 192 442.6 192 436z"}]}})
+
 
 /***/ })
 /******/ ]);
