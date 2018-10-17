@@ -1,5 +1,5 @@
 <template>
-    <top-bar-control @click.native="removeColumn" variant="outline-danger" icon="columns" label="Remove Column"></top-bar-control>
+    <top-bar-control @click.native="removeColumn" variant="outline-danger" icon="columns" tooltip="Delete Column"></top-bar-control>
 </template>
 
 <script>

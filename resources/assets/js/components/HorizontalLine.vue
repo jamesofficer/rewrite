@@ -7,6 +7,7 @@
             borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
             borderStyle: element.border.style,
             borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
+            borderRadius: element.border.radius + 'px',
         }"></div>
 
         <!-- TOP BAR -->

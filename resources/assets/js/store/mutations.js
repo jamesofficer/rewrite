@@ -315,6 +315,12 @@ export const selectImage = (state, image) => {
  * 
  */
 export const loadArticle = (state, article) => {
+    // Reset selection first (prevents a bug that breaks element selection).
+    window.Vue.set(state, "currentCanvas", undefined);
+    window.Vue.set(state, "currentColumn", undefined);
+    window.Vue.set(state, "currentComponent", undefined);
+
+    // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };

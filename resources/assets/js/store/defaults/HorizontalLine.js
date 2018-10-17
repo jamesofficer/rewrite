@@ -20,6 +20,7 @@ export default {
         right: 0,
         bottom: 0,
         left: 0,
+        radius: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 },
     }

@@ -11,6 +11,8 @@
                 borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
                 borderStyle: element.border.style,
                 borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
+                boxShadow: element.boxShadow.offsetX + 'px ' + element.boxShadow.offsetY + 'px ' + element.boxShadow.blurRadius + 'px ' + 'rgba(' + element.boxShadow.color.r + ', ' + element.boxShadow.color.g + ', ' + element.boxShadow.color.b + ', ' + element.boxShadow.color.a + ')',
+                borderRadius: element.border.radius + 'px',
             }">
         </div>
 
@@ -24,6 +26,8 @@
                 <margin></margin>
 
                 <border></border>
+
+                <box-shadow></box-shadow>
 
                 <width></width>
 
@@ -44,6 +48,7 @@ import ImageAlignment    from './core/ImageAlignment'
 import Margin            from './core/Margin'
 import Width             from './core/Width'
 import Border            from './core/Border'
+import BoxShadow         from './core/BoxShadow'
 
 export default {
     name: "Picture",
@@ -52,7 +57,7 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        ImageSelector, ImageAlignment, Margin, Width, Border
+        ImageSelector, ImageAlignment, Margin, Width, Border, BoxShadow,
     },
 }
 </script>

@@ -10,10 +10,10 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
+- Remove the navbar, and sticky the top bar.
 - Box Shadow.
 - Text Shadow.
 - Background gradients.
-- Add Padding and Margins to Columns.
 - Add Position controls to background images.
 - Save colors when using the color picker.
 - Move all styles on a component into a "styles" object.
@@ -29,3 +29,4 @@ FEATURES:
 - Move article saving methods to actions.
 - Improve backend validation and error output.
 - Users can drag and rearrange columns?
+- Implement column offset functionality.

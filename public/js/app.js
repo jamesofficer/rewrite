@@ -23038,6 +23038,12 @@ module.exports = Component.exports
         left: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 }
+    },
+    boxShadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 0,
+        color: { r: 0, g: 0, b: 0, a: 1 }
     }
 });
 
@@ -23075,6 +23081,7 @@ module.exports = Component.exports
         right: 0,
         bottom: 0,
         left: 0,
+        radius: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 }
     }
@@ -23114,6 +23121,7 @@ module.exports = Component.exports
         right: 0,
         bottom: 0,
         left: 0,
+        radius: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 }
     }
@@ -23137,7 +23145,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // Properties:
     width: '100%',
     textAlign: "left"
-}, _defineProperty(_type$selected$src$wi, "width", 100), _defineProperty(_type$selected$src$wi, "margin", {
+}, _defineProperty(_type$selected$src$wi, "width", 50), _defineProperty(_type$selected$src$wi, "margin", {
     top: 0,
     right: 0,
     bottom: 0,
@@ -23152,7 +23160,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     right: 0,
     bottom: 0,
     left: 0,
+    radius: 0,
     style: 'solid',
+    color: { r: 0, g: 0, b: 0, a: 1 }
+}), _defineProperty(_type$selected$src$wi, "boxShadow", {
+    offsetX: 0,
+    offsetY: 0,
+    blurRadius: 0,
     color: { r: 0, g: 0, b: 0, a: 1 }
 }), _type$selected$src$wi);
 
@@ -23183,6 +23197,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         right: 0,
         bottom: 0,
         left: 0,
+        radius: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 }
     }
@@ -23222,6 +23237,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         right: 0,
         bottom: 0,
         left: 5,
+        radius: 0,
         style: 'solid',
         color: { r: 100, g: 100, b: 100, a: 1 }
     }
@@ -46685,6 +46701,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_Border__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__core_BoxShadow__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__core_BoxShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__core_BoxShadow__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -46725,6 +46743,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+
 
 
 
@@ -46757,7 +46778,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         Heading: __WEBPACK_IMPORTED_MODULE_5__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_6__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_7__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_8__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_9__HorizontalLine___default.a,
         InstagramEmbed: __WEBPACK_IMPORTED_MODULE_10__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_11__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_12__YouTubeEmbed___default.a,
         RecipeSummary: __WEBPACK_IMPORTED_MODULE_13__RecipeSummary___default.a, RecipeIngredients: __WEBPACK_IMPORTED_MODULE_14__RecipeIngredients___default.a,
-        ColumnWidth: __WEBPACK_IMPORTED_MODULE_15__core_ColumnWidth___default.a, Padding: __WEBPACK_IMPORTED_MODULE_16__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default.a, Border: __WEBPACK_IMPORTED_MODULE_18__core_Border___default.a
+        ColumnWidth: __WEBPACK_IMPORTED_MODULE_15__core_ColumnWidth___default.a, Padding: __WEBPACK_IMPORTED_MODULE_16__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_17__core_BackgroundColor___default.a, Border: __WEBPACK_IMPORTED_MODULE_18__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_19__core_BoxShadow___default.a
     },
 
     props: {
@@ -47661,7 +47682,7 @@ var render = function() {
     attrs: {
       variant: "outline-danger",
       icon: "columns",
-      label: "Remove Column"
+      tooltip: "Delete Column"
     },
     nativeOn: {
       click: function($event) {
@@ -47944,6 +47965,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_LineHeight__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_LineHeight__);
+//
 //
 //
 //
@@ -49250,6 +49272,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -49269,6 +49298,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     property: 'border',
                     subproperty: 'style',
                     value: style
+                });
+            }
+        },
+
+        borderRadius: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.border.radius;
+            },
+            set: function set(radius) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'radius',
+                    value: radius
                 });
             }
         },
@@ -49323,15 +49365,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     value: amount
                 });
             }
-        }
-    },
-
-    borderStyle: {
-        get: function get() {
-            return this.$store.getters.getCurrentElement.borderStyle;
-        },
-        set: function set(style) {
-            this.$store.commit('setComponentProperty', { property: 'borderStyle', value: style });
         }
     },
 
@@ -49470,6 +49503,33 @@ var render = function() {
                         _vm.borderLeft = $$v
                       },
                       expression: "borderLeft"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [
+                    _vm._v("Border Radius")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    model: {
+                      value: _vm.borderRadius,
+                      callback: function($$v) {
+                        _vm.borderRadius = $$v
+                      },
+                      expression: "borderRadius"
                     }
                   })
                 ],
@@ -50151,7 +50211,8 @@ var render = function() {
                   _vm.element.border.color.b +
                   ", " +
                   _vm.element.border.color.a +
-                  ")"
+                  ")",
+                borderRadius: _vm.element.border.radius + "px"
               },
               on: { dblclick: _vm.selectInput }
             },
@@ -50349,6 +50410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_LineHeight__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_Border__);
+//
 //
 //
 //
@@ -55162,7 +55224,8 @@ var render = function() {
             _vm.element.border.color.b +
             ", " +
             _vm.element.border.color.a +
-            ")"
+            ")",
+          borderRadius: _vm.element.border.radius + "px"
         },
         domProps: { innerHTML: _vm._s(_vm.element.content) }
       }),
@@ -55289,6 +55352,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Margin__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Border__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_Border__);
+//
 //
 //
 //
@@ -55650,7 +55714,8 @@ var render = function() {
                 _vm.element.border.color.b +
                 ", " +
                 _vm.element.border.color.a +
-                ")"
+                ")",
+              borderRadius: _vm.element.border.radius + "px"
             },
             attrs: { size: "lg", id: "text-input" },
             nativeOn: {
@@ -55767,6 +55832,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Width___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Width__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_BoxShadow__);
 //
 //
 //
@@ -55802,6 +55869,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -55821,7 +55893,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteCloneMove: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteCloneMove___default.a,
-        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Width: __WEBPACK_IMPORTED_MODULE_6__core_Width___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a
+        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Width: __WEBPACK_IMPORTED_MODULE_6__core_Width___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow___default.a
     }
 });
 
@@ -56173,7 +56245,24 @@ var render = function() {
                   _vm.element.border.color.b +
                   ", " +
                   _vm.element.border.color.a +
-                  ")"
+                  ")",
+                boxShadow:
+                  _vm.element.boxShadow.offsetX +
+                  "px " +
+                  _vm.element.boxShadow.offsetY +
+                  "px " +
+                  _vm.element.boxShadow.blurRadius +
+                  "px " +
+                  "rgba(" +
+                  _vm.element.boxShadow.color.r +
+                  ", " +
+                  _vm.element.boxShadow.color.g +
+                  ", " +
+                  _vm.element.boxShadow.color.b +
+                  ", " +
+                  _vm.element.boxShadow.color.a +
+                  ")",
+                borderRadius: _vm.element.border.radius + "px"
               },
               attrs: { src: _vm.element.src }
             })
@@ -56192,6 +56281,8 @@ var render = function() {
                     _c("margin"),
                     _vm._v(" "),
                     _c("border"),
+                    _vm._v(" "),
+                    _c("box-shadow"),
                     _vm._v(" "),
                     _c("width"),
                     _vm._v(" "),
@@ -56309,6 +56400,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -56390,7 +56482,8 @@ var render = function() {
             _vm.element.border.color.b +
             ", " +
             _vm.element.border.color.a +
-            ")"
+            ")",
+          borderRadius: _vm.element.border.radius + "px"
         }
       }),
       _vm._v(" "),
@@ -56838,9 +56931,9 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("image-alignment"),
+              _c("margin"),
               _vm._v(" "),
-              _c("margin")
+              _c("image-alignment")
             ],
             1
           )
@@ -59151,10 +59244,15 @@ var render = function() {
           ", " +
           _vm.element.backgroundColor.a +
           ")",
-        paddingTop: _vm.element.padding.top + "px",
-        paddingRight: _vm.element.padding.right + "px",
-        paddingBottom: _vm.element.padding.bottom + "px",
-        paddingLeft: _vm.element.padding.left + "px",
+        padding:
+          _vm.element.padding.top +
+          "px " +
+          _vm.element.padding.right +
+          "px " +
+          _vm.element.padding.bottom +
+          "px " +
+          _vm.element.padding.left +
+          "px",
         borderWidth:
           _vm.element.border.top +
           "px " +
@@ -59174,6 +59272,22 @@ var render = function() {
           _vm.element.border.color.b +
           ", " +
           _vm.element.border.color.a +
+          ")",
+        boxShadow:
+          _vm.element.boxShadow.offsetX +
+          "px " +
+          _vm.element.boxShadow.offsetY +
+          "px " +
+          _vm.element.boxShadow.blurRadius +
+          "px " +
+          "rgba(" +
+          _vm.element.boxShadow.color.r +
+          ", " +
+          _vm.element.boxShadow.color.g +
+          ", " +
+          _vm.element.boxShadow.color.b +
+          ", " +
+          _vm.element.boxShadow.color.a +
           ")"
       },
       attrs: { cols: _vm.element.columnWidth }
@@ -59202,9 +59316,11 @@ var render = function() {
         ? _c(
             "top-bar",
             [
+              _c("remove-column"),
+              _vm._v(" "),
               _c("add-component-button"),
               _vm._v(" "),
-              _c("remove-column"),
+              _c("padding"),
               _vm._v(" "),
               _c("move-column"),
               _vm._v(" "),
@@ -59212,7 +59328,9 @@ var render = function() {
               _vm._v(" "),
               _c("background-color"),
               _vm._v(" "),
-              _c("border")
+              _c("border"),
+              _vm._v(" "),
+              _c("box-shadow")
             ],
             1
           )
@@ -59317,7 +59435,7 @@ var render = function() {
     attrs: {
       variant: "outline-danger",
       icon: "palette",
-      label: "Delete Canvas"
+      tooltip: "Delete Canvas"
     },
     nativeOn: {
       click: function($event) {
@@ -62000,13 +62118,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_awesome_icons_minus_square__ = __webpack_require__(449);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_clone__ = __webpack_require__(450);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_file_alt__ = __webpack_require__(494);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_regular_square__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_brands_instagram__ = __webpack_require__(452);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brands_facebook__ = __webpack_require__(453);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_youtube__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_pinterest__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_sun__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_regular_square__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brands_instagram__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_facebook__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_youtube__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_pinterest__ = __webpack_require__(455);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -63197,6 +63317,12 @@ var selectImage = function selectImage(state, image) {
  * 
  */
 var loadArticle = function loadArticle(state, article) {
+    // Reset selection first (prevents a bug that breaks element selection).
+    window.Vue.set(state, "currentCanvas", undefined);
+    window.Vue.set(state, "currentColumn", undefined);
+    window.Vue.set(state, "currentComponent", undefined);
+
+    // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
@@ -85430,6 +85556,317 @@ module.exports = function spread(callback) {
 
 __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"file-alt":{"width":384,"height":512,"paths":[{"d":"M224 136V0H24C10.7 0 0 10.7 0 24V488C0 501.3 10.7 512 24 512H360C373.3 512 384 501.3 384 488V160H248C234.8 160 224 149.2 224 136zM288 372C288 378.6 282.6 384 276 384H108C101.4 384 96 378.6 96 372V364C96 357.4 101.4 352 108 352H276C282.6 352 288 357.4 288 364V372zM288 308C288 314.6 282.6 320 276 320H108C101.4 320 96 314.6 96 308V300C96 293.4 101.4 288 108 288H276C282.6 288 288 293.4 288 300V308zM288 236V244C288 250.6 282.6 256 276 256H108C101.4 256 96 250.6 96 244V236C96 229.4 101.4 224 108 224H276C282.6 224 288 229.4 288 236zM384 121.9V128H256V0H262.1C268.5 0 274.6 2.5 279.1 7L377 105C381.5 109.5 384 115.6 384 121.9z"}]}})
 
+
+/***/ }),
+/* 495 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"sun":{"width":512,"height":512,"paths":[{"d":"M274.8 12.6L300.4 75C304.6 85.3 317 89.4 326.5 83.5L383.8 48.1C399.3 38.5 418.6 52.5 414.3 70.2L398.2 135.7C395.6 146.5 403.3 157.1 414.4 157.9L481.6 162.9C499.8 164.2 507.2 186.9 493.3 198.7L441.8 242.3C433.3 249.4 433.3 262.5 441.8 269.7L493.3 313.3C507.2 325.1 499.8 347.8 481.6 349.1L414.4 354.1C403.3 354.9 395.6 365.5 398.2 376.3L414.3 441.8C418.6 459.5 399.3 473.5 383.8 463.9L326.5 428.5C317 422.6 304.6 426.7 300.4 437L274.8 499.4C267.9 516.2 244.1 516.2 237.2 499.4L211.7 437C207.4 426.7 195 422.6 185.5 428.5L128.2 463.9C112.7 473.5 93.4 459.5 97.7 441.8L113.8 376.3C116.4 365.5 108.7 354.9 97.6 354.1L30.4 349.1C12.2 347.8 4.8 325.1 18.7 313.3L70.2 269.7C78.7 262.6 78.7 249.5 70.2 242.3L18.7 198.7C4.8 186.9 12.2 164.2 30.4 162.9L97.6 157.9C108.7 157.1 116.4 146.5 113.8 135.7L97.7 70.2C93.4 52.5 112.7 38.5 128.2 48.1L185.5 83.5C195 89.4 207.4 85.3 211.6 75L237.2 12.6C244.1-4.2 267.9-4.2 274.8 12.6zM392 256C392 181 331 120 256 120 181 120 120 181 120 256S181 392 256 392C331 392 392 331 392 256zM360 256C360 313.3 313.3 360 256 360S152 313.3 152 256 198.7 152 256 152 360 198.7 360 256z"}]}})
+
+
+/***/ }),
+/* 496 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(497)
+/* template */
+var __vue_template__ = __webpack_require__(498)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/BoxShadow.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5a216c92", Component.options)
+  } else {
+    hotAPI.reload("data-v-5a216c92", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 497 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_color__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "BoxShadow",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Sketch"] },
+
+    computed: {
+        offsetX: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.boxShadow.offsetX;
+            },
+            set: function set(offset) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'boxShadow',
+                    subproperty: 'offsetX',
+                    value: offset
+                });
+            }
+        },
+
+        offsetY: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.boxShadow.offsetY;
+            },
+            set: function set(offset) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'boxShadow',
+                    subproperty: 'offsetY',
+                    value: offset
+                });
+            }
+        },
+
+        blurRadius: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.boxShadow.blurRadius;
+            },
+            set: function set(radius) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'boxShadow',
+                    subproperty: 'blurRadius',
+                    value: radius
+                });
+            }
+        }
+    },
+
+    data: function data() {
+        return {
+            showColorPicker: false,
+            colors: { r: 0, g: 0, b: 0, a: 1 }
+        };
+    },
+
+
+    methods: {
+        setColor: function setColor(color) {
+            this.$store.commit('setComponentSubProperty', {
+                property: 'boxShadow',
+                subproperty: 'color',
+                value: color.rgba
+            });
+        }
+    }
+
+});
+
+/***/ }),
+/* 498 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: { icon: "sun", tooltip: "Box Shadow", id: "box-shadow-popover" }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        { attrs: { target: "box-shadow-popover", placement: "bottom" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [
+                    _vm._v("Offset X")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    model: {
+                      value: _vm.offsetX,
+                      callback: function($$v) {
+                        _vm.offsetX = _vm._n($$v)
+                      },
+                      expression: "offsetX"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [
+                    _vm._v("Offset Y")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    model: {
+                      value: _vm.offsetY,
+                      callback: function($$v) {
+                        _vm.offsetY = _vm._n($$v)
+                      },
+                      expression: "offsetY"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [
+                    _vm._v("Blur Radius")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    model: {
+                      value: _vm.blurRadius,
+                      callback: function($$v) {
+                        _vm.blurRadius = _vm._n($$v)
+                      },
+                      expression: "blurRadius"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Colour")]),
+                  _vm._v(" "),
+                  _c("color-picker", {
+                    staticClass: "color-picker",
+                    attrs: { value: _vm.colors },
+                    on: { input: _vm.setColor }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5a216c92", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

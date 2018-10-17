@@ -29,6 +29,13 @@
 
             <b-row>
                 <b-col>
+                    <label class="sub-label">Border Radius</label>
+                    <b-form-input type="number" v-model="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
+                </b-col>
+            </b-row>
+
+            <b-row>
+                <b-col>
                     <label class="sub-label">Style</label>
                     <b-form-select size="sm" v-model="borderStyle" :options="borderStyles" v-b-tooltip.hover title="Border Style" class="top-bar-control"></b-form-select>
                 </b-col>
@@ -63,6 +70,19 @@ export default {
                     property: 'border',
                     subproperty: 'style',
                     value: style,
+                });
+            }
+        },
+
+        borderRadius: {
+            get() {
+                return this.$store.getters.getCurrentElement.border.radius;
+            },
+            set(radius) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: 'border',
+                    subproperty: 'radius',
+                    value: radius,
                 });
             }
         },
@@ -119,15 +139,6 @@ export default {
             }
         },
     },
-
-    borderStyle: {
-            get () {
-                return this.$store.getters.getCurrentElement.borderStyle;
-            },
-            set (style) {
-                this.$store.commit('setComponentProperty', { property: 'borderStyle', value: style });
-            }
-        },
 
     data() {
         return {

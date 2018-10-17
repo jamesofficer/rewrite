@@ -1,13 +1,11 @@
 <template>
     <b-col :cols="element.columnWidth" :class="{ 'selected-element': elementIsSelected }" :style="{
         backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
-        paddingTop: element.padding.top + 'px',
-        paddingRight: element.padding.right + 'px',
-        paddingBottom: element.padding.bottom + 'px',
-        paddingLeft: element.padding.left + 'px',
+        padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
         borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
         borderStyle: element.border.style,
         borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
+        boxShadow: element.boxShadow.offsetX + 'px ' + element.boxShadow.offsetY + 'px ' + element.boxShadow.blurRadius + 'px ' + 'rgba(' + element.boxShadow.color.r + ', ' + element.boxShadow.color.g + ', ' + element.boxShadow.color.b + ', ' + element.boxShadow.color.a + ')',
     }">
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
@@ -21,9 +19,11 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
+            <remove-column></remove-column>
+
             <add-component-button></add-component-button>
 
-            <remove-column></remove-column>
+            <padding></padding>
 
             <move-column></move-column>
 
@@ -32,6 +32,8 @@
             <background-color></background-color>
 
             <border></border>
+
+            <box-shadow></box-shadow>
         </top-bar>
     </b-col>
 </template>
@@ -59,6 +61,7 @@ import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
 import Border              from './core/Border'
+import BoxShadow           from './core/BoxShadow'
 
 export default {
     name: "Column",
@@ -68,7 +71,7 @@ export default {
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
-        ColumnWidth, Padding, BackgroundColor, Border
+        ColumnWidth, Padding, BackgroundColor, Border, BoxShadow,
     },
 
     props: {

@@ -17,9 +17,9 @@
             <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook Embed Code here..."
                     class="top-bar-control" v-b-tooltip.hover title="Facebook Embed Code"></b-input>
 
-            <image-alignment></image-alignment>
-
             <margin></margin>
+
+            <image-alignment></image-alignment>
         </top-bar>
     </div>
 </template>
