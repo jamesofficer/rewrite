@@ -21,7 +21,7 @@
                         <hr>
 
                         <p class="mb-0">
-                            <b-btn variant="danger" @click="storeArticle(true)">Overwrite</b-btn>
+                            <b-btn variant="danger" @click="overwriteArticle">Overwrite</b-btn>
                             <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
                         </p>
                     </b-alert>
@@ -57,8 +57,7 @@
 
                 <!-- Menu -->
                 <b-col :cols="2" class="text-right">
-                    <!-- Dropdown Menu -->
-                    <shift-menu></shift-menu>
+                    <shift-menu ref="menu"></shift-menu>
                 </b-col>
             </b-row>
         </b-container>
@@ -178,6 +177,10 @@ export default {
             this.$store.commit('selectCanvas', canvasIndex);
         },
 
+        overwriteArticle() {
+            this.$refs.menu.storeArticle(true);
+        },
+
         stickTopBarToWindow() {
             window.onscroll = () => stickyTopBar();
 
@@ -193,7 +196,6 @@ export default {
                 }
             }
         }
-
     },
 
     mounted() {

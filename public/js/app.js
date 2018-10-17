@@ -45920,7 +45920,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -45990,6 +45989,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         selectCanvas: function selectCanvas(canvasIndex) {
             this.$store.commit('selectCanvas', canvasIndex);
+        },
+        overwriteArticle: function overwriteArticle() {
+            this.$refs.menu.storeArticle(true);
         },
         stickTopBarToWindow: function stickTopBarToWindow() {
             window.onscroll = function () {
@@ -46166,7 +46168,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             window.scrollTo(0, 0);
-            this.showArticleOverwriteAlert = false;
+            this.$parent.showArticleOverwriteAlert = false;
         },
         setArticleHtml: function setArticleHtml() {
             this.$store.commit('setArticleHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
@@ -61062,11 +61064,7 @@ var render = function() {
                                 "b-btn",
                                 {
                                   attrs: { variant: "danger" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.storeArticle(true)
-                                    }
-                                  }
+                                  on: { click: _vm.overwriteArticle }
                                 },
                                 [_vm._v("Overwrite")]
                               ),
@@ -61163,7 +61161,7 @@ var render = function() {
               _c(
                 "b-col",
                 { staticClass: "text-right", attrs: { cols: 2 } },
-                [_c("shift-menu")],
+                [_c("shift-menu", { ref: "menu" })],
                 1
               )
             ],

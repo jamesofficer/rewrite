@@ -10,6 +10,12 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
+- Box Shadow.
+- Text Shadow.
+- Background gradients.
+- Add Padding and Margins to Columns.
+- Add Position controls to background images.
+- Save colors when using the color picker.
 - Move all styles on a component into a "styles" object.
 - Undo/Redo lol.
 - Have the "Add Component" button permanently visible, and remember last selected column.

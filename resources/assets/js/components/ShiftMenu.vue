@@ -98,7 +98,7 @@ export default {
             });
 
             window.scrollTo(0, 0);
-            this.showArticleOverwriteAlert = false;
+            this.$parent.showArticleOverwriteAlert = false;
         },
 
         setArticleHtml() {
