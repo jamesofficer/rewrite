@@ -178,42 +178,6 @@ export default {
             this.$store.commit('selectCanvas', canvasIndex);
         },
 
-        setSessionAlert(message, type) {
-            this.sessionAlert = {
-                show: true,
-                message: message,
-                type: type,
-            };
-        },
-
-        checkArticleExistsWhenSaving (title) {
-            return axios.post('/article/check-exists', {
-                title: title,
-            }).then(response => {
-                return response.data;
-            });
-        },
-
-        storeArticle(overwrite) {
-            const canvases = this.$store.getters.canvases;
-            const title    = this.$store.getters.articleTitle;
-
-            axios.post('/article/store', {
-                title: title,
-                article_json: canvases,
-                overwrite: overwrite,
-            })
-            .then(response => {
-                this.setSessionAlert('Article saved successfully!', 'success');
-            })
-            .catch(error => {
-                this.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
-            });
-
-            window.scrollTo(0, 0);
-            this.showArticleOverwriteAlert = false;
-        },
-
         stickTopBarToWindow() {
             window.onscroll = () => stickyTopBar();
 

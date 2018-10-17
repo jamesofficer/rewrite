@@ -40,6 +40,7 @@ import "vue-awesome/icons/utensils";
 import "vue-awesome/icons/stopwatch";
 import "vue-awesome/icons/minus-square";
 import "vue-awesome/icons/clone";
+import "vue-awesome/icons/file-alt";
 import "vue-awesome/icons/regular/square";
 import "vue-awesome/icons/brands/instagram";
 import "vue-awesome/icons/brands/facebook";

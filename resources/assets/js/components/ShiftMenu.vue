@@ -45,24 +45,60 @@ export default {
             this.$store.commit('addCanvas');
         },
 
+        setSessionAlert(message, type) {
+            this.$parent.sessionAlert = {
+                show: true,
+                message: message,
+                type: type,
+            };
+        },
+
         saveArticle() {
             const title = this.$store.getters.articleTitle;
 
             // Don't let users save an article that doesn't have a title.
             if (title === null || title === undefined) {
                 window.scrollTo(0, 0);
-                this.setSessionAlert('You must give your article a title first.', 'danger');
+                this.$parent.setSessionAlert('You must give your article a title first.', 'danger');
 
                 return;
             }
 
             this.checkArticleExistsWhenSaving(title).then((response) => {
                 if (response === true) {
-                    this.showArticleOverwriteAlert = true;
+                    this.$parent.showArticleOverwriteAlert = true;
                 } else {
                     this.storeArticle(false);
                 }
             });
+        },
+
+        checkArticleExistsWhenSaving (title) {
+            return axios.post('/article/check-exists', {
+                title: title,
+            }).then(response => {
+                return response.data;
+            });
+        },
+
+        storeArticle(overwrite) {
+            const canvases = this.$store.getters.canvases;
+            const title    = this.$store.getters.articleTitle;
+
+            axios.post('/article/store', {
+                title: title,
+                article_json: canvases,
+                overwrite: overwrite,
+            })
+            .then(response => {
+                this.setSessionAlert('Article saved successfully!', 'success');
+            })
+            .catch(error => {
+                this.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
+            });
+
+            window.scrollTo(0, 0);
+            this.showArticleOverwriteAlert = false;
         },
 
         setArticleHtml() {
