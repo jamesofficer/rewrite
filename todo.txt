@@ -2,6 +2,8 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
+- Social Media component margins not working.
+- Save colors when using the color picker.
 - Deleting all columns should delete the canvas too.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
@@ -10,12 +12,9 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
-- Remove the navbar, and sticky the top bar.
-- Box Shadow.
 - Text Shadow.
 - Background gradients.
 - Add Position controls to background images.
-- Save colors when using the color picker.
 - Move all styles on a component into a "styles" object.
 - Undo/Redo lol.
 - Have the "Add Component" button permanently visible, and remember last selected column.

@@ -1,37 +1,11 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <h1 v-if="! editingText" @dblclick="selectInput" :style="{
-                textAlign: element.textAlign,
-                fontSize: element.fontSize + 'pt',
-                fontFamily: element.fontFamily,
-                fontWeight: element.fontWeight,
-                lineHeight: element.lineHeight,
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
-                padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
-                borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
-                borderStyle: element.border.style,
-                borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
-                borderRadius: element.border.radius + 'px',
-            }">
-                {{ element.content }}
-            </h1>
+        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
+            {{ element.content }}
+        </h1>
 
-        <text-input v-else @focusout.native="editingText = false" :style="{
-                textAlign: element.textAlign,
-                fontSize: element.fontSize + 'pt',
-                fontFamily: element.fontFamily,
-                fontWeight: element.fontWeight,
-                lineHeight: element.lineHeight,
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
-                padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
-                borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
-                borderStyle: element.border.style,
-                borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
-            }" size="lg" id="heading-input"
-        ></text-input>
+        <text-input v-else @focusout.native="editingText = false" :style="getElementStyles" size="lg" id="heading-input"></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -96,8 +70,8 @@ export default {
             this.editingText = true;
 
             this.$nextTick(function () {
-                let input = document.getElementById('heading-input');
-                let strLength = input.value.length;
+                const input = document.getElementById('heading-input');
+                const strLength = input.value.length;
 
                 input.focus();
                 input.setSelectionRange(strLength, strLength);

@@ -8,13 +8,12 @@
         paddingRight: element.padding.right + 'px',
         paddingBottom: element.padding.bottom + 'px',
         paddingLeft: element.padding.left + 'px',
+        color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
     }">
 
         <!-- Ingredients Heading -->
         <b-row>
-            <b-col :style="{
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
+            <b-col>
                 <!-- Heading -->
                 <h5 :style="{
                     borderBottom: '3px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',

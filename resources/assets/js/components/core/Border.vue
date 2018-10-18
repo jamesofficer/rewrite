@@ -6,31 +6,31 @@
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>
-                    <b-form-input type="number" v-model="borderTop" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model.number="borderTop" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Right</label>
-                    <b-form-input type="number" v-model="borderRight" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model.number="borderRight" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
             </b-row>
 
             <b-row>
                 <b-col>
                     <label class="sub-label">Bottom</label>
-                    <b-form-input type="number" v-model="borderBottom" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model.number="borderBottom" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Left</label>
-                    <b-form-input type="number" v-model="borderLeft" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model.number="borderLeft" :min="0" :max="50" size="sm"></b-form-input>
                 </b-col>
             </b-row>
 
             <b-row>
                 <b-col>
                     <label class="sub-label">Border Radius</label>
-                    <b-form-input type="number" v-model="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
+                    <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
                 </b-col>
             </b-row>
 

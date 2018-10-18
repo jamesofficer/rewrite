@@ -1,14 +1,6 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }">
-        <div :style="{
-            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
-            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
-            background: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ')',
-            borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
-            borderStyle: element.border.style,
-            borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
-            borderRadius: element.border.radius + 'px',
-        }"></div>
+        <div :style="getElementStyles"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

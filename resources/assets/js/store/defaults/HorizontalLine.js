@@ -2,7 +2,7 @@ export default {
     type: 'HorizontalLine',
     selected: false,
 
-    backgroundColor: { r: 200, g: 200, b: 200, a: 0 },
+    backgroundColor: { r: 200, g: 200, b: 200, a: 1 },
     margin: {
         top: 20,
         right: 0,

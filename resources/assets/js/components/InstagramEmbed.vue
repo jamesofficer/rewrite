@@ -3,12 +3,10 @@
         <icon v-if="! instagramUrl" name="brands/instagram" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <iframe v-else :src="element.url" :style="{
-            marginTop: element.margin.top + 'px',
-            marginRight: element.margin.right + 'px',
-            marginBottom: element.margin.bottom + 'px',
-            marginLeft: element.margin.left + 'px',
-        }"></iframe>
+        <div v-else :style="getElementStyles">
+            <iframe :src="element.url"></iframe>
+        </div>
+        
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -17,9 +15,9 @@
             <b-input size="sm" v-model="instagramUrl" @blur.native="updateInstagramUrl" placeholder="Paste Instagram url here..."
                     class="top-bar-control" v-b-tooltip.hover title="Instagram URL"></b-input>
 
-            <image-alignment></image-alignment>
-
             <margin></margin>
+
+            <image-alignment></image-alignment>
         </top-bar>
     </div>
 </template>

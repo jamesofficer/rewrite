@@ -1,6 +1,5 @@
 <template>
-    <top-bar-control v-b-modal.imageGalleryModal variant="outline-primary" icon="image" tooltip="Select Image">
-    </top-bar-control>
+    <top-bar-control v-b-modal.imageGalleryModal variant="outline-primary" icon="image" tooltip="Select Image"></top-bar-control>
 </template>
 
 <script>

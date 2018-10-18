@@ -106,6 +106,7 @@
 
         <div class="footer-logo-wrapper">
             <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
+            <p class="version-text">Alpha Version</p>
         </div>
     </div>
 </template>
@@ -285,8 +286,13 @@ export default {
 }
 
 .footer-logo {
-    filter: gray;
-    width: 200px;
+    filter: grayscale(0%);
+    width: 150px;
     margin: 0 auto;
+}
+
+.version-text {
+    color: #bbb;
+    margin-top: 10px;
 }
 </style>
