@@ -48,7 +48,7 @@ export default {
                 ...el.border && { borderStyle: el.border.style },
                 ...el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' },
                 ...el.border && { borderRadius: el.border.radius + 'px' },
-                ...el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + element.boxShadow.color.b + ', ' + element.boxShadow.color.a + ')' },
+                ...el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' },
 
                 // Typography
                 ...el.fontSize && { fontSize: el.fontSize + 'pt' },

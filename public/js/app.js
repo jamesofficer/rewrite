@@ -1856,7 +1856,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         getElementStyles: function getElementStyles() {
             var el = this.element;
 
-            return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.textAlign && { textAlign: el.textAlign }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + element.boxShadow.color.b + ', ' + element.boxShadow.color.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight });
+            return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.textAlign && { textAlign: el.textAlign }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight });
         }
     }),
 
@@ -19554,6 +19554,12 @@ var ToolTip = function () {
     originalUrl: undefined,
     textAlign: 'left',
     margin: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    },
+    padding: {
         top: 0,
         right: 0,
         bottom: 0,
@@ -55575,14 +55581,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -56176,55 +56174,7 @@ var render = function() {
           )
         : _c("div", { style: { textAlign: _vm.element.textAlign } }, [
             _c("img", {
-              style: {
-                width: _vm.element.width + "%",
-                margin:
-                  _vm.element.margin.top +
-                  "px " +
-                  _vm.element.margin.right +
-                  "px " +
-                  _vm.element.margin.bottom +
-                  "px " +
-                  _vm.element.margin.left +
-                  "px",
-                borderWidth:
-                  _vm.element.border.top +
-                  "px " +
-                  _vm.element.border.right +
-                  "px " +
-                  _vm.element.border.bottom +
-                  "px " +
-                  _vm.element.border.left +
-                  "px ",
-                borderStyle: _vm.element.border.style,
-                borderColor:
-                  "rgba(" +
-                  _vm.element.border.color.r +
-                  ", " +
-                  _vm.element.border.color.g +
-                  ", " +
-                  _vm.element.border.color.b +
-                  ", " +
-                  _vm.element.border.color.a +
-                  ")",
-                borderRadius: _vm.element.border.radius + "px",
-                boxShadow:
-                  _vm.element.boxShadow.offsetX +
-                  "px " +
-                  _vm.element.boxShadow.offsetY +
-                  "px " +
-                  _vm.element.boxShadow.blurRadius +
-                  "px " +
-                  "rgba(" +
-                  _vm.element.boxShadow.color.r +
-                  ", " +
-                  _vm.element.boxShadow.color.g +
-                  ", " +
-                  _vm.element.boxShadow.color.b +
-                  ", " +
-                  _vm.element.boxShadow.color.a +
-                  ")"
-              },
+              style: _vm.getElementStyles,
               attrs: { src: _vm.element.src }
             })
           ]),
