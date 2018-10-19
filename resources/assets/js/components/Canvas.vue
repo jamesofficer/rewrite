@@ -26,6 +26,8 @@
             <template v-if="element.src">
                 <background-size></background-size>
 
+                <background-position></background-position>
+
                 <clear-image></clear-image>
             </template>
         </top-bar>
@@ -33,27 +35,28 @@
 </template>
 
 <script>
-import { mapGetters }  from 'vuex'
-import GetElement      from './mixins/GetElement'
+import { mapGetters }     from 'vuex'
+import GetElement         from './mixins/GetElement'
 
-import Column          from './Column'
-import TopBar          from './topbar/TopBar'
-import RemoveCanvas    from './topbar/RemoveCanvas'
-import MoveCanvas      from './topbar/MoveCanvas'
-import AddColumn       from './topbar/AddColumn'
-import ClearImage      from './topbar/ClearImage'
-import BackgroundSize  from './topbar/BackgroundSize'
+import Column             from './Column'
+import TopBar             from './topbar/TopBar'
+import RemoveCanvas       from './topbar/RemoveCanvas'
+import MoveCanvas         from './topbar/MoveCanvas'
+import AddColumn          from './topbar/AddColumn'
+import ClearImage         from './topbar/ClearImage'
+import BackgroundSize     from './topbar/BackgroundSize'
 
-import Padding         from './core/Padding'
-import BackgroundColor from './core/BackgroundColor'
-import ImageSelector   from './core/ImageSelector'
+import Padding            from './core/Padding'
+import BackgroundColor    from './core/BackgroundColor'
+import BackgroundPosition from './core/BackgroundPosition'
+import ImageSelector      from './core/ImageSelector'
 
 export default {
     name: "Canvas",
 
     components: {
         Column, TopBar, RemoveCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
-        Padding, BackgroundColor, ImageSelector,
+        Padding, BackgroundColor, BackgroundPosition, ImageSelector,
     },
 
     mixins: [GetElement],
@@ -72,10 +75,6 @@ export default {
             set(amount) {
                 this.$store.commit('addColumnsToCanvas', amount);
             }
-        },
-
-        backgroundColorString() {
-            return 'rgba(' + this.element.backgroundColor.r + ', ' + this.element.backgroundColor.g + ', ' + this.element.backgroundColor.b + ', ' + this.element.backgroundColor.a + ')';
         },
     },
 
