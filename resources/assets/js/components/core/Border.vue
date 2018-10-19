@@ -2,8 +2,8 @@
     <div>
         <top-bar-control icon="regular/square" tooltip="Borders" id="border-popover"></top-bar-control>
 
-        <b-popover target="border-popover" placement="bottom">
-            <b-row>
+        <b-popover target="border-popover" placement="rightbottom">
+            <b-row style="width: 225px">
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input type="number" v-model.number="borderTop" :min="0" :max="50" size="sm"></b-form-input>
@@ -15,7 +15,7 @@
                 </b-col>
             </b-row>
 
-            <b-row>
+            <b-row style="width: 225px">
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input type="number" v-model.number="borderBottom" :min="0" :max="50" size="sm"></b-form-input>
@@ -178,3 +178,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>

@@ -1,14 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
         <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <iframe v-else :src="element.url" :style="{
-                marginTop: element.margin.top + 'px',
-                marginRight: element.margin.right + 'px',
-                marginBottom: element.margin.bottom + 'px',
-                marginLeft: element.margin.left + 'px',
-            }"
+        <iframe v-else :src="element.url"
                :width="560"
                :height="315"
                :frameborder="0"
@@ -18,15 +13,17 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move></delete-clone-move>
 
-            <b-input size="sm" v-model="videoUrl" @blur.native="updateYouTubeUrl" placeholder="Paste video url here..."
-                    class="top-bar-control" v-b-tooltip.hover title="YouTube Video URL"></b-input>
+            <b-input size="sm"
+                    v-model="videoUrl"
+                    @blur.native="updateYouTubeUrl"
+                    placeholder="Paste video url here..."
+                    class="top-bar-control"
+                    v-b-tooltip.hover title="YouTube Video URL"
+            ></b-input>
 
-            <template v-if="videoUrl">
-                <margin></margin>
+            <margin></margin>
 
-                <image-alignment></image-alignment>
-            </template>
-
+            <image-alignment></image-alignment>
         </top-bar>
     </div>
 </template>
@@ -102,7 +99,7 @@ export default {
                         const newUrl  = urlStart + 'be.com/embed/' + newEnd + '?start=' + timeVal;
 
                         this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
-                        
+
 
                     }
 
@@ -116,7 +113,7 @@ export default {
 
                     this.$store.commit('setComponentProperty', { property: 'url', value: newUrl });
                 }
-            
+
             }
         }
     },

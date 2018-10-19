@@ -3,7 +3,7 @@ import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./h
 
 /**
  * Adds another Canvas to the Workspace.
- * 
+ *
  */
 export const addCanvas = state => {
     state.canvases.push(duplicateObject(defaults.canvas));
@@ -11,7 +11,7 @@ export const addCanvas = state => {
 
 /**
  * Deletes the selected Canvas
- * 
+ *
  */
 export const removeCanvas = state => {
     state.canvases.splice(state.currentCanvas, 1);
@@ -20,7 +20,7 @@ export const removeCanvas = state => {
 
 /**
  * Deletes a component from a column.
- * 
+ *
  */
 export const deleteComponent = state => {
     state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
@@ -73,10 +73,9 @@ export const moveCanvasDown = state => {
     }
 };
 
-
 /**
  * Moves a Column left within a Canvas.
- * 
+ *
  */
 export const moveColumnLeft = state => {
     if (state.currentColumn !== 0) {
@@ -114,7 +113,7 @@ export const moveColumnRight = state => {
 
 /**
  * Moves a component UP in a column.
- * 
+ *
  */
 export const moveComponentUp = state => {
     if (state.currentComponent !== 0) {
@@ -132,7 +131,7 @@ export const moveComponentUp = state => {
 
 /**
  * Moves a component DOWN in a column.
- * 
+ *
  */
 export const moveComponentDown = state => {
     if (state.currentComponent !== (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
@@ -150,7 +149,7 @@ export const moveComponentDown = state => {
 
 /**
  * Used to set CSS properties on components.
- * 
+ *
  */
 export const setComponentProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state), component.property, component.value);
@@ -158,7 +157,7 @@ export const setComponentProperty = (state, component) => {
 
 /**
  * Some Components like Margin and Padding have a subproperty we may need to set.
- * 
+ *
  */
 export const setComponentSubProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
@@ -166,7 +165,7 @@ export const setComponentSubProperty = (state, component) => {
 
 /**
  * Sets the status of the "Add Component" Modal window.
- * 
+ *
  */
 export const toggleAddComponentModal = (state, toggle) => {
     state.showAddComponentModal = toggle;
@@ -174,7 +173,7 @@ export const toggleAddComponentModal = (state, toggle) => {
 
 /**
  * Adds another column to the specified canvas.
- * 
+ *
  */
 export const addColumnToCanvas = (state, columnWidth) => {
     let newColumn = duplicateObject(defaults.column);
@@ -186,7 +185,7 @@ export const addColumnToCanvas = (state, columnWidth) => {
 
 /**
  * Removes a column from the specified canvas. We deselect it first to prevent errors.
- * 
+ *
  */
 export const removeColumnFromCanvas = state => {
     state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
@@ -195,7 +194,7 @@ export const removeColumnFromCanvas = state => {
 
 /**
  * Sets the currently selected component to whatever the user clicked on.
- * 
+ *
  */
 export const selectCanvas = (state, canvasIndex) => {
     deselectCurrentElement(state);
@@ -209,7 +208,7 @@ export const selectCanvas = (state, canvasIndex) => {
 
 /**
  * Sets the currently selected column to the one that the user clicked on.
- * 
+ *
  */
 export const selectColumn = (state, i) => {
     deselectCurrentElement(state);
@@ -223,7 +222,7 @@ export const selectColumn = (state, i) => {
 
 /**
  * Sets the currently selected component to whatever the user clicked on.
- * 
+ *
  */
 export const selectComponent = (state, i) => {
     deselectCurrentElement(state);
@@ -237,7 +236,7 @@ export const selectComponent = (state, i) => {
 
 /**
  * Adds a component to the specified column.
- * 
+ *
  */
 export const addComponentToColumn = (state, componentType) => {
     const components = {
@@ -259,18 +258,18 @@ export const addComponentToColumn = (state, componentType) => {
 
 /**
  * Sets the articleHtml variable in state, to whatever is in the main workspace.
- * 
+ *
  */
 export const setArticleHtml = (state, html) => {
     html = this.appendImageUrlsToHtml(html);
     html = this.cleanHtml(html);
 
     window.Vue.set(state, "articleHtml", html);
-} 
+}
 
 /**
  * When previewing an article, we need to append the hostname to the url for images to display properly.
- * 
+ *
  */
 export const appendImageUrlsToHtml = (html) => {
     const regex  = /(\/storage\/user-images)/g;
@@ -296,7 +295,7 @@ export const cleanHtml = (html) => {
 
 /**
  * Sets the title of the article.
- * 
+ *
  */
 export const updateArticleTitle = (state, title) => {
     window.Vue.set(state, "articleTitle", title);
@@ -304,7 +303,7 @@ export const updateArticleTitle = (state, title) => {
 
 /**
  * Selects an Image from the Image Gallery and sets it for the current image component.
- * 
+ *
  */
 export const selectImage = (state, image) => {
     window.Vue.set(getSelectedElement(state), "src", image.url);
@@ -312,7 +311,7 @@ export const selectImage = (state, image) => {
 
 /**
  * Loads an existing article (updates the canvases).
- * 
+ *
  */
 export const loadArticle = (state, article) => {
     // Reset selection first (prevents a bug that breaks element selection).

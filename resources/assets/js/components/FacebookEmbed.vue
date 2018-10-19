@@ -3,19 +3,19 @@
         <icon v-if="! facebookUrl" name="brands/facebook" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <div v-else v-html="element.url" :style="{
-            marginTop: element.margin.top + 'px',
-            marginRight: element.margin.right + 'px',
-            marginBottom: element.margin.bottom + 'px',
-            marginLeft: element.margin.left + 'px',
-        }"></div>
+        <div v-else v-html="element.url" :style="getElementStyles"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-clone-move></delete-clone-move>
 
-            <b-input size="sm" v-model="facebookUrl" @blur.native="updateFacebookUrl" placeholder="Paste Facebook Embed Code here..."
-                    class="top-bar-control" v-b-tooltip.hover title="Facebook Embed Code"></b-input>
+            <b-input size="sm"
+                    v-model="facebookUrl"
+                    @blur.native="updateFacebookUrl"
+                    placeholder="Paste Facebook Embed Code here..."
+                    v-b-tooltip.hover title="Facebook Embed Code"
+                    class="top-bar-control">
+            </b-input>
 
             <margin></margin>
 

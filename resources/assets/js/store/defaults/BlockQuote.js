@@ -9,7 +9,7 @@ export default {
     fontSize: 14,
     textAlign: "left",
     textColor: { r: 0, g: 0, b: 0, a: 1 },
-    backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     margin: {
         top: 0,
         right: 0,

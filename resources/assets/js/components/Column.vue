@@ -1,12 +1,5 @@
 <template>
-    <b-col :cols="element.columnWidth" :class="{ 'selected-element': elementIsSelected }" :style="{
-        backgroundColor: 'rgba(' + element.backgroundColor.r + ', ' + element.backgroundColor.g + ', ' + element.backgroundColor.b + ', ' + element.backgroundColor.a + ')',
-        padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
-        borderWidth: element.border.top + 'px ' + element.border.right + 'px ' + element.border.bottom + 'px ' + element.border.left + 'px ',
-        borderStyle: element.border.style,
-        borderColor: 'rgba(' + element.border.color.r + ', ' + element.border.color.g + ', ' + element.border.color.b + ', ' + element.border.color.a + ')',
-        boxShadow: element.boxShadow.offsetX + 'px ' + element.boxShadow.offsetY + 'px ' + element.boxShadow.blurRadius + 'px ' + 'rgba(' + element.boxShadow.color.r + ', ' + element.boxShadow.color.g + ', ' + element.boxShadow.color.b + ', ' + element.boxShadow.color.a + ')',
-    }">
+    <b-col :cols="element.columnWidth" :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -40,6 +33,7 @@
 
 <script>
 import { mapGetters }      from 'vuex'
+import GetElement          from './mixins/GetElement'
 
 import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
@@ -74,6 +68,8 @@ export default {
         ColumnWidth, Padding, BackgroundColor, Border, BoxShadow,
     },
 
+    mixins: [GetElement],
+
     props: {
         canvasIndex: {
             type: Number,
@@ -87,30 +83,9 @@ export default {
     },
 
     computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
         columnComponents() {
             return this.$store.getters.getComponentsForColumn(this.indexes);
         },
-
-        element() {
-            return this.getElement(this.indexes);
-        },
-    },
-
-    data() {
-        return {
-            indexes: {
-                canvasIndex: this.canvasIndex,
-                columnIndex: this.columnIndex,
-            }
-        }
     },
 
     methods: {

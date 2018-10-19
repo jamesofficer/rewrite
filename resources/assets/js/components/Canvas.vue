@@ -1,13 +1,6 @@
 <template>
     <!-- CANVAS -->
-    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :class="{ 'selected-canvas': elementIsSelected }" :style="{
-        background: element.src ? 'url(' + element.src + ')' : backgroundColorString,
-        backgroundSize:  element.backgroundSize,
-        paddingTop: element.padding.top + 'px',
-        paddingRight: element.padding.right + 'px',
-        paddingBottom: element.padding.bottom + 'px',
-        paddingLeft: element.padding.left + 'px',
-    }">
+    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :class="{ 'selected-canvas': elementIsSelected }" :style="getElementStyles">
         <column v-for="(column, columnIndex) in columnCount"
             v-bind:key="columnIndex"
             v-bind:canvasIndex="canvasIndex"
@@ -40,19 +33,20 @@
 </template>
 
 <script>
-import { mapGetters }    from 'vuex'
+import { mapGetters }  from 'vuex'
+import GetElement      from './mixins/GetElement'
 
-import Column            from './Column'
-import TopBar            from './topbar/TopBar'
-import RemoveCanvas      from './topbar/RemoveCanvas'
-import MoveCanvas        from './topbar/MoveCanvas'
-import AddColumn         from './topbar/AddColumn'
-import ClearImage        from './topbar/ClearImage'
-import BackgroundSize    from './topbar/BackgroundSize'
+import Column          from './Column'
+import TopBar          from './topbar/TopBar'
+import RemoveCanvas    from './topbar/RemoveCanvas'
+import MoveCanvas      from './topbar/MoveCanvas'
+import AddColumn       from './topbar/AddColumn'
+import ClearImage      from './topbar/ClearImage'
+import BackgroundSize  from './topbar/BackgroundSize'
 
-import Padding           from './core/Padding'
-import BackgroundColor   from './core/BackgroundColor'
-import ImageSelector     from './core/ImageSelector'
+import Padding         from './core/Padding'
+import BackgroundColor from './core/BackgroundColor'
+import ImageSelector   from './core/ImageSelector'
 
 export default {
     name: "Canvas",
@@ -62,6 +56,8 @@ export default {
         Padding, BackgroundColor, ImageSelector,
     },
 
+    mixins: [GetElement],
+
     props: {
         canvasIndex: {
             type: Number,
@@ -69,10 +65,6 @@ export default {
     },
 
     computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
         columnCount: {
             get() {
                 return this.$store.getters.columnCount(this.canvasIndex);
@@ -82,26 +74,9 @@ export default {
             }
         },
 
-        element() {
-            return this.getElement(this.indexes);
-        },
-
-        elementIsSelected() {
-            return this.$store.getters.elementIsSelected(this.indexes);
-        },
-
         backgroundColorString() {
             return 'rgba(' + this.element.backgroundColor.r + ', ' + this.element.backgroundColor.g + ', ' + this.element.backgroundColor.b + ', ' + this.element.backgroundColor.a + ')';
         },
-    },
-
-    data() {
-        return {
-            hovering: false,    // used to show and hide the edit button
-            indexes: {
-                canvasIndex: this.canvasIndex,
-            }
-        }
     },
 
     methods: {

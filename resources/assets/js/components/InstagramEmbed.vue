@@ -1,19 +1,23 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
         <icon v-if="! instagramUrl" name="brands/instagram" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <div v-else :style="getElementStyles">
+        <div v-else>
             <iframe :src="element.url"></iframe>
         </div>
-        
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-clone-move></delete-clone-move>
 
-            <b-input size="sm" v-model="instagramUrl" @blur.native="updateInstagramUrl" placeholder="Paste Instagram url here..."
-                    class="top-bar-control" v-b-tooltip.hover title="Instagram URL"></b-input>
+            <b-input size="sm"
+                    v-model="instagramUrl"
+                    @blur.native="updateInstagramUrl"
+                    placeholder="Paste Instagram url here..."
+                    class="top-bar-control"
+                    v-b-tooltip.hover title="Instagram URL">
+            </b-input>
 
             <margin></margin>
 
@@ -56,18 +60,18 @@ export default {
     methods: {
         updateInstagramUrl() {
             // Strip this out if it's there as it will break the string split below.
-           
 
-            const targetIndex = this.instagramUrl.indexOf("?"); 
+
+            const targetIndex = this.instagramUrl.indexOf("?");
             let newUrl;
 
             console.log(targetIndex);
-           
-            
+
+
              if (targetIndex > 0)
              {
                  newUrl = this.instagramUrl.substring(0, targetIndex);
-            
+
              }
 
              console.log(newUrl);

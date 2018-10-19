@@ -4,17 +4,17 @@ export default {
     props: {
         componentIndex: {
             type: Number,
-            required: true,
+            default: undefined,
         },
 
         columnIndex: {
             type: Number,
-            required: true,
+            default: undefined,
         },
 
         canvasIndex: {
             type: Number,
-            required: true,
+            default: undefined,
         }
     },
 
