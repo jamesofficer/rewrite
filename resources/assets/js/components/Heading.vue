@@ -30,6 +30,8 @@
             <font-weight></font-weight>
 
             <line-height></line-height>
+
+            <letter-spacing></letter-spacing>
         </top-bar>
     </div>
 </template>
@@ -51,6 +53,7 @@ import FontFamily        from './core/FontFamily'
 import FontWeight        from './core/FontWeight'
 import FontSize          from './core/FontSize'
 import LineHeight        from './core/LineHeight'
+import LetterSpacing     from './core/LetterSpacing'
 
 export default {
     name: "Heading",
@@ -59,7 +62,7 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, TextShadow
+        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, TextShadow, LetterSpacing
     },
 
     data() {

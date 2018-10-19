@@ -27,6 +27,8 @@
             <font-weight></font-weight>
 
             <line-height></line-height>
+
+            <letter-spacing></letter-spacing>
         </top-bar>
     </div>
 </template>
@@ -42,6 +44,7 @@ import EditTextButton    from './topbar/EditTextButton'
 
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
+import Border            from './core/Border'
 import TextInput         from './core/TextInput'
 import FontFamily        from './core/FontFamily'
 import TextAlignment     from './core/TextAlignment'
@@ -50,7 +53,7 @@ import FontSize          from './core/FontSize'
 import TextColor         from './core/TextColor'
 import TextShadow        from './core/TextShadow'
 import LineHeight        from './core/LineHeight'
-import Border            from './core/Border'
+import LetterSpacing     from './core/LetterSpacing'
 
 export default {
     name: "Paragraph",
@@ -61,7 +64,7 @@ export default {
         EditTextModal,
         TopBar, EditTextButton, DeleteCloneMove,
         Margin, Padding, Border,
-        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor, TextShadow
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor, TextShadow, LetterSpacing
     },
 
     data() {

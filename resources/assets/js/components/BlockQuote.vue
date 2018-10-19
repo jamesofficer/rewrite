@@ -20,13 +20,17 @@
 
             <text-shadow></text-shadow>
 
+            <text-alignment></text-alignment>
+
             <font-family></font-family>
 
             <font-size></font-size>
 
             <font-weight></font-weight>
 
-            <text-alignment></text-alignment>
+            <line-height></line-height>
+
+            <letter-spacing></letter-spacing>
         </top-bar>
     </div>
 </template>
@@ -38,17 +42,19 @@ import EditableText    from './mixins/EditableText'
 import TopBar          from './topbar/TopBar'
 import DeleteCloneMove from './topbar/DeleteCloneMove'
 
+import Margin          from './core/Margin'
+import Padding         from './core/Padding'
+import Border          from './core/Border'
 import TextInput       from './core/TextInput'
+import BackgroundColor from './core/BackgroundColor'
 import TextAlignment   from './core/TextAlignment'
 import FontFamily      from './core/FontFamily'
 import FontWeight      from './core/FontWeight'
 import FontSize        from './core/FontSize'
 import TextColor       from './core/TextColor'
 import TextShadow      from './core/TextShadow'
-import BackgroundColor from './core/BackgroundColor'
-import Padding         from './core/Padding'
-import Margin          from './core/Margin'
-import Border          from './core/Border'
+import LineHeight      from './core/LineHeight'
+import LetterSpacing   from './core/LetterSpacing'
 
 export default {
     name: "BlockQuote",
@@ -57,8 +63,8 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow,
-        BackgroundColor, Margin, Padding, Border
+        BackgroundColor, Margin, Padding, Border,
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow, LineHeight, LetterSpacing
     },
 }
 </script>

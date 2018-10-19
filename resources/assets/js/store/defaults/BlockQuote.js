@@ -7,6 +7,8 @@ export default {
     fontFamily: "Times New Roman",
     fontWeight: 500,
     fontSize: 14,
+    lineHeight: 1,
+    letterSpacing: 0,
     textAlign: "left",
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },

@@ -1240,7 +1240,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         getElementStyles: function getElementStyles() {
             var el = this.element;
 
-            return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.src && { background: 'url(' + el.src + ')' }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.backgroundSize && { backgroundSize: el.backgroundSize }, el.backgroundPosition && { backgroundPosition: el.backgroundPosition }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.textAlign && { textAlign: el.textAlign }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight }, el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' });
+            return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.src && { background: 'url(' + el.src + ')' }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.backgroundSize && { backgroundSize: el.backgroundSize }, el.backgroundPosition && { backgroundPosition: el.backgroundPosition }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.textAlign && { textAlign: el.textAlign }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight }, el.letterSpacing && { letterSpacing: el.letterSpacing + 'px' }, el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' });
         }
     }),
 
@@ -23125,6 +23125,7 @@ module.exports = Component.exports
     fontWeight: 500,
     fontSize: 24,
     lineHeight: 1,
+    letterSpacing: 0,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     margin: {
@@ -23171,6 +23172,7 @@ module.exports = Component.exports
     fontWeight: 500,
     fontSize: 12,
     lineHeight: 1,
+    letterSpacing: 0,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     margin: {
@@ -23298,6 +23300,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fontFamily: "Times New Roman",
     fontWeight: 500,
     fontSize: 14,
+    lineHeight: 1,
+    letterSpacing: 0,
     textAlign: "left",
     textColor: { r: 0, g: 0, b: 0, a: 1 },
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
@@ -47998,6 +48002,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_LineHeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing__);
 //
 //
 //
@@ -48034,6 +48040,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -48059,7 +48068,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteCloneMove: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteCloneMove___default.a,
-        Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_6__core_Border___default.a, TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_8__core_TextShadow___default.a
+        Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_6__core_Border___default.a, TextInput: __WEBPACK_IMPORTED_MODULE_3__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_13__core_LineHeight___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_7__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_8__core_TextShadow___default.a, LetterSpacing: __WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing___default.a
     },
 
     data: function data() {
@@ -50123,7 +50132,7 @@ var render = function() {
       size: "sm",
       type: "number",
       min: 0,
-      max: 5,
+      max: 25,
       step: "0.1",
       title: "Line Height"
     },
@@ -50198,7 +50207,9 @@ var render = function() {
               _vm._v(" "),
               _c("font-weight"),
               _vm._v(" "),
-              _c("line-height")
+              _c("line-height"),
+              _vm._v(" "),
+              _c("letter-spacing")
             ],
             1
           )
@@ -50283,24 +50294,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Margin__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontWeight__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontSize__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextColor__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextShadow__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_TextShadow__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LineHeight__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_LineHeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextInput__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontFamily__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextColor__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextShadow__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_TextShadow__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_LineHeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing__);
 //
 //
 //
@@ -50334,6 +50347,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -50363,8 +50379,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         EditTextModal: __WEBPACK_IMPORTED_MODULE_0__dialogs_EditTextModal___default.a,
         TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, EditTextButton: __WEBPACK_IMPORTED_MODULE_4__topbar_EditTextButton___default.a, DeleteCloneMove: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCloneMove___default.a,
-        Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_15__core_Border___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_8__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_10__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_11__core_FontSize___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_14__core_LineHeight___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_12__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_13__core_TextShadow___default.a
+        Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_6__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_8__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_9__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_10__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_13__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_14__core_TextShadow___default.a, LetterSpacing: __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing___default.a
     },
 
     data: function data() {
@@ -55064,7 +55080,9 @@ var render = function() {
               _vm._v(" "),
               _c("font-weight"),
               _vm._v(" "),
-              _c("line-height")
+              _c("line-height"),
+              _vm._v(" "),
+              _c("letter-spacing")
             ],
             1
           )
@@ -55142,28 +55160,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCloneMove__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCloneMove___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCloneMove__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextInput__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_TextInput__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextAlignment__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_TextAlignment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontFamily__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_FontFamily__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontWeight__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_FontWeight__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontSize__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_FontSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextShadow__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_TextShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_TextShadow__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Margin__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_Border__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Margin__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Border__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_TextInput__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_TextAlignment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_FontFamily__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_FontWeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_FontSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextColor__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_TextColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_TextColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextShadow__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_TextShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_TextShadow__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_LineHeight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing__);
 //
 //
 //
@@ -55197,6 +55219,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+
+
 
 
 
@@ -55223,8 +55251,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, DeleteCloneMove: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCloneMove___default.a,
-        TextInput: __WEBPACK_IMPORTED_MODULE_4__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_6__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_5__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_7__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_8__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_9__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_10__core_TextShadow___default.a,
-        BackgroundColor: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default.a, Margin: __WEBPACK_IMPORTED_MODULE_13__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_12__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_14__core_Border___default.a
+        BackgroundColor: __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default.a, Margin: __WEBPACK_IMPORTED_MODULE_4__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_5__core_Padding___default.a, Border: __WEBPACK_IMPORTED_MODULE_6__core_Border___default.a,
+        TextInput: __WEBPACK_IMPORTED_MODULE_7__core_TextInput___default.a, FontFamily: __WEBPACK_IMPORTED_MODULE_10__core_FontFamily___default.a, TextAlignment: __WEBPACK_IMPORTED_MODULE_9__core_TextAlignment___default.a, FontWeight: __WEBPACK_IMPORTED_MODULE_11__core_FontWeight___default.a, FontSize: __WEBPACK_IMPORTED_MODULE_12__core_FontSize___default.a, TextColor: __WEBPACK_IMPORTED_MODULE_13__core_TextColor___default.a, TextShadow: __WEBPACK_IMPORTED_MODULE_14__core_TextShadow___default.a, LineHeight: __WEBPACK_IMPORTED_MODULE_15__core_LineHeight___default.a, LetterSpacing: __WEBPACK_IMPORTED_MODULE_16__core_LetterSpacing___default.a
     }
 });
 
@@ -55403,13 +55431,17 @@ var render = function() {
               _vm._v(" "),
               _c("text-shadow"),
               _vm._v(" "),
+              _c("text-alignment"),
+              _vm._v(" "),
               _c("font-family"),
               _vm._v(" "),
               _c("font-size"),
               _vm._v(" "),
               _c("font-weight"),
               _vm._v(" "),
-              _c("text-alignment")
+              _c("line-height"),
+              _vm._v(" "),
+              _c("letter-spacing")
             ],
             1
           )
@@ -85972,6 +86004,124 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-288f05f6", module.exports)
+  }
+}
+
+/***/ }),
+/* 517 */,
+/* 518 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(519)
+/* template */
+var __vue_template__ = __webpack_require__(520)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/LetterSpacing.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-39575684", Component.options)
+  } else {
+    hotAPI.reload("data-v-39575684", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 519 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "LineHeight",
+
+    computed: {
+        letterSpacing: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.letterSpacing;
+            },
+            set: function set(spacing) {
+                this.$store.commit('setComponentProperty', { property: 'letterSpacing', value: spacing });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 520 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("b-form-input", {
+    directives: [
+      {
+        name: "b-tooltip",
+        rawName: "v-b-tooltip.hover",
+        modifiers: { hover: true }
+      }
+    ],
+    staticClass: "top-bar-control top-bar-number-input",
+    attrs: {
+      size: "sm",
+      type: "number",
+      min: 0,
+      max: 100,
+      step: "0.1",
+      title: "Letter Spacing"
+    },
+    model: {
+      value: _vm.letterSpacing,
+      callback: function($$v) {
+        _vm.letterSpacing = $$v
+      },
+      expression: "letterSpacing"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-39575684", module.exports)
   }
 }
 
