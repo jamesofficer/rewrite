@@ -13,6 +13,8 @@
             <border></border>
 
             <background-color></background-color>
+
+            <box-shadow></box-shadow>
         </top-bar>
     </div>
 </template>
@@ -28,13 +30,14 @@ import Margin            from './core/Margin'
 import Padding           from './core/Padding'
 import Border            from './core/Border'
 import BackgroundColor   from './core/BackgroundColor'
+import BoxShadow         from './core/BoxShadow'
 
 export default {
     name: "HorizontalLine",
 
     components: {
         TopBar, DeleteCloneMove,
-        Margin, Padding, Border, BackgroundColor,
+        Margin, Padding, Border, BackgroundColor, BoxShadow
     },
 
     mixins: [GetElement],

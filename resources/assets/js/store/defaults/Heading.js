@@ -31,4 +31,10 @@ export default {
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
+    textShadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 0,
+        color: { r: 0, g: 0, b: 0, a: 0 },
+    },
 }

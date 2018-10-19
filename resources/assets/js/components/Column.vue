@@ -14,19 +14,19 @@
         <top-bar v-if="elementIsSelected">
             <remove-column></remove-column>
 
+            <move-column></move-column>
+
             <add-component-button></add-component-button>
 
             <padding></padding>
-
-            <move-column></move-column>
-
-            <column-width></column-width>
 
             <background-color></background-color>
 
             <border></border>
 
             <box-shadow></box-shadow>
+
+            <column-width></column-width>
         </top-bar>
     </b-col>
 </template>

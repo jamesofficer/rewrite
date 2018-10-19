@@ -1,5 +1,5 @@
 <template>
-    <div style="display: inherit">
+    <div class="move-component-wrapper">
         <top-bar-control @click.native="moveComponentUp" variant="outline-info" icon="arrow-up" tooltip="Move Up" :disabled="! canMoveUp"></top-bar-control>
         <top-bar-control @click.native="moveComponentDown" variant="outline-info" icon="arrow-down" tooltip="Move Down" :disabled="! canMoveDown"></top-bar-control>
     </div>
@@ -34,4 +34,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.move-component-wrapper {
+    display: inherit;
+    margin-right: 10px;
+}
+</style>
+
 

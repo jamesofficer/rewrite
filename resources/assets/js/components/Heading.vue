@@ -19,6 +19,10 @@
 
             <text-color></text-color>
 
+            <text-shadow></text-shadow>
+
+            <text-alignment></text-alignment>
+
             <font-family></font-family>
 
             <font-size></font-size>
@@ -26,8 +30,6 @@
             <font-weight></font-weight>
 
             <line-height></line-height>
-
-            <text-alignment></text-alignment>
         </top-bar>
     </div>
 </template>
@@ -43,6 +45,7 @@ import Margin            from './core/Margin'
 import Padding           from './core/Padding'
 import Border            from './core/Border'
 import TextColor         from './core/TextColor'
+import TextShadow        from './core/TextShadow'
 import TextAlignment     from './core/TextAlignment'
 import FontFamily        from './core/FontFamily'
 import FontWeight        from './core/FontWeight'
@@ -56,7 +59,7 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, Padding, Margin, Border,
+        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, TextShadow
     },
 
     data() {

@@ -60,6 +60,7 @@ export default {
                 ...el.fontFamily && { fontFamily: el.fontFamily },
                 ...el.fontWeight && { fontWeight: el.fontWeight },
                 ...el.lineHeight && { lineHeight: el.lineHeight },
+                ...el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' },
             };
         },
     },
