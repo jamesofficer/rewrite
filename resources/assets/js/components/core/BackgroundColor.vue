@@ -3,19 +3,19 @@
         <top-bar-control icon="fill" tooltip="Background Colour" id="background-color-popover"></top-bar-control>
 
         <b-popover target="background-color-popover" placement="bottom">
-            <sketch-color-picker :value="colors" @input="updateValue"></sketch-color-picker>
+            <color-picker :value="colors" @input="updateValue"></color-picker>
         </b-popover>
     </div>
 </template>
 
 <script>
-import { Sketch as SketchColorPicker } from 'vue-color'
+import { Chrome as ColorPicker } from 'vue-color'
 import TopBarControl from '../topbar/TopBarControl';
 
 export default {
     name: "BackgroundColor",
 
-    components: { TopBarControl, SketchColorPicker },
+    components: { TopBarControl, ColorPicker },
 
     computed: {
         bgColor() {

@@ -44,7 +44,7 @@
             <b-row>
                 <b-col>
                     <label class="sub-label">Colour</label>
-                    <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
+                    <color-picker :value="colors" @input="setColor"></color-picker>
                 </b-col>
             </b-row>
         </b-popover>
@@ -53,7 +53,7 @@
 
 <script>
 import TopBarControl from '../topbar/TopBarControl';
-import { Sketch as ColorPicker } from 'vue-color'
+import { Chrome as ColorPicker } from 'vue-color'
 
 export default {
     name: "Border",

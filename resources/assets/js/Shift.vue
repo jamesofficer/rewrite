@@ -102,6 +102,9 @@
 
             <!-- Recipe Ingredients Modal -->
             <recipe-ingredients-modal></recipe-ingredients-modal>
+
+            <!-- Background Gradient Modal -->
+            <background-gradient-modal></background-gradient-modal>
         </b-container>
 
         <div class="footer-logo-wrapper">
@@ -112,16 +115,17 @@
 </template>
 
 <script>
-import ShiftMenu              from "./components/ShiftMenu";
-import Canvas                 from "./components/Canvas";
-import ShiftArticle           from "./components/ShiftArticle";
-import AddComponentModal      from './components/dialogs/AddComponentModal';
-import EditTextModal          from './components/dialogs/EditTextModal';
-import LoadArticleModal       from './components/dialogs/LoadArticleModal';
-import MyImagesModal          from './components/dialogs/MyImagesModal';
-import ImageGalleryModal      from './components/dialogs/ImageGalleryModal';
-import ExportArticleModal     from './components/dialogs/ExportArticleModal';
-import RecipeIngredientsModal from './components/dialogs/RecipeIngredientsModal';
+import ShiftMenu               from "./components/ShiftMenu";
+import Canvas                  from "./components/Canvas";
+import ShiftArticle            from "./components/ShiftArticle";
+import AddComponentModal       from './components/dialogs/AddComponentModal';
+import EditTextModal           from './components/dialogs/EditTextModal';
+import LoadArticleModal        from './components/dialogs/LoadArticleModal';
+import MyImagesModal           from './components/dialogs/MyImagesModal';
+import ImageGalleryModal       from './components/dialogs/ImageGalleryModal';
+import ExportArticleModal      from './components/dialogs/ExportArticleModal';
+import RecipeIngredientsModal  from './components/dialogs/RecipeIngredientsModal';
+import BackgroundGradientModal from './components/dialogs/BackgroundGradientModal';
 
 export default {
     name: "Shift",
@@ -129,7 +133,7 @@ export default {
     components: {
         ShiftMenu, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
-        ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
+        ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 
     computed: {

@@ -21,6 +21,8 @@
 
             <background-color></background-color>
 
+            <!-- <background-gradient></background-gradient> -->
+
             <image-selector></image-selector>
 
             <template v-if="element.src">
@@ -48,6 +50,7 @@ import BackgroundSize     from './topbar/BackgroundSize'
 
 import Padding            from './core/Padding'
 import BackgroundColor    from './core/BackgroundColor'
+import BackgroundGradient from './core/BackgroundGradient'
 import BackgroundPosition from './core/BackgroundPosition'
 import ImageSelector      from './core/ImageSelector'
 
@@ -56,7 +59,7 @@ export default {
 
     components: {
         Column, TopBar, RemoveCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
-        Padding, BackgroundColor, BackgroundPosition, ImageSelector,
+        Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
     },
 
     mixins: [GetElement],

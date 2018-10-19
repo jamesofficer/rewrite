@@ -3,19 +3,19 @@
         <top-bar-control icon="paint-roller" tooltip="Text Colour" id="text-color-popover"></top-bar-control>
 
         <b-popover target="text-color-popover" placement="bottom">
-            <sketch-color-picker :value="colors" @input="updateValue" class="color-picker"></sketch-color-picker>
+            <color-picker :value="colors" @input="updateValue"></color-picker>
         </b-popover>
     </div>
 </template>
 
 <script>
-import { Sketch as SketchColorPicker } from 'vue-color'
+import { Chrome as ColorPicker } from 'vue-color'
 import TopBarControl from '../topbar/TopBarControl'
 
 export default {
     name: "TextColor",
 
-    components: { TopBarControl, SketchColorPicker },
+    components: { TopBarControl, ColorPicker },
 
     computed: {
         bgColor() {

@@ -45929,6 +45929,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal__);
 //
 //
 //
@@ -46042,6 +46044,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -46060,7 +46066,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     components: {
         ShiftMenu: __WEBPACK_IMPORTED_MODULE_0__components_ShiftMenu___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_1__components_Canvas___default.a, ShiftArticle: __WEBPACK_IMPORTED_MODULE_2__components_ShiftArticle___default.a,
         AddComponentModal: __WEBPACK_IMPORTED_MODULE_3__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_4__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_5__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_6__components_dialogs_MyImagesModal___default.a,
-        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_7__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal___default.a
+        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_7__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal___default.a
     },
 
     computed: {
@@ -46579,10 +46585,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition__ = __webpack_require__(502);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_ImageSelector__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_ImageSelector__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient__ = __webpack_require__(524);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_ImageSelector__);
 //
 //
 //
@@ -46619,6 +46627,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -46641,7 +46652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         Column: __WEBPACK_IMPORTED_MODULE_2__Column___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, RemoveCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_8__topbar_BackgroundSize___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_12__core_ImageSelector___default.a
+        Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_GetElement__["a" /* default */]],
@@ -49297,7 +49308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Border",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Sketch"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
 
     computed: {
         borderStyle: {
@@ -49598,7 +49609,6 @@ var render = function() {
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Colour")]),
                   _vm._v(" "),
                   _c("color-picker", {
-                    staticClass: "color-picker",
                     attrs: { value: _vm.colors },
                     on: { input: _vm.setColor }
                   })
@@ -49652,7 +49662,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextColor",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBarControl___default.a, SketchColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Sketch"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Chrome"] },
 
     computed: {
         bgColor: function bgColor() {
@@ -49701,8 +49711,7 @@ var render = function() {
         "b-popover",
         { attrs: { target: "text-color-popover", placement: "bottom" } },
         [
-          _c("sketch-color-picker", {
-            staticClass: "color-picker",
+          _c("color-picker", {
             attrs: { value: _vm.colors },
             on: { input: _vm.updateValue }
           })
@@ -55262,8 +55271,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 /**
- * Elements such as Heading, Paragraph and BlockQuote allow the user to input text directly
- * into the Canvas. All those elements share that logic, which is located in this file.
+ * The Heading and BlockQuote components allow the user to input text directly into
+ * the Canvas. All those elements share that logic, which is located in this file.
  *
  */
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -55316,7 +55325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BackgroundColor",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBarControl___default.a, SketchColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Sketch"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Chrome"] },
 
     computed: {
         bgColor: function bgColor() {
@@ -55362,7 +55371,7 @@ var render = function() {
         "b-popover",
         { attrs: { target: "background-color-popover", placement: "bottom" } },
         [
-          _c("sketch-color-picker", {
+          _c("color-picker", {
             attrs: { value: _vm.colors },
             on: { input: _vm.updateValue }
           })
@@ -55930,7 +55939,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BoxShadow",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Sketch"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
 
     computed: {
         offsetX: {
@@ -56102,7 +56111,6 @@ var render = function() {
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Colour")]),
                   _vm._v(" "),
                   _c("color-picker", {
-                    staticClass: "color-picker",
                     attrs: { value: _vm.colors },
                     on: { input: _vm.setColor }
                   })
@@ -61051,7 +61059,9 @@ var render = function() {
           _vm._v(" "),
           _c("export-article-modal", { ref: "exportArticleModal" }),
           _vm._v(" "),
-          _c("recipe-ingredients-modal")
+          _c("recipe-ingredients-modal"),
+          _vm._v(" "),
+          _c("background-gradient-modal")
         ],
         1
       ),
@@ -61845,13 +61855,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_file_alt__ = __webpack_require__(455);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_sun__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_sign_out_alt__ = __webpack_require__(457);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_regular_square__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_brands_instagram__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_facebook__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_youtube__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_brands_pinterest__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brush__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_regular_square__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_instagram__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_facebook__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_brands_youtube__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48_vue_awesome_icons_brands_pinterest__ = __webpack_require__(462);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -85804,7 +85816,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextShadow",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Sketch"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
 
     computed: {
         offsetX: {
@@ -85980,7 +85992,6 @@ var render = function() {
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Colour")]),
                   _vm._v(" "),
                   _c("color-picker", {
-                    staticClass: "color-picker",
                     attrs: { value: _vm.colors },
                     on: { input: _vm.setColor }
                   })
@@ -86122,6 +86133,464 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-39575684", module.exports)
+  }
+}
+
+/***/ }),
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(525)
+/* template */
+var __vue_template__ = __webpack_require__(526)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/BackgroundGradient.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4f8f4247", Component.options)
+  } else {
+    hotAPI.reload("data-v-4f8f4247", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 525 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "BackgroundGradient",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a }
+});
+
+/***/ }),
+/* 526 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    directives: [
+      {
+        name: "b-modal",
+        rawName: "v-b-modal.backgroundGradientModal",
+        modifiers: { backgroundGradientModal: true }
+      }
+    ],
+    attrs: { icon: "brush", tooltip: "Background Gradient" }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4f8f4247", module.exports)
+  }
+}
+
+/***/ }),
+/* 527 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brush":{"width":384,"height":512,"paths":[{"d":"M352 0H32C14.3 0 0 14.3 0 32V256H384V32C384 14.3 369.7 0 352 0zM0 320C0 355.4 28.7 384 64 384H128V448C128 483.4 156.7 512 192 512S256 483.4 256 448V384H320C355.3 384 384 355.4 384 320V288H0V320zM192 424C205.3 424 216 434.7 216 448 216 461.3 205.3 472 192 472S168 461.3 168 448C168 434.7 178.8 424 192 424z"}]}})
+
+
+/***/ }),
+/* 528 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(529)
+/* template */
+var __vue_template__ = __webpack_require__(530)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dialogs/BackgroundGradientModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-155f0ef8", Component.options)
+  } else {
+    hotAPI.reload("data-v-155f0ef8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 529 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_color__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "BackgroundGradientModal",
+
+    components: {
+        ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Chrome"]
+    },
+
+    data: function data() {
+        return {
+            gradientStyle: 'Linear',
+            gradientStyles: ['Linear', 'Radial', 'Circle', 'Ellipse'],
+            gradientAngle: 'top',
+            gradientAngles: ['top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right'],
+            selectedGradientString: '',
+            colors: [{ r: 100, g: 100, b: 255, a: 1 }, { r: 100, g: 255, b: 100, a: 1 }]
+        };
+    },
+
+
+    methods: {
+        addColor: function addColor() {
+            if (this.colors.length < 6) {
+                this.colors.push({ r: 0, g: 0, b: 0, a: 1 });
+            }
+        },
+        deleteColor: function deleteColor(index) {
+            this.colors.splice(index, 1);
+        },
+        getGradientColors: function getGradientColors() {
+            // Gradient Syntax is fussy, need to make sure we remove that trailing
+            for (var i = 0; i < this.colors.length; i++) {
+                if (i + 1 < this.colors.length) {
+                    this.selectedGradientString += 'rgb(' + this.colors[i].r + ' ' + this.colors[i].g + ' ' + this.colors[i].b + '), ';
+                } else {
+                    this.selectedGradientString += 'rgb(' + this.colors[i].r + ' ' + this.colors[i].g + ' ' + this.colors[i].b + ')';
+                }
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 530 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      ref: "backgroundGradientModal",
+      attrs: {
+        id: "backgroundGradientModal",
+        title: "Background Gradient",
+        size: "lg",
+        "hide-footer": "",
+        lazy: ""
+      },
+      on: { shown: _vm.getGradientColors }
+    },
+    [
+      _c(
+        "b-row",
+        [
+          _c(
+            "b-col",
+            [
+              _c("h6", [_vm._v("Gradient Style")]),
+              _vm._v(" "),
+              _c("b-form-select", {
+                attrs: { size: "sm", options: _vm.gradientStyles },
+                model: {
+                  value: _vm.gradientStyle,
+                  callback: function($$v) {
+                    _vm.gradientStyle = $$v
+                  },
+                  expression: "gradientStyle"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.gradientStyle === "Linear"
+            ? _c(
+                "b-col",
+                [
+                  _c("h6", [_vm._v("Gradient Position")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { size: "sm", options: _vm.gradientAngles },
+                    model: {
+                      value: _vm.gradientAngle,
+                      callback: function($$v) {
+                        _vm.gradientAngle = $$v
+                      },
+                      expression: "gradientAngle"
+                    }
+                  })
+                ],
+                1
+              )
+            : _vm._e()
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        [
+          _c("b-col", {
+            style: {
+              height: "100px",
+              background:
+                "linear-gradient(to " +
+                _vm.gradientAngle +
+                ", " +
+                _vm.selectedGradientString +
+                ")"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        _vm._l(_vm.colors, function(color, index) {
+          return _c(
+            "b-col",
+            { key: index, attrs: { cols: 4 } },
+            [
+              _c(
+                "b-row",
+                { staticStyle: { "margin-bottom": "5px" } },
+                [
+                  _c("b-col", [
+                    _c("h6", [_vm._v("Color #" + _vm._s(index + 1))])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    [
+                      _c(
+                        "b-btn",
+                        {
+                          staticClass: "float-right",
+                          staticStyle: { "margin-right": "10px" },
+                          attrs: {
+                            variant: "outline-danger",
+                            size: "sm",
+                            disabled: _vm.colors.length === 6
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteColor(index)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Delete\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("color-picker", {
+                attrs: { value: _vm.colors[index] },
+                on: { input: _vm.getGradientColors }
+              }),
+              _vm._v(" "),
+              _c("br")
+            ],
+            1
+          )
+        })
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        [
+          _c(
+            "b-col",
+            [
+              _c(
+                "b-btn",
+                {
+                  attrs: {
+                    variant: "success",
+                    disabled: _vm.colors.length === 6
+                  },
+                  on: { click: _vm.addColor }
+                },
+                [_vm._v("\n                Add Another Color\n            ")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-155f0ef8", module.exports)
   }
 }
 

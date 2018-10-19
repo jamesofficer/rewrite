@@ -1,6 +1,6 @@
 /**
- * Elements such as Heading, Paragraph and BlockQuote allow the user to input text directly
- * into the Canvas. All those elements share that logic, which is located in this file.
+ * The Heading and BlockQuote components allow the user to input text directly into
+ * the Canvas. All those elements share that logic, which is located in this file.
  *
  */
 export default {
