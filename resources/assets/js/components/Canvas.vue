@@ -25,11 +25,15 @@
 
             <image-selector></image-selector>
 
-            <template v-if="element.src">
+            <!-- Only need these for background images -->
+            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
                 <background-size></background-size>
 
                 <background-position></background-position>
+            </template>
 
+            <!-- Clearing a background image also clears a background gradient -->
+            <template v-if="element.backgroundImage">
                 <clear-image></clear-image>
             </template>
         </top-bar>

@@ -22,9 +22,16 @@
 
             <background-color></background-color>
 
+            <background-gradient></background-gradient>
+
             <border></border>
 
             <box-shadow></box-shadow>
+
+            <!-- Clearing a background image also clears a background gradient -->
+            <template v-if="element.backgroundImage">
+                <clear-image></clear-image>
+            </template>
 
             <column-width></column-width>
         </top-bar>
@@ -39,6 +46,7 @@ import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
 import RemoveColumn        from './topbar/RemoveColumn'
 import MoveColumn          from './topbar/MoveColumn'
+import ClearImage          from './topbar/ClearImage'
 
 import Heading             from './Heading'
 import Paragraph           from './Paragraph'
@@ -51,9 +59,11 @@ import YouTubeEmbed        from './YouTubeEmbed'
 import RecipeSummary       from './RecipeSummary'
 import RecipeIngredients   from './RecipeIngredients'
 
+
 import ColumnWidth         from './core/ColumnWidth'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
+import BackgroundGradient  from './core/BackgroundGradient'
 import Border              from './core/Border'
 import BoxShadow           from './core/BoxShadow'
 
@@ -61,11 +71,11 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, RemoveColumn, MoveColumn,
+        TopBar, AddComponentButton, RemoveColumn, MoveColumn, ClearImage,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
-        ColumnWidth, Padding, BackgroundColor, Border, BoxShadow,
+        ColumnWidth, Padding, BackgroundColor, BackgroundGradient, Border, BoxShadow,
     },
 
     mixins: [GetElement],

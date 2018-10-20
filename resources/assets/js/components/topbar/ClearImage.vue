@@ -12,7 +12,7 @@ export default {
 
     methods: {
         clearImage() {
-            this.$store.commit('setComponentProperty', { property: 'src', value: undefined });
+            this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: undefined });
             this.$store.commit('setComponentProperty', { property: 'backgroundSize', value: 'Auto' });
         },
     }

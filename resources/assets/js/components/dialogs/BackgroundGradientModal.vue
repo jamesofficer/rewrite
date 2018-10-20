@@ -77,8 +77,6 @@ export default {
                 i + 1 < this.colors.length ? selectedGradientString += this.colors[i].hex + ', ' : selectedGradientString += this.colors[i].hex;
             }
 
-            console.log(selectedGradientString);
-
             return selectedGradientString + ')';
         }
     },
