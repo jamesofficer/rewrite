@@ -11,12 +11,10 @@ BUGS:
 - Instagram Component is fussy.
 
 FEATURES:
-- Move all styles on a component into a "styles" object.
 - Undo/Redo lol.
 - Implement column offset functionality.
 - Have the "Add Component" button permanently visible, and remember last selected column.
 - Add more fonts. Download via Google Fonts, and hard code them in for now.
-- Add login/register tabs on homepage.
 - Have a pre-loaded "Tutorial" article.
 - Implement loading bar when uploading images.
 - Saving an article with a new name should ask to overwrite the old one.
@@ -25,3 +23,4 @@ FEATURES:
 - Move article saving methods to actions.
 - Improve backend validation and error output.
 - Users can drag and rearrange columns?
+- Move all styles on a component into a "styles" object.
