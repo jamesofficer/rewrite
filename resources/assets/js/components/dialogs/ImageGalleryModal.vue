@@ -32,7 +32,11 @@ export default {
 
     methods: {
         selectImage(index) {
-            this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
+            if (this.$store.getters.getCurrentElement.type === 'Picture') {
+                this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
+            } else {
+                this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
+            }
 
             this.$refs.imageGalleryModal.hide();
         }

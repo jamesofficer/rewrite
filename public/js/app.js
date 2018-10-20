@@ -45958,7 +45958,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-header-container[data-v-667f58a0] {\n    border-top: 5px solid #38c172;\n    padding: 0 25px;\n}\n.session-alert-message[data-v-667f58a0] {\n    margin-top: 15px;\n}\n.shift-article-name[data-v-667f58a0] {\n    margin: 20px 0;\n    padding: 0 15px 10px 15px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    margin: 20px 0 30px 0;\n    padding: 0 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.top-bar-styles[data-v-667f58a0] {\n    background: white;\n    margin: 0 15px 10px 15px;\n    padding: 10px 0;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.sticky[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    z-index: 100;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\n    padding: 50px 0;\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\n    -webkit-filter: grayscale(0%);\n            filter: grayscale(0%);\n    width: 150px;\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\n    color: #bbb;\n    margin-top: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.top-bar-wrapper[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\n    margin-top: 75px;\n}\n.session-alert-message[data-v-667f58a0] {\n    margin-top: 15px;\n}\n.article-name-container[data-v-667f58a0] {\n    margin: 20px 0;\n    padding: 0 10px;\n}\n.article-name-label[data-v-667f58a0] {\n    text-transform: uppercase;\n    font-weight: 400;\n    font-size: 0.8em;\n    color: #aaa;\n}\n.shift-article-name[data-v-667f58a0] {\n    padding-bottom: 10px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0] {\n    margin: 20px 0 30px 0;\n    padding: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-667f58a0]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-667f58a0]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\n    padding: 50px 0;\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\n    -webkit-filter: brightness(80%);\n            filter: brightness(80%);\n    width: 150px;\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\n    color: #bbb;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.contact-text[data-v-667f58a0] {\n    color: #bbb;\n    font-size: 0.8em;\n    margin: 0;\n    padding: 0;\n}\n", ""]);
 
 // exports
 
@@ -46024,6 +46024,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_RecipeIngredientsModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal__ = __webpack_require__(425);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_BackgroundGradientModal__);
+//
+//
+//
+//
 //
 //
 //
@@ -46213,28 +46217,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         overwriteArticle: function overwriteArticle() {
             this.$refs.menu.storeArticle(true);
-        },
-        stickTopBarToWindow: function stickTopBarToWindow() {
-            window.onscroll = function () {
-                return stickyTopBar();
-            };
-
-            var header = document.getElementById("shift-top-bar");
-            var sticky = header.offsetTop;
-
-            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-            function stickyTopBar() {
-                if (window.pageYOffset > sticky) {
-                    header.classList.add("sticky");
-                } else {
-                    header.classList.remove("sticky");
-                }
-            }
         }
-    },
-
-    mounted: function mounted() {
-        this.stickTopBarToWindow();
     }
 });
 
@@ -61491,7 +61474,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         selectImage: function selectImage(index) {
-            this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
+            if (this.$store.getters.getCurrentElement.type === 'Picture') {
+                this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
+            } else {
+                this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
+            }
 
             this.$refs.imageGalleryModal.hide();
         }
@@ -62119,6 +62106,39 @@ var render = function() {
     [
       _c(
         "b-container",
+        { staticClass: "top-bar-wrapper", attrs: { fluid: "" } },
+        [
+          _c(
+            "b-row",
+            { staticClass: "top-bar-styles" },
+            [
+              _c(
+                "b-col",
+                { attrs: { cols: 10 } },
+                [
+                  _c("portal-target", {
+                    staticClass: "top-bar-portal-target",
+                    attrs: { name: "top-bar" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { staticClass: "text-right", attrs: { cols: 2 } },
+                [_c("shift-menu", { ref: "menu" })],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-container",
         { staticClass: "shift-header-container", attrs: { fluid: "" } },
         [
           _c(
@@ -62224,10 +62244,15 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-row",
+            { staticClass: "article-name-container" },
             [
               _c(
                 "b-col",
                 [
+                  _c("h6", { staticClass: "article-name-label" }, [
+                    _vm._v("Article Name")
+                  ]),
+                  _vm._v(" "),
                   !_vm.settingArticleTitle
                     ? _c("em", [
                         _c(
@@ -62257,39 +62282,6 @@ var render = function() {
                         }
                       })
                 ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-container",
-        { attrs: { fluid: "", id: "shift-top-bar" } },
-        [
-          _c(
-            "b-row",
-            { staticClass: "top-bar-styles" },
-            [
-              _c(
-                "b-col",
-                { attrs: { cols: 10 } },
-                [
-                  _c("portal-target", {
-                    staticClass: "top-bar-portal-target",
-                    attrs: { name: "top-bar" }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { staticClass: "text-right", attrs: { cols: 2 } },
-                [_c("shift-menu", { ref: "menu" })],
                 1
               )
             ],
@@ -62379,7 +62371,15 @@ var staticRenderFns = [
         attrs: { src: "/img/shift_logo_white.png", alt: "Shift Logo" }
       }),
       _vm._v(" "),
-      _c("p", { staticClass: "version-text" }, [_vm._v("Alpha Version")])
+      _c("p", { staticClass: "version-text" }, [_vm._v("Alpha Version")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "contact-text" }, [
+        _vm._v("Found a bug? Have a feature request?")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "contact-text" }, [
+        _c("strong", [_vm._v("writewithshift@gmail.com")])
+      ])
     ])
   }
 ]
@@ -63845,7 +63845,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     articleTitle: null,
     articleHtml: undefined,
 
-    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
+    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
 
     currentCanvas: undefined,
     currentColumn: undefined,

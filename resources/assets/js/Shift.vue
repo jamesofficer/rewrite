@@ -1,5 +1,21 @@
 <template>
     <div>
+        <b-container fluid class="top-bar-wrapper">
+            <!-- Top Bar -->
+            <b-row class="top-bar-styles">
+                <b-col :cols="10">
+                    <portal-target name="top-bar" class="top-bar-portal-target">
+                        <!-- Top Bar settings will appear here. -->
+                    </portal-target>
+                </b-col>
+
+                <!-- Menu -->
+                <b-col :cols="2" class="text-right">
+                    <shift-menu ref="menu"></shift-menu>
+                </b-col>
+            </b-row>
+        </b-container>
+
         <b-container fluid class="shift-header-container">
             <!-- Session Alert Message -->
             <b-row class="session-alert-message">
@@ -29,8 +45,10 @@
             </b-row>
 
             <!-- Article Name -->
-            <b-row>
+            <b-row class="article-name-container">
                 <b-col>
+                    <h6 class="article-name-label">Article Name</h6>
+
                     <em v-if="! settingArticleTitle">
                         <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
                     </em>
@@ -42,22 +60,6 @@
                         ref="articleTitleInput"
                         class="shift-article-name-input"
                     ></b-input>
-                </b-col>
-            </b-row>
-        </b-container>
-
-        <b-container fluid id="shift-top-bar">
-            <!-- Top Bar -->
-            <b-row class="top-bar-styles">
-                <b-col :cols="10">
-                    <portal-target name="top-bar" class="top-bar-portal-target">
-                        <!-- Top Bar settings will appear here. -->
-                    </portal-target>
-                </b-col>
-
-                <!-- Menu -->
-                <b-col :cols="2" class="text-right">
-                    <shift-menu ref="menu"></shift-menu>
                 </b-col>
             </b-row>
         </b-container>
@@ -110,6 +112,8 @@
         <div class="footer-logo-wrapper">
             <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
             <p class="version-text">Alpha Version</p>
+            <p class="contact-text">Found a bug? Have a feature request?</p>
+            <p class="contact-text"><strong>writewithshift@gmail.com</strong></p>
         </div>
     </div>
 </template>
@@ -189,50 +193,59 @@ export default {
         overwriteArticle() {
             this.$refs.menu.storeArticle(true);
         },
-
-        stickTopBarToWindow() {
-            window.onscroll = () => stickyTopBar();
-
-            let header = document.getElementById("shift-top-bar");
-            let sticky = header.offsetTop;
-
-            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-            function stickyTopBar() {
-                if (window.pageYOffset > sticky) {
-                    header.classList.add("sticky");
-                } else {
-                    header.classList.remove("sticky");
-                }
-            }
-        }
     },
-
-    mounted() {
-        this.stickTopBarToWindow();
-    }
 };
 </script>
 
 <style scoped>
-.shift-header-container {
+.top-bar-wrapper {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.top-bar-styles {
+    z-index: 100;
+    background: white;
+    padding: 10px 15px;
     border-top: 5px solid #38c172;
-    padding: 0 25px;
+    border-bottom: 1px dashed gray;
+    box-shadow: 0 0 20px #ccc;
+}
+
+.top-bar-portal-target {
+    display: inline-flex;
+}
+
+.shift-header-container {
+    margin-top: 75px;
 }
 
 .session-alert-message {
     margin-top: 15px;
 }
 
-.shift-article-name {
+.article-name-container {
     margin: 20px 0;
-    padding: 0 15px 10px 15px;
+    padding: 0 10px;
+}
+
+.article-name-label {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.shift-article-name {
+    padding-bottom: 10px;
     color: #38c172;
     font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .shift-article-name-input[type='text'] {
     margin: 20px 0 30px 0;
-    padding: 0 15px;
+    padding: 15px;
     background: none;
     color: #38c172;
     font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -252,18 +265,6 @@ export default {
     border-bottom: 1px dashed gray;
 }
 
-.top-bar-styles {
-    background: white;
-    margin: 0 15px 10px 15px;
-    padding: 10px 0;
-    border-bottom: 1px dashed gray;
-    box-shadow: 0 0 20px #ccc;
-}
-
-.top-bar-portal-target {
-    display: inline-flex;
-}
-
 .shift-workspace {
     height: fit-content;
     margin: 5px 15px 30px 15px;
@@ -277,26 +278,27 @@ export default {
     border: 1px solid #38c172;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-}
-
 .footer-logo-wrapper {
     padding: 50px 0;
     text-align: center;
 }
 
 .footer-logo {
-    filter: grayscale(0%);
+    filter: brightness(80%);
     width: 150px;
     margin: 0 auto;
 }
 
 .version-text {
     color: #bbb;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-text {
+    color: #bbb;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
 }
 </style>
