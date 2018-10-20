@@ -113,7 +113,7 @@ export default {
 <style scoped>
 .shift-component:hover {
     cursor: pointer;
-    outline: 1px solid #abf3c9;
+    outline: 1px dashed #abf3c9;
 }
 
 .component-button-group {

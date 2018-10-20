@@ -24,11 +24,11 @@ button,
 }
 
 .selected-canvas {
-  border: 3px solid #38c172 !important;
+  border: 3px dashed #38c172 !important;
 }
 
 .selected-element {
-  outline: 3px solid #38c172 !important;
+  outline: 3px dashed #38c172 !important;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

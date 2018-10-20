@@ -275,7 +275,7 @@ export default {
 
 .shift-canvas:hover {
     cursor: pointer;
-    border: 1px solid #38c172;
+    border: 1px dashed #38c172;
 }
 
 .footer-logo-wrapper {
