@@ -7,7 +7,7 @@ export default {
     columns: [defaultColumn],
 
     // Properties:
-    src: undefined,
+    backgroundImage: undefined,
     backgroundSize: 'Auto',
     backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
     backgroundPosition: 'Center',

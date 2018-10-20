@@ -41,7 +41,7 @@ export default {
                 ...el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' },
 
                 // Background
-                ...el.src && { background: 'url(' + el.src + ')' },
+                ...el.backgroundImage && { backgroundImage: el.backgroundImage },
                 ...el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' },
                 ...el.backgroundSize && { backgroundSize: el.backgroundSize },
                 ...el.backgroundPosition && { backgroundPosition: el.backgroundPosition },

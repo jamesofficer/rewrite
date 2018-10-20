@@ -32,7 +32,7 @@ export default {
 
     methods: {
         selectImage(index) {
-            this.$store.commit('selectImage', this.images[index]);
+            this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
 
             this.$refs.imageGalleryModal.hide();
         }

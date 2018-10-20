@@ -302,14 +302,6 @@ export const updateArticleTitle = (state, title) => {
 }
 
 /**
- * Selects an Image from the Image Gallery and sets it for the current image component.
- *
- */
-export const selectImage = (state, image) => {
-    window.Vue.set(getSelectedElement(state), "src", image.url);
-}
-
-/**
  * Loads an existing article (updates the canvases).
  *
  */

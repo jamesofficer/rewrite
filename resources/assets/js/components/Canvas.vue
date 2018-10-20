@@ -21,7 +21,7 @@
 
             <background-color></background-color>
 
-            <!-- <background-gradient></background-gradient> -->
+            <background-gradient></background-gradient>
 
             <image-selector></image-selector>
 
