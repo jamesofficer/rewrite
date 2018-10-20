@@ -5,7 +5,8 @@ export default {
     // Properties:
     content: '"Your quote goes here..."',
     fontFamily: "Times New Roman",
-    fontWeight: 500,
+    fontWeights: [400, 700],
+    fontWeight: 400,
     fontSize: 14,
     lineHeight: 1,
     letterSpacing: 0,

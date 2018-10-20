@@ -2,14 +2,17 @@ export default {
     type: 'RecipeSummary',
     selected: false,
 
-    // Properties:
+    //unitCooking: 'MIN',
+    //unitPreparation: 'MIN',
     contentServes: 1,
     contentPreparation: 30,
     contentCooking: 10,
     contentDifficulty: "EASY",
+
+    // Properties:
     fontFamily: 'Times New Roman',
-    //unitCooking: 'MIN',
-    //unitPreparation: 'MIN',
+    fontWeights: [400, 700],
+    fontWeight: 400,
     textColor: { r: 0, g: 0, b: 0, a: 1 },
 
     margin: {

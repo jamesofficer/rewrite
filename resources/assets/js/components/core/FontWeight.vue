@@ -15,33 +15,10 @@ export default {
                 this.$store.commit('setComponentProperty', { property: 'fontWeight', value: weight });
             }
         },
-    },
 
-    data() {
-        return {
-            fontWeights: [
-            {
-                text: 'Lightest',
-                value: 100,
-            },
-            {
-                text: 'Light',
-                value: 300,
-            },
-            {
-                text: 'Normal',
-                value: 500,
-            },
-            {
-                text: 'Bold',
-                value: 700,
-            },
-            {
-                text: 'Boldest',
-                value: 900,
-            },
-            ]
+        fontWeights() {
+                return this.$store.getters.getCurrentElement.fontWeights;
         }
-    }
+    },
 }
 </script>

@@ -1,28 +1,50 @@
 <template>
-    <b-form-select size="sm" v-model="fontFamily" :options="fonts" class="top-bar-control" v-b-tooltip.hover title="Font"></b-form-select>
+    <div>
+        <b-dropdown :text="selectedFont" size="sm" variant="outline-primary" style="margin-right: 5px">
+            <b-dropdown-item v-for="(font, index) in fonts" :key="index" @click="selectFont(font)">
+                <span :style="'font-family: ' + font.name">{{ font.name }}</span>
+            </b-dropdown-item>
+        </b-dropdown>
+    </div>
 </template>
 
 <script>
+import FontList from '../mixins/FontList'
+
 export default {
     name: "FontFamily",
 
-    computed: {
-        fontFamily: {
-            get () {
-                return this.$store.getters.getCurrentElement.fontFamily;
-            },
-            set (font) {
-                this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font });
-            }
-        },
-    },
+    mixins: [FontList],
 
     data() {
         return {
-            fonts: [
-                'Times New Roman', 'Helvetica', 'Arial', 'Verdana', 'Courier', 'Georgia', 'Comic Sans MS',
-            ],
+            selectedFont: 'Times New Roman',
         }
-    }
+    },
+
+    methods: {
+        selectFont(font) {
+            this.selectedFont = font.name;
+
+            this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font.name });
+            this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
+            this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[0] });
+
+            this.appendStylesheetToHead(font.name);
+        },
+
+        appendStylesheetToHead(font) {
+            font = font.replace(/\s/g, '+');
+
+            let head = document.head;
+            let link = document.createElement("link");
+
+            link.type = "text/css";
+            link.rel  = "stylesheet";
+            link.href = 'https://fonts.googleapis.com/css?family=' + font + ':100,200,300,400,500,600,700,800,900';
+
+            head.appendChild(link);
+        }
+    },
 }
 </script>

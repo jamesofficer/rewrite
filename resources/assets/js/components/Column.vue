@@ -18,6 +18,8 @@
 
             <add-component-button></add-component-button>
 
+            <margin></margin>
+
             <padding></padding>
 
             <background-color></background-color>
@@ -48,6 +50,14 @@ import RemoveColumn        from './topbar/RemoveColumn'
 import MoveColumn          from './topbar/MoveColumn'
 import ClearImage          from './topbar/ClearImage'
 
+import ColumnWidth         from './core/ColumnWidth'
+import Margin              from './core/Margin'
+import Padding             from './core/Padding'
+import BackgroundColor     from './core/BackgroundColor'
+import BackgroundGradient  from './core/BackgroundGradient'
+import Border              from './core/Border'
+import BoxShadow           from './core/BoxShadow'
+
 import Heading             from './Heading'
 import Paragraph           from './Paragraph'
 import BlockQuote          from './BlockQuote'
@@ -59,23 +69,15 @@ import YouTubeEmbed        from './YouTubeEmbed'
 import RecipeSummary       from './RecipeSummary'
 import RecipeIngredients   from './RecipeIngredients'
 
-
-import ColumnWidth         from './core/ColumnWidth'
-import Padding             from './core/Padding'
-import BackgroundColor     from './core/BackgroundColor'
-import BackgroundGradient  from './core/BackgroundGradient'
-import Border              from './core/Border'
-import BoxShadow           from './core/BoxShadow'
-
 export default {
     name: "Column",
 
     components: {
         TopBar, AddComponentButton, RemoveColumn, MoveColumn, ClearImage,
+        ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, Border, BoxShadow,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
-        ColumnWidth, Padding, BackgroundColor, BackgroundGradient, Border, BoxShadow,
     },
 
     mixins: [GetElement],
