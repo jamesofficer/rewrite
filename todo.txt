@@ -2,24 +2,21 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
-- Save colors when using the color picker.
-- Deleting all columns should delete the canvas too.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
-- Articles titled 'untitled article' should not be saved.
 - Place max file size on image uploads.
 - Instagram Component is fussy.
 
 FEATURES:
+- Let users delete articles.
+- Let users delete images.
 - Undo/Redo lol.
 - Implement column offset functionality.
 - Have the "Add Component" button permanently visible, and remember last selected column.
 - Have a pre-loaded "Tutorial" article.
 - Implement loading bar when uploading images.
 - Saving an article with a new name should ask to overwrite the old one.
-- Let users delete articles.
-- Let users delete images.
 - Move article saving methods to actions.
-- Improve backend validation and error output.
+- Improve backend validation and error output (article names etc).
 - Users can drag and rearrange columns?
 - Move all styles on a component into a "styles" object.

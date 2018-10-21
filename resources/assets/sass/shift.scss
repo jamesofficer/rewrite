@@ -12,12 +12,17 @@ h1, h2, h3, h4, h5, h6, p, input, button, .btn, .btn-group, .top-bar-control {
     font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.shift-canvas:hover, .shift-column:hover, .shift-component:hover {
+    cursor: pointer;
+    border: 1px dotted #38c172 !important;
+}
+
 .selected-canvas {
-    border: 3px dashed rgb(56, 193, 114) !important;
+    border: 3px dotted rgb(56, 193, 114) !important;
 }
 
 .selected-element {
-    outline: 3px dashed rgb(56, 193, 114) !important;
+    outline: 3px dotted rgb(56, 193, 114) !important;
 }
 
 .login-page-bg {

@@ -26,20 +26,19 @@ class ArticleController extends Controller
 
     /**
      * Stores an article in the database. Typically only an title and the json are stored.
-     * If an article with a title already exists, the user is prompted to choose to
-     * overwrite the article. If 'overwrite' is true, the article will be overwritten.
+     * If an article with a title already exists, the article will be overwritten.
      *
      * @return void
      */
     public function store(Request $request)
     {
-        if ($request['overwrite'] === true) {
-            Article::where('user_id', Auth::id())
-                ->where('title', $request['title'])
-                ->update([
-                    'title' => $request['title'],
-                    'article_json' => json_encode($request['article_json']),
-                ]);
+        $existingArticle = Article::where('title', $request['title'])->first();
+
+        if ($existingArticle) {
+            $existingArticle->update([
+                'title' => $request['title'],
+                'article_json' => json_encode($request['article_json']),
+            ]);
         } else {
             Article::create([
                 'user_id' => Auth::id(),

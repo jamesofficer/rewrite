@@ -23,12 +23,19 @@ button,
   font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.shift-canvas:hover,
+.shift-column:hover,
+.shift-component:hover {
+  cursor: pointer;
+  border: 1px dotted #38c172 !important;
+}
+
 .selected-canvas {
-  border: 3px dashed #38c172 !important;
+  border: 3px dotted #38c172 !important;
 }
 
 .selected-element {
-  outline: 3px dashed #38c172 !important;
+  outline: 3px dotted #38c172 !important;
 }
 
 .login-page-bg {

@@ -16,16 +16,14 @@ export default {
 
     mixins: [FontList],
 
-    data() {
-        return {
-            selectedFont: 'Times New Roman',
+    computed: {
+        selectedFont() {
+            return this.$store.getters.getCurrentElement.fontFamily;
         }
     },
 
     methods: {
         selectFont(font) {
-            this.selectedFont = font.name;
-
             this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font.name });
             this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
             this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[0] });

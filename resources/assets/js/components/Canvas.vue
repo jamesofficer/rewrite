@@ -95,10 +95,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.shift-column:hover {
-    cursor: pointer;
-    outline: 1px dashed #66e99d;
-}
-</style>

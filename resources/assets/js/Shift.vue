@@ -20,26 +20,14 @@
             <!-- Session Alert Message -->
             <b-row class="session-alert-message">
                 <b-col>
-                    <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.show" @dismissed="sessionAlert.show = false">
-                        {{ sessionAlert.message }}
-                    </b-alert>
-                </b-col>
-            </b-row>
+                    <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.dismissCountDown" @dismissed="sessionAlert.dismissCountDown = 0" @dismiss-count-down="countDownChanged">
+                        <p>{{ sessionAlert.message }}</p>
 
-            <!-- Overwrite Article Alert -->
-            <b-row>
-                <b-col>
-                    <b-alert show variant="warning" v-if="showArticleOverwriteAlert">
-                        <h4 class="alert-heading">Article already exists! Overwrite?</h4>
-                        <p>An article already exists with the title: {{ articleTitle }}</p>
-                        <p>Do you want to overwrite it?</p>
-
-                        <hr>
-
-                        <p class="mb-0">
-                            <b-btn variant="danger" @click="overwriteArticle">Overwrite</b-btn>
-                            <b-btn variant="secondary" @click="showArticleOverwriteAlert = false">Cancel</b-btn>
-                        </p>
+                        <b-progress :variant="sessionAlert.type"
+                                    :max="sessionAlert.dismissSecs"
+                                    :value="sessionAlert.dismissCountDown"
+                                    height="4px"
+                        ></b-progress>
                     </b-alert>
                 </b-col>
             </b-row>
@@ -159,15 +147,14 @@ export default {
 
     data() {
         return {
-            show: false,
-
             settingArticleTitle: false,
             showArticleOverwriteAlert: false,
 
             sessionAlert: {
-                show: false,
                 message: '',
                 type: 'success',
+                dismissSecs: 5,
+                dismissCountDown: 0,
             },
         }
     },
@@ -190,8 +177,8 @@ export default {
             this.$store.commit('selectCanvas', canvasIndex);
         },
 
-        overwriteArticle() {
-            this.$refs.menu.storeArticle(true);
+        countDownChanged (dismissCountDown) {
+            this.sessionAlert.dismissCountDown = dismissCountDown;
         },
     },
 };
@@ -219,6 +206,7 @@ export default {
 
 .shift-header-container {
     margin-top: 75px;
+    padding: 0 25px;
 }
 
 .session-alert-message {
@@ -227,7 +215,6 @@ export default {
 
 .article-name-container {
     margin: 20px 0;
-    padding: 0 10px;
 }
 
 .article-name-label {
@@ -271,11 +258,6 @@ export default {
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
-}
-
-.shift-canvas:hover {
-    cursor: pointer;
-    border: 1px dashed #38c172;
 }
 
 .footer-logo-wrapper {

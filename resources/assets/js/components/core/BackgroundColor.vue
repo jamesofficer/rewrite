@@ -3,7 +3,7 @@
         <top-bar-control icon="fill" tooltip="Background Colour" id="background-color-popover"></top-bar-control>
 
         <b-popover target="background-color-popover" placement="bottom">
-            <color-picker :value="colors" @input="updateValue"></color-picker>
+            <color-picker :value="backgroundColor" @input="updateValue"></color-picker>
         </b-popover>
     </div>
 </template>
@@ -18,16 +18,9 @@ export default {
     components: { TopBarControl, ColorPicker },
 
     computed: {
-        bgColor() {
+        backgroundColor() {
             return this.$store.getters.getCurrentElement.backgroundColor;
         },
-    },
-
-    data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 255, g: 255, b: 255, a: 1 },
-        }
     },
 
     methods: {
