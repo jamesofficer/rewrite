@@ -51,15 +51,6 @@ export default {
             this.$store.commit('addCanvas');
         },
 
-        setSessionAlert(message, type) {
-            this.$parent.sessionAlert = {
-                message: message,
-                type: type,
-                dismissCountDown: this.$parent.sessionAlert.dismissSecs,
-                dismissSecs: this.$parent.sessionAlert.dismissSecs,
-            };
-        },
-
         saveArticle() {
             window.scrollTo(0, 0);
 
@@ -67,7 +58,10 @@ export default {
 
             // Don't let users save an article that doesn't have a title.
             if (title === null || title === undefined || title === 'Untitled article...') {
-                this.setSessionAlert('You must give your article a title first.', 'danger');
+                this.$store.commit('setNotification', {
+                    message: 'You must give your article a title first.',
+                    type: 'danger',
+                });
             } else {
                 this.storeArticle();
             }
@@ -82,10 +76,16 @@ export default {
                 article_json: canvases,
             })
             .then(response => {
-                this.setSessionAlert('Article saved successfully!', 'success');
+                this.$store.commit('setNotification', {
+                    message: 'Article saved successfully!',
+                    type: 'success',
+                });
             })
             .catch(error => {
-                this.setSessionAlert('Uh oh! Something went wrong saving your article.', 'danger');
+                this.$store.commit('setNotification', {
+                    message: 'Uh oh! Something went wrong saving your article.',
+                    type: 'danger',
+                });
             });
         },
 

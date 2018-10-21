@@ -1,7 +1,16 @@
 import { getSelectedElement } from "./helpers";
 
 /**
+ * Returns the notification object from the state.
+ * 
+ */
+export const notification = state => {
+    return state.notification;
+};
+
+/**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
+ * 
  */
 export const canvases = state => {
     return state.canvases;

@@ -5,8 +5,8 @@ export default {
     articleTitle: null,
     articleHtml: undefined,
 
-    // The Alert Message that appears above the article title.
-    alertMessage: {
+    // The notification dialog box that appears above the article title.
+    notification: {
         message: '',
         type: 'success',
         dismissSecs: 5,

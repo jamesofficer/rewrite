@@ -2,6 +2,24 @@ import defaults from "./defaults/_defaults";
 import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
 
 /**
+ * Sets the state of the notification object.
+ *
+ */
+export const setNotification = (state, incomingNotification) => {
+    window.Vue.set(state.notification, "message", incomingNotification.message);
+    window.Vue.set(state.notification, "type", incomingNotification.type);
+    window.Vue.set(state.notification, "dismissCountDown", 5);
+};
+
+/**
+ * Sets the state of the notification object.
+ *
+ */
+export const setNotificationCountDown = (state, countdown) => {
+    window.Vue.set(state.notification, "dismissCountDown", countdown);
+};
+
+/**
  * Adds another Canvas to the Workspace.
  *
  */
@@ -17,6 +35,22 @@ export const removeCanvas = state => {
     state.canvases.splice(state.currentCanvas, 1);
     state.currentCanvas = undefined;
 };
+
+/**
+ * Used to set CSS properties on components.
+ *
+ */
+export const setComponentProperty = (state, component) => {
+    window.Vue.set(getSelectedElement(state), component.property, component.value);
+}
+
+/**
+ * Some Components like Margin and Padding have a subproperty we may need to set.
+ *
+ */
+export const setComponentSubProperty = (state, component) => {
+    window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
+}
 
 /**
  * Deletes a component from a column.
@@ -146,22 +180,6 @@ export const moveComponentDown = state => {
         state.currentComponent = state.currentComponent + 1;
     }
 };
-
-/**
- * Used to set CSS properties on components.
- *
- */
-export const setComponentProperty = (state, component) => {
-    window.Vue.set(getSelectedElement(state), component.property, component.value);
-}
-
-/**
- * Some Components like Margin and Padding have a subproperty we may need to set.
- *
- */
-export const setComponentSubProperty = (state, component) => {
-    window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
-}
 
 /**
  * Sets the status of the "Add Component" Modal window.

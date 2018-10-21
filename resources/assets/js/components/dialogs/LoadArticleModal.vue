@@ -47,6 +47,11 @@ export default {
         loadArticle() {
             this.$store.commit('loadArticle', this.articles[this.selectedArticle]);
 
+            this.$store.commit('setNotification', {
+                message: 'Article loaded succesfully.',
+                type: 'success',
+            });
+
             this.$refs.loadArticleModal.hide();
         },
 
@@ -55,7 +60,10 @@ export default {
                 // refresh the window so it removes the deleted article
                 this.getSavedArticles();
 
-                alert(response.data.message);
+                this.$store.commit('setNotification', {
+                    message: 'Article deleted succesfully.',
+                    type: 'warning',
+                });
 
                 this.$refs.loadArticleModal.hide();
             }).catch(error => {

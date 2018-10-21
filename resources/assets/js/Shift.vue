@@ -17,20 +17,8 @@
         </b-container>
 
         <b-container fluid class="shift-header-container">
-            <!-- Session Alert Message -->
-            <b-row class="session-alert-message">
-                <b-col>
-                    <b-alert :variant="sessionAlert.type" dismissible fade :show="sessionAlert.dismissCountDown" @dismissed="sessionAlert.dismissCountDown = 0" @dismiss-count-down="countDownChanged">
-                        <p>{{ sessionAlert.message }}</p>
-
-                        <b-progress :variant="sessionAlert.type"
-                                    :max="sessionAlert.dismissSecs"
-                                    :value="sessionAlert.dismissCountDown"
-                                    height="4px"
-                        ></b-progress>
-                    </b-alert>
-                </b-col>
-            </b-row>
+            <!-- Notification Message -->
+            <notification></notification>
 
             <!-- Article Name -->
             <b-row class="article-name-container">
@@ -108,6 +96,7 @@
 
 <script>
 import ShiftMenu               from "./components/ShiftMenu";
+import Notification            from "./components/Notification";
 import Canvas                  from "./components/Canvas";
 import ShiftArticle            from "./components/ShiftArticle";
 import AddComponentModal       from './components/dialogs/AddComponentModal';
@@ -123,7 +112,7 @@ export default {
     name: "Shift",
 
     components: {
-        ShiftMenu, Canvas, ShiftArticle,
+        ShiftMenu, Notification, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
@@ -149,13 +138,6 @@ export default {
         return {
             settingArticleTitle: false,
             showArticleOverwriteAlert: false,
-
-            sessionAlert: {
-                message: '',
-                type: 'success',
-                dismissSecs: 5,
-                dismissCountDown: 0,
-            },
         }
     },
 
@@ -175,10 +157,6 @@ export default {
 
         selectCanvas(canvasIndex) {
             this.$store.commit('selectCanvas', canvasIndex);
-        },
-
-        countDownChanged (dismissCountDown) {
-            this.sessionAlert.dismissCountDown = dismissCountDown;
         },
     },
 };
@@ -207,10 +185,6 @@ export default {
 .shift-header-container {
     margin-top: 75px;
     padding: 0 25px;
-}
-
-.session-alert-message {
-    margin-top: 15px;
 }
 
 .article-name-container {
