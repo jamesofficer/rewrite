@@ -26,6 +26,7 @@ Route::get('/articles', 'ArticleController@index')->name('users-articles');
 Route::middleware('auth')->prefix('article')->group(function () {
     $this->get('create', 'ArticleController@create')->name('create-article');
     $this->post('store', 'ArticleController@store')->name('store-article');
+    $this->post('destroy', 'ArticleController@destroy')->name('destroy-article');
     $this->post('check-exists', 'ArticleController@checkArticleExists')->name('check-article-exists');
 });
 

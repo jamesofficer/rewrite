@@ -5,6 +5,14 @@ export default {
     articleTitle: null,
     articleHtml: undefined,
 
+    // The Alert Message that appears above the article title.
+    alertMessage: {
+        message: '',
+        type: 'success',
+        dismissSecs: 5,
+        dismissCountDown: 0,
+    },
+
     canvases: [
         duplicateObject(defaultCanvas),
     ],
@@ -12,8 +20,6 @@ export default {
     currentCanvas: undefined,
     currentColumn: undefined,
     currentComponent: undefined,
-
-    copiedStyle: undefined,
 
     showAddComponentModal: false,
 };

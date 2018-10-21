@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $guarded = [];
-    protected $hidden = ['id', 'user_id'];
+    protected $hidden  = ['user_id'];
     protected $appends = ['trimmed_article_title', 'formatted_created_at', 'formatted_updated_at'];
 
     public function getTrimmedArticleTitleAttribute() {

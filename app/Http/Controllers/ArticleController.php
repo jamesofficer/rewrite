@@ -47,23 +47,26 @@ class ArticleController extends Controller
             ]);
         }
     }
-
+    
     /**
-     * When the user saves an article, we need to check if it already exists.
-     * or not If it does we return true, otherwise we return false.
-     *
-     * @return boolean
+     * Deletes an article from the database.
+     * 
+     * @return void
      */
-    public function checkArticleExists(Request $request)
+    public function destroy(Request $request)
     {
-        $article = Article::where('user_id', Auth::id())
-                                ->where('title', $request['title'])
-                                ->get();
+        $article = Article::find($request['article_id']);
 
-        if ($article->isEmpty()) {
-            return response()->json(false);
+        if (is_null($article)) {
+            return response()->json([
+                'message' => 'Sorry, could not delete that article as we couldn\'t find it.',
+            ], 404);
         }
 
-        return response()->json(true);
+        $article->delete();
+
+        return response()->json([
+            'message' => 'Article deleted successfully.',
+        ], 200);
     }
 }
