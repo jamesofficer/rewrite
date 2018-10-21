@@ -287,7 +287,7 @@ export const addComponentToColumn = (state, componentType) => {
  *
  */
 export const buildHtml = (state, html) => {
-    html = this.createHtmlHead(html, state.articleTitle);
+    html = this.createHtmlHead(state, html, state.articleTitle);
     html = this.cleanHtml(html);
     html = this.appendImageUrlsToHtml(html);
     html += "</body>";
@@ -300,7 +300,7 @@ export const buildHtml = (state, html) => {
  * Appends a <head> to the HTML. Includes stylesheets.
  * 
  */
-export const createHtmlHead = (html, title) => {
+export const createHtmlHead = (state, html, title) => {
     let head = '';
 
     head += "<!DOCTYPE html>";
@@ -312,6 +312,20 @@ export const createHtmlHead = (html, title) => {
     head += "<title>" + title + "</title>";
     head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
     head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+
+    // Append the needed fonts.
+    state.fontsUsed.forEach(function (font) {
+        let fontStylesheet = "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=" + font.name + ":";
+
+        font.weights.forEach(function (weight) {
+            fontStylesheet += weight + ",";
+        });
+
+        fontStylesheet += "'>";
+
+        head += fontStylesheet;
+    });
+
     head += "</head>";
     head += "<body>";
 
@@ -358,3 +372,22 @@ export const loadArticle = (state, article) => {
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
 };
+
+/**
+ * Adds a font to the list of used fonts.
+ * 
+ */
+export const addFontToFontsUsed = (state, font) => {
+    let alreadyUsed = false;
+
+    for (let i = 0; i < state.fontsUsed.length; i++) {
+        if (state.fontsUsed[i].name === font.name) {
+            alreadyUsed = true;
+            break;
+        }
+    }
+
+    if (! alreadyUsed) {
+        state.fontsUsed.push(font);
+    }
+}

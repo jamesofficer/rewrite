@@ -2,14 +2,15 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
+- FontUsed array on state does not remove fonts that are no longer being used.
 - Load in fonts on saved articles.
-- Load in fonts when previewing articles.
 - Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
 - Place max file size on image uploads.
 - Instagram Component is fussy.
 
 FEATURES:
+- Select the middle font weight when selecting a new font.
 - Let users delete images.
 - Undo/Redo lol.
 - Implement column offset functionality.

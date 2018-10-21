@@ -28,6 +28,11 @@ export default {
             this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
             this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[0] });
 
+            this.$store.commit('addFontToFontsUsed', {
+                name: font.name,
+                weights: font.weights,
+            });
+
             this.appendStylesheetToHead(font.name);
         },
 

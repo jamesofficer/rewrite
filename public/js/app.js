@@ -51082,6 +51082,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
             this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[0] });
 
+            this.$store.commit('addFontToFontsUsed', {
+                name: font.name,
+                weights: font.weights
+            });
+
             this.appendStylesheetToHead(font.name);
         },
         appendStylesheetToHead: function appendStylesheetToHead(font) {
@@ -64099,6 +64104,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendImageUrlsToHtml", function() { return appendImageUrlsToHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanHtml", function() { return cleanHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addFontToFontsUsed", function() { return addFontToFontsUsed; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults_defaults__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(64);
 var _this = this;
@@ -64391,7 +64397,7 @@ var addComponentToColumn = function addComponentToColumn(state, componentType) {
  *
  */
 var buildHtml = function buildHtml(state, html) {
-    html = _this.createHtmlHead(html, state.articleTitle);
+    html = _this.createHtmlHead(state, html, state.articleTitle);
     html = _this.cleanHtml(html);
     html = _this.appendImageUrlsToHtml(html);
     html += "</body>";
@@ -64404,7 +64410,7 @@ var buildHtml = function buildHtml(state, html) {
  * Appends a <head> to the HTML. Includes stylesheets.
  * 
  */
-var createHtmlHead = function createHtmlHead(html, title) {
+var createHtmlHead = function createHtmlHead(state, html, title) {
     var head = '';
 
     head += "<!DOCTYPE html>";
@@ -64416,6 +64422,20 @@ var createHtmlHead = function createHtmlHead(html, title) {
     head += "<title>" + title + "</title>";
     head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
     head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+
+    // Append the needed fonts.
+    state.fontsUsed.forEach(function (font) {
+        var fontStylesheet = "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=" + font.name + ":";
+
+        font.weights.forEach(function (weight) {
+            fontStylesheet += weight + ",";
+        });
+
+        fontStylesheet += "'>";
+
+        head += fontStylesheet;
+    });
+
     head += "</head>";
     head += "<body>";
 
@@ -64461,6 +64481,25 @@ var loadArticle = function loadArticle(state, article) {
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
+};
+
+/**
+ * Adds a font to the list of used fonts.
+ * 
+ */
+var addFontToFontsUsed = function addFontToFontsUsed(state, font) {
+    var alreadyUsed = false;
+
+    for (var i = 0; i < state.fontsUsed.length; i++) {
+        if (state.fontsUsed[i].name === font.name) {
+            alreadyUsed = true;
+            break;
+        }
+    }
+
+    if (!alreadyUsed) {
+        state.fontsUsed.push(font);
+    }
 };
 
 /***/ }),
