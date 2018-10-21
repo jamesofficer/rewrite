@@ -89,30 +89,21 @@ export default {
             });
         },
 
-        setArticleHtml() {
-            this.$store.commit('setArticleHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
+        buildHtml() {
+            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
         },
 
         previewArticleInNewWindow() {
-            this.setArticleHtml();
+            this.buildHtml();
 
-            const newWindow = window.open('', "Title", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top="+(800)+",left="+(600));
-            const normalize = document.createElement("link");
-            const bootstrap = document.createElement("link");
+            const newWindow = window.open('', "Title", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top=" + (800) + ",left=" + (600));
 
-            normalize.setAttribute("href", "https://unpkg.com/normalize.css@8.0.0/normalize.css");
-            normalize.setAttribute("rel", "stylesheet");
-
-            bootstrap.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
-            bootstrap.setAttribute("rel", "stylesheet");
-
-            newWindow.document.head.appendChild(normalize);
-            newWindow.document.head.appendChild(bootstrap);
-            newWindow.document.body.innerHTML = this.$store.getters.articleHtml;
+            newWindow.document.write(this.$store.getters.articleHtml);
         },
 
         showExportArticleModal() {
-            this.setArticleHtml();
+            this.buildHtml();
+
             this.$parent.$refs.exportArticleModal.$children[0].show();
         },
 

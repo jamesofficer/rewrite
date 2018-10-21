@@ -46436,28 +46436,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             });
         },
-        setArticleHtml: function setArticleHtml() {
-            this.$store.commit('setArticleHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
+        buildHtml: function buildHtml() {
+            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
         },
         previewArticleInNewWindow: function previewArticleInNewWindow() {
-            this.setArticleHtml();
+            this.buildHtml();
 
             var newWindow = window.open('', "Title", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top=" + 800 + ",left=" + 600);
-            var normalize = document.createElement("link");
-            var bootstrap = document.createElement("link");
 
-            normalize.setAttribute("href", "https://unpkg.com/normalize.css@8.0.0/normalize.css");
-            normalize.setAttribute("rel", "stylesheet");
-
-            bootstrap.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
-            bootstrap.setAttribute("rel", "stylesheet");
-
-            newWindow.document.head.appendChild(normalize);
-            newWindow.document.head.appendChild(bootstrap);
-            newWindow.document.body.innerHTML = this.$store.getters.articleHtml;
+            newWindow.document.write(this.$store.getters.articleHtml);
         },
         showExportArticleModal: function showExportArticleModal() {
-            this.setArticleHtml();
+            this.buildHtml();
+
             this.$parent.$refs.exportArticleModal.$children[0].show();
         },
         signOut: function signOut() {
@@ -51500,7 +51491,7 @@ var render = function() {
     attrs: {
       size: "sm",
       type: "number",
-      min: 0,
+      min: -1,
       max: 100,
       step: "0.1",
       title: "Letter Spacing"
@@ -63862,7 +63853,12 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     currentColumn: undefined,
     currentComponent: undefined,
 
-    showAddComponentModal: false
+    showAddComponentModal: false,
+
+    // Holds an array of all the Fonts used in the article. We do this so we can append the
+    // needed stylesheets to the document head when exporting the article. Each object
+    // in this array has the font name, and the font weights we need to save.
+    fontsUsed: []
 });
 
 /***/ }),
@@ -64078,6 +64074,7 @@ var articleTitle = function articleTitle(state) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotification", function() { return setNotification; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCanvas", function() { return removeCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
@@ -64097,10 +64094,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectColumn", function() { return selectColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectComponent", function() { return selectComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComponentToColumn", function() { return addComponentToColumn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setArticleHtml", function() { return setArticleHtml; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildHtml", function() { return buildHtml; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHtmlHead", function() { return createHtmlHead; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendImageUrlsToHtml", function() { return appendImageUrlsToHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanHtml", function() { return cleanHtml; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults_defaults__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers__ = __webpack_require__(64);
@@ -64125,6 +64122,14 @@ var setNotification = function setNotification(state, incomingNotification) {
  */
 var setNotificationCountDown = function setNotificationCountDown(state, countdown) {
     window.Vue.set(state.notification, "dismissCountDown", countdown);
+};
+
+/**
+ * Sets the title of the article.
+ *
+ */
+var updateArticleTitle = function updateArticleTitle(state, title) {
+    window.Vue.set(state, "articleTitle", title);
 };
 
 /**
@@ -64385,11 +64390,36 @@ var addComponentToColumn = function addComponentToColumn(state, componentType) {
  * Sets the articleHtml variable in state, to whatever is in the main workspace.
  *
  */
-var setArticleHtml = function setArticleHtml(state, html) {
-    html = _this.appendImageUrlsToHtml(html);
+var buildHtml = function buildHtml(state, html) {
+    html = _this.createHtmlHead(html, state.articleTitle);
     html = _this.cleanHtml(html);
+    html = _this.appendImageUrlsToHtml(html);
+    html += "</body>";
+    html += "</html>";
 
     window.Vue.set(state, "articleHtml", html);
+};
+
+/**
+ * Appends a <head> to the HTML. Includes stylesheets.
+ * 
+ */
+var createHtmlHead = function createHtmlHead(html, title) {
+    var head = '';
+
+    head += "<!DOCTYPE html>";
+    head += "<html>";
+    head += "<head>";
+    head += "<meta charset=\"UTF-8\"></meta>";
+    head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+    head += "<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">";
+    head += "<title>" + title + "</title>";
+    head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
+    head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+    head += "</head>";
+    head += "<body>";
+
+    return head + html;
 };
 
 /**
@@ -64416,14 +64446,6 @@ var cleanHtml = function cleanHtml(html) {
     html = html.replace(matchBoilerplate, "");
 
     return html;
-};
-
-/**
- * Sets the title of the article.
- *
- */
-var updateArticleTitle = function updateArticleTitle(state, title) {
-    window.Vue.set(state, "articleTitle", title);
 };
 
 /**

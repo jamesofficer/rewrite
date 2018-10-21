@@ -20,6 +20,14 @@ export const setNotificationCountDown = (state, countdown) => {
 };
 
 /**
+ * Sets the title of the article.
+ *
+ */
+export const updateArticleTitle = (state, title) => {
+    window.Vue.set(state, "articleTitle", title);
+}
+
+/**
  * Adds another Canvas to the Workspace.
  *
  */
@@ -278,18 +286,43 @@ export const addComponentToColumn = (state, componentType) => {
  * Sets the articleHtml variable in state, to whatever is in the main workspace.
  *
  */
-export const setArticleHtml = (state, html) => {
-    html = this.appendImageUrlsToHtml(html);
+export const buildHtml = (state, html) => {
+    html = this.createHtmlHead(html, state.articleTitle);
     html = this.cleanHtml(html);
+    html = this.appendImageUrlsToHtml(html);
+    html += "</body>";
+    html += "</html>";
 
     window.Vue.set(state, "articleHtml", html);
+}
+
+/**
+ * Appends a <head> to the HTML. Includes stylesheets.
+ * 
+ */
+export const createHtmlHead = (html, title) => {
+    let head = '';
+
+    head += "<!DOCTYPE html>";
+    head += "<html>";
+    head += "<head>";
+    head += "<meta charset=\"UTF-8\"></meta>";
+    head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+    head += "<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">";
+    head += "<title>" + title + "</title>";
+    head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
+    head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+    head += "</head>";
+    head += "<body>";
+
+    return head + html;
 }
 
 /**
  * When previewing an article, we need to append the hostname to the url for images to display properly.
  *
  */
-export const appendImageUrlsToHtml = (html) => {
+export const appendImageUrlsToHtml = html => {
     const regex  = /(\/storage\/user-images)/g;
     const subst  = location.protocol + '//' + window.location.hostname + `\$1`;
 
@@ -301,7 +334,7 @@ export const appendImageUrlsToHtml = (html) => {
  * 'data-v' properties, and any comments in the html (in the form of "<!-- -->");
  *
  */
-export const cleanHtml = (html) => {
+export const cleanHtml = html => {
     const matchDataVText   = /(data-v-\w*=""\s)/g;
     const matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
 
@@ -309,14 +342,6 @@ export const cleanHtml = (html) => {
     html = html.replace(matchBoilerplate, "");
 
     return html;
-}
-
-/**
- * Sets the title of the article.
- *
- */
-export const updateArticleTitle = (state, title) => {
-    window.Vue.set(state, "articleTitle", title);
 }
 
 /**

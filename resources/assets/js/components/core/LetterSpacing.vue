@@ -1,5 +1,5 @@
 <template>
-    <b-form-input size="sm" type="number" v-model="letterSpacing" :min="0" :max="100" step="0.1" v-b-tooltip.hover title="Letter Spacing" class="top-bar-control top-bar-number-input"></b-form-input>
+    <b-form-input size="sm" type="number" v-model="letterSpacing" :min="-1" :max="100" step="0.1" v-b-tooltip.hover title="Letter Spacing" class="top-bar-control top-bar-number-input"></b-form-input>
 </template>
 
 <script>
