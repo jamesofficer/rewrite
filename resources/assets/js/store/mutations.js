@@ -9,6 +9,8 @@ export const setNotification = (state, incomingNotification) => {
     window.Vue.set(state.notification, "message", incomingNotification.message);
     window.Vue.set(state.notification, "type", incomingNotification.type);
     window.Vue.set(state.notification, "dismissCountDown", 5);
+
+    window.scrollTo(0, 0);
 };
 
 /**

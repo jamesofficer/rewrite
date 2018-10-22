@@ -5,9 +5,8 @@ export default {
     src: null,
 
     // Properties:
-    width: '100%',
     textAlign: "left",
-    width: 50,
+    imageSize: 50,
     margin: {
         top: 0,
         right: 0,

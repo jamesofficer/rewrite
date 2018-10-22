@@ -9,14 +9,14 @@ BUGS:
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
+- Add Width controls for Heading/Paragraphs.
 - Duplicate Canvas
 - Duplicate Column
-- Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.
-- Add Width controls for Heading/Paragraphs.
 - Implement column offset functionality.
 - Send password reset email.
 - Undo/Redo lol.
-- Have the "Add Component" button permanently visible, and remember last selected column.
+- Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.
+    ^ Have the "Add Component" button permanently visible, and remember last selected column.
 - Have a pre-loaded "Tutorial" article.
 - Implement loading bar when uploading images.
 - Move article saving methods to actions.

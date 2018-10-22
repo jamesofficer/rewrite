@@ -1240,7 +1240,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         getElementStyles: function getElementStyles() {
             var el = this.element;
 
-            return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.backgroundImage && { backgroundImage: el.backgroundImage }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.backgroundSize && { backgroundSize: el.backgroundSize }, el.backgroundPosition && { backgroundPosition: el.backgroundPosition }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.textAlign && { textAlign: el.textAlign }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight }, el.letterSpacing && { letterSpacing: el.letterSpacing + 'px' }, el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' });
+            return _extends({}, el.imageSize && { width: el.imageSize + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.backgroundImage && { backgroundImage: el.backgroundImage }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.backgroundSize && { backgroundSize: el.backgroundSize }, el.backgroundPosition && { backgroundPosition: el.backgroundPosition }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.textAlign && { textAlign: el.textAlign }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight }, el.letterSpacing && { letterSpacing: el.letterSpacing + 'px' }, el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' });
         }
     }),
 
@@ -23404,43 +23404,43 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var _type$selected$src$wi;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/* harmony default export */ __webpack_exports__["a"] = (_type$selected$src$wi = {
+/* harmony default export */ __webpack_exports__["a"] = ({
     type: "Picture",
     selected: false,
 
     src: null,
 
     // Properties:
-    width: '100%',
-    textAlign: "left"
-}, _defineProperty(_type$selected$src$wi, "width", 50), _defineProperty(_type$selected$src$wi, "margin", {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0
-}), _defineProperty(_type$selected$src$wi, "padding", {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0
-}), _defineProperty(_type$selected$src$wi, "border", {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    radius: 0,
-    style: 'solid',
-    color: { r: 0, g: 0, b: 0, a: 1 }
-}), _defineProperty(_type$selected$src$wi, "boxShadow", {
-    offsetX: 0,
-    offsetY: 0,
-    blurRadius: 0,
-    color: { r: 0, g: 0, b: 0, a: 1 }
-}), _type$selected$src$wi);
+    textAlign: "left",
+    imageSize: 50,
+    margin: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    },
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    },
+    border: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        radius: 0,
+        style: 'solid',
+        color: { r: 0, g: 0, b: 0, a: 1 }
+    },
+    boxShadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 0,
+        color: { r: 0, g: 0, b: 0, a: 1 }
+    }
+});
 
 /***/ }),
 /* 109 */
@@ -46411,8 +46411,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.commit('addCanvas');
         },
         saveArticle: function saveArticle() {
-            window.scrollTo(0, 0);
-
             var title = this.$store.getters.articleTitle;
 
             // Don't let users save an article that doesn't have a title.
@@ -56955,8 +56953,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Width__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_Width___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_Width__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageSize__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_ImageSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__core_ImageSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Border__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow__ = __webpack_require__(56);
@@ -57012,7 +57010,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, DeleteCloneMove: __WEBPACK_IMPORTED_MODULE_2__topbar_DeleteCloneMove___default.a,
-        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, Width: __WEBPACK_IMPORTED_MODULE_6__core_Width___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow___default.a
+        ImageSelector: __WEBPACK_IMPORTED_MODULE_3__core_ImageSelector___default.a, ImageAlignment: __WEBPACK_IMPORTED_MODULE_4__core_ImageAlignment___default.a, Margin: __WEBPACK_IMPORTED_MODULE_5__core_Margin___default.a, ImageSize: __WEBPACK_IMPORTED_MODULE_6__core_ImageSize___default.a, Border: __WEBPACK_IMPORTED_MODULE_7__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_8__core_BoxShadow___default.a
     }
 });
 
@@ -57192,123 +57190,9 @@ if (false) {
 }
 
 /***/ }),
-/* 354 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(355)
-/* template */
-var __vue_template__ = __webpack_require__(356)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/core/Width.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-53ad358d", Component.options)
-  } else {
-    hotAPI.reload("data-v-53ad358d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 355 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Width",
-
-    computed: {
-        width: {
-            get: function get() {
-                return this.$store.getters.getCurrentElement.width;
-            },
-            set: function set(width) {
-                this.$store.commit('setComponentProperty', { property: 'width', value: width });
-            }
-        }
-    }
-});
-
-/***/ }),
-/* 356 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("b-form-input", {
-    directives: [
-      {
-        name: "b-tooltip",
-        rawName: "v-b-tooltip.hover",
-        modifiers: { hover: true }
-      }
-    ],
-    staticClass: "top-bar-control",
-    attrs: {
-      size: "sm",
-      type: "number",
-      min: 0,
-      max: 100,
-      step: "1",
-      title: "Width"
-    },
-    model: {
-      value: _vm.width,
-      callback: function($$v) {
-        _vm.width = $$v
-      },
-      expression: "width"
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-53ad358d", module.exports)
-  }
-}
-
-/***/ }),
+/* 354 */,
+/* 355 */,
+/* 356 */,
 /* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -57354,7 +57238,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("box-shadow"),
                     _vm._v(" "),
-                    _c("width"),
+                    _c("image-size"),
                     _vm._v(" "),
                     _c("image-alignment")
                   ]
@@ -64406,6 +64290,8 @@ var setNotification = function setNotification(state, incomingNotification) {
     window.Vue.set(state.notification, "message", incomingNotification.message);
     window.Vue.set(state.notification, "type", incomingNotification.type);
     window.Vue.set(state.notification, "dismissCountDown", 5);
+
+    window.scrollTo(0, 0);
 };
 
 /**
@@ -87530,6 +87416,123 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-5b684f3e", module.exports)
+  }
+}
+
+/***/ }),
+/* 541 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(542)
+/* template */
+var __vue_template__ = __webpack_require__(543)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/ImageSize.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-34ad2543", Component.options)
+  } else {
+    hotAPI.reload("data-v-34ad2543", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 542 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ImageSize",
+
+    computed: {
+        imageSize: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.imageSize;
+            },
+            set: function set(size) {
+                this.$store.commit('setComponentProperty', { property: 'imageSize', value: size });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 543 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("b-form-input", {
+    directives: [
+      {
+        name: "b-tooltip",
+        rawName: "v-b-tooltip.hover",
+        modifiers: { hover: true }
+      }
+    ],
+    staticClass: "top-bar-control",
+    attrs: {
+      size: "sm",
+      type: "number",
+      min: 0,
+      max: 100,
+      step: "1",
+      title: "Image Size"
+    },
+    model: {
+      value: _vm.imageSize,
+      callback: function($$v) {
+        _vm.imageSize = $$v
+      },
+      expression: "imageSize"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-34ad2543", module.exports)
   }
 }
 

@@ -52,8 +52,6 @@ export default {
         },
 
         saveArticle() {
-            window.scrollTo(0, 0);
-
             const title = this.$store.getters.articleTitle;
 
             // Don't let users save an article that doesn't have a title.
