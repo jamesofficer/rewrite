@@ -60,6 +60,9 @@
                 </b-col>
             </b-row>
 
+            <!-- Bottom Corner Minimap -->
+            <!-- <minimap></minimap> -->
+
             <!-- Add Component Modal -->
             <add-component-modal></add-component-modal>
 
@@ -97,6 +100,7 @@
 <script>
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 import ShiftMenu               from "./components/ShiftMenu";
+import Minimap                 from "./components/Minimap";
 import Notification            from "./components/Notification";
 import Canvas                  from "./components/Canvas";
 import ShiftArticle            from "./components/ShiftArticle";
@@ -113,7 +117,7 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, Notification, Canvas, ShiftArticle,
+        KeyBindings, ShiftMenu, Minimap, Notification, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },

@@ -49,13 +49,13 @@ import TopBar             from './topbar/TopBar'
 import DeleteCanvas       from './topbar/DeleteCanvas'
 import MoveCanvas         from './topbar/MoveCanvas'
 import AddColumn          from './topbar/AddColumn'
-import ClearImage         from './topbar/ClearImage'
-import BackgroundSize     from './topbar/BackgroundSize'
 
 import Padding            from './core/Padding'
 import BackgroundColor    from './core/BackgroundColor'
 import BackgroundGradient from './core/BackgroundGradient'
 import BackgroundPosition from './core/BackgroundPosition'
+import BackgroundSize     from './topbar/BackgroundSize'
+import ClearImage         from './topbar/ClearImage'
 import ImageSelector      from './core/ImageSelector'
 
 export default {

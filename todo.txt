@@ -9,8 +9,6 @@ BUGS:
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
-- Add background image to Columns.
-- Add padding to images.
 - Duplicate Canvas
 - Duplicate Column
 - Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.

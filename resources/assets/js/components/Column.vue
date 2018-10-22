@@ -26,9 +26,18 @@
 
             <background-gradient></background-gradient>
 
+            <image-selector></image-selector>
+
             <border></border>
 
             <box-shadow></box-shadow>
+
+            <!-- Only need these for background images -->
+            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
+                <background-size></background-size>
+
+                <background-position></background-position>
+            </template>
 
             <!-- Clearing a background image also clears a background gradient -->
             <template v-if="element.backgroundImage">
@@ -55,6 +64,9 @@ import Margin              from './core/Margin'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
 import BackgroundGradient  from './core/BackgroundGradient'
+import BackgroundPosition from './core/BackgroundPosition'
+import BackgroundSize     from './topbar/BackgroundSize'
+import ImageSelector       from './core/ImageSelector'
 import Border              from './core/Border'
 import BoxShadow           from './core/BoxShadow'
 
@@ -74,7 +86,7 @@ export default {
 
     components: {
         TopBar, AddComponentButton, DeleteColumn, MoveColumn, ClearImage,
-        ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, Border, BoxShadow,
+        ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
