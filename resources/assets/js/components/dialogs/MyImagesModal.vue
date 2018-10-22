@@ -8,7 +8,7 @@
 
         <template v-if="images.length > 0">
             <div v-for="(image, index) in images" :key="index" style="display: inline;">
-                <img :src="image.url" :key="index" class="gallery-image selectable" :class="{ 'selected-image' : selectedImages.includes(index) }" @click="selectImage(index)">
+                <img :src="image.url" :key="index" class="gallery-image selectable" :class="{ 'selected-image' : selectedImages.includes(images[index]) }" @click="selectImage(index)">
             </div>
         </template>
 
@@ -41,19 +41,31 @@ export default {
 
     methods: {
         selectImage(index) {
-            if (this.selectedImages.includes(index)) {
+            if (this.selectedImages.includes(this.images[index])) {
                 this.selectedImages.splice(this.selectedImages.indexOf(index), 1);
             } else {
-                this.selectedImages.push(index);
+                this.selectedImages.push(this.images[index]);
             }
         },
 
         deleteImages() {
-            axios.post('images/destroy', this.selectedImages).then(response => {
-                console.log(response);
+            axios.post('/api/images/destroy', { images: this.selectedImages }).then(response => {
+                this.$store.commit('setNotification', {
+                    message: this.selectedImages.length + ' images deleted succesfully.',
+                    type: 'warning',
+                });
+
+                this.selectedImages = [];
+
+                this.getImages();
             }).catch(error => {
-                console.log(error);
-            })
+                this.$store.commit('setNotification', {
+                    message: 'Oops, something went wrong. Could not delete your images.',
+                    type: 'danger',
+                });
+            });
+            
+            this.$refs.myImagesModal.hide();
         }
     }
 }

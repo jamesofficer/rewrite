@@ -40,8 +40,21 @@ class ArticleImageController extends Controller
         ]);
     }
 
+    /**
+     * Deletes an image from the server.
+     * 
+     * @param $request - an array of image id's.
+     */
     public function destroy(Request $request)
     {
-        return $request;
+        foreach ($request['images'] as $image) {
+            $image = ArticleImage::find($image['id']);
+
+            Storage::delete(str_replace('storage', 'public', $image->url));
+
+            $image->delete();
+        }
+
+        return response()->json(['message' => 'Images deleted successfully'], 200);
     }
 }

@@ -9,7 +9,6 @@ BUGS:
 
 FEATURES:
 - Send password reset email.
-- Let users delete images.
 - Undo/Redo lol.
 - Implement column offset functionality.
 - Have the "Add Component" button permanently visible, and remember last selected column.
