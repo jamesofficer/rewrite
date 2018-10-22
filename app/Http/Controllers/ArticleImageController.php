@@ -39,4 +39,9 @@ class ArticleImageController extends Controller
             'message' => 'Image uploaded successfully!',
         ]);
     }
+
+    public function destroy(Request $request)
+    {
+        return $request;
+    }
 }

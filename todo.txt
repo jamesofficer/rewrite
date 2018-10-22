@@ -2,13 +2,13 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
-- Say "no images found" when you select an image but have uploaded none.
 - Hide user id on image uploads.
 - Place max file size on image uploads.
 - Instagram Component is fussy.
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
+- Send password reset email.
 - Let users delete images.
 - Undo/Redo lol.
 - Implement column offset functionality.

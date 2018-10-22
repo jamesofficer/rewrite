@@ -23201,9 +23201,7 @@ module.exports = Component.exports
             var _this = this;
 
             axios.get('/api/images').then(function (response) {
-                if (response.data.length === 0) {
-                    _this.images.push('Sorry no images found...');
-                } else {
+                if (response.data.length !== 0) {
                     _this.images = response.data;
                 }
             }).catch(function (error) {
@@ -51461,6 +51459,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "FontWeight",
@@ -51524,6 +51528,14 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61344,17 +61356,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(530)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(416)
 /* template */
-var __vue_template__ = __webpack_require__(420)
+var __vue_template__ = __webpack_require__(532)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-00d63ebe"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -61411,6 +61427,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -61422,6 +61444,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         ImageUploader: __WEBPACK_IMPORTED_MODULE_1__core_ImageUploader___default.a
+    },
+
+    data: function data() {
+        return {
+            selectedImages: []
+        };
+    },
+
+
+    methods: {
+        selectImage: function selectImage(index) {
+            if (this.selectedImages.includes(index)) {
+                this.selectedImages.splice(this.selectedImages.indexOf(index), 1);
+            } else {
+                this.selectedImages.push(index);
+            }
+        },
+        deleteImages: function deleteImages() {
+            axios.post('images/destroy', this.selectedImages).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 });
 
@@ -61627,57 +61673,7 @@ if (false) {
 }
 
 /***/ }),
-/* 420 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-modal",
-    {
-      ref: "myImagesModal",
-      attrs: { id: "myImagesModal", title: "My Images", size: "lg" },
-      on: { shown: _vm.getImages }
-    },
-    [
-      _c("image-uploader", { on: { imageUploaded: _vm.getImages } }),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h5", [_vm._v("Your Images:")]),
-      _vm._v(" "),
-      _vm.images.length > 0
-        ? _vm._l(_vm.images, function(image, index) {
-            return _c(
-              "div",
-              { key: index, staticStyle: { display: "inline" } },
-              [
-                _c("img", {
-                  key: index,
-                  staticClass: "gallery-image",
-                  attrs: { src: image.url }
-                })
-              ]
-            )
-          })
-        : _vm._e()
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-00d63ebe", module.exports)
-  }
-}
-
-/***/ }),
+/* 420 */,
 /* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61793,6 +61789,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -61875,7 +61873,7 @@ var render = function() {
               ]
             )
           })
-        : _vm._e()
+        : _c("p", [_vm._v("You haven't uploaded any images yet...")])
     ],
     2
   )
@@ -86987,6 +86985,133 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(531);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(10)("02ed9634", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00d63ebe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MyImagesModal.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-00d63ebe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MyImagesModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 531 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.selectable[data-v-00d63ebe] {\n    cursor: pointer;\n}\n.selected-image[data-v-00d63ebe] {\n    background: darkred;\n    border: 1px solid red;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 532 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      ref: "myImagesModal",
+      attrs: { id: "myImagesModal", title: "My Images", size: "lg" },
+      on: { shown: _vm.getImages }
+    },
+    [
+      _c("image-uploader", { on: { imageUploaded: _vm.getImages } }),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Your Images:")]),
+      _vm._v(" "),
+      _vm.images.length > 0
+        ? _vm._l(_vm.images, function(image, index) {
+            return _c(
+              "div",
+              { key: index, staticStyle: { display: "inline" } },
+              [
+                _c("img", {
+                  key: index,
+                  staticClass: "gallery-image selectable",
+                  class: {
+                    "selected-image": _vm.selectedImages.includes(index)
+                  },
+                  attrs: { src: image.url },
+                  on: {
+                    click: function($event) {
+                      _vm.selectImage(index)
+                    }
+                  }
+                })
+              ]
+            )
+          })
+        : _c("p", [_vm._v("You haven't uploaded any images yet...")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticStyle: { width: "100%" },
+          attrs: { slot: "modal-footer" },
+          slot: "modal-footer"
+        },
+        [
+          _c(
+            "b-btn",
+            {
+              attrs: {
+                variant: "outline-danger",
+                disabled: _vm.selectedImages.length === 0
+              },
+              on: { click: _vm.deleteImages }
+            },
+            [_vm._v("Delete Images")]
+          )
+        ],
+        1
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-00d63ebe", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

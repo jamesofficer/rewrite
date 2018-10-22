@@ -13,6 +13,8 @@
                 <img :src="image.url" :key="index" class="gallery-image" @click="selectImage(index)">
             </div>
         </template>
+        
+        <p v-else>You haven't uploaded any images yet...</p>
     </b-modal>
 </template>
 

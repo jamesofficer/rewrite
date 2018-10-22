@@ -36,5 +36,6 @@ Route::middleware('auth')->prefix('article')->group(function () {
 Route::prefix('api')->group(function () {
     $this->get('images', 'ArticleImageController@index');
     $this->post('images/store', 'ArticleImageController@store');
+    $this->post('images/destroy', 'ArticleImageController@destroy');
 });
 

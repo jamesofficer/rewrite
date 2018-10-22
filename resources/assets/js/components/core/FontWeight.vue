@@ -1,5 +1,11 @@
 <template>
-    <b-form-select size="sm" v-model="fontWeight" :options="fontWeights" v-b-tooltip.hover title="Font Weight" class="top-bar-control"></b-form-select>
+    <b-form-select size="sm"
+                   v-model="fontWeight"
+                   :options="fontWeights"
+                   v-b-tooltip.hover
+                   title="Font Weight"
+                   class="top-bar-control"
+    ></b-form-select>
 </template>
 
 <script>
@@ -17,7 +23,7 @@ export default {
         },
 
         fontWeights() {
-                return this.$store.getters.getCurrentElement.fontWeights;
+            return this.$store.getters.getCurrentElement.fontWeights;
         }
     },
 }
