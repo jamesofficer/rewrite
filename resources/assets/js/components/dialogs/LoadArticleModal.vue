@@ -52,6 +52,8 @@ export default {
                 type: 'success',
             });
 
+            this.loadInCustomFonts();
+
             this.$refs.loadArticleModal.hide();
         },
 
@@ -82,6 +84,41 @@ export default {
             }).catch(error => {
                 this.statusText = "Oops, something went wrong. We could not retrieve your articles.";
             });
+        },
+
+        loadInCustomFonts() {
+            let fontsUsed  = this.$store.getters.fontsUsed;
+            let fontsAdded = [];
+
+            if (fontsUsed === null || fontsUsed.length === 0) {
+                return;
+            }
+
+            for (let i = 0; i < fontsUsed.length; i++) {
+                if (! fontsAdded.includes(fontsUsed[i].name)) {
+                    fontsAdded.push(fontsUsed[i].name)
+                    
+                    this.appendFontStylesheetToHead(fontsUsed[i].name);
+                };
+            }
+        },
+
+        /**
+         * When selecting a custom font, we need to put its stylesheet in the head to render the font properly.
+         * 
+         */
+        appendFontStylesheetToHead(font) {
+            // Replace whitespace with plus symbols.
+            font = font.replace(/\s/g, '+');
+
+            let head      = document.head;
+            let fontLink  = document.createElement('link');
+
+            fontLink.type = 'text/css';
+            fontLink.rel  = 'stylesheet';
+            fontLink.href = 'https://fonts.googleapis.com/css?family=' + font + ':100,200,300,400,500,600,700,800,900';
+
+            head.appendChild(fontLink);
         }
     },
 }

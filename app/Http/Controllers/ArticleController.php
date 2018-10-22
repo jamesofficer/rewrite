@@ -36,13 +36,15 @@ class ArticleController extends Controller
 
         if ($existingArticle) {
             $existingArticle->update([
-                'title' => $request['title'],
+                'title'        => $request['title'],
+                'fonts_used'   => json_encode($request['fonts_used']),
                 'article_json' => json_encode($request['article_json']),
             ]);
         } else {
             Article::create([
-                'user_id' => Auth::id(),
-                'title'   => $request['title'],
+                'user_id'      => Auth::id(),
+                'title'        => $request['title'],
+                'fonts_used'   => json_encode($request['fonts_used']),
                 'article_json' => json_encode($request['article_json']),
             ]);
         }

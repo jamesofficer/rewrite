@@ -26,7 +26,9 @@ export default {
         selectFont(font) {
             this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font.name });
             this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
-            this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[0] });
+            this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[
+                Math.floor(font.weights.length / 2)  // select the 'middle' font weight.
+            ]});
 
             this.$store.commit('addFontToFontsUsed', {
                 name: font.name,
@@ -36,14 +38,18 @@ export default {
             this.appendStylesheetToHead(font.name);
         },
 
+        /**
+         * When selecting a custom font, we need to put it's stylesheet in the head to render the font properly.
+         * 
+         */
         appendStylesheetToHead(font) {
             font = font.replace(/\s/g, '+');
 
             let head = document.head;
-            let link = document.createElement("link");
+            let link = document.createElement('link');
 
-            link.type = "text/css";
-            link.rel  = "stylesheet";
+            link.type = 'text/css';
+            link.rel  = 'stylesheet';
             link.href = 'https://fonts.googleapis.com/css?family=' + font + ':100,200,300,400,500,600,700,800,900';
 
             head.appendChild(link);

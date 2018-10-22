@@ -18,6 +18,7 @@ export const canvases = state => {
 
 /**
  * Shows the Add Component Modal window.
+ * 
  */
 export const showAddComponentModal = state => {
     return state.showAddComponentModal;
@@ -25,6 +26,7 @@ export const showAddComponentModal = state => {
 
 /**
  * Returns the number of columns on this Canvas.
+ * 
  */
 export const columnCount = state => canvasIndex => {
     return state.canvases[canvasIndex].columns.length;
@@ -32,6 +34,7 @@ export const columnCount = state => canvasIndex => {
 
 /**
  * Returns the total widths of all the columns on the current canvas.
+ * 
  */
 export const totalColumnWidth = state => {
     if (state.currentCanvas !== undefined) {
@@ -109,6 +112,7 @@ export const canMoveComponentDown = state => {
 
 /**
  * Returns the list of Components for this particular canvas.
+ * 
  */
 export const getComponentsForColumn = state => i => {
     return state.canvases[i.canvasIndex].columns[i.columnIndex].components;
@@ -117,6 +121,7 @@ export const getComponentsForColumn = state => i => {
 /**
  * Returns the currently selected element. This can be either a Canvas or a Component.
  * This is used for 'core' components, as they have no knowledge of their indexes.
+ * 
  */
 export const getCurrentElement = state => {
     // currentCanvas will be undefined when the app first starts. Return null to fix errors.
@@ -128,8 +133,8 @@ export const getCurrentElement = state => {
 };
 
 /**
- * Returns an element based off the index values that are passed in.
- * This is used to make styling elements easier.
+ * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
+ * 
  */
 export const getElement = state => i => {
     // If component and column are undefined, return the canvas.
@@ -150,6 +155,7 @@ export const getElement = state => i => {
 
 /**
  * Returns true if the specified element (based off the indexes) has been selected.
+ * 
  */
 export const elementIsSelected = state => i => {
     if (
@@ -165,14 +171,24 @@ export const elementIsSelected = state => i => {
 
 /**
  * Returns the html of the article.
+ * 
  */
 export const articleHtml = state => {
     return state.articleHtml;
-}
+};
 
 /**
  * Returns the title of the article.
+ * 
  */
 export const articleTitle = state => {
     return state.articleTitle;
-}
+};
+
+/**
+ * Returns the list of fonts used on this article.
+ * 
+ */
+export const fontsUsed = state => {
+    return state.fontsUsed;
+};

@@ -68,12 +68,14 @@ export default {
         },
 
         storeArticle() {
-            const canvases = this.$store.getters.canvases;
-            const title    = this.$store.getters.articleTitle;
+            const title     = this.$store.getters.articleTitle;
+            const fontsUsed = this.$store.getters.fontsUsed;
+            const canvases  = this.$store.getters.canvases;
 
             axios.post('/article/store', {
                 title: title,
                 article_json: canvases,
+                fonts_used: fontsUsed,
             })
             .then(response => {
                 this.$store.commit('setNotification', {

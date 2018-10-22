@@ -301,7 +301,8 @@ export const buildHtml = (state, html) => {
  * 
  */
 export const createHtmlHead = (state, html, title) => {
-    let head = '';
+    let fonts = this.getUniqueFontList(state.fontsUsed);
+    let head  = '';
 
     head += "<!DOCTYPE html>";
     head += "<html>";
@@ -314,22 +315,39 @@ export const createHtmlHead = (state, html, title) => {
     head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
 
     // Append the needed fonts.
-    state.fontsUsed.forEach(function (font) {
+    fonts.forEach(function (font) {
         let fontStylesheet = "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=" + font.name + ":";
 
         font.weights.forEach(function (weight) {
             fontStylesheet += weight + ",";
         });
 
-        fontStylesheet += "'>";
-
-        head += fontStylesheet;
+        head += (fontStylesheet += "'>");
     });
 
     head += "</head>";
     head += "<body>";
 
     return head + html;
+}
+
+/**
+ * When building our html, we don't want to import the same font stylesheet multiple times. This function
+ * removes any duplicate fonts from fontsUsed, allowing us to build up the stylesheets more efficiently.
+ * 
+ */
+export const getUniqueFontList = fontsUsed => {
+    let uniqueFonts = [];
+    let fontsAdded  = [];
+
+    fontsUsed.forEach(function (font) {
+        if (! fontsAdded.includes(font.name)) {
+            fontsAdded.push(font.name)
+            uniqueFonts.push(font);
+        };
+    });
+
+    return uniqueFonts;
 }
 
 /**
@@ -371,6 +389,13 @@ export const loadArticle = (state, article) => {
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
     window.Vue.set(state, "canvases", JSON.parse(article.article_json));
+
+    // Load in custom fonts if there are any, otherwise set to an empty array.
+    if (JSON.parse(article.fonts_used)) {
+        window.Vue.set(state, "fontsUsed", JSON.parse(article.fonts_used));
+    } else {
+        state.fontsUsed = [];
+    }
 };
 
 /**
@@ -378,16 +403,5 @@ export const loadArticle = (state, article) => {
  * 
  */
 export const addFontToFontsUsed = (state, font) => {
-    let alreadyUsed = false;
-
-    for (let i = 0; i < state.fontsUsed.length; i++) {
-        if (state.fontsUsed[i].name === font.name) {
-            alreadyUsed = true;
-            break;
-        }
-    }
-
-    if (! alreadyUsed) {
-        state.fontsUsed.push(font);
-    }
+    state.fontsUsed.push(font);
 }
