@@ -23270,7 +23270,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */]],
 
     // Properties:
     columnWidth: 12,
@@ -46108,30 +46108,31 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_ShiftMenu__ = __webpack_require__(243);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_ShiftMenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_ShiftMenu__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Notification__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Notification__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Canvas__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Canvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ShiftArticle__ = __webpack_require__(407);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_ShiftArticle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_ShiftArticle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dialogs_AddComponentModal__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dialogs_EditTextModal__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_dialogs_EditTextModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dialogs_LoadArticleModal__ = __webpack_require__(410);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_dialogs_LoadArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_MyImagesModal__ = __webpack_require__(415);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_dialogs_MyImagesModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ImageGalleryModal__ = __webpack_require__(423);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_dialogs_ImageGalleryModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ExportArticleModal__ = __webpack_require__(428);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_ExportArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_RecipeIngredientsModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_BackgroundGradientModal__ = __webpack_require__(431);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_BackgroundGradientModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__ = __webpack_require__(529);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_ShiftMenu__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_ShiftMenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_ShiftMenu__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Notification__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Notification__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Canvas__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Canvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_ShiftArticle__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_ShiftArticle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_ShiftArticle__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dialogs_AddComponentModal__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dialogs_EditTextModal__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_dialogs_EditTextModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_LoadArticleModal__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_MyImagesModal__ = __webpack_require__(415);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_dialogs_MyImagesModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ImageGalleryModal__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_ImageGalleryModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_ExportArticleModal__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_ExportArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_BackgroundGradientModal__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_BackgroundGradientModal__);
 //
 //
 //
@@ -46228,6 +46229,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -46246,10 +46248,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Shift",
 
     components: {
-        ShiftMenu: __WEBPACK_IMPORTED_MODULE_0__components_ShiftMenu___default.a, Notification: __WEBPACK_IMPORTED_MODULE_1__components_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_2__components_Canvas___default.a, ShiftArticle: __WEBPACK_IMPORTED_MODULE_3__components_ShiftArticle___default.a,
-        AddComponentModal: __WEBPACK_IMPORTED_MODULE_4__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_5__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_6__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_7__components_dialogs_MyImagesModal___default.a,
-        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_8__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_BackgroundGradientModal___default.a
+        KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */], ShiftMenu: __WEBPACK_IMPORTED_MODULE_1__components_ShiftMenu___default.a, Notification: __WEBPACK_IMPORTED_MODULE_2__components_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_3__components_Canvas___default.a, ShiftArticle: __WEBPACK_IMPORTED_MODULE_4__components_ShiftArticle___default.a,
+        AddComponentModal: __WEBPACK_IMPORTED_MODULE_5__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_6__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_7__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_8__components_dialogs_MyImagesModal___default.a,
+        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_9__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_BackgroundGradientModal___default.a
     },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
 
     computed: {
         articleTitle: {
@@ -46844,8 +46848,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Column__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_TopBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveCanvas__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_RemoveCanvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__ = __webpack_require__(392);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn__ = __webpack_require__(397);
@@ -46928,7 +46932,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Canvas",
 
     components: {
-        Column: __WEBPACK_IMPORTED_MODULE_2__Column___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, RemoveCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_8__topbar_BackgroundSize___default.a,
+        Column: __WEBPACK_IMPORTED_MODULE_2__Column___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, DeleteCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_8__topbar_BackgroundSize___default.a,
         Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector___default.a
     },
 
@@ -47064,8 +47068,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveColumn__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_RemoveColumn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__ = __webpack_require__(533);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage__ = __webpack_require__(98);
@@ -47179,7 +47183,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Column",
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default.a, RemoveColumn: __WEBPACK_IMPORTED_MODULE_4__topbar_RemoveColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage___default.a,
+        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default.a, DeleteColumn: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage___default.a,
         ColumnWidth: __WEBPACK_IMPORTED_MODULE_7__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_8__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default.a, Border: __WEBPACK_IMPORTED_MODULE_12__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_13__core_BoxShadow___default.a,
         Heading: __WEBPACK_IMPORTED_MODULE_14__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_15__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_16__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_17__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_18__HorizontalLine___default.a,
         InstagramEmbed: __WEBPACK_IMPORTED_MODULE_19__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_20__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_21__YouTubeEmbed___default.a,
@@ -47986,111 +47990,9 @@ if (false) {
 }
 
 /***/ }),
-/* 268 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(269)
-/* template */
-var __vue_template__ = __webpack_require__(270)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/RemoveColumn.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1facda24", Component.options)
-  } else {
-    hotAPI.reload("data-v-1facda24", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 269 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "RemoveColumn",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        removeColumn: function removeColumn() {
-            this.$store.commit('removeColumnFromCanvas');
-        }
-    }
-});
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-danger",
-      icon: "columns",
-      tooltip: "Delete Column"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.removeColumn($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1facda24", module.exports)
-  }
-}
-
-/***/ }),
+/* 268 */,
+/* 269 */,
+/* 270 */,
 /* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -50018,6 +49920,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 input.focus();
                 input.setSelectionRange(strLength, strLength);
             });
+        },
+        activate: function activate() {
+            alert('got it!');
         }
     }
 });
@@ -51745,7 +51650,23 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: { "selected-element": _vm.elementIsSelected } },
+    {
+      class: { "selected-element": _vm.elementIsSelected },
+      on: {
+        keyup: function($event) {
+          if (
+            !("button" in $event) &&
+            _vm._k($event.keyCode, "delete", [8, 46], $event.key, [
+              "Backspace",
+              "Delete"
+            ])
+          ) {
+            return null
+          }
+          return _vm.activate($event)
+        }
+      }
+    },
     [
       !_vm.editingText
         ? _c(
@@ -60110,7 +60031,7 @@ var render = function() {
         ? _c(
             "top-bar",
             [
-              _c("remove-column"),
+              _c("delete-column"),
               _vm._v(" "),
               _c("move-column"),
               _vm._v(" "),
@@ -60150,111 +60071,9 @@ if (false) {
 }
 
 /***/ }),
-/* 389 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(390)
-/* template */
-var __vue_template__ = __webpack_require__(391)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/RemoveCanvas.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1738a9b4", Component.options)
-  } else {
-    hotAPI.reload("data-v-1738a9b4", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 390 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "RemoveCanvas",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        removeCanvas: function removeCanvas() {
-            this.$store.commit('removeCanvas');
-        }
-    }
-});
-
-/***/ }),
-/* 391 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-danger",
-      icon: "palette",
-      tooltip: "Delete Canvas"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.removeCanvas($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1738a9b4", module.exports)
-  }
-}
-
-/***/ }),
+/* 389 */,
+/* 390 */,
+/* 391 */,
 /* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -60871,7 +60690,7 @@ var render = function() {
         ? _c(
             "top-bar",
             [
-              _c("remove-canvas"),
+              _c("delete-canvas"),
               _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
@@ -64261,6 +64080,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComponentsForColumn", function() { return getComponentsForColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElement", function() { return getElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aCanvasIsSelected", function() { return aCanvasIsSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aColumnIsSelected", function() { return aColumnIsSelected; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aComponentIsSelected", function() { return aComponentIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "elementIsSelected", function() { return elementIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
@@ -64426,6 +64248,42 @@ var getElement = function getElement(state) {
 };
 
 /**
+ * Returns true if a Canvas is selected.
+ * 
+ */
+var aCanvasIsSelected = function aCanvasIsSelected(state) {
+    if (state.currentCanvas !== undefined && state.currentColumn === undefined && state.currentComponent === undefined) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
+ * Returns true if a Column is selected.
+ * 
+ */
+var aColumnIsSelected = function aColumnIsSelected(state) {
+    if (state.currentCanvas !== undefined && state.currentColumn !== undefined && state.currentComponent === undefined) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
+ * Returns true if a Component is selected.
+ * 
+ */
+var aComponentIsSelected = function aComponentIsSelected(state) {
+    if (state.currentCanvas !== undefined && state.currentColumn !== undefined && state.currentComponent !== undefined) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
  * Returns true if the specified element (based off the indexes) has been selected.
  * 
  */
@@ -64473,9 +64331,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCanvas", function() { return removeCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCanvas", function() { return deleteCanvas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteColumn", function() { return deleteColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasUp", function() { return moveCanvasUp; });
@@ -64486,7 +64345,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveComponentDown", function() { return moveComponentDown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleAddComponentModal", function() { return toggleAddComponentModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumnToCanvas", function() { return addColumnToCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeColumnFromCanvas", function() { return removeColumnFromCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectColumn", function() { return selectColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectComponent", function() { return selectComponent; });
@@ -64540,15 +64398,6 @@ var addCanvas = function addCanvas(state) {
 };
 
 /**
- * Deletes the selected Canvas
- *
- */
-var removeCanvas = function removeCanvas(state) {
-    state.canvases.splice(state.currentCanvas, 1);
-    state.currentCanvas = undefined;
-};
-
-/**
  * Used to set CSS properties on components.
  *
  */
@@ -64565,11 +64414,32 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
 };
 
 /**
+ * Deletes the selected Canvas
+ *
+ */
+var deleteCanvas = function deleteCanvas(state) {
+    state.canvases.splice(state.currentCanvas, 1);
+    state.currentCanvas = undefined;
+};
+
+/**
+ * Removes a column from the specified canvas. We deselect it first to prevent errors.
+ *
+ */
+var deleteColumn = function deleteColumn(state) {
+    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+    state.currentColumn = undefined;
+};
+
+/**
  * Deletes a component from a column.
  *
  */
 var deleteComponent = function deleteComponent(state) {
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    if (state.currentComponent !== undefined) {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    }
+
     state.currentComponent = undefined;
 };
 
@@ -64711,15 +64581,6 @@ var addColumnToCanvas = function addColumnToCanvas(state, columnWidth) {
     newColumn.columnWidth = columnWidth;
 
     state.canvases[state.currentCanvas].columns.push(newColumn);
-};
-
-/**
- * Removes a column from the specified canvas. We deselect it first to prevent errors.
- *
- */
-var removeColumnFromCanvas = function removeColumnFromCanvas(state) {
-    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
-    state.currentColumn = undefined;
 };
 
 /**
@@ -87124,6 +86985,317 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 527 */,
+/* 528 */,
+/* 529 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    mounted: function mounted() {
+        var self = this;
+
+        window.addEventListener('keyup', function (ev) {
+            /**
+             * Pressing the UP ARROW key moves a Component, Column, or Canvas up.
+             * 
+             */
+            if (ev.key === "ArrowUp") {
+                if (self.$store.getters.aComponentIsSelected) {
+                    self.$store.commit('moveComponentUp');
+                    return;
+                }
+
+                if (self.$store.getters.aColumnIsSelected) {
+                    self.$store.commit('moveColumnRight');
+                    return;
+                }
+
+                if (self.$store.getters.aCanvasIsSelected) {
+                    self.$store.commit('moveCanvasUp');
+                    return;
+                }
+            }
+
+            /**
+             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
+             * 
+             */
+            if (ev.key === "ArrowDown") {
+                if (self.$store.getters.aComponentIsSelected) {
+                    self.$store.commit('moveComponentDown');
+                    return;
+                }
+
+                if (self.$store.getters.aColumnIsSelected) {
+                    self.$store.commit('moveColumnLeft');
+                    return;
+                }
+
+                if (self.$store.getters.aCanvasIsSelected) {
+                    self.$store.commit('moveCanvasDown');
+                    return;
+                }
+            }
+
+            /**
+             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
+             * 
+             */
+            if (ev.key === "ArrowLeft" && self.$store.getters.aColumnIsSelected) {
+                self.$store.commit('moveColumnLeft');
+                return;
+            }
+
+            if (ev.key === "ArrowRight" && self.$store.getters.aColumnIsSelected) {
+                self.$store.commit('moveColumnRight');
+                return;
+            }
+
+            /**
+             * The PLUS (+) key (numpad plus) opens the Add Component modal window.
+             * 
+             */
+            if (ev.key === "+" && self.$store.getters.aColumnIsSelected) {
+                self.$store.commit('toggleAddComponentModal', true);
+                return;
+            }
+
+            /**
+             * The DELETE key can delete Components, Columns or Canvases.
+             * 
+             */
+            if (ev.key === "Delete") {
+                if (self.$store.getters.aComponentIsSelected) {
+                    self.$store.commit('deleteComponent');
+                    return;
+                }
+
+                if (self.$store.getters.aColumnIsSelected) {
+                    self.$store.commit('deleteColumn');
+                    return;
+                }
+
+                if (self.$store.getters.aCanvasIsSelected) {
+                    self.$store.commit('deleteCanvas');
+                    return;
+                }
+            }
+        });
+    }
+});
+
+/***/ }),
+/* 530 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(531)
+/* template */
+var __vue_template__ = __webpack_require__(532)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/DeleteCanvas.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5c0a338d", Component.options)
+  } else {
+    hotAPI.reload("data-v-5c0a338d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 531 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "DeleteCanvas",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        deleteCanvas: function deleteCanvas() {
+            this.$store.commit('deleteCanvas');
+        }
+    }
+});
+
+/***/ }),
+/* 532 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: {
+      variant: "outline-danger",
+      icon: "palette",
+      tooltip: "Delete Canvas"
+    },
+    nativeOn: {
+      click: function($event) {
+        return _vm.deleteCanvas($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5c0a338d", module.exports)
+  }
+}
+
+/***/ }),
+/* 533 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(534)
+/* template */
+var __vue_template__ = __webpack_require__(535)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/DeleteColumn.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f1593aea", Component.options)
+  } else {
+    hotAPI.reload("data-v-f1593aea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 534 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "DeleteColumn",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        deleteColumn: function deleteColumn() {
+            this.$store.commit('deleteColumn');
+        }
+    }
+});
+
+/***/ }),
+/* 535 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: {
+      variant: "outline-danger",
+      icon: "columns",
+      tooltip: "Delete Column"
+    },
+    nativeOn: {
+      click: function($event) {
+        return _vm.deleteColumn($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f1593aea", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

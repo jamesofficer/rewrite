@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import KeyBindings             from "./components/mixins/KeyBindings.js";
 import ShiftMenu               from "./components/ShiftMenu";
 import Notification            from "./components/Notification";
 import Canvas                  from "./components/Canvas";
@@ -112,10 +113,12 @@ export default {
     name: "Shift",
 
     components: {
-        ShiftMenu, Notification, Canvas, ShiftArticle,
+        KeyBindings, ShiftMenu, Notification, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
+
+    mixins: [KeyBindings],
 
     computed: {
         articleTitle: {

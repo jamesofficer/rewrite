@@ -154,6 +154,54 @@ export const getElement = state => i => {
 };
 
 /**
+ * Returns true if a Canvas is selected.
+ * 
+ */
+export const aCanvasIsSelected = state => {
+    if (
+        state.currentCanvas    !== undefined &&
+        state.currentColumn    === undefined &&
+        state.currentComponent === undefined
+    ) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
+ * Returns true if a Column is selected.
+ * 
+ */
+export const aColumnIsSelected = state => {
+    if (
+        state.currentCanvas    !== undefined &&
+        state.currentColumn    !== undefined &&
+        state.currentComponent === undefined
+    ) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
+ * Returns true if a Component is selected.
+ * 
+ */
+export const aComponentIsSelected = state => {
+    if (
+        state.currentCanvas    !== undefined &&
+        state.currentColumn    !== undefined &&
+        state.currentComponent !== undefined
+    ) {
+        return true;
+    }
+
+    return false;
+};
+
+/**
  * Returns true if the specified element (based off the indexes) has been selected.
  * 
  */

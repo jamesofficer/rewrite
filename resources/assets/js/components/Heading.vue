@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
+    <div :class="{ 'selected-element': elementIsSelected }" @keyup.delete="activate">
         <!-- COMPONENT -->
         <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
             {{ element.content }}
@@ -83,7 +83,11 @@ export default {
                 input.setSelectionRange(strLength, strLength);
             });
         },
-    }
+
+        activate() {
+            alert('got it!');
+        }
+    },
 }
 </script>
 

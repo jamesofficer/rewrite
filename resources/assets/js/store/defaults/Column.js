@@ -13,7 +13,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading],
 
     // Properties:
     columnWidth: 12,

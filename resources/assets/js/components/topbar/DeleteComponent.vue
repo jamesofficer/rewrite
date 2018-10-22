@@ -13,8 +13,8 @@ export default {
     methods: {
         deleteComponent() {
             this.$store.commit('deleteComponent');
-        }
-    }
+        },
+    },
 }
 </script>
 

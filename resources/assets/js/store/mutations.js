@@ -35,14 +35,6 @@ export const addCanvas = state => {
     state.canvases.push(duplicateObject(defaults.canvas));
 };
 
-/**
- * Deletes the selected Canvas
- *
- */
-export const removeCanvas = state => {
-    state.canvases.splice(state.currentCanvas, 1);
-    state.currentCanvas = undefined;
-};
 
 /**
  * Used to set CSS properties on components.
@@ -61,11 +53,32 @@ export const setComponentSubProperty = (state, component) => {
 }
 
 /**
+ * Deletes the selected Canvas
+ *
+ */
+export const deleteCanvas = state => {
+    state.canvases.splice(state.currentCanvas, 1);
+    state.currentCanvas = undefined;
+};
+
+/**
+ * Removes a column from the specified canvas. We deselect it first to prevent errors.
+ *
+ */
+export const deleteColumn = state => {
+    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
+    state.currentColumn = undefined;
+};
+
+/**
  * Deletes a component from a column.
  *
  */
 export const deleteComponent = state => {
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    if (state.currentComponent !== undefined) {
+        state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    }
+
     state.currentComponent = undefined;
 };
 
@@ -195,7 +208,7 @@ export const moveComponentDown = state => {
  */
 export const toggleAddComponentModal = (state, toggle) => {
     state.showAddComponentModal = toggle;
-}
+};
 
 /**
  * Adds another column to the specified canvas.
@@ -207,15 +220,6 @@ export const addColumnToCanvas = (state, columnWidth) => {
     newColumn.columnWidth = columnWidth;
 
     state.canvases[state.currentCanvas].columns.push(newColumn);
-};
-
-/**
- * Removes a column from the specified canvas. We deselect it first to prevent errors.
- *
- */
-export const removeColumnFromCanvas = state => {
-    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
-    state.currentColumn = undefined;
 };
 
 /**
