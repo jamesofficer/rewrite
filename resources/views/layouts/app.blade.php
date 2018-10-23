@@ -27,7 +27,7 @@
     <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>
 <body>
-    <main @if (Route::currentRouteName() === "login" || Route::currentRouteName() === "register" || Route::currentRouteName() === "password.request") class="login-page-bg" @endif>
+    <main @if (Route::currentRouteName() === "login" || Route::currentRouteName() === "register" || Route::currentRouteName() === "password.request" || Route::currentRouteName() === "password.reset") class="login-page-bg" @endif>
         @if (Route::currentRouteName() === "login"||Route::currentRouteName() === "register" || Route::currentRouteName() === "password.request")
             <div class="login-page-bg-img"></div>
         @endif

@@ -10,7 +10,6 @@ BUGS:
 
 FEATURES:
 - Implement column offset functionality.
-- Send password reset email.
 - Undo/Redo lol.
 - Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.
     ^ Have the "Add Component" button permanently visible, and remember last selected column.
