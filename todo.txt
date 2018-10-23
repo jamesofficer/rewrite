@@ -9,8 +9,6 @@ BUGS:
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
-- Duplicate Canvas
-- Duplicate Column
 - Implement column offset functionality.
 - Send password reset email.
 - Undo/Redo lol.

@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div :class="{ 'selected-element': elementIsSelected }">
         <!-- COMPONENT -->
-        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" :class="{ 'selected-element': elementIsSelected }">
+        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
             {{ element.content }}
         </h1>
 

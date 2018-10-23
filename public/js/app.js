@@ -46323,6 +46323,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -47440,50 +47442,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_ColumnWidth__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_ColumnWidth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_ColumnWidth__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Margin__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__topbar_BackgroundSize__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__topbar_BackgroundSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_Border__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_BoxShadow__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_BoxShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_BoxShadow__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Heading__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__Heading__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Paragraph__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__Paragraph__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__BlockQuote__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__BlockQuote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__BlockQuote__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Picture__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__Picture___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__Picture__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__HorizontalLine__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__HorizontalLine___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__HorizontalLine__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__InstagramEmbed__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__InstagramEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__InstagramEmbed__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__FacebookEmbed__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__FacebookEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__FacebookEmbed__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__YouTubeEmbed__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__YouTubeEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__YouTubeEmbed__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__RecipeSummary__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__RecipeSummary___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__RecipeSummary__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__RecipeIngredients__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__RecipeIngredients___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__RecipeIngredients__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_ColumnWidth__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_ColumnWidth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_ColumnWidth__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Margin__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundGradient__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_BackgroundGradient__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundPosition__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_BackgroundPosition__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__topbar_BackgroundSize__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__topbar_BackgroundSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_ImageSelector__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_ImageSelector__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_Border__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_Border___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_Border__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_BoxShadow__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_BoxShadow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__core_BoxShadow__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Heading__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__Heading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__Heading__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Paragraph__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__Paragraph___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__Paragraph__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__BlockQuote__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__BlockQuote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__BlockQuote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Picture__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__Picture___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__Picture__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__HorizontalLine__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__HorizontalLine___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__HorizontalLine__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__InstagramEmbed__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__InstagramEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__InstagramEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__FacebookEmbed__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__FacebookEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__FacebookEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__YouTubeEmbed__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__YouTubeEmbed___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__YouTubeEmbed__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__RecipeSummary__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__RecipeSummary___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__RecipeSummary__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__RecipeIngredients__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__RecipeIngredients___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__RecipeIngredients__);
 //
 //
 //
@@ -47535,6 +47539,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -47571,11 +47578,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Column",
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default.a, DeleteColumn: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_6__topbar_ClearImage___default.a,
-        ColumnWidth: __WEBPACK_IMPORTED_MODULE_7__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_8__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default.a, Border: __WEBPACK_IMPORTED_MODULE_15__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_16__core_BoxShadow___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_13__topbar_BackgroundSize___default.a,
-        Heading: __WEBPACK_IMPORTED_MODULE_17__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_18__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_19__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_20__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_21__HorizontalLine___default.a,
-        InstagramEmbed: __WEBPACK_IMPORTED_MODULE_22__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_23__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_24__YouTubeEmbed___default.a,
-        RecipeSummary: __WEBPACK_IMPORTED_MODULE_25__RecipeSummary___default.a, RecipeIngredients: __WEBPACK_IMPORTED_MODULE_26__RecipeIngredients___default.a
+        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default.a, DeleteColumn: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default.a, CloneColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a,
+        ColumnWidth: __WEBPACK_IMPORTED_MODULE_8__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_9__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_10__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundGradient___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_15__core_ImageSelector___default.a, Border: __WEBPACK_IMPORTED_MODULE_16__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_17__core_BoxShadow___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_13__core_BackgroundPosition___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_14__topbar_BackgroundSize___default.a,
+        Heading: __WEBPACK_IMPORTED_MODULE_18__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_19__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_20__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_21__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_22__HorizontalLine___default.a,
+        InstagramEmbed: __WEBPACK_IMPORTED_MODULE_23__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_24__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_25__YouTubeEmbed___default.a,
+        RecipeSummary: __WEBPACK_IMPORTED_MODULE_26__RecipeSummary___default.a, RecipeIngredients: __WEBPACK_IMPORTED_MODULE_27__RecipeIngredients___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_GetElement__["a" /* default */]],
@@ -52487,15 +52494,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { class: { "selected-element": _vm.elementIsSelected } },
     [
       !_vm.editingText
         ? _c(
             "h1",
-            {
-              class: { "selected-element": _vm.elementIsSelected },
-              style: _vm.getElementStyles,
-              on: { dblclick: _vm.selectInput }
-            },
+            { style: _vm.getElementStyles, on: { dblclick: _vm.selectInput } },
             [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
           )
         : _c("text-input", {
@@ -57376,11 +57380,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { style: { width: _vm.element.width } },
+    { style: _vm.getElementStyles },
     [
       _c("div", {
         class: { "selected-element": _vm.elementIsSelected },
-        style: _vm.getElementStyles,
         domProps: { innerHTML: _vm._s(_vm.element.content) },
         on: { dblclick: _vm.showEditTextModal }
       }),
@@ -60647,6 +60650,8 @@ var render = function() {
             [
               _c("delete-column"),
               _vm._v(" "),
+              _c("clone-column"),
+              _vm._v(" "),
               _c("move-column"),
               _vm._v(" "),
               _c("add-component-button"),
@@ -62946,22 +62951,31 @@ var render = function() {
                       { attrs: { fluid: "" } },
                       [
                         _c(
-                          "shift-article",
-                          { ref: "shiftArticle" },
-                          _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-                            return _c(canvas.type, {
-                              key: canvasIndex,
-                              tag: "component",
-                              staticClass: "shift-canvas",
-                              attrs: { canvasIndex: canvasIndex },
-                              nativeOn: {
-                                click: function($event) {
-                                  $event.stopPropagation()
-                                  _vm.selectCanvas(canvasIndex)
-                                }
-                              }
-                            })
-                          })
+                          "keep-alive",
+                          [
+                            _c(
+                              "shift-article",
+                              { ref: "shiftArticle" },
+                              _vm._l(_vm.canvases, function(
+                                canvas,
+                                canvasIndex
+                              ) {
+                                return _c(canvas.type, {
+                                  key: canvasIndex,
+                                  tag: "component",
+                                  staticClass: "shift-canvas",
+                                  attrs: { canvasIndex: canvasIndex },
+                                  nativeOn: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                      _vm.selectCanvas(canvasIndex)
+                                    }
+                                  }
+                                })
+                              })
+                            )
+                          ],
+                          1
                         )
                       ],
                       1
@@ -64786,6 +64800,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteColumn", function() { return deleteColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneCanvas", function() { return cloneCanvas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneColumn", function() { return cloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasUp", function() { return moveCanvasUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasDown", function() { return moveCanvasDown; });
@@ -64902,6 +64917,31 @@ var cloneCanvas = function cloneCanvas(state) {
     var canvas = state.canvases[state.currentCanvas];
 
     state.canvases.splice(state.currentCanvas, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(canvas));
+};
+
+/**
+ * Clones the selected Column to the specified position.
+ *
+ */
+var cloneColumn = function cloneColumn(state, destCanvasIndex) {
+    var column = state.canvases[state.currentCanvas].columns[state.currentColumn];
+
+    var totalColumnWidth = 0;
+
+    state.canvases[destCanvasIndex].columns.forEach(function (column) {
+        totalColumnWidth += column.columnWidth;
+    });
+
+    totalColumnWidth += state.canvases[state.currentCanvas].columns[state.currentColumn].columnWidth;
+
+    if (totalColumnWidth > 12) {
+        _this.setNotification(state, {
+            message: 'Not enough room to fit that column there. Reduce size of existing columns and try again.',
+            type: 'warning'
+        });
+    } else {
+        state.canvases[destCanvasIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(column));
+    }
 };
 
 /**
@@ -87764,6 +87804,223 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4153fb5b", module.exports)
+  }
+}
+
+/***/ }),
+/* 551 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(552)
+/* template */
+var __vue_template__ = __webpack_require__(553)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/CloneColumn.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6c9d2a59", Component.options)
+  } else {
+    hotAPI.reload("data-v-6c9d2a59", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 552 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "CloneColumn",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    computed: {
+        canvases: function canvases() {
+            var canvasOptions = [];
+
+            this.$store.getters.canvases.forEach(function (canvas, index) {
+                canvasOptions.push({
+                    text: 'Canvas #' + (index + 1),
+                    value: index
+                });
+            });
+
+            return canvasOptions;
+        }
+    },
+
+    data: function data() {
+        return {
+            showPopover: false,
+            canvasIndex: 0
+        };
+    },
+
+
+    methods: {
+        cloneColumn: function cloneColumn() {
+            this.$store.commit('cloneColumn', this.canvasIndex);
+        }
+    }
+});
+
+/***/ }),
+/* 553 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          variant: "outline-info",
+          icon: "clone",
+          tooltip: "Clone Column",
+          id: "clone-column-popover"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        {
+          attrs: {
+            target: "clone-column-popover",
+            placement: "bottomright",
+            show: _vm.showPopover
+          },
+          on: {
+            "update:show": function($event) {
+              _vm.showPopover = $event
+            }
+          }
+        },
+        [
+          _c(
+            "b-row",
+            { staticStyle: { width: "250px" } },
+            [
+              _c(
+                "b-col",
+                [
+                  _c("h6", [_vm._v("Destination Canvas")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { options: _vm.canvases },
+                    model: {
+                      value: _vm.canvasIndex,
+                      callback: function($$v) {
+                        _vm.canvasIndex = $$v
+                      },
+                      expression: "canvasIndex"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { variant: "success" },
+                      on: { click: _vm.cloneColumn }
+                    },
+                    [_vm._v("Clone")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6c9d2a59", module.exports)
   }
 }
 

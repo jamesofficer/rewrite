@@ -14,6 +14,8 @@
         <top-bar v-if="elementIsSelected">
             <delete-column></delete-column>
 
+            <clone-column></clone-column>
+
             <move-column></move-column>
 
             <add-component-button></add-component-button>
@@ -56,6 +58,7 @@ import GetElement          from './mixins/GetElement'
 import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
 import DeleteColumn        from './topbar/DeleteColumn'
+import CloneColumn         from './topbar/CloneColumn'
 import MoveColumn          from './topbar/MoveColumn'
 import ClearImage          from './topbar/ClearImage'
 
@@ -85,7 +88,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, DeleteColumn, MoveColumn, ClearImage,
+        TopBar, AddComponentButton, DeleteColumn, CloneColumn, MoveColumn, ClearImage,
         ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,

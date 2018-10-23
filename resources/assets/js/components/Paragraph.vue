@@ -1,6 +1,6 @@
 <template>
-    <div :style="{ width: element.width }">
-        <div :style="getElementStyles" v-html="element.content" :class="{ 'selected-element': elementIsSelected }" @dblclick="showEditTextModal"></div>
+    <div :style="getElementStyles">
+        <div v-html="element.content" :class="{ 'selected-element': elementIsSelected }" @dblclick="showEditTextModal"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

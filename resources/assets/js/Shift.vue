@@ -30,15 +30,17 @@
                 <b-col col>
                     <div class="shift-workspace">
                         <b-container fluid>
-                            <shift-article ref="shiftArticle">
-                                <component v-for="(canvas, canvasIndex) in canvases"
-                                    v-bind:is="canvas.type"
-                                    v-bind:key="canvasIndex"
-                                    :canvasIndex="canvasIndex"
-                                    @click.native.stop="selectCanvas(canvasIndex)"
-                                    class="shift-canvas"
-                                ></component>
-                            </shift-article>
+                            <keep-alive>
+                                <shift-article ref="shiftArticle">
+                                    <component v-for="(canvas, canvasIndex) in canvases"
+                                        v-bind:is="canvas.type"
+                                        v-bind:key="canvasIndex"
+                                        :canvasIndex="canvasIndex"
+                                        @click.native.stop="selectCanvas(canvasIndex)"
+                                        class="shift-canvas"
+                                    ></component>
+                                </shift-article>
+                            </keep-alive>
                         </b-container>
                     </div>
                 </b-col>

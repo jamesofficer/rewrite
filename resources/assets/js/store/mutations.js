@@ -95,6 +95,31 @@ export const cloneCanvas = state => {
 };
 
 /**
+ * Clones the selected Column to the specified position.
+ *
+ */
+export const cloneColumn = (state, destCanvasIndex) => {
+    const column = state.canvases[state.currentCanvas].columns[state.currentColumn];
+
+    let totalColumnWidth = 0;
+
+    state.canvases[destCanvasIndex].columns.forEach(function (column) {
+        totalColumnWidth += column.columnWidth;
+    });
+
+    totalColumnWidth += state.canvases[state.currentCanvas].columns[state.currentColumn].columnWidth;
+
+    if (totalColumnWidth > 12) {
+        this.setNotification(state, {
+            message: 'Not enough room to fit that column there. Reduce size of existing columns and try again.',
+            type: 'warning',
+        });
+    } else {
+        state.canvases[destCanvasIndex].columns.splice(0, 0, duplicateObject(column));
+    }
+};
+
+/**
  * Clones the selected Component to the specified position.
  *
  */
