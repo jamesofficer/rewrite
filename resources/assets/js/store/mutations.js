@@ -73,7 +73,7 @@ export const deleteColumn = state => {
 };
 
 /**
- * Deletes a component from a column.
+ * Deletes a Component from a column.
  *
  */
 export const deleteComponent = state => {
@@ -85,7 +85,17 @@ export const deleteComponent = state => {
 };
 
 /**
- * Clones the specified component below it's current position.
+ * Clones the selected Canvas below it's current position.
+ *
+ */
+export const cloneCanvas = state => {
+    const canvas = state.canvases[state.currentCanvas];
+
+    state.canvases.splice(state.currentCanvas, 0, duplicateObject(canvas));
+};
+
+/**
+ * Clones the selected Component to the specified position.
  *
  */
 export const cloneComponent = (state, indexes) => {

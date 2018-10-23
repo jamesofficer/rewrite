@@ -23364,7 +23364,7 @@ module.exports = Component.exports
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_8__RecipeSummary__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
 
     // Properties:
     columnWidth: 12,
@@ -47215,24 +47215,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_TopBar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__ = __webpack_require__(409);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn__ = __webpack_require__(414);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundGradient__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_BackgroundGradient__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundPosition__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundPosition__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__topbar_BackgroundSize__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__topbar_BackgroundSize__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__topbar_ClearImage__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__topbar_ClearImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__topbar_ClearImage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_ImageSelector__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneCanvas__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_CloneCanvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveCanvas__ = __webpack_require__(409);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_MoveCanvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_AddColumn__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_AddColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__topbar_AddColumn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundGradient__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_BackgroundGradient__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__topbar_BackgroundSize__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__topbar_BackgroundSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__topbar_ClearImage__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__topbar_ClearImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__topbar_ClearImage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__);
 //
 //
 //
@@ -47275,6 +47277,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -47297,8 +47302,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Canvas",
 
     components: {
-        Column: __WEBPACK_IMPORTED_MODULE_2__Column___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, DeleteCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_AddColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_12__topbar_ClearImage___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_11__topbar_BackgroundSize___default.a,
-        Padding: __WEBPACK_IMPORTED_MODULE_7__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_8__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_9__core_BackgroundGradient___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_13__core_ImageSelector___default.a
+        Column: __WEBPACK_IMPORTED_MODULE_2__Column___default.a, TopBar: __WEBPACK_IMPORTED_MODULE_3__topbar_TopBar___default.a, DeleteCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteCanvas___default.a, CloneCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_CloneCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_6__topbar_MoveCanvas___default.a, AddColumn: __WEBPACK_IMPORTED_MODULE_7__topbar_AddColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_13__topbar_ClearImage___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_12__topbar_BackgroundSize___default.a,
+        Padding: __WEBPACK_IMPORTED_MODULE_8__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_9__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundGradient___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_GetElement__["a" /* default */]],
@@ -61178,6 +61183,8 @@ var render = function() {
             [
               _c("delete-canvas"),
               _vm._v(" "),
+              _c("clone-canvas"),
+              _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
               _c("add-column"),
@@ -64778,6 +64785,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCanvas", function() { return deleteCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteColumn", function() { return deleteColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneCanvas", function() { return cloneCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasUp", function() { return moveCanvasUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasDown", function() { return moveCanvasDown; });
@@ -64875,7 +64883,7 @@ var deleteColumn = function deleteColumn(state) {
 };
 
 /**
- * Deletes a component from a column.
+ * Deletes a Component from a column.
  *
  */
 var deleteComponent = function deleteComponent(state) {
@@ -64887,7 +64895,17 @@ var deleteComponent = function deleteComponent(state) {
 };
 
 /**
- * Clones the specified component below it's current position.
+ * Clones the selected Canvas below it's current position.
+ *
+ */
+var cloneCanvas = function cloneCanvas(state) {
+    var canvas = state.canvases[state.currentCanvas];
+
+    state.canvases.splice(state.currentCanvas, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(canvas));
+};
+
+/**
+ * Clones the selected Component to the specified position.
  *
  */
 var cloneComponent = function cloneComponent(state, indexes) {
@@ -87645,6 +87663,107 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-5d12608e", module.exports)
+  }
+}
+
+/***/ }),
+/* 548 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(549)
+/* template */
+var __vue_template__ = __webpack_require__(550)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/CloneCanvas.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4153fb5b", Component.options)
+  } else {
+    hotAPI.reload("data-v-4153fb5b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 549 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "CloneCanvas",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        cloneCanvas: function cloneCanvas() {
+            this.$store.commit('cloneCanvas');
+        }
+    }
+});
+
+/***/ }),
+/* 550 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: { variant: "outline-info", icon: "clone", tooltip: "Clone Canvas" },
+    nativeOn: {
+      click: function($event) {
+        return _vm.cloneCanvas($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4153fb5b", module.exports)
   }
 }
 

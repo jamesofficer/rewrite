@@ -13,6 +13,8 @@
         <top-bar v-if="elementIsSelected">
             <delete-canvas></delete-canvas>
 
+            <clone-canvas></clone-canvas>
+
             <move-canvas></move-canvas>
 
             <add-column></add-column>
@@ -47,6 +49,7 @@ import GetElement         from './mixins/GetElement'
 import Column             from './Column'
 import TopBar             from './topbar/TopBar'
 import DeleteCanvas       from './topbar/DeleteCanvas'
+import CloneCanvas        from './topbar/CloneCanvas'
 import MoveCanvas         from './topbar/MoveCanvas'
 import AddColumn          from './topbar/AddColumn'
 
@@ -62,7 +65,7 @@ export default {
     name: "Canvas",
 
     components: {
-        Column, TopBar, DeleteCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
+        Column, TopBar, DeleteCanvas, CloneCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
         Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
     },
 
