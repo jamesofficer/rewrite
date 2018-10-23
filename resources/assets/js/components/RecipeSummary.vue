@@ -1,37 +1,99 @@
 <template>
-    <div>
-        <b-row :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+        <b-row>
 
             <!-- Serves -->
             <b-col>
-                <h5 :style="headingStyles">SERVES</h5>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                }">
+                    SERVES
+                </h5>
 
-                <p :style="adjustableValueStyles">{{ element.contentServes }}</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontSize: '2em',
+                    fontWeight: 700,
+                    marginBottom: 0,
+                }">
+                    {{ element.contentServes }}
+                </p>
             </b-col>
 
             <!-- Preparation Time -->
             <b-col>
-                <h5 :style="headingStyles">PREPARATION</h5>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                }">
+                    PREPARATION
+                </h5>
 
-                <p :style="adjustableValueStyles">{{ element.contentPreparation }}</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontSize: '2em',
+                    fontWeight: 700,
+                    marginBottom: 0,
+                }">
+                    {{ element.contentPreparation }}
+                </p>
 
-                <p :style="{ fontFamily: element.fontFamily }">MIN</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                    marginBottom: 0,
+                }">
+                    MIN
+                </p>
             </b-col>
 
             <!-- Cooking Time -->
             <b-col>
-                <h5 :style="headingStyles">COOKING</h5>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                }">COOKING</h5>
 
-                <p :style="adjustableValueStyles">{{ element.contentCooking }}</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontSize: '2em',
+                    fontWeight: 700,
+                    marginBottom: 0,
+                }">
+                    {{ element.contentCooking }}
+                </p>
 
-                <p :style="{ fontFamily: element.fontFamily }">MIN</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                    marginBottom: 0,
+                }">
+                    MIN
+                </p>
             </b-col>
 
             <!-- Skill Level -->
             <b-col>
-                <h5 :style="headingStyles">SKILL LEVEL</h5>
+                <h5 :style="{
+                    borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
+                    fontFamily: this.element.fontFamily,
+                    fontWeight: 400,
+                }">
+                    SKILL LEVEL
+                </h5>
 
-                <p :style="adjustableValueStyles">{{ element.contentDifficulty }}</p>
+                <p :style="{
+                    fontFamily: this.element.fontFamily,
+                    fontSize: '2em',
+                    fontWeight: 700,
+                    marginBottom: 0,
+                }">
+                    {{ element.contentDifficulty }}
+                </p>
             </b-col>
         </b-row>
 
@@ -77,29 +139,5 @@ export default {
         TopBar, DeleteCloneMove,
         RecipeSummaryValues, Margin, Padding, TextColor, FontFamily, Width
     },
-
-    computed: {
-        headingStyles() {
-            return {
-                borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
-                fontFamily: this.element.fontFamily,
-            }
-        },
-
-        adjustableValueStyles() {
-            return {
-                fontFamily: this.element.fontFamily,
-                fontSize: '2em',
-                fontWeight: 700,
-                marginBottom: 0,
-            }
-        }
-    }
 }
 </script>
-
-<style scoped>
-.adjustable-value-text {
-    margin-bottom: 0;
-}
-</style>

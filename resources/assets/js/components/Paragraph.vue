@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :style="{ width: element.width }">
         <div :style="getElementStyles" v-html="element.content" :class="{ 'selected-element': elementIsSelected }" @dblclick="showEditTextModal"></div>
 
         <!-- TOP BAR -->

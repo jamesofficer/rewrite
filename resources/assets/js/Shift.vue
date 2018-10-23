@@ -21,23 +21,7 @@
             <notification></notification>
 
             <!-- Article Name -->
-            <b-row class="article-name-container">
-                <b-col>
-                    <h6 class="article-name-label">Article Name</h6>
-
-                    <em v-if="! settingArticleTitle">
-                        <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
-                    </em>
-
-                    <b-input v-else
-                        size="lg"
-                        v-model="articleTitle"
-                        @blur.native="settingArticleTitle = false"
-                        ref="articleTitleInput"
-                        class="shift-article-name-input"
-                    ></b-input>
-                </b-col>
-            </b-row>
+            <article-title></article-title>
         </b-container>
 
         <b-container fluid>
@@ -62,7 +46,17 @@
 
             <!-- Bottom Corner Minimap -->
             <!-- <minimap></minimap> -->
+        </b-container>
 
+        <div class="footer-logo-wrapper">
+            <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
+            <p class="version-text">Alpha Version</p>
+            <p class="contact-text">Found a bug? Have a feature request?</p>
+            <p class="contact-text"><strong>writewithshift@gmail.com</strong></p>
+        </div>
+
+        <!-- Modal Windows -->
+        <div>
             <!-- Add Component Modal -->
             <add-component-modal></add-component-modal>
 
@@ -86,24 +80,20 @@
 
             <!-- Background Gradient Modal -->
             <background-gradient-modal></background-gradient-modal>
-        </b-container>
-
-        <div class="footer-logo-wrapper">
-            <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
-            <p class="version-text">Alpha Version</p>
-            <p class="contact-text">Found a bug? Have a feature request?</p>
-            <p class="contact-text"><strong>writewithshift@gmail.com</strong></p>
         </div>
     </div>
 </template>
 
 <script>
 import KeyBindings             from "./components/mixins/KeyBindings.js";
+
 import ShiftMenu               from "./components/ShiftMenu";
-import Minimap                 from "./components/Minimap";
+import ArticleTitle            from "./components/ArticleTitle";
 import Notification            from "./components/Notification";
 import Canvas                  from "./components/Canvas";
 import ShiftArticle            from "./components/ShiftArticle";
+import Minimap                 from "./components/Minimap";
+
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
 import LoadArticleModal        from './components/dialogs/LoadArticleModal';
@@ -117,7 +107,7 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, Minimap, Notification, Canvas, ShiftArticle,
+        KeyBindings, ShiftMenu, ArticleTitle, Minimap, Notification, Canvas, ShiftArticle,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
@@ -125,43 +115,12 @@ export default {
     mixins: [KeyBindings],
 
     computed: {
-        articleTitle: {
-            get () {
-                const articleTitle = this.$store.getters.articleTitle;
-
-                return articleTitle === null ? "Untitled article..." : articleTitle;
-            },
-            set (value) {
-                this.$store.commit('updateArticleTitle', value);
-            }
-        },
-
         canvases() {
              return this.$store.getters.canvases;
          },
     },
 
-    data() {
-        return {
-            settingArticleTitle: false,
-            showArticleOverwriteAlert: false,
-        }
-    },
-
     methods: {
-        setArticleTitle() {
-            this.settingArticleTitle = true;
-
-            // We can't focus the input until it has rendered on the next tick.
-            this.$nextTick(function() {
-                let input = document.querySelector('.shift-article-name-input');
-                let strLength = input.value.length;
-
-                input.focus();
-                input.setSelectionRange(strLength, strLength);
-            });
-        },
-
         selectCanvas(canvasIndex) {
             this.$store.commit('selectCanvas', canvasIndex);
         },
@@ -192,45 +151,6 @@ export default {
 .shift-header-container {
     margin-top: 75px;
     padding: 0 25px;
-}
-
-.article-name-container {
-    margin: 20px 0;
-}
-
-.article-name-label {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 0.8em;
-    color: #aaa;
-}
-
-.shift-article-name {
-    padding-bottom: 10px;
-    color: #38c172;
-    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-.shift-article-name-input[type='text'] {
-    margin: 20px 0 30px 0;
-    padding: 15px;
-    background: none;
-    color: #38c172;
-    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 500;
-    font-style: italic;
-    line-height: 1.2;
-}
-
-.shift-article-name-input[type='text']:focus {
-    outline: 0;
-}
-
-.shift-article-name:hover {
-    cursor: pointer;
-    color: gray;
-    border-bottom: 1px dashed gray;
 }
 
 .shift-workspace {

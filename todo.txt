@@ -9,7 +9,6 @@ BUGS:
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
-- Move Article title into it's own component.
 - Duplicate Canvas
 - Duplicate Column
 - Implement column offset functionality.
