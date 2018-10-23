@@ -64,7 +64,7 @@ export default {
              * 
              */
             if (ev.key === "+" && self.$store.getters.aColumnIsSelected) {
-                self.$store.commit('toggleAddComponentModal', true);
+                self.$root.$emit('bv::show::modal', 'addComponentModal');
                 return;
             }
 

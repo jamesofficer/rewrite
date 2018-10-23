@@ -3,14 +3,14 @@
         <b-container fluid class="top-bar-wrapper">
             <!-- Top Bar -->
             <b-row class="top-bar-styles">
-                <b-col :cols="10">
+                <b-col :cols="11">
                     <portal-target name="top-bar" class="top-bar-portal-target">
                         <!-- Top Bar settings will appear here. -->
                     </portal-target>
                 </b-col>
 
                 <!-- Menu -->
-                <b-col :cols="2" class="text-right">
+                <b-col :cols="1" class="text-right">
                     <shift-menu ref="menu"></shift-menu>
                 </b-col>
             </b-row>

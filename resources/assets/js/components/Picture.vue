@@ -21,7 +21,7 @@
 
                 <box-shadow></box-shadow>
 
-                <image-size></image-size>
+                <width></width>
 
                 <image-alignment></image-alignment>
             </template>
@@ -30,17 +30,17 @@
 </template>
 
 <script>
-import GetElement        from './mixins/GetElement'
+import GetElement      from './mixins/GetElement'
 
-import TopBar            from './topbar/TopBar'
-import DeleteCloneMove   from './topbar/DeleteCloneMove'
+import TopBar          from './topbar/TopBar'
+import DeleteCloneMove from './topbar/DeleteCloneMove'
 
-import ImageSelector     from './core/ImageSelector'
-import ImageAlignment    from './core/ImageAlignment'
-import Margin            from './core/Margin'
-import ImageSize         from './core/ImageSize'
-import Border            from './core/Border'
-import BoxShadow         from './core/BoxShadow'
+import ImageSelector   from './core/ImageSelector'
+import ImageAlignment  from './core/ImageAlignment'
+import Margin          from './core/Margin'
+import Width           from './core/Width'
+import Border          from './core/Border'
+import BoxShadow       from './core/BoxShadow'
 
 export default {
     name: "Picture",
@@ -49,7 +49,7 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        ImageSelector, ImageAlignment, Margin, ImageSize, Border, BoxShadow,
+        ImageSelector, ImageAlignment, Margin, Width, Border, BoxShadow,
     },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" @keyup.delete="activate">
+    <div>
         <!-- COMPONENT -->
-        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
+        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" :class="{ 'selected-element': elementIsSelected }">
             {{ element.content }}
         </h1>
 
@@ -32,6 +32,8 @@
             <line-height></line-height>
 
             <letter-spacing></letter-spacing>
+
+            <width></width>   
         </top-bar>
     </div>
 </template>
@@ -54,6 +56,7 @@ import FontWeight        from './core/FontWeight'
 import FontSize          from './core/FontSize'
 import LineHeight        from './core/LineHeight'
 import LetterSpacing     from './core/LetterSpacing'
+import Width             from './core/Width'
 
 export default {
     name: "Heading",
@@ -62,7 +65,8 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight, FontSize, TextColor, TextShadow, LetterSpacing
+        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight,
+        FontSize, TextColor, TextShadow, LetterSpacing, Width
     },
 
     data() {
@@ -83,10 +87,6 @@ export default {
                 input.setSelectionRange(strLength, strLength);
             });
         },
-
-        activate() {
-            alert('got it!');
-        }
     },
 }
 </script>

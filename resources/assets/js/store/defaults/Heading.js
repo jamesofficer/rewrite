@@ -4,6 +4,7 @@ export default {
 
     // Properties:
     content: 'New Heading',
+    width: 100,
     fontFamily: 'Times New Roman',
     fontWeights: [400, 700],
     fontWeight: 400,

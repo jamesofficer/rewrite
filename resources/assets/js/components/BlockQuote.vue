@@ -1,6 +1,6 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
-        <blockquote v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" id="text-input">
+    <div>
+        <blockquote v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" :class="{ 'selected-element': elementIsSelected }" id="text-input" >
             {{ element.content }}
         </blockquote>
 
@@ -31,6 +31,8 @@
             <line-height></line-height>
 
             <letter-spacing></letter-spacing>
+
+            <width></width>
         </top-bar>
     </div>
 </template>
@@ -55,6 +57,7 @@ import TextColor       from './core/TextColor'
 import TextShadow      from './core/TextShadow'
 import LineHeight      from './core/LineHeight'
 import LetterSpacing   from './core/LetterSpacing'
+import Width           from './core/Width'
 
 export default {
     name: "BlockQuote",
@@ -64,7 +67,7 @@ export default {
     components: {
         TopBar, DeleteCloneMove,
         BackgroundColor, Margin, Padding, Border,
-        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow, LineHeight, LetterSpacing
+        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow, LineHeight, LetterSpacing, Width
     },
 }
 </script>

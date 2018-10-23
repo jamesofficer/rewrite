@@ -2,6 +2,8 @@ export default {
     type: 'HorizontalLine',
     selected: false,
 
+    width: 100,
+    textAlign: "center",
     backgroundColor: { r: 200, g: 200, b: 200, a: 1 },
     margin: {
         top: 20,

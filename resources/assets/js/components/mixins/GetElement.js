@@ -36,7 +36,7 @@ export default {
 
             return {
                 // Size & Layout
-                ...el.imageSize && { width: el.imageSize + '%' },
+                ...el.width && { width: el.width + '%' },
                 ...el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' },
                 ...el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' },
 

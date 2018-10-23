@@ -10,6 +10,7 @@ export default {
     contentDifficulty: "EASY",
 
     // Properties:
+    width: 100,
     fontFamily: 'Times New Roman',
     fontWeights: [400, 700],
     fontWeight: 400,

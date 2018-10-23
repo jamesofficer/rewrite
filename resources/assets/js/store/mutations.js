@@ -205,14 +205,6 @@ export const moveComponentDown = state => {
 };
 
 /**
- * Sets the status of the "Add Component" Modal window.
- *
- */
-export const toggleAddComponentModal = (state, toggle) => {
-    state.showAddComponentModal = toggle;
-};
-
-/**
  * Adds another column to the specified canvas.
  *
  */

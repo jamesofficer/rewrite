@@ -15,7 +15,7 @@ export default {
 
     methods: {
         showAddComponentModal() {
-            this.$store.commit('toggleAddComponentModal', true);
+            this.$root.$emit('bv::show::modal', 'addComponentModal');
         }
     }
 }

@@ -6,7 +6,7 @@ export default {
 
     // Properties:
     textAlign: "left",
-    imageSize: 50,
+    width: 75,
     margin: {
         top: 0,
         right: 0,

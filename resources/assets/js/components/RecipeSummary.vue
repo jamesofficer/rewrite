@@ -1,100 +1,37 @@
 <template>
     <div>
-        <b-row :class="{ 'selected-element': elementIsSelected }" :style="{
-            margin: element.margin.top + 'px ' + element.margin.right + 'px ' + element.margin.bottom + 'px ' + element.margin.left + 'px',
-            padding: element.padding.top + 'px ' + element.padding.right + 'px ' + element.padding.bottom + 'px ' + element.padding.left + 'px',
-        }">
+        <b-row :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
 
             <!-- Serves -->
-            <b-col :style="{
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
-                <h5 :style="{
-                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    fontFamily: element.fontFamily,
-                }">
-                    SERVES
-                </h5>
+            <b-col>
+                <h5 :style="headingStyles">SERVES</h5>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                    <strong style="font-size: 2em; padding: 0;">{{ element.contentServes }}</strong>
-                </p>
+                <p :style="adjustableValueStyles">{{ element.contentServes }}</p>
             </b-col>
 
             <!-- Preparation Time -->
-            <b-col :style="{
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
-                <h5 :style="{
-                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    fontFamily: element.fontFamily,
-                }">
-                    PREPARATION
-                </h5>
+            <b-col>
+                <h5 :style="headingStyles">PREPARATION</h5>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                    <strong style="font-size: 2em;">{{ element.contentPreparation }}</strong>
-                </p>
+                <p :style="adjustableValueStyles">{{ element.contentPreparation }}</p>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                    <!--{{ element.unitPreparation }}-->
-                    MIN
-                </p>
+                <p :style="{ fontFamily: element.fontFamily }">MIN</p>
             </b-col>
 
             <!-- Cooking Time -->
-            <b-col :style="{
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
-                <h5 :style="{
-                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    fontFamily: element.fontFamily,
-                }">
-                    COOKING
-                </h5>
+            <b-col>
+                <h5 :style="headingStyles">COOKING</h5>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                    <strong style="font-size: 2em; padding: 0;">{{ element.contentCooking }}</strong>
-                </p>
+                <p :style="adjustableValueStyles">{{ element.contentCooking }}</p>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                   <!-- {{ element.unitCooking }} -->
-                   MIN
-                </p>
+                <p :style="{ fontFamily: element.fontFamily }">MIN</p>
             </b-col>
 
             <!-- Skill Level -->
-            <b-col :style="{
-                color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-            }">
-                <h5 :style="{
-                    borderBottom: '1px solid rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-                    fontFamily: element.fontFamily,
-                }">
-                    SKILL LEVEL
-                </h5>
+            <b-col>
+                <h5 :style="headingStyles">SKILL LEVEL</h5>
 
-                <p :style="{
-                    fontFamily: element.fontFamily,
-                    marginBottom: 0,
-                }">
-                    <strong style="font-size: 2em; padding: 0;">{{ element.contentDifficulty }}</strong>
-                </p>
+                <p :style="adjustableValueStyles">{{ element.contentDifficulty }}</p>
             </b-col>
         </b-row>
 
@@ -112,6 +49,8 @@
             <text-color></text-color>
 
             <font-family></font-family>
+
+            <width></width>
         </top-bar>
     </div>
 </template>
@@ -122,11 +61,12 @@ import GetElement        from './mixins/GetElement'
 import TopBar            from './topbar/TopBar'
 import DeleteCloneMove   from './topbar/DeleteCloneMove'
 
-import Margin               from './core/Margin'
-import Padding              from './core/Padding'
-import TextColor            from './core/TextColor'
-import FontFamily           from './core/FontFamily'
-import RecipeSummaryValues  from './core/RecipeSummaryValues'
+import Margin              from './core/Margin'
+import Padding             from './core/Padding'
+import TextColor           from './core/TextColor'
+import FontFamily          from './core/FontFamily'
+import RecipeSummaryValues from './core/RecipeSummaryValues'
+import Width               from './core/Width'
 
 export default {
     name: "RecipeSummary",
@@ -135,7 +75,31 @@ export default {
 
     components: {
         TopBar, DeleteCloneMove,
-        RecipeSummaryValues, Margin, Padding, TextColor, FontFamily,
+        RecipeSummaryValues, Margin, Padding, TextColor, FontFamily, Width
     },
+
+    computed: {
+        headingStyles() {
+            return {
+                borderBottom: '1px solid rgba(' + this.element.textColor.r + ', ' + this.element.textColor.g + ', ' + this.element.textColor.b + ', ' + this.element.textColor.a + ')',
+                fontFamily: this.element.fontFamily,
+            }
+        },
+
+        adjustableValueStyles() {
+            return {
+                fontFamily: this.element.fontFamily,
+                fontSize: '2em',
+                fontWeight: 700,
+                marginBottom: 0,
+            }
+        }
+    }
 }
 </script>
+
+<style scoped>
+.adjustable-value-text {
+    margin-bottom: 0;
+}
+</style>

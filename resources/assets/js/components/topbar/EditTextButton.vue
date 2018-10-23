@@ -1,5 +1,5 @@
 <template>
-    <top-bar-control v-b-modal.editTextModal variant="outline-success" icon="font" label="Edit Text"></top-bar-control>
+    <top-bar-control v-b-modal.editTextModal variant="outline-success" icon="font" tooltip="Edit Text"></top-bar-control>
 </template>
 
 <script>
@@ -12,12 +12,6 @@ export default {
     components: {
         EditTextModal, TopBarControl,
     },
-
-    methods: {
-        showEditTextModal() {
-            this.$store.commit('toggleEditTextModal', true);
-        }
-    }
 }
 </script>
 

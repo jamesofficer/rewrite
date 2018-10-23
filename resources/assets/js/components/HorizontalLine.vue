@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
         <div :style="getElementStyles"></div>
 
         <!-- TOP BAR -->
@@ -15,6 +15,8 @@
             <background-color></background-color>
 
             <box-shadow></box-shadow>
+
+            <width></width>
         </top-bar>
     </div>
 </template>
@@ -31,13 +33,14 @@ import Padding           from './core/Padding'
 import Border            from './core/Border'
 import BackgroundColor   from './core/BackgroundColor'
 import BoxShadow         from './core/BoxShadow'
+import Width             from './core/Width'
 
 export default {
     name: "HorizontalLine",
 
     components: {
         TopBar, DeleteCloneMove,
-        Margin, Padding, Border, BackgroundColor, BoxShadow
+        Margin, Padding, Border, BackgroundColor, BoxShadow, Width
     },
 
     mixins: [GetElement],

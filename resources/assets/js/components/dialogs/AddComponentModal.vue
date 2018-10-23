@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="addComponentModal" title="Add Component to Column" size="lg" hide-footer v-model="showModal">
+    <b-modal id="addComponentModal" title="Add Component to Column" size="lg" hide-footer ref="addComponentModal">
         <b-tabs>
             <!-- Main Components -->
             <b-tab title="Main">
@@ -126,22 +126,11 @@ import defaultFacebookEmbed   from '../../store/defaults/FacebookEmbed'
 export default {
     name: "AddComponentModal",
 
-    computed: {
-        showModal: {
-            get() {
-                return this.$store.getters.showAddComponentModal;
-            },
-
-            set(toggle) {
-                this.$store.commit('toggleAddComponentModal', toggle);
-            }
-        }
-    },
-
     methods: {
         addComponent(componentType) {
-            this.$store.commit('toggleAddComponentModal', false);
             this.$store.commit('addComponentToColumn', componentType);
+
+            this.$refs.addComponentModal.hide();
         }
     },
 };
