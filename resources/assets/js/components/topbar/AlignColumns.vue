@@ -5,19 +5,13 @@
         :options="alignmentOptions"
         v-b-tooltip.hover 
         title="Column Alignment" 
-        class="top-bar-control top-bar-number-input"
+        class="top-bar-btn"
     ></b-form-select>
 </template>
 
 <script>
-import TopBarControl from './TopBarControl'
-
 export default {
     name: "AlignColumns",
-
-    components: {
-        TopBarControl,
-    },
 
     computed: {
         columnAlignment: {

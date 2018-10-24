@@ -4,7 +4,7 @@
                    :options="fontWeights"
                    v-b-tooltip.hover
                    title="Font Weight"
-                   class="top-bar-control"
+                   class="top-bar-btn"
     ></b-form-select>
 </template>
 

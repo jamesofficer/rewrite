@@ -48409,7 +48409,7 @@ var render = function() {
           modifiers: { hover: true }
         }
       ],
-      staticClass: "top-bar-control",
+      staticClass: "top-bar-btn",
       attrs: {
         size: "sm",
         variant: _vm.variant,
@@ -49190,7 +49190,7 @@ var render = function() {
           modifiers: { hover: true }
         }
       ],
-      staticClass: "top-bar-control",
+      staticClass: "top-bar-btn",
       attrs: { size: "sm", title: "Column Width" },
       on: { change: _vm.setColumnWidth },
       model: {
@@ -52157,6 +52157,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -52166,27 +52167,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_FontList__["a" /* default */]],
 
     computed: {
-        selectedFont: function selectedFont() {
-            return this.$store.getters.getCurrentElement.fontFamily;
+        selectedFont: {
+            get: function get() {
+                return this.$store.getters.getCurrentElement.fontFamily;
+            },
+            set: function set(fontName) {
+                var font = this.fonts.filter(function (font) {
+                    return font.name === fontName;
+                })[0];
+
+                this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font.name });
+                this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
+                this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[Math.floor(font.weights.length / 2) // select the 'middle' font weight.
+                    ] });
+
+                this.$store.commit('addFontToFontsUsed', {
+                    name: font.name,
+                    weights: font.weights
+                });
+
+                this.appendStylesheetToHead(font.name);
+            }
         }
     },
 
     methods: {
-        selectFont: function selectFont(font) {
-            this.$store.commit('setComponentProperty', { property: 'fontFamily', value: font.name });
-            this.$store.commit('setComponentProperty', { property: 'fontWeights', value: font.weights });
-            this.$store.commit('setComponentProperty', { property: 'fontWeight', value: font.weights[Math.floor(font.weights.length / 2) // select the 'middle' font weight.
-                ] });
-
-            this.$store.commit('addFontToFontsUsed', {
-                name: font.name,
-                weights: font.weights
-            });
-
-            this.appendStylesheetToHead(font.name);
-        },
-
-
         /**
          * When selecting a custom font, we need to put it's stylesheet in the head to render the font properly.
          * 
@@ -52214,6 +52219,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
+            fontList: ['Open Sans', 'Open Sans Condensed', 'Roboto', 'Lato', 'Montserrat', 'Raleway', 'Times New Roman', 'Slabo', 'Roboto Slab', 'Merriweather', 'Playfair Display', 'Lora', 'Indie Flower', 'Pacifico', 'Amatic SC', 'Dancing Script', 'Permanent Marker', 'Patrick Hand', 'Roboto Mono', 'Ubuntu Mono'],
+
             fonts: [
             // ================================ //
             // Sans Fonts
@@ -52306,41 +52313,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-dropdown",
-        {
-          staticStyle: { "margin-right": "5px" },
-          attrs: {
-            text: _vm.selectedFont,
-            size: "sm",
-            variant: "outline-primary"
-          }
-        },
-        _vm._l(_vm.fonts, function(font, index) {
-          return _c(
-            "b-dropdown-item",
-            {
-              key: index,
-              on: {
-                click: function($event) {
-                  _vm.selectFont(font)
-                }
-              }
-            },
-            [
-              _c("span", { style: "font-family: " + font.name }, [
-                _vm._v(_vm._s(font.name))
-              ])
-            ]
-          )
-        })
-      )
+  return _c("b-form-select", {
+    directives: [
+      {
+        name: "b-tooltip",
+        rawName: "v-b-tooltip.hover",
+        modifiers: { hover: true }
+      }
     ],
-    1
-  )
+    staticClass: "top-bar-btn",
+    attrs: { options: _vm.fontList, title: "Font Family", size: "sm" },
+    model: {
+      value: _vm.selectedFont,
+      callback: function($$v) {
+        _vm.selectedFont = $$v
+      },
+      expression: "selectedFont"
+    }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52404,7 +52394,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control",
+    staticClass: "top-bar-btn",
     attrs: { size: "sm", options: _vm.fontWeights, title: "Font Weight" },
     model: {
       value: _vm.fontWeight,
@@ -52475,7 +52465,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-input",
     attrs: { size: "sm", type: "number", min: 10, max: 64, title: "Font Size" },
     model: {
       value: _vm.fontSize,
@@ -52502,6 +52492,15 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -52538,7 +52537,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-input",
     attrs: {
       size: "sm",
       type: "number",
@@ -52576,6 +52575,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "LineHeight",
@@ -52608,7 +52616,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-input",
     attrs: {
       size: "sm",
       type: "number",
@@ -52726,7 +52734,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-input",
     attrs: { size: "sm", type: "number", min: 1, max: 100, title: "Width (%)" },
     model: {
       value: _vm.width,
@@ -88107,8 +88115,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
 //
 //
 //
@@ -88120,15 +88126,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AlignColumns",
-
-    components: {
-        TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a
-    },
 
     computed: {
         columnAlignment: {
@@ -88179,7 +88179,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-btn",
     attrs: {
       size: "sm",
       options: _vm.alignmentOptions,
@@ -88257,8 +88257,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
 //
 //
 //
@@ -88270,15 +88268,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AlignComponents",
-
-    components: {
-        TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a
-    },
 
     computed: {
         componentAlignment: {
@@ -88323,7 +88315,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-control top-bar-number-input",
+    staticClass: "top-bar-btn",
     attrs: {
       size: "sm",
       options: _vm.alignmentOptions,

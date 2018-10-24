@@ -6,7 +6,7 @@
                   :max="100"
                   v-b-tooltip.hover 
                   title="Width (%)" 
-                  class="top-bar-control top-bar-number-input"
+                  class="top-bar-input"
     ></b-form-input>
 </template>
 

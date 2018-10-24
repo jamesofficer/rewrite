@@ -1,5 +1,14 @@
 <template>
-    <b-form-input size="sm" type="number" v-model="lineHeight" :min="0" :max="25" step="0.1" v-b-tooltip.hover title="Line Height" class="top-bar-control top-bar-number-input"></b-form-input>
+    <b-form-input size="sm"
+                  type="number"
+                  v-model="lineHeight"
+                  :min="0"
+                  :max="25"
+                  step="0.1"
+                  v-b-tooltip.hover
+                  title="Line Height"
+                  class="top-bar-input"
+    ></b-form-input>
 </template>
 
 <script>

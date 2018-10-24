@@ -1,5 +1,5 @@
 <template>
-    <b-btn size="sm" :variant="variant" v-b-tooltip.hover :title="tooltip" class="top-bar-control" :disabled="disabled">
+    <b-btn size="sm" :variant="variant" v-b-tooltip.hover :title="tooltip" class="top-bar-btn" :disabled="disabled">
         <icon :name="icon"></icon> {{ label }}
     </b-btn>
 </template>

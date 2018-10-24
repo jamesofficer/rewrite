@@ -1,6 +1,29 @@
 export default {
     data() {
         return {
+            fontList: [
+                'Open Sans',
+                'Open Sans Condensed',
+                'Roboto',
+                'Lato',
+                'Montserrat',
+                'Raleway',
+                'Times New Roman',
+                'Slabo',
+                'Roboto Slab',
+                'Merriweather',
+                'Playfair Display',
+                'Lora',
+                'Indie Flower',
+                'Pacifico',
+                'Amatic SC',
+                'Dancing Script',
+                'Permanent Marker',
+                'Patrick Hand',
+                'Roboto Mono',
+                'Ubuntu Mono',
+            ],
+
             fonts: [
                 // ================================ //
                 // Sans Fonts

@@ -23,6 +23,15 @@ button,
   font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.top-bar-btn {
+  margin-right: 5px;
+}
+
+.top-bar-input {
+  width: 100px !important;
+  margin-right: 5px;
+}
+
 .shift-canvas:hover,
 .shift-column:hover,
 .shift-component:hover {
@@ -119,9 +128,5 @@ button,
 
 .hidden-header {
   display: none;
-}
-
-.top-bar-number-input {
-  max-width: 150px;
 }
 
