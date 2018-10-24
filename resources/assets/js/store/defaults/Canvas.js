@@ -5,6 +5,7 @@ export default {
     selected: false,
 
     columns: [defaultColumn],
+    columnAlignment: 'start',
 
     // Properties:
     backgroundSize: 'Auto',

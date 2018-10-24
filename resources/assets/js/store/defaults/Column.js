@@ -14,6 +14,7 @@ export default {
     selected: false,
 
     components: [defaultHeading, defaultParagraph],
+    componentAlignment: 'start',
 
     // Properties:
     columnWidth: 12,

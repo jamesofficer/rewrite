@@ -1,5 +1,11 @@
 <template>
-    <b-col :cols="element.columnWidth" :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <b-col
+            :cols="element.columnWidth"
+            :class="{ 'selected-element': elementIsSelected }"
+            :style="getElementStyles"
+            :align-self="element.componentAlignment"
+    >
+    
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -19,6 +25,8 @@
             <move-column></move-column>
 
             <add-component-button></add-component-button>
+
+            <align-components></align-components>
 
             <margin></margin>
 
@@ -57,6 +65,7 @@ import GetElement          from './mixins/GetElement'
 
 import TopBar              from './topbar/TopBar'
 import AddComponentButton  from './topbar/AddComponentButton'
+import AlignComponents     from './topbar/AlignComponents'
 import DeleteColumn        from './topbar/DeleteColumn'
 import CloneColumn         from './topbar/CloneColumn'
 import MoveColumn          from './topbar/MoveColumn'
@@ -67,8 +76,8 @@ import Margin              from './core/Margin'
 import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
 import BackgroundGradient  from './core/BackgroundGradient'
-import BackgroundPosition from './core/BackgroundPosition'
-import BackgroundSize     from './topbar/BackgroundSize'
+import BackgroundPosition  from './core/BackgroundPosition'
+import BackgroundSize      from './topbar/BackgroundSize'
 import ImageSelector       from './core/ImageSelector'
 import Border              from './core/Border'
 import BoxShadow           from './core/BoxShadow'
@@ -88,7 +97,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, DeleteColumn, CloneColumn, MoveColumn, ClearImage,
+        TopBar, AddComponentButton, AlignComponents, DeleteColumn, CloneColumn, MoveColumn, ClearImage,
         ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,

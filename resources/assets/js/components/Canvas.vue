@@ -1,6 +1,12 @@
 <template>
     <!-- CANVAS -->
-    <b-row @mouseover="hovering = true" @mouseout="hovering = false" :class="{ 'selected-canvas': elementIsSelected }" :style="getElementStyles">
+    <b-row  @mouseover="hovering = true"
+            @mouseout="hovering = false"
+            :class="{ 'selected-canvas': elementIsSelected }"
+            :style="getElementStyles"
+            :align-h="element.columnAlignment"
+    >
+
         <column v-for="(column, columnIndex) in columnCount"
             v-bind:key="columnIndex"
             v-bind:canvasIndex="canvasIndex"
@@ -18,6 +24,8 @@
             <move-canvas></move-canvas>
 
             <add-column></add-column>
+
+            <align-columns></align-columns>
 
             <padding></padding>
 
@@ -52,20 +60,21 @@ import DeleteCanvas       from './topbar/DeleteCanvas'
 import CloneCanvas        from './topbar/CloneCanvas'
 import MoveCanvas         from './topbar/MoveCanvas'
 import AddColumn          from './topbar/AddColumn'
+import AlignColumns       from './topbar/AlignColumns'
+import BackgroundSize     from './topbar/BackgroundSize'
+import ClearImage         from './topbar/ClearImage'
 
 import Padding            from './core/Padding'
 import BackgroundColor    from './core/BackgroundColor'
 import BackgroundGradient from './core/BackgroundGradient'
 import BackgroundPosition from './core/BackgroundPosition'
-import BackgroundSize     from './topbar/BackgroundSize'
-import ClearImage         from './topbar/ClearImage'
 import ImageSelector      from './core/ImageSelector'
 
 export default {
     name: "Canvas",
 
     components: {
-        Column, TopBar, DeleteCanvas, CloneCanvas, MoveCanvas, AddColumn, ClearImage, BackgroundSize,
+        Column, TopBar, DeleteCanvas, CloneCanvas, MoveCanvas, AddColumn, ClearImage, AlignColumns, BackgroundSize,
         Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
     },
 
