@@ -1,10 +1,10 @@
 <template>
     <!-- CANVAS -->
-    <b-row  @mouseover="hovering = true"
-            @mouseout="hovering = false"
-            :class="{ 'selected-canvas': elementIsSelected }"
-            :style="getElementStyles"
-            :align-h="element.columnAlignment"
+    <b-row @mouseover="hovering = true"
+           @mouseout="hovering = false"
+           :class="{ 'selected-canvas': elementIsSelected }"
+           :style="getElementStyles"
+           :align-h="element.columnAlignment"
     >
 
         <column v-for="(column, columnIndex) in columnCount"

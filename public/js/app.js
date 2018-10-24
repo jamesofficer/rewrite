@@ -23419,8 +23419,10 @@ module.exports = Component.exports
     components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
     componentAlignment: 'start',
 
-    // Properties:
     columnWidth: 12,
+    columnOffset: 0,
+
+    // Property Defaults:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     margin: {
         top: 0,
@@ -47535,20 +47537,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_MoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__topbar_MoveColumn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__topbar_ClearImage__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__topbar_ClearImage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__topbar_ClearImage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_ColumnWidth__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_ColumnWidth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__core_ColumnWidth__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Margin__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_Margin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Padding__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundColor__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_BackgroundColor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundGradient__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_BackgroundGradient__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundPosition__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_BackgroundPosition__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__topbar_BackgroundSize__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__topbar_BackgroundSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__topbar_BackgroundSize__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__topbar_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__topbar_BackgroundSize__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_ColumnWidth__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_ColumnWidth___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__core_ColumnWidth__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Margin__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_Margin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__core_Margin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__core_Padding___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__core_Padding__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundColor__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundColor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_BackgroundColor__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundGradient__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_BackgroundGradient___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_BackgroundGradient__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_BackgroundPosition__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_BackgroundPosition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_BackgroundPosition__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_ImageSelector__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__core_ImageSelector__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__core_Border__ = __webpack_require__(28);
@@ -47575,7 +47577,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__RecipeSummary___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__RecipeSummary__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__RecipeIngredients__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__RecipeIngredients___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__RecipeIngredients__);
-//
 //
 //
 //
@@ -47675,7 +47676,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_3__topbar_AddComponentButton___default.a, AlignComponents: __WEBPACK_IMPORTED_MODULE_4__topbar_AlignComponents___default.a, DeleteColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_DeleteColumn___default.a, CloneColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_CloneColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_7__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_8__topbar_ClearImage___default.a,
-        ColumnWidth: __WEBPACK_IMPORTED_MODULE_9__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_10__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_13__core_BackgroundGradient___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_16__core_ImageSelector___default.a, Border: __WEBPACK_IMPORTED_MODULE_17__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_18__core_BoxShadow___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_14__core_BackgroundPosition___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_15__topbar_BackgroundSize___default.a,
+        ColumnWidth: __WEBPACK_IMPORTED_MODULE_10__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_11__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_12__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_13__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_14__core_BackgroundGradient___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_16__core_ImageSelector___default.a, Border: __WEBPACK_IMPORTED_MODULE_17__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_18__core_BoxShadow___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_15__core_BackgroundPosition___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_9__topbar_BackgroundSize___default.a,
         Heading: __WEBPACK_IMPORTED_MODULE_19__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_20__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_21__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_22__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_23__HorizontalLine___default.a,
         InstagramEmbed: __WEBPACK_IMPORTED_MODULE_24__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_25__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_26__YouTubeEmbed___default.a,
         RecipeSummary: __WEBPACK_IMPORTED_MODULE_27__RecipeSummary___default.a, RecipeIngredients: __WEBPACK_IMPORTED_MODULE_28__RecipeIngredients___default.a
@@ -60921,8 +60922,6 @@ var render = function() {
               _vm._v(" "),
               _c("add-component-button"),
               _vm._v(" "),
-              _c("align-components"),
-              _vm._v(" "),
               _c("margin"),
               _vm._v(" "),
               _c("padding"),
@@ -60948,7 +60947,9 @@ var render = function() {
               _vm._v(" "),
               _vm.element.backgroundImage ? [_c("clear-image")] : _vm._e(),
               _vm._v(" "),
-              _c("column-width")
+              _c("column-width"),
+              _vm._v(" "),
+              _c("align-components")
             ],
             2
           )
@@ -88151,6 +88152,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, {
                 text: 'Right',
                 value: 'end'
+            }, {
+                text: 'Fill Around',
+                value: 'around'
+            }, {
+                text: 'Fill Between',
+                value: 'between'
             }]
         };
     }

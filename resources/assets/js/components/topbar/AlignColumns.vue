@@ -44,6 +44,14 @@ export default {
                 {
                     text: 'Right',
                     value: 'end',
+                },
+                {
+                    text: 'Fill Around',
+                    value: 'around',
+                },
+                {
+                    text: 'Fill Between',
+                    value: 'between',
                 }
             ]
         }

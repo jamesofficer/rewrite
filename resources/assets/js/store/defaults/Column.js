@@ -16,8 +16,10 @@ export default {
     components: [defaultHeading, defaultParagraph],
     componentAlignment: 'start',
 
-    // Properties:
     columnWidth: 12,
+    columnOffset: 0,
+
+    // Property Defaults:
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     margin: {
         top: 0,

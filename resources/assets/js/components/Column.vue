@@ -1,11 +1,10 @@
 <template>
-    <b-col
-            :cols="element.columnWidth"
-            :class="{ 'selected-element': elementIsSelected }"
-            :style="getElementStyles"
-            :align-self="element.componentAlignment"
+    <b-col :cols="element.columnWidth"
+           :style="getElementStyles"
+           :align-self="element.componentAlignment"
+           :class="{ 'selected-element': elementIsSelected }"
     >
-    
+
         <component v-for="(component, componentIndex) in columnComponents"
             :is="component.type"
             :key="componentIndex"
@@ -25,8 +24,6 @@
             <move-column></move-column>
 
             <add-component-button></add-component-button>
-
-            <align-components></align-components>
 
             <margin></margin>
 
@@ -55,6 +52,8 @@
             </template>
 
             <column-width></column-width>
+
+            <align-components></align-components>
         </top-bar>
     </b-col>
 </template>
@@ -70,6 +69,7 @@ import DeleteColumn        from './topbar/DeleteColumn'
 import CloneColumn         from './topbar/CloneColumn'
 import MoveColumn          from './topbar/MoveColumn'
 import ClearImage          from './topbar/ClearImage'
+import BackgroundSize      from './topbar/BackgroundSize'
 
 import ColumnWidth         from './core/ColumnWidth'
 import Margin              from './core/Margin'
@@ -77,7 +77,6 @@ import Padding             from './core/Padding'
 import BackgroundColor     from './core/BackgroundColor'
 import BackgroundGradient  from './core/BackgroundGradient'
 import BackgroundPosition  from './core/BackgroundPosition'
-import BackgroundSize      from './topbar/BackgroundSize'
 import ImageSelector       from './core/ImageSelector'
 import Border              from './core/Border'
 import BoxShadow           from './core/BoxShadow'
