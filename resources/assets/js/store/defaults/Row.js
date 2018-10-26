@@ -7,9 +7,9 @@ export default {
     columns: [defaultColumn],
 
     // Properties:
-    backgroundSize: 'Auto',
-    backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
-    backgroundPosition: 'Center',
+    // backgroundSize: 'Auto',
+    // backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    // backgroundPosition: 'Center',
     margin: {
         top: 20,
         right: 0,
@@ -30,10 +30,10 @@ export default {
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
-    boxShadow: {
-        offsetX: 0,
-        offsetY: 0,
-        blurRadius: 0,
-        color: { r: 0, g: 0, b: 0, a: 1 },
-    },
+    // boxShadow: {
+    //     offsetX: 0,
+    //     offsetY: 0,
+    //     blurRadius: 0,
+    //     color: { r: 0, g: 0, b: 0, a: 1 },
+    // },
 }

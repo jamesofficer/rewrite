@@ -26,18 +26,14 @@
 
         <b-container fluid>
             <!-- Main Workspace -->
-            <div class="shift-workspace">
-                <keep-alive>
-                    <shift-article ref="shiftArticle">
-                        <component v-for="(canvas, canvasIndex) in canvases"
-                            :is="'Canvas'"
-                            :key="canvasIndex"
-                            :canvasIndex="canvasIndex"
-                            @click.native.stop="selectElement(canvasIndex)"
-                            class="shift-canvas"
-                        ></component>
-                    </shift-article>
-                </keep-alive>
+            <div class="shift-workspace" ref="shiftArticle">
+                <component v-for="(canvas, canvasIndex) in canvases"
+                    :is="canvas.type"
+                    :key="canvasIndex"
+                    :canvasIndex="canvasIndex"
+                    @click.native.stop="selectElement(canvasIndex)"
+                    class="selectable-element"
+                ></component>
             </div>
 
             <!-- Bottom Corner Minimap -->
@@ -112,8 +108,8 @@ export default {
 
     computed: {
         canvases() {
-             return this.$store.getters.canvases;
-         },
+            return this.$store.getters.canvases;
+        },
     },
 
     methods: {
@@ -125,6 +121,15 @@ export default {
 </script>
 
 <style scoped>
+.shift-canvas {
+    background: green !important;
+    cursor: pointer;
+}
+
+.shift-canvas:hover {
+    background: darkgreen !important;
+}
+
 .top-bar-wrapper {
     position: fixed;
     top: 0;

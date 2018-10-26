@@ -44,8 +44,8 @@ export const canvases = state => {
  * Returns the number of Rows on the active Canvas.
  *
  */
-export const rowCount = state => canvasIndex => {
-    return state.canvases[canvasIndex].rows.length;
+export const rows = state => canvasIndex => {
+    return state.canvases[canvasIndex].rows;
 };
 
 /**

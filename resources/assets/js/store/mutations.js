@@ -1,5 +1,16 @@
 import defaults from "./defaults/_defaults";
-import { duplicateObject, getSelectedElement, deselectCurrentElement } from "./helpers";
+import { duplicateObject, getSelectedElement } from "./helpers";
+
+/**
+ * Clears the current selection.
+ *
+ */
+export const resetSelection = state => {
+    window.Vue.set(state.active, "canvas", undefined);
+    window.Vue.set(state.active, "row", undefined);
+    window.Vue.set(state.active, "column", undefined);
+    window.Vue.set(state.active, "component", undefined);
+}
 
 /**
  * Sets the state of the notification object.
@@ -266,13 +277,12 @@ export const addColumnToRow = (state, columnWidth) => {
  *
  */
 export const selectElement = (state, i) => {
-    deselectCurrentElement(state);
+    this.resetSelection(state);
 
-    window.Vue.set(state.active, "canvas", i.canvasIndex);
-
-    i.rowIndex       ? window.Vue.set(state.active, "row", i.rowIndex): undefined;
-    i.columnIndex    ? window.Vue.set(state.active, "column", i.columnIndex): undefined;
-    i.componentIndex ? window.Vue.set(state.active, "component", i.componentIndex): undefined;
+    i.canvasIndex    !== undefined ? window.Vue.set(state.active, "canvas", i.canvasIndex): undefined;
+    i.rowIndex       !== undefined ? window.Vue.set(state.active, "row", i.rowIndex): undefined;
+    i.columnIndex    !== undefined ? window.Vue.set(state.active, "column", i.columnIndex): undefined;
+    i.componentIndex !== undefined ? window.Vue.set(state.active, "component", i.componentIndex): undefined;
 
     getSelectedElement(state).selected = true;
 };
@@ -399,9 +409,9 @@ export const cleanHtml = html => {
  */
 export const loadArticle = (state, article) => {
     // Reset selection first (prevents a bug that breaks element selection).
-    window.Vue.set(state, "currentCanvas", undefined);
-    window.Vue.set(state, "currentColumn", undefined);
-    window.Vue.set(state, "currentComponent", undefined);
+    window.Vue.set(state.active, "canvas", undefined);
+    window.Vue.set(state.active, "column", undefined);
+    window.Vue.set(state.active, "currentComponent", undefined);
 
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);

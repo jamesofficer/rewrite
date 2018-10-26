@@ -1,5 +1,8 @@
 <template>
-    <b-row :style="getElementStyles">
+    <b-row
+        :style="getElementStyles"
+        :class="{ 'selected-element' : elementIsSelected }"
+    >
 
         this is row {{ rowIndex }} on canvas {{ canvasIndex }}
 
@@ -11,6 +14,10 @@
                 <!--class="shift-column"-->
         <!--&gt;</column>-->
 
+        <!-- TOP BAR -->
+        <top-bar v-if="elementIsSelected">
+            <p>Row {{ rowIndex }}</p>
+        </top-bar>
     </b-row>
 </template>
 
@@ -18,12 +25,16 @@
 import GetElement from '../mixins/GetElement'
 import Column from './Column'
 
+import TopBar from '../topbar/TopBar'
+
 export default {
     name: "Row",
 
     mixins: [GetElement],
 
-    components: { Column },
+    components: {
+        TopBar, Column
+    },
 
     computed: {
         columnCount: {
@@ -47,3 +58,15 @@ export default {
     },
 }
 </script>
+
+<style>
+.shift-row {
+    background: lime !important;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.shift-row:hover {
+    background: red !important;
+}
+</style>
