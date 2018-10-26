@@ -1,11 +1,35 @@
 import { getSelectedElement } from "./helpers";
 
 /**
+ * Returns the title of the article.
+ *
+ */
+export const articleTitle = state => {
+    return state.articleTitle;
+};
+
+/**
+ * Returns the html of the article.
+ *
+ */
+export const articleHtml = state => {
+    return state.articleHtml;
+};
+
+/**
  * Returns the notification object from the state.
- * 
+ *
  */
 export const notification = state => {
     return state.notification;
+};
+
+/**
+ * Returns the list of fonts used on this article.
+ *
+ */
+export const fontsUsed = state => {
+    return state.fontsUsed;
 };
 
 /**
@@ -14,101 +38,101 @@ export const notification = state => {
  */
 export const canvases = state => {
     return state.canvases;
-}
+};
 
 /**
- * Shows the Add Component Modal window.
- * 
+ * Returns the number of Rows on the active Canvas.
+ *
  */
-export const showAddComponentModal = state => {
-    return state.showAddComponentModal;
-}
+export const rowCount = state => canvasIndex => {
+    return state.canvases[canvasIndex].rows.length;
+};
 
 /**
- * Returns the number of columns on this Canvas.
+ * Returns the number of Columns in the active Row.
  * 
  */
-export const columnCount = state => canvasIndex => {
+export const columnCount = state => (indexes) => {
     return state.canvases[canvasIndex].columns.length;
-}
+};
 
 /**
  * Returns the total widths of all the columns on the current canvas.
  * 
  */
 export const totalColumnWidth = state => {
-    if (state.currentCanvas !== undefined) {
+    if (state.active.canvas !== undefined) {
         let totalColumnWidth = 0;
 
-        state.canvases[state.currentCanvas].columns.forEach(column => {
+        state.canvases[state.active.canvas].columns.forEach(column => {
             totalColumnWidth += column.columnWidth;
         });
 
         return totalColumnWidth;
     }
-}
+};
 
 /**
  * Returns true if there is a Canvas above this one.
  *
  */
 export const canMoveCanvasUp = state => {
-    if (state.currentCanvas !== undefined) {
-        return state.currentCanvas > 0;
+    if (state.active.canvas !== undefined) {
+        return state.active.canvas > 0;
     }
-}
+};
 
 /**
  * Returns true if there is a component below this one.
  *
  */
 export const canMoveCanvasDown = state => {
-    if (state.currentCanvas !== undefined) {
-        return state.currentCanvas !== (state.canvases.length - 1);
+    if (state.active.canvas !== undefined) {
+        return state.active.canvas !== (state.canvases.length - 1);
     }
-}
+};
 
 /**
  * Returns true if there is another column to the left of this one.
  * 
  */
 export const canMoveColumnLeft = state => {
-    if (state.currentColumn !== undefined) {
-        return state.currentColumn > 0;
+    if (state.active.column !== undefined) {
+        return state.active.column > 0;
     }
-}
+};
 
 /**
  * Returns true if there is another column to the right of this one i.e: we can move it right.
  *
  */
 export const canMoveColumnRight = state => {
-    if (state.currentColumn !== undefined) {
-        return state.currentColumn !== (state.canvases[state.currentCanvas].columns.length - 1);
+    if (state.active.column !== undefined) {
+        return state.active.column !== (state.canvases[state.active.canvas].columns.length - 1);
     }
-}
+};
 
 /**
  * Returns true if there is a component above this one.
  *
  */
 export const canMoveComponentUp = state => {
-    if (state.currentComponent !== undefined) {
-        return state.currentComponent !== 0;
+    if (state.active.component !== undefined) {
+        return state.active.component !== 0;
     }
-}
+};
 
 /**
  * Returns true if there is a component below this one.
  *
  */
 export const canMoveComponentDown = state => {
-    if (state.currentComponent !== undefined) {
-        const numComponents = state.canvases[state.currentCanvas].columns[state.currentColumn].components.length;
+    if (state.active.component !== undefined) {
+        const numComponents = state.canvases[state.active.canvas].columns[state.active.column].components.length;
 
-        return state.currentComponent < (numComponents - 1);
+        return state.active.component < (numComponents - 1);
     }
-}
+};
 
 /**
  * Returns the list of Components for this particular canvas.
@@ -124,8 +148,8 @@ export const getComponentsForColumn = state => i => {
  * 
  */
 export const getCurrentElement = state => {
-    // currentCanvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.currentCanvas === undefined) {
+    // The active canvas will be undefined when the app first starts. Return null to fix errors.
+    if (state.active.canvas === undefined) {
         return null;
     }
 
@@ -137,18 +161,23 @@ export const getCurrentElement = state => {
  * 
  */
 export const getElement = state => i => {
-    // If component and column are undefined, return the canvas.
-    if (i.componentIndex === undefined && i.columnIndex === undefined) {
+    // If row, column, and component are undefined, return the canvas.
+    if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex];
     }
 
-    // If the component is undefined, return the column.
+    // If the component and column are undefined, return the row.
+    if (i.componentIndex === undefined && i.columnIndex === undefined) {
+        return state.canvases[i.canvasIndex].rows[i.rowIndex];
+    }
+
+    // If the component index is undefined, return the column.
     if (i.componentIndex === undefined) {
-        return state.canvases[i.canvasIndex].columns[i.columnIndex];
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
     }
 
     // Otherwise, return the component.
-    return state.canvases[i.canvasIndex].columns[i.columnIndex].components[
+    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[
         i.componentIndex
     ];
 };
@@ -158,15 +187,21 @@ export const getElement = state => i => {
  * 
  */
 export const aCanvasIsSelected = state => {
-    if (
-        state.currentCanvas    !== undefined &&
-        state.currentColumn    === undefined &&
-        state.currentComponent === undefined
-    ) {
-        return true;
-    }
+    return state.active.canvas !== undefined &&
+           state.active.row    === undefined &&
+           state.active.column === undefined &&
+           state.active.component === undefined;
+};
 
-    return false;
+/**
+ * Returns true if a Row is selected.
+ *
+ */
+export const aRowIsSelected = state => {
+    return state.active.canvas !== undefined &&
+           state.active.row    !== undefined &&
+           state.active.column === undefined &&
+           state.active.component === undefined;
 };
 
 /**
@@ -174,15 +209,10 @@ export const aCanvasIsSelected = state => {
  * 
  */
 export const aColumnIsSelected = state => {
-    if (
-        state.currentCanvas    !== undefined &&
-        state.currentColumn    !== undefined &&
-        state.currentComponent === undefined
-    ) {
-        return true;
-    }
-
-    return false;
+    return state.active.canvas !== undefined &&
+           state.active.row    !== undefined &&
+           state.active.column !== undefined &&
+           state.active.component === undefined;
 };
 
 /**
@@ -190,15 +220,10 @@ export const aColumnIsSelected = state => {
  * 
  */
 export const aComponentIsSelected = state => {
-    if (
-        state.currentCanvas    !== undefined &&
-        state.currentColumn    !== undefined &&
-        state.currentComponent !== undefined
-    ) {
-        return true;
-    }
-
-    return false;
+    return state.active.canvas !== undefined &&
+           state.active.row    !== undefined &&
+           state.active.column !== undefined &&
+           state.active.component !== undefined;
 };
 
 /**
@@ -206,37 +231,10 @@ export const aComponentIsSelected = state => {
  * 
  */
 export const elementIsSelected = state => i => {
-    if (
-        state.currentCanvas    === i.canvasIndex &&
-        state.currentColumn    === i.columnIndex &&
-        state.currentComponent === i.componentIndex
-    ) {
-        return true;
-    }
-
-    return false;
+    return state.active.canvas    === i.canvasIndex &&
+           state.active.row       === i.rowIndex &&
+           state.active.column    === i.columnIndex &&
+           state.active.component === i.componentIndex;
 };
 
-/**
- * Returns the html of the article.
- * 
- */
-export const articleHtml = state => {
-    return state.articleHtml;
-};
 
-/**
- * Returns the title of the article.
- * 
- */
-export const articleTitle = state => {
-    return state.articleTitle;
-};
-
-/**
- * Returns the list of fonts used on this article.
- * 
- */
-export const fontsUsed = state => {
-    return state.fontsUsed;
-};

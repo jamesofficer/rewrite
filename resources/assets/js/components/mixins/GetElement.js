@@ -12,6 +12,11 @@ export default {
             default: undefined,
         },
 
+        rowIndex: {
+            type: Number,
+            default: undefined,
+        },
+
         canvasIndex: {
             type: Number,
             default: undefined,
@@ -70,6 +75,7 @@ export default {
         return {
             indexes: {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
                 componentIndex: this.componentIndex,
             }

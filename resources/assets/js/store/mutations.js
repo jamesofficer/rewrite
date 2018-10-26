@@ -27,7 +27,7 @@ export const setNotificationCountDown = (state, countdown) => {
  */
 export const updateArticleTitle = (state, title) => {
     window.Vue.set(state, "articleTitle", title);
-}
+};
 
 /**
  * Adds another Canvas to the Workspace.
@@ -44,7 +44,7 @@ export const addCanvas = state => {
  */
 export const setComponentProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state), component.property, component.value);
-}
+};
 
 /**
  * Some Components like Margin and Padding have a subproperty we may need to set.
@@ -52,15 +52,15 @@ export const setComponentProperty = (state, component) => {
  */
 export const setComponentSubProperty = (state, component) => {
     window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
-}
+};
 
 /**
  * Deletes the selected Canvas
  *
  */
 export const deleteCanvas = state => {
-    state.canvases.splice(state.currentCanvas, 1);
-    state.currentCanvas = undefined;
+    state.canvases.splice(state.active.canvas, 1);
+    state.active.canvas = undefined;
 };
 
 /**
@@ -68,8 +68,8 @@ export const deleteCanvas = state => {
  *
  */
 export const deleteColumn = state => {
-    state.canvases[state.currentCanvas].columns.splice(state.currentColumn, 1);
-    state.currentColumn = undefined;
+    state.canvases[state.active.canvas].columns.splice(state.active.column, 1);
+    state.active.column = undefined;
 };
 
 /**
@@ -77,11 +77,11 @@ export const deleteColumn = state => {
  *
  */
 export const deleteComponent = state => {
-    if (state.currentComponent !== undefined) {
-        state.canvases[state.currentCanvas].columns[state.currentColumn].components.splice(state.currentComponent, 1);
+    if (state.active.component !== undefined) {
+        state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.splice(state.active.component, 1);
     }
 
-    state.currentComponent = undefined;
+    state.active.component = undefined;
 };
 
 /**
@@ -89,9 +89,9 @@ export const deleteComponent = state => {
  *
  */
 export const cloneCanvas = state => {
-    const canvas = state.canvases[state.currentCanvas];
+    const canvas = state.canvases[state.active.canvas];
 
-    state.canvases.splice(state.currentCanvas, 0, duplicateObject(canvas));
+    state.canvases.splice(state.active.canvas, 0, duplicateObject(canvas));
 };
 
 /**
@@ -99,7 +99,7 @@ export const cloneCanvas = state => {
  *
  */
 export const cloneColumn = (state, destCanvasIndex) => {
-    const column = state.canvases[state.currentCanvas].columns[state.currentColumn];
+    const column = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
 
     let totalColumnWidth = 0;
 
@@ -107,7 +107,7 @@ export const cloneColumn = (state, destCanvasIndex) => {
         totalColumnWidth += column.columnWidth;
     });
 
-    totalColumnWidth += state.canvases[state.currentCanvas].columns[state.currentColumn].columnWidth;
+    totalColumnWidth += state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].columnWidth;
 
     if (totalColumnWidth > 12) {
         this.setNotification(state, {
@@ -124,7 +124,7 @@ export const cloneColumn = (state, destCanvasIndex) => {
  *
  */
 export const cloneComponent = (state, indexes) => {
-    const component = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
+    const component = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
 
     state.canvases[indexes.canvasIndex].columns[indexes.columnIndex].components.splice(0, 0, duplicateObject(component));
 };
@@ -134,16 +134,16 @@ export const cloneComponent = (state, indexes) => {
  *
  */
 export const moveCanvasUp = state => {
-    if (state.currentCanvas !== 0) {
-        const canvasAbove = state.canvases[state.currentCanvas - 1];
-        const thisCanvas  = state.canvases[state.currentCanvas];
+    if (state.active.canvas !== 0) {
+        const canvasAbove = state.canvases[state.active.canvas - 1];
+        const thisCanvas  = state.canvases[state.active.canvas];
 
         // Swap positions around:
-        window.Vue.set(state.canvases, [state.currentCanvas - 1], thisCanvas);
-        window.Vue.set(state.canvases, [state.currentCanvas], canvasAbove);
+        window.Vue.set(state.canvases, [state.active.canvas - 1], thisCanvas);
+        window.Vue.set(state.canvases, [state.active.canvas], canvasAbove);
 
         // Reselect the moved element:
-        state.currentCanvas = state.currentCanvas - 1;
+        state.active.canvas = state.active.canvas - 1;
     }
 };
 
@@ -152,16 +152,16 @@ export const moveCanvasUp = state => {
  *
  */
 export const moveCanvasDown = state => {
-    if (state.currentCanvas !== (state.canvases.length - 1)) {
-        const canvasBelow = state.canvases[state.currentCanvas + 1];
-        const thisCanvas  = state.canvases[state.currentCanvas];
+    if (state.active.canvas !== (state.canvases.length - 1)) {
+        const canvasBelow = state.canvases[state.active.canvas + 1];
+        const thisCanvas  = state.canvases[state.active.canvas];
 
         // Swap positions around:
-        window.Vue.set(state.canvases, [state.currentCanvas + 1], thisCanvas);
-        window.Vue.set(state.canvases, [state.currentCanvas], canvasBelow);
+        window.Vue.set(state.canvases, [state.active.canvas + 1], thisCanvas);
+        window.Vue.set(state.canvases, [state.active.canvas], canvasBelow);
 
         // Reselect the moved element:
-        state.currentCanvas = state.currentCanvas + 1;
+        state.active.canvas = state.active.canvas + 1;
     }
 };
 
@@ -170,54 +170,54 @@ export const moveCanvasDown = state => {
  *
  */
 export const moveColumnLeft = state => {
-    if (state.currentColumn !== 0) {
+    if (state.active.column !== 0) {
         // Get the current column and the one to the left of it.
-        const thisColumn   = state.canvases[state.currentCanvas].columns[state.currentColumn];
-        const columnToLeft = state.canvases[state.currentCanvas].columns[state.currentColumn - 1];
+        const thisColumn   = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
+        const columnToLeft = state.canvases[state.active.canvas].columns[state.active.column - 1];
 
         // Now we can swap them around.
-        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn], columnToLeft);
-        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn - 1], thisColumn);
+        window.Vue.set(state.canvases[state.active.canvas].columns, [state.active.column], columnToLeft);
+        window.Vue.set(state.canvases[state.active.canvas].columns, [state.active.column - 1], thisColumn);
 
         // Reselect the moved element:
-        state.currentColumn = state.currentColumn - 1;
+        state.active.column = state.active.column - 1;
     }
-}
+};
 
 /**
  * Moves a Column right within a Canvas.
  *
  */
 export const moveColumnRight = state => {
-    if (state.currentColumn !== (state.canvases[state.currentCanvas].columns.length - 1)) {
+    if (state.active.column !== (state.canvases[state.active.canvas].columns.length - 1)) {
         // Get the current column and the one to the right of it.
-        const thisColumn   = state.canvases[state.currentCanvas].columns[state.currentColumn];
-        const columnToLeft = state.canvases[state.currentCanvas].columns[state.currentColumn + 1];
+        const thisColumn   = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
+        const columnToLeft = state.canvases[state.active.canvas].columns[state.active.column + 1];
 
         // Now we can swap them around.
-        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn], columnToLeft);
-        window.Vue.set(state.canvases[state.currentCanvas].columns, [state.currentColumn + 1], thisColumn);
+        window.Vue.set(state.canvases[state.active.canvas].columns, [state.active.column], columnToLeft);
+        window.Vue.set(state.canvases[state.active.canvas].columns, [state.active.column + 1], thisColumn);
 
         // Reselect the moved element:
-        state.currentColumn = state.currentColumn + 1;
+        state.active.column = state.active.column + 1;
     }
-}
+};
 
 /**
  * Moves a component UP in a column.
  *
  */
 export const moveComponentUp = state => {
-    if (state.currentComponent !== 0) {
-        const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
-        const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent - 1];
+    if (state.active.component !== 0) {
+        const thisComponent  = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
+        const componentAbove = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component - 1];
 
         // Swap positions around:
-        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent - 1], thisComponent);
-        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent], componentAbove);
+        window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component - 1], thisComponent);
+        window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component], componentAbove);
 
         // Reselect the moved element:
-        state.currentComponent = state.currentComponent - 1;
+        state.active.component = state.active.component - 1;
     }
 };
 
@@ -226,29 +226,39 @@ export const moveComponentUp = state => {
  *
  */
 export const moveComponentDown = state => {
-    if (state.currentComponent !== (state.canvases[state.currentCanvas].columns[state.currentColumn].components.length - 1)) {
-        const thisComponent  = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent];
-        const componentAbove = state.canvases[state.currentCanvas].columns[state.currentColumn].components[state.currentComponent + 1];
+    if (state.active.component !== (state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length - 1)) {
+        const thisComponent  = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
+        const componentAbove = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component + 1];
 
         // Swap positions around:
-        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent + 1], thisComponent);
-        window.Vue.set(state.canvases[state.currentCanvas].columns[state.currentColumn].components, [state.currentComponent], componentAbove);
+        window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component + 1], thisComponent);
+        window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component], componentAbove);
 
         // Reselect the moved element:
-        state.currentComponent = state.currentComponent + 1;
+        state.active.component = state.active.component + 1;
     }
 };
 
 /**
- * Adds another column to the specified canvas.
+ * Adds a Row to the specified Canvas.
  *
  */
-export const addColumnToCanvas = (state, columnWidth) => {
-    let newColumn = duplicateObject(defaults.column);
+export const addRowToCanvas = state => {
+    const newRow = duplicateObject(defaults.row);
+
+    state.canvases[state.active.canvas].columns.push(newRow);
+};
+
+/**
+ * Adds a Column to the specified Row.
+ *
+ */
+export const addColumnToRow = (state, columnWidth) => {
+    const newColumn = duplicateObject(defaults.column);
 
     newColumn.columnWidth = columnWidth;
 
-    state.canvases[state.currentCanvas].columns.push(newColumn);
+    state.canvases[state.active.canvas].columns.push(newColumn);
 };
 
 /**
@@ -258,9 +268,9 @@ export const addColumnToCanvas = (state, columnWidth) => {
 export const selectCanvas = (state, canvasIndex) => {
     deselectCurrentElement(state);
 
-    state.currentCanvas    = canvasIndex;
-    state.currentColumn    = undefined;
-    state.currentComponent = undefined;
+    state.active.canvas    = canvasIndex;
+    state.active.column    = undefined;
+    state.active.component = undefined;
 
     getSelectedElement(state).selected = true;
 };
@@ -272,9 +282,9 @@ export const selectCanvas = (state, canvasIndex) => {
 export const selectColumn = (state, i) => {
     deselectCurrentElement(state);
 
-    state.currentCanvas    = i.canvasIndex;
-    state.currentColumn    = i.columnIndex;
-    state.currentComponent = undefined;
+    state.active.canvas    = i.canvasIndex;
+    state.active.column    = i.columnIndex;
+    state.active.component = undefined;
 
     getSelectedElement(state).selected = true;
 };
@@ -286,9 +296,9 @@ export const selectColumn = (state, i) => {
 export const selectComponent = (state, i) => {
     deselectCurrentElement(state);
 
-    state.currentCanvas    = i.canvasIndex;
-    state.currentColumn    = i.columnIndex;
-    state.currentComponent = i.componentIndex;
+    state.active.canvas    = i.canvasIndex;
+    state.active.column    = i.columnIndex;
+    state.active.component = i.componentIndex;
 
     getSelectedElement(state).selected = true;
 };
@@ -311,7 +321,7 @@ export const addComponentToColumn = (state, componentType) => {
         "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
-    state.canvases[state.currentCanvas].columns[state.currentColumn].components
+    state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components
             .push(components[componentType]);
 };
 
@@ -327,7 +337,7 @@ export const buildHtml = (state, html) => {
     html += "</html>";
 
     window.Vue.set(state, "articleHtml", html);
-}
+};
 
 /**
  * Appends a <head> to the HTML. Includes stylesheets.
@@ -340,7 +350,7 @@ export const createHtmlHead = (state, html, title) => {
     head += "<!DOCTYPE html>";
     head += "<html>";
     head += "<head>";
-    head += "<meta charset=\"UTF-8\"></meta>";
+    head += "<meta charset=\"UTF-8\">";
     head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
     head += "<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">";
     head += "<title>" + title + "</title>";
@@ -362,7 +372,7 @@ export const createHtmlHead = (state, html, title) => {
     head += "<body>";
 
     return head + html;
-}
+};
 
 /**
  * When building our html, we don't want to import the same font stylesheet multiple times. This function
@@ -375,13 +385,13 @@ export const getUniqueFontList = fontsUsed => {
 
     fontsUsed.forEach(function (font) {
         if (! fontsAdded.includes(font.name)) {
-            fontsAdded.push(font.name)
+            fontsAdded.push(font.name);
             uniqueFonts.push(font);
-        };
+        }
     });
 
     return uniqueFonts;
-}
+};
 
 /**
  * When previewing an article, we need to append the hostname to the url for images to display properly.
@@ -392,7 +402,7 @@ export const appendImageUrlsToHtml = html => {
     const subst  = location.protocol + '//' + window.location.hostname + `\$1`;
 
     return html.replace(regex, subst);
-}
+};
 
 /**
  * When getting an articles html, we want to strip out unnecessary text such as Vue's
@@ -407,7 +417,7 @@ export const cleanHtml = html => {
     html = html.replace(matchBoilerplate, "");
 
     return html;
-}
+};
 
 /**
  * Loads an existing article (updates the canvases).
@@ -437,4 +447,4 @@ export const loadArticle = (state, article) => {
  */
 export const addFontToFontsUsed = (state, font) => {
     state.fontsUsed.push(font);
-}
+};

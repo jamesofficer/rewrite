@@ -5,6 +5,7 @@
  */
 
 import canvas             from "./Canvas";
+import row                from "./Row";
 import column             from "./Column";
 import heading            from "./Heading";
 import paragraph          from "./Paragraph";
@@ -19,6 +20,7 @@ import recipeIngredients  from "./RecipeIngredients";
 
 export default {
     canvas,
+    row,
     column,
     heading,
     paragraph,
@@ -30,4 +32,4 @@ export default {
     youtube,
     recipeSummary,
     recipeIngredients,
-}
+};

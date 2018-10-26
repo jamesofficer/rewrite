@@ -6,13 +6,14 @@
     >
 
         <component v-for="(component, componentIndex) in columnComponents"
-            :is="component.type"
-            :key="componentIndex"
-            :componentIndex="componentIndex"
-            :canvasIndex="canvasIndex"
-            :columnIndex="columnIndex"
-            @click.native.stop="selectComponent(componentIndex)"
-            class="shift-component"
+                   :is="component.type"
+                   :key="componentIndex"
+                   :canvasIndex="canvasIndex"
+                   :rowIndex="rowIndex"
+                   :columnIndex="columnIndex"
+                   :componentIndex="componentIndex"
+                   @click.native.stop="selectComponent(componentIndex)"
+                   class="shift-component"
         ></component>
 
         <!-- TOP BAR -->
@@ -59,38 +60,37 @@
 </template>
 
 <script>
-import { mapGetters }      from 'vuex'
-import GetElement          from './mixins/GetElement'
+import GetElement          from '../mixins/GetElement'
 
-import TopBar              from './topbar/TopBar'
-import AddComponentButton  from './topbar/AddComponentButton'
-import AlignComponents     from './topbar/AlignComponents'
-import DeleteColumn        from './topbar/DeleteColumn'
-import CloneColumn         from './topbar/CloneColumn'
-import MoveColumn          from './topbar/MoveColumn'
-import ClearImage          from './topbar/ClearImage'
-import BackgroundSize      from './topbar/BackgroundSize'
+import TopBar              from '../topbar/TopBar'
+import AddComponentButton  from '../topbar/AddComponentButton'
+import AlignComponents     from '../topbar/AlignComponents'
+import DeleteColumn        from '../topbar/DeleteColumn'
+import CloneColumn         from '../topbar/CloneColumn'
+import MoveColumn          from '../topbar/MoveColumn'
+import ClearImage          from '../topbar/ClearImage'
+import BackgroundSize      from '../core/BackgroundSize'
 
-import ColumnWidth         from './core/ColumnWidth'
-import Margin              from './core/Margin'
-import Padding             from './core/Padding'
-import BackgroundColor     from './core/BackgroundColor'
-import BackgroundGradient  from './core/BackgroundGradient'
-import BackgroundPosition  from './core/BackgroundPosition'
-import ImageSelector       from './core/ImageSelector'
-import Border              from './core/Border'
-import BoxShadow           from './core/BoxShadow'
+import ColumnWidth         from '../core/ColumnWidth'
+import Margin              from '../core/Margin'
+import Padding             from '../core/Padding'
+import BackgroundColor     from '../core/BackgroundColor'
+import BackgroundGradient  from '../core/BackgroundGradient'
+import BackgroundPosition  from '../core/BackgroundPosition'
+import ImageSelector       from '../core/ImageSelector'
+import Border              from '../core/Border'
+import BoxShadow           from '../core/BoxShadow'
 
-import Heading             from './Heading'
-import Paragraph           from './Paragraph'
-import BlockQuote          from './BlockQuote'
-import Picture             from './Picture'
-import HorizontalLine      from './HorizontalLine'
-import InstagramEmbed      from './InstagramEmbed'
-import FacebookEmbed       from './FacebookEmbed'
-import YouTubeEmbed        from './YouTubeEmbed'
-import RecipeSummary       from './RecipeSummary'
-import RecipeIngredients   from './RecipeIngredients'
+import Heading             from '../Heading'
+import Paragraph           from '../Paragraph'
+import BlockQuote          from '../BlockQuote'
+import Picture             from '../Picture'
+import HorizontalLine      from '../HorizontalLine'
+import InstagramEmbed      from '../InstagramEmbed'
+import FacebookEmbed       from '../FacebookEmbed'
+import YouTubeEmbed        from '../YouTubeEmbed'
+import RecipeSummary       from '../RecipeSummary'
+import RecipeIngredients   from '../RecipeIngredients'
 
 export default {
     name: "Column",
@@ -105,18 +105,6 @@ export default {
 
     mixins: [GetElement],
 
-    props: {
-        canvasIndex: {
-            type: Number,
-            required: true,
-        },
-
-        columnIndex: {
-            type: Number,
-            required: true,
-        },
-    },
-
     computed: {
         columnComponents() {
             return this.$store.getters.getComponentsForColumn(this.indexes);
@@ -127,6 +115,7 @@ export default {
         selectComponent(componentIndex) {
             this.$store.commit('selectComponent', {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
                 componentIndex: componentIndex,
             });

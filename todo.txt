@@ -2,6 +2,7 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
+- Clean extra fonts from html export.
 - Previewing an article appends onto the existing previewed article.
 - Hide user id on image uploads.
 - Place max file size on image uploads.

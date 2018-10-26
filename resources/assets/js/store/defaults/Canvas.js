@@ -1,11 +1,10 @@
-import defaultColumn from "./Column";
+import defaultRow from "./Row";
 
 export default {
     type: "Canvas",
     selected: false,
 
-    columns: [defaultColumn],
-    columnAlignment: 'start',
+    rows: [defaultRow],
 
     // Properties:
     backgroundSize: 'Auto',

@@ -26,25 +26,19 @@
 
         <b-container fluid>
             <!-- Main Workspace -->
-            <b-row>
-                <b-col col>
-                    <div class="shift-workspace">
-                        <b-container fluid>
-                            <keep-alive>
-                                <shift-article ref="shiftArticle">
-                                    <component v-for="(canvas, canvasIndex) in canvases"
-                                        v-bind:is="canvas.type"
-                                        v-bind:key="canvasIndex"
-                                        :canvasIndex="canvasIndex"
-                                        @click.native.stop="selectCanvas(canvasIndex)"
-                                        class="shift-canvas"
-                                    ></component>
-                                </shift-article>
-                            </keep-alive>
-                        </b-container>
-                    </div>
-                </b-col>
-            </b-row>
+            <div class="shift-workspace">
+                <keep-alive>
+                    <shift-article ref="shiftArticle">
+                        <component v-for="(canvas, canvasIndex) in canvases"
+                            v-bind:is="canvas.type"
+                            v-bind:key="canvasIndex"
+                            :canvasIndex="canvasIndex"
+                            @click.native.stop="selectCanvas(canvasIndex)"
+                            class="shift-canvas"
+                        ></component>
+                    </shift-article>
+                </keep-alive>
+            </div>
 
             <!-- Bottom Corner Minimap -->
             <!-- <minimap></minimap> -->
@@ -89,12 +83,12 @@
 <script>
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 
-import ShiftMenu               from "./components/ShiftMenu";
-import ArticleTitle            from "./components/ArticleTitle";
-import Notification            from "./components/Notification";
-import Canvas                  from "./components/Canvas";
-import ShiftArticle            from "./components/ShiftArticle";
-import Minimap                 from "./components/Minimap";
+import ShiftMenu               from "./components/shift/ShiftMenu";
+import ArticleTitle            from "./components/shift/ArticleTitle";
+import Notification            from "./components/shift/Notification";
+import Canvas                  from "./components/layout/Canvas";
+import ShiftArticle            from "./components/shift/ShiftArticle";
+import Minimap                 from "./components/shift/Minimap";
 
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
