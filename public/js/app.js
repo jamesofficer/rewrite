@@ -20095,12 +20095,12 @@ var deselectCurrentElement = function deselectCurrentElement(state) {
 
         // Deselect a Row
         else if (state.active.row !== undefined && state.active.column === undefined && state.active.component === undefined) {
-                state.canvases[state.active.canvas].columns[state.active.column].selected = false;
+                state.canvases[state.active.canvas].rows[state.active.row].selected = false;
             }
 
             // Deselect a Column
             else if (state.active.column !== undefined && state.active.component === undefined) {
-                    state.canvases[state.active.canvas].columns[state.active.column].selected = false;
+                    state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].selected = false;
                 }
 
                 // Deselect a Component
@@ -20114,20 +20114,24 @@ var deselectCurrentElement = function deselectCurrentElement(state) {
 var getSelectedElement = function getSelectedElement(state) {
     // Return a Canvas
     if (state.active.row === undefined && state.active.column === undefined && state.active.component === undefined) {
+        console.log('selected a canvas ' + state.active.canvas);
         return state.canvases[state.active.canvas];
     }
 
     // Return a Row
-    if (state.active.column !== undefined && state.active.component === undefined) {
+    if (state.active.row !== undefined && state.active.column === undefined) {
+        console.log('selected a row');
         return state.canvases[state.active.canvas].rows[state.active.row];
     }
 
     // Return a Column
     if (state.active.component === undefined) {
+        console.log('selected a column');
         return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
     }
 
     // Return a Component
+    console.log('selected a component');
     return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
 };
 
@@ -23348,7 +23352,7 @@ module.exports = Component.exports
     type: "Canvas",
     selected: false,
 
-    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
+    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
 
     // Properties:
     backgroundSize: 'Auto',
@@ -46377,8 +46381,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        selectCanvas: function selectCanvas(canvasIndex) {
-            this.$store.commit('selectCanvas', canvasIndex);
+        selectElement: function selectElement(canvasIndex) {
+            this.$store.commit('selectElement', { canvasIndex: canvasIndex });
         }
     }
 });
@@ -61912,7 +61916,7 @@ var render = function() {
                   "shift-article",
                   { ref: "shiftArticle" },
                   _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-                    return _c(canvas.type, {
+                    return _c("Canvas", {
                       key: canvasIndex,
                       tag: "component",
                       staticClass: "shift-canvas",
@@ -61920,7 +61924,7 @@ var render = function() {
                       nativeOn: {
                         click: function($event) {
                           $event.stopPropagation()
-                          _vm.selectCanvas(canvasIndex)
+                          _vm.selectElement(canvasIndex)
                         }
                       }
                     })
@@ -63566,10 +63570,10 @@ var columnCount = function columnCount(state) {
  * 
  */
 var totalColumnWidth = function totalColumnWidth(state) {
-    if (state.active.canvas !== undefined) {
+    if (state.active.canvas !== undefined && state.active.row !== undefined) {
         var _totalColumnWidth = 0;
 
-        state.canvases[state.active.canvas].columns.forEach(function (column) {
+        state.canvases[state.active.canvas].rows[state.active.row].columns.forEach(function (column) {
             _totalColumnWidth += column.columnWidth;
         });
 
@@ -63757,9 +63761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveComponentDown", function() { return moveComponentDown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRowToCanvas", function() { return addRowToCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumnToRow", function() { return addColumnToRow; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectCanvas", function() { return selectCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectColumn", function() { return selectColumn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectComponent", function() { return selectComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectElement", function() { return selectElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComponentToColumn", function() { return addComponentToColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildHtml", function() { return buildHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHtmlHead", function() { return createHtmlHead; });
@@ -64019,7 +64021,7 @@ var moveComponentDown = function moveComponentDown(state) {
 var addRowToCanvas = function addRowToCanvas(state) {
     var newRow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].row);
 
-    state.canvases[state.active.canvas].columns.push(newRow);
+    state.canvases[state.active.canvas].rows.push(newRow);
 };
 
 /**
@@ -64038,40 +64040,14 @@ var addColumnToRow = function addColumnToRow(state, columnWidth) {
  * Sets the currently selected component to whatever the user clicked on.
  *
  */
-var selectCanvas = function selectCanvas(state, canvasIndex) {
+var selectElement = function selectElement(state, i) {
     Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* deselectCurrentElement */])(state);
 
-    state.active.canvas = canvasIndex;
-    state.active.column = undefined;
-    state.active.component = undefined;
+    window.Vue.set(state.active, "canvas", i.canvasIndex);
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state).selected = true;
-};
-
-/**
- * Sets the currently selected column to the one that the user clicked on.
- *
- */
-var selectColumn = function selectColumn(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* deselectCurrentElement */])(state);
-
-    state.active.canvas = i.canvasIndex;
-    state.active.column = i.columnIndex;
-    state.active.component = undefined;
-
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state).selected = true;
-};
-
-/**
- * Sets the currently selected component to whatever the user clicked on.
- *
- */
-var selectComponent = function selectComponent(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* deselectCurrentElement */])(state);
-
-    state.active.canvas = i.canvasIndex;
-    state.active.column = i.columnIndex;
-    state.active.component = i.componentIndex;
+    i.rowIndex ? window.Vue.set(state.active, "row", i.rowIndex) : undefined;
+    i.columnIndex ? window.Vue.set(state.active, "column", i.columnIndex) : undefined;
+    i.componentIndex ? window.Vue.set(state.active, "component", i.componentIndex) : undefined;
 
     Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state).selected = true;
 };
@@ -86572,6 +86548,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -86606,6 +86584,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         rowCount: function rowCount() {
             return this.$store.getters.rowCount(this.canvasIndex);
         }
+    },
+
+    methods: {
+        selectElement: function selectElement(rowIndex) {
+            console.log(rowIndex);
+            this.$store.commit('selectElement', {
+                canvasIndex: this.canvasIndex,
+                rowIndex: rowIndex
+            });
+        }
     }
 });
 
@@ -86619,28 +86607,30 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-container",
-    { attrs: { fluid: "" } },
+    { style: _vm.getElementStyles, attrs: { fluid: "" } },
     [
+      _vm._v("\n\n    " + _vm._s(_vm.canvasIndex) + "\n\n    "),
       _vm._l(_vm.rowCount, function(row, rowIndex) {
-        return [
-          _c("row", {
-            class: { "selected-canvas": _vm.elementIsSelected },
-            style: _vm.getElementStyles,
-            attrs: {
-              "align-h": _vm.element.columnAlignment,
-              canvasIndex: _vm.canvasIndex,
-              rowIndex: rowIndex
+        return _c("row", {
+          key: rowIndex,
+          class: { "selected-element": _vm.elementIsSelected },
+          style: _vm.getElementStyles,
+          attrs: { canvasIndex: _vm.canvasIndex, rowIndex: rowIndex },
+          on: {
+            mouseover: function($event) {
+              _vm.hovering = true
             },
-            on: {
-              mouseover: function($event) {
-                _vm.hovering = true
-              },
-              mouseout: function($event) {
-                _vm.hovering = false
-              }
+            mouseout: function($event) {
+              _vm.hovering = false
             }
-          })
-        ]
+          },
+          nativeOn: {
+            click: function($event) {
+              $event.stopPropagation()
+              _vm.selectElement(rowIndex)
+            }
+          }
+        })
       }),
       _vm._v(" "),
       _vm.elementIsSelected
@@ -86653,7 +86643,9 @@ var render = function() {
               _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
-              _c("add-row")
+              _c("add-row"),
+              _vm._v(" "),
+              _c("padding")
             ],
             1
           )
@@ -87088,26 +87080,6 @@ var render = function() {
       }
     },
     [
-      _vm._l(_vm.columnComponents, function(component, componentIndex) {
-        return _c(component.type, {
-          key: componentIndex,
-          tag: "component",
-          staticClass: "shift-component",
-          attrs: {
-            canvasIndex: _vm.canvasIndex,
-            rowIndex: _vm.rowIndex,
-            columnIndex: _vm.columnIndex,
-            componentIndex: componentIndex
-          },
-          nativeOn: {
-            click: function($event) {
-              $event.stopPropagation()
-              _vm.selectComponent(componentIndex)
-            }
-          }
-        })
-      }),
-      _vm._v(" "),
       _vm.elementIsSelected
         ? _c(
             "top-bar",
@@ -87153,7 +87125,7 @@ var render = function() {
           )
         : _vm._e()
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -88235,7 +88207,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -88262,11 +88233,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         selectColumn: function selectColumn(columnIndex) {
             this.$store.commit('selectColumn', {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: columnIndex
             });
         }
     }
-
 });
 
 /***/ }),
@@ -88282,8 +88253,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     type: "Row",
     selected: false,
 
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]]
+    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
 
+    // Properties:
+    backgroundSize: 'Auto',
+    backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    backgroundPosition: 'Center',
+    margin: {
+        top: 20,
+        right: 0,
+        bottom: 20,
+        left: 0
+    },
+    padding: {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 20
+    },
+    border: {
+        top: 1,
+        right: 1,
+        bottom: 1,
+        left: 1,
+        style: 'solid',
+        color: { r: 0, g: 0, b: 0, a: 1 }
+    },
+    boxShadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 0,
+        color: { r: 0, g: 0, b: 0, a: 1 }
+    }
 });
 
 /***/ }),
@@ -88294,17 +88295,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("b-row", {
-    class: { "selected-canvas": _vm.elementIsSelected },
-    on: {
-      mouseover: function($event) {
-        _vm.hovering = true
-      },
-      mouseout: function($event) {
-        _vm.hovering = false
-      }
-    }
-  })
+  return _c("b-row", { style: _vm.getElementStyles }, [
+    _vm._v(
+      "\n\n    this is row " +
+        _vm._s(_vm.rowIndex) +
+        " on canvas " +
+        _vm._s(_vm.canvasIndex) +
+        "\n\n    "
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

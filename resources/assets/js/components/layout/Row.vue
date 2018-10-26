@@ -1,8 +1,7 @@
 <template>
-    <b-row @mouseover="hovering = true"
-           @mouseout="hovering = false"
-           :class="{ 'selected-canvas': elementIsSelected }"
-    >
+    <b-row :style="getElementStyles">
+
+        this is row {{ rowIndex }} on canvas {{ canvasIndex }}
 
         <!--<column v-for="(column, columnIndex) in columnCount"-->
                 <!--v-bind:key="columnIndex"-->
@@ -41,11 +40,10 @@ export default {
         selectColumn(columnIndex) {
             this.$store.commit('selectColumn', {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: columnIndex,
             });
         },
     },
-
-
 }
 </script>

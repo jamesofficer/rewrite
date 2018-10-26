@@ -1,17 +1,19 @@
 <template>
     <!-- CANVAS -->
-    <b-container fluid>
+    <b-container fluid :style="getElementStyles">
 
-        <template v-for="(row, rowIndex) in rowCount">
-            <row   @mouseover="hovering = true"
-                   @mouseout="hovering = false"
-                   :class="{ 'selected-canvas': elementIsSelected }"
-                   :style="getElementStyles"
-                   :align-h="element.columnAlignment"
-                   :canvasIndex="canvasIndex"
-                   :rowIndex="rowIndex"
-            ></row>
-        </template>
+        {{ canvasIndex }}
+
+        <row v-for="(row, rowIndex) in rowCount"
+             @mouseover="hovering = true"
+             @mouseout="hovering = false"
+             :canvasIndex="canvasIndex"
+             :rowIndex="rowIndex"
+             :key="rowIndex"
+             :style="getElementStyles"
+             :class="{ 'selected-element': elementIsSelected }"
+             @click.native.stop="selectElement(rowIndex)"
+        ></row>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -23,7 +25,7 @@
 
             <add-row></add-row>
 
-            <!--<padding></padding>-->
+            <padding></padding>
 
             <!--<background-color></background-color>-->
 
@@ -81,5 +83,15 @@ export default {
             return this.$store.getters.rowCount(this.canvasIndex);
         },
     },
+
+    methods: {
+        selectElement(rowIndex) {
+            console.log(rowIndex);
+            this.$store.commit('selectElement', {
+                canvasIndex: this.canvasIndex,
+                rowIndex: rowIndex,
+            });
+        },
+    }
 }
 </script>

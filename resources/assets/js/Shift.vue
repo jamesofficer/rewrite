@@ -30,10 +30,10 @@
                 <keep-alive>
                     <shift-article ref="shiftArticle">
                         <component v-for="(canvas, canvasIndex) in canvases"
-                            v-bind:is="canvas.type"
-                            v-bind:key="canvasIndex"
+                            :is="'Canvas'"
+                            :key="canvasIndex"
                             :canvasIndex="canvasIndex"
-                            @click.native.stop="selectCanvas(canvasIndex)"
+                            @click.native.stop="selectElement(canvasIndex)"
                             class="shift-canvas"
                         ></component>
                     </shift-article>
@@ -117,8 +117,8 @@ export default {
     },
 
     methods: {
-        selectCanvas(canvasIndex) {
-            this.$store.commit('selectCanvas', canvasIndex);
+        selectElement(canvasIndex) {
+            this.$store.commit('selectElement', { canvasIndex: canvasIndex });
         },
     },
 };

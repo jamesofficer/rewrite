@@ -246,7 +246,7 @@ export const moveComponentDown = state => {
 export const addRowToCanvas = state => {
     const newRow = duplicateObject(defaults.row);
 
-    state.canvases[state.active.canvas].columns.push(newRow);
+    state.canvases[state.active.canvas].rows.push(newRow);
 };
 
 /**
@@ -265,40 +265,14 @@ export const addColumnToRow = (state, columnWidth) => {
  * Sets the currently selected component to whatever the user clicked on.
  *
  */
-export const selectCanvas = (state, canvasIndex) => {
+export const selectElement = (state, i) => {
     deselectCurrentElement(state);
 
-    state.active.canvas    = canvasIndex;
-    state.active.column    = undefined;
-    state.active.component = undefined;
+    window.Vue.set(state.active, "canvas", i.canvasIndex);
 
-    getSelectedElement(state).selected = true;
-};
-
-/**
- * Sets the currently selected column to the one that the user clicked on.
- *
- */
-export const selectColumn = (state, i) => {
-    deselectCurrentElement(state);
-
-    state.active.canvas    = i.canvasIndex;
-    state.active.column    = i.columnIndex;
-    state.active.component = undefined;
-
-    getSelectedElement(state).selected = true;
-};
-
-/**
- * Sets the currently selected component to whatever the user clicked on.
- *
- */
-export const selectComponent = (state, i) => {
-    deselectCurrentElement(state);
-
-    state.active.canvas    = i.canvasIndex;
-    state.active.column    = i.columnIndex;
-    state.active.component = i.componentIndex;
+    i.rowIndex       ? window.Vue.set(state.active, "row", i.rowIndex): undefined;
+    i.columnIndex    ? window.Vue.set(state.active, "column", i.columnIndex): undefined;
+    i.componentIndex ? window.Vue.set(state.active, "component", i.componentIndex): undefined;
 
     getSelectedElement(state).selected = true;
 };

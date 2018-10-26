@@ -5,16 +5,16 @@
            :class="{ 'selected-element': elementIsSelected }"
     >
 
-        <component v-for="(component, componentIndex) in columnComponents"
-                   :is="component.type"
-                   :key="componentIndex"
-                   :canvasIndex="canvasIndex"
-                   :rowIndex="rowIndex"
-                   :columnIndex="columnIndex"
-                   :componentIndex="componentIndex"
-                   @click.native.stop="selectComponent(componentIndex)"
-                   class="shift-component"
-        ></component>
+        <!--<component v-for="(component, componentIndex) in columnComponents"-->
+                   <!--:is="component.type"-->
+                   <!--:key="componentIndex"-->
+                   <!--:canvasIndex="canvasIndex"-->
+                   <!--:rowIndex="rowIndex"-->
+                   <!--:columnIndex="columnIndex"-->
+                   <!--:componentIndex="componentIndex"-->
+                   <!--@click.native.stop="selectComponent(componentIndex)"-->
+                   <!--class="shift-component"-->
+        <!--&gt;</component>-->
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

@@ -61,10 +61,10 @@ export const columnCount = state => (indexes) => {
  * 
  */
 export const totalColumnWidth = state => {
-    if (state.active.canvas !== undefined) {
+    if (state.active.canvas !== undefined && state.active.row !== undefined) {
         let totalColumnWidth = 0;
 
-        state.canvases[state.active.canvas].columns.forEach(column => {
+        state.canvases[state.active.canvas].rows[state.active.row].columns.forEach(column => {
             totalColumnWidth += column.columnWidth;
         });
 

@@ -11,12 +11,12 @@ export const deselectCurrentElement = state => {
 
         // Deselect a Row
         else if (state.active.row !== undefined && state.active.column === undefined && state.active.component === undefined) {
-            state.canvases[state.active.canvas].columns[state.active.column].selected = false;
+            state.canvases[state.active.canvas].rows[state.active.row].selected = false;
         }
 
         // Deselect a Column
         else if (state.active.column !== undefined && state.active.component === undefined) {
-            state.canvases[state.active.canvas].columns[state.active.column].selected = false;
+            state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].selected = false;
         }
 
         // Deselect a Component
@@ -30,20 +30,24 @@ export const deselectCurrentElement = state => {
 export const getSelectedElement = state => {
     // Return a Canvas
     if (state.active.row === undefined && state.active.column === undefined && state.active.component === undefined) {
+        console.log('selected a canvas ' + state.active.canvas);
         return state.canvases[state.active.canvas];
     }
 
     // Return a Row
-    if (state.active.column !== undefined && state.active.component === undefined) {
+    if (state.active.row !== undefined && state.active.column === undefined) {
+        console.log('selected a row');
         return state.canvases[state.active.canvas].rows[state.active.row];
     }
 
     // Return a Column
     if (state.active.component === undefined) {
+        console.log('selected a column');
         return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
     }
 
     // Return a Component
+    console.log('selected a component');
     return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
 };
 

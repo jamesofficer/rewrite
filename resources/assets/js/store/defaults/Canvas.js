@@ -4,7 +4,7 @@ export default {
     type: "Canvas",
     selected: false,
 
-    rows: [defaultRow],
+    rows: [defaultRow, defaultRow],
 
     // Properties:
     backgroundSize: 'Auto',
