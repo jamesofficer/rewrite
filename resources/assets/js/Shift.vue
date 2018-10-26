@@ -27,13 +27,13 @@
         <b-container fluid>
             <!-- Main Workspace -->
             <div class="shift-workspace" ref="shiftArticle">
-                <component v-for="(canvas, canvasIndex) in canvases"
-                    :is="canvas.type"
+                <canvas v-for="(canvas, canvasIndex) in canvases"
+                    is="Canvas"
                     :key="canvasIndex"
                     :canvasIndex="canvasIndex"
                     @click.native.stop="selectElement(canvasIndex)"
                     class="selectable-element"
-                ></component>
+                ></canvas>
             </div>
 
             <!-- Bottom Corner Minimap -->

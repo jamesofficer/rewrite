@@ -4,15 +4,19 @@
         :class="{ 'selected-element' : elementIsSelected }"
     >
 
-        this is row {{ rowIndex }} on canvas {{ canvasIndex }}
+        <!-- this is row {{ rowIndex }} on canvas {{ canvasIndex }} -->
 
-        <!--<column v-for="(column, columnIndex) in columnCount"-->
-                <!--v-bind:key="columnIndex"-->
-                <!--v-bind:canvasIndex="canvasIndex"-->
-                <!--v-bind:columnIndex="columnIndex"-->
-                <!--@click.native.stop="selectColumn(columnIndex)"-->
-                <!--class="shift-column"-->
-        <!--&gt;</column>-->
+        <br>
+
+        <column v-for="(column, columnIndex) in columns"
+                :key="columnIndex"
+                :canvasIndex="canvasIndex"
+                :rowIndex="rowIndex"
+                :columnIndex="columnIndex"
+                @click.native.stop="selectElement(columnIndex)"
+                class="shift-column"
+                style="outline: 1px solid red"
+        ></column>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
@@ -37,19 +41,22 @@ export default {
     },
 
     computed: {
-        columnCount: {
-            get() {
-                return this.$store.getters.columnCount(this.canvasIndex);
-            },
-            set(amount) {
-                this.$store.commit('addColumnsToCanvas', amount);
-            }
+        columns() {
+            let cols = this.$store.getters.columns({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
+                columnIndex: this.columnIndex,
+            });
+
+            console.log(cols);
+
+            return cols;
         },
     },
 
     methods: {
-        selectColumn(columnIndex) {
-            this.$store.commit('selectColumn', {
+        selectElement(columnIndex) {
+            this.$store.commit('selectElement', {
                 canvasIndex: this.canvasIndex,
                 rowIndex: this.rowIndex,
                 columnIndex: columnIndex,

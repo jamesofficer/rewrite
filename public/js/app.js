@@ -1212,12 +1212,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     props: {
-        componentIndex: {
-            type: Number,
-            default: undefined
-        },
-
-        columnIndex: {
+        canvasIndex: {
             type: Number,
             default: undefined
         },
@@ -1227,7 +1222,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             default: undefined
         },
 
-        canvasIndex: {
+        columnIndex: {
+            type: Number,
+            default: undefined
+        },
+
+        componentIndex: {
             type: Number,
             default: undefined
         }
@@ -23424,7 +23424,7 @@ module.exports = Component.exports
     type: "Row",
     selected: false,
 
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
+    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
 
     // Properties:
     // backgroundSize: 'Auto',
@@ -23491,7 +23491,7 @@ module.exports = Component.exports
     components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
     componentAlignment: 'start',
 
-    columnWidth: 12,
+    columnWidth: 6,
     columnOffset: 0,
 
     // Property Defaults:
@@ -47416,9 +47416,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
@@ -47451,7 +47448,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         rows: function rows() {
-            return this.$store.getters.rows(this.canvasIndex);
+            return this.$store.getters.rows({
+                canvasIndex: this.canvasIndex
+            });
         }
     },
 
@@ -47590,6 +47589,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -47606,19 +47609,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     computed: {
-        columnCount: {
-            get: function get() {
-                return this.$store.getters.columnCount(this.canvasIndex);
-            },
-            set: function set(amount) {
-                this.$store.commit('addColumnsToCanvas', amount);
-            }
+        columns: function columns() {
+            var cols = this.$store.getters.columns({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
+                columnIndex: this.columnIndex
+            });
+
+            console.log(cols);
+
+            return cols;
         }
     },
 
     methods: {
-        selectColumn: function selectColumn(columnIndex) {
-            this.$store.commit('selectColumn', {
+        selectElement: function selectElement(columnIndex) {
+            this.$store.commit('selectElement', {
                 canvasIndex: this.canvasIndex,
                 rowIndex: this.rowIndex,
                 columnIndex: columnIndex
@@ -47887,14 +47893,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
 
     computed: {
-        columnComponents: function columnComponents() {
-            return this.$store.getters.getComponentsForColumn(this.indexes);
+        components: function components() {
+            console.log('col indexes are');
+            console.log(this.indexes);
+            return this.$store.getters.components(this.indexes);
         }
     },
 
     methods: {
-        selectComponent: function selectComponent(componentIndex) {
-            this.$store.commit('selectComponent', {
+        selectElement: function selectElement(componentIndex) {
+            this.$store.commit('selectElement', {
                 canvasIndex: this.canvasIndex,
                 rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
@@ -51495,9 +51503,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         columns: function columns() {
             var columnOptions = [];
-            var columnCount = this.$store.getters.columnCount(this.canvasIndex);
+            var columns = this.$store.getters.columns(this.canvasIndex);
 
-            for (var i = 0; i < columnCount; i++) {
+            for (var i = 0; i < columns.length; i++) {
                 columnOptions.push({
                     text: 'Column #' + (i + 1),
                     value: i
@@ -61220,58 +61228,33 @@ var render = function() {
     {
       class: { "selected-element": _vm.elementIsSelected },
       style: _vm.getElementStyles,
-      attrs: {
-        cols: _vm.element.columnWidth,
-        "align-self": _vm.element.componentAlignment
-      }
+      attrs: { cols: _vm.element.columnWidth }
     },
     [
-      _vm.elementIsSelected
-        ? _c(
-            "top-bar",
-            [
-              _c("delete-column"),
-              _vm._v(" "),
-              _c("clone-column"),
-              _vm._v(" "),
-              _c("move-column"),
-              _vm._v(" "),
-              _c("add-component-button"),
-              _vm._v(" "),
-              _c("margin"),
-              _vm._v(" "),
-              _c("padding"),
-              _vm._v(" "),
-              _c("background-color"),
-              _vm._v(" "),
-              _c("background-gradient"),
-              _vm._v(" "),
-              _c("image-selector"),
-              _vm._v(" "),
-              _c("border"),
-              _vm._v(" "),
-              _c("box-shadow"),
-              _vm._v(" "),
-              _vm.element.backgroundImage !== undefined &&
-              _vm.element.backgroundImage.includes("url")
-                ? [
-                    _c("background-size"),
-                    _vm._v(" "),
-                    _c("background-position")
-                  ]
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.element.backgroundImage ? [_c("clear-image")] : _vm._e(),
-              _vm._v(" "),
-              _c("column-width"),
-              _vm._v(" "),
-              _c("align-components")
-            ],
-            2
-          )
-        : _vm._e()
+      _vm._l(_vm.components, function(component, componentIndex) {
+        return _c(component.type, {
+          key: componentIndex,
+          tag: "component",
+          staticClass: "shift-component",
+          staticStyle: { outline: "1px solid blue" },
+          attrs: {
+            canvasIndex: _vm.canvasIndex,
+            rowIndex: _vm.rowIndex,
+            columnIndex: _vm.columnIndex,
+            componentIndex: componentIndex
+          },
+          nativeOn: {
+            click: function($event) {
+              $event.stopPropagation()
+              _vm.selectElement(componentIndex)
+            }
+          }
+        })
+      }),
+      _vm._v(" "),
+      _vm.elementIsSelected ? _c("top-bar") : _vm._e()
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -61299,19 +61282,32 @@ var render = function() {
       style: _vm.getElementStyles
     },
     [
-      _vm._v(
-        "\n\n    this is row " +
-          _vm._s(_vm.rowIndex) +
-          " on canvas " +
-          _vm._s(_vm.canvasIndex) +
-          "\n\n    "
-      ),
+      _c("br"),
+      _vm._v(" "),
+      _vm._l(_vm.columns, function(column, columnIndex) {
+        return _c("column", {
+          key: columnIndex,
+          staticClass: "shift-column",
+          staticStyle: { outline: "1px solid red" },
+          attrs: {
+            canvasIndex: _vm.canvasIndex,
+            rowIndex: _vm.rowIndex,
+            columnIndex: columnIndex
+          },
+          nativeOn: {
+            click: function($event) {
+              $event.stopPropagation()
+              _vm.selectElement(columnIndex)
+            }
+          }
+        })
+      }),
       _vm._v(" "),
       _vm.elementIsSelected
         ? _c("top-bar", [_c("p", [_vm._v("Row " + _vm._s(_vm.rowIndex))])])
         : _vm._e()
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -61987,9 +61983,8 @@ var render = function() {
     [
       _vm._v("\n\n    Canvas #" + _vm._s(_vm.canvasIndex) + "\n\n    "),
       _vm._l(_vm.rows, function(row, rowIndex) {
-        return _c(row.type, {
+        return _c("row", {
           key: rowIndex,
-          tag: "component",
           staticClass: "selectable-element",
           attrs: { canvasIndex: _vm.canvasIndex, rowIndex: rowIndex },
           nativeOn: {
@@ -62005,18 +62000,13 @@ var render = function() {
         ? _c(
             "top-bar",
             [
-              _vm._v(
-                "\n        Canvas #" + _vm._s(_vm.canvasIndex) + "\n\n        "
-              ),
               _c("delete-canvas"),
               _vm._v(" "),
               _c("clone-canvas"),
               _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
-              _c("add-row"),
-              _vm._v(" "),
-              _c("padding")
+              _c("add-row")
             ],
             1
           )
@@ -63945,9 +63935,9 @@ var render = function() {
           "div",
           { ref: "shiftArticle", staticClass: "shift-workspace" },
           _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-            return _c(canvas.type, {
+            return _c("Canvas", {
               key: canvasIndex,
-              tag: "component",
+              tag: "canvas",
               staticClass: "selectable-element",
               attrs: { canvasIndex: canvasIndex },
               nativeOn: {
@@ -65503,13 +65493,14 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvases", function() { return canvases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rows", function() { return rows; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columns", function() { return columns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "notification", function() { return notification; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontsUsed", function() { return fontsUsed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvases", function() { return canvases; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rows", function() { return rows; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columnCount", function() { return columnCount; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "totalColumnWidth", function() { return totalColumnWidth; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveCanvasUp", function() { return canMoveCanvasUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveCanvasDown", function() { return canMoveCanvasDown; });
@@ -65517,7 +65508,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveColumnRight", function() { return canMoveColumnRight; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveComponentUp", function() { return canMoveComponentUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveComponentDown", function() { return canMoveComponentDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComponentsForColumn", function() { return getComponentsForColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElement", function() { return getElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aCanvasIsSelected", function() { return aCanvasIsSelected; });
@@ -65527,6 +65517,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "elementIsSelected", function() { return elementIsSelected; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(66);
 
+
+/**
+ * Returns the list of Canvases on the state. Used to populate the main workspace.
+ * 
+ */
+var canvases = function canvases(state) {
+    return state.canvases;
+};
+
+/**
+ * Returns the Rows on the active Canvas.
+ *
+ */
+var rows = function rows(state) {
+    return function (i) {
+        return state.canvases[i.canvasIndex].rows;
+    };
+};
+
+/**
+ * Returns the Columns in the active Row.
+ * 
+ */
+var columns = function columns(state) {
+    return function (i) {
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns;
+    };
+};
+
+/**
+ * Returns the list of Components for this particular canvas.
+ * 
+ */
+var components = function components(state) {
+    return function (i) {
+        console.table(i);
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components;
+    };
+};
 
 /**
  * Returns the title of the article.
@@ -65558,34 +65587,6 @@ var notification = function notification(state) {
  */
 var fontsUsed = function fontsUsed(state) {
     return state.fontsUsed;
-};
-
-/**
- * Returns the list of Canvases on the state. Used to populate the main workspace.
- * 
- */
-var canvases = function canvases(state) {
-    return state.canvases;
-};
-
-/**
- * Returns the number of Rows on the active Canvas.
- *
- */
-var rows = function rows(state) {
-    return function (canvasIndex) {
-        return state.canvases[canvasIndex].rows;
-    };
-};
-
-/**
- * Returns the number of Columns in the active Row.
- * 
- */
-var columnCount = function columnCount(state) {
-    return function (indexes) {
-        return state.canvases[canvasIndex].columns.length;
-    };
 };
 
 /**
@@ -65640,7 +65641,7 @@ var canMoveColumnLeft = function canMoveColumnLeft(state) {
  */
 var canMoveColumnRight = function canMoveColumnRight(state) {
     if (state.active.column !== undefined) {
-        return state.active.column !== state.canvases[state.active.canvas].columns.length - 1;
+        return state.active.column !== state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1;
     }
 };
 
@@ -65660,20 +65661,10 @@ var canMoveComponentUp = function canMoveComponentUp(state) {
  */
 var canMoveComponentDown = function canMoveComponentDown(state) {
     if (state.active.component !== undefined) {
-        var numComponents = state.canvases[state.active.canvas].columns[state.active.column].components.length;
+        var numComponents = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length;
 
         return state.active.component < numComponents - 1;
     }
-};
-
-/**
- * Returns the list of Components for this particular canvas.
- * 
- */
-var getComponentsForColumn = function getComponentsForColumn(state) {
-    return function (i) {
-        return state.canvases[i.canvasIndex].columns[i.columnIndex].components;
-    };
 };
 
 /**
@@ -65702,12 +65693,12 @@ var getElement = function getElement(state) {
         }
 
         // If the component and column are undefined, return the row.
-        if (i.componentIndex === undefined && i.columnIndex === undefined) {
+        if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
             return state.canvases[i.canvasIndex].rows[i.rowIndex];
         }
 
         // If the component index is undefined, return the column.
-        if (i.componentIndex === undefined) {
+        if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
             return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
         }
 

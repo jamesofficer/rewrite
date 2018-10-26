@@ -7,19 +7,16 @@
 
         Canvas #{{ canvasIndex }}
 
-        <component v-for="(row, rowIndex) in rows"
-            :is="row.type"
+        <row v-for="(row, rowIndex) in rows"
             :key="rowIndex"
             :canvasIndex="canvasIndex"
             :rowIndex="rowIndex"
             @click.native.stop="selectElement(rowIndex)"
             class="selectable-element"
-        ></component>
+        ></row>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            Canvas #{{ canvasIndex }}
-
             <delete-canvas></delete-canvas>
 
             <clone-canvas></clone-canvas>
@@ -28,7 +25,7 @@
 
             <add-row></add-row>
 
-            <padding></padding>
+            <!-- <padding></padding> -->
 
             <!--<background-color></background-color>-->
 
@@ -83,7 +80,9 @@ export default {
 
     computed: {
         rows() {
-            return this.$store.getters.rows(this.canvasIndex);
+            return this.$store.getters.rows({
+                canvasIndex: this.canvasIndex
+            });
         },
     },
 

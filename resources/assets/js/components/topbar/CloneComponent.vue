@@ -56,9 +56,9 @@ export default {
 
         columns() {
             let columnOptions = [];
-            const columnCount = this.$store.getters.columnCount(this.canvasIndex);
+            const columns = this.$store.getters.columns(this.canvasIndex);
 
-            for (let i = 0; i < columnCount; i++) {
+            for (let i = 0; i < columns.length; i++) {
                 columnOptions.push({
                     text: 'Column #' + (i + 1),
                     value: i,

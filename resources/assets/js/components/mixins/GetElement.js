@@ -2,12 +2,7 @@ import { mapGetters } from 'vuex';
 
 export default {
     props: {
-        componentIndex: {
-            type: Number,
-            default: undefined,
-        },
-
-        columnIndex: {
+        canvasIndex: {
             type: Number,
             default: undefined,
         },
@@ -17,10 +12,15 @@ export default {
             default: undefined,
         },
 
-        canvasIndex: {
+        columnIndex: {
             type: Number,
             default: undefined,
-        }
+        },
+
+        componentIndex: {
+            type: Number,
+            default: undefined,
+        },
     },
 
     computed: {

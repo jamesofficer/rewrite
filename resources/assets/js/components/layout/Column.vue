@@ -1,30 +1,30 @@
 <template>
-    <b-col :cols="element.columnWidth"
-           :style="getElementStyles"
-           :align-self="element.componentAlignment"
-           :class="{ 'selected-element': elementIsSelected }"
+    <b-col 
+        :cols="element.columnWidth"
+        :style="getElementStyles"
+        :class="{ 'selected-element': elementIsSelected }"
     >
-
-        <!--<component v-for="(component, componentIndex) in columnComponents"-->
-                   <!--:is="component.type"-->
-                   <!--:key="componentIndex"-->
-                   <!--:canvasIndex="canvasIndex"-->
-                   <!--:rowIndex="rowIndex"-->
-                   <!--:columnIndex="columnIndex"-->
-                   <!--:componentIndex="componentIndex"-->
-                   <!--@click.native.stop="selectComponent(componentIndex)"-->
-                   <!--class="shift-component"-->
-        <!--&gt;</component>-->
+        <component v-for="(component, componentIndex) in components"
+                    :is="component.type"
+                    :key="componentIndex"
+                    :canvasIndex="canvasIndex"
+                    :rowIndex="rowIndex"
+                    :columnIndex="columnIndex"
+                    :componentIndex="componentIndex"
+                    @click.native.stop="selectElement(componentIndex)"
+                    class="shift-component"
+                    style="outline: 1px solid blue"
+        ></component>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-column></delete-column>
+            <!-- <delete-column></delete-column>
 
             <clone-column></clone-column>
 
-            <move-column></move-column>
+            <move-column></move-column> -->
 
-            <add-component-button></add-component-button>
+            <!-- <add-component-button></add-component-button>
 
             <margin></margin>
 
@@ -38,23 +38,23 @@
 
             <border></border>
 
-            <box-shadow></box-shadow>
+            <box-shadow></box-shadow> -->
 
             <!-- Only need these for background images -->
-            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
+            <!-- <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
                 <background-size></background-size>
 
                 <background-position></background-position>
-            </template>
+            </template> -->
 
             <!-- Clearing a background image also clears a background gradient -->
-            <template v-if="element.backgroundImage">
+            <!-- <template v-if="element.backgroundImage">
                 <clear-image></clear-image>
             </template>
 
             <column-width></column-width>
 
-            <align-components></align-components>
+            <align-components></align-components> -->
         </top-bar>
     </b-col>
 </template>
@@ -106,14 +106,16 @@ export default {
     mixins: [GetElement],
 
     computed: {
-        columnComponents() {
-            return this.$store.getters.getComponentsForColumn(this.indexes);
+        components() {
+            console.log('col indexes are')
+            console.log(this.indexes)
+            return this.$store.getters.components(this.indexes);
         },
     },
 
     methods: {
-        selectComponent(componentIndex) {
-            this.$store.commit('selectComponent', {
+        selectElement(componentIndex) {
+            this.$store.commit('selectElement', {
                 canvasIndex: this.canvasIndex,
                 rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
