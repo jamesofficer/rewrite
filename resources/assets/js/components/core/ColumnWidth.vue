@@ -78,9 +78,6 @@ export default {
 
     methods: {
         isSelected(width) {
-            console.log(this.$store.getters.getCurrentElement.columnWidth + ' === ' + width);
-            console.log(this.$store.getters.getCurrentElement.columnWidth === width);
-
             return this.$store.getters.getCurrentElement.columnWidth === width;
         },
 

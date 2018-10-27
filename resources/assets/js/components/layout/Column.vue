@@ -12,17 +12,16 @@
                     :columnIndex="columnIndex"
                     :componentIndex="componentIndex"
                     @click.native.stop="selectElement(componentIndex)"
-                    class="shift-component"
-                    style="outline: 1px solid blue"
+                    class="selectable-element"
         ></component>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <!-- <delete-column></delete-column>
+            <delete-element></delete-element>
 
-            <clone-column></clone-column>
+            <clone-element></clone-element>
 
-            <move-column></move-column> -->
+            <!-- <move-column></move-column> -->
 
             <!-- <add-component-button></add-component-button>
 
@@ -65,8 +64,8 @@ import GetElement          from '../mixins/GetElement'
 import TopBar              from '../topbar/TopBar'
 import AddComponentButton  from '../topbar/AddComponentButton'
 import AlignComponents     from '../topbar/AlignComponents'
-import DeleteColumn        from '../topbar/DeleteColumn'
-import CloneColumn         from '../topbar/CloneColumn'
+import DeleteElement        from '../topbar/DeleteElement'
+import CloneElement         from '../topbar/CloneElement'
 import MoveColumn          from '../topbar/MoveColumn'
 import ClearImage          from '../topbar/ClearImage'
 import BackgroundSize      from '../core/BackgroundSize'
@@ -96,7 +95,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, AlignComponents, DeleteColumn, CloneColumn, MoveColumn, ClearImage,
+        TopBar, AddComponentButton, AlignComponents, DeleteElement, CloneElement, MoveColumn, ClearImage,
         ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
@@ -107,8 +106,6 @@ export default {
 
     computed: {
         components() {
-            console.log('col indexes are')
-            console.log(this.indexes)
             return this.$store.getters.components(this.indexes);
         },
     },

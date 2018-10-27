@@ -29,8 +29,29 @@ export const columns = state => i => {
  * 
  */
 export const components = state => i => {
-    console.table(i);
     return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components;
+};
+
+/**
+ * Returns the index values from the state.active object.
+ *
+ */ 
+export const getActiveElementIndexes = state => {
+    return state.active;
+}
+
+/**
+ * Returns the currently selected element. This can be either a Canvas, Row or a Component.
+ * This is used for 'micro' components, as they have no knowledge of their indexes.
+ * 
+ */
+export const getCurrentElement = state => {
+    // The active canvas will be undefined when the app first starts. Return null to fix errors.
+    if (state.active.canvas === undefined) {
+        return null;
+    }
+
+    return getSelectedElement(state);
 };
 
 /**
@@ -143,19 +164,7 @@ export const canMoveComponentDown = state => {
     }
 };
 
-/**
- * Returns the currently selected element. This can be either a Canvas or a Component.
- * This is used for 'core' components, as they have no knowledge of their indexes.
- * 
- */
-export const getCurrentElement = state => {
-    // The active canvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.active.canvas === undefined) {
-        return null;
-    }
 
-    return getSelectedElement(state);
-};
 
 /**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.

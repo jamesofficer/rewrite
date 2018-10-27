@@ -3,24 +3,20 @@
         :style="getElementStyles"
         :class="{ 'selected-element' : elementIsSelected }"
     >
-
-        <!-- this is row {{ rowIndex }} on canvas {{ canvasIndex }} -->
-
-        <br>
-
         <column v-for="(column, columnIndex) in columns"
                 :key="columnIndex"
                 :canvasIndex="canvasIndex"
                 :rowIndex="rowIndex"
                 :columnIndex="columnIndex"
                 @click.native.stop="selectElement(columnIndex)"
-                class="shift-column"
-                style="outline: 1px solid red"
+                class="selectable-element"
         ></column>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <p>Row {{ rowIndex }}</p>
+            <delete-element></delete-element>
+
+            <clone-element></clone-element>
         </top-bar>
     </b-row>
 </template>
@@ -28,6 +24,9 @@
 <script>
 import GetElement from '../mixins/GetElement'
 import Column from './Column'
+import CloneElement       from '../topbar/CloneElement'
+import DeleteElement       from '../topbar/DeleteElement'
+
 
 import TopBar from '../topbar/TopBar'
 
@@ -37,7 +36,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Column
+        TopBar, Column, CloneElement, DeleteElement
     },
 
     computed: {
@@ -47,8 +46,6 @@ export default {
                 rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
             });
-
-            console.log(cols);
 
             return cols;
         },
@@ -65,15 +62,3 @@ export default {
     },
 }
 </script>
-
-<style>
-.shift-row {
-    background: lime !important;
-    z-index: 5;
-    cursor: pointer;
-}
-
-.shift-row:hover {
-    background: red !important;
-}
-</style>

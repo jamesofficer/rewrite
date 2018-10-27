@@ -1,6 +1,6 @@
 <template>
     <div style="display: inherit">
-        <delete-component></delete-component>
+        <delete-element></delete-element>
 
         <clone-component></clone-component>
 
@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import DeleteComponent from "./DeleteComponent"
-import CloneComponent  from "./CloneComponent"
-import MoveComponent   from "./MoveComponent"
+import DeleteElement  from "./DeleteElement"
+import CloneComponent from "./CloneComponent"
+import MoveComponent  from "./MoveComponent"
 
 export default {
     name: "DeleteCloneMove",
 
     components: {
-        DeleteComponent, CloneComponent, MoveComponent
+        DeleteElement, CloneComponent, MoveComponent
     }
 }
 </script>

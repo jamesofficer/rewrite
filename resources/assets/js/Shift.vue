@@ -42,7 +42,7 @@
 
         <div class="footer-logo-wrapper">
             <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
-            <p class="version-text">Alpha Version</p>
+            <p class="version-text">v0.1.1 - Alpha Version</p>
             <p class="contact-text">Found a bug? Have a feature request?</p>
             <p class="contact-text"><strong>writewithshift@gmail.com</strong></p>
         </div>

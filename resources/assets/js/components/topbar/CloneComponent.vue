@@ -15,6 +15,16 @@
 
             <b-row>
                 <b-col>
+                    <h6>Destination Rows</h6>
+
+                    <b-form-select v-model="rowIndex" :options="rows"></b-form-select>
+                </b-col>
+            </b-row>
+
+            <br>
+
+            <b-row>
+                <b-col>
                     <h6>Destination Column</h6>
 
                     <b-form-select v-model="columnIndex" :options="columns"></b-form-select>
@@ -54,9 +64,30 @@ export default {
             return canvasOptions;
         },
 
+        rows() {
+            let rowOptions = [];
+            const rows = this.$store.getters.rows({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
+                columnIndex: this.columnIndex,
+            });
+
+            for (let i = 0; i < rows.length; i++) {
+                rowOptions.push({
+                    text: 'row #' + (i + 1),
+                    value: i,
+                });
+            }
+
+            return rowOptions;
+        },
+
         columns() {
             let columnOptions = [];
-            const columns = this.$store.getters.columns(this.canvasIndex);
+            const columns = this.$store.getters.columns({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
+            });
 
             for (let i = 0; i < columns.length; i++) {
                 columnOptions.push({
@@ -73,6 +104,7 @@ export default {
         return {
             showPopover: false,
             canvasIndex: 0,
+            rowIndex: 0,
             columnIndex: 0,
         }
     },
@@ -81,6 +113,7 @@ export default {
         cloneComponent() {
             this.$store.commit('cloneComponent', {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,
             });
 

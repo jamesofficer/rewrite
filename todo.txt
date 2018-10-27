@@ -10,6 +10,7 @@ BUGS:
 - Remove duplicate fonts from fontsUsed when saving an article.
 
 FEATURES:
+- Add transparency to background gradients.
 - Implement column offset functionality.
 - Undo/Redo lol.
 - Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.

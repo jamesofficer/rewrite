@@ -5,8 +5,6 @@
         :class="{ 'selected-element' : elementIsSelected }"
     >
 
-        Canvas #{{ canvasIndex }}
-
         <row v-for="(row, rowIndex) in rows"
             :key="rowIndex"
             :canvasIndex="canvasIndex"
@@ -17,33 +15,33 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-canvas></delete-canvas>
+            <delete-element></delete-element>
 
-            <clone-canvas></clone-canvas>
+            <clone-element></clone-element>
 
             <move-canvas></move-canvas>
 
             <add-row></add-row>
 
-            <!-- <padding></padding> -->
+            <padding></padding>
 
-            <!--<background-color></background-color>-->
+            <background-color></background-color>
 
-            <!--<background-gradient></background-gradient>-->
+            <background-gradient></background-gradient>
 
-            <!--<image-selector></image-selector>-->
+            <image-selector></image-selector>
 
             <!-- Only need these for background images -->
-            <!--<template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">-->
-                <!--<background-size></background-size>-->
+            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
+                <background-size></background-size>
 
-                <!--<background-position></background-position>-->
-            <!--</template>-->
+                <background-position></background-position>
+            </template>
 
             <!-- Clearing a background image also clears a background gradient -->
-            <!--<template v-if="element.backgroundImage">-->
-                <!--<clear-image></clear-image>-->
-            <!--</template>-->
+            <template v-if="element.backgroundImage">
+                <clear-image></clear-image>
+            </template>
         </top-bar>
     </b-container>
 </template>
@@ -53,8 +51,8 @@ import GetElement         from '../mixins/GetElement'
 
 import Row                from './Row'
 import TopBar             from '../topbar/TopBar'
-import DeleteCanvas       from '../topbar/DeleteCanvas'
-import CloneCanvas        from '../topbar/CloneCanvas'
+import DeleteElement      from '../topbar/DeleteElement'
+import CloneElement       from '../topbar/CloneElement'
 import MoveCanvas         from '../topbar/MoveCanvas'
 import AddRow             from '../topbar/AddRow'
 import AlignColumns       from '../topbar/AlignColumns'
@@ -72,7 +70,7 @@ export default {
 
     components: {
         TopBar, Row,
-        DeleteCanvas, CloneCanvas, MoveCanvas, AddRow,
+        DeleteElement, CloneElement, MoveCanvas, AddRow,
         ClearImage, AlignColumns, BackgroundSize, Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
     },
 

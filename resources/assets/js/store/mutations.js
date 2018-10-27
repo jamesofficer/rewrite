@@ -1,16 +1,5 @@
 import defaults from "./defaults/_defaults";
-import { duplicateObject, getSelectedElement } from "./helpers";
-
-/**
- * Clears the current selection.
- *
- */
-export const resetSelection = state => {
-    window.Vue.set(state.active, "canvas", undefined);
-    window.Vue.set(state.active, "row", undefined);
-    window.Vue.set(state.active, "column", undefined);
-    window.Vue.set(state.active, "component", undefined);
-}
+import { duplicateObject, getSelectedElement, resetSelection } from "./helpers";
 
 /**
  * Sets the state of the notification object.
@@ -66,33 +55,24 @@ export const setComponentSubProperty = (state, component) => {
 };
 
 /**
- * Deletes the selected Canvas
+ * Deletes the selected Element
  *
  */
-export const deleteCanvas = state => {
-    state.canvases.splice(state.active.canvas, 1);
-    state.active.canvas = undefined;
-};
-
-/**
- * Removes a column from the specified canvas. We deselect it first to prevent errors.
- *
- */
-export const deleteColumn = state => {
-    state.canvases[state.active.canvas].columns.splice(state.active.column, 1);
-    state.active.column = undefined;
-};
-
-/**
- * Deletes a Component from a column.
- *
- */
-export const deleteComponent = state => {
-    if (state.active.component !== undefined) {
+export const deleteElement = state => {
+    if (state.active.component !== undefined){
         state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.splice(state.active.component, 1);
     }
+    else if (state.active.column !== undefined) {
+        state.canvases[state.active.canvas].rows[state.active.row].columns.splice(state.active.column, 1);
+    }
+    else if (state.active.row !== undefined) {
+        state.canvases[state.active.canvas].rows.splice(state.active.row, 1);
+    }
+    else {
+        state.canvases.splice(state.active.canvas, 1);
+    }
 
-    state.active.component = undefined;
+    resetSelection(state);
 };
 
 /**
@@ -134,10 +114,10 @@ export const cloneColumn = (state, destCanvasIndex) => {
  * Clones the selected Component to the specified position.
  *
  */
-export const cloneComponent = (state, indexes) => {
+export const cloneComponent = (state, i) => {
     const component = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
 
-    state.canvases[indexes.canvasIndex].columns[indexes.columnIndex].components.splice(0, 0, duplicateObject(component));
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, duplicateObject(component));
 };
 
 /**
@@ -277,7 +257,7 @@ export const addColumnToRow = (state, columnWidth) => {
  *
  */
 export const selectElement = (state, i) => {
-    this.resetSelection(state);
+    resetSelection(state);
 
     i.canvasIndex    !== undefined ? window.Vue.set(state.active, "canvas", i.canvasIndex): undefined;
     i.rowIndex       !== undefined ? window.Vue.set(state.active, "row", i.rowIndex): undefined;

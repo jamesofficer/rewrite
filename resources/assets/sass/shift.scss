@@ -23,12 +23,12 @@ h1, h2, h3, h4, h5, h6, p, input, button, .btn, .btn-group, .top-bar-control {
 
 .selectable-element:hover {
     cursor: pointer;
-    outline: 3px dotted #38c172 !important;
+    outline: 1px dashed #38c172 !important;
+    box-shadow: inset 0 0 0 3000px rgba(200, 200, 200, 0.15) !important;
 }
 
 .selected-element {
-    background: orange !important;
-    outline: 1px dotted rgb(56, 193, 114) !important;
+    outline: 1px dashed rgb(56, 193, 114) !important;
     box-shadow: inset 0 0 0 3000px rgba(200, 200, 200, 0.15) !important;
 }
 

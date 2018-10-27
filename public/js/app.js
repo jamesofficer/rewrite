@@ -20080,59 +20080,43 @@ module.exports = Component.exports
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
-/* unused harmony export deselectCurrentElement */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getSelectedElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return resetSelection; });
 var duplicateObject = function duplicateObject(object) {
     return JSON.parse(JSON.stringify(object));
 };
 
-var deselectCurrentElement = function deselectCurrentElement(state) {
-    if (state.active.canvas !== undefined) {
-        // Deselect a Canvas
-        if (state.active.row === undefined && state.active.column === undefined && state.active.component === undefined) {
-            state.canvases[state.active.canvas].selected = false;
-        }
-
-        // Deselect a Row
-        else if (state.active.row !== undefined && state.active.column === undefined && state.active.component === undefined) {
-                state.canvases[state.active.canvas].rows[state.active.row].selected = false;
-            }
-
-            // Deselect a Column
-            else if (state.active.column !== undefined && state.active.component === undefined) {
-                    state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].selected = false;
-                }
-
-                // Deselect a Component
-                else {
-                        state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component].selected = false;
-                    }
-    }
-};
-
-// Returns the selected Canvas, Column, or Component
 var getSelectedElement = function getSelectedElement(state) {
-    // Return a Canvas
-    if (state.active.row === undefined && state.active.column === undefined && state.active.component === undefined) {
-        console.log('selected a canvas ' + state.active.canvas);
-        return state.canvases[state.active.canvas];
-    }
-
-    // Return a Row
-    if (state.active.row !== undefined && state.active.column === undefined) {
-        console.log('selected a row');
-        return state.canvases[state.active.canvas].rows[state.active.row];
+    // Return a Component
+    if (state.active.component !== undefined) {
+        return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
     }
 
     // Return a Column
-    if (state.active.component === undefined) {
-        console.log('selected a column');
+    if (state.active.column !== undefined) {
         return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
     }
 
-    // Return a Component
-    console.log('selected a component');
-    return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
+    // Return a Row
+    if (state.active.row !== undefined) {
+        return state.canvases[state.active.canvas].rows[state.active.row];
+    }
+
+    // Return a Canvas
+    if (state.active.canvas !== undefined) {
+        return state.canvases[state.active.canvas];
+    }
+};
+
+/**
+ * Clears the current selection.
+ *
+ */
+var resetSelection = function resetSelection(state) {
+    window.Vue.set(state.active, "canvas", undefined);
+    window.Vue.set(state.active, "row", undefined);
+    window.Vue.set(state.active, "column", undefined);
+    window.Vue.set(state.active, "component", undefined);
 };
 
 /***/ }),
@@ -23427,9 +23411,9 @@ module.exports = Component.exports
     columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
 
     // Properties:
-    // backgroundSize: 'Auto',
+    backgroundSize: 'Auto',
     // backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
-    // backgroundPosition: 'Center',
+    backgroundPosition: 'Center',
     margin: {
         top: 20,
         right: 0,
@@ -23443,19 +23427,19 @@ module.exports = Component.exports
         left: 20
     },
     border: {
-        top: 1,
-        right: 1,
-        bottom: 1,
-        left: 1,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 }
+    },
+    boxShadow: {
+        offsetX: 0,
+        offsetY: 0,
+        blurRadius: 0,
+        color: { r: 0, g: 0, b: 0, a: 1 }
     }
-    // boxShadow: {
-    //     offsetX: 0,
-    //     offsetY: 0,
-    //     blurRadius: 0,
-    //     color: { r: 0, g: 0, b: 0, a: 1 },
-    // },
 });
 
 /***/ }),
@@ -23495,7 +23479,7 @@ module.exports = Component.exports
     columnOffset: 0,
 
     // Property Defaults:
-    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+    // backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     margin: {
         top: 0,
         right: 0,
@@ -46257,7 +46241,7 @@ var content = __webpack_require__(244);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("2ed4d7c9", content, false, {});
+var update = __webpack_require__(8)("017ec4bc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46281,7 +46265,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-wrapper[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\n    margin-top: 75px;\n    padding: 0 25px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\n    padding: 50px 0;\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\n    -webkit-filter: brightness(80%);\n            filter: brightness(80%);\n    width: 150px;\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\n    color: #bbb;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.contact-text[data-v-667f58a0] {\n    color: #bbb;\n    font-size: 0.8em;\n    margin: 0;\n    padding: 0;\n}\n", ""]);
+exports.push([module.i, "\n.shift-canvas[data-v-667f58a0] {\r\n    background: green !important;\r\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\r\n    background: darkgreen !important;\n}\n.top-bar-wrapper[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 0;\r\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-top: 5px solid #38c172;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\r\n    margin-top: 75px;\r\n    padding: 0 25px;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 5px 15px 30px 15px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\r\n    padding: 50px 0;\r\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\r\n    -webkit-filter: brightness(80%);\r\n            filter: brightness(80%);\r\n    width: 150px;\r\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\r\n    color: #bbb;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.contact-text[data-v-667f58a0] {\r\n    color: #bbb;\r\n    font-size: 0.8em;\r\n    margin: 0;\r\n    padding: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -46932,7 +46916,7 @@ var content = __webpack_require__(253);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("1d2645aa", content, false, {});
+var update = __webpack_require__(8)("5b005090", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46956,7 +46940,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.article-name-container[data-v-4b560334] {\n    margin: 20px 0;\n}\n.article-name-label[data-v-4b560334] {\n    text-transform: uppercase;\n    font-weight: 400;\n    font-size: 0.8em;\n    color: #aaa;\n}\n.shift-article-name[data-v-4b560334] {\n    padding-bottom: 10px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-4b560334] {\n    margin: 20px 0 30px 0;\n    padding: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-4b560334]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-4b560334]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n", ""]);
+exports.push([module.i, "\n.article-name-container[data-v-4b560334] {\r\n    margin: 20px 0;\n}\n.article-name-label[data-v-4b560334] {\r\n    text-transform: uppercase;\r\n    font-weight: 400;\r\n    font-size: 0.8em;\r\n    color: #aaa;\n}\n.shift-article-name[data-v-4b560334] {\r\n    padding-bottom: 10px;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-4b560334] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-4b560334]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-4b560334]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\r\n", ""]);
 
 // exports
 
@@ -47154,7 +47138,7 @@ var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("04a96d6e", content, false, {});
+var update = __webpack_require__(8)("42837854", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47178,7 +47162,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.session-alert-message {\n    margin-top: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.session-alert-message {\r\n    margin-top: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -47342,10 +47326,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Row__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCanvas__ = __webpack_require__(415);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCanvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneCanvas__ = __webpack_require__(418);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_CloneCanvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__ = __webpack_require__(421);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_AddRow__ = __webpack_require__(426);
@@ -47366,8 +47350,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_BackgroundSize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__core_BackgroundSize__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_ImageSelector__);
-//
-//
 //
 //
 //
@@ -47440,7 +47422,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, Row: __WEBPACK_IMPORTED_MODULE_1__Row___default.a,
-        DeleteCanvas: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteCanvas___default.a, CloneCanvas: __WEBPACK_IMPORTED_MODULE_4__topbar_CloneCanvas___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddRow: __WEBPACK_IMPORTED_MODULE_6__topbar_AddRow___default.a,
+        DeleteElement: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default.a, CloneElement: __WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement___default.a, MoveCanvas: __WEBPACK_IMPORTED_MODULE_5__topbar_MoveCanvas___default.a, AddRow: __WEBPACK_IMPORTED_MODULE_6__topbar_AddRow___default.a,
         ClearImage: __WEBPACK_IMPORTED_MODULE_8__topbar_ClearImage___default.a, AlignColumns: __WEBPACK_IMPORTED_MODULE_7__topbar_AlignColumns___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_13__core_BackgroundSize___default.a, Padding: __WEBPACK_IMPORTED_MODULE_9__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_10__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_11__core_BackgroundGradient___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundPosition___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_14__core_ImageSelector___default.a
     },
 
@@ -47469,10 +47451,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(264)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(266)
@@ -47481,7 +47459,7 @@ var __vue_template__ = __webpack_require__(414)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -47516,46 +47494,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 264 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(265);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(8)("927b13c0", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e1f477a8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Row.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e1f477a8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Row.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 265 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.shift-row {\n    background: lime !important;\n    z-index: 5;\n    cursor: pointer;\n}\n.shift-row:hover {\n    background: red !important;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 264 */,
+/* 265 */,
 /* 266 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -47564,8 +47504,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Column__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_TopBar__);
 //
 //
 //
@@ -47589,10 +47533,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
+
+
 
 
 
@@ -47605,7 +47547,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_GetElement__["a" /* default */]],
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default.a, Column: __WEBPACK_IMPORTED_MODULE_1__Column___default.a
+        TopBar: __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar___default.a, Column: __WEBPACK_IMPORTED_MODULE_1__Column___default.a, CloneElement: __WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement___default.a, DeleteElement: __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default.a
     },
 
     computed: {
@@ -47615,8 +47557,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex
             });
-
-            console.log(cols);
 
             return cols;
         }
@@ -47695,7 +47635,7 @@ var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("51c14ff8", content, false, {});
+var update = __webpack_require__(8)("13ec9391", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47719,7 +47659,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.component-button-group[data-v-f5dbb818] {\n    margin: 3px 0;\n}\n", ""]);
+exports.push([module.i, "\n.component-button-group[data-v-f5dbb818] {\r\n    margin: 3px 0;\n}\r\n", ""]);
 
 // exports
 
@@ -47737,10 +47677,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage__ = __webpack_require__(100);
@@ -47845,7 +47785,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -47883,7 +47822,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Column",
 
     components: {
-        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton___default.a, AlignComponents: __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents___default.a, DeleteColumn: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteColumn___default.a, CloneColumn: __WEBPACK_IMPORTED_MODULE_5__topbar_CloneColumn___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a,
+        TopBar: __WEBPACK_IMPORTED_MODULE_1__topbar_TopBar___default.a, AddComponentButton: __WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton___default.a, AlignComponents: __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents___default.a, DeleteElement: __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement___default.a, CloneElement: __WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement___default.a, MoveColumn: __WEBPACK_IMPORTED_MODULE_6__topbar_MoveColumn___default.a, ClearImage: __WEBPACK_IMPORTED_MODULE_7__topbar_ClearImage___default.a,
         ColumnWidth: __WEBPACK_IMPORTED_MODULE_9__core_ColumnWidth___default.a, Margin: __WEBPACK_IMPORTED_MODULE_10__core_Margin___default.a, Padding: __WEBPACK_IMPORTED_MODULE_11__core_Padding___default.a, BackgroundColor: __WEBPACK_IMPORTED_MODULE_12__core_BackgroundColor___default.a, BackgroundGradient: __WEBPACK_IMPORTED_MODULE_13__core_BackgroundGradient___default.a, ImageSelector: __WEBPACK_IMPORTED_MODULE_15__core_ImageSelector___default.a, Border: __WEBPACK_IMPORTED_MODULE_16__core_Border___default.a, BoxShadow: __WEBPACK_IMPORTED_MODULE_17__core_BoxShadow___default.a, BackgroundPosition: __WEBPACK_IMPORTED_MODULE_14__core_BackgroundPosition___default.a, BackgroundSize: __WEBPACK_IMPORTED_MODULE_8__core_BackgroundSize___default.a,
         Heading: __WEBPACK_IMPORTED_MODULE_18__Heading___default.a, Paragraph: __WEBPACK_IMPORTED_MODULE_19__Paragraph___default.a, BlockQuote: __WEBPACK_IMPORTED_MODULE_20__BlockQuote___default.a, Picture: __WEBPACK_IMPORTED_MODULE_21__Picture___default.a, HorizontalLine: __WEBPACK_IMPORTED_MODULE_22__HorizontalLine___default.a,
         InstagramEmbed: __WEBPACK_IMPORTED_MODULE_23__InstagramEmbed___default.a, FacebookEmbed: __WEBPACK_IMPORTED_MODULE_24__FacebookEmbed___default.a, YouTubeEmbed: __WEBPACK_IMPORTED_MODULE_25__YouTubeEmbed___default.a,
@@ -47894,8 +47833,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         components: function components() {
-            console.log('col indexes are');
-            console.log(this.indexes);
             return this.$store.getters.components(this.indexes);
         }
     },
@@ -48039,7 +47976,7 @@ var content = __webpack_require__(276);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("05b6557a", content, false, {});
+var update = __webpack_require__(8)("cc33fa54", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48063,7 +48000,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\n    cursor: pointer;\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\n    width: 135px;\n    height: 175px;\n}\n", ""]);
+exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\r\n    width: 135px;\r\n    height: 175px;\n}\r\n", ""]);
 
 // exports
 
@@ -48801,328 +48738,12 @@ if (false) {
 }
 
 /***/ }),
-/* 285 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(286)
-/* template */
-var __vue_template__ = __webpack_require__(287)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/DeleteColumn.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f1593aea", Component.options)
-  } else {
-    hotAPI.reload("data-v-f1593aea", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 286 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "DeleteColumn",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        deleteColumn: function deleteColumn() {
-            this.$store.commit('deleteColumn');
-        }
-    }
-});
-
-/***/ }),
-/* 287 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-danger",
-      icon: "columns",
-      tooltip: "Delete Column"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.deleteColumn($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f1593aea", module.exports)
-  }
-}
-
-/***/ }),
-/* 288 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(289)
-/* template */
-var __vue_template__ = __webpack_require__(290)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/CloneColumn.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6c9d2a59", Component.options)
-  } else {
-    hotAPI.reload("data-v-6c9d2a59", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 289 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "CloneColumn",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    computed: {
-        canvases: function canvases() {
-            var canvasOptions = [];
-
-            this.$store.getters.canvases.forEach(function (canvas, index) {
-                canvasOptions.push({
-                    text: 'Canvas #' + (index + 1),
-                    value: index
-                });
-            });
-
-            return canvasOptions;
-        }
-    },
-
-    data: function data() {
-        return {
-            showPopover: false,
-            canvasIndex: 0
-        };
-    },
-
-
-    methods: {
-        cloneColumn: function cloneColumn() {
-            this.$store.commit('cloneColumn', this.canvasIndex);
-        }
-    }
-});
-
-/***/ }),
-/* 290 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          variant: "outline-info",
-          icon: "clone",
-          tooltip: "Clone Column",
-          id: "clone-column-popover"
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        {
-          attrs: {
-            target: "clone-column-popover",
-            placement: "bottomright",
-            show: _vm.showPopover
-          },
-          on: {
-            "update:show": function($event) {
-              _vm.showPopover = $event
-            }
-          }
-        },
-        [
-          _c(
-            "b-row",
-            { staticStyle: { width: "250px" } },
-            [
-              _c(
-                "b-col",
-                [
-                  _c("h6", [_vm._v("Destination Canvas")]),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    attrs: { options: _vm.canvases },
-                    model: {
-                      value: _vm.canvasIndex,
-                      callback: function($$v) {
-                        _vm.canvasIndex = $$v
-                      },
-                      expression: "canvasIndex"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { variant: "success" },
-                      on: { click: _vm.cloneColumn }
-                    },
-                    [_vm._v("Clone")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6c9d2a59", module.exports)
-  }
-}
-
-/***/ }),
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
 /* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -49184,7 +48805,7 @@ var content = __webpack_require__(293);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("9c22b382", content, false, {});
+var update = __webpack_require__(8)("0769534c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49208,7 +48829,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-column-wrapper[data-v-b0bc449e] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.move-column-wrapper[data-v-b0bc449e] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -49557,9 +49178,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         isSelected: function isSelected(width) {
-            console.log(this.$store.getters.getCurrentElement.columnWidth + ' === ' + width);
-            console.log(this.$store.getters.getCurrentElement.columnWidth === width);
-
             return this.$store.getters.getCurrentElement.columnWidth === width;
         },
         checkColumnWidth: function checkColumnWidth(newWidth) {
@@ -50360,7 +49978,7 @@ var content = __webpack_require__(316);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("391792be", content, false, {});
+var update = __webpack_require__(8)("5957936a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51099,7 +50717,7 @@ var content = __webpack_require__(323);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("b93544e6", content, false, {});
+var update = __webpack_require__(8)("60fb652d", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51269,7 +50887,7 @@ var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("af571f9e", content, false, {});
+var update = __webpack_require__(8)("08a63978", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51304,8 +50922,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteComponent__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DeleteComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DeleteElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneComponent__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CloneComponent__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MoveComponent__ = __webpack_require__(333);
@@ -51329,7 +50947,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "DeleteCloneMove",
 
     components: {
-        DeleteComponent: __WEBPACK_IMPORTED_MODULE_0__DeleteComponent___default.a, CloneComponent: __WEBPACK_IMPORTED_MODULE_1__CloneComponent___default.a, MoveComponent: __WEBPACK_IMPORTED_MODULE_2__MoveComponent___default.a
+        DeleteElement: __WEBPACK_IMPORTED_MODULE_0__DeleteElement___default.a, CloneComponent: __WEBPACK_IMPORTED_MODULE_1__CloneComponent___default.a, MoveComponent: __WEBPACK_IMPORTED_MODULE_2__MoveComponent___default.a
     }
 });
 
@@ -51480,6 +51098,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -51501,9 +51129,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             return canvasOptions;
         },
+        rows: function rows() {
+            var rowOptions = [];
+            var rows = this.$store.getters.rows({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
+                columnIndex: this.columnIndex
+            });
+
+            for (var i = 0; i < rows.length; i++) {
+                rowOptions.push({
+                    text: 'row #' + (i + 1),
+                    value: i
+                });
+            }
+
+            return rowOptions;
+        },
         columns: function columns() {
             var columnOptions = [];
-            var columns = this.$store.getters.columns(this.canvasIndex);
+            var columns = this.$store.getters.columns({
+                canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex
+            });
 
             for (var i = 0; i < columns.length; i++) {
                 columnOptions.push({
@@ -51520,6 +51168,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             showPopover: false,
             canvasIndex: 0,
+            rowIndex: 0,
             columnIndex: 0
         };
     },
@@ -51529,6 +51178,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         cloneComponent: function cloneComponent() {
             this.$store.commit('cloneComponent', {
                 canvasIndex: this.canvasIndex,
+                rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex
             });
 
@@ -51594,6 +51244,33 @@ var render = function() {
                         _vm.canvasIndex = $$v
                       },
                       expression: "canvasIndex"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c("h6", [_vm._v("Destination Rows")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { options: _vm.rows },
+                    model: {
+                      value: _vm.rowIndex,
+                      callback: function($$v) {
+                        _vm.rowIndex = $$v
+                      },
+                      expression: "rowIndex"
                     }
                   })
                 ],
@@ -51731,7 +51408,7 @@ var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("00139199", content, false, {});
+var update = __webpack_require__(8)("4f03ad6c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51755,7 +51432,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-component-wrapper[data-v-55a3091c] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.move-component-wrapper[data-v-55a3091c] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -51867,7 +51544,7 @@ var render = function() {
     "div",
     { staticStyle: { display: "inherit" } },
     [
-      _c("delete-component"),
+      _c("delete-element"),
       _vm._v(" "),
       _c("clone-component"),
       _vm._v(" "),
@@ -51897,7 +51574,7 @@ var content = __webpack_require__(340);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("04952b4e", content, false, {});
+var update = __webpack_require__(8)("899c7ebe", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51921,7 +51598,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\n    background: none;\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\n    margin-bottom: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\r\n    background: none;\r\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\r\n    margin-bottom: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -52990,7 +52667,7 @@ var content = __webpack_require__(361);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("462084ac", content, false, {});
+var update = __webpack_require__(8)("e5aa8902", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59806,23 +59483,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             set: function set(amount) {
 
                 /*
-                 if (amount > 59)
+                  if (amount > 59)
                 {
-                     let hours = 0;
-                     while(amount > 59)
+                      let hours = 0;
+                      while(amount > 59)
                     {
-                         amount = amount - 60;
+                          amount = amount - 60;
                         hours++;
-                     }
-                     let total;
+                      }
+                      let total;
                    // let unit = 'MIN';
-                     if (amount == 0) // Complete Hours
+                      if (amount == 0) // Complete Hours
                     {
                         
                         total = hours + ' hr';
-                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                          this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
                        // this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: undefined });
-                     }
+                      }
                     else // Hour + Min
                     {
                         total = hours + ' hr ' + amount;
@@ -60362,7 +60039,7 @@ var content = __webpack_require__(403);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("6761b757", content, false, {});
+var update = __webpack_require__(8)("1d6a9212", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60386,7 +60063,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.food-name[data-v-d6f949a6] {\n    padding: 5px 0;\n    color: #666666;\n}\n.cooks-notes-text[data-v-d6f949a6] {\n    color: #666666;\n}\n", ""]);
+exports.push([module.i, "\n.food-name[data-v-d6f949a6] {\r\n    padding: 5px 0;\r\n    color: #666666;\n}\n.cooks-notes-text[data-v-d6f949a6] {\r\n    color: #666666;\n}\r\n", ""]);
 
 // exports
 
@@ -60605,7 +60282,7 @@ var content = __webpack_require__(408);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("5ac9f821", content, false, {});
+var update = __webpack_require__(8)("53954e6e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60629,7 +60306,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\n    margin-bottom: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\r\n    margin-bottom: 5px;\n}\r\n", ""]);
 
 // exports
 
@@ -61235,8 +60912,7 @@ var render = function() {
         return _c(component.type, {
           key: componentIndex,
           tag: "component",
-          staticClass: "shift-component",
-          staticStyle: { outline: "1px solid blue" },
+          staticClass: "selectable-element",
           attrs: {
             canvasIndex: _vm.canvasIndex,
             rowIndex: _vm.rowIndex,
@@ -61252,7 +60928,13 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _vm.elementIsSelected ? _c("top-bar") : _vm._e()
+      _vm.elementIsSelected
+        ? _c(
+            "top-bar",
+            [_c("delete-element"), _vm._v(" "), _c("clone-element")],
+            1
+          )
+        : _vm._e()
     ],
     2
   )
@@ -61282,13 +60964,10 @@ var render = function() {
       style: _vm.getElementStyles
     },
     [
-      _c("br"),
-      _vm._v(" "),
       _vm._l(_vm.columns, function(column, columnIndex) {
         return _c("column", {
           key: columnIndex,
-          staticClass: "shift-column",
-          staticStyle: { outline: "1px solid red" },
+          staticClass: "selectable-element",
           attrs: {
             canvasIndex: _vm.canvasIndex,
             rowIndex: _vm.rowIndex,
@@ -61304,7 +60983,11 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.elementIsSelected
-        ? _c("top-bar", [_c("p", [_vm._v("Row " + _vm._s(_vm.rowIndex))])])
+        ? _c(
+            "top-bar",
+            [_c("delete-element"), _vm._v(" "), _c("clone-element")],
+            1
+          )
         : _vm._e()
     ],
     2
@@ -61321,212 +61004,12 @@ if (false) {
 }
 
 /***/ }),
-/* 415 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(416)
-/* template */
-var __vue_template__ = __webpack_require__(417)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/DeleteCanvas.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5c0a338d", Component.options)
-  } else {
-    hotAPI.reload("data-v-5c0a338d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 416 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "DeleteCanvas",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        deleteCanvas: function deleteCanvas() {
-            this.$store.commit('deleteCanvas');
-        }
-    }
-});
-
-/***/ }),
-/* 417 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-danger",
-      icon: "palette",
-      tooltip: "Delete Canvas"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.deleteCanvas($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5c0a338d", module.exports)
-  }
-}
-
-/***/ }),
-/* 418 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(419)
-/* template */
-var __vue_template__ = __webpack_require__(420)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/CloneCanvas.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4153fb5b", Component.options)
-  } else {
-    hotAPI.reload("data-v-4153fb5b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 419 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "CloneCanvas",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        cloneCanvas: function cloneCanvas() {
-            this.$store.commit('cloneCanvas');
-        }
-    }
-});
-
-/***/ }),
-/* 420 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: { variant: "outline-info", icon: "clone", tooltip: "Clone Canvas" },
-    nativeOn: {
-      click: function($event) {
-        return _vm.cloneCanvas($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4153fb5b", module.exports)
-  }
-}
-
-/***/ }),
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
 /* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61588,7 +61071,7 @@ var content = __webpack_require__(423);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("8c8d55d4", content, false, {});
+var update = __webpack_require__(8)("0f340223", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61612,7 +61095,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-canvas-wrapper[data-v-7c58aeb3] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.move-canvas-wrapper[data-v-7c58aeb3] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -61981,7 +61464,6 @@ var render = function() {
       attrs: { fluid: "" }
     },
     [
-      _vm._v("\n\n    Canvas #" + _vm._s(_vm.canvasIndex) + "\n\n    "),
       _vm._l(_vm.rows, function(row, rowIndex) {
         return _c("row", {
           key: rowIndex,
@@ -62000,15 +61482,34 @@ var render = function() {
         ? _c(
             "top-bar",
             [
-              _c("delete-canvas"),
+              _c("delete-element"),
               _vm._v(" "),
-              _c("clone-canvas"),
+              _c("clone-element"),
               _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
-              _c("add-row")
+              _c("add-row"),
+              _vm._v(" "),
+              _c("padding"),
+              _vm._v(" "),
+              _c("background-color"),
+              _vm._v(" "),
+              _c("background-gradient"),
+              _vm._v(" "),
+              _c("image-selector"),
+              _vm._v(" "),
+              _vm.element.backgroundImage !== undefined &&
+              _vm.element.backgroundImage.includes("url")
+                ? [
+                    _c("background-size"),
+                    _vm._v(" "),
+                    _c("background-position")
+                  ]
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.element.backgroundImage ? [_c("clear-image")] : _vm._e()
             ],
-            1
+            2
           )
         : _vm._e()
     ],
@@ -62171,7 +61672,7 @@ var content = __webpack_require__(438);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("02331ddf", content, false, {});
+var update = __webpack_require__(8)("6d06ff32", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62195,7 +61696,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 0;\n    right: 10px;\n    background: white;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    width: 300px;\n    height: 300px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 10px;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    padding: 10px;\n    overflow-y: scroll;\n    z-index: 5;\n}\n", ""]);
+exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    right: 10px;\r\n    background: white;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    width: 300px;\r\n    height: 300px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n}\n.minimap-header[data-v-f9ee2f1e] {\r\n    background: #38c172;\r\n    color: white;\r\n    padding: 10px;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\r\n    height: 100%;\r\n    padding: 10px;\r\n    overflow-y: scroll;\r\n    z-index: 5;\n}\r\n", ""]);
 
 // exports
 
@@ -62372,7 +61873,7 @@ var content = __webpack_require__(443);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("590f6bf7", content, false, {});
+var update = __webpack_require__(8)("6d0e7ff8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62396,7 +61897,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.selected-article {\n    background: #38c172;\n}\n.article-card-container {\n    display: inline-block;\n}\n#saved-articles-container {\n    height: 430px;\n    overflow-y: scroll;\n}\n.article-card {\n    width: 175px;\n    height: 200px;\n    margin: 0 5px 10px 5px;\n}\n.article-card:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.article-name-text {\n    margin-top: 15px;\n    margin-bottom: 10px;\n}\n.last-updated-text {\n    margin: 0;\n}\n", ""]);
+exports.push([module.i, "\n.selected-article {\r\n    background: #38c172;\n}\n.article-card-container {\r\n    display: inline-block;\n}\n#saved-articles-container {\r\n    height: 430px;\r\n    overflow-y: scroll;\n}\n.article-card {\r\n    width: 175px;\r\n    height: 200px;\r\n    margin: 0 5px 10px 5px;\n}\n.article-card:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.article-name-text {\r\n    margin-top: 15px;\r\n    margin-bottom: 10px;\n}\n.last-updated-text {\r\n    margin: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -62728,7 +62229,7 @@ var content = __webpack_require__(448);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("02ed9634", content, false, {});
+var update = __webpack_require__(8)("0e9af572", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62752,7 +62253,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.selectable[data-v-00d63ebe] {\n    cursor: pointer;\n}\n.selected-image[data-v-00d63ebe] {\n    background: darkred;\n    border: 1px solid red;\n}\n", ""]);
+exports.push([module.i, "\n.selectable[data-v-00d63ebe] {\r\n    cursor: pointer;\n}\n.selected-image[data-v-00d63ebe] {\r\n    background: darkred;\r\n    border: 1px solid red;\n}\r\n", ""]);
 
 // exports
 
@@ -63187,7 +62688,7 @@ var content = __webpack_require__(456);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("390a1ed0", content, false, {});
+var update = __webpack_require__(8)("ff87c3aa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63211,7 +62712,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\n    cursor: pointer;\n    background: #38c172;\n    border: 1px solid green;\n}\n", ""]);
+exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    border: 1px solid green;\n}\r\n", ""]);
 
 // exports
 
@@ -63989,7 +63490,9 @@ var staticRenderFns = [
         attrs: { src: "/img/shift_logo_white.png", alt: "Shift Logo" }
       }),
       _vm._v(" "),
-      _c("p", { staticClass: "version-text" }, [_vm._v("Alpha Version")]),
+      _c("p", { staticClass: "version-text" }, [
+        _vm._v("v0.1.1 - Alpha Version")
+      ]),
       _vm._v(" "),
       _c("p", { staticClass: "contact-text" }, [
         _vm._v("Found a bug? Have a feature request?")
@@ -64021,7 +63524,7 @@ var content = __webpack_require__(467);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("2baff68c", content, false, {});
+var update = __webpack_require__(8)("38b53ac2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -65497,6 +65000,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rows", function() { return rows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columns", function() { return columns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActiveElementIndexes", function() { return getActiveElementIndexes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "notification", function() { return notification; });
@@ -65508,7 +65013,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveColumnRight", function() { return canMoveColumnRight; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveComponentUp", function() { return canMoveComponentUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveComponentDown", function() { return canMoveComponentDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElement", function() { return getElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aCanvasIsSelected", function() { return aCanvasIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aRowIsSelected", function() { return aRowIsSelected; });
@@ -65552,9 +65056,30 @@ var columns = function columns(state) {
  */
 var components = function components(state) {
     return function (i) {
-        console.table(i);
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components;
     };
+};
+
+/**
+ * Returns the index values from the state.active object.
+ *
+ */
+var getActiveElementIndexes = function getActiveElementIndexes(state) {
+    return state.active;
+};
+
+/**
+ * Returns the currently selected element. This can be either a Canvas, Row or a Component.
+ * This is used for 'micro' components, as they have no knowledge of their indexes.
+ * 
+ */
+var getCurrentElement = function getCurrentElement(state) {
+    // The active canvas will be undefined when the app first starts. Return null to fix errors.
+    if (state.active.canvas === undefined) {
+        return null;
+    }
+
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* getSelectedElement */])(state);
 };
 
 /**
@@ -65668,20 +65193,6 @@ var canMoveComponentDown = function canMoveComponentDown(state) {
 };
 
 /**
- * Returns the currently selected element. This can be either a Canvas or a Component.
- * This is used for 'core' components, as they have no knowledge of their indexes.
- * 
- */
-var getCurrentElement = function getCurrentElement(state) {
-    // The active canvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.active.canvas === undefined) {
-        return null;
-    }
-
-    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* getSelectedElement */])(state);
-};
-
-/**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
  * 
  */
@@ -65755,16 +65266,13 @@ var elementIsSelected = function elementIsSelected(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetSelection", function() { return resetSelection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotification", function() { return setNotification; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCanvas", function() { return deleteCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteColumn", function() { return deleteColumn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComponent", function() { return deleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteElement", function() { return deleteElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneCanvas", function() { return cloneCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneColumn", function() { return cloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
@@ -65791,17 +65299,6 @@ var _this = this;
 
 
 
-
-/**
- * Clears the current selection.
- *
- */
-var resetSelection = function resetSelection(state) {
-    window.Vue.set(state.active, "canvas", undefined);
-    window.Vue.set(state.active, "row", undefined);
-    window.Vue.set(state.active, "column", undefined);
-    window.Vue.set(state.active, "component", undefined);
-};
 
 /**
  * Sets the state of the notification object.
@@ -65856,33 +65353,21 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
 };
 
 /**
- * Deletes the selected Canvas
+ * Deletes the selected Element
  *
  */
-var deleteCanvas = function deleteCanvas(state) {
-    state.canvases.splice(state.active.canvas, 1);
-    state.active.canvas = undefined;
-};
-
-/**
- * Removes a column from the specified canvas. We deselect it first to prevent errors.
- *
- */
-var deleteColumn = function deleteColumn(state) {
-    state.canvases[state.active.canvas].columns.splice(state.active.column, 1);
-    state.active.column = undefined;
-};
-
-/**
- * Deletes a Component from a column.
- *
- */
-var deleteComponent = function deleteComponent(state) {
+var deleteElement = function deleteElement(state) {
     if (state.active.component !== undefined) {
         state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.splice(state.active.component, 1);
+    } else if (state.active.column !== undefined) {
+        state.canvases[state.active.canvas].rows[state.active.row].columns.splice(state.active.column, 1);
+    } else if (state.active.row !== undefined) {
+        state.canvases[state.active.canvas].rows.splice(state.active.row, 1);
+    } else {
+        state.canvases.splice(state.active.canvas, 1);
     }
 
-    state.active.component = undefined;
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* resetSelection */])(state);
 };
 
 /**
@@ -65924,10 +65409,10 @@ var cloneColumn = function cloneColumn(state, destCanvasIndex) {
  * Clones the selected Component to the specified position.
  *
  */
-var cloneComponent = function cloneComponent(state, indexes) {
+var cloneComponent = function cloneComponent(state, i) {
     var component = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
 
-    state.canvases[indexes.canvasIndex].columns[indexes.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(component));
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(component));
 };
 
 /**
@@ -66067,7 +65552,7 @@ var addColumnToRow = function addColumnToRow(state, columnWidth) {
  *
  */
 var selectElement = function selectElement(state, i) {
-    _this.resetSelection(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* resetSelection */])(state);
 
     i.canvasIndex !== undefined ? window.Vue.set(state.active, "canvas", i.canvasIndex) : undefined;
     i.rowIndex !== undefined ? window.Vue.set(state.active, "row", i.rowIndex) : undefined;
@@ -88440,6 +87925,426 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 558 */,
+/* 559 */,
+/* 560 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(561)
+/* template */
+var __vue_template__ = __webpack_require__(562)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/DeleteElement.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-80b520d2", Component.options)
+  } else {
+    hotAPI.reload("data-v-80b520d2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 561 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "DeleteElement",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        deleteElement: function deleteElement() {
+            this.$store.commit('deleteElement');
+        }
+    }
+});
+
+/***/ }),
+/* 562 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: {
+      variant: "outline-danger",
+      icon: "times",
+      tooltip: "Delete Element"
+    },
+    nativeOn: {
+      click: function($event) {
+        return _vm.deleteElement($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-80b520d2", module.exports)
+  }
+}
+
+/***/ }),
+/* 563 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(564)
+/* template */
+var __vue_template__ = __webpack_require__(565)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/CloneElement.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f8d6bcee", Component.options)
+  } else {
+    hotAPI.reload("data-v-f8d6bcee", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 564 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "CloneElement",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    computed: {
+        currentIndexes: function currentIndexes() {
+            return this.$store.getters.getActiveElementIndexes;
+        },
+        menuOptions: function menuOptions() {
+            var indexes = {
+                canvasIndex: this.currentIndexes.canvas,
+                rowIndex: this.currentIndexes.row
+            };
+
+            var menus = {
+                canvases: [],
+                rows: [],
+                columns: []
+            };
+
+            this.$store.getters.canvases.forEach(function (canvas, index) {
+                menus.canvases.push({
+                    text: 'Canvas ' + (index + 1),
+                    value: index
+                });
+            });
+
+            this.$store.getters.rows(indexes).forEach(function (row, index) {
+                menus.rows.push({
+                    text: 'Row ' + (index + 1),
+                    value: index
+                });
+            });
+
+            if (indexes.rowIndex !== undefined) {
+                this.$store.getters.columns(indexes).forEach(function (column, index) {
+                    menus.columns.push({
+                        text: 'Column ' + (index + 1),
+                        value: index
+                    });
+                });
+            }
+
+            return menus;
+        }
+    },
+
+    data: function data() {
+        return {
+            showPopover: false,
+            selectedCanvasIndex: undefined,
+            selectedRowIndex: undefined,
+            selectedColumnIndex: undefined
+        };
+    },
+
+
+    methods: {
+        cloneElement: function cloneElement() {
+            this.$store.commit('cloneElement', {
+                canvasIndex: this.selectedCanvasIndex,
+                rowIndex: this.selectedRowIndex,
+                columnIndex: this.selectedColumnIndex
+            });
+
+            this.showPopover = false;
+        }
+    }
+});
+
+/***/ }),
+/* 565 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          variant: "outline-info",
+          icon: "clone",
+          tooltip: "Clone Element",
+          id: "clone-element-popover"
+        },
+        on: {
+          click: function($event) {
+            _vm.showPopover = true
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        {
+          attrs: {
+            target: "clone-element-popover",
+            placement: "bottomright",
+            show: _vm.showPopover
+          },
+          on: {
+            "update:show": function($event) {
+              _vm.showPopover = $event
+            }
+          }
+        },
+        [
+          _vm.currentIndexes.row !== undefined
+            ? _c(
+                "b-row",
+                { staticStyle: { width: "250px" } },
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Canvas")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.menuOptions.canvases },
+                        model: {
+                          value: _vm.selectedCanvasIndex,
+                          callback: function($$v) {
+                            _vm.selectedCanvasIndex = $$v
+                          },
+                          expression: "selectedCanvasIndex"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("br")
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.currentIndexes.column !== undefined
+            ? _c(
+                "b-row",
+                { staticStyle: { width: "250px" } },
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Rows")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.menuOptions.rows },
+                        model: {
+                          value: _vm.selectedRowIndex,
+                          callback: function($$v) {
+                            _vm.selectedRowIndex = $$v
+                          },
+                          expression: "selectedRowIndex"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("br")
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { variant: "success" },
+                      on: { click: _vm.cloneElement }
+                    },
+                    [_vm._v("Clone")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f8d6bcee", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
