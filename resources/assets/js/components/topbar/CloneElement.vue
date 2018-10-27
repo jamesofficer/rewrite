@@ -3,38 +3,32 @@
         <top-bar-control variant="outline-info" icon="clone" tooltip="Clone Element" id="clone-element-popover" @click="showPopover = true"></top-bar-control>
 
         <b-popover target="clone-element-popover" placement="bottomright" :show.sync="showPopover">
-            <b-row v-if="currentIndexes.row !== undefined" style="width: 250px">
+            <!-- If a Canvas is selected, we do not need to specify a position to clone it to -->
+
+            <!-- If a Row is selected, we can clone that Row to other Canvases -->
+            <b-row v-if="elementType === 'Row' || elementType === 'Column' || elementType === 'Component'" style="width: 250px">
                 <b-col>
                     <h6>Destination Canvas</h6>
-
-                    <b-form-select v-model="selectedCanvasIndex" :options="menuOptions.canvases"></b-form-select>
+                    <b-form-select v-model="selectedCanvasIndex" :options="canvases"></b-form-select>
                 </b-col>
-
-                <br>
             </b-row>
 
-
-            <b-row v-if="currentIndexes.column !== undefined" style="width: 250px">
+            <!-- If a Column is selected, we can clone that Row to other Canvases -->
+            <b-row v-if="elementType === 'Column' || elementType === 'Component'" style="width: 250px">
                 <b-col>
                     <h6>Destination Rows</h6>
-
-                    <b-form-select v-model="selectedRowIndex" :options="menuOptions.rows"></b-form-select>
+                    <b-form-select v-model="selectedRowIndex" :options="rows"></b-form-select>
                 </b-col>
-
-                <br>
             </b-row>
 
-<!-- 
-
-            <b-row>
+            <!-- If a Component is selected, we can clone that Component to other Columns -->
+            <b-row v-if="elementType === 'Component'">
                 <b-col>
                     <h6>Destination Column</h6>
 
-                    <b-form-select v-model="columnIndex" :options="columns"></b-form-select>
+                    <b-form-select v-model="selectedColumnIndex" :options="columns"></b-form-select>
                 </b-col>
             </b-row>
-
-            <br> -->
 
             <b-row>
                 <b-col>
@@ -53,47 +47,68 @@ export default {
 
     components: { TopBarControl },
 
+    props: {
+        elementType: {
+            type: String,
+            required: true,
+        }
+    },
+
     computed: {
         currentIndexes() {
-            return this.$store.getters.getActiveElementIndexes;            
+            const active = this.$store.getters.getActiveElementIndexes;
+
+            return {
+                canvasIndex: active.canvas,
+                rowIndex: active.row,
+                column: active.column,
+                component: active.component,
+            }
         },
 
-        menuOptions() {
-            let indexes = {
-                canvasIndex: this.currentIndexes.canvas,
-                rowIndex: this.currentIndexes.row,
-            }
-
-            let menus = {
-                canvases: [],
-                rows: [],
-                columns: [],
-            };
+        canvases() {
+            let canvases = [];
 
             this.$store.getters.canvases.forEach(function (canvas, index) {
-                menus.canvases.push({
+                canvases.push({
                     text: 'Canvas ' + (index + 1),
                     value: index,
                 });
             });
 
-            this.$store.getters.rows(indexes).forEach(function (row, index) {
-                menus.rows.push({
+            this.selectedCanvasIndex = 0;
+
+            return canvases;
+        },
+
+        rows() {
+            let rows = [];
+
+            this.$store.getters.rows(this.currentIndexes).forEach(function (row, index) {
+                rows.push({
                     text: 'Row ' + (index + 1),
                     value: index,
                 });
             });
 
-            if (indexes.rowIndex !== undefined) {
-                this.$store.getters.columns(indexes).forEach(function (column, index) {
-                    menus.columns.push({
-                        text: 'Column ' + (index + 1),
-                        value: index,
-                    });
-                });
-            }
+            this.selectedRowIndex = 0;
 
-            return menus;
+            return rows;
+        },
+
+        columns() {
+            let columns = [];
+
+            this.$store.getters.columns(this.currentIndexes).forEach(function (column, index) {
+                columns.push({
+                    text: 'Column ' + (index + 1),
+                    value: index,
+                });
+            });
+
+            this.selectedColumnIndex = 0;
+            
+            return columns;        
         },
     },
 
@@ -109,6 +124,7 @@ export default {
     methods: {
         cloneElement() {
             this.$store.commit('cloneElement', {
+                type: this.elementType,
                 canvasIndex: this.selectedCanvasIndex,
                 rowIndex: this.selectedRowIndex,
                 columnIndex: this.selectedColumnIndex,

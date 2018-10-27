@@ -16,7 +16,7 @@
         <top-bar v-if="elementIsSelected">
             <delete-element></delete-element>
 
-            <clone-element></clone-element>
+            <clone-element elementType="Row"></clone-element>
         </top-bar>
     </b-row>
 </template>

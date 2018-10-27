@@ -5,21 +5,21 @@
         :class="{ 'selected-element': elementIsSelected }"
     >
         <component v-for="(component, componentIndex) in components"
-                    :is="component.type"
-                    :key="componentIndex"
-                    :canvasIndex="canvasIndex"
-                    :rowIndex="rowIndex"
-                    :columnIndex="columnIndex"
-                    :componentIndex="componentIndex"
-                    @click.native.stop="selectElement(componentIndex)"
-                    class="selectable-element"
+            :is="component.type"
+            :key="componentIndex"
+            :canvasIndex="canvasIndex"
+            :rowIndex="rowIndex"
+            :columnIndex="columnIndex"
+            :componentIndex="componentIndex"
+            @click.native.stop="selectElement(componentIndex)"
+            class="selectable-element"
         ></component>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-element></delete-element>
 
-            <clone-element></clone-element>
+            <clone-element elementType="Column"></clone-element>
 
             <!-- <move-column></move-column> -->
 

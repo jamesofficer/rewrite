@@ -79,6 +79,25 @@ export const deleteElement = state => {
  * Clones the selected Canvas below it's current position.
  *
  */
+export const cloneElement = (state, i) => {
+    if (i.type === 'Canvas') {
+        this.cloneCanvas(state);
+    }
+    else if (i.type === 'Row') {
+        this.cloneRow(state, i);
+    }
+    else if (i.type === 'Column') {
+        this.cloneColumn(state, i);
+    }
+    else {
+        this.cloneComponent(state, i);
+    }
+};
+
+/**
+ * Clones the selected Canvas below it's current position.
+ *
+ */
 export const cloneCanvas = state => {
     const canvas = state.canvases[state.active.canvas];
 
@@ -86,15 +105,25 @@ export const cloneCanvas = state => {
 };
 
 /**
+ * Clones the selected Row to the specified position.
+ *
+ */
+export const cloneRow = (state, i) => {
+    const row = state.canvases[state.active.canvas].rows[state.active.row];
+
+    state.canvases[i.canvasIndex].rows.splice(0, 0, duplicateObject(row));
+};
+
+/**
  * Clones the selected Column to the specified position.
  *
  */
-export const cloneColumn = (state, destCanvasIndex) => {
+export const cloneColumn = (state, i) => {
     const column = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
 
     let totalColumnWidth = 0;
 
-    state.canvases[destCanvasIndex].columns.forEach(function (column) {
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
         totalColumnWidth += column.columnWidth;
     });
 
@@ -106,7 +135,7 @@ export const cloneColumn = (state, destCanvasIndex) => {
             type: 'warning',
         });
     } else {
-        state.canvases[destCanvasIndex].columns.splice(0, 0, duplicateObject(column));
+        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, duplicateObject(column));
     }
 };
 

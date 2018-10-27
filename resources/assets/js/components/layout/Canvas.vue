@@ -17,7 +17,7 @@
         <top-bar v-if="elementIsSelected">
             <delete-element></delete-element>
 
-            <clone-element></clone-element>
+            <clone-element elementType="Canvas"></clone-element>
 
             <move-canvas></move-canvas>
 

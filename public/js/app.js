@@ -23382,7 +23382,7 @@ module.exports = Component.exports
     type: "Canvas",
     selected: false,
 
-    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */], __WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
+    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
 
     // Properties:
     backgroundSize: 'Auto',
@@ -46241,7 +46241,7 @@ var content = __webpack_require__(244);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("017ec4bc", content, false, {});
+var update = __webpack_require__(8)("2ed4d7c9", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46265,7 +46265,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.shift-canvas[data-v-667f58a0] {\r\n    background: green !important;\r\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\r\n    background: darkgreen !important;\n}\n.top-bar-wrapper[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 0;\r\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-top: 5px solid #38c172;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\r\n    margin-top: 75px;\r\n    padding: 0 25px;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 5px 15px 30px 15px;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\r\n    padding: 50px 0;\r\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\r\n    -webkit-filter: brightness(80%);\r\n            filter: brightness(80%);\r\n    width: 150px;\r\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\r\n    color: #bbb;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.contact-text[data-v-667f58a0] {\r\n    color: #bbb;\r\n    font-size: 0.8em;\r\n    margin: 0;\r\n    padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-wrapper[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\n    margin-top: 75px;\n    padding: 0 25px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 5px 15px 30px 15px;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.footer-logo-wrapper[data-v-667f58a0] {\n    padding: 50px 0;\n    text-align: center;\n}\n.footer-logo[data-v-667f58a0] {\n    -webkit-filter: brightness(80%);\n            filter: brightness(80%);\n    width: 150px;\n    margin: 0 auto;\n}\n.version-text[data-v-667f58a0] {\n    color: #bbb;\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n.contact-text[data-v-667f58a0] {\n    color: #bbb;\n    font-size: 0.8em;\n    margin: 0;\n    padding: 0;\n}\n", ""]);
 
 // exports
 
@@ -46916,7 +46916,7 @@ var content = __webpack_require__(253);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("5b005090", content, false, {});
+var update = __webpack_require__(8)("1d2645aa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46940,7 +46940,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.article-name-container[data-v-4b560334] {\r\n    margin: 20px 0;\n}\n.article-name-label[data-v-4b560334] {\r\n    text-transform: uppercase;\r\n    font-weight: 400;\r\n    font-size: 0.8em;\r\n    color: #aaa;\n}\n.shift-article-name[data-v-4b560334] {\r\n    padding-bottom: 10px;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-4b560334] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-4b560334]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-4b560334]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\r\n", ""]);
+exports.push([module.i, "\n.article-name-container[data-v-4b560334] {\n    margin: 20px 0;\n}\n.article-name-label[data-v-4b560334] {\n    text-transform: uppercase;\n    font-weight: 400;\n    font-size: 0.8em;\n    color: #aaa;\n}\n.shift-article-name[data-v-4b560334] {\n    padding-bottom: 10px;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-4b560334] {\n    margin: 20px 0 30px 0;\n    padding: 15px;\n    background: none;\n    color: #38c172;\n    font-family: \"Muli\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n    font-size: 1.8rem;\n    font-weight: 500;\n    font-style: italic;\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-4b560334]:focus {\n    outline: 0;\n}\n.shift-article-name[data-v-4b560334]:hover {\n    cursor: pointer;\n    color: gray;\n    border-bottom: 1px dashed gray;\n}\n", ""]);
 
 // exports
 
@@ -47138,7 +47138,7 @@ var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("42837854", content, false, {});
+var update = __webpack_require__(8)("04a96d6e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47162,7 +47162,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.session-alert-message {\r\n    margin-top: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.session-alert-message {\n    margin-top: 15px;\n}\n", ""]);
 
 // exports
 
@@ -47326,7 +47326,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Row__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_TopBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement__ = __webpack_require__(563);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_CloneElement__);
@@ -47506,7 +47506,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Column__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement__ = __webpack_require__(563);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_CloneElement__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_DeleteElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_TopBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_TopBar__);
@@ -47635,7 +47635,7 @@ var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("13ec9391", content, false, {});
+var update = __webpack_require__(8)("51c14ff8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47659,7 +47659,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.component-button-group[data-v-f5dbb818] {\r\n    margin: 3px 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.component-button-group[data-v-f5dbb818] {\n    margin: 3px 0;\n}\n", ""]);
 
 // exports
 
@@ -47677,7 +47677,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__topbar_AddComponentButton__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_AlignComponents__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__topbar_DeleteElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement__ = __webpack_require__(563);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__topbar_CloneElement__);
@@ -47976,7 +47976,7 @@ var content = __webpack_require__(276);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("cc33fa54", content, false, {});
+var update = __webpack_require__(8)("05b6557a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48000,7 +48000,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\r\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\r\n    width: 135px;\r\n    height: 175px;\n}\r\n", ""]);
+exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin: 0 5px;\n}\n.card[data-v-1cbef5b4]:hover {\n    cursor: pointer;\n    background: #38c172;\n}\n.card-img-top[data-v-1cbef5b4] {\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n.component-card[data-v-1cbef5b4] {\n    width: 135px;\n    height: 175px;\n}\n", ""]);
 
 // exports
 
@@ -48805,7 +48805,7 @@ var content = __webpack_require__(293);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("0769534c", content, false, {});
+var update = __webpack_require__(8)("9c22b382", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48829,7 +48829,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-column-wrapper[data-v-b0bc449e] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.move-column-wrapper[data-v-b0bc449e] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -49978,7 +49978,7 @@ var content = __webpack_require__(316);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("5957936a", content, false, {});
+var update = __webpack_require__(8)("391792be", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50717,7 +50717,7 @@ var content = __webpack_require__(323);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("60fb652d", content, false, {});
+var update = __webpack_require__(8)("b93544e6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50887,7 +50887,7 @@ var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("08a63978", content, false, {});
+var update = __webpack_require__(8)("af571f9e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50911,7 +50911,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50922,10 +50922,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteElement__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteElement__ = __webpack_require__(562);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DeleteElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DeleteElement__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneComponent__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CloneComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneElement__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CloneElement___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CloneElement__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MoveComponent__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MoveComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__MoveComponent__);
 //
@@ -50946,8 +50946,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "DeleteCloneMove",
 
+    props: {
+        // We default this to a Component so we don't have to declare it manually for each Component.
+        elementType: {
+            type: String,
+            default: "Component"
+        }
+    },
+
     components: {
-        DeleteElement: __WEBPACK_IMPORTED_MODULE_0__DeleteElement___default.a, CloneComponent: __WEBPACK_IMPORTED_MODULE_1__CloneComponent___default.a, MoveComponent: __WEBPACK_IMPORTED_MODULE_2__MoveComponent___default.a
+        DeleteElement: __WEBPACK_IMPORTED_MODULE_0__DeleteElement___default.a, CloneElement: __WEBPACK_IMPORTED_MODULE_1__CloneElement___default.a, MoveComponent: __WEBPACK_IMPORTED_MODULE_2__MoveComponent___default.a
     }
 });
 
@@ -51010,343 +51018,9 @@ if (false) {
 }
 
 /***/ }),
-/* 330 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(331)
-/* template */
-var __vue_template__ = __webpack_require__(332)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/topbar/CloneComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-65a7e46c", Component.options)
-  } else {
-    hotAPI.reload("data-v-65a7e46c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 331 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "CloneComponent",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    computed: {
-        canvases: function canvases() {
-            var canvasOptions = [];
-
-            this.$store.getters.canvases.forEach(function (canvas, index) {
-                canvasOptions.push({
-                    text: 'Canvas #' + (index + 1),
-                    value: index
-                });
-            });
-
-            return canvasOptions;
-        },
-        rows: function rows() {
-            var rowOptions = [];
-            var rows = this.$store.getters.rows({
-                canvasIndex: this.canvasIndex,
-                rowIndex: this.rowIndex,
-                columnIndex: this.columnIndex
-            });
-
-            for (var i = 0; i < rows.length; i++) {
-                rowOptions.push({
-                    text: 'row #' + (i + 1),
-                    value: i
-                });
-            }
-
-            return rowOptions;
-        },
-        columns: function columns() {
-            var columnOptions = [];
-            var columns = this.$store.getters.columns({
-                canvasIndex: this.canvasIndex,
-                rowIndex: this.rowIndex
-            });
-
-            for (var i = 0; i < columns.length; i++) {
-                columnOptions.push({
-                    text: 'Column #' + (i + 1),
-                    value: i
-                });
-            }
-
-            return columnOptions;
-        }
-    },
-
-    data: function data() {
-        return {
-            showPopover: false,
-            canvasIndex: 0,
-            rowIndex: 0,
-            columnIndex: 0
-        };
-    },
-
-
-    methods: {
-        cloneComponent: function cloneComponent() {
-            this.$store.commit('cloneComponent', {
-                canvasIndex: this.canvasIndex,
-                rowIndex: this.rowIndex,
-                columnIndex: this.columnIndex
-            });
-
-            this.showPopover = false;
-        }
-    }
-});
-
-/***/ }),
-/* 332 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          variant: "outline-info",
-          icon: "clone",
-          tooltip: "Clone Component",
-          id: "clone-component-popover"
-        },
-        on: {
-          click: function($event) {
-            _vm.showPopover = true
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        {
-          attrs: {
-            target: "clone-component-popover",
-            placement: "bottomright",
-            show: _vm.showPopover
-          },
-          on: {
-            "update:show": function($event) {
-              _vm.showPopover = $event
-            }
-          }
-        },
-        [
-          _c(
-            "b-row",
-            { staticStyle: { width: "250px" } },
-            [
-              _c(
-                "b-col",
-                [
-                  _c("h6", [_vm._v("Destination Canvas")]),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    attrs: { options: _vm.canvases },
-                    model: {
-                      value: _vm.canvasIndex,
-                      callback: function($$v) {
-                        _vm.canvasIndex = $$v
-                      },
-                      expression: "canvasIndex"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c("h6", [_vm._v("Destination Rows")]),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    attrs: { options: _vm.rows },
-                    model: {
-                      value: _vm.rowIndex,
-                      callback: function($$v) {
-                        _vm.rowIndex = $$v
-                      },
-                      expression: "rowIndex"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c("h6", [_vm._v("Destination Column")]),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    attrs: { options: _vm.columns },
-                    model: {
-                      value: _vm.columnIndex,
-                      callback: function($$v) {
-                        _vm.columnIndex = $$v
-                      },
-                      expression: "columnIndex"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { variant: "success" },
-                      on: { click: _vm.cloneComponent }
-                    },
-                    [_vm._v("Clone")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-65a7e46c", module.exports)
-  }
-}
-
-/***/ }),
+/* 330 */,
+/* 331 */,
+/* 332 */,
 /* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -51408,7 +51082,7 @@ var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("4f03ad6c", content, false, {});
+var update = __webpack_require__(8)("00139199", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51432,7 +51106,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-component-wrapper[data-v-55a3091c] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.move-component-wrapper[data-v-55a3091c] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -51546,7 +51220,7 @@ var render = function() {
     [
       _c("delete-element"),
       _vm._v(" "),
-      _c("clone-component"),
+      _c("clone-element", { attrs: { elementType: _vm.elementType } }),
       _vm._v(" "),
       _c("move-component")
     ],
@@ -51574,7 +51248,7 @@ var content = __webpack_require__(340);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("899c7ebe", content, false, {});
+var update = __webpack_require__(8)("04952b4e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51598,7 +51272,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\r\n    background: none;\r\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\r\n    margin-bottom: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.hide-input-styles[data-v-26e26b64] {\n    background: none;\n    border: none;\n}\n.add-bottom-margin[data-v-26e26b64] {\n    margin-bottom: 15px;\n}\n", ""]);
 
 // exports
 
@@ -52667,7 +52341,7 @@ var content = __webpack_require__(361);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("e5aa8902", content, false, {});
+var update = __webpack_require__(8)("462084ac", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59483,23 +59157,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             set: function set(amount) {
 
                 /*
-                  if (amount > 59)
+                 if (amount > 59)
                 {
-                      let hours = 0;
-                      while(amount > 59)
+                     let hours = 0;
+                     while(amount > 59)
                     {
-                          amount = amount - 60;
+                         amount = amount - 60;
                         hours++;
-                      }
-                      let total;
+                     }
+                     let total;
                    // let unit = 'MIN';
-                      if (amount == 0) // Complete Hours
+                     if (amount == 0) // Complete Hours
                     {
                         
                         total = hours + ' hr';
-                          this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
+                         this.$store.commit('setComponentProperty', { property: 'contentPreparation', value: total });
                        // this.$store.commit('setComponentProperty', { property: 'unitPreparation', value: undefined });
-                      }
+                     }
                     else // Hour + Min
                     {
                         total = hours + ' hr ' + amount;
@@ -60039,7 +59713,7 @@ var content = __webpack_require__(403);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("1d6a9212", content, false, {});
+var update = __webpack_require__(8)("6761b757", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60063,7 +59737,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.food-name[data-v-d6f949a6] {\r\n    padding: 5px 0;\r\n    color: #666666;\n}\n.cooks-notes-text[data-v-d6f949a6] {\r\n    color: #666666;\n}\r\n", ""]);
+exports.push([module.i, "\n.food-name[data-v-d6f949a6] {\n    padding: 5px 0;\n    color: #666666;\n}\n.cooks-notes-text[data-v-d6f949a6] {\n    color: #666666;\n}\n", ""]);
 
 // exports
 
@@ -60282,7 +59956,7 @@ var content = __webpack_require__(408);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("53954e6e", content, false, {});
+var update = __webpack_require__(8)("5ac9f821", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60306,7 +59980,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\r\n    margin-bottom: 5px;\n}\r\n", ""]);
+exports.push([module.i, "\n.ingredient-input[data-v-2e109094] {\n    margin-bottom: 5px;\n}\n", ""]);
 
 // exports
 
@@ -60931,7 +60605,11 @@ var render = function() {
       _vm.elementIsSelected
         ? _c(
             "top-bar",
-            [_c("delete-element"), _vm._v(" "), _c("clone-element")],
+            [
+              _c("delete-element"),
+              _vm._v(" "),
+              _c("clone-element", { attrs: { elementType: "Column" } })
+            ],
             1
           )
         : _vm._e()
@@ -60985,7 +60663,11 @@ var render = function() {
       _vm.elementIsSelected
         ? _c(
             "top-bar",
-            [_c("delete-element"), _vm._v(" "), _c("clone-element")],
+            [
+              _c("delete-element"),
+              _vm._v(" "),
+              _c("clone-element", { attrs: { elementType: "Row" } })
+            ],
             1
           )
         : _vm._e()
@@ -61071,7 +60753,7 @@ var content = __webpack_require__(423);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("0f340223", content, false, {});
+var update = __webpack_require__(8)("8c8d55d4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61095,7 +60777,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.move-canvas-wrapper[data-v-7c58aeb3] {\r\n    display: inherit;\r\n    margin-right: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.move-canvas-wrapper[data-v-7c58aeb3] {\n    display: inherit;\n    margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -61484,7 +61166,7 @@ var render = function() {
             [
               _c("delete-element"),
               _vm._v(" "),
-              _c("clone-element"),
+              _c("clone-element", { attrs: { elementType: "Canvas" } }),
               _vm._v(" "),
               _c("move-canvas"),
               _vm._v(" "),
@@ -61672,7 +61354,7 @@ var content = __webpack_require__(438);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("6d06ff32", content, false, {});
+var update = __webpack_require__(8)("02331ddf", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61696,7 +61378,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    right: 10px;\r\n    background: white;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    width: 300px;\r\n    height: 300px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n}\n.minimap-header[data-v-f9ee2f1e] {\r\n    background: #38c172;\r\n    color: white;\r\n    padding: 10px;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\r\n    height: 100%;\r\n    padding: 10px;\r\n    overflow-y: scroll;\r\n    z-index: 5;\n}\r\n", ""]);
+exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 0;\n    right: 10px;\n    background: white;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    width: 300px;\n    height: 300px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 10px;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    padding: 10px;\n    overflow-y: scroll;\n    z-index: 5;\n}\n", ""]);
 
 // exports
 
@@ -61873,7 +61555,7 @@ var content = __webpack_require__(443);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("6d0e7ff8", content, false, {});
+var update = __webpack_require__(8)("590f6bf7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61897,7 +61579,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.selected-article {\r\n    background: #38c172;\n}\n.article-card-container {\r\n    display: inline-block;\n}\n#saved-articles-container {\r\n    height: 430px;\r\n    overflow-y: scroll;\n}\n.article-card {\r\n    width: 175px;\r\n    height: 200px;\r\n    margin: 0 5px 10px 5px;\n}\n.article-card:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #38c172;\n}\n.article-name-text {\r\n    margin-top: 15px;\r\n    margin-bottom: 10px;\n}\n.last-updated-text {\r\n    margin: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.selected-article {\n    background: #38c172;\n}\n.article-card-container {\n    display: inline-block;\n}\n#saved-articles-container {\n    height: 430px;\n    overflow-y: scroll;\n}\n.article-card {\n    width: 175px;\n    height: 200px;\n    margin: 0 5px 10px 5px;\n}\n.article-card:hover {\n    cursor: pointer;\n    border: 1px solid #38c172;\n}\n.article-name-text {\n    margin-top: 15px;\n    margin-bottom: 10px;\n}\n.last-updated-text {\n    margin: 0;\n}\n", ""]);
 
 // exports
 
@@ -62229,7 +61911,7 @@ var content = __webpack_require__(448);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("0e9af572", content, false, {});
+var update = __webpack_require__(8)("02ed9634", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62253,7 +61935,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.selectable[data-v-00d63ebe] {\r\n    cursor: pointer;\n}\n.selected-image[data-v-00d63ebe] {\r\n    background: darkred;\r\n    border: 1px solid red;\n}\r\n", ""]);
+exports.push([module.i, "\n.selectable[data-v-00d63ebe] {\n    cursor: pointer;\n}\n.selected-image[data-v-00d63ebe] {\n    background: darkred;\n    border: 1px solid red;\n}\n", ""]);
 
 // exports
 
@@ -62688,7 +62370,7 @@ var content = __webpack_require__(456);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("ff87c3aa", content, false, {});
+var update = __webpack_require__(8)("390a1ed0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62712,7 +62394,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    border: 1px solid green;\n}\r\n", ""]);
+exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\n    cursor: pointer;\n    background: #38c172;\n    border: 1px solid green;\n}\n", ""]);
 
 // exports
 
@@ -63524,7 +63206,7 @@ var content = __webpack_require__(467);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(8)("38b53ac2", content, false, {});
+var update = __webpack_require__(8)("2baff68c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -65273,7 +64955,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteElement", function() { return deleteElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneElement", function() { return cloneElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneCanvas", function() { return cloneCanvas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneRow", function() { return cloneRow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneColumn", function() { return cloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvasUp", function() { return moveCanvasUp; });
@@ -65374,6 +65058,22 @@ var deleteElement = function deleteElement(state) {
  * Clones the selected Canvas below it's current position.
  *
  */
+var cloneElement = function cloneElement(state, i) {
+    if (i.type === 'Canvas') {
+        _this.cloneCanvas(state);
+    } else if (i.type === 'Row') {
+        _this.cloneRow(state, i);
+    } else if (i.type === 'Column') {
+        _this.cloneColumn(state, i);
+    } else {
+        _this.cloneComponent(state, i);
+    }
+};
+
+/**
+ * Clones the selected Canvas below it's current position.
+ *
+ */
 var cloneCanvas = function cloneCanvas(state) {
     var canvas = state.canvases[state.active.canvas];
 
@@ -65381,15 +65081,25 @@ var cloneCanvas = function cloneCanvas(state) {
 };
 
 /**
+ * Clones the selected Row to the specified position.
+ *
+ */
+var cloneRow = function cloneRow(state, i) {
+    var row = state.canvases[state.active.canvas].rows[state.active.row];
+
+    state.canvases[i.canvasIndex].rows.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(row));
+};
+
+/**
  * Clones the selected Column to the specified position.
  *
  */
-var cloneColumn = function cloneColumn(state, destCanvasIndex) {
+var cloneColumn = function cloneColumn(state, i) {
     var column = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
 
     var totalColumnWidth = 0;
 
-    state.canvases[destCanvasIndex].columns.forEach(function (column) {
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
         totalColumnWidth += column.columnWidth;
     });
 
@@ -65401,7 +65111,7 @@ var cloneColumn = function cloneColumn(state, destCanvasIndex) {
             type: 'warning'
         });
     } else {
-        state.canvases[destCanvasIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(column));
+        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(column));
     }
 };
 
@@ -87929,15 +87639,17 @@ module.exports = function spread(callback) {
 /***/ }),
 /* 558 */,
 /* 559 */,
-/* 560 */
+/* 560 */,
+/* 561 */,
+/* 562 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(561)
+var __vue_script__ = __webpack_require__(564)
 /* template */
-var __vue_template__ = __webpack_require__(562)
+var __vue_template__ = __webpack_require__(565)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -87976,73 +87688,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 561 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "DeleteElement",
-
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
-
-    methods: {
-        deleteElement: function deleteElement() {
-            this.$store.commit('deleteElement');
-        }
-    }
-});
-
-/***/ }),
-/* 562 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("top-bar-control", {
-    attrs: {
-      variant: "outline-danger",
-      icon: "times",
-      tooltip: "Delete Element"
-    },
-    nativeOn: {
-      click: function($event) {
-        return _vm.deleteElement($event)
-      }
-    }
-  })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-80b520d2", module.exports)
-  }
-}
-
-/***/ }),
 /* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(564)
+var __vue_script__ = __webpack_require__(566)
 /* template */
-var __vue_template__ = __webpack_require__(565)
+var __vue_template__ = __webpack_require__(567)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -88092,8 +87746,60 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "DeleteElement",
+
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
+
+    methods: {
+        deleteElement: function deleteElement() {
+            this.$store.commit('deleteElement');
+        }
+    }
+});
+
+/***/ }),
+/* 565 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: {
+      variant: "outline-danger",
+      icon: "times",
+      tooltip: "Delete Element"
+    },
+    nativeOn: {
+      click: function($event) {
+        return _vm.deleteElement($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-80b520d2", module.exports)
+  }
+}
+
+/***/ }),
+/* 566 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
 //
 //
 //
@@ -88143,46 +87849,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
 
+    props: {
+        elementType: {
+            type: String,
+            required: true
+        }
+    },
+
     computed: {
         currentIndexes: function currentIndexes() {
-            return this.$store.getters.getActiveElementIndexes;
-        },
-        menuOptions: function menuOptions() {
-            var indexes = {
-                canvasIndex: this.currentIndexes.canvas,
-                rowIndex: this.currentIndexes.row
-            };
+            var active = this.$store.getters.getActiveElementIndexes;
 
-            var menus = {
-                canvases: [],
-                rows: [],
-                columns: []
+            return {
+                canvasIndex: active.canvas,
+                rowIndex: active.row,
+                column: active.column,
+                component: active.component
             };
+        },
+        canvases: function canvases() {
+            var canvases = [];
 
             this.$store.getters.canvases.forEach(function (canvas, index) {
-                menus.canvases.push({
+                canvases.push({
                     text: 'Canvas ' + (index + 1),
                     value: index
                 });
             });
 
-            this.$store.getters.rows(indexes).forEach(function (row, index) {
-                menus.rows.push({
+            this.selectedCanvasIndex = 0;
+
+            return canvases;
+        },
+        rows: function rows() {
+            var rows = [];
+
+            this.$store.getters.rows(this.currentIndexes).forEach(function (row, index) {
+                rows.push({
                     text: 'Row ' + (index + 1),
                     value: index
                 });
             });
 
-            if (indexes.rowIndex !== undefined) {
-                this.$store.getters.columns(indexes).forEach(function (column, index) {
-                    menus.columns.push({
-                        text: 'Column ' + (index + 1),
-                        value: index
-                    });
-                });
-            }
+            this.selectedRowIndex = 0;
 
-            return menus;
+            return rows;
+        },
+        columns: function columns() {
+            var columns = [];
+
+            this.$store.getters.columns(this.currentIndexes).forEach(function (column, index) {
+                columns.push({
+                    text: 'Column ' + (index + 1),
+                    value: index
+                });
+            });
+
+            this.selectedColumnIndex = 0;
+
+            return columns;
         }
     },
 
@@ -88199,6 +87924,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         cloneElement: function cloneElement() {
             this.$store.commit('cloneElement', {
+                type: this.elementType,
                 canvasIndex: this.selectedCanvasIndex,
                 rowIndex: this.selectedRowIndex,
                 columnIndex: this.selectedColumnIndex
@@ -88210,7 +87936,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 565 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -88249,7 +87975,9 @@ var render = function() {
           }
         },
         [
-          _vm.currentIndexes.row !== undefined
+          _vm.elementType === "Row" ||
+          _vm.elementType === "Column" ||
+          _vm.elementType === "Component"
             ? _c(
                 "b-row",
                 { staticStyle: { width: "250px" } },
@@ -88260,7 +87988,7 @@ var render = function() {
                       _c("h6", [_vm._v("Destination Canvas")]),
                       _vm._v(" "),
                       _c("b-form-select", {
-                        attrs: { options: _vm.menuOptions.canvases },
+                        attrs: { options: _vm.canvases },
                         model: {
                           value: _vm.selectedCanvasIndex,
                           callback: function($$v) {
@@ -88271,15 +87999,13 @@ var render = function() {
                       })
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("br")
+                  )
                 ],
                 1
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.currentIndexes.column !== undefined
+          _vm.elementType === "Column" || _vm.elementType === "Component"
             ? _c(
                 "b-row",
                 { staticStyle: { width: "250px" } },
@@ -88290,7 +88016,7 @@ var render = function() {
                       _c("h6", [_vm._v("Destination Rows")]),
                       _vm._v(" "),
                       _c("b-form-select", {
-                        attrs: { options: _vm.menuOptions.rows },
+                        attrs: { options: _vm.rows },
                         model: {
                           value: _vm.selectedRowIndex,
                           callback: function($$v) {
@@ -88301,9 +88027,34 @@ var render = function() {
                       })
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("br")
+                  )
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.elementType === "Component"
+            ? _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Column")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.columns },
+                        model: {
+                          value: _vm.selectedColumnIndex,
+                          callback: function($$v) {
+                            _vm.selectedColumnIndex = $$v
+                          },
+                          expression: "selectedColumnIndex"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ],
                 1
               )

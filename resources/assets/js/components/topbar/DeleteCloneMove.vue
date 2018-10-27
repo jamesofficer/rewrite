@@ -2,7 +2,7 @@
     <div style="display: inherit">
         <delete-element></delete-element>
 
-        <clone-component></clone-component>
+        <clone-element :elementType="elementType"></clone-element>
 
         <move-component></move-component>
     </div>
@@ -10,15 +10,23 @@
 
 <script>
 import DeleteElement  from "./DeleteElement"
-import CloneComponent from "./CloneComponent"
+import CloneElement from "./CloneElement"
 import MoveComponent  from "./MoveComponent"
 
 export default {
     name: "DeleteCloneMove",
 
+    props: {
+        // We default this to a Component so we don't have to declare it manually for each Component.
+    	elementType: {
+    		type: String,
+            default: "Component"
+    	}
+    },
+
     components: {
-        DeleteElement, CloneComponent, MoveComponent
-    }
+        DeleteElement, CloneElement, MoveComponent
+    },
 }
 </script>
 
