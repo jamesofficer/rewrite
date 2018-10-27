@@ -15,11 +15,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-element></delete-element>
-
-            <clone-element elementType="Canvas"></clone-element>
-
-            <move-canvas></move-canvas>
+            <delete-clone-move-element elementType="Canvas"></delete-clone-move-element>
 
             <add-row></add-row>
 
@@ -51,9 +47,7 @@ import GetElement         from '../mixins/GetElement'
 
 import Row                from './Row'
 import TopBar             from '../topbar/TopBar'
-import DeleteElement      from '../topbar/DeleteElement'
-import CloneElement       from '../topbar/CloneElement'
-import MoveCanvas         from '../topbar/MoveCanvas'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 import AddRow             from '../topbar/AddRow'
 import AlignColumns       from '../topbar/AlignColumns'
 import ClearImage         from '../topbar/ClearImage'
@@ -70,7 +64,7 @@ export default {
 
     components: {
         TopBar, Row,
-        DeleteElement, CloneElement, MoveCanvas, AddRow,
+        DeleteCloneMoveElement, AddRow,
         ClearImage, AlignColumns, BackgroundSize, Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
     },
 

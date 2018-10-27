@@ -82,14 +82,11 @@ export const deleteElement = state => {
 export const cloneElement = (state, i) => {
     if (i.type === 'Canvas') {
         this.cloneCanvas(state);
-    }
-    else if (i.type === 'Row') {
+    } else if (i.type === 'Row') {
         this.cloneRow(state, i);
-    }
-    else if (i.type === 'Column') {
+    } else if (i.type === 'Column') {
         this.cloneColumn(state, i);
-    }
-    else {
+    } else {
         this.cloneComponent(state, i);
     }
 };
@@ -149,40 +146,50 @@ export const cloneComponent = (state, i) => {
     state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, duplicateObject(component));
 };
 
+export const moveElement = (state, element) => {
+    if (element.type === 'Canvas') {
+        this.moveCanvas(state, element.direction);
+    } else if (element.type === 'Row') {
+        this.moveRow(state, element.direction);
+    }
+}
+
 /**
- * Moves a Canvas UP the workspace.
+ * Moves a Canvas the workspace.
  *
  */
-export const moveCanvasUp = state => {
-    if (state.active.canvas !== 0) {
-        const canvasAbove = state.canvases[state.active.canvas - 1];
-        const thisCanvas  = state.canvases[state.active.canvas];
+export const moveCanvas = (state, direction) => {
+    let position = direction === 'up' ? -1 : 1;
 
-        // Swap positions around:
-        window.Vue.set(state.canvases, [state.active.canvas - 1], thisCanvas);
-        window.Vue.set(state.canvases, [state.active.canvas], canvasAbove);
+    // Get the current Canvas and the one above it.
+    const thisCanvas  = state.canvases[state.active.canvas];
+    const canvasAbove = state.canvases[state.active.canvas + (position)];
 
-        // Reselect the moved element:
-        state.active.canvas = state.active.canvas - 1;
-    }
+    // Swap positions around:
+    window.Vue.set(state.canvases, [state.active.canvas + (position)], thisCanvas);
+    window.Vue.set(state.canvases, [state.active.canvas], canvasAbove);
+
+    // Reselect the moved element:
+    state.active.canvas = state.active.canvas + (position);
 };
 
 /**
- * Moves a Canvas DOWN the workspace.
+ * Moves a Row the workspace.
  *
  */
-export const moveCanvasDown = state => {
-    if (state.active.canvas !== (state.canvases.length - 1)) {
-        const canvasBelow = state.canvases[state.active.canvas + 1];
-        const thisCanvas  = state.canvases[state.active.canvas];
+export const moveRow = (state, direction) => {
+    let position = direction === 'up' ? -1 : 1;
 
-        // Swap positions around:
-        window.Vue.set(state.canvases, [state.active.canvas + 1], thisCanvas);
-        window.Vue.set(state.canvases, [state.active.canvas], canvasBelow);
+    // Get the current Row and the one above it.
+    const thisRow  = state.canvases[state.active.canvas].rows;
+    const rowAbove = state.canvases[state.active.canvas].rows[state.active.row + (position)];
 
-        // Reselect the moved element:
-        state.active.canvas = state.active.canvas + 1;
-    }
+    // Swap positions around:
+    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row + (position)], thisRow);
+    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row], rowAbove);
+
+    // Reselect the moved element:
+    state.active.row = state.active.row + (position);
 };
 
 /**

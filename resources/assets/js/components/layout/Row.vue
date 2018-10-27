@@ -14,21 +14,19 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-element></delete-element>
-
-            <clone-element elementType="Row"></clone-element>
+            <delete-clone-move-element elementType="Row"></delete-clone-move-element>
         </top-bar>
     </b-row>
 </template>
 
 <script>
-import GetElement from '../mixins/GetElement'
-import Column from './Column'
-import CloneElement       from '../topbar/CloneElement'
-import DeleteElement       from '../topbar/DeleteElement'
-
-
 import TopBar from '../topbar/TopBar'
+
+import GetElement from '../mixins/GetElement'
+
+import Column from './Column'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
+
 
 export default {
     name: "Row",
@@ -36,7 +34,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Column, CloneElement, DeleteElement
+        TopBar, Column, DeleteCloneMoveElement
     },
 
     computed: {
