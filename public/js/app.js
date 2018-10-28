@@ -20031,7 +20031,9 @@ module.exports = Component.exports
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return resetSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getElementByIndexes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getSiblingElements; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return resetSelection; });
 var duplicateObject = function duplicateObject(object) {
     return JSON.parse(JSON.stringify(object));
 };
@@ -20045,25 +20047,62 @@ var duplicateObject = function duplicateObject(object) {
 var getElement = function getElement(state) {
     var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-    // Return a Component
-    if (state.active.component !== undefined) {
-        return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component + position];
-    }
-
-    // Return a Column
-    if (state.active.column !== undefined) {
-        return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column + position];
+    // Return a Canvas
+    if (state.active.type === 'Canvas') {
+        return state.canvases[state.active.canvas + position];
     }
 
     // Return a Row
-    if (state.active.row !== undefined) {
+    if (state.active.type === 'Row') {
         return state.canvases[state.active.canvas].rows[state.active.row + position];
     }
 
-    // Return a Canvas
-    if (state.active.canvas !== undefined) {
-        return state.canvases[state.active.canvas + position];
+    // Return a Column
+    if (state.active.type === 'Column') {
+        return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column + position];
     }
+
+    // Return a Component
+    if (state.active.type === 'Component') {
+        return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component + position];
+    }
+};
+
+/**
+ * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
+ * 
+ */
+var getElementByIndexes = function getElementByIndexes(state) {
+    return function (i) {
+        // If row, column, and component are undefined, return the canvas.
+        if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+            return state.canvases[i.canvasIndex];
+        }
+
+        // If the component and column are undefined, return the row.
+        if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+            return state.canvases[i.canvasIndex].rows[i.rowIndex];
+        }
+
+        // If the component index is undefined, return the column.
+        if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
+            return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
+        }
+
+        // Otherwise, return the component.
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex];
+    };
+};
+
+/**
+ * Returns the array that the current Element sits in.
+ * 
+ */
+var getSiblingElements = function getSiblingElements(state) {
+    if (state.active.type === 'Canvas') return state.canvases;
+    if (state.active.type === 'Row') return state.canvases[state.active.canvas].rows;
+    if (state.active.type === 'Column') return state.canvases[state.active.canvas].rows[state.active.row].columns;
+    if (state.active.type === 'Component') return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components;
 };
 
 /**
@@ -20071,10 +20110,11 @@ var getElement = function getElement(state) {
  *
  */
 var resetSelection = function resetSelection(state) {
-    window.Vue.set(state.active, "canvas", undefined);
-    window.Vue.set(state.active, "row", undefined);
-    window.Vue.set(state.active, "column", undefined);
+    window.Vue.set(state.active, "type", undefined);
     window.Vue.set(state.active, "component", undefined);
+    window.Vue.set(state.active, "column", undefined);
+    window.Vue.set(state.active, "row", undefined);
+    window.Vue.set(state.active, "canvas", undefined);
 };
 
 /***/ }),
@@ -63811,6 +63851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columns", function() { return columns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActiveElement", function() { return getActiveElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpecifiedElement", function() { return getSpecifiedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
@@ -63819,7 +63860,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "totalColumnWidth", function() { return totalColumnWidth; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementUp", function() { return canMoveElementUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementDown", function() { return canMoveElementDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpecifiedElement", function() { return getSpecifiedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aCanvasIsSelected", function() { return aCanvasIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aRowIsSelected", function() { return aRowIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aColumnIsSelected", function() { return aColumnIsSelected; });
@@ -63872,6 +63912,14 @@ var components = function components(state) {
  */
 var getActiveElement = function getActiveElement(state) {
     return state.active;
+};
+
+/**
+ * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
+ * 
+ */
+var getSpecifiedElement = function getSpecifiedElement(state, i) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getElementByIndexes */])(state, i);
 };
 
 /**
@@ -63951,32 +63999,6 @@ var canMoveElementDown = function canMoveElementDown(state) {
 };
 
 /**
- * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
- * 
- */
-var getSpecifiedElement = function getSpecifiedElement(state) {
-    return function (i) {
-        // If row, column, and component are undefined, return the canvas.
-        if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex];
-        }
-
-        // If the component and column are undefined, return the row.
-        if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex].rows[i.rowIndex];
-        }
-
-        // If the component index is undefined, return the column.
-        if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
-        }
-
-        // Otherwise, return the component.
-        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex];
-    };
-};
-
-/**
  * Returns true if a Canvas is selected.
  * 
  */
@@ -64024,9 +64046,6 @@ var elementIsSelected = function elementIsSelected(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotification", function() { return setNotification; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentProperty", function() { return setComponentProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
@@ -64037,14 +64056,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneColumn", function() { return cloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveElement", function() { return moveElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveCanvas", function() { return moveCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveRow", function() { return moveRow; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveColumn", function() { return moveColumn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveComponent", function() { return moveComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRowToCanvas", function() { return addRowToCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumnToRow", function() { return addColumnToRow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectElement", function() { return selectElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComponentToColumn", function() { return addComponentToColumn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotification", function() { return setNotification; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildHtml", function() { return buildHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHtmlHead", function() { return createHtmlHead; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUniqueFontList", function() { return getUniqueFontList; });
@@ -64058,34 +64076,6 @@ var _this = this;
 
 
 
-
-/**
- * Sets the state of the notification object.
- *
- */
-var setNotification = function setNotification(state, incomingNotification) {
-    window.Vue.set(state.notification, "message", incomingNotification.message);
-    window.Vue.set(state.notification, "type", incomingNotification.type);
-    window.Vue.set(state.notification, "dismissCountDown", 5);
-
-    window.scrollTo(0, 0);
-};
-
-/**
- * Sets the state of the notification object.
- *
- */
-var setNotificationCountDown = function setNotificationCountDown(state, countdown) {
-    window.Vue.set(state.notification, "dismissCountDown", countdown);
-};
-
-/**
- * Sets the title of the article.
- *
- */
-var updateArticleTitle = function updateArticleTitle(state, title) {
-    window.Vue.set(state, "articleTitle", title);
-};
 
 /**
  * Adds another Canvas to the Workspace.
@@ -64117,16 +64107,16 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
  */
 var deleteElement = function deleteElement(state) {
     if (state.active.type === 'Component') {
-        state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.splice(state.active.component, 1);
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.active.component, 1);
     } else if (state.active.type === 'Column') {
-        state.canvases[state.active.canvas].rows[state.active.row].columns.splice(state.active.column, 1);
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.active.column, 1);
     } else if (state.active.type === 'Row') {
-        state.canvases[state.active.canvas].rows.splice(state.active.row, 1);
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.active.row, 1);
     } else {
-        state.canvases.splice(state.active.canvas, 1);
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.active.canvas, 1);
     }
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
 };
 
 /**
@@ -64134,15 +64124,10 @@ var deleteElement = function deleteElement(state) {
  *
  */
 var cloneElement = function cloneElement(state, i) {
-    if (state.active.type === 'Canvas') {
-        _this.cloneCanvas(state);
-    } else if (state.active.type === 'Row') {
-        _this.cloneRow(state, i);
-    } else if (state.active.type === 'Column') {
-        _this.cloneColumn(state, i);
-    } else {
-        _this.cloneComponent(state, i);
-    }
+    if (state.active.type === 'Canvas') _this.cloneCanvas(state);
+    if (state.active.type === 'Row') _this.cloneRow(state, i);
+    if (state.active.type === 'Column') _this.cloneColumn(state, i);
+    if (state.active.type === 'Component') _this.cloneComponent(state, i);
 };
 
 /**
@@ -64150,9 +64135,7 @@ var cloneElement = function cloneElement(state, i) {
  *
  */
 var cloneCanvas = function cloneCanvas(state) {
-    var canvas = state.canvases[state.active.canvas];
-
-    state.canvases.splice(state.active.canvas, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(canvas));
+    state.canvases.splice(state.active.canvas, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
 };
 
 /**
@@ -64160,9 +64143,7 @@ var cloneCanvas = function cloneCanvas(state) {
  *
  */
 var cloneRow = function cloneRow(state, i) {
-    var row = state.canvases[state.active.canvas].rows[state.active.row];
-
-    state.canvases[i.canvasIndex].rows.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(row));
+    state.canvases[i.canvasIndex].rows.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
 };
 
 /**
@@ -64170,15 +64151,13 @@ var cloneRow = function cloneRow(state, i) {
  *
  */
 var cloneColumn = function cloneColumn(state, i) {
-    var column = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
-
     var totalColumnWidth = 0;
 
     state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
         totalColumnWidth += column.columnWidth;
     });
 
-    totalColumnWidth += state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].columnWidth;
+    totalColumnWidth += Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state).columnWidth;
 
     if (totalColumnWidth > 12) {
         _this.setNotification(state, {
@@ -64186,7 +64165,7 @@ var cloneColumn = function cloneColumn(state, i) {
             type: 'warning'
         });
     } else {
-        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(column));
+        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
     }
 };
 
@@ -64195,87 +64174,26 @@ var cloneColumn = function cloneColumn(state, i) {
  *
  */
 var cloneComponent = function cloneComponent(state, i) {
-    var component = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
-
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(component));
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
 };
 
 var moveElement = function moveElement(state, direction) {
     var directionIndex = direction === 'up' ? -1 : 1;
+    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state, directionIndex);
 
-    var element = {
-        position: directionIndex,
-        selectedElement: Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state),
-        elementAboveOrBelow: Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state, directionIndex)
+    var elementType = {
+        'Canvas': state.active.canvas,
+        'Row': state.active.row,
+        'Column': state.active.column,
+        'Component': state.active.component
     };
 
-    if (state.active.type === 'Canvas') {
-        _this.moveCanvas(state, element);
-    }
-
-    if (state.active.type === 'Row') {
-        _this.moveRow(state, element);
-    }
-
-    if (state.active.type === 'Column') {
-        _this.moveColumn(state, element);
-    }
-
-    if (state.active.type === 'Component') {
-        _this.moveComponent(state, element);
-    }
-};
-
-/**
- * Moves a Canvas the workspace.
- *
- */
-var moveCanvas = function moveCanvas(state, canvas) {
     // Swap positions around:
-    window.Vue.set(state.canvases, [state.active.canvas + canvas.position], canvas.selectedElement);
-    window.Vue.set(state.canvases, [state.active.canvas], canvas.elementAboveOrBelow);
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [elementType[state.active.type] + directionIndex], Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state));
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [elementType[state.active.type]], elementAboveOrBelow);
 
     // Reselect the moved element:
-    state.active.canvas = state.active.canvas + canvas.position;
-};
-
-/**
- * Moves a Row the workspace.
- *
- */
-var moveRow = function moveRow(state, row) {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row + row.position], row.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row], row.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.row = state.active.row + row.position;
-};
-
-/**
- * Moves a Column within a Row.
- *
- */
-var moveColumn = function moveColumn(state, column) {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns, [state.active.column + column.position], column.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns, [state.active.column], column.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.column = state.active.column + column.position;
-};
-
-/**
- * Moves a Component within a Column.
- *
- */
-var moveComponent = function moveComponent(state, component) {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component + component.position], component.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component], component.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.component = state.active.component + component.position;
+    elementType[state.active.type] = elementType[state.active.type] + directionIndex;
 };
 
 /**
@@ -64283,9 +64201,7 @@ var moveComponent = function moveComponent(state, component) {
  *
  */
 var addRowToCanvas = function addRowToCanvas(state) {
-    var newRow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].row);
-
-    state.canvases[state.active.canvas].rows.push(newRow);
+    state.canvases[state.active.canvas].rows.push(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].row));
 };
 
 /**
@@ -64305,7 +64221,7 @@ var addColumnToRow = function addColumnToRow(state, columnWidth) {
  *
  */
 var selectElement = function selectElement(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
 
     if (i.canvasIndex !== undefined) {
         window.Vue.set(state.active, 'canvas', i.canvasIndex);
@@ -64348,7 +64264,35 @@ var addComponentToColumn = function addComponentToColumn(state, componentType) {
         "RecipeIngredients": Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].recipeIngredients)
     };
 
-    state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.push(components[componentType]);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).push(components[componentType]);
+};
+
+/**
+ * Sets the state of the notification object.
+ *
+ */
+var setNotification = function setNotification(state, incomingNotification) {
+    window.Vue.set(state.notification, "message", incomingNotification.message);
+    window.Vue.set(state.notification, "type", incomingNotification.type);
+    window.Vue.set(state.notification, "dismissCountDown", 5);
+
+    window.scrollTo(0, 0);
+};
+
+/**
+ * Sets the state of the notification object.
+ *
+ */
+var setNotificationCountDown = function setNotificationCountDown(state, countdown) {
+    window.Vue.set(state.notification, "dismissCountDown", countdown);
+};
+
+/**
+ * Sets the title of the article.
+ *
+ */
+var updateArticleTitle = function updateArticleTitle(state, title) {
+    window.Vue.set(state, "articleTitle", title);
 };
 
 /**
@@ -64451,9 +64395,7 @@ var cleanHtml = function cleanHtml(html) {
  */
 var loadArticle = function loadArticle(state, article) {
     // Reset selection first (prevents a bug that breaks element selection).
-    window.Vue.set(state.active, "canvas", undefined);
-    window.Vue.set(state.active, "column", undefined);
-    window.Vue.set(state.active, "currentComponent", undefined);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
 
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);

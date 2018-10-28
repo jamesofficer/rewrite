@@ -1,33 +1,7 @@
 import defaults from "./defaults/_defaults";
-import { duplicateObject, getElement, resetSelection } from "./helpers";
-
-/**
- * Sets the state of the notification object.
- *
- */
-export const setNotification = (state, incomingNotification) => {
-    window.Vue.set(state.notification, "message", incomingNotification.message);
-    window.Vue.set(state.notification, "type", incomingNotification.type);
-    window.Vue.set(state.notification, "dismissCountDown", 5);
-
-    window.scrollTo(0, 0);
-};
-
-/**
- * Sets the state of the notification object.
- *
- */
-export const setNotificationCountDown = (state, countdown) => {
-    window.Vue.set(state.notification, "dismissCountDown", countdown);
-};
-
-/**
- * Sets the title of the article.
- *
- */
-export const updateArticleTitle = (state, title) => {
-    window.Vue.set(state, "articleTitle", title);
-};
+import { 
+    duplicateObject, getElement, getElementByIndexes, getSiblingElements, resetSelection
+} from "./helpers";
 
 /**
  * Adds another Canvas to the Workspace.
@@ -60,16 +34,16 @@ export const setComponentSubProperty = (state, component) => {
  */
 export const deleteElement = state => {
     if (state.active.type === 'Component'){
-        state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.splice(state.active.component, 1);
+        getSiblingElements(state).splice(state.active.component, 1);
     }
     else if (state.active.type === 'Column') {
-        state.canvases[state.active.canvas].rows[state.active.row].columns.splice(state.active.column, 1);
+        getSiblingElements(state).splice(state.active.column, 1);
     }
     else if (state.active.type === 'Row') {
-        state.canvases[state.active.canvas].rows.splice(state.active.row, 1);
+        getSiblingElements(state).splice(state.active.row, 1);
     }
     else {
-        state.canvases.splice(state.active.canvas, 1);
+        getSiblingElements(state).splice(state.active.canvas, 1);
     }
 
     resetSelection(state);
@@ -80,15 +54,10 @@ export const deleteElement = state => {
  *
  */
 export const cloneElement = (state, i) => {
-    if (state.active.type === 'Canvas') {
-        this.cloneCanvas(state);
-    } else if (state.active.type === 'Row') {
-        this.cloneRow(state, i);
-    } else if (state.active.type === 'Column') {
-        this.cloneColumn(state, i);
-    } else {
-        this.cloneComponent(state, i);
-    }
+    if (state.active.type === 'Canvas')    this.cloneCanvas(state);
+    if (state.active.type === 'Row')       this.cloneRow(state, i);
+    if (state.active.type === 'Column')    this.cloneColumn(state, i);
+    if (state.active.type === 'Component') this.cloneComponent(state, i);
 };
 
 /**
@@ -96,9 +65,7 @@ export const cloneElement = (state, i) => {
  *
  */
 export const cloneCanvas = state => {
-    const canvas = state.canvases[state.active.canvas];
-
-    state.canvases.splice(state.active.canvas, 0, duplicateObject(canvas));
+    state.canvases.splice(state.active.canvas, 0, duplicateObject(getElement(state)));
 };
 
 /**
@@ -106,9 +73,7 @@ export const cloneCanvas = state => {
  *
  */
 export const cloneRow = (state, i) => {
-    const row = state.canvases[state.active.canvas].rows[state.active.row];
-
-    state.canvases[i.canvasIndex].rows.splice(0, 0, duplicateObject(row));
+    state.canvases[i.canvasIndex].rows.splice(0, 0, duplicateObject(getElement(state)));
 };
 
 /**
@@ -116,15 +81,13 @@ export const cloneRow = (state, i) => {
  *
  */
 export const cloneColumn = (state, i) => {
-    const column = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column];
-
     let totalColumnWidth = 0;
 
     state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
         totalColumnWidth += column.columnWidth;
     });
 
-    totalColumnWidth += state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].columnWidth;
+    totalColumnWidth += getElement(state).columnWidth;
 
     if (totalColumnWidth > 12) {
         this.setNotification(state, {
@@ -132,7 +95,7 @@ export const cloneColumn = (state, i) => {
             type: 'warning',
         });
     } else {
-        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, duplicateObject(column));
+        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, duplicateObject(getElement(state)));
     }
 };
 
@@ -141,97 +104,38 @@ export const cloneColumn = (state, i) => {
  *
  */
 export const cloneComponent = (state, i) => {
-    const component = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components[state.active.component];
-
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, duplicateObject(component));
+    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, duplicateObject(
+        getElement(state)
+    ));
 };
 
 export const moveElement = (state, direction) => {
-    const directionIndex = direction === 'up' ? -1 : 1;
+    const directionIndex      = direction === 'up' ? -1 : 1;
+    const elementAboveOrBelow = getElement(state, directionIndex);
 
-    const element = {
-        position: directionIndex,
-        selectedElement: getElement(state),
-        elementAboveOrBelow: getElement(state, directionIndex),
-    }
+    const elementType = {
+        'Canvas': state.active.canvas,
+        'Row': state.active.row,
+        'Column': state.active.column,
+        'Component': state.active.component,
+    };
 
-    if (state.active.type === 'Canvas') {
-        this.moveCanvas(state, element);
-    }
-    
-    if (state.active.type === 'Row') {
-        this.moveRow(state, element);
-    }
-    
-    if (state.active.type === 'Column') {
-        this.moveColumn(state, element);
-    }
+    // Swap positions around:
+    window.Vue.set(getSiblingElements(state), [elementType[state.active.type] + (directionIndex)], getElement(state));
+    window.Vue.set(getSiblingElements(state), [elementType[state.active.type]], elementAboveOrBelow);
 
-    if (state.active.type === 'Component') {
-        this.moveComponent(state, element);
-    }
+    // Reselect the moved element:
+    elementType[state.active.type] = elementType[state.active.type] + (directionIndex);
 }
-
-/**
- * Moves a Canvas the workspace.
- *
- */
-export const moveCanvas = (state, canvas) => {
-    // Swap positions around:
-    window.Vue.set(state.canvases, [state.active.canvas + (canvas.position)], canvas.selectedElement);
-    window.Vue.set(state.canvases, [state.active.canvas], canvas.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.canvas = state.active.canvas + (canvas.position);
-};
-
-/**
- * Moves a Row the workspace.
- *
- */
-export const moveRow = (state, row) => {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row + (row.position)], row.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows, [state.active.row], row.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.row = state.active.row + (row.position);
-};
-
-/**
- * Moves a Column within a Row.
- *
- */
-export const moveColumn = (state, column) => {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns, [state.active.column + (column.position)], column.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns, [state.active.column], column.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.column = state.active.column + (column.position);
-};
-
-/**
- * Moves a Component within a Column.
- *
- */
-export const moveComponent = (state, component) => {
-    // Swap positions around:
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component + (component.position)], component.selectedElement);
-    window.Vue.set(state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components, [state.active.component], component.elementAboveOrBelow);
-
-    // Reselect the moved element:
-    state.active.component = state.active.component + (component.position);
-};
 
 /**
  * Adds a Row to the specified Canvas.
  *
  */
 export const addRowToCanvas = state => {
-    const newRow = duplicateObject(defaults.row);
-
-    state.canvases[state.active.canvas].rows.push(newRow);
+    state.canvases[state.active.canvas].rows.push(
+        duplicateObject(defaults.row)
+    );
 };
 
 /**
@@ -294,8 +198,35 @@ export const addComponentToColumn = (state, componentType) => {
         "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
-    state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components
-            .push(components[componentType]);
+    getSiblingElements(state).push(components[componentType]);
+};
+
+/**
+ * Sets the state of the notification object.
+ *
+ */
+export const setNotification = (state, incomingNotification) => {
+    window.Vue.set(state.notification, "message", incomingNotification.message);
+    window.Vue.set(state.notification, "type", incomingNotification.type);
+    window.Vue.set(state.notification, "dismissCountDown", 5);
+
+    window.scrollTo(0, 0);
+};
+
+/**
+ * Sets the state of the notification object.
+ *
+ */
+export const setNotificationCountDown = (state, countdown) => {
+    window.Vue.set(state.notification, "dismissCountDown", countdown);
+};
+
+/**
+ * Sets the title of the article.
+ *
+ */
+export const updateArticleTitle = (state, title) => {
+    window.Vue.set(state, "articleTitle", title);
 };
 
 /**
@@ -398,9 +329,7 @@ export const cleanHtml = html => {
  */
 export const loadArticle = (state, article) => {
     // Reset selection first (prevents a bug that breaks element selection).
-    window.Vue.set(state.active, "canvas", undefined);
-    window.Vue.set(state.active, "column", undefined);
-    window.Vue.set(state.active, "currentComponent", undefined);
+    resetSelection(state);
 
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);

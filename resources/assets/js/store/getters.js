@@ -1,4 +1,4 @@
-import { getElement } from "./helpers";
+import { getElement, getElementByIndexes } from "./helpers";
 
 /**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
@@ -39,6 +39,14 @@ export const components = state => i => {
 export const getActiveElement = state => {
     return state.active;
 }
+
+/**
+ * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
+ * 
+ */
+export const getSpecifiedElement = (state, i) => {
+    return getElementByIndexes(state, i);
+};
 
 /**
  * Returns the currently selected element. This can be either a Canvas, Row or a Component.
@@ -110,37 +118,11 @@ export const canMoveElementUp = state => {
 }
 
 export const canMoveElementDown = state => {
-    if (state.active.type === 'Canvas')    return state.active.canvas !== (state.canvases.length - 1);
-    if (state.active.type === 'Row')       return state.active.row !== (state.canvases[state.active.canvas].rows.length - 1);
-    if (state.active.type === 'Column')    return state.active.column !== (state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1);
+    if (state.active.type === 'Canvas')    return state.active.canvas    !== (state.canvases.length - 1);
+    if (state.active.type === 'Row')       return state.active.row       !== (state.canvases[state.active.canvas].rows.length - 1);
+    if (state.active.type === 'Column')    return state.active.column    !== (state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1);
     if (state.active.type === 'Component') return state.active.component !== (state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length - 1);
 }
-
-/**
- * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
- * 
- */
-export const getSpecifiedElement = state => i => {
-    // If row, column, and component are undefined, return the canvas.
-    if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        return state.canvases[i.canvasIndex];
-    }
-
-    // If the component and column are undefined, return the row.
-    if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        return state.canvases[i.canvasIndex].rows[i.rowIndex];
-    }
-
-    // If the component index is undefined, return the column.
-    if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
-        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
-    }
-
-    // Otherwise, return the component.
-    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[
-        i.componentIndex
-    ];
-};
 
 /**
  * Returns true if a Canvas is selected.
