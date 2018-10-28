@@ -34,7 +34,7 @@ export default {
 
     methods: {
         selectImage(index) {
-            if (this.$store.getters.getCurrentElement.type === 'Picture') {
+            if (this.$store.getters.getSelectedElement.type === 'Picture') {
                 this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
             } else {
                 this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });

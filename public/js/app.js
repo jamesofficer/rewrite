@@ -20029,8 +20029,8 @@ module.exports = Component.exports
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getElementByIndexes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getSelectedElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getElementByIndexes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getSiblingElements; });
 /* unused harmony export getSiblingsElementByIndexes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return resetSelection; });
@@ -20044,28 +20044,25 @@ var duplicateObject = function duplicateObject(object) {
  * moving an element around the workspace, to the element above or below the current one.
  *  
  */
-var getElement = function getElement(state) {
+var getSelectedElement = function getSelectedElement(state) {
     var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
     // Return a Canvas
     if (state.selected.type === 'Canvas') {
         return state.canvases[state.selected.canvas + position];
     }
-
     // Return a Row
-    if (state.selected.type === 'Row') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row + position];
-    }
-
-    // Return a Column
-    if (state.selected.type === 'Column') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
-    }
-
-    // Return a Component
-    if (state.selected.type === 'Component') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
-    }
+    else if (state.selected.type === 'Row') {
+            return state.canvases[state.selected.canvas].rows[state.selected.row + position];
+        }
+        // Return a Column
+        else if (state.selected.type === 'Column') {
+                return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
+            }
+            // Return a Component
+            else {
+                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
+                }
 };
 
 /**
@@ -20078,17 +20075,14 @@ var getElementByIndexes = function getElementByIndexes(state) {
         if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
             return state.canvases[i.canvasIndex];
         }
-
         // If the component and column are undefined, return the row.
         if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
             return state.canvases[i.canvasIndex].rows[i.rowIndex];
         }
-
         // If the component index is undefined, return the column.
         if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
             return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
         }
-
         // Otherwise, return the component.
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex];
     };
@@ -20099,24 +20093,25 @@ var getElementByIndexes = function getElementByIndexes(state) {
  * 
  */
 var getSiblingElements = function getSiblingElements(state) {
-    if (state.selected.type === 'Canvas') return state.canvases;
-    if (state.selected.type === 'Row') return state.canvases[state.selected.canvas].rows;
-    if (state.selected.type === 'Column') return state.canvases[state.selected.canvas].rows[state.selected.row].columns;
-    if (state.selected.type === 'Component') return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components;
+    if (state.selected.type === 'Canvas') {
+        return state.canvases;
+    } else if (state.selected.type === 'Row') {
+        return state.canvases[state.selected.canvas].rows;
+    } else if (state.selected.type === 'Column') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row].columns;
+    } else {
+        return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components;
+    }
 };
 
 var getSiblingsElementByIndexes = function getSiblingsElementByIndexes(state, i) {
     // If row, column, and component are undefined, return the canvas.
     if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        console.log('getting canvases');
-        console.table(i);
         return state.canvases;
     }
 
     // If the component and column are undefined, return the row.
     if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        console.log('getting rows');
-        console.table(i);
         return state.canvases[i.canvasIndex].rows;
     }
 
@@ -36027,52 +36022,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var self = this;
 
         window.addEventListener('keyup', function (ev) {
-            // Move an Element Up.
-            if (ev.key === "ArrowUp") {
-                self.$store.commit('moveElement', 'up');
-            }
-
-            // Move an Element Down.
-            if (ev.key === "ArrowDown") {
-                self.$store.commit('moveElement', 'down');
-            }
-
-            // Move a Column Left
-            if (ev.key === "ArrowLeft" && self.$store.getters.aColumnIsSelected) {
-                self.$store.commit('moveElement', 'up');
-            }
-
-            // Move a Column Right
-            if (ev.key === "ArrowRight" && self.$store.getters.aColumnIsSelected) {
-                self.$store.commit('moveElement', 'down');
-            }
-
-            /**
-             * The PLUS (+) key (numpad plus) opens the Add Component modal window.
-             * 
-             */
-            if (ev.key === "+" && self.$store.getters.aColumnIsSelected) {
-                self.$root.$emit('bv::show::modal', 'addComponentModal');
-                return;
-            }
-
-            /**
-             * The DELETE key can delete Components, Columns or Canvases.
-             * 
-             */
-            if (ev.key === "Delete") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('deleteComponent');
+            if (self.$store.getters.enableKeyBindings === true) {
+                // Move an Element Up.
+                if (ev.key === "ArrowUp" && self.$store.getters.canMoveElementUp) {
+                    self.$store.commit('moveElement', 'up');
                     return;
                 }
 
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('deleteColumn');
+                // Move an Element Down.
+                if (ev.key === "ArrowDown" && self.$store.getters.canMoveElementDown) {
+                    self.$store.commit('moveElement', 'down');
                     return;
                 }
 
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('deleteCanvas');
+                // Move a Column Left
+                if (ev.key === "ArrowLeft" && self.$store.getters.getSelectedElementType === 'Column' && self.$store.getters.canMoveElementUp) {
+                    self.$store.commit('moveElement', 'up');
+                    return;
+                }
+
+                // Move a Column Right
+                if (ev.key === "ArrowRight" && self.$store.getters.getSelectedElementType === 'Column' && self.$store.getters.canMoveElementDown) {
+                    self.$store.commit('moveElement', 'down');
+                    return;
+                }
+
+                /**
+                 * The PLUS (+) key (numpad plus) opens the Add Component modal window.
+                 * 
+                 */
+                if (ev.key === "+" && self.$store.getters.getSelectedElementType === 'Column') {
+                    self.$root.$emit('bv::show::modal', 'addComponentModal');
+                    return;
+                }
+
+                /**
+                 * The DELETE key can delete Components, Columns, Rows or Canvases.
+                 * 
+                 */
+                if (ev.key === "Delete" || ev.key === "Backspace") {
+                    self.$store.commit('deleteElement');
                     return;
                 }
             }
@@ -38170,7 +38159,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         componentAlignment: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.componentAlignment;
+                return this.$store.getters.getSelectedElement.componentAlignment;
             },
             set: function set(alignment) {
                 this.$store.commit('setComponentProperty', { property: 'componentAlignment', value: alignment });
@@ -38318,7 +38307,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         backgroundSize: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.backgroundSize;
+                return this.$store.getters.getSelectedElement.backgroundSize;
             },
             set: function set(backgroundSize) {
                 this.$store.commit('setComponentProperty', { property: 'backgroundSize', value: backgroundSize });
@@ -38442,7 +38431,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         selectedWidth: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.columnWidth;
+                return this.$store.getters.getSelectedElement.columnWidth;
             },
             set: function set(width) {
                 this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
@@ -38495,11 +38484,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         isSelected: function isSelected(width) {
-            return this.$store.getters.getCurrentElement.columnWidth === width;
+            return this.$store.getters.getSelectedElement.columnWidth === width;
         },
         checkColumnWidth: function checkColumnWidth(newWidth) {
             var currentTotalWidth = this.$store.getters.totalColumnWidth;
-            var oldWidth = this.$store.getters.getCurrentElement.columnWidth;
+            var oldWidth = this.$store.getters.getSelectedElement.columnWidth;
 
             var newTotalWidth = currentTotalWidth - oldWidth + newWidth;
 
@@ -38618,7 +38607,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         marginTop: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.margin.top;
+                return this.$store.getters.getSelectedElement.margin.top;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38631,7 +38620,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         marginRight: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.margin.right;
+                return this.$store.getters.getSelectedElement.margin.right;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38644,7 +38633,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         marginBottom: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.margin.bottom;
+                return this.$store.getters.getSelectedElement.margin.bottom;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38657,7 +38646,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         marginLeft: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.margin.left;
+                return this.$store.getters.getSelectedElement.margin.left;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38844,7 +38833,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         paddingTop: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.padding.top;
+                return this.$store.getters.getSelectedElement.padding.top;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38857,7 +38846,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         paddingRight: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.padding.right;
+                return this.$store.getters.getSelectedElement.padding.right;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38870,7 +38859,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         paddingBottom: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.padding.bottom;
+                return this.$store.getters.getSelectedElement.padding.bottom;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -38883,7 +38872,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         paddingLeft: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.padding.left;
+                return this.$store.getters.getSelectedElement.padding.left;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39054,7 +39043,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         backgroundColor: function backgroundColor() {
-            return this.$store.getters.getCurrentElement.backgroundColor;
+            return this.$store.getters.getSelectedElement.backgroundColor;
         }
     },
 
@@ -39176,7 +39165,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         backgroundPosition: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.backgroundPosition;
+                return this.$store.getters.getSelectedElement.backgroundPosition;
             },
             set: function set(position) {
                 this.$store.commit('setComponentProperty', { property: 'backgroundPosition', value: position });
@@ -39399,7 +39388,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         borderStyle: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.style;
+                return this.$store.getters.getSelectedElement.border.style;
             },
             set: function set(style) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39412,7 +39401,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         borderRadius: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.radius;
+                return this.$store.getters.getSelectedElement.border.radius;
             },
             set: function set(radius) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39425,7 +39414,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         borderTop: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.top;
+                return this.$store.getters.getSelectedElement.border.top;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39438,7 +39427,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         borderRight: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.right;
+                return this.$store.getters.getSelectedElement.border.right;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39451,7 +39440,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         borderBottom: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.bottom;
+                return this.$store.getters.getSelectedElement.border.bottom;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39464,7 +39453,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         borderLeft: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.border.left;
+                return this.$store.getters.getSelectedElement.border.left;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39779,7 +39768,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         offsetX: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.boxShadow.offsetX;
+                return this.$store.getters.getSelectedElement.boxShadow.offsetX;
             },
             set: function set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39792,7 +39781,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         offsetY: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.boxShadow.offsetY;
+                return this.$store.getters.getSelectedElement.boxShadow.offsetY;
             },
             set: function set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -39805,7 +39794,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         blurRadius: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.boxShadow.blurRadius;
+                return this.$store.getters.getSelectedElement.boxShadow.blurRadius;
             },
             set: function set(radius) {
                 this.$store.commit('setComponentSubProperty', {
@@ -40187,6 +40176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         selectInput: function selectInput() {
+            this.$store.commit('enableKeyBindings', false);
             this.editingText = true;
 
             this.$nextTick(function () {
@@ -40196,6 +40186,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 input.focus();
                 input.setSelectionRange(strLength, strLength);
             });
+        },
+        deselectInput: function deselectInput() {
+            this.editingText = false;
+            this.$store.commit('enableKeyBindings', true);
         }
     }
 });
@@ -40271,11 +40265,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         content: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.content;
+                return this.$store.getters.getSelectedElement.content;
             },
             set: function set(value) {
                 this.$store.commit('setComponentProperty', { property: 'content', value: value });
             }
+        }
+    },
+
+    methods: {
+        setKeyBindings: function setKeyBindings(boolean) {
+            this.$store.commit('enableKeyBindings', boolean);
         }
     }
 });
@@ -40289,6 +40289,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("b-textarea", {
+    on: {
+      focus: function($event) {
+        _vm.setKeyBindings(false)
+      },
+      blur: function($event) {
+        _vm.setKeyBindings(true)
+      }
+    },
     model: {
       value: _vm.content,
       callback: function($$v) {
@@ -40339,7 +40347,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         textColor: function textColor() {
-            return this.$store.getters.getCurrentElement.textColor;
+            return this.$store.getters.getSelectedElement.textColor;
         }
     },
 
@@ -40452,7 +40460,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         offsetX: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.textShadow.offsetX;
+                return this.$store.getters.getSelectedElement.textShadow.offsetX;
             },
             set: function set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -40465,7 +40473,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         offsetY: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.textShadow.offsetY;
+                return this.$store.getters.getSelectedElement.textShadow.offsetY;
             },
             set: function set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -40478,7 +40486,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         blurRadius: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.textShadow.blurRadius;
+                return this.$store.getters.getSelectedElement.textShadow.blurRadius;
             },
             set: function set(radius) {
                 this.$store.commit('setComponentSubProperty', {
@@ -40824,7 +40832,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         selectedFont: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.fontFamily;
+                return this.$store.getters.getSelectedElement.fontFamily;
             },
             set: function set(fontName) {
                 var font = this.fonts.filter(function (font) {
@@ -41020,7 +41028,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         fontWeight: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.fontWeight;
+                return this.$store.getters.getSelectedElement.fontWeight;
             },
             set: function set(weight) {
                 this.$store.commit('setComponentProperty', { property: 'fontWeight', value: weight });
@@ -41028,7 +41036,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         fontWeights: function fontWeights() {
-            return this.$store.getters.getCurrentElement.fontWeights;
+            return this.$store.getters.getSelectedElement.fontWeights;
         }
     }
 });
@@ -41095,7 +41103,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         fontSize: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.fontSize;
+                return this.$store.getters.getSelectedElement.fontSize;
             },
             set: function set(size) {
                 this.$store.commit('setComponentProperty', { property: 'fontSize', value: size });
@@ -41167,7 +41175,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         lineHeight: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.lineHeight;
+                return this.$store.getters.getSelectedElement.lineHeight;
             },
             set: function set(height) {
                 this.$store.commit('setComponentProperty', { property: 'lineHeight', value: height });
@@ -41246,7 +41254,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         letterSpacing: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.letterSpacing;
+                return this.$store.getters.getSelectedElement.letterSpacing;
             },
             set: function set(spacing) {
                 this.$store.commit('setComponentProperty', { property: 'letterSpacing', value: spacing });
@@ -41364,7 +41372,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         width: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.width;
+                return this.$store.getters.getSelectedElement.width;
             },
             set: function set(width) {
                 this.$store.commit('setComponentProperty', { property: 'width', value: width });
@@ -41437,7 +41445,7 @@ var render = function() {
             attrs: { size: "lg", id: "heading-input" },
             nativeOn: {
               focusout: function($event) {
-                _vm.editingText = false
+                return _vm.deselectInput($event)
               }
             }
           }),
@@ -41699,8 +41707,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         content: {
             get: function get() {
-                if (this.$store.getters.getCurrentElement) {
-                    return this.$store.getters.getCurrentElement.content;
+                if (this.$store.getters.getSelectedElement) {
+                    return this.$store.getters.getSelectedElement.content;
                 }
 
                 return '';
@@ -47237,7 +47245,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         instagramUrl: {
             get: function get() {
-                return this.$store.getters.getElement(this.indexes).originalUrl;
+                if (this.elementIsSelected) {
+                    return this.$store.getters.getSelectedElement.originalUrl;
+                }
             },
             set: function set(url) {
                 this.$store.commit('setComponentProperty', { property: 'originalUrl', value: url });
@@ -48113,7 +48123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         serves: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.contentServes;
+                return this.$store.getters.getSelectedElement.contentServes;
             },
             set: function set(amount) {
                 this.$store.commit('setComponentProperty', { property: 'contentServes', value: amount });
@@ -48122,7 +48132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         preparation: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.contentPreparation;
+                return this.$store.getters.getSelectedElement.contentPreparation;
             },
             set: function set(amount) {
 
@@ -48164,7 +48174,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         cooking: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.contentCooking;
+                return this.$store.getters.getSelectedElement.contentCooking;
             },
             set: function set(amount) {
                 /*
@@ -48211,7 +48221,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         difficulty: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.contentDifficulty;
+                return this.$store.getters.getSelectedElement.contentDifficulty;
             },
             set: function set(textValue) {
                 this.$store.commit('setComponentProperty', { property: 'contentDifficulty', value: textValue });
@@ -49841,7 +49851,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         columnAlignment: {
             get: function get() {
-                return this.$store.getters.getCurrentElement.columnAlignment;
+                return this.$store.getters.getSelectedElement.columnAlignment;
             },
             set: function set(alignment) {
                 this.$store.commit('setComponentProperty', { property: 'columnAlignment', value: alignment });
@@ -51221,7 +51231,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         selectImage: function selectImage(index) {
-            if (this.$store.getters.getCurrentElement.type === 'Picture') {
+            if (this.$store.getters.getSelectedElement.type === 'Picture') {
                 this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
             } else {
                 this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
@@ -53017,6 +53027,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         dismissCountDown: 0
     },
 
+    // Sometimes we want to disabled keybindings, such as when we are editing a text element.
+    enableKeyBindings: true,
+
     // Holds an array of all the Fonts used in the article. We do this so we can append the
     // needed stylesheets to the document head when exporting the article. Each object
     // in this array has the font name, and the font weights we need to save.
@@ -53033,20 +53046,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rows", function() { return rows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "columns", function() { return columns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActiveElement", function() { return getActiveElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpecifiedElement", function() { return getSpecifiedElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentElement", function() { return getCurrentElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElement", function() { return getSelectedElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElementType", function() { return getSelectedElementType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "notification", function() { return notification; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableKeyBindings", function() { return enableKeyBindings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontsUsed", function() { return fontsUsed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "totalColumnWidth", function() { return totalColumnWidth; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementUp", function() { return canMoveElementUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementDown", function() { return canMoveElementDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aCanvasIsSelected", function() { return aCanvasIsSelected; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aRowIsSelected", function() { return aRowIsSelected; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aColumnIsSelected", function() { return aColumnIsSelected; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "aComponentIsSelected", function() { return aComponentIsSelected; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "elementIsSelected", function() { return elementIsSelected; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(66);
 
@@ -53090,19 +53100,11 @@ var components = function components(state) {
 };
 
 /**
- * Returns the index values from the state.selected object.
- *
- */
-var getActiveElement = function getActiveElement(state) {
-    return state.selected;
-};
-
-/**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
  * 
  */
 var getSpecifiedElement = function getSpecifiedElement(state, i) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getElementByIndexes */])(state, i);
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* getElementByIndexes */])(state, i);
 };
 
 /**
@@ -53110,13 +53112,15 @@ var getSpecifiedElement = function getSpecifiedElement(state, i) {
  * This is used for 'micro' components, as they have no knowledge of their indexes.
  * 
  */
-var getCurrentElement = function getCurrentElement(state) {
-    // The active canvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.selected.canvas === undefined) {
-        return null;
-    }
+var getSelectedElement = function getSelectedElement(state) {
+    return state.selected.element;
+};
 
-    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* getElement */])(state);
+/**
+ * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
+ */
+var getSelectedElementType = function getSelectedElementType(state) {
+    return state.selected.type;
 };
 
 /**
@@ -53141,6 +53145,14 @@ var articleHtml = function articleHtml(state) {
  */
 var notification = function notification(state) {
     return state.notification;
+};
+
+/**
+ * Returns the enableKeyBindings boolean from the state.
+ *
+ */
+var enableKeyBindings = function enableKeyBindings(state) {
+    return state.enableKeyBindings;
 };
 
 /**
@@ -53182,38 +53194,6 @@ var canMoveElementDown = function canMoveElementDown(state) {
 };
 
 /**
- * Returns true if a Canvas is selected.
- * 
- */
-var aCanvasIsSelected = function aCanvasIsSelected(state) {
-    return state.selected.canvas !== undefined && state.selected.row === undefined && state.selected.column === undefined && state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Row is selected.
- *
- */
-var aRowIsSelected = function aRowIsSelected(state) {
-    return state.selected.canvas !== undefined && state.selected.row !== undefined && state.selected.column === undefined && state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Column is selected.
- * 
- */
-var aColumnIsSelected = function aColumnIsSelected(state) {
-    return state.selected.canvas !== undefined && state.selected.row !== undefined && state.selected.column !== undefined && state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Component is selected.
- * 
- */
-var aComponentIsSelected = function aComponentIsSelected(state) {
-    return state.selected.canvas !== undefined && state.selected.row !== undefined && state.selected.column !== undefined && state.selected.component !== undefined;
-};
-
-/**
  * Returns true if the specified element (based off the indexes) has been selected.
  * 
  */
@@ -53237,15 +53217,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setComponentSubProperty", function() { return setComponentSubProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteElement", function() { return deleteElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneElement", function() { return cloneElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneCanvas", function() { return cloneCanvas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneRow", function() { return cloneRow; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneColumn", function() { return cloneColumn; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneComponent", function() { return cloneComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enoughSpaceToCloneColumn", function() { return enoughSpaceToCloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveElement", function() { return moveElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectElement", function() { return selectElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotification", function() { return setNotification; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNotificationCountDown", function() { return setNotificationCountDown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableKeyBindings", function() { return enableKeyBindings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildHtml", function() { return buildHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHtmlHead", function() { return createHtmlHead; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUniqueFontList", function() { return getUniqueFontList; });
@@ -53284,7 +53262,7 @@ var addColumn = function addColumn(state, columnWidth) {
     var newColumn = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].column);
     newColumn.columnWidth = columnWidth;
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state).columns.push(newColumn);
+    state.selected.element.columns.push(newColumn);
 };
 
 /**
@@ -53316,7 +53294,7 @@ var addComponent = function addComponent(state, componentType) {
  *
  */
 var setComponentProperty = function setComponentProperty(state, component) {
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state), component.property, component.value);
+    window.Vue.set(state.selected.element, component.property, component.value);
 };
 
 /**
@@ -53324,7 +53302,7 @@ var setComponentProperty = function setComponentProperty(state, component) {
  *
  */
 var setComponentSubProperty = function setComponentSubProperty(state, component) {
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)[component.property], component.subproperty, component.value);
+    window.Vue.set(state.selected.element[component.property], component.subproperty, component.value);
 };
 
 /**
@@ -53349,70 +53327,59 @@ var deleteElement = function deleteElement(state) {
  *
  */
 var cloneElement = function cloneElement(state, i) {
-    if (state.selected.type === 'Canvas') _this.cloneCanvas(state);
-    if (state.selected.type === 'Row') _this.cloneRow(state, i);
-    if (state.selected.type === 'Column') _this.cloneColumn(state, i);
-    if (state.selected.type === 'Component') _this.cloneComponent(state, i);
+    if (state.selected.type === 'Column' && !_this.enoughSpaceToCloneColumn(state)) {
+        return;
+    }
+
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(state.selected.element));
 };
 
 /**
- * Clones the selected Canvas below it's current position.
+ * Checks whether there is enough space in the current Row to clone a Column.
  *
  */
-var cloneCanvas = function cloneCanvas(state) {
-    state.canvases.splice(state.selected.canvas, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
-};
+var enoughSpaceToCloneColumn = function enoughSpaceToCloneColumn(state, i) {
+    var availableSpaceInRow = 12;
+    var selectedColumnWidth = state.selected.element.columnWidth;
 
-/**
- * Clones the selected Row to the specified position.
- *
- */
-var cloneRow = function cloneRow(state, i) {
-    state.canvases[i.canvasIndex].rows.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
-};
-
-/**
- * Clones the selected Column to the specified position.
- *
- */
-var cloneColumn = function cloneColumn(state, i) {
-    var totalColumnWidth = 0;
-
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
-        totalColumnWidth += column.columnWidth;
+    state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(function (column) {
+        availableSpaceInRow -= column.columnWidth;
     });
 
-    totalColumnWidth += Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state).columnWidth;
-
-    if (totalColumnWidth > 12) {
+    if (selectedColumnWidth > availableSpaceInRow) {
         _this.setNotification(state, {
-            message: 'Not enough room to fit that column there. Reduce size of existing columns and try again.',
+            message: 'Not enough room to clone column. Reduce the size of it and try again.',
             type: 'warning'
         });
-    } else {
-        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
+
+        return false;
     }
+
+    return true;
 };
 
 /**
- * Clones the selected Component to the specified position.
- *
+ * Moves an Element up or down within it's own array.
+ * 
  */
-var cloneComponent = function cloneComponent(state, i) {
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state)));
-};
-
 var moveElement = function moveElement(state, direction) {
     var directionIndex = direction === 'up' ? -1 : 1;
-    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state, directionIndex);
+    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state, directionIndex);
     var selectedElement = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [selectedElement + directionIndex], Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state));
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [selectedElement + directionIndex], state.selected.element);
     window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
     state.selected[state.selected.type.toLowerCase()] += directionIndex;
+
+    _this.selectElement(state, {
+        canvasIndex: state.selected.canvas,
+        rowIndex: state.selected.row,
+        columnIndex: state.selected.column,
+        componentIndex: state.selected.component
+    });
 };
 
 /**
@@ -53421,11 +53388,6 @@ var moveElement = function moveElement(state, direction) {
  */
 var selectElement = function selectElement(state, i) {
     Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
-
-    window.Vue.set(state.selected, 'canvas', i.canvasIndex);
-    window.Vue.set(state.selected, 'row', i.rowIndex);
-    window.Vue.set(state.selected, 'column', i.columnIndex);
-    window.Vue.set(state.selected, 'component', i.componentIndex);
 
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');
@@ -53437,7 +53399,21 @@ var selectElement = function selectElement(state, i) {
         window.Vue.set(state.selected, 'type', 'Canvas');
     }
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* getElement */])(state).selected = true;
+    window.Vue.set(state.selected, 'canvas', i.canvasIndex);
+    window.Vue.set(state.selected, 'row', i.rowIndex);
+    window.Vue.set(state.selected, 'column', i.columnIndex);
+    window.Vue.set(state.selected, 'component', i.componentIndex);
+    window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state));
+
+    state.selected.element.selected = true;
+};
+
+/**
+ * Sets the title of the article.
+ *
+ */
+var updateArticleTitle = function updateArticleTitle(state, title) {
+    window.Vue.set(state, "articleTitle", title);
 };
 
 /**
@@ -53461,11 +53437,11 @@ var setNotificationCountDown = function setNotificationCountDown(state, countdow
 };
 
 /**
- * Sets the title of the article.
+ * Enables or Disables keybindings.
  *
  */
-var updateArticleTitle = function updateArticleTitle(state, title) {
-    window.Vue.set(state, "articleTitle", title);
+var enableKeyBindings = function enableKeyBindings(state, boolean) {
+    state.enableKeyBindings = boolean;
 };
 
 /**
@@ -54675,21 +54651,17 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(582)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(566)
 /* template */
-var __vue_template__ = __webpack_require__(584)
+var __vue_template__ = __webpack_require__(567)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-f8d6bcee"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -54787,43 +54759,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -54832,89 +54767,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default.a },
 
-    computed: {
-        elementType: function elementType() {
-            return this.$store.getters.getActiveElement.type;
-        },
-        currentIndexes: function currentIndexes() {
-            var active = this.$store.getters.getActiveElement;
-
-            return {
-                canvasIndex: active.canvas,
-                rowIndex: active.row,
-                column: active.column,
-                component: active.component
-            };
-        },
-        canvases: function canvases() {
-            var canvases = [];
-
-            this.$store.getters.canvases.forEach(function (canvas, index) {
-                canvases.push({
-                    text: 'Canvas ' + (index + 1),
-                    value: index
-                });
-            });
-
-            this.selectedCanvasIndex = 0;
-
-            return canvases;
-        },
-        rows: function rows() {
-            var rows = [];
-
-            this.$store.getters.rows(this.currentIndexes).forEach(function (row, index) {
-                rows.push({
-                    text: 'Row ' + (index + 1),
-                    value: index
-                });
-            });
-
-            this.selectedRowIndex = 0;
-
-            return rows;
-        },
-        columns: function columns() {
-            var columns = [];
-
-            this.$store.getters.columns(this.currentIndexes).forEach(function (column, index) {
-                columns.push({
-                    text: 'Column ' + (index + 1),
-                    value: index
-                });
-            });
-
-            this.selectedColumnIndex = 0;
-
-            return columns;
-        }
-    },
-
-    data: function data() {
-        return {
-            showPopover: false,
-            selectedCanvasIndex: undefined,
-            selectedRowIndex: undefined,
-            selectedColumnIndex: undefined
-        };
-    },
-
-
     methods: {
         cloneElement: function cloneElement() {
-            this.$store.commit('cloneElement', {
-                canvasIndex: this.selectedCanvasIndex,
-                rowIndex: this.selectedRowIndex,
-                columnIndex: this.selectedColumnIndex
-            });
-
-            this.showPopover = false;
+            this.$store.commit('cloneElement');
         }
     }
 });
 
 /***/ }),
-/* 567 */,
+/* 567 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("top-bar-control", {
+    attrs: { variant: "outline-info", icon: "clone", tooltip: "Clone" },
+    nativeOn: {
+      click: function($event) {
+        return _vm.cloneElement($event)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f8d6bcee", module.exports)
+  }
+}
+
+/***/ }),
 /* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55043,7 +54930,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         elementType: function elementType() {
-            return this.$store.getters.getActiveElement.type;
+            return this.$store.getters.getSelectedElementType;
         },
         canMoveElementUp: function canMoveElementUp() {
             return this.$store.getters.canMoveElementUp;
@@ -55468,209 +55355,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_boot
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue_es_components__["n" /* Popover */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue_es_components__["o" /* Tabs */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_bootstrap_vue_es_directives__["a" /* Tooltip */]);
-
-/***/ }),
-/* 582 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(583);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(8)("3f6f79d5", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f8d6bcee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CloneElement.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f8d6bcee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CloneElement.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 583 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.clone-element-box[data-v-f8d6bcee] {\n    width: 250px;\n    margin-bottom: 10px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 584 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          variant: "outline-info",
-          icon: "clone",
-          tooltip: "Clone",
-          id: "clone-element-popover"
-        },
-        on: {
-          click: function($event) {
-            _vm.showPopover = true
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        {
-          attrs: {
-            target: "clone-element-popover",
-            placement: "bottomright",
-            show: _vm.showPopover
-          },
-          on: {
-            "update:show": function($event) {
-              _vm.showPopover = $event
-            }
-          }
-        },
-        [
-          _vm.elementType === "Row" ||
-          _vm.elementType === "Column" ||
-          _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                { staticClass: "clone-element-box" },
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Canvas")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.canvases },
-                        model: {
-                          value: _vm.selectedCanvasIndex,
-                          callback: function($$v) {
-                            _vm.selectedCanvasIndex = $$v
-                          },
-                          expression: "selectedCanvasIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.elementType === "Column" || _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                { staticClass: "clone-element-box" },
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Rows")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.rows },
-                        model: {
-                          value: _vm.selectedRowIndex,
-                          callback: function($$v) {
-                            _vm.selectedRowIndex = $$v
-                          },
-                          expression: "selectedRowIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                { staticClass: "clone-element-box" },
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Column")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.columns },
-                        model: {
-                          value: _vm.selectedColumnIndex,
-                          callback: function($$v) {
-                            _vm.selectedColumnIndex = $$v
-                          },
-                          expression: "selectedColumnIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { variant: "success" },
-                      on: { click: _vm.cloneElement }
-                    },
-                    [_vm._v("Clone")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f8d6bcee", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

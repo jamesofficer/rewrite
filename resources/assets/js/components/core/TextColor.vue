@@ -19,7 +19,7 @@ export default {
 
     computed: {
         textColor() {
-            return this.$store.getters.getCurrentElement.textColor;
+            return this.$store.getters.getSelectedElement.textColor;
         },
     },
 

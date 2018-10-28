@@ -20,7 +20,7 @@ export default {
     computed: {
         selectedFont: {
             get() {
-                return this.$store.getters.getCurrentElement.fontFamily;
+                return this.$store.getters.getSelectedElement.fontFamily;
             },
             set(fontName) {
                 const font = this.fonts.filter(font => {

@@ -17,7 +17,7 @@ export default {
     computed: {
         width: {
             get() {
-                return this.$store.getters.getCurrentElement.width;
+                return this.$store.getters.getSelectedElement.width;
             },
             set(width) {
                 this.$store.commit('setComponentProperty', { property: 'width', value: width });

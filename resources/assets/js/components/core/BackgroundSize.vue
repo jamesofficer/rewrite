@@ -9,7 +9,7 @@ export default {
     computed: {
         backgroundSize: {
             get () {
-                return this.$store.getters.getCurrentElement.backgroundSize;
+                return this.$store.getters.getSelectedElement.backgroundSize;
             },
             set (backgroundSize) {
                 this.$store.commit('setComponentProperty', { property: 'backgroundSize', value: backgroundSize });

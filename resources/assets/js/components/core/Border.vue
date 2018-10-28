@@ -63,7 +63,7 @@ export default {
     computed: {
         borderStyle: {
             get() {
-                return this.$store.getters.getCurrentElement.border.style;
+                return this.$store.getters.getSelectedElement.border.style;
             },
             set(style) {
                 this.$store.commit('setComponentSubProperty', {
@@ -76,7 +76,7 @@ export default {
 
         borderRadius: {
             get() {
-                return this.$store.getters.getCurrentElement.border.radius;
+                return this.$store.getters.getSelectedElement.border.radius;
             },
             set(radius) {
                 this.$store.commit('setComponentSubProperty', {
@@ -89,7 +89,7 @@ export default {
 
         borderTop: {
             get() {
-                return this.$store.getters.getCurrentElement.border.top;
+                return this.$store.getters.getSelectedElement.border.top;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -102,7 +102,7 @@ export default {
 
         borderRight: {
             get() {
-                return this.$store.getters.getCurrentElement.border.right;
+                return this.$store.getters.getSelectedElement.border.right;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -115,7 +115,7 @@ export default {
 
         borderBottom: {
             get() {
-                return this.$store.getters.getCurrentElement.border.bottom;
+                return this.$store.getters.getSelectedElement.border.bottom;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -128,7 +128,7 @@ export default {
 
         borderLeft: {
             get() {
-                return this.$store.getters.getCurrentElement.border.left;
+                return this.$store.getters.getSelectedElement.border.left;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {

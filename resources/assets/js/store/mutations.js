@@ -1,6 +1,6 @@
 import defaults from "./defaults/_defaults";
 import { 
-    duplicateObject, getElement, getElementByIndexes, getSiblingElements, resetSelection
+    duplicateObject, getSelectedElement, getSiblingElements, resetSelection
 } from "./helpers";
 
 /**
@@ -27,7 +27,7 @@ export const addColumn = (state, columnWidth) => {
     const newColumn = duplicateObject(defaults.column);
     newColumn.columnWidth = columnWidth;
 
-    getElement(state).columns.push(newColumn);
+    state.selected.element.columns.push(newColumn);
 };
 
 /**
@@ -60,7 +60,7 @@ export const addComponent = (state, componentType) => {
  *
  */
 export const setComponentProperty = (state, component) => {
-    window.Vue.set(getElement(state), component.property, component.value);
+    window.Vue.set(state.selected.element, component.property, component.value);
 };
 
 /**
@@ -68,7 +68,7 @@ export const setComponentProperty = (state, component) => {
  *
  */
 export const setComponentSubProperty = (state, component) => {
-    window.Vue.set(getElement(state)[component.property], component.subproperty, component.value);
+    window.Vue.set(state.selected.element[component.property], component.subproperty, component.value);
 };
 
 /**
@@ -93,72 +93,63 @@ export const deleteElement = state => {
  *
  */
 export const cloneElement = (state, i) => {
-    if (state.selected.type === 'Canvas')    this.cloneCanvas(state);
-    if (state.selected.type === 'Row')       this.cloneRow(state, i);
-    if (state.selected.type === 'Column')    this.cloneColumn(state, i);
-    if (state.selected.type === 'Component') this.cloneComponent(state, i);
+    if ((state.selected.type === 'Column') && (! this.enoughSpaceToCloneColumn(state))) {
+        return;
+    }
+
+    getSiblingElements(state).splice(
+        state.selected[state.selected.type.toLowerCase()] + 1,
+        0,
+        duplicateObject(state.selected.element)
+    );    
 };
 
 /**
- * Clones the selected Canvas below it's current position.
+ * Checks whether there is enough space in the current Row to clone a Column.
  *
  */
-export const cloneCanvas = state => {
-    state.canvases.splice(state.selected.canvas, 0, duplicateObject(getElement(state)));
-};
+export const enoughSpaceToCloneColumn = (state, i) => {
+    let availableSpaceInRow   = 12;
+    const selectedColumnWidth = state.selected.element.columnWidth;
 
-/**
- * Clones the selected Row to the specified position.
- *
- */
-export const cloneRow = (state, i) => {
-    state.canvases[i.canvasIndex].rows.splice(0, 0, duplicateObject(getElement(state)));
-};
-
-/**
- * Clones the selected Column to the specified position.
- *
- */
-export const cloneColumn = (state, i) => {
-    let totalColumnWidth = 0;
-
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns.forEach(function (column) {
-        totalColumnWidth += column.columnWidth;
+    state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(function (column) {
+        availableSpaceInRow -= column.columnWidth;
     });
 
-    totalColumnWidth += getElement(state).columnWidth;
-
-    if (totalColumnWidth > 12) {
+    if (selectedColumnWidth > availableSpaceInRow) {
         this.setNotification(state, {
-            message: 'Not enough room to fit that column there. Reduce size of existing columns and try again.',
+            message: 'Not enough room to clone column. Reduce the size of it and try again.',
             type: 'warning',
         });
-    } else {
-        state.canvases[i.canvasIndex].rows[i.rowIndex].columns.splice(0, 0, duplicateObject(getElement(state)));
+
+        return false;
     }
+
+    return true;
 };
 
 /**
- * Clones the selected Component to the specified position.
- *
+ * Moves an Element up or down within it's own array.
+ * 
  */
-export const cloneComponent = (state, i) => {
-    state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components.splice(0, 0, duplicateObject(
-        getElement(state)
-    ));
-};
-
 export const moveElement = (state, direction) => {
     const directionIndex      = direction === 'up' ? -1 : 1;
-    const elementAboveOrBelow = getElement(state, directionIndex);
+    const elementAboveOrBelow = getSelectedElement(state, directionIndex);
     const selectedElement     = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(getSiblingElements(state), [selectedElement + (directionIndex)], getElement(state));
+    window.Vue.set(getSiblingElements(state), [selectedElement + (directionIndex)], state.selected.element);
     window.Vue.set(getSiblingElements(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
     state.selected[state.selected.type.toLowerCase()] += (directionIndex);
+
+    this.selectElement(state, {
+        canvasIndex: state.selected.canvas,
+        rowIndex: state.selected.row,
+        columnIndex: state.selected.column,
+        componentIndex: state.selected.component,
+    })
 }
 
 /**
@@ -167,11 +158,6 @@ export const moveElement = (state, direction) => {
  */
 export const selectElement = (state, i) => {
     resetSelection(state);
-
-    window.Vue.set(state.selected, 'canvas', i.canvasIndex);
-    window.Vue.set(state.selected, 'row', i.rowIndex);
-    window.Vue.set(state.selected, 'column', i.columnIndex);
-    window.Vue.set(state.selected, 'component', i.componentIndex);
 
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');
@@ -186,7 +172,21 @@ export const selectElement = (state, i) => {
         window.Vue.set(state.selected, 'type', 'Canvas');
     }
 
-    getElement(state).selected = true;
+    window.Vue.set(state.selected, 'canvas', i.canvasIndex);
+    window.Vue.set(state.selected, 'row', i.rowIndex);
+    window.Vue.set(state.selected, 'column', i.columnIndex);
+    window.Vue.set(state.selected, 'component', i.componentIndex);
+    window.Vue.set(state.selected, 'element', getSelectedElement(state));
+
+    state.selected.element.selected = true;
+};
+
+/**
+ * Sets the title of the article.
+ *
+ */
+export const updateArticleTitle = (state, title) => {
+    window.Vue.set(state, "articleTitle", title);
 };
 
 /**
@@ -210,11 +210,11 @@ export const setNotificationCountDown = (state, countdown) => {
 };
 
 /**
- * Sets the title of the article.
+ * Enables or Disables keybindings.
  *
  */
-export const updateArticleTitle = (state, title) => {
-    window.Vue.set(state, "articleTitle", title);
+export const enableKeyBindings = (state, boolean) => {
+    state.enableKeyBindings = boolean;
 };
 
 /**

@@ -17,7 +17,7 @@ export default {
     computed: {
         fontSize: {
             get () {
-                return this.$store.getters.getCurrentElement.fontSize;
+                return this.$store.getters.getSelectedElement.fontSize;
             },
             set (size) {
                 this.$store.commit('setComponentProperty', { property: 'fontSize', value: size });

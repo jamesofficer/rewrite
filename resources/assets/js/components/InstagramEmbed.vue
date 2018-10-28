@@ -30,7 +30,7 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import TextInput         from './core/TextInput'
 import ImageAlignment    from './core/ImageAlignment'
@@ -49,7 +49,9 @@ export default {
     computed: {
         instagramUrl: {
             get() {
-                return this.$store.getters.getElement(this.indexes).originalUrl;
+                if (this.elementIsSelected) {
+                    return this.$store.getters.getSelectedElement.originalUrl;                    
+                }
             },
             set(url) {
                 this.$store.commit('setComponentProperty', { property: 'originalUrl', value: url });

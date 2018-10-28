@@ -41,7 +41,7 @@ export default {
     computed: {
         paddingTop: {
             get() {
-                return this.$store.getters.getCurrentElement.padding.top;
+                return this.$store.getters.getSelectedElement.padding.top;
             },
             set(amount) {
                this.$store.commit('setComponentSubProperty', {
@@ -54,7 +54,7 @@ export default {
 
         paddingRight: {
             get() {
-                return this.$store.getters.getCurrentElement.padding.right;
+                return this.$store.getters.getSelectedElement.padding.right;
             },
             set(amount) {
                this.$store.commit('setComponentSubProperty', {
@@ -67,7 +67,7 @@ export default {
 
         paddingBottom: {
             get() {
-                return this.$store.getters.getCurrentElement.padding.bottom;
+                return this.$store.getters.getSelectedElement.padding.bottom;
             },
             set(amount) {
                this.$store.commit('setComponentSubProperty', {
@@ -80,7 +80,7 @@ export default {
 
         paddingLeft: {
             get() {
-                return this.$store.getters.getCurrentElement.padding.left;
+                return this.$store.getters.getSelectedElement.padding.left;
             },
             set(amount) {
                this.$store.commit('setComponentSubProperty', {

@@ -18,7 +18,7 @@ export default {
     computed: {
         letterSpacing: {
             get () {
-                return this.$store.getters.getCurrentElement.letterSpacing;
+                return this.$store.getters.getSelectedElement.letterSpacing;
             },
             set (spacing) {
                 this.$store.commit('setComponentProperty', { property: 'letterSpacing', value: spacing });

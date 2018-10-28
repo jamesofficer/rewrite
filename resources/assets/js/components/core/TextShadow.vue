@@ -46,7 +46,7 @@ export default {
     computed: {
         offsetX: {
             get() {
-                return this.$store.getters.getCurrentElement.textShadow.offsetX;
+                return this.$store.getters.getSelectedElement.textShadow.offsetX;
             },
             set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -59,7 +59,7 @@ export default {
 
         offsetY: {
             get() {
-                return this.$store.getters.getCurrentElement.textShadow.offsetY;
+                return this.$store.getters.getSelectedElement.textShadow.offsetY;
             },
             set(offset) {
                 this.$store.commit('setComponentSubProperty', {
@@ -72,7 +72,7 @@ export default {
 
         blurRadius: {
             get() {
-                return this.$store.getters.getCurrentElement.textShadow.blurRadius;
+                return this.$store.getters.getSelectedElement.textShadow.blurRadius;
             },
             set(radius) {
                 this.$store.commit('setComponentSubProperty', {

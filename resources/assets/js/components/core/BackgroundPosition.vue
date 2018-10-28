@@ -9,7 +9,7 @@ export default {
     computed: {
         backgroundPosition: {
             get () {
-                return this.$store.getters.getCurrentElement.backgroundPosition;
+                return this.$store.getters.getSelectedElement.backgroundPosition;
             },
             set (position) {
                 this.$store.commit('setComponentProperty', { property: 'backgroundPosition', value: position });

@@ -15,8 +15,8 @@ export default {
     computed: {
         content: {
             get () {
-                if (this.$store.getters.getCurrentElement) {
-                    return this.$store.getters.getCurrentElement.content;
+                if (this.$store.getters.getSelectedElement) {
+                    return this.$store.getters.getSelectedElement.content;
                 }
 
                 return '';

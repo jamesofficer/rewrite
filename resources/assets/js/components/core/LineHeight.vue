@@ -18,7 +18,7 @@ export default {
     computed: {
         lineHeight: {
             get () {
-                return this.$store.getters.getCurrentElement.lineHeight;
+                return this.$store.getters.getSelectedElement.lineHeight;
             },
             set (height) {
                 this.$store.commit('setComponentProperty', { property: 'lineHeight', value: height });

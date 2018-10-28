@@ -1,4 +1,4 @@
-import { getElement, getElementByIndexes } from "./helpers";
+import { getElementByIndexes } from "./helpers";
 
 /**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
@@ -33,14 +33,6 @@ export const components = state => i => {
 };
 
 /**
- * Returns the index values from the state.selected object.
- *
- */ 
-export const getActiveElement = state => {
-    return state.selected;
-}
-
-/**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
  * 
  */
@@ -53,13 +45,15 @@ export const getSpecifiedElement = (state, i) => {
  * This is used for 'micro' components, as they have no knowledge of their indexes.
  * 
  */
-export const getCurrentElement = state => {
-    // The active canvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.selected.canvas === undefined) {
-        return null;
-    }
+export const getSelectedElement = state => {
+    return state.selected.element;
+};
 
-    return getElement(state);
+/**
+ * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
+ */
+export const getSelectedElementType = state => {
+    return state.selected.type;
 };
 
 /**
@@ -84,6 +78,14 @@ export const articleHtml = state => {
  */
 export const notification = state => {
     return state.notification;
+};
+
+/**
+ * Returns the enableKeyBindings boolean from the state.
+ *
+ */
+export const enableKeyBindings = state => {
+    return state.enableKeyBindings;
 };
 
 /**
@@ -123,50 +125,6 @@ export const canMoveElementDown = state => {
     if (state.selected.type === 'Column')    return state.selected.column    !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns.length - 1);
     if (state.selected.type === 'Component') return state.selected.component !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components.length - 1);
 }
-
-/**
- * Returns true if a Canvas is selected.
- * 
- */
-export const aCanvasIsSelected = state => {
-    return state.selected.canvas    !== undefined &&
-           state.selected.row       === undefined &&
-           state.selected.column    === undefined &&
-           state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Row is selected.
- *
- */
-export const aRowIsSelected = state => {
-    return state.selected.canvas    !== undefined &&
-           state.selected.row       !== undefined &&
-           state.selected.column    === undefined &&
-           state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Column is selected.
- * 
- */
-export const aColumnIsSelected = state => {
-    return state.selected.canvas    !== undefined &&
-           state.selected.row       !== undefined &&
-           state.selected.column    !== undefined &&
-           state.selected.component === undefined;
-};
-
-/**
- * Returns true if a Component is selected.
- * 
- */
-export const aComponentIsSelected = state => {
-    return state.selected.canvas    !== undefined &&
-           state.selected.row       !== undefined &&
-           state.selected.column    !== undefined &&
-           state.selected.component !== undefined;
-};
 
 /**
  * Returns true if the specified element (based off the indexes) has been selected.

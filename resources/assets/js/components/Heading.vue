@@ -7,7 +7,7 @@
 
         <text-input
             v-else
-            @focusout.native="editingText = false"
+            @focusout.native="deselectInput"
             :style="getElementStyles"
             style="background: none"
             size="lg"
@@ -84,6 +84,7 @@ export default {
 
     methods: {
         selectInput() {
+            this.$store.commit('enableKeyBindings', false);
             this.editingText = true;
 
             this.$nextTick(function () {
@@ -94,6 +95,11 @@ export default {
                 input.setSelectionRange(strLength, strLength);
             });
         },
+
+        deselectInput() {
+            this.editingText = false;
+            this.$store.commit('enableKeyBindings', true);
+        }
     },
 }
 </script>

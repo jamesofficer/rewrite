@@ -8,25 +8,22 @@ export const duplicateObject = object => {
  * moving an element around the workspace, to the element above or below the current one.
  *  
  */
-export const getElement = (state, position = 0) => {
+export const getSelectedElement = (state, position = 0) => {
     // Return a Canvas
     if (state.selected.type === 'Canvas') {
         return state.canvases[state.selected.canvas + (position)];
     }
-
     // Return a Row
-    if (state.selected.type === 'Row') {
+    else if (state.selected.type === 'Row') {
         return state.canvases[state.selected.canvas].rows[state.selected.row + (position)];
     }
-
     // Return a Column
-    if (state.selected.type === 'Column') {
+    else if (state.selected.type === 'Column') {
         return state.canvases[state.selected.canvas].rows[state.selected.row]
             .columns[state.selected.column + (position)];
     }
-
     // Return a Component
-    if (state.selected.type === 'Component') {
+    else {
         return state.canvases[state.selected.canvas].rows[state.selected.row]
             .columns[state.selected.column].components[state.selected.component + (position)];
     }
@@ -41,17 +38,14 @@ export const getElementByIndexes = state => i => {
     if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex];
     }
-
     // If the component and column are undefined, return the row.
     if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex].rows[i.rowIndex];
     }
-
     // If the component index is undefined, return the column.
     if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
     }
-
     // Otherwise, return the component.
     return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[
         i.componentIndex
@@ -63,24 +57,28 @@ export const getElementByIndexes = state => i => {
  * 
  */
 export const getSiblingElements = state => {
-    if (state.selected.type === 'Canvas')    return state.canvases;
-    if (state.selected.type === 'Row')       return state.canvases[state.selected.canvas].rows;
-    if (state.selected.type === 'Column')    return state.canvases[state.selected.canvas].rows[state.selected.row].columns;
-    if (state.selected.type === 'Component') return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components;
+    if (state.selected.type === 'Canvas') {
+        return state.canvases;
+    }
+    else if (state.selected.type === 'Row') {
+        return state.canvases[state.selected.canvas].rows;
+    }
+    else if (state.selected.type === 'Column') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row].columns;
+    }
+    else {
+        return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components;
+    }
 }
 
 export const getSiblingsElementByIndexes = (state, i) => {
     // If row, column, and component are undefined, return the canvas.
     if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        console.log('getting canvases');
-        console.table(i);
         return state.canvases;
     }
 
     // If the component and column are undefined, return the row.
     if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-        console.log('getting rows');
-        console.table(i);
         return state.canvases[i.canvasIndex].rows;
     }
 

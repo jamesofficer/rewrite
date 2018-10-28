@@ -13,7 +13,7 @@ export default {
     computed: {
         selectedWidth: {
             get() {
-                return this.$store.getters.getCurrentElement.columnWidth;
+                return this.$store.getters.getSelectedElement.columnWidth;
             },
             set(width) {
                 this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
@@ -78,12 +78,12 @@ export default {
 
     methods: {
         isSelected(width) {
-            return this.$store.getters.getCurrentElement.columnWidth === width;
+            return this.$store.getters.getSelectedElement.columnWidth === width;
         },
 
         checkColumnWidth(newWidth) {
             const currentTotalWidth = this.$store.getters.totalColumnWidth;
-            const oldWidth = this.$store.getters.getCurrentElement.columnWidth;
+            const oldWidth = this.$store.getters.getSelectedElement.columnWidth;
 
             const newTotalWidth = (currentTotalWidth - oldWidth) + newWidth;
 

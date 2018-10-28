@@ -30,6 +30,9 @@ export default {
         dismissCountDown: 0,
     },
 
+    // Sometimes we want to disabled keybindings, such as when we are editing a text element.
+    enableKeyBindings: true,
+
     // Holds an array of all the Fonts used in the article. We do this so we can append the
     // needed stylesheets to the document head when exporting the article. Each object
     // in this array has the font name, and the font weights we need to save.

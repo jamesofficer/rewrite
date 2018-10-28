@@ -28,7 +28,7 @@ export default {
 
     computed: {
         elementType() {
-            return this.$store.getters.getActiveElement.type;
+            return this.$store.getters.getSelectedElementType;
         },
 
         canMoveElementUp() {

@@ -41,7 +41,7 @@ export default {
     computed: {
         marginTop: {
             get() {
-                return this.$store.getters.getCurrentElement.margin.top;
+                return this.$store.getters.getSelectedElement.margin.top;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -54,7 +54,7 @@ export default {
 
         marginRight: {
             get() {
-                return this.$store.getters.getCurrentElement.margin.right;
+                return this.$store.getters.getSelectedElement.margin.right;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -67,7 +67,7 @@ export default {
 
         marginBottom: {
             get() {
-                return this.$store.getters.getCurrentElement.margin.bottom;
+                return this.$store.getters.getSelectedElement.margin.bottom;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {
@@ -80,7 +80,7 @@ export default {
 
         marginLeft: {
             get() {
-                return this.$store.getters.getCurrentElement.margin.left;
+                return this.$store.getters.getSelectedElement.margin.left;
             },
             set(amount) {
                 this.$store.commit('setComponentSubProperty', {

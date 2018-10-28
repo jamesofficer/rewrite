@@ -1,5 +1,5 @@
 <template>
-    <b-textarea v-model="content"></b-textarea>
+    <b-textarea v-model="content" @focus="setKeyBindings(false)" @blur="setKeyBindings(true)"></b-textarea>
 </template>
 
 <script>
@@ -9,13 +9,19 @@ export default {
     computed: {
         content: {
             get () {
-                return this.$store.getters.getCurrentElement.content;
+                return this.$store.getters.getSelectedElement.content;
             },
             set (value) {
                 this.$store.commit('setComponentProperty', { property: 'content', value: value });
             }
         },
     },
+
+    methods: {
+        setKeyBindings(boolean) {
+            this.$store.commit('enableKeyBindings', boolean);
+        }
+    }
 }
 </script>
 

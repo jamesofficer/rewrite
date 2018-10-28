@@ -16,7 +16,7 @@ export default {
     computed: {
         componentAlignment: {
             get() {
-                return this.$store.getters.getCurrentElement.componentAlignment;
+                return this.$store.getters.getSelectedElement.componentAlignment;
             },
             set(alignment) {
                 this.$store.commit('setComponentProperty', { property: 'componentAlignment', value: alignment });
