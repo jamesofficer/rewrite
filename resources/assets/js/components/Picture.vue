@@ -10,7 +10,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <image-selector></image-selector>
 
@@ -33,7 +33,7 @@
 import GetElement      from './mixins/GetElement'
 
 import TopBar          from './topbar/TopBar'
-import DeleteCloneMove from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import ImageSelector   from './core/ImageSelector'
 import ImageAlignment  from './core/ImageAlignment'
@@ -48,7 +48,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         ImageSelector, ImageAlignment, Margin, Width, Border, BoxShadow,
     },
 }

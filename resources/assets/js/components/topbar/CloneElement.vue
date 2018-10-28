@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar-control variant="outline-info" icon="clone" tooltip="Clone Element" id="clone-element-popover" @click="showPopover = true"></top-bar-control>
+        <top-bar-control variant="outline-info" icon="clone" tooltip="Clone" id="clone-element-popover" @click="showPopover = true"></top-bar-control>
 
         <b-popover target="clone-element-popover" placement="bottomright" :show.sync="showPopover">
             <!-- If a Canvas is selected, we do not need to specify a position to clone it to -->
@@ -47,16 +47,13 @@ export default {
 
     components: { TopBarControl },
 
-    props: {
-        elementType: {
-            type: String,
-            required: true,
-        }
-    },
-
     computed: {
+        elementType() {
+            return this.$store.getters.getActiveElement.type;
+        },
+
         currentIndexes() {
-            const active = this.$store.getters.getActiveElementIndexes;
+            const active = this.$store.getters.getActiveElement;
 
             return {
                 canvasIndex: active.canvas,
@@ -124,7 +121,6 @@ export default {
     methods: {
         cloneElement() {
             this.$store.commit('cloneElement', {
-                type: this.elementType,
                 canvasIndex: this.selectedCanvasIndex,
                 rowIndex: this.selectedRowIndex,
                 columnIndex: this.selectedColumnIndex,

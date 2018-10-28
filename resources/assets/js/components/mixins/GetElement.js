@@ -24,12 +24,10 @@ export default {
     },
 
     computed: {
-        ...mapGetters({
-            getElement: 'getElement',
-        }),
-
         element() {
-            return this.getElement(this.indexes);
+            // console.log('element indexes');
+            // console.table(this.indexes);
+            return this.$store.getters.getSpecifiedElement(this.indexes);
         },
 
         elementIsSelected() {

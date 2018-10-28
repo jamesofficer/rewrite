@@ -1,7 +1,20 @@
 <template>
     <div class="move-element-wrapper">
-        <top-bar-control @click.native="moveElement('up')" variant="outline-info" icon="arrow-up" tooltip="Move Up" :disabled="! canMoveElement.up"></top-bar-control>
-        <top-bar-control @click.native="moveElement('down')" variant="outline-info" icon="arrow-down" tooltip="Move Down" :disabled="! canMoveElement.down"></top-bar-control>
+        <top-bar-control
+            @click.native="moveElement('up')"
+            variant="outline-info"
+            :icon="elementType === 'Column' ? 'arrow-left' : 'arrow-up'"
+            tooltip="Move Up"
+            :disabled="! canMoveElementUp"
+        ></top-bar-control>
+
+        <top-bar-control
+            @click.native="moveElement('down')"
+            variant="outline-info"
+            :icon="elementType === 'Column' ? 'arrow-right' : 'arrow-down'"
+            tooltip="Move Down"
+            :disabled="! canMoveElementDown"
+        ></top-bar-control>
     </div>
 </template>
 
@@ -13,28 +26,23 @@ export default {
 
     components: { TopBarControl },
 
-    props: {
-        elementType: {
-            type: String,
-            default: 'Component',
-        }
-    },
-
     computed: {
-        canMoveElement() {
-            return {
-                up: this.$store.getters.canMoveCanvasUp,
-                down: this.$store.getters.canMoveCanvasDown,
-            }
+        elementType() {
+            return this.$store.getters.getActiveElement.type;
+        },
+
+        canMoveElementUp() {
+            return this.$store.getters.canMoveElementUp;
+        },
+
+        canMoveElementDown() {
+            return this.$store.getters.canMoveElementDown;
         },
     },
 
     methods: {
         moveElement(direction) {
-            this.$store.commit('moveElement', {
-                type: this.elementType,
-                direction: direction
-            });
+            this.$store.commit('moveElement', direction);
         },
     }
 }

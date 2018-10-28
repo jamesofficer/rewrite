@@ -1,5 +1,5 @@
 <template>
-    <top-bar-control @click.native="deleteElement" variant="outline-danger" icon="times" tooltip="Delete Element"></top-bar-control>
+    <top-bar-control @click.native="deleteElement" variant="outline-danger" icon="times" tooltip="Delete"></top-bar-control>
 </template>
 
 <script>

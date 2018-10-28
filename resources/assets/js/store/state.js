@@ -14,6 +14,7 @@ export default {
         row: undefined,
         column: undefined,
         component: undefined,
+        type: undefined,
     },
 
     // The content of the workspace. The full list of Canvases and everything within them.

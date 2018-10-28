@@ -2,6 +2,9 @@ NEW COMPONENTS:
 - Other Social Media Components (Pinterest, Twitter)
 
 BUGS:
+- Clone Component needs to load in all destination canvases, rows, cols etc.
+- Cloning something should append onto the end of the destination, not the start.
+- Change font on Canvas1, Column2 will copy font weight to Column1 when clicked on.
 - Clean extra fonts from html export.
 - Previewing an article appends onto the existing previewed article.
 - Hide user id on image uploads.

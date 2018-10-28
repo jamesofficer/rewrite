@@ -1,4 +1,4 @@
-import { getSelectedElement } from "./helpers";
+import { getElement } from "./helpers";
 
 /**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
@@ -36,7 +36,7 @@ export const components = state => i => {
  * Returns the index values from the state.active object.
  *
  */ 
-export const getActiveElementIndexes = state => {
+export const getActiveElement = state => {
     return state.active;
 }
 
@@ -51,7 +51,7 @@ export const getCurrentElement = state => {
         return null;
     }
 
-    return getSelectedElement(state);
+    return getElement(state);
 };
 
 /**
@@ -102,75 +102,25 @@ export const totalColumnWidth = state => {
     }
 };
 
-/**
- * Returns true if there is a Canvas above this one.
- *
- */
-export const canMoveCanvasUp = state => {
-    if (state.active.canvas !== undefined) {
-        return state.active.canvas > 0;
-    }
-};
+export const canMoveElementUp = state => {
+    if (state.active.type === 'Canvas')    return state.active.canvas > 0;
+    if (state.active.type === 'Row')       return state.active.row > 0;
+    if (state.active.type === 'Column')    return state.active.column > 0;
+    if (state.active.type === 'Component') return state.active.component > 0;
+}
 
-/**
- * Returns true if there is a component below this one.
- *
- */
-export const canMoveCanvasDown = state => {
-    if (state.active.canvas !== undefined) {
-        return state.active.canvas !== (state.canvases.length - 1);
-    }
-};
-
-/**
- * Returns true if there is another column to the left of this one.
- * 
- */
-export const canMoveColumnLeft = state => {
-    if (state.active.column !== undefined) {
-        return state.active.column > 0;
-    }
-};
-
-/**
- * Returns true if there is another column to the right of this one i.e: we can move it right.
- *
- */
-export const canMoveColumnRight = state => {
-    if (state.active.column !== undefined) {
-        return state.active.column !== (state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1);
-    }
-};
-
-/**
- * Returns true if there is a component above this one.
- *
- */
-export const canMoveComponentUp = state => {
-    if (state.active.component !== undefined) {
-        return state.active.component !== 0;
-    }
-};
-
-/**
- * Returns true if there is a component below this one.
- *
- */
-export const canMoveComponentDown = state => {
-    if (state.active.component !== undefined) {
-        const numComponents = state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length;
-
-        return state.active.component < (numComponents - 1);
-    }
-};
-
-
+export const canMoveElementDown = state => {
+    if (state.active.type === 'Canvas')    return state.active.canvas !== (state.canvases.length - 1);
+    if (state.active.type === 'Row')       return state.active.row !== (state.canvases[state.active.canvas].rows.length - 1);
+    if (state.active.type === 'Column')    return state.active.column !== (state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1);
+    if (state.active.type === 'Component') return state.active.component !== (state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length - 1);
+}
 
 /**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
  * 
  */
-export const getElement = state => i => {
+export const getSpecifiedElement = state => i => {
     // If row, column, and component are undefined, return the canvas.
     if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex];
@@ -197,9 +147,9 @@ export const getElement = state => i => {
  * 
  */
 export const aCanvasIsSelected = state => {
-    return state.active.canvas !== undefined &&
-           state.active.row    === undefined &&
-           state.active.column === undefined &&
+    return state.active.canvas    !== undefined &&
+           state.active.row       === undefined &&
+           state.active.column    === undefined &&
            state.active.component === undefined;
 };
 
@@ -208,9 +158,9 @@ export const aCanvasIsSelected = state => {
  *
  */
 export const aRowIsSelected = state => {
-    return state.active.canvas !== undefined &&
-           state.active.row    !== undefined &&
-           state.active.column === undefined &&
+    return state.active.canvas    !== undefined &&
+           state.active.row       !== undefined &&
+           state.active.column    === undefined &&
            state.active.component === undefined;
 };
 
@@ -219,9 +169,9 @@ export const aRowIsSelected = state => {
  * 
  */
 export const aColumnIsSelected = state => {
-    return state.active.canvas !== undefined &&
-           state.active.row    !== undefined &&
-           state.active.column !== undefined &&
+    return state.active.canvas    !== undefined &&
+           state.active.row       !== undefined &&
+           state.active.column    !== undefined &&
            state.active.component === undefined;
 };
 
@@ -230,9 +180,9 @@ export const aColumnIsSelected = state => {
  * 
  */
 export const aComponentIsSelected = state => {
-    return state.active.canvas !== undefined &&
-           state.active.row    !== undefined &&
-           state.active.column !== undefined &&
+    return state.active.canvas    !== undefined &&
+           state.active.row       !== undefined &&
+           state.active.column    !== undefined &&
            state.active.component !== undefined;
 };
 
