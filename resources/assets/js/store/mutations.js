@@ -11,6 +11,46 @@ export const addCanvas = state => {
     state.canvases.push(duplicateObject(defaults.canvas));
 };
 
+/**
+ * Adds a Row to the specified Canvas.
+ *
+ */
+export const addRow = state => {
+    state.canvases[state.selected.canvas].rows.push(duplicateObject(defaults.row));
+};
+
+/**
+ * Adds a Column to the specified Row.
+ *
+ */
+export const addColumn = (state, columnWidth) => {
+    const newColumn = duplicateObject(defaults.column);
+    newColumn.columnWidth = columnWidth;
+
+    getElement(state).columns.push(newColumn);
+};
+
+/**
+ * Adds a component to the specified column.
+ *
+ */
+export const addComponent = (state, componentType) => {
+    const components = {
+        "Heading": duplicateObject(defaults.heading),
+        "Paragraph": duplicateObject(defaults.paragraph),
+        "BlockQuote": duplicateObject(defaults.blockQuote),
+        "Picture": duplicateObject(defaults.picture),
+        "HorizontalLine": duplicateObject(defaults.horizontalLine),
+        "InstagramEmbed": duplicateObject(defaults.instagram),
+        "FacebookEmbed": duplicateObject(defaults.facebook),
+        "YouTubeEmbed": duplicateObject(defaults.youtube),
+        "RecipeSummary": duplicateObject(defaults.recipeSummary),
+        "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
+    };
+
+    getSiblingElements(state).push(components[componentType]);
+};
+
 
 /**
  * Used to set CSS properties on components.
@@ -33,18 +73,14 @@ export const setComponentSubProperty = (state, component) => {
  *
  */
 export const deleteElement = state => {
-    if (state.active.type === 'Component'){
-        getSiblingElements(state).splice(state.active.component, 1);
-    }
-    else if (state.active.type === 'Column') {
-        getSiblingElements(state).splice(state.active.column, 1);
-    }
-    else if (state.active.type === 'Row') {
-        getSiblingElements(state).splice(state.active.row, 1);
-    }
-    else {
-        getSiblingElements(state).splice(state.active.canvas, 1);
-    }
+    const elementType = {
+        'Canvas': state.selected.canvas,
+        'Row': state.selected.row,
+        'Column': state.selected.column,
+        'Component': state.selected.component,
+    };
+
+    getSiblingElements(state).splice(elementType[state.selected.type], 1);
 
     resetSelection(state);
 };
@@ -54,10 +90,10 @@ export const deleteElement = state => {
  *
  */
 export const cloneElement = (state, i) => {
-    if (state.active.type === 'Canvas')    this.cloneCanvas(state);
-    if (state.active.type === 'Row')       this.cloneRow(state, i);
-    if (state.active.type === 'Column')    this.cloneColumn(state, i);
-    if (state.active.type === 'Component') this.cloneComponent(state, i);
+    if (state.selected.type === 'Canvas')    this.cloneCanvas(state);
+    if (state.selected.type === 'Row')       this.cloneRow(state, i);
+    if (state.selected.type === 'Column')    this.cloneColumn(state, i);
+    if (state.selected.type === 'Component') this.cloneComponent(state, i);
 };
 
 /**
@@ -65,7 +101,7 @@ export const cloneElement = (state, i) => {
  *
  */
 export const cloneCanvas = state => {
-    state.canvases.splice(state.active.canvas, 0, duplicateObject(getElement(state)));
+    state.canvases.splice(state.selected.canvas, 0, duplicateObject(getElement(state)));
 };
 
 /**
@@ -112,43 +148,15 @@ export const cloneComponent = (state, i) => {
 export const moveElement = (state, direction) => {
     const directionIndex      = direction === 'up' ? -1 : 1;
     const elementAboveOrBelow = getElement(state, directionIndex);
-
-    const elementType = {
-        'Canvas': state.active.canvas,
-        'Row': state.active.row,
-        'Column': state.active.column,
-        'Component': state.active.component,
-    };
+    const selectedElement     = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(getSiblingElements(state), [elementType[state.active.type] + (directionIndex)], getElement(state));
-    window.Vue.set(getSiblingElements(state), [elementType[state.active.type]], elementAboveOrBelow);
+    window.Vue.set(getSiblingElements(state), [selectedElement + (directionIndex)], getElement(state));
+    window.Vue.set(getSiblingElements(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
-    elementType[state.active.type] = elementType[state.active.type] + (directionIndex);
+    state.selected[state.selected.type.toLowerCase()] += (directionIndex);
 }
-
-/**
- * Adds a Row to the specified Canvas.
- *
- */
-export const addRowToCanvas = state => {
-    state.canvases[state.active.canvas].rows.push(
-        duplicateObject(defaults.row)
-    );
-};
-
-/**
- * Adds a Column to the specified Row.
- *
- */
-export const addColumnToRow = (state, columnWidth) => {
-    const newColumn = duplicateObject(defaults.column);
-
-    newColumn.columnWidth = columnWidth;
-
-    state.canvases[state.active.canvas].columns.push(newColumn);
-};
 
 /**
  * Sets the currently selected component to whatever the user clicked on.
@@ -157,48 +165,25 @@ export const addColumnToRow = (state, columnWidth) => {
 export const selectElement = (state, i) => {
     resetSelection(state);
 
-    if (i.canvasIndex !== undefined) {
-        window.Vue.set(state.active, 'canvas', i.canvasIndex);
-        window.Vue.set(state.active, 'type', 'Canvas');
-    }
-
-    if (i.rowIndex !== undefined) {
-        window.Vue.set(state.active, 'row', i.rowIndex);
-        window.Vue.set(state.active, 'type', 'Row');
-    }
-
-    if (i.columnIndex !== undefined) {
-        window.Vue.set(state.active, 'column', i.columnIndex);
-        window.Vue.set(state.active, 'type', 'Column');
-    }
+    window.Vue.set(state.selected, 'canvas', i.canvasIndex);
+    window.Vue.set(state.selected, 'row', i.rowIndex);
+    window.Vue.set(state.selected, 'column', i.columnIndex);
+    window.Vue.set(state.selected, 'component', i.componentIndex);
 
     if (i.componentIndex !== undefined) {
-        window.Vue.set(state.active, 'component', i.componentIndex);
-        window.Vue.set(state.active, 'type', 'Component');
+        window.Vue.set(state.selected, 'type', 'Component');
+    }
+    else if (i.columnIndex !== undefined) {
+        window.Vue.set(state.selected, 'type', 'Column');
+    }
+    else if (i.rowIndex !== undefined) {
+        window.Vue.set(state.selected, 'type', 'Row');
+    }
+    else {
+        window.Vue.set(state.selected, 'type', 'Canvas');
     }
 
     getElement(state).selected = true;
-};
-
-/**
- * Adds a component to the specified column.
- *
- */
-export const addComponentToColumn = (state, componentType) => {
-    const components = {
-        "Heading": duplicateObject(defaults.heading),
-        "Paragraph": duplicateObject(defaults.paragraph),
-        "BlockQuote": duplicateObject(defaults.blockQuote),
-        "Picture": duplicateObject(defaults.picture),
-        "HorizontalLine": duplicateObject(defaults.horizontalLine),
-        "InstagramEmbed": duplicateObject(defaults.instagram),
-        "FacebookEmbed": duplicateObject(defaults.facebook),
-        "YouTubeEmbed": duplicateObject(defaults.youtube),
-        "RecipeSummary": duplicateObject(defaults.recipeSummary),
-        "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
-    };
-
-    getSiblingElements(state).push(components[componentType]);
 };
 
 /**

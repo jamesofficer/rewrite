@@ -4,7 +4,7 @@ export default {
     type: "Row",
     selected: false,
 
-    columns: [defaultColumn, defaultColumn],
+    columns: [defaultColumn],
 
     // Properties:
     backgroundSize: 'Auto',

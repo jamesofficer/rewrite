@@ -9,7 +9,7 @@ export default {
     articleHtml: undefined,
 
     // The indexes of the element that is currently selected by the user.
-    active: {
+    selected: {
         canvas: undefined,
         row: undefined,
         column: undefined,

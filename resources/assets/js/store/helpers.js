@@ -10,25 +10,25 @@ export const duplicateObject = object => {
  */
 export const getElement = (state, position = 0) => {
     // Return a Canvas
-    if (state.active.type === 'Canvas') {
-        return state.canvases[state.active.canvas + (position)];
+    if (state.selected.type === 'Canvas') {
+        return state.canvases[state.selected.canvas + (position)];
     }
 
     // Return a Row
-    if (state.active.type === 'Row') {
-        return state.canvases[state.active.canvas].rows[state.active.row + (position)];
+    if (state.selected.type === 'Row') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row + (position)];
     }
 
     // Return a Column
-    if (state.active.type === 'Column') {
-        return state.canvases[state.active.canvas].rows[state.active.row]
-            .columns[state.active.column + (position)];
+    if (state.selected.type === 'Column') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row]
+            .columns[state.selected.column + (position)];
     }
 
     // Return a Component
-    if (state.active.type === 'Component') {
-        return state.canvases[state.active.canvas].rows[state.active.row]
-            .columns[state.active.column].components[state.active.component + (position)];
+    if (state.selected.type === 'Component') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row]
+            .columns[state.selected.column].components[state.selected.component + (position)];
     }
 };
 
@@ -63,20 +63,44 @@ export const getElementByIndexes = state => i => {
  * 
  */
 export const getSiblingElements = state => {
-    if (state.active.type === 'Canvas')    return state.canvases;
-    if (state.active.type === 'Row')       return state.canvases[state.active.canvas].rows;
-    if (state.active.type === 'Column')    return state.canvases[state.active.canvas].rows[state.active.row].columns;
-    if (state.active.type === 'Component') return state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components;
+    if (state.selected.type === 'Canvas')    return state.canvases;
+    if (state.selected.type === 'Row')       return state.canvases[state.selected.canvas].rows;
+    if (state.selected.type === 'Column')    return state.canvases[state.selected.canvas].rows[state.selected.row].columns;
+    if (state.selected.type === 'Component') return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components;
 }
+
+export const getSiblingsElementByIndexes = (state, i) => {
+    // If row, column, and component are undefined, return the canvas.
+    if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+        console.log('getting canvases');
+        console.table(i);
+        return state.canvases;
+    }
+
+    // If the component and column are undefined, return the row.
+    if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+        console.log('getting rows');
+        console.table(i);
+        return state.canvases[i.canvasIndex].rows;
+    }
+
+    // If the component index is undefined, return the column.
+    if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns;
+    }
+
+    // Otherwise, return the component.
+    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components;
+};
 
 /**
  * Clears the current selection.
  *
  */
 export const resetSelection = state => {
-    window.Vue.set(state.active, "type", undefined);
-    window.Vue.set(state.active, "component", undefined);
-    window.Vue.set(state.active, "column", undefined);
-    window.Vue.set(state.active, "row", undefined);
-    window.Vue.set(state.active, "canvas", undefined);
+    window.Vue.set(state.selected, "type", undefined);
+    window.Vue.set(state.selected, "component", undefined);
+    window.Vue.set(state.selected, "column", undefined);
+    window.Vue.set(state.selected, "row", undefined);
+    window.Vue.set(state.selected, "canvas", undefined);
 }

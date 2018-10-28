@@ -33,11 +33,11 @@ export const components = state => i => {
 };
 
 /**
- * Returns the index values from the state.active object.
+ * Returns the index values from the state.selected object.
  *
  */ 
 export const getActiveElement = state => {
-    return state.active;
+    return state.selected;
 }
 
 /**
@@ -55,7 +55,7 @@ export const getSpecifiedElement = (state, i) => {
  */
 export const getCurrentElement = state => {
     // The active canvas will be undefined when the app first starts. Return null to fix errors.
-    if (state.active.canvas === undefined) {
+    if (state.selected.canvas === undefined) {
         return null;
     }
 
@@ -99,10 +99,10 @@ export const fontsUsed = state => {
  * 
  */
 export const totalColumnWidth = state => {
-    if (state.active.canvas !== undefined && state.active.row !== undefined) {
+    if (state.selected.canvas !== undefined && state.selected.row !== undefined) {
         let totalColumnWidth = 0;
 
-        state.canvases[state.active.canvas].rows[state.active.row].columns.forEach(column => {
+        state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(column => {
             totalColumnWidth += column.columnWidth;
         });
 
@@ -111,17 +111,17 @@ export const totalColumnWidth = state => {
 };
 
 export const canMoveElementUp = state => {
-    if (state.active.type === 'Canvas')    return state.active.canvas > 0;
-    if (state.active.type === 'Row')       return state.active.row > 0;
-    if (state.active.type === 'Column')    return state.active.column > 0;
-    if (state.active.type === 'Component') return state.active.component > 0;
+    if (state.selected.type === 'Canvas')    return state.selected.canvas > 0;
+    if (state.selected.type === 'Row')       return state.selected.row > 0;
+    if (state.selected.type === 'Column')    return state.selected.column > 0;
+    if (state.selected.type === 'Component') return state.selected.component > 0;
 }
 
 export const canMoveElementDown = state => {
-    if (state.active.type === 'Canvas')    return state.active.canvas    !== (state.canvases.length - 1);
-    if (state.active.type === 'Row')       return state.active.row       !== (state.canvases[state.active.canvas].rows.length - 1);
-    if (state.active.type === 'Column')    return state.active.column    !== (state.canvases[state.active.canvas].rows[state.active.row].columns.length - 1);
-    if (state.active.type === 'Component') return state.active.component !== (state.canvases[state.active.canvas].rows[state.active.row].columns[state.active.column].components.length - 1);
+    if (state.selected.type === 'Canvas')    return state.selected.canvas    !== (state.canvases.length - 1);
+    if (state.selected.type === 'Row')       return state.selected.row       !== (state.canvases[state.selected.canvas].rows.length - 1);
+    if (state.selected.type === 'Column')    return state.selected.column    !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns.length - 1);
+    if (state.selected.type === 'Component') return state.selected.component !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components.length - 1);
 }
 
 /**
@@ -129,10 +129,10 @@ export const canMoveElementDown = state => {
  * 
  */
 export const aCanvasIsSelected = state => {
-    return state.active.canvas    !== undefined &&
-           state.active.row       === undefined &&
-           state.active.column    === undefined &&
-           state.active.component === undefined;
+    return state.selected.canvas    !== undefined &&
+           state.selected.row       === undefined &&
+           state.selected.column    === undefined &&
+           state.selected.component === undefined;
 };
 
 /**
@@ -140,10 +140,10 @@ export const aCanvasIsSelected = state => {
  *
  */
 export const aRowIsSelected = state => {
-    return state.active.canvas    !== undefined &&
-           state.active.row       !== undefined &&
-           state.active.column    === undefined &&
-           state.active.component === undefined;
+    return state.selected.canvas    !== undefined &&
+           state.selected.row       !== undefined &&
+           state.selected.column    === undefined &&
+           state.selected.component === undefined;
 };
 
 /**
@@ -151,10 +151,10 @@ export const aRowIsSelected = state => {
  * 
  */
 export const aColumnIsSelected = state => {
-    return state.active.canvas    !== undefined &&
-           state.active.row       !== undefined &&
-           state.active.column    !== undefined &&
-           state.active.component === undefined;
+    return state.selected.canvas    !== undefined &&
+           state.selected.row       !== undefined &&
+           state.selected.column    !== undefined &&
+           state.selected.component === undefined;
 };
 
 /**
@@ -162,10 +162,10 @@ export const aColumnIsSelected = state => {
  * 
  */
 export const aComponentIsSelected = state => {
-    return state.active.canvas    !== undefined &&
-           state.active.row       !== undefined &&
-           state.active.column    !== undefined &&
-           state.active.component !== undefined;
+    return state.selected.canvas    !== undefined &&
+           state.selected.row       !== undefined &&
+           state.selected.column    !== undefined &&
+           state.selected.component !== undefined;
 };
 
 /**
@@ -173,10 +173,10 @@ export const aComponentIsSelected = state => {
  * 
  */
 export const elementIsSelected = state => i => {
-    return state.active.canvas    === i.canvasIndex &&
-           state.active.row       === i.rowIndex &&
-           state.active.column    === i.columnIndex &&
-           state.active.component === i.componentIndex;
+    return state.selected.canvas    === i.canvasIndex &&
+           state.selected.row       === i.rowIndex &&
+           state.selected.column    === i.columnIndex &&
+           state.selected.component === i.componentIndex;
 };
 
 

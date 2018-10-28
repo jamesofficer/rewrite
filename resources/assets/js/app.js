@@ -1,28 +1,23 @@
-import Vuex from "vuex";
-import PortalVue from "portal-vue";
-import BootstrapVue from "bootstrap-vue";
-import Shift from "./Shift.vue";
-import Icon from "vue-awesome/components/Icon";
-import VueAutosize from "vue-autosize";
-import './icons.js';
-
-Vue.use(VueAutosize)
-import { store } from "./store/index";
-import "axios/dist/axios.min.js";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-
+// Laravel Bootstrap, includes Axios.
 require("./bootstrap");
 
-window.Vue = require("vue");
+// Core
+import Vue from "vue";
+import Vuex from "vuex";
+import Shift from "./Shift.vue";
+import { store } from "./store/index";
+import './vue-bootstrap.js';
+
+// Libraries
+import PortalVue from "portal-vue";
+import Icon from "vue-awesome/components/Icon";
+import './icons.js';
 
 Vue.use(Vuex);
-Vue.use(BootstrapVue);
 Vue.use(PortalVue);
-Vue.use(VueAutosize);
 Vue.component("icon", Icon);
 
-Vue.config.productionTip = false;
+window.Vue = require("vue");
 
 // The Shift Article creation application.
 new Vue({

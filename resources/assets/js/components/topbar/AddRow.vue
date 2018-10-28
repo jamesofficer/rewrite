@@ -17,7 +17,7 @@ export default {
 
     methods: {
         addRow() {
-            this.$store.commit('addRowToCanvas');
+            this.$store.commit('addRow');
         },
     }
 }

@@ -16,7 +16,7 @@ export default {
     components: [defaultHeading, defaultParagraph],
     componentAlignment: 'start',
 
-    columnWidth: 6,
+    columnWidth: 12,
     columnOffset: 0,
 
     // Property Defaults:

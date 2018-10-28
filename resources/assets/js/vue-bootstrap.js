@@ -1,0 +1,35 @@
+import Vue from "vue";
+
+import { Alert }        from 'bootstrap-vue/es/components';
+import { Button }       from 'bootstrap-vue/es/components';
+import { ButtonGroup }  from 'bootstrap-vue/es/components';
+import { Card }         from 'bootstrap-vue/es/components';
+import { Dropdown }     from 'bootstrap-vue/es/components';
+import { Form }         from 'bootstrap-vue/es/components';
+import { FormInput }    from 'bootstrap-vue/es/components';
+import { FormFile }     from 'bootstrap-vue/es/components';
+import { FormTextarea } from 'bootstrap-vue/es/components';
+import { FormCheckbox } from 'bootstrap-vue/es/components';
+import { FormSelect }   from 'bootstrap-vue/es/components';
+import { Layout }       from 'bootstrap-vue/es/components';
+import { Modal }        from 'bootstrap-vue/es/components';
+import { Popover }      from 'bootstrap-vue/es/components';
+import { Tabs }         from 'bootstrap-vue/es/components';
+import { Tooltip }      from 'bootstrap-vue/es/directives';
+
+Vue.use(Alert);
+Vue.use(Button);
+Vue.use(ButtonGroup);
+Vue.use(Card);
+Vue.use(Dropdown);
+Vue.use(Form);
+Vue.use(FormInput);
+Vue.use(FormFile);
+Vue.use(FormTextarea);
+Vue.use(FormCheckbox);
+Vue.use(FormSelect);
+Vue.use(Layout);
+Vue.use(Modal);
+Vue.use(Popover);
+Vue.use(Tabs);
+Vue.use(Tooltip);

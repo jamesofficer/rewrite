@@ -1,5 +1,5 @@
 <template>
-    <b-textarea v-model="content" v-autosize="content"></b-textarea>
+    <b-textarea v-model="content"></b-textarea>
 </template>
 
 <script>

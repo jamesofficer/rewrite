@@ -35,7 +35,7 @@ export default {
         addColumn() {
             let newColumnsWidth = (12 - this.$store.getters.totalColumnWidth);
 
-            this.$store.commit('addColumnToCanvas', newColumnsWidth);
+            this.$store.commit('addColumn', newColumnsWidth);
         },
     }
 }

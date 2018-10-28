@@ -128,7 +128,7 @@ export default {
 
     methods: {
         addComponent(componentType) {
-            this.$store.commit('addComponentToColumn', componentType);
+            this.$store.commit('addComponent', componentType);
 
             this.$refs.addComponentModal.hide();
         }

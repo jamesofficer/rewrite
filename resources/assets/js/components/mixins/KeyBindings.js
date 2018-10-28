@@ -3,60 +3,24 @@ export default {
         const self = this;
 
         window.addEventListener('keyup', function(ev) {
-            /**
-             * Pressing the UP ARROW key moves a Component, Column, or Canvas up.
-             * 
-             */
+            // Move an Element Up.
             if (ev.key === "ArrowUp") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('moveComponentUp');                    
-                    return;
-                }
-
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnRight');
-                    return;
-                }
-
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('moveCanvasUp');                    
-                    return;
-                }
+                self.$store.commit('moveElement', 'up');
             }
 
-            /**
-             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
-             * 
-             */
+            // Move an Element Down.
             if (ev.key === "ArrowDown") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('moveComponentDown');                    
-                    return;
-                }
-
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnLeft');
-                    return;
-                }
-
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('moveCanvasDown');                    
-                    return;
-                }
+                self.$store.commit('moveElement', 'down');
             }
 
-            /**
-             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
-             * 
-             */
+            // Move a Column Left
             if (ev.key === "ArrowLeft" && self.$store.getters.aColumnIsSelected) {
-                self.$store.commit('moveColumnLeft');
-                return;
+                self.$store.commit('moveElement', 'up');
             }
 
+            // Move a Column Right
             if (ev.key === "ArrowRight" && self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnRight');
-                    return;
+                self.$store.commit('moveElement', 'down');
             }
 
             /**
