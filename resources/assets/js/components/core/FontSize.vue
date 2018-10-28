@@ -6,7 +6,7 @@
                   :max="64" 
                   v-b-tooltip.hover 
                   title="Font Size" 
-                  class="top-bar-input"
+                  class="top-bar-sm-input"
     ></b-form-input>
 </template>
 

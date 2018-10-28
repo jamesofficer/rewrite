@@ -19,7 +19,7 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <!-- <add-component-button></add-component-button>
+            <add-component-button></add-component-button>
 
             <margin></margin>
 
@@ -33,23 +33,23 @@
 
             <border></border>
 
-            <box-shadow></box-shadow> -->
+            <box-shadow></box-shadow>
 
             <!-- Only need these for background images -->
-            <!-- <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
+            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
                 <background-size></background-size>
 
                 <background-position></background-position>
-            </template> -->
+            </template>
 
             <!-- Clearing a background image also clears a background gradient -->
-            <!-- <template v-if="element.backgroundImage">
+            <template v-if="element.backgroundImage">
                 <clear-image></clear-image>
             </template>
 
             <column-width></column-width>
 
-            <align-components></align-components> -->
+            <align-components></align-components>
         </top-bar>
     </b-col>
 </template>

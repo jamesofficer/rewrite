@@ -7,7 +7,7 @@
                   step="0.1"
                   v-b-tooltip.hover
                   title="Line Height"
-                  class="top-bar-input"
+                  class="top-bar-sm-input"
     ></b-form-input>
 </template>
 

@@ -8,7 +8,7 @@ export default {
 
     // Properties:
     backgroundSize: 'Auto',
-    // backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     backgroundPosition: 'Center',
     margin: {
         top: 20,

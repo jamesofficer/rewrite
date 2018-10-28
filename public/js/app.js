@@ -23388,7 +23388,7 @@ module.exports = Component.exports
 
     // Properties:
     backgroundSize: 'Auto',
-    // backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     backgroundPosition: 'Center',
     margin: {
         top: 20,
@@ -23455,7 +23455,7 @@ module.exports = Component.exports
     columnOffset: 0,
 
     // Property Defaults:
-    // backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     margin: {
         top: 0,
         right: 0,
@@ -37514,8 +37514,6 @@ exports.push([module.i, "\n.modal-card[data-v-1cbef5b4] {\n    display: -webkit-
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_defaults_InstagramEmbed__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_defaults_FacebookEmbed__ = __webpack_require__(56);
 //
 //
 //
@@ -37637,9 +37635,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AddComponentModal",
@@ -38719,16 +38714,16 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
                     model: {
-                      value: _vm.marginRight,
+                      value: _vm.marginBottom,
                       callback: function($$v) {
-                        _vm.marginRight = _vm._n($$v)
+                        _vm.marginBottom = _vm._n($$v)
                       },
-                      expression: "marginRight"
+                      expression: "marginBottom"
                     }
                   })
                 ],
@@ -38744,25 +38739,6 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 500, size: "sm" },
-                    model: {
-                      value: _vm.marginBottom,
-                      callback: function($$v) {
-                        _vm.marginBottom = _vm._n($$v)
-                      },
-                      expression: "marginBottom"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Left")]),
                   _vm._v(" "),
                   _c("b-form-input", {
@@ -38773,6 +38749,25 @@ var render = function() {
                         _vm.marginLeft = _vm._n($$v)
                       },
                       expression: "marginLeft"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    model: {
+                      value: _vm.marginRight,
+                      callback: function($$v) {
+                        _vm.marginRight = _vm._n($$v)
+                      },
+                      expression: "marginRight"
                     }
                   })
                 ],
@@ -38949,16 +38944,16 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
                     model: {
-                      value: _vm.paddingRight,
+                      value: _vm.paddingBottom,
                       callback: function($$v) {
-                        _vm.paddingRight = _vm._n($$v)
+                        _vm.paddingBottom = _vm._n($$v)
                       },
-                      expression: "paddingRight"
+                      expression: "paddingBottom"
                     }
                   })
                 ],
@@ -38974,25 +38969,6 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 500, size: "sm" },
-                    model: {
-                      value: _vm.paddingBottom,
-                      callback: function($$v) {
-                        _vm.paddingBottom = _vm._n($$v)
-                      },
-                      expression: "paddingBottom"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Left")]),
                   _vm._v(" "),
                   _c("b-form-input", {
@@ -39003,6 +38979,25 @@ var render = function() {
                         _vm.paddingLeft = _vm._n($$v)
                       },
                       expression: "paddingLeft"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    model: {
+                      value: _vm.paddingRight,
+                      callback: function($$v) {
+                        _vm.paddingRight = _vm._n($$v)
+                      },
+                      expression: "paddingRight"
                     }
                   })
                 ],
@@ -39563,16 +39558,16 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 50, size: "sm" },
                     model: {
-                      value: _vm.borderRight,
+                      value: _vm.borderBottom,
                       callback: function($$v) {
-                        _vm.borderRight = _vm._n($$v)
+                        _vm.borderBottom = _vm._n($$v)
                       },
-                      expression: "borderRight"
+                      expression: "borderBottom"
                     }
                   })
                 ],
@@ -39589,25 +39584,6 @@ var render = function() {
               _c(
                 "b-col",
                 [
-                  _c("label", { staticClass: "sub-label" }, [_vm._v("Bottom")]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    attrs: { type: "number", min: 0, max: 50, size: "sm" },
-                    model: {
-                      value: _vm.borderBottom,
-                      callback: function($$v) {
-                        _vm.borderBottom = _vm._n($$v)
-                      },
-                      expression: "borderBottom"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                [
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Left")]),
                   _vm._v(" "),
                   _c("b-form-input", {
@@ -39618,6 +39594,25 @@ var render = function() {
                         _vm.borderLeft = _vm._n($$v)
                       },
                       expression: "borderLeft"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                [
+                  _c("label", { staticClass: "sub-label" }, [_vm._v("Right")]),
+                  _vm._v(" "),
+                  _c("b-form-input", {
+                    attrs: { type: "number", min: 0, max: 50, size: "sm" },
+                    model: {
+                      value: _vm.borderRight,
+                      callback: function($$v) {
+                        _vm.borderRight = _vm._n($$v)
+                      },
+                      expression: "borderRight"
                     }
                   })
                 ],
@@ -40105,6 +40100,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__core_LetterSpacing__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Width__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__core_Width___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__core_Width__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40974,7 +40976,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-btn",
+    staticClass: "top-bar-input",
     attrs: { options: _vm.fontList, title: "Font Family", size: "sm" },
     model: {
       value: _vm.selectedFont,
@@ -41047,7 +41049,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-btn",
+    staticClass: "top-bar-sm-input",
     attrs: { size: "sm", options: _vm.fontWeights, title: "Font Weight" },
     model: {
       value: _vm.fontWeight,
@@ -41118,7 +41120,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-input",
+    staticClass: "top-bar-sm-input",
     attrs: { size: "sm", type: "number", min: 10, max: 64, title: "Font Size" },
     model: {
       value: _vm.fontSize,
@@ -41190,7 +41192,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-input",
+    staticClass: "top-bar-sm-input",
     attrs: {
       size: "sm",
       type: "number",
@@ -41269,7 +41271,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-input",
+    staticClass: "top-bar-sm-input",
     attrs: {
       size: "sm",
       type: "number",
@@ -41387,7 +41389,7 @@ var render = function() {
         modifiers: { hover: true }
       }
     ],
-    staticClass: "top-bar-input",
+    staticClass: "top-bar-sm-input",
     attrs: { size: "sm", type: "number", min: 1, max: 100, title: "Width (%)" },
     model: {
       value: _vm.width,
@@ -41430,6 +41432,7 @@ var render = function() {
             [_vm._v("\n        " + _vm._s(_vm.element.content) + "\n    ")]
           )
         : _c("text-input", {
+            staticStyle: { background: "none" },
             style: _vm.getElementStyles,
             attrs: { size: "lg", id: "heading-input" },
             nativeOn: {
@@ -49538,7 +49541,44 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.elementIsSelected
-        ? _c("top-bar", [_c("delete-clone-move-element")], 1)
+        ? _c(
+            "top-bar",
+            [
+              _c("delete-clone-move-element"),
+              _vm._v(" "),
+              _c("add-component-button"),
+              _vm._v(" "),
+              _c("margin"),
+              _vm._v(" "),
+              _c("padding"),
+              _vm._v(" "),
+              _c("background-color"),
+              _vm._v(" "),
+              _c("background-gradient"),
+              _vm._v(" "),
+              _c("image-selector"),
+              _vm._v(" "),
+              _c("border"),
+              _vm._v(" "),
+              _c("box-shadow"),
+              _vm._v(" "),
+              _vm.element.backgroundImage !== undefined &&
+              _vm.element.backgroundImage.includes("url")
+                ? [
+                    _c("background-size"),
+                    _vm._v(" "),
+                    _c("background-position")
+                  ]
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.element.backgroundImage ? [_c("clear-image")] : _vm._e(),
+              _vm._v(" "),
+              _c("column-width"),
+              _vm._v(" "),
+              _c("align-components")
+            ],
+            2
+          )
         : _vm._e()
     ],
     2
@@ -53265,7 +53305,10 @@ var addComponent = function addComponent(state, componentType) {
         "RecipeIngredients": Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].recipeIngredients)
     };
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).push(components[componentType]);
+    console.log(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state));
+
+    var componentsArray = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state);
+    componentsArray.push(components[componentType]);
 };
 
 /**
@@ -54632,17 +54675,21 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(582)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(566)
 /* template */
-var __vue_template__ = __webpack_require__(567)
+var __vue_template__ = __webpack_require__(584)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-f8d6bcee"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -54867,168 +54914,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 567 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("top-bar-control", {
-        attrs: {
-          variant: "outline-info",
-          icon: "clone",
-          tooltip: "Clone",
-          id: "clone-element-popover"
-        },
-        on: {
-          click: function($event) {
-            _vm.showPopover = true
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-popover",
-        {
-          attrs: {
-            target: "clone-element-popover",
-            placement: "bottomright",
-            show: _vm.showPopover
-          },
-          on: {
-            "update:show": function($event) {
-              _vm.showPopover = $event
-            }
-          }
-        },
-        [
-          _vm.elementType === "Row" ||
-          _vm.elementType === "Column" ||
-          _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                { staticStyle: { width: "250px" } },
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Canvas")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.canvases },
-                        model: {
-                          value: _vm.selectedCanvasIndex,
-                          callback: function($$v) {
-                            _vm.selectedCanvasIndex = $$v
-                          },
-                          expression: "selectedCanvasIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.elementType === "Column" || _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                { staticStyle: { width: "250px" } },
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Rows")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.rows },
-                        model: {
-                          value: _vm.selectedRowIndex,
-                          callback: function($$v) {
-                            _vm.selectedRowIndex = $$v
-                          },
-                          expression: "selectedRowIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.elementType === "Component"
-            ? _c(
-                "b-row",
-                [
-                  _c(
-                    "b-col",
-                    [
-                      _c("h6", [_vm._v("Destination Column")]),
-                      _vm._v(" "),
-                      _c("b-form-select", {
-                        attrs: { options: _vm.columns },
-                        model: {
-                          value: _vm.selectedColumnIndex,
-                          callback: function($$v) {
-                            _vm.selectedColumnIndex = $$v
-                          },
-                          expression: "selectedColumnIndex"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            [
-              _c(
-                "b-col",
-                [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { variant: "success" },
-                      on: { click: _vm.cloneElement }
-                    },
-                    [_vm._v("Clone")]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f8d6bcee", module.exports)
-  }
-}
-
-/***/ }),
+/* 567 */,
 /* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55582,6 +55468,209 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_boot
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue_es_components__["n" /* Popover */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue_es_components__["o" /* Tabs */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_bootstrap_vue_es_directives__["a" /* Tooltip */]);
+
+/***/ }),
+/* 582 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(583);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("3f6f79d5", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f8d6bcee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CloneElement.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f8d6bcee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CloneElement.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 583 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.clone-element-box[data-v-f8d6bcee] {\n    width: 250px;\n    margin-bottom: 10px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 584 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("top-bar-control", {
+        attrs: {
+          variant: "outline-info",
+          icon: "clone",
+          tooltip: "Clone",
+          id: "clone-element-popover"
+        },
+        on: {
+          click: function($event) {
+            _vm.showPopover = true
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "b-popover",
+        {
+          attrs: {
+            target: "clone-element-popover",
+            placement: "bottomright",
+            show: _vm.showPopover
+          },
+          on: {
+            "update:show": function($event) {
+              _vm.showPopover = $event
+            }
+          }
+        },
+        [
+          _vm.elementType === "Row" ||
+          _vm.elementType === "Column" ||
+          _vm.elementType === "Component"
+            ? _c(
+                "b-row",
+                { staticClass: "clone-element-box" },
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Canvas")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.canvases },
+                        model: {
+                          value: _vm.selectedCanvasIndex,
+                          callback: function($$v) {
+                            _vm.selectedCanvasIndex = $$v
+                          },
+                          expression: "selectedCanvasIndex"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.elementType === "Column" || _vm.elementType === "Component"
+            ? _c(
+                "b-row",
+                { staticClass: "clone-element-box" },
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Rows")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.rows },
+                        model: {
+                          value: _vm.selectedRowIndex,
+                          callback: function($$v) {
+                            _vm.selectedRowIndex = $$v
+                          },
+                          expression: "selectedRowIndex"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.elementType === "Component"
+            ? _c(
+                "b-row",
+                { staticClass: "clone-element-box" },
+                [
+                  _c(
+                    "b-col",
+                    [
+                      _c("h6", [_vm._v("Destination Column")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: { options: _vm.columns },
+                        model: {
+                          value: _vm.selectedColumnIndex,
+                          callback: function($$v) {
+                            _vm.selectedColumnIndex = $$v
+                          },
+                          expression: "selectedColumnIndex"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { variant: "success" },
+                      on: { click: _vm.cloneElement }
+                    },
+                    [_vm._v("Clone")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f8d6bcee", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

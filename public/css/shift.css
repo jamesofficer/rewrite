@@ -28,7 +28,12 @@ button,
 }
 
 .top-bar-input {
-  width: 100px !important;
+  width: 150px !important;
+  margin-right: 5px;
+}
+
+.top-bar-sm-input {
+  width: 75px !important;
   margin-right: 5px;
 }
 

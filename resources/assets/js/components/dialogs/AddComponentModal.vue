@@ -120,9 +120,6 @@
 </template>
 
 <script>
-import defaultInstagramEmbed   from '../../store/defaults/InstagramEmbed'
-import defaultFacebookEmbed   from '../../store/defaults/FacebookEmbed'
-
 export default {
     name: "AddComponentModal",
 

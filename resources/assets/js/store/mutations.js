@@ -48,7 +48,10 @@ export const addComponent = (state, componentType) => {
         "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
-    getSiblingElements(state).push(components[componentType]);
+    console.log(getSiblingElements(state));
+
+    const componentsArray = getSiblingElements(state);
+    componentsArray.push(components[componentType]);
 };
 
 

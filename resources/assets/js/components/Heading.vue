@@ -5,7 +5,14 @@
             {{ element.content }}
         </h1>
 
-        <text-input v-else @focusout.native="editingText = false" :style="getElementStyles" size="lg" id="heading-input"></text-input>
+        <text-input
+            v-else
+            @focusout.native="editingText = false"
+            :style="getElementStyles"
+            style="background: none"
+            size="lg"
+            id="heading-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

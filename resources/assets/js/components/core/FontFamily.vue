@@ -5,7 +5,7 @@
             v-b-tooltip.hover
             title="Font Family"
             size="sm"
-            class="top-bar-btn"
+            class="top-bar-input"
     ></b-form-select>
 </template>
 

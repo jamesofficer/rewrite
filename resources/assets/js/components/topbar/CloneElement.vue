@@ -6,7 +6,7 @@
             <!-- If a Canvas is selected, we do not need to specify a position to clone it to -->
 
             <!-- If a Row is selected, we can clone that Row to other Canvases -->
-            <b-row v-if="elementType === 'Row' || elementType === 'Column' || elementType === 'Component'" style="width: 250px">
+            <b-row v-if="elementType === 'Row' || elementType === 'Column' || elementType === 'Component'" class="clone-element-box">
                 <b-col>
                     <h6>Destination Canvas</h6>
                     <b-form-select v-model="selectedCanvasIndex" :options="canvases"></b-form-select>
@@ -14,7 +14,7 @@
             </b-row>
 
             <!-- If a Column is selected, we can clone that Row to other Canvases -->
-            <b-row v-if="elementType === 'Column' || elementType === 'Component'" style="width: 250px">
+            <b-row v-if="elementType === 'Column' || elementType === 'Component'" class="clone-element-box">
                 <b-col>
                     <h6>Destination Rows</h6>
                     <b-form-select v-model="selectedRowIndex" :options="rows"></b-form-select>
@@ -22,7 +22,7 @@
             </b-row>
 
             <!-- If a Component is selected, we can clone that Component to other Columns -->
-            <b-row v-if="elementType === 'Component'">
+            <b-row v-if="elementType === 'Component'" class="clone-element-box">
                 <b-col>
                     <h6>Destination Column</h6>
 
@@ -131,3 +131,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.clone-element-box {
+    width: 250px;
+    margin-bottom: 10px;
+}
+</style>
+
+
+
