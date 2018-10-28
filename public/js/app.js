@@ -36051,7 +36051,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                  * The PLUS (+) key (numpad plus) opens the Add Component modal window.
                  * 
                  */
-                if (ev.key === "+" && self.$store.getters.getSelectedElementType === 'Column') {
+                if ((ev.key === "+" || ev.key === "=") && self.$store.getters.getSelectedElementType === 'Column') {
                     self.$root.$emit('bv::show::modal', 'addComponentModal');
                     return;
                 }
@@ -53283,10 +53283,7 @@ var addComponent = function addComponent(state, componentType) {
         "RecipeIngredients": Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].recipeIngredients)
     };
 
-    console.log(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state));
-
-    var componentsArray = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state);
-    componentsArray.push(components[componentType]);
+    state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components.push(components[componentType]);
 };
 
 /**

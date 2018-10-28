@@ -48,10 +48,8 @@ export const addComponent = (state, componentType) => {
         "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
-    console.log(getSiblingElements(state));
-
-    const componentsArray = getSiblingElements(state);
-    componentsArray.push(components[componentType]);
+    state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column]
+        .components.push(components[componentType]);
 };
 
 

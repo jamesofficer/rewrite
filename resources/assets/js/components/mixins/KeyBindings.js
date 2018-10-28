@@ -32,7 +32,7 @@ export default {
                  * The PLUS (+) key (numpad plus) opens the Add Component modal window.
                  * 
                  */
-                if (ev.key === "+" && self.$store.getters.getSelectedElementType === 'Column') {
+                if ((ev.key === "+" || ev.key === "=") && self.$store.getters.getSelectedElementType === 'Column') {
                     self.$root.$emit('bv::show::modal', 'addComponentModal');
                     return;
                 }
