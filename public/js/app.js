@@ -1351,8 +1351,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
     computed: {
         element: function element() {
-            // console.log('element indexes');
-            // console.table(this.indexes);
             return this.$store.getters.getSpecifiedElement(this.indexes);
         },
         elementIsSelected: function elementIsSelected() {
@@ -1360,6 +1358,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         },
         getElementStyles: function getElementStyles() {
             var el = this.element;
+
+            console.log('element styles for el ' + el);
 
             return _extends({}, el.width && { width: el.width + '%' }, el.margin && { margin: el.margin.top + 'px ' + el.margin.right + 'px ' + el.margin.bottom + 'px ' + el.margin.left + 'px' }, el.padding && { padding: el.padding.top + 'px ' + el.padding.right + 'px ' + el.padding.bottom + 'px ' + el.padding.left + 'px' }, el.backgroundImage && { backgroundImage: el.backgroundImage }, el.backgroundColor && { backgroundColor: 'rgba(' + el.backgroundColor.r + ', ' + el.backgroundColor.g + ', ' + el.backgroundColor.b + ', ' + el.backgroundColor.a + ')' }, el.backgroundSize && { backgroundSize: el.backgroundSize }, el.backgroundPosition && { backgroundPosition: el.backgroundPosition }, el.border && { borderWidth: el.border.top + 'px ' + el.border.right + 'px ' + el.border.bottom + 'px ' + el.border.left + 'px' }, el.border && { borderStyle: el.border.style }, el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' }, el.border && { borderRadius: el.border.radius + 'px' }, el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' }, el.textAlign && { textAlign: el.textAlign }, el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' }, el.fontSize && { fontSize: el.fontSize + 'pt' }, el.fontFamily && { fontFamily: el.fontFamily }, el.fontWeight && { fontWeight: el.fontWeight }, el.lineHeight && { lineHeight: el.lineHeight }, el.letterSpacing && { letterSpacing: el.letterSpacing + 'px' }, el.textShadow && { textShadow: el.textShadow.offsetX + 'px ' + el.textShadow.offsetY + 'px ' + el.textShadow.blurRadius + 'px ' + 'rgba(' + el.textShadow.color.r + ', ' + el.textShadow.color.g + ', ' + el.textShadow.color.b + ', ' + el.textShadow.color.a + ')' });
         }
@@ -18267,55 +18267,55 @@ var duplicateObject = function duplicateObject(object) {
  * By default this returns the currently selected element. We can specify an index array position
  * that is higher or lower than the selected element if we want to. This is usually used when
  * moving an element around the workspace, to the element above or below the current one.
- *  
+ *
  */
 var getSelectedElement = function getSelectedElement(state) {
     var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
     // Return a Canvas
     if (state.selected.type === 'Canvas') {
-        return state.canvases[state.selected.canvas + position];
+        return state.canvases[state.selected.canvas + position][state.deviceSize];
     }
     // Return a Row
     else if (state.selected.type === 'Row') {
-            return state.canvases[state.selected.canvas].rows[state.selected.row + position];
+            return state.canvases[state.selected.canvas].rows[state.selected.row + position][state.deviceSize];
         }
         // Return a Column
         else if (state.selected.type === 'Column') {
-                return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
+                return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position][state.deviceSize];
             }
             // Return a Component
             else {
-                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
+                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position][state.deviceSize];
                 }
 };
 
 /**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
- * 
+ *
  */
 var getElementByIndexes = function getElementByIndexes(state) {
     return function (i) {
         // If row, column, and component are undefined, return the canvas.
         if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex];
+            return state.canvases[i.canvasIndex][state.deviceSize];
         }
         // If the component and column are undefined, return the row.
         if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex].rows[i.rowIndex];
+            return state.canvases[i.canvasIndex].rows[i.rowIndex][state.deviceSize];
         }
         // If the component index is undefined, return the column.
         if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
-            return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
+            return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex][state.deviceSize];
         }
         // Otherwise, return the component.
-        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex];
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex][state.deviceSize];
     };
 };
 
 /**
  * Returns the array that the current Element sits in.
- * 
+ *
  */
 var getSiblingElements = function getSiblingElements(state) {
     if (state.selected.type === 'Canvas') {
@@ -21027,13 +21027,7 @@ module.exports = Component.exports
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Row__ = __webpack_require__(81);
 
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: "Canvas",
-    selected: false,
-
-    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
-
-    // Properties:
+var canvas = {
     backgroundSize: 'Auto',
     backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
     backgroundPosition: 'Center',
@@ -21043,6 +21037,18 @@ module.exports = Component.exports
         bottom: 20,
         left: 20
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: "Canvas",
+    selected: false,
+
+    rows: [__WEBPACK_IMPORTED_MODULE_0__Row__["a" /* default */]],
+
+    sm: canvas,
+    md: canvas,
+    lg: canvas,
+    xl: canvas
 });
 
 /***/ }),
@@ -21053,13 +21059,7 @@ module.exports = Component.exports
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Column__ = __webpack_require__(82);
 
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: "Row",
-    selected: false,
-
-    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
-
-    // Properties:
+var row = {
     backgroundSize: 'Auto',
     backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     backgroundPosition: 'Center',
@@ -21089,6 +21089,18 @@ module.exports = Component.exports
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 }
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: "Row",
+    selected: false,
+
+    columns: [__WEBPACK_IMPORTED_MODULE_0__Column__["a" /* default */]],
+
+    sm: row,
+    md: row,
+    lg: row,
+    xl: row
 });
 
 /***/ }),
@@ -21170,12 +21182,7 @@ var column = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: 'Heading',
-    selected: false,
-
-    // Properties:
-    content: 'New Heading',
+var heading = {
     width: 100,
     fontFamily: 'Times New Roman',
     fontWeights: [400, 700],
@@ -21212,6 +21219,18 @@ var column = {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 0 }
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: 'Heading',
+    selected: false,
+
+    content: 'New Heading',
+
+    sm: heading,
+    md: heading,
+    lg: heading,
+    xl: heading
 });
 
 /***/ }),
@@ -21219,12 +21238,7 @@ var column = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: 'Paragraph',
-    selected: false,
-
-    // Properties:
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra eu lectus eu tempor. Duis metus turpis, hendrerit iaculis sem at, venenatis faucibus nisi. Nullam placerat mi nisi, et blandit orci pharetra eu. Praesent posuere suscipit eros eget malesuada. Donec bibendum pellentesque nulla ullamcorper porttitor. In sit amet odio nec nisl vulputate vestibulum. Vestibulum pretium mi non velit dapibus dapibus. Praesent enim tortor, sodales vel lectus non, molestie semper mauris. Morbi luctus convallis maximus. Nunc efficitur quam ut mi feugiat, non condimentum massa egestas. Suspendisse sed sagittis erat. Suspendisse lobortis et tortor non venenatis. Etiam nisi neque, maximus in elit a, porta condimentum ligula. Sed rhoncus, justo non porta aliquet, risus purus viverra odio, at elementum ex velit quis lacus.',
+var paragraph = {
     width: 100,
     fontFamily: 'Times New Roman',
     fontWeights: [400, 700],
@@ -21261,6 +21275,19 @@ var column = {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 0 }
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: 'Paragraph',
+    selected: false,
+
+    // Properties:
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra eu lectus eu tempor. Duis metus turpis, hendrerit iaculis sem at, venenatis faucibus nisi. Nullam placerat mi nisi, et blandit orci pharetra eu. Praesent posuere suscipit eros eget malesuada. Donec bibendum pellentesque nulla ullamcorper porttitor. In sit amet odio nec nisl vulputate vestibulum. Vestibulum pretium mi non velit dapibus dapibus. Praesent enim tortor, sodales vel lectus non, molestie semper mauris. Morbi luctus convallis maximus. Nunc efficitur quam ut mi feugiat, non condimentum massa egestas. Suspendisse sed sagittis erat. Suspendisse lobortis et tortor non venenatis. Etiam nisi neque, maximus in elit a, porta condimentum ligula. Sed rhoncus, justo non porta aliquet, risus purus viverra odio, at elementum ex velit quis lacus.',
+
+    sm: paragraph,
+    md: paragraph,
+    lg: paragraph,
+    xl: paragraph
 });
 
 /***/ }),
@@ -27134,6 +27161,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -27242,6 +27272,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__topbar_AddColumn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__topbar_AddColumn__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Column__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Column___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Column__);
+//
+//
 //
 //
 //
@@ -28241,7 +28273,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__RecipeSummary___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__RecipeSummary__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__RecipeIngredients__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__RecipeIngredients___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__RecipeIngredients__);
-//
 //
 //
 //
@@ -32635,11 +32666,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         content: {
             get: function get() {
-                if (this.$store.getters.getSelectedElement) {
-                    return this.$store.getters.getSelectedElement.content;
-                }
+                // if (this.$store.getters.getRootProperty('content')) {
+                //     return this.$store.getters.getRootProperty('content');
+                // }
 
-                return '';
+                return 'testing';
             },
             set: function set(text) {
                 this.$store.commit('setComponentProperty', { property: 'content', value: text });
@@ -40455,14 +40486,11 @@ var render = function() {
     {
       class: { "selected-element": _vm.elementIsSelected },
       style: _vm.getElementStyles,
-      attrs: {
-        sm: _vm.element.sm.columnWidth,
-        md: _vm.element.md.columnWidth,
-        lg: _vm.element.lg.columnWidth,
-        xl: _vm.element.xl.columnWidth
-      }
+      attrs: { cols: _vm.element.columnWidth }
     },
     [
+      _c("p", [_vm._v("column")]),
+      _vm._v(" "),
       _vm._l(_vm.components, function(component, componentIndex) {
         return _c(component.type, {
           key: componentIndex,
@@ -40552,6 +40580,8 @@ var render = function() {
       style: _vm.getElementStyles
     },
     [
+      _c("p", [_vm._v("row")]),
+      _vm._v(" "),
       _vm._l(_vm.columns, function(column, columnIndex) {
         return _c("column", {
           key: columnIndex,
@@ -40856,10 +40886,13 @@ var render = function() {
     "b-container",
     {
       class: { "selected-element": _vm.elementIsSelected },
+      staticStyle: { padding: "100px 0" },
       style: _vm.getElementStyles,
       attrs: { fluid: "" }
     },
     [
+      _c("p", [_vm._v("something")]),
+      _vm._v(" "),
       _vm._l(_vm.rows, function(row, rowIndex) {
         return _c("row", {
           key: rowIndex,
@@ -42691,7 +42724,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     articleHtml: undefined,
 
     // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
-    deviceSize: 'fw',
+    deviceSize: 'xl',
 
     // The indexes of the element that is currently selected by the user.
     selected: {
@@ -42734,6 +42767,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpecifiedElement", function() { return getSpecifiedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElement", function() { return getSelectedElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRootProperty", function() { return getRootProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElementType", function() { return getSelectedElementType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
@@ -42801,6 +42835,12 @@ var getSpecifiedElement = function getSpecifiedElement(state, i) {
  */
 var getSelectedElement = function getSelectedElement(state) {
     return state.selected.element;
+};
+
+var getRootProperty = function getRootProperty(state) {
+    return function (property) {
+        return state.selected.element[property];
+    };
 };
 
 /**
@@ -42987,7 +43027,7 @@ var addComponent = function addComponent(state, componentType) {
  *
  */
 var setComponentProperty = function setComponentProperty(state, component) {
-    window.Vue.set(state.selected.element, component.property, component.value);
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state), component.property, component.value);
 };
 
 /**
@@ -42995,7 +43035,7 @@ var setComponentProperty = function setComponentProperty(state, component) {
  *
  */
 var setComponentSubProperty = function setComponentSubProperty(state, component) {
-    window.Vue.set(state.selected.element[component.property], component.subproperty, component.value);
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state)[component.property], component.subproperty, component.value);
 };
 
 /**
@@ -43080,7 +43120,7 @@ var moveElement = function moveElement(state, direction) {
  *
  */
 var selectElement = function selectElement(state, i) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
+    // resetSelection(state);
 
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');

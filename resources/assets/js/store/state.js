@@ -9,7 +9,7 @@ export default {
     articleHtml: undefined,
 
     // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
-    deviceSize: 'fw',
+    deviceSize: 'xl',
 
     // The indexes of the element that is currently selected by the user.
     selected: {

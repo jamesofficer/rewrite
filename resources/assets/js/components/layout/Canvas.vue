@@ -3,7 +3,10 @@
     <b-container fluid
         :style="getElementStyles"
         :class="{ 'selected-element' : elementIsSelected }"
+        style="padding: 100px 0"
     >
+
+        <p>something</p>
 
         <row v-for="(row, rowIndex) in rows"
             :key="rowIndex"

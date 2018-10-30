@@ -25,8 +25,6 @@ export default {
 
     computed: {
         element() {
-            // console.log('element indexes');
-            // console.table(this.indexes);
             return this.$store.getters.getSpecifiedElement(this.indexes);
         },
 
@@ -36,6 +34,8 @@ export default {
 
         getElementStyles() {
             let el = this.element;
+
+            console.log('element styles for el ' + el);
 
             return {
                 // Size & Layout
@@ -55,7 +55,7 @@ export default {
                 ...el.border && { borderColor: 'rgba(' + el.border.color.r + ', ' + el.border.color.g + ', ' + el.border.color.b + ', ' + el.border.color.a + ')' },
                 ...el.border && { borderRadius: el.border.radius + 'px' },
                 ...el.boxShadow && { boxShadow: el.boxShadow.offsetX + 'px ' + el.boxShadow.offsetY + 'px ' + el.boxShadow.blurRadius + 'px ' + 'rgba(' + el.boxShadow.color.r + ', ' + el.boxShadow.color.g + ', ' + el.boxShadow.color.b + ', ' + el.boxShadow.color.a + ')' },
-                
+
                 // Typography
                 ...el.textAlign && { textAlign: el.textAlign },
                 ...el.textColor && { color: 'rgba(' + el.textColor.r + ', ' + el.textColor.g + ', ' + el.textColor.b + ', ' + el.textColor.a + ')' },

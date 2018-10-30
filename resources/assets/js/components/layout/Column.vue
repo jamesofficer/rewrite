@@ -1,12 +1,11 @@
 <template>
     <b-col
-        :sm="element.sm.columnWidth"
-        :md="element.md.columnWidth"
-        :lg="element.lg.columnWidth"
-        :xl="element.xl.columnWidth"
+        :cols="element.columnWidth"
         :style="getElementStyles"
         :class="{ 'selected-element': elementIsSelected }"
     >
+        <p>column</p>
+
         <component v-for="(component, componentIndex) in components"
             :is="component.type"
             :key="componentIndex"

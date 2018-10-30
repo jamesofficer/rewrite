@@ -49,6 +49,10 @@ export const getSelectedElement = state => {
     return state.selected.element;
 };
 
+export const getRootProperty = state => property => {
+    return state.selected.element[property];
+}
+
 /**
  * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
  */

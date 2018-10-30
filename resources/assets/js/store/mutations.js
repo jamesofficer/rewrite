@@ -58,7 +58,7 @@ export const addComponent = (state, componentType) => {
  *
  */
 export const setComponentProperty = (state, component) => {
-    window.Vue.set(state.selected.element, component.property, component.value);
+    window.Vue.set(getSelectedElement(state), component.property, component.value);
 };
 
 /**
@@ -66,7 +66,7 @@ export const setComponentProperty = (state, component) => {
  *
  */
 export const setComponentSubProperty = (state, component) => {
-    window.Vue.set(state.selected.element[component.property], component.subproperty, component.value);
+    window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
 };
 
 /**
@@ -155,7 +155,7 @@ export const moveElement = (state, direction) => {
  *
  */
 export const selectElement = (state, i) => {
-    resetSelection(state);
+    // resetSelection(state);
 
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');

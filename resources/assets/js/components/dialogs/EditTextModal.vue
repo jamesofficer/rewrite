@@ -15,11 +15,11 @@ export default {
     computed: {
         content: {
             get () {
-                if (this.$store.getters.getSelectedElement) {
-                    return this.$store.getters.getSelectedElement.content;
-                }
+                // if (this.$store.getters.getRootProperty('content')) {
+                //     return this.$store.getters.getRootProperty('content');
+                // }
 
-                return '';
+                return 'testing';
             },
             set (text) {
                 this.$store.commit('setComponentProperty', { property: 'content', value: text });

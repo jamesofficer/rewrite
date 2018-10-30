@@ -3,6 +3,8 @@
         :style="getElementStyles"
         :class="{ 'selected-element' : elementIsSelected }"
     >
+        <p>row</p>
+
         <column v-for="(column, columnIndex) in columns"
                 :key="columnIndex"
                 :canvasIndex="canvasIndex"
