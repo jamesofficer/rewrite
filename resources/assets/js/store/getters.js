@@ -2,7 +2,7 @@ import { getElementByIndexes } from "./helpers";
 
 /**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
- * 
+ *
  */
 export const canvases = state => {
     return state.canvases;
@@ -18,7 +18,7 @@ export const rows = state => i => {
 
 /**
  * Returns the Columns in the active Row.
- * 
+ *
  */
 export const columns = state => i => {
     return state.canvases[i.canvasIndex].rows[i.rowIndex].columns;
@@ -26,7 +26,7 @@ export const columns = state => i => {
 
 /**
  * Returns the list of Components for this particular canvas.
- * 
+ *
  */
 export const components = state => i => {
     return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components;
@@ -34,7 +34,7 @@ export const components = state => i => {
 
 /**
  * Returns an element based off the index values that are passed in. This is used to make styling elements easier.
- * 
+ *
  */
 export const getSpecifiedElement = (state, i) => {
     return getElementByIndexes(state, i);
@@ -43,7 +43,7 @@ export const getSpecifiedElement = (state, i) => {
 /**
  * Returns the currently selected element. This can be either a Canvas, Row or a Component.
  * This is used for 'micro' components, as they have no knowledge of their indexes.
- * 
+ *
  */
 export const getSelectedElement = state => {
     return state.selected.element;
@@ -73,6 +73,14 @@ export const articleHtml = state => {
 };
 
 /**
+ * Returns the html of the article.
+ *
+ */
+export const deviceSize = state => {
+    return state.deviceSize;
+};
+
+/**
  * Returns the notification object from the state.
  *
  */
@@ -98,7 +106,7 @@ export const fontsUsed = state => {
 
 /**
  * Returns the total widths of all the columns on the current canvas.
- * 
+ *
  */
 export const totalColumnWidth = state => {
     if (state.selected.canvas !== undefined && state.selected.row !== undefined) {
@@ -128,7 +136,7 @@ export const canMoveElementDown = state => {
 
 /**
  * Returns true if the specified element (based off the indexes) has been selected.
- * 
+ *
  */
 export const elementIsSelected = state => i => {
     return state.selected.canvas    === i.canvasIndex &&

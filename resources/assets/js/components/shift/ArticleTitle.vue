@@ -1,7 +1,7 @@
 <template>
-    <b-row class="article-name-container">
+    <b-row class="article-title-container">
         <b-col>
-            <h6 class="article-name-label">Article Name</h6>
+            <h6 class="shift-small-heading">Article Name</h6>
 
             <em v-if="! settingArticleTitle">
                 <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
@@ -55,20 +55,13 @@ export default {
             });
         },
     }
-    
+
 }
 </script>
 
 <style scoped>
-.article-name-container {
-    margin: 20px 0;
-}
-
-.article-name-label {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 0.8em;
-    color: #aaa;
+.article-title-container {
+    margin: 20px 0 10px 0;
 }
 
 .shift-article-name {

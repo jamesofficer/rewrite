@@ -24,9 +24,24 @@
             <article-title></article-title>
         </b-container>
 
+        <!-- Device Size Buttons -->
+        <b-container fluid class="device-size-buttons text-center">
+            <device-size-controls></device-size-controls>
+        </b-container>
+
+        <!-- Main Workspace -->
         <b-container fluid>
             <!-- Main Workspace -->
-            <div class="shift-workspace" ref="shiftArticle">
+            <div ref="shiftArticle"
+                class="shift-workspace"
+                :class="{
+                    'sm-device-size': getDeviceSize === 'sm',
+                    'md-device-size': getDeviceSize === 'md',
+                    'lg-device-size': getDeviceSize === 'lg',
+                    'xl-device-size': getDeviceSize === 'xl',
+                    'fw-device-size': getDeviceSize === 'fw',
+                }"
+            >
                 <canvas v-for="(canvas, canvasIndex) in canvases"
                     is="Canvas"
                     :key="canvasIndex"
@@ -82,9 +97,10 @@ import KeyBindings             from "./components/mixins/KeyBindings.js";
 import ShiftMenu               from "./components/shift/ShiftMenu";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
-import Canvas                  from "./components/layout/Canvas";
-import ShiftArticle            from "./components/shift/ShiftArticle";
+import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
 import Minimap                 from "./components/shift/Minimap";
+
+import Canvas                  from "./components/layout/Canvas";
 
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
@@ -99,7 +115,7 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, ArticleTitle, Minimap, Notification, Canvas, ShiftArticle,
+        KeyBindings, ShiftMenu, ArticleTitle, DeviceSizeControls, Minimap, Notification, Canvas,
         AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
@@ -110,6 +126,10 @@ export default {
         canvases() {
             return this.$store.getters.canvases;
         },
+
+        getDeviceSize() {
+            return this.$store.getters.deviceSize;
+        }
     },
 
     methods: {
@@ -121,6 +141,26 @@ export default {
 </script>
 
 <style scoped>
+.sm-device-size {
+    width: 576px;
+}
+
+.md-device-size {
+    width: 768px;
+}
+
+.lg-device-size {
+    width: 992px;
+}
+
+.xl-device-size {
+    width: 1200px;
+}
+
+.fw-device-size {
+    width: 100%;
+}
+
 .shift-canvas {
     background: green !important;
     cursor: pointer;
@@ -156,7 +196,7 @@ export default {
 
 .shift-workspace {
     height: fit-content;
-    margin: 5px 15px 30px 15px;
+    margin: 0 auto;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;

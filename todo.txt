@@ -5,9 +5,9 @@ Version 1 ROADMAP:
 - (DONE) Reduce Move Element into single component.
 - (DONE) Reduce Delete Element into single component.
 - (DONE) Simply the Clone Element component.
+- Add multiple breakpoints.
 - Move element styles into object.
 - Create Minimap Component.
-- Add multiple breakpoints.
 - Undo/Redo function.
 - More hotkeys.
 - Give articles a version number when they are saved.
@@ -30,7 +30,6 @@ Version 1 ROADMAP:
 ===================================================================================================
 
 BUGS:
-- Change font on Canvas1, Column2 will copy font weight to Column1 when clicked on.
 - Clean extra fonts from html export.
 - Previewing an article appends onto the existing previewed article.
 - Hide user id on image uploads.

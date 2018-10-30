@@ -1,6 +1,9 @@
 <template>
-    <b-col 
-        :cols="element.columnWidth"
+    <b-col
+        :sm="element.sm.columnWidth"
+        :md="element.md.columnWidth"
+        :lg="element.lg.columnWidth"
+        :xl="element.xl.columnWidth"
         :style="getElementStyles"
         :class="{ 'selected-element': elementIsSelected }"
     >

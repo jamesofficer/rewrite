@@ -1,5 +1,5 @@
 import defaults from "./defaults/_defaults";
-import { 
+import {
     duplicateObject, getSelectedElement, getSiblingElements, resetSelection
 } from "./helpers";
 
@@ -99,7 +99,7 @@ export const cloneElement = (state, i) => {
         state.selected[state.selected.type.toLowerCase()] + 1,
         0,
         duplicateObject(state.selected.element)
-    );    
+    );
 };
 
 /**
@@ -128,7 +128,7 @@ export const enoughSpaceToCloneColumn = (state, i) => {
 
 /**
  * Moves an Element up or down within it's own array.
- * 
+ *
  */
 export const moveElement = (state, direction) => {
     const directionIndex      = direction === 'up' ? -1 : 1;
@@ -188,6 +188,14 @@ export const updateArticleTitle = (state, title) => {
 };
 
 /**
+ * Sets the value of the state.deviceSize property.
+ *
+ */
+export const setDeviceSize = (state, size) => {
+    window.Vue.set(state, "deviceSize", size);
+};
+
+/**
  * Sets the state of the notification object.
  *
  */
@@ -231,7 +239,7 @@ export const buildHtml = (state, html) => {
 
 /**
  * Appends a <head> to the HTML. Includes stylesheets.
- * 
+ *
  */
 export const createHtmlHead = (state, html, title) => {
     let fonts = this.getUniqueFontList(state.fontsUsed);
@@ -267,7 +275,7 @@ export const createHtmlHead = (state, html, title) => {
 /**
  * When building our html, we don't want to import the same font stylesheet multiple times. This function
  * removes any duplicate fonts from fontsUsed, allowing us to build up the stylesheets more efficiently.
- * 
+ *
  */
 export const getUniqueFontList = fontsUsed => {
     let uniqueFonts = [];
@@ -331,7 +339,7 @@ export const loadArticle = (state, article) => {
 
 /**
  * Adds a font to the list of used fonts.
- * 
+ *
  */
 export const addFontToFontsUsed = (state, font) => {
     state.fontsUsed.push(font);
