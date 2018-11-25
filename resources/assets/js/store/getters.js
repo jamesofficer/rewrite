@@ -129,14 +129,14 @@ export const canMoveElementUp = state => {
     if (state.selected.type === 'Row')       return state.selected.row > 0;
     if (state.selected.type === 'Column')    return state.selected.column > 0;
     if (state.selected.type === 'Component') return state.selected.component > 0;
-}
+};
 
 export const canMoveElementDown = state => {
     if (state.selected.type === 'Canvas')    return state.selected.canvas    !== (state.canvases.length - 1);
     if (state.selected.type === 'Row')       return state.selected.row       !== (state.canvases[state.selected.canvas].rows.length - 1);
     if (state.selected.type === 'Column')    return state.selected.column    !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns.length - 1);
     if (state.selected.type === 'Component') return state.selected.component !== (state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components.length - 1);
-}
+};
 
 /**
  * Returns true if the specified element (based off the indexes) has been selected.

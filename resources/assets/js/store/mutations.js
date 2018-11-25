@@ -177,6 +177,19 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
 
     state.selected.element.selected = true;
+
+    console.log(`Selected: Canvas ${i.canvasIndex}, Column ${i.columnIndex}, Component ${i.componentIndex}`);
+
+    // Depending on what is selected, we need to push on the Rows/Columns/Components.
+    if (state.selected.type === 'Canvas') {
+        window.Vue.set(state.selected.element, 'rows', state.canvases[i.canvasIndex].rows);
+    } else if (state.selected.type === 'Row') {
+        window.Vue.set(state.selected.element, 'columns', state.canvases[i.canvasIndex].rows[i.rowIndex].columns);
+    } else if (state.selected.type === 'Column') {
+        window.Vue.set(state.selected.element, 'components', state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components);
+    } else {
+        // If a component is selected, we don't need to do anything.
+    }
 };
 
 /**

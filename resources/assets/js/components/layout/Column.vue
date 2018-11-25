@@ -15,6 +15,7 @@
             :componentIndex="componentIndex"
             @click.native.stop="selectElement(componentIndex)"
             class="selectable-element"
+            style="border: 1px solid red"
         ></component>
 
         <!-- TOP BAR -->

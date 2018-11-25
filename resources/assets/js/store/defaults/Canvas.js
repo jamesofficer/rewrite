@@ -10,7 +10,7 @@ let canvas = {
         bottom: 20,
         left: 20
     }
-}
+};
 
 export default {
     type: "Canvas",

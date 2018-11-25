@@ -2,6 +2,8 @@
     <div :style="getElementStyles">
         <div v-html="element.content" :class="{ 'selected-element': elementIsSelected }" @dblclick="showEditTextModal"></div>
 
+        <p>paragraph component</p>
+
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
