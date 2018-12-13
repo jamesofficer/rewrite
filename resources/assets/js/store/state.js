@@ -8,6 +8,9 @@ export default {
     // When the user exports HTML, it will be held here.
     articleHtml: undefined,
 
+    // If true, when the styles of a component are updated the change will apply at all device sizes.
+    enableGlobalComponentStyles: true,
+
     // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
     deviceSize: 'xl',
 

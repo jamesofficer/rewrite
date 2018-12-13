@@ -4,6 +4,14 @@ import {
 } from "./helpers";
 
 /**
+ * Toggle Global Component styles on or off.
+ *
+ */
+export const enableGlobalComponentStyles = (state, toggle) => {
+    state.enableGlobalComponentStyles = toggle;
+}
+
+/**
  * Adds another Canvas to the Workspace.
  *
  */
@@ -58,7 +66,18 @@ export const addComponent = (state, componentType) => {
  *
  */
 export const setComponentProperty = (state, component) => {
-    window.Vue.set(getSelectedElement(state), component.property, component.value);
+    const deviceSizes = ['sm', 'md', 'lg', 'xl'];
+
+    // Update this component at all sizes.
+    if (state.enableGlobalComponentStyles === true) {
+        deviceSizes.forEach(function (size) {
+            window.Vue.set(getSelectedElement(state, 0, size), component.property, component.value);
+        });
+    }
+    // Only update the individual component.
+    else {
+        window.Vue.set(getSelectedElement(state), component.property, component.value);
+    }
 };
 
 /**
@@ -155,8 +174,6 @@ export const moveElement = (state, direction) => {
  *
  */
 export const selectElement = (state, i) => {
-    // resetSelection(state);
-
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');
     }
@@ -178,17 +195,17 @@ export const selectElement = (state, i) => {
 
     state.selected.element.selected = true;
 
-    console.log(`Selected: Canvas ${i.canvasIndex}, Column ${i.columnIndex}, Component ${i.componentIndex}`);
-
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
         window.Vue.set(state.selected.element, 'rows', state.canvases[i.canvasIndex].rows);
-    } else if (state.selected.type === 'Row') {
+    }
+
+    if (state.selected.type === 'Row') {
         window.Vue.set(state.selected.element, 'columns', state.canvases[i.canvasIndex].rows[i.rowIndex].columns);
-    } else if (state.selected.type === 'Column') {
+    }
+
+    if (state.selected.type === 'Column') {
         window.Vue.set(state.selected.element, 'components', state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components);
-    } else {
-        // If a component is selected, we don't need to do anything.
     }
 };
 

@@ -8,24 +8,28 @@ export const duplicateObject = object => {
  * moving an element around the workspace, to the element above or below the current one.
  *
  */
-export const getSelectedElement = (state, position = 0) => {
+export const getSelectedElement = (state, position = 0, size = null) => {
+    if (size === null) {
+        size = state.deviceSize;
+    }
+
     // Return a Canvas
     if (state.selected.type === 'Canvas') {
-        return state.canvases[state.selected.canvas + (position)][state.deviceSize];
+        return state.canvases[state.selected.canvas + (position)][size];
     }
     // Return a Row
     else if (state.selected.type === 'Row') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row + (position)][state.deviceSize];
+        return state.canvases[state.selected.canvas].rows[state.selected.row + (position)][size];
     }
     // Return a Column
     else if (state.selected.type === 'Column') {
         return state.canvases[state.selected.canvas].rows[state.selected.row]
-            .columns[state.selected.column + (position)][state.deviceSize];
+            .columns[state.selected.column + (position)][size];
     }
     // Return a Component
     else {
         return state.canvases[state.selected.canvas].rows[state.selected.row]
-            .columns[state.selected.column].components[state.selected.component + (position)][state.deviceSize];
+            .columns[state.selected.column].components[state.selected.component + (position)][size];
     }
 };
 

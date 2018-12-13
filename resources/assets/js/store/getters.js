@@ -1,6 +1,14 @@
 import { getElementByIndexes } from "./helpers";
 
 /**
+ * Returns the value of the enableGlobalComponentStyles variable.
+ *
+ */
+export const globalComponentStyles = state => {
+    return state.enableGlobalComponentStyles;
+};
+
+/**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
  *
  */

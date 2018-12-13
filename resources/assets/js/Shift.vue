@@ -3,10 +3,15 @@
         <b-container fluid class="top-bar-wrapper">
             <!-- Top Bar -->
             <b-row class="top-bar-styles">
-                <b-col :cols="11">
+                <b-col :cols="9">
                     <portal-target name="top-bar" class="top-bar-portal-target">
                         <!-- Top Bar settings will appear here. -->
                     </portal-target>
+                </b-col>
+
+                <!-- Global Styles Switch -->
+                <b-col :cols="2" class="text-right">
+                    <global-styles-switch></global-styles-switch>
                 </b-col>
 
                 <!-- Menu -->
@@ -95,6 +100,7 @@
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 
 import ShiftMenu               from "./components/shift/ShiftMenu";
+import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
 import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
@@ -115,8 +121,8 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, ArticleTitle, DeviceSizeControls, Minimap, Notification, Canvas,
-        AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
+        KeyBindings, ShiftMenu, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap, Notification,
+        Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 
