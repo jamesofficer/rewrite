@@ -49,7 +49,7 @@ export default {
     type: "Column",
     selected: false,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultPicture],
 
     sm: column,
     md: column,

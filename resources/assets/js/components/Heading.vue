@@ -18,7 +18,7 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <!-- <margin></margin>
+            <margin></margin>
 
             <padding></padding>
 
@@ -40,7 +40,7 @@
 
             <letter-spacing></letter-spacing>
 
-            <width></width>    -->
+            <width></width>
         </top-bar>
     </div>
 </template>

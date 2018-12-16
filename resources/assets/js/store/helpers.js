@@ -7,6 +7,9 @@ export const duplicateObject = object => {
  * that is higher or lower than the selected element if we want to. This is usually used when
  * moving an element around the workspace, to the element above or below the current one.
  *
+ * @param {*} state 
+ * @param {*} position - position is usually 1, 0, or -1, i.e. current element (0), one above (1), or one below (-1).
+ * @param {*} size - if we want to get the element for a specific size, we can pass that in here (e.g. 'xl', or 'sm').
  */
 export const getSelectedElement = (state, position = 0, size = null) => {
     if (size === null) {
@@ -51,10 +54,36 @@ export const getElementByIndexes = state => i => {
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex][state.deviceSize];
     }
     // Otherwise, return the component.
-    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[
-        i.componentIndex
-    ][state.deviceSize];
+    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex]
+                .components[i.componentIndex][state.deviceSize];
 };
+
+/**
+ * When an element is selected, it doesn't actually select the "entire" element, only the 
+ * parts that need to be styled for the current device size. By getting the "root"
+ * element we are getting the entire element with all device sizes as well.
+ * 
+ */
+export const getSelectedRootElement = (state, position = 0) => {
+    // Return a Canvas
+    if (state.selected.type === 'Canvas') {
+        return state.canvases[state.selected.canvas + (position)];
+    }
+    // Return a Row
+    else if (state.selected.type === 'Row') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row + (position)];
+    }
+    // Return a Column
+    else if (state.selected.type === 'Column') {
+        return state.canvases[state.selected.canvas].rows[state.selected.row]
+            .columns[state.selected.column + (position)];
+    }
+    // Return a Component
+    else {
+        return state.canvases[state.selected.canvas].rows[state.selected.row]
+            .columns[state.selected.column].components[state.selected.component + (position)];
+    }
+}
 
 /**
  * Returns the array that the current Element sits in.

@@ -1,10 +1,8 @@
-export default {
-    type: "Picture",
-    selected: false,
+// This element is named 'Picture' as 'Image' is a reserved tag.
 
+let picture = {
     src: null,
 
-    // Properties:
     textAlign: "left",
     width: 75,
     margin: {
@@ -34,4 +32,14 @@ export default {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
+}
+
+export default {
+    type: "Picture",
+    selected: false,
+
+    sm: picture,
+    md: picture,
+    lg: picture,
+    xl: picture,
 };

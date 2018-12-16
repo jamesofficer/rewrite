@@ -18613,9 +18613,10 @@ module.exports = Component.exports
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getSelectedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getElementByIndexes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getSiblingElements; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getSelectedRootElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getSiblingElements; });
 /* unused harmony export getSiblingsElementByIndexes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return resetSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return resetSelection; });
 var duplicateObject = function duplicateObject(object) {
     return JSON.parse(JSON.stringify(object));
 };
@@ -18625,6 +18626,9 @@ var duplicateObject = function duplicateObject(object) {
  * that is higher or lower than the selected element if we want to. This is usually used when
  * moving an element around the workspace, to the element above or below the current one.
  *
+ * @param {*} state 
+ * @param {*} position - position is usually 1, 0, or -1, i.e. current element (0), one above (1), or one below (-1).
+ * @param {*} size - if we want to get the element for a specific size, we can pass that in here (e.g. 'xl', or 'sm').
  */
 var getSelectedElement = function getSelectedElement(state) {
     var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -18673,6 +18677,33 @@ var getElementByIndexes = function getElementByIndexes(state) {
         // Otherwise, return the component.
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components[i.componentIndex][state.deviceSize];
     };
+};
+
+/**
+ * When an element is selected, it doesn't actually select the "entire" element, only the 
+ * parts that need to be styled for the current device size. By getting the "root"
+ * element we are getting the entire element with all device sizes as well.
+ * 
+ */
+var getSelectedRootElement = function getSelectedRootElement(state) {
+    var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+    // Return a Canvas
+    if (state.selected.type === 'Canvas') {
+        return state.canvases[state.selected.canvas + position];
+    }
+    // Return a Row
+    else if (state.selected.type === 'Row') {
+            return state.canvases[state.selected.canvas].rows[state.selected.row + position];
+        }
+        // Return a Column
+        else if (state.selected.type === 'Column') {
+                return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
+            }
+            // Return a Component
+            else {
+                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
+                }
 };
 
 /**
@@ -21343,7 +21374,7 @@ var column = {
     type: "Column",
     selected: false,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */]],
 
     sm: column,
     md: column,
@@ -21468,13 +21499,11 @@ var paragraph = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: "Picture",
-    selected: false,
+// This element is named 'Picture' as 'Image' is a reserved tag.
 
+var picture = {
     src: null,
 
-    // Properties:
     textAlign: "left",
     width: 75,
     margin: {
@@ -21504,6 +21533,16 @@ var paragraph = {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 }
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: "Picture",
+    selected: false,
+
+    sm: picture,
+    md: picture,
+    lg: picture,
+    xl: picture
 });
 
 /***/ }),
@@ -21552,12 +21591,9 @@ var paragraph = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-    type: "BlockQuote",
-    selected: false,
-
-    // Properties:
+var blockquote = {
     content: '"Your quote goes here..."',
+
     width: 100,
     fontFamily: "Times New Roman",
     fontWeights: [400, 700],
@@ -21595,6 +21631,16 @@ var paragraph = {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 0 }
     }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    type: "BlockQuote",
+    selected: false,
+
+    sm: blockquote,
+    md: blockquote,
+    lg: blockquote,
+    xl: blockquote
 });
 
 /***/ }),
@@ -25963,16 +26009,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var self = this;
 
-        window.addEventListener('keyup', function (ev) {
+        window.addEventListener('keydown', function (ev) {
             if (self.$store.getters.enableKeyBindings === true) {
                 // Move an Element Up.
                 if (ev.key === "ArrowUp" && self.$store.getters.canMoveElementUp) {
+                    ev.preventDefault();
                     self.$store.commit('moveElement', 'up');
                     return;
                 }
 
                 // Move an Element Down.
                 if (ev.key === "ArrowDown" && self.$store.getters.canMoveElementDown) {
+                    ev.preventDefault();
                     self.$store.commit('moveElement', 'down');
                     return;
                 }
@@ -26002,7 +26050,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                  * The DELETE key can delete Components, Columns, Rows or Canvases.
                  * 
                  */
-                if (ev.key === "Delete" || ev.key === "Backspace") {
+                if (ev.metaKey && (ev.key === "Delete" || ev.key === "Backspace")) {
                     self.$store.commit('deleteElement');
                     return;
                 }
@@ -28522,6 +28570,7 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
 //
 //
 //
@@ -28554,6 +28603,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -28561,6 +28639,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Margin",
 
     components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         marginTop: {
@@ -28646,6 +28726,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("marginTop")
+                      }
+                    },
                     model: {
                       value: _vm.marginTop,
                       callback: function($$v) {
@@ -28665,6 +28750,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("marginBottom")
+                      }
+                    },
                     model: {
                       value: _vm.marginBottom,
                       callback: function($$v) {
@@ -28690,6 +28780,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("marginLeft")
+                      }
+                    },
                     model: {
                       value: _vm.marginLeft,
                       callback: function($$v) {
@@ -28709,6 +28804,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("marginRight")
+                      }
+                    },
                     model: {
                       value: _vm.marginRight,
                       callback: function($$v) {
@@ -28748,6 +28848,7 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
 //
 //
 //
@@ -28780,6 +28881,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -28787,6 +28917,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Padding",
 
     components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         paddingTop: {
@@ -28876,6 +29008,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("paddingTop")
+                      }
+                    },
                     model: {
                       value: _vm.paddingTop,
                       callback: function($$v) {
@@ -28895,6 +29032,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("paddingBottom")
+                      }
+                    },
                     model: {
                       value: _vm.paddingBottom,
                       callback: function($$v) {
@@ -28920,6 +29062,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("paddingLeft")
+                      }
+                    },
                     model: {
                       value: _vm.paddingLeft,
                       callback: function($$v) {
@@ -28939,6 +29086,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 500, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("paddingRight")
+                      }
+                    },
                     model: {
                       value: _vm.paddingRight,
                       callback: function($$v) {
@@ -30611,7 +30763,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -30624,8 +30776,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
 //
 //
 //
@@ -30679,6 +30832,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -30686,7 +30868,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Border",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         borderStyle: {
@@ -30835,6 +31019,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 50, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("borderTop")
+                      }
+                    },
                     model: {
                       value: _vm.borderTop,
                       callback: function($$v) {
@@ -30854,6 +31043,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 50, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("borderBottom")
+                      }
+                    },
                     model: {
                       value: _vm.borderBottom,
                       callback: function($$v) {
@@ -30880,6 +31074,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 50, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("borderLeft")
+                      }
+                    },
                     model: {
                       value: _vm.borderLeft,
                       callback: function($$v) {
@@ -30899,6 +31098,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { type: "number", min: 0, max: 50, size: "sm" },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("borderRight")
+                      }
+                    },
                     model: {
                       value: _vm.borderRight,
                       callback: function($$v) {
@@ -31021,8 +31225,9 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
 //
 //
 //
@@ -31059,6 +31264,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -31066,7 +31293,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BoxShadow",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         offsetX: {
@@ -31160,6 +31389,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("offsetX")
+                      }
+                    },
                     model: {
                       value: _vm.offsetX,
                       callback: function($$v) {
@@ -31187,6 +31421,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("offsetY")
+                      }
+                    },
                     model: {
                       value: _vm.offsetY,
                       callback: function($$v) {
@@ -31214,6 +31453,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("blurRadius")
+                      }
+                    },
                     model: {
                       value: _vm.blurRadius,
                       callback: function($$v) {
@@ -31699,8 +31943,9 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
 //
 //
 //
@@ -31737,6 +31982,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -31744,7 +32011,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextShadow",
 
-    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_1_vue_color__["Chrome"] },
+    components: { TopBarControl: __WEBPACK_IMPORTED_MODULE_0__topbar_TopBarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         offsetX: {
@@ -31842,6 +32111,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("offsetX")
+                      }
+                    },
                     model: {
                       value: _vm.offsetX,
                       callback: function($$v) {
@@ -31869,6 +32143,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("offsetY")
+                      }
+                    },
                     model: {
                       value: _vm.offsetY,
                       callback: function($$v) {
@@ -31896,6 +32175,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("b-form-input", {
                     attrs: { size: "sm", type: "number", min: 0, max: 100 },
+                    nativeOn: {
+                      focusout: function($event) {
+                        _vm.ensureValueIsNotEmpty("blurRadius")
+                      }
+                    },
                     model: {
                       value: _vm.blurRadius,
                       callback: function($$v) {
@@ -32432,6 +32716,9 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+//
+//
 //
 //
 //
@@ -32445,8 +32732,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "FontSize",
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         fontSize: {
@@ -32478,6 +32769,11 @@ var render = function() {
     ],
     staticClass: "top-bar-sm-input",
     attrs: { size: "sm", type: "number", min: 10, max: 64, title: "Font Size" },
+    nativeOn: {
+      focusout: function($event) {
+        _vm.ensureValueIsNotEmpty("fontSize", 12)
+      }
+    },
     model: {
       value: _vm.fontSize,
       callback: function($$v) {
@@ -32503,6 +32799,9 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+//
+//
 //
 //
 //
@@ -32517,8 +32816,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "LineHeight",
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         lineHeight: {
@@ -32557,6 +32860,11 @@ var render = function() {
       step: "0.1",
       title: "Line Height"
     },
+    nativeOn: {
+      focusout: function($event) {
+        _vm.ensureValueIsNotEmpty("lineHeight", 1)
+      }
+    },
     model: {
       value: _vm.lineHeight,
       callback: function($$v) {
@@ -32582,6 +32890,9 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+//
+//
 //
 //
 //
@@ -32596,8 +32907,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "LineHeight",
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         letterSpacing: {
@@ -32635,6 +32950,11 @@ var render = function() {
       max: 100,
       step: "0.1",
       title: "Letter Spacing"
+    },
+    nativeOn: {
+      focusout: function($event) {
+        _vm.ensureValueIsNotEmpty("letterSpacing")
+      }
     },
     model: {
       value: _vm.letterSpacing,
@@ -32690,7 +33010,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -32701,6 +33021,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__ = __webpack_require__(536);
+//
+//
 //
 //
 //
@@ -32714,8 +33037,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Width",
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         width: {
@@ -32747,6 +33074,11 @@ var render = function() {
     ],
     staticClass: "top-bar-sm-input",
     attrs: { size: "sm", type: "number", min: 1, max: 100, title: "Width (%)" },
+    nativeOn: {
+      focusout: function($event) {
+        _vm.ensureValueIsNotEmpty("width", 100)
+      }
+    },
     model: {
       value: _vm.width,
       callback: function($$v) {
@@ -32799,7 +33131,37 @@ var render = function() {
           }),
       _vm._v(" "),
       _vm.elementIsSelected
-        ? _c("top-bar", [_c("delete-clone-move-element")], 1)
+        ? _c(
+            "top-bar",
+            [
+              _c("delete-clone-move-element"),
+              _vm._v(" "),
+              _c("margin"),
+              _vm._v(" "),
+              _c("padding"),
+              _vm._v(" "),
+              _c("border"),
+              _vm._v(" "),
+              _c("text-color"),
+              _vm._v(" "),
+              _c("text-shadow"),
+              _vm._v(" "),
+              _c("text-alignment"),
+              _vm._v(" "),
+              _c("font-family"),
+              _vm._v(" "),
+              _c("font-size"),
+              _vm._v(" "),
+              _c("font-weight"),
+              _vm._v(" "),
+              _c("line-height"),
+              _vm._v(" "),
+              _c("letter-spacing"),
+              _vm._v(" "),
+              _c("width")
+            ],
+            1
+          )
         : _vm._e()
     ],
     1
@@ -37817,6 +38179,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -42228,7 +42602,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\n    cursor: pointer;\n    background: #38c172;\n    border: 1px solid green;\n}\n", ""]);
+exports.push([module.i, "\n.gallery-image[data-v-66db236b]:hover {\n    cursor: pointer;\n    background: #38c172;\n    border: 1px solid green;\n}\n.image-wrapper[data-v-66db236b] {\n    display: inline;\n}\n", ""]);
 
 // exports
 
@@ -42277,7 +42651,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         selectImage: function selectImage(index) {
-            if (this.$store.getters.getSelectedElement.type === 'Picture') {
+            if (this.$store.getters.getSelectedComponentType === 'Picture') {
                 this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
             } else {
                 this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
@@ -42325,22 +42699,18 @@ var render = function() {
       _vm._v(" "),
       _vm.images.length > 0
         ? _vm._l(_vm.images, function(image, index) {
-            return _c(
-              "div",
-              { key: index, staticStyle: { display: "inline" } },
-              [
-                _c("img", {
-                  key: index,
-                  staticClass: "gallery-image",
-                  attrs: { src: image.url },
-                  on: {
-                    click: function($event) {
-                      _vm.selectImage(index)
-                    }
+            return _c("div", { key: index, staticClass: "image-wrapper" }, [
+              _c("img", {
+                key: index,
+                staticClass: "gallery-image",
+                attrs: { src: image.url },
+                on: {
+                  click: function($event) {
+                    _vm.selectImage(index)
                   }
-                })
-              ]
-            )
+                }
+              })
+            ])
           })
         : _c("p", [_vm._v("You haven't uploaded any images yet...")])
     ],
@@ -43158,6 +43528,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSpecifiedElement", function() { return getSpecifiedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElement", function() { return getSelectedElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedElementType", function() { return getSelectedElementType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedComponentType", function() { return getSelectedComponentType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleTitle", function() { return articleTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "articleHtml", function() { return articleHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deviceSize", function() { return deviceSize; });
@@ -43231,8 +43602,6 @@ var getSpecifiedElement = function getSpecifiedElement(state, i) {
  *
  */
 var getSelectedElement = function getSelectedElement(state) {
-    console.log('selected element is ');
-    console.log(state.selected.element);
     return state.selected.element;
 };
 
@@ -43241,6 +43610,13 @@ var getSelectedElement = function getSelectedElement(state) {
  */
 var getSelectedElementType = function getSelectedElementType(state) {
     return state.selected.type;
+};
+
+/**
+ * Returns the type of the selected component, e.g. 'Heading', 'Paragraph', 'Picture' etc.
+ */
+var getSelectedComponentType = function getSelectedComponentType(state) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["d" /* getSelectedRootElement */])(state).type;
 };
 
 /**
@@ -43470,9 +43846,9 @@ var deleteElement = function deleteElement(state) {
         'Component': state.selected.component
     };
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* resetSelection */])(state);
 };
 
 /**
@@ -43484,7 +43860,7 @@ var cloneElement = function cloneElement(state, i) {
         return;
     }
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(state.selected.element));
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedRootElement */])(state)));
 };
 
 /**
@@ -43517,12 +43893,12 @@ var enoughSpaceToCloneColumn = function enoughSpaceToCloneColumn(state, i) {
  */
 var moveElement = function moveElement(state, direction) {
     var directionIndex = direction === 'up' ? -1 : 1;
-    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state, directionIndex);
+    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedRootElement */])(state, directionIndex);
     var selectedElement = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [selectedElement + directionIndex], state.selected.element);
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSiblingElements */])(state), [selectedElement], elementAboveOrBelow);
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSiblingElements */])(state), [selectedElement + directionIndex], Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedRootElement */])(state));
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSiblingElements */])(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
     state.selected[state.selected.type.toLowerCase()] += directionIndex;
@@ -43716,7 +44092,7 @@ var cleanHtml = function cleanHtml(html) {
  */
 var loadArticle = function loadArticle(state, article) {
     // Reset selection first (prevents a bug that breaks element selection).
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* resetSelection */])(state);
 
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
@@ -56143,6 +56519,31 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 534 */,
+/* 535 */,
+/* 536 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/**
+ * Empty text values in component inputs such as Margin, Padding, and Border will mean
+ * the component layout will not apply properly. Setting them back to 0 fixes this.
+ *
+ */
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    methods: {
+        ensureValueIsNotEmpty: function ensureValueIsNotEmpty(property) {
+            var defaultValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+            if (this[property] === '') {
+                this[property] = defaultValue;
+            }
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

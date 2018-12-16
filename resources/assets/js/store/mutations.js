@@ -1,6 +1,6 @@
 import defaults from "./defaults/_defaults";
 import {
-    duplicateObject, getSelectedElement, getSiblingElements, resetSelection
+    duplicateObject, getSelectedElement, getSelectedRootElement, getSiblingElements, resetSelection
 } from "./helpers";
 
 /**
@@ -124,7 +124,7 @@ export const cloneElement = (state, i) => {
     getSiblingElements(state).splice(
         state.selected[state.selected.type.toLowerCase()] + 1,
         0,
-        duplicateObject(state.selected.element)
+        duplicateObject(getSelectedRootElement(state))
     );
 };
 
@@ -158,11 +158,11 @@ export const enoughSpaceToCloneColumn = (state, i) => {
  */
 export const moveElement = (state, direction) => {
     const directionIndex      = direction === 'up' ? -1 : 1;
-    const elementAboveOrBelow = getSelectedElement(state, directionIndex);
+    const elementAboveOrBelow = getSelectedRootElement(state, directionIndex);
     const selectedElement     = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(getSiblingElements(state), [selectedElement + (directionIndex)], state.selected.element);
+    window.Vue.set(getSiblingElements(state), [selectedElement + (directionIndex)], getSelectedRootElement(state));
     window.Vue.set(getSiblingElements(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
@@ -173,7 +173,7 @@ export const moveElement = (state, direction) => {
         rowIndex: state.selected.row,
         columnIndex: state.selected.column,
         componentIndex: state.selected.component,
-    })
+    });
 }
 
 /**

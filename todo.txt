@@ -5,12 +5,20 @@ Version 1 ROADMAP:
 - (DONE) Reduce Move Element into single component.
 - (DONE) Reduce Delete Element into single component.
 - (DONE) Simplify the Clone Element component.
-- Move Up/Down broken.
-- setComponentProperty method is called many times when a component is selected. May be unavoidable though.
-- Add multiple breakpoints.
-- Move element styles into object.
+- (DONE) Add multiple breakpoints.
+- (DONE) Move element styles into object.
+- (FIXED) Move Up/Down broken.
+
+- Clone element is broken.
+- Move Component controls into a floating/movable panel.
+- Move control palette to left hand side of window.
+- Add a warning when switching global styles onto an element that has individual styles.
 - Create Minimap Component.
 - Undo/Redo function.
+- Refactor helpers?
+- Bug: Moving elements with arrow keys scrolls the window.
+- Load font previews on font family selector.
+- Add delete element confirmation dialog.
 - More hotkeys.
 - Give articles a version number when they are saved.
 - Add backend unit tests.
@@ -23,6 +31,7 @@ Version 1 ROADMAP:
 - Drag and drop to rearrange elements.
 - Move article saving methods to actions.
 - Allow layering of backgrounds (image over color).
+- setComponentProperty method is called many times when a component is selected. May be unavoidable though.
 - Add functioning transparency to background gradients.
 - Add CSS filters to background images.
 - Create a tutorial video.

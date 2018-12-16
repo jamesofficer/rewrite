@@ -1,4 +1,4 @@
-import { getElementByIndexes } from "./helpers";
+import { getElementByIndexes, getSelectedRootElement } from "./helpers";
 
 /**
  * Returns the value of the enableGlobalComponentStyles variable.
@@ -54,8 +54,6 @@ export const getSpecifiedElement = (state, i) => {
  *
  */
 export const getSelectedElement = state => {
-    console.log('selected element is ');
-    console.log(state.selected.element);
     return state.selected.element;
 };
 
@@ -64,6 +62,13 @@ export const getSelectedElement = state => {
  */
 export const getSelectedElementType = state => {
     return state.selected.type;
+};
+
+/**
+ * Returns the type of the selected component, e.g. 'Heading', 'Paragraph', 'Picture' etc.
+ */
+export const getSelectedComponentType = state => {
+    return getSelectedRootElement(state).type;
 };
 
 /**

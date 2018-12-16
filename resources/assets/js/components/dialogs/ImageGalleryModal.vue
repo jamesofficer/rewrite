@@ -9,7 +9,7 @@
         <br>
 
         <template v-if="images.length > 0">
-            <div v-for="(image, index) in images" :key="index" style="display: inline;">
+            <div v-for="(image, index) in images" :key="index" class="image-wrapper">
                 <img :src="image.url" :key="index" class="gallery-image" @click="selectImage(index)">
             </div>
         </template>
@@ -34,7 +34,7 @@ export default {
 
     methods: {
         selectImage(index) {
-            if (this.$store.getters.getSelectedElement.type === 'Picture') {
+            if (this.$store.getters.getSelectedComponentType === 'Picture') {
                 this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
             } else {
                 this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
@@ -51,5 +51,9 @@ export default {
     cursor: pointer;
     background: #38c172;
     border: 1px solid green;
+}
+
+.image-wrapper {
+    display: inline;
 }
 </style>

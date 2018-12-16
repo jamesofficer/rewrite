@@ -1,10 +1,22 @@
 <template>
     <div>
-        <blockquote v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" :class="{ 'selected-element': elementIsSelected }" id="text-input" >
+        <blockquote
+            v-if="! editingText"
+            @dblclick="selectInput"
+            :style="getElementStyles"
+            :class="{ 'selected-element': elementIsSelected }"
+            id="text-input"
+        >
             {{ element.content }}
         </blockquote>
 
-        <text-input v-else @focusout.native="editingText = false" :style="getElementStyles" size="lg" id="text-input"></text-input>
+        <text-input
+            v-else
+            @focusout.native="editingText = false"
+            :style="getElementStyles"
+            size="lg"
+            id="text-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">

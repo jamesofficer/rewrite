@@ -2,16 +2,18 @@ export default {
     mounted() {
         const self = this;
 
-        window.addEventListener('keyup', function(ev) {
+        window.addEventListener('keydown', function(ev) {
             if (self.$store.getters.enableKeyBindings === true) {
                 // Move an Element Up.
                 if (ev.key === "ArrowUp" && self.$store.getters.canMoveElementUp) {
+                    ev.preventDefault();
                     self.$store.commit('moveElement', 'up');
                     return;
                 }
 
                 // Move an Element Down.
                 if (ev.key === "ArrowDown" && self.$store.getters.canMoveElementDown) {
+                    ev.preventDefault();
                     self.$store.commit('moveElement', 'down');
                     return;
                 }
@@ -41,7 +43,7 @@ export default {
                  * The DELETE key can delete Components, Columns, Rows or Canvases.
                  * 
                  */
-                if (ev.key === "Delete" || ev.key === "Backspace") {
+                if (ev.metaKey && (ev.key === "Delete" || ev.key === "Backspace")) {
                     self.$store.commit('deleteElement');
                     return;
                 }

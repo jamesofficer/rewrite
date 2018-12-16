@@ -6,24 +6,52 @@
             <b-row style="width: 225px">
                 <b-col>
                     <label class="sub-label">Top</label>
-                    <b-form-input type="number" v-model.number="borderTop" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderTop"
+                        :min="0"
+                        :max="50"
+                        size="sm"
+                        @focusout.native="ensureValueIsNotEmpty('borderTop')"
+                    ></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Bottom</label>
-                    <b-form-input type="number" v-model.number="borderBottom" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderBottom"
+                        :min="0"
+                        :max="50"
+                        size="sm"
+                        @focusout.native="ensureValueIsNotEmpty('borderBottom')"
+                    ></b-form-input>
                 </b-col>
             </b-row>
 
             <b-row style="width: 225px">
                 <b-col>
                     <label class="sub-label">Left</label>
-                    <b-form-input type="number" v-model.number="borderLeft" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderLeft"
+                        :min="0"
+                        :max="50"
+                        size="sm"
+                        @focusout.native="ensureValueIsNotEmpty('borderLeft')"
+                    ></b-form-input>
                 </b-col>
 
                 <b-col>
                     <label class="sub-label">Right</label>
-                    <b-form-input type="number" v-model.number="borderRight" :min="0" :max="50" size="sm"></b-form-input>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderRight"
+                        :min="0"
+                        :max="50"
+                        size="sm"
+                        @focusout.native="ensureValueIsNotEmpty('borderRight')"
+                    ></b-form-input>
                 </b-col>
             </b-row>
 
@@ -53,12 +81,15 @@
 
 <script>
 import TopBarControl from '../topbar/TopBarControl';
+import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
 import { Chrome as ColorPicker } from 'vue-color'
 
 export default {
     name: "Border",
 
     components: { TopBarControl, ColorPicker },
+
+    mixins: [NoEmptyValues],
 
     computed: {
         borderStyle: {

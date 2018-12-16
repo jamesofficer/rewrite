@@ -6,21 +6,42 @@
             <b-row>
                 <b-col>
                     <label class="sub-label">Offset X</label>
-                    <b-form-input size="sm" type="number" v-model.number="offsetX" :min="0" :max="100"></b-form-input>
+                    <b-form-input
+                        size="sm"
+                        type="number"
+                        v-model.number="offsetX"
+                        @focusout.native="ensureValueIsNotEmpty('offsetX')"
+                        :min="0"
+                        :max="100"
+                    ></b-form-input>
                 </b-col>
             </b-row>
-            
+
             <b-row>
                 <b-col>
                     <label class="sub-label">Offset Y</label>
-                    <b-form-input size="sm" type="number" v-model.number="offsetY" :min="0" :max="100"></b-form-input>
+                    <b-form-input
+                        size="sm"
+                        type="number"
+                        v-model.number="offsetY"
+                        @focusout.native="ensureValueIsNotEmpty('offsetY')"
+                        :min="0"
+                        :max="100"
+                    ></b-form-input>
                 </b-col>
             </b-row>
 
             <b-row>
                 <b-col>
                     <label class="sub-label">Blur Radius</label>
-                    <b-form-input size="sm" type="number" v-model.number="blurRadius" :min="0" :max="100"></b-form-input>                    
+                    <b-form-input
+                        size="sm"
+                        type="number"
+                        v-model.number="blurRadius"
+                        @focusout.native="ensureValueIsNotEmpty('blurRadius')"
+                        :min="0"
+                        :max="100"
+                    ></b-form-input>
                 </b-col>
             </b-row>
 
@@ -36,12 +57,15 @@
 
 <script>
 import TopBarControl from "../topbar/TopBarControl";
+import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
 import { Chrome as ColorPicker } from 'vue-color'
 
 export default {
     name: "BoxShadow",
 
     components: { TopBarControl, ColorPicker },
+
+    mixins: [NoEmptyValues],
 
     computed: {
         offsetX: {
