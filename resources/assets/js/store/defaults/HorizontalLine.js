@@ -1,7 +1,4 @@
-export default {
-    type: 'HorizontalLine',
-    selected: false,
-
+let horizontalLine = {
     width: 100,
     textAlign: "center",
     backgroundColor: { r: 200, g: 200, b: 200, a: 1 },
@@ -32,4 +29,14 @@ export default {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
+}
+
+export default {
+    type: 'HorizontalLine',
+    selected: false,
+
+    sm: horizontalLine,
+    md: horizontalLine,
+    lg: horizontalLine,
+    xl: horizontalLine,
 }

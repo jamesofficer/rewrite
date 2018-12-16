@@ -1,21 +1,21 @@
 <template>
     <div class="device-size-controls">
-        <h6 class="shift-small-heading">Device Size</h6>
+        <h5 class="device-size-heading">Device Size</h5>
 
-        <b-button-group size="sm">
-            <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="secondary" v-b-tooltip.top="'Devices <576px wide'">
+        <b-button-group size="md" class="device-size-btn-group">
+            <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="success" v-b-tooltip.top="'Devices <576px wide'">
                 Small
             </b-button>
 
-            <b-button @click="setDeviceSize('md')" :pressed="getDeviceSize === 'md'" variant="secondary" v-b-tooltip.top="'Devices ≥576px wide'">
+            <b-button @click="setDeviceSize('md')" :pressed="getDeviceSize === 'md'" variant="success" v-b-tooltip.top="'Devices ≥576px wide'">
                 Medium
             </b-button>
 
-            <b-button @click="setDeviceSize('lg')" :pressed="getDeviceSize === 'lg'" variant="secondary" v-b-tooltip.top="'Devices ≥768px wide'">
+            <b-button @click="setDeviceSize('lg')" :pressed="getDeviceSize === 'lg'" variant="success" v-b-tooltip.top="'Devices ≥768px wide'">
                 Large
             </b-button>
 
-            <b-button @click="setDeviceSize('xl')" :pressed="getDeviceSize === 'xl'" variant="secondary" v-b-tooltip.top="'Devices ≥992px wide'">
+            <b-button @click="setDeviceSize('xl')" :pressed="getDeviceSize === 'xl'" variant="success" v-b-tooltip.top="'Devices ≥992px wide'">
                 X Large
             </b-button>
 
@@ -45,7 +45,16 @@ export default {
 </script>
 
 <style scoped>
+.device-size-heading {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-left: 10px;
+}
+
 .device-size-controls {
-    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 </style>

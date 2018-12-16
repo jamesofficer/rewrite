@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <b-container fluid class="top-bar-wrapper">
+    <div id="app">
+        <b-container fluid>
             <!-- Top Bar -->
             <b-row class="top-bar-styles">
                 <b-col :cols="9">
@@ -19,80 +19,71 @@
                     <shift-menu ref="menu"></shift-menu>
                 </b-col>
             </b-row>
-        </b-container>
 
-        <b-container fluid class="shift-header-container">
-            <!-- Notification Message -->
-            <notification></notification>
+            <b-row>
+                <b-col :cols="12">
+                    <!-- Notification Message -->
+                    <notification></notification>
 
-            <!-- Article Name -->
-            <article-title></article-title>
-        </b-container>
+                    <!-- Article Name -->
+                    <article-title></article-title>
+                </b-col>
+            </b-row>
 
-        <!-- Device Size Buttons -->
-        <b-container fluid class="device-size-buttons text-center">
-            <device-size-controls></device-size-controls>
-        </b-container>
+            <b-row>
+                <b-col :cols="12">
+                    <!-- Bottom Corner Minimap -->
+                    <!-- <minimap></minimap> -->
+                </b-col>
+            </b-row>
 
-        <!-- Main Workspace -->
-        <b-container fluid>
             <!-- Main Workspace -->
-            <div ref="shiftArticle"
-                class="shift-workspace"
-                :class="{
-                    'sm-device-size': getDeviceSize === 'sm',
-                    'md-device-size': getDeviceSize === 'md',
-                    'lg-device-size': getDeviceSize === 'lg',
-                    'xl-device-size': getDeviceSize === 'xl',
-                    'fw-device-size': getDeviceSize === 'fw',
-                }"
-            >
-                <canvas v-for="(canvas, canvasIndex) in canvases"
-                    is="Canvas"
-                    :key="canvasIndex"
-                    :canvasIndex="canvasIndex"
-                    @click.native.stop="selectElement(canvasIndex)"
-                    class="selectable-canvas"
-                ></canvas>
-            </div>
+            <b-container fluid>
+                <div ref="shiftArticle"
+                    class="shift-workspace"
+                    :class="{
+                        'sm-device-size': getDeviceSize === 'sm',
+                        'md-device-size': getDeviceSize === 'md',
+                        'lg-device-size': getDeviceSize === 'lg',
+                        'xl-device-size': getDeviceSize === 'xl',
+                        'fw-device-size': getDeviceSize === 'fw',
+                    }"
+                >
+                    <canvas v-for="(canvas, canvasIndex) in canvases"
+                        is="Canvas"
+                        :key="canvasIndex"
+                        :canvasIndex="canvasIndex"
+                        @click.native.stop="selectElement(canvasIndex)"
+                        class="selectable-canvas"
+                    ></canvas>
+                </div>
+            </b-container>
 
-            <!-- Bottom Corner Minimap -->
-            <!-- <minimap></minimap> -->
+            <shift-footer></shift-footer>
         </b-container>
+        <!-- End of Shift Container -->
 
-        <div class="footer-logo-wrapper">
-            <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
-            <p class="version-text">v0.1.1 - Alpha Version</p>
-            <p class="contact-text">Found a bug? Have a feature request?</p>
-            <p class="contact-text"><strong>writewithshift@gmail.com</strong></p>
+        <div class="fixed-footer">
+            <!-- Device Size Buttons -->
+            <device-size-controls></device-size-controls>
         </div>
 
         <!-- Modal Windows -->
-        <div>
-            <!-- Add Component Modal -->
-            <add-component-modal></add-component-modal>
+        <add-component-modal></add-component-modal>
 
-            <!-- Edit Text Modal -->
-            <edit-text-modal></edit-text-modal>
+        <edit-text-modal></edit-text-modal>
 
-            <!-- Load Article Modal -->
-            <load-article-modal></load-article-modal>
+        <load-article-modal></load-article-modal>
 
-            <!-- My Images Modal -->
-            <my-images-modal></my-images-modal>
+        <my-images-modal></my-images-modal>
 
-            <!-- Image Gallery Modal -->
-            <image-gallery-modal></image-gallery-modal>
+        <image-gallery-modal></image-gallery-modal>
 
-            <!-- Export Article Modal -->
-            <export-article-modal ref="exportArticleModal"></export-article-modal>
+        <export-article-modal ref="exportArticleModal"></export-article-modal>
 
-            <!-- Recipe Ingredients Modal -->
-            <recipe-ingredients-modal></recipe-ingredients-modal>
+        <recipe-ingredients-modal></recipe-ingredients-modal>
 
-            <!-- Background Gradient Modal -->
-            <background-gradient-modal></background-gradient-modal>
-        </div>
+        <background-gradient-modal></background-gradient-modal>
     </div>
 </template>
 
@@ -100,6 +91,7 @@
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 
 import ShiftMenu               from "./components/shift/ShiftMenu";
+import ShiftFooter             from "./components/shift/ShiftFooter";
 import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
@@ -121,8 +113,8 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap, Notification,
-        Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
+        KeyBindings, ShiftMenu, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
+        Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 
@@ -206,29 +198,5 @@ export default {
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
-}
-
-.footer-logo-wrapper {
-    padding: 50px 0;
-    text-align: center;
-}
-
-.footer-logo {
-    filter: brightness(80%);
-    width: 150px;
-    margin: 0 auto;
-}
-
-.version-text {
-    color: #bbb;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.contact-text {
-    color: #bbb;
-    font-size: 0.8em;
-    margin: 0;
-    padding: 0;
 }
 </style>
