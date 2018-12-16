@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6, p, input, button, .btn, .btn-group, .top-bar-control {
     margin-right: 5px;
 }
 
+.selectable-canvas:hover {
+    cursor: pointer;
+    border: 1px dashed #38c172 !important;
+    box-shadow: inset 0 0 0 3000px rgba(200, 200, 200, 0.15) !important;
+}
+
 .selectable-element:hover {
     cursor: pointer;
     outline: 1px dashed #38c172 !important;

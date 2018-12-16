@@ -12,6 +12,7 @@ export default {
     enableGlobalComponentStyles: true,
 
     // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
+    deviceSizes: ['sm', 'md', 'lg', 'xl'],
     deviceSize: 'xl',
 
     // The indexes of the element that is currently selected by the user.

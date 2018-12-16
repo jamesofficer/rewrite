@@ -4,8 +4,6 @@
         :style="getElementStyles"
         :class="{ 'selected-element': elementIsSelected }"
     >
-        <p>column</p>
-
         <component v-for="(component, componentIndex) in components"
             :is="component.type"
             :key="componentIndex"
@@ -15,7 +13,6 @@
             :componentIndex="componentIndex"
             @click.native.stop="selectElement(componentIndex)"
             class="selectable-element"
-            style="border: 1px solid red"
         ></component>
 
         <!-- TOP BAR -->

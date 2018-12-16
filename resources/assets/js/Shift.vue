@@ -52,7 +52,7 @@
                     :key="canvasIndex"
                     :canvasIndex="canvasIndex"
                     @click.native.stop="selectElement(canvasIndex)"
-                    class="selectable-element"
+                    class="selectable-canvas"
                 ></canvas>
             </div>
 

@@ -14,13 +14,11 @@
             id="heading-input"
         ></text-input>
 
-        <p>heading component</p>
-
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <margin></margin>
+            <!-- <margin></margin>
 
             <padding></padding>
 
@@ -42,7 +40,7 @@
 
             <letter-spacing></letter-spacing>
 
-            <width></width>   
+            <width></width>    -->
         </top-bar>
     </div>
 </template>
@@ -103,11 +101,6 @@ export default {
             this.$store.commit('enableKeyBindings', true);
         }
     },
-
-    mounted() {
-        console.log('heading');
-        console.log(this.element);
-    }
 }
 </script>
 

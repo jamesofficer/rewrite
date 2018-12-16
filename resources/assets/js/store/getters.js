@@ -54,12 +54,10 @@ export const getSpecifiedElement = (state, i) => {
  *
  */
 export const getSelectedElement = state => {
+    console.log('selected element is ');
+    console.log(state.selected.element);
     return state.selected.element;
 };
-
-export const getRootProperty = state => property => {
-    return state.selected.element[property];
-}
 
 /**
  * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
@@ -156,5 +154,3 @@ export const elementIsSelected = state => i => {
            state.selected.column    === i.columnIndex &&
            state.selected.component === i.componentIndex;
 };
-
-

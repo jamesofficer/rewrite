@@ -66,15 +66,13 @@ export const addComponent = (state, componentType) => {
  *
  */
 export const setComponentProperty = (state, component) => {
-    const deviceSizes = ['sm', 'md', 'lg', 'xl'];
-
     // Update this component at all sizes.
     if (state.enableGlobalComponentStyles === true) {
-        deviceSizes.forEach(function (size) {
+        state.deviceSizes.forEach(function (size) {
             window.Vue.set(getSelectedElement(state, 0, size), component.property, component.value);
         });
     }
-    // Only update the individual component.
+    // Only update the component for the current device size.
     else {
         window.Vue.set(getSelectedElement(state), component.property, component.value);
     }
@@ -85,7 +83,16 @@ export const setComponentProperty = (state, component) => {
  *
  */
 export const setComponentSubProperty = (state, component) => {
-    window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
+    // Update this component at all sizes.
+    if (state.enableGlobalComponentStyles === true) {
+        state.deviceSizes.forEach(function (size) {
+            window.Vue.set(getSelectedElement(state, 0, size)[component.property], component.subproperty, component.value);
+        });
+    }
+    // Only update the component for the current device size.
+    else {
+        window.Vue.set(getSelectedElement(state)[component.property], component.subproperty, component.value);
+    }
 };
 
 /**

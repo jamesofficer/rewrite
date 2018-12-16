@@ -1,4 +1,6 @@
 let heading = {
+    content: 'New Heading',
+
     width: 100,
     fontFamily: 'Times New Roman',
     fontWeights: [400, 700],
@@ -40,8 +42,6 @@ let heading = {
 export default {
     type: 'Heading',
     selected: false,
-
-    content: 'New Heading',
 
     sm: heading,
     md: heading,

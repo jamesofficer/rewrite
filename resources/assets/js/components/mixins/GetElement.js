@@ -33,9 +33,7 @@ export default {
         },
 
         getElementStyles() {
-            let el = this.element;
-
-            console.log('element styles for el ' + el);
+            const el = this.element;
 
             return {
                 // Size & Layout

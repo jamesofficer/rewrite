@@ -19,6 +19,9 @@ Vue.component("icon", Icon);
 
 window.Vue = require("vue");
 
+// Supress error message about "unknown custom element: trix-editor".
+Vue.config.ignoredElements = ['trix-editor'];
+
 // The Shift Article creation application.
 new Vue({
     store: store,
