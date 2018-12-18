@@ -30,13 +30,6 @@
                 </b-col>
             </b-row>
 
-            <b-row>
-                <b-col :cols="12">
-                    <!-- Bottom Corner Minimap -->
-                    <!-- <minimap></minimap> -->
-                </b-col>
-            </b-row>
-
             <!-- Main Workspace -->
             <b-container fluid>
                 <div ref="shiftArticle"
@@ -66,6 +59,9 @@
         <div class="fixed-footer">
             <!-- Device Size Buttons -->
             <device-size-controls></device-size-controls>
+
+            <!-- Bottom Corner Minimap -->
+            <minimap></minimap>
         </div>
 
         <!-- Modal Windows -->
