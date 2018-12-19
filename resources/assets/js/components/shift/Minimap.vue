@@ -3,7 +3,7 @@
         <div class="minimap-header">
             <div class="row">
                 <div class="col-6">
-                    <strong>Layout Map</strong>
+                    Layout Map
                 </div>
 
                 <div class="col-6 text-right">
@@ -14,27 +14,90 @@
 
         <div class="minimap-body">
             <!-- Loop Canvases -->
-            <ul v-for="(canvas, canvasIndex) in canvases" :key="canvasIndex" class="minimap-ul">
-                <li class="minimap-element-row">
-                    <strong>Canvas {{ canvasIndex + 1 }}</strong>
+            <ul
+                v-for="(canvas, canvasIndex) in canvases" 
+                :key="canvasIndex"
+                class="minimap-ul"
+            >
+                <li
+                    class="minimap-element-row"
+                    :class="{ 'element-selected' : canvas.selected }"
+                    @click="selectElement(canvasIndex)"
+                >
+                    <span class="collapse-icon-container">
+                        <icon name="caret-down"></icon>
+                    </span>
+
+                    Canvas {{ canvasIndex + 1 }}
+
+                    <span class="eye-icon-container">
+                        <icon name="eye"></icon>
+                    </span>
                 </li>
 
+
                 <!-- Loop Rows -->
-                <ul v-for="(row, rowIndex) in canvas.rows" :key="rowIndex" class="minimap-ul minimap-row-list">
-                    <li class="minimap-element-row add-left-border">
-                        <strong>Row {{ rowIndex + 1 }}</strong>
+                <ul
+                    v-for="(row, rowIndex) in canvas.rows"
+                    :key="rowIndex"
+                    class="minimap-ul"
+                >
+                    <li
+                        class="minimap-element-row add-left-border pad-row"
+                        :class="{ 'element-selected' : row.selected }"
+                        @click="selectElement(canvasIndex, rowIndex)"
+                    >
+                        <span class="collapse-icon-container">
+                            <icon name="caret-down"></icon>
+                        </span>
+
+                        Row {{ rowIndex + 1 }}
+
+                        <span class="eye-icon-container">
+                            <icon name="eye"></icon>
+                        </span>
                     </li>
 
+
                     <!-- Loop Columns -->
-                    <ul v-for="(column, columnIndex) in row.columns" :key="columnIndex" class="minimap-ul minimap-row-list">
-                        <li class="minimap-element-row add-left-border">
-                            <strong>Column {{ columnIndex + 1 }}</strong>
+                    <ul
+                        v-for="(column, columnIndex) in row.columns"
+                        :key="columnIndex"
+                        class="minimap-ul"
+                    >
+                        <li
+                            class="minimap-element-row add-left-border pad-column"
+                            :class="{ 'element-selected' : column.selected }"
+                            @click="selectElement(canvasIndex, rowIndex, columnIndex)"
+                        >
+                            <span class="collapse-icon-container">
+                                <icon name="caret-down"></icon>
+                            </span>
+
+                            Column {{ columnIndex + 1 }}
+
+                            <span class="eye-icon-container">
+                                <icon name="eye"></icon>
+                            </span>
                         </li>
 
+
                         <!-- Loop Components -->
-                        <ul v-for="(component, componentIndex) in column.components" :key="componentIndex" class="minimap-ul minimap-row-list">
-                            <li class="minimap-element-row add-left-border">
-                                <strong>{{ component.type }}</strong>
+                        <ul
+                            v-for="(component, componentIndex) in column.components"
+                            :key="componentIndex"
+                            class="minimap-ul"
+                        >
+                            <li
+                                class="minimap-element-row add-left-border pad-component"
+                                :class="{ 'element-selected' : component.selected }"
+                                @click="selectElement(canvasIndex, rowIndex, columnIndex, componentIndex)"
+                            >
+                                {{ component.type }}
+
+                                <span class="eye-icon-container">
+                                    <icon name="eye"></icon>
+                                </span>
                             </li>
                         </ul>
                     </ul>
@@ -51,6 +114,17 @@ export default {
     computed: {
         canvases() {
             return this.$store.getters.canvases;
+        }
+    },
+
+    methods: {
+        selectElement(canvasIndex, rowIndex = undefined, columnIndex = undefined, componentIndex = undefined) {
+            this.$store.commit('selectElement', {
+                canvasIndex: canvasIndex,
+                rowIndex: rowIndex,
+                columnIndex: columnIndex,
+                componentIndex: componentIndex,
+            });
         }
     }
 }
@@ -118,9 +192,30 @@ export default {
     border-left: 1px solid #dddddd;
 }
 
-.minimap-row-list {
+.element-selected {
+    color: white;
+    background: #38c172;
+}
+
+.pad-row {
     padding-left: 15px;
 }
 
+.pad-column {
+    padding-left: 25px;
+}
+
+.pad-component {
+    padding-left: 60px;
+}
+
+.collapse-icon-container {
+    padding: 0 5px;
+}
+
+.eye-icon-container {
+    float: right;
+    margin-right: 5px
+}
 </style>
 

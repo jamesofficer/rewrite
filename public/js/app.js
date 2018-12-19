@@ -27318,7 +27318,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 5px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 300px;\n    height: 300px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 10px;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #dddddd;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.minimap-row-list[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n\n", ""]);
+exports.push([module.i, "\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 5px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 300px;\n    height: 300px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 10px;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #dddddd;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
 
 // exports
 
@@ -27375,6 +27375,69 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Minimap",
@@ -27382,6 +27445,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         canvases: function canvases() {
             return this.$store.getters.canvases;
+        }
+    },
+
+    methods: {
+        selectElement: function selectElement(canvasIndex) {
+            var rowIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+            var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+            var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+
+            this.$store.commit('selectElement', {
+                canvasIndex: canvasIndex,
+                rowIndex: rowIndex,
+                columnIndex: columnIndex,
+                componentIndex: componentIndex
+            });
         }
     }
 });
@@ -27405,38 +27483,115 @@ var render = function() {
           "ul",
           { key: canvasIndex, staticClass: "minimap-ul" },
           [
-            _c("li", { staticClass: "minimap-element-row" }, [
-              _c("strong", [_vm._v("Canvas " + _vm._s(canvasIndex + 1))])
-            ]),
+            _c(
+              "li",
+              {
+                staticClass: "minimap-element-row",
+                class: { "element-selected": canvas.selected },
+                on: {
+                  click: function($event) {
+                    _vm.selectElement(canvasIndex)
+                  }
+                }
+              },
+              [
+                _c(
+                  "span",
+                  { staticClass: "collapse-icon-container" },
+                  [_c("icon", { attrs: { name: "caret-down" } })],
+                  1
+                ),
+                _vm._v(
+                  "\n\n                Canvas " +
+                    _vm._s(canvasIndex + 1) +
+                    "\n\n                "
+                ),
+                _c(
+                  "span",
+                  { staticClass: "eye-icon-container" },
+                  [_c("icon", { attrs: { name: "eye" } })],
+                  1
+                )
+              ]
+            ),
             _vm._v(" "),
             _vm._l(canvas.rows, function(row, rowIndex) {
               return _c(
                 "ul",
-                { key: rowIndex, staticClass: "minimap-ul minimap-row-list" },
+                { key: rowIndex, staticClass: "minimap-ul" },
                 [
                   _c(
                     "li",
-                    { staticClass: "minimap-element-row add-left-border" },
-                    [_c("strong", [_vm._v("Row " + _vm._s(rowIndex + 1))])]
+                    {
+                      staticClass:
+                        "minimap-element-row add-left-border pad-row",
+                      class: { "element-selected": row.selected },
+                      on: {
+                        click: function($event) {
+                          _vm.selectElement(canvasIndex, rowIndex)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "collapse-icon-container" },
+                        [_c("icon", { attrs: { name: "caret-down" } })],
+                        1
+                      ),
+                      _vm._v(
+                        "\n\n                    Row " +
+                          _vm._s(rowIndex + 1) +
+                          "\n\n                    "
+                      ),
+                      _c(
+                        "span",
+                        { staticClass: "eye-icon-container" },
+                        [_c("icon", { attrs: { name: "eye" } })],
+                        1
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _vm._l(row.columns, function(column, columnIndex) {
                     return _c(
                       "ul",
-                      {
-                        key: columnIndex,
-                        staticClass: "minimap-ul minimap-row-list"
-                      },
+                      { key: columnIndex, staticClass: "minimap-ul" },
                       [
                         _c(
                           "li",
                           {
-                            staticClass: "minimap-element-row add-left-border"
+                            staticClass:
+                              "minimap-element-row add-left-border pad-column",
+                            class: { "element-selected": column.selected },
+                            on: {
+                              click: function($event) {
+                                _vm.selectElement(
+                                  canvasIndex,
+                                  rowIndex,
+                                  columnIndex
+                                )
+                              }
+                            }
                           },
                           [
-                            _c("strong", [
-                              _vm._v("Column " + _vm._s(columnIndex + 1))
-                            ])
+                            _c(
+                              "span",
+                              { staticClass: "collapse-icon-container" },
+                              [_c("icon", { attrs: { name: "caret-down" } })],
+                              1
+                            ),
+                            _vm._v(
+                              "\n\n                        Column " +
+                                _vm._s(columnIndex + 1) +
+                                "\n\n                        "
+                            ),
+                            _c(
+                              "span",
+                              { staticClass: "eye-icon-container" },
+                              [_c("icon", { attrs: { name: "eye" } })],
+                              1
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -27446,18 +27601,40 @@ var render = function() {
                         ) {
                           return _c(
                             "ul",
-                            {
-                              key: componentIndex,
-                              staticClass: "minimap-ul minimap-row-list"
-                            },
+                            { key: componentIndex, staticClass: "minimap-ul" },
                             [
                               _c(
                                 "li",
                                 {
                                   staticClass:
-                                    "minimap-element-row add-left-border"
+                                    "minimap-element-row add-left-border pad-component",
+                                  class: {
+                                    "element-selected": component.selected
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.selectElement(
+                                        canvasIndex,
+                                        rowIndex,
+                                        columnIndex,
+                                        componentIndex
+                                      )
+                                    }
+                                  }
                                 },
-                                [_c("strong", [_vm._v(_vm._s(component.type))])]
+                                [
+                                  _vm._v(
+                                    "\n                            " +
+                                      _vm._s(component.type) +
+                                      "\n\n                            "
+                                  ),
+                                  _c(
+                                    "span",
+                                    { staticClass: "eye-icon-container" },
+                                    [_c("icon", { attrs: { name: "eye" } })],
+                                    1
+                                  )
+                                ]
                               )
                             ]
                           )
@@ -27485,7 +27662,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "minimap-header" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-6" }, [
-          _c("strong", [_vm._v("Layout Map")])
+          _vm._v("\n                Layout Map\n            ")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-6 text-right" }, [
@@ -43960,6 +44137,10 @@ var moveElement = function moveElement(state, direction) {
  *
  */
 var selectElement = function selectElement(state, i) {
+    if (state.selected.type !== undefined) {
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedRootElement */])(state).selected = false;
+    }
+
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');
     } else if (i.columnIndex !== undefined) {
@@ -43976,7 +44157,7 @@ var selectElement = function selectElement(state, i) {
     window.Vue.set(state.selected, 'component', i.componentIndex);
     window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getSelectedElement */])(state));
 
-    state.selected.element.selected = true;
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedRootElement */])(state).selected = true;
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -55885,13 +56066,20 @@ function getId() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_sun__ = __webpack_require__(530);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_sign_out_alt__ = __webpack_require__(531);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_brush__ = __webpack_require__(532);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_regular_square__ = __webpack_require__(533);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brands_instagram__ = __webpack_require__(534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brands_facebook__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_brands_youtube__ = __webpack_require__(536);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48_vue_awesome_icons_brands_pinterest__ = __webpack_require__(537);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_eye_slash__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_caret_down__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_caret_right__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_regular_square__ = __webpack_require__(533);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48_vue_awesome_icons_brands_instagram__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49_vue_awesome_icons_brands_facebook__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50_vue_awesome_icons_brands_youtube__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_vue_awesome_icons_brands_pinterest__ = __webpack_require__(537);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
+
+
+
 
 
 
@@ -56541,6 +56729,44 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 540 */,
+/* 541 */,
+/* 542 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"eye-slash":{"width":576,"height":512,"paths":[{"d":"M286.7 392L319.3 438.5A334-334 0 0 0 288 440C168.2 440 63 376.1 6.6 280.4A48-48 0 0 0 6.6 231.6C30.7 190.9 63.6 155.9 102.7 129.1L159.7 210.6C154.7 224.8 152 240.1 152 256 152 330.7 212.1 391.3 286.7 392zM569.4 280.4C537.7 334.1 490.6 377.8 434.2 405.8L434.2 405.9 475.7 465.1C483.3 475.9 480.6 490.9 469.8 498.5L456.7 507.7C445.8 515.3 430.8 512.6 423.2 501.8L100.3 46.9C92.7 36.1 95.4 21.1 106.2 13.5L119.3 4.3C130.2-3.3 145.2-0.6 152.8 10.2L203.8 82.9C230.7 75.8 258.9 72 288 72 407.8 72 513 135.9 569.4 231.6A48-48 0 0 0 569.4 280.4zM424 256C424 180.8 363.2 120 288 120 270.1 120 252.9 123.5 237.3 129.8L256.6 156.8C282.4 148.7 311.6 150.7 337 164.2H336.9C313.3 164.2 294.1 183.4 294.1 207.1 294.1 230.7 313.3 249.9 336.9 249.9 360.6 249.9 379.8 230.7 379.8 207.1V207C398.2 241.5 396.1 284.9 371.5 318V318L390.8 345.1C411.5 321.2 424 290.1 424 256zM262 356.7L184.5 246C179.5 298.4 213.8 344.3 262 356.7z"}]}})
+
+
+/***/ }),
+/* 543 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"caret-right":{"width":192,"height":512,"paths":[{"d":"M0 384.7V127.3C0 109.5 21.5 100.6 34.1 113.2L162.8 241.9C170.6 249.7 170.6 262.3 162.8 270.1L34.1 398.8C21.5 411.4 0 402.5 0 384.7z"}]}})
+
+
+/***/ }),
+/* 544 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"caret-down":{"width":320,"height":512,"paths":[{"d":"M31.3 192H288.6C306.4 192 315.3 213.5 302.7 226.1L174.1 354.8C166.3 362.6 153.6 362.6 145.8 354.8L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"}]}})
+
 
 /***/ })
 /******/ ]);

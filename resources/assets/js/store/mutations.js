@@ -181,6 +181,10 @@ export const moveElement = (state, direction) => {
  *
  */
 export const selectElement = (state, i) => {
+    if (state.selected.type !== undefined) {
+        getSelectedRootElement(state).selected = false;
+    }
+
     if (i.componentIndex !== undefined) {
         window.Vue.set(state.selected, 'type', 'Component');
     }
@@ -199,8 +203,8 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'column', i.columnIndex);
     window.Vue.set(state.selected, 'component', i.componentIndex);
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
-
-    state.selected.element.selected = true;
+    
+    getSelectedRootElement(state).selected = true;
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
