@@ -43,6 +43,7 @@ let blockquote = {
 export default {
     type: "BlockQuote",
     selected: false,
+    visible: true,
 
     sm: blockquote,
     md: blockquote,

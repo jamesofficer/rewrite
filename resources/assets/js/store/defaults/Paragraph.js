@@ -42,6 +42,7 @@ let paragraph = {
 export default {
     type: 'Paragraph',
     selected: false,
+    visible: true,
 
     sm: paragraph,
     md: paragraph,

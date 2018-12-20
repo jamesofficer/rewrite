@@ -86,6 +86,27 @@ export const getSelectedRootElement = (state, position = 0) => {
 }
 
 /**
+ * Gets the root element, but based off the indexes that are passed in, and not the currently selected element. 
+ * 
+ */
+export const getRootElementByIndexes = (state, i) => {
+    if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+        return state.canvases[i.canvasIndex];
+    }
+    
+    if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
+        return state.canvases[i.canvasIndex].rows[i.rowIndex];
+    }
+    
+    if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
+    }
+
+    return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex]
+                .components[i.componentIndex];
+}
+
+/**
  * Returns the array that the current Element sits in.
  *
  */

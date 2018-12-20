@@ -48,6 +48,7 @@ let column = {
 export default {
     type: "Column",
     selected: false,
+    visible: true,
 
     components: [defaultHeading, defaultParagraph, defaultPicture],
 

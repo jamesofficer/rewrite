@@ -13,6 +13,7 @@
             :componentIndex="componentIndex"
             @click.native.stop="selectElement(componentIndex)"
             class="selectable-element"
+            v-show="component.visible"
         ></component>
 
         <!-- TOP BAR -->

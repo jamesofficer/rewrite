@@ -1,18 +1,20 @@
 <template>
-    <div class="minimap">
+    <div class="minimap" :style="{ 'height' : minimapVisible ? '300px' : '35px' }">
         <div class="minimap-header">
             <div class="row">
                 <div class="col-6">
-                    Layout Map
+                    <strong>Layout Map</strong>
                 </div>
 
                 <div class="col-6 text-right">
-                    <span class="minimap-minimise-button">[-]</span>
+                    <span class="minimap-minimise-button" @click="minimapVisible = ! minimapVisible">
+                        <icon :name="minimapVisible ? 'minus' : 'plus'"></icon>
+                    </span>
                 </div>
             </div>
         </div>
 
-        <div class="minimap-body">
+        <div class="minimap-body" v-if="minimapVisible">
             <!-- Loop Canvases -->
             <ul
                 v-for="(canvas, canvasIndex) in canvases" 
@@ -31,7 +33,7 @@
                     Canvas {{ canvasIndex + 1 }}
 
                     <span class="eye-icon-container">
-                        <icon name="eye"></icon>
+                        <icon :name="canvas.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex)"></icon>
                     </span>
                 </li>
 
@@ -54,7 +56,7 @@
                         Row {{ rowIndex + 1 }}
 
                         <span class="eye-icon-container">
-                            <icon name="eye"></icon>
+                            <icon :name="row.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex)"></icon>
                         </span>
                     </li>
 
@@ -77,7 +79,7 @@
                             Column {{ columnIndex + 1 }}
 
                             <span class="eye-icon-container">
-                                <icon name="eye"></icon>
+                                <icon :name="column.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex)"></icon>
                             </span>
                         </li>
 
@@ -96,7 +98,7 @@
                                 {{ component.type }}
 
                                 <span class="eye-icon-container">
-                                    <icon name="eye"></icon>
+                                    <icon :name="component.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex, componentIndex)"></icon>
                                 </span>
                             </li>
                         </ul>
@@ -117,9 +119,24 @@ export default {
         }
     },
 
+    data() {
+        return {
+            minimapVisible: false,
+        }
+    },
+
     methods: {
         selectElement(canvasIndex, rowIndex = undefined, columnIndex = undefined, componentIndex = undefined) {
             this.$store.commit('selectElement', {
+                canvasIndex: canvasIndex,
+                rowIndex: rowIndex,
+                columnIndex: columnIndex,
+                componentIndex: componentIndex,
+            });
+        },
+
+        toggleElementVisibility(canvasIndex, rowIndex = undefined, columnIndex = undefined, componentIndex = undefined) {
+            this.$store.commit('toggleElementVisibility', {
                 canvasIndex: canvasIndex,
                 rowIndex: rowIndex,
                 columnIndex: columnIndex,
@@ -131,6 +148,10 @@ export default {
 </script>
 
 <style scoped>
+ul {
+    margin: 0;
+}
+
 .minimap {
     position: fixed;
     bottom: 5px;
@@ -146,7 +167,8 @@ export default {
 .minimap-header {
     background: #38c172;
     color: white;
-    padding: 10px;
+    padding: 7px 10px;
+    border-bottom: 1px solid #24b161;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     z-index: 10;
@@ -185,7 +207,7 @@ export default {
 
 .minimap-element-row:hover {
     cursor: pointer;
-    background: #dddddd;
+    background: #59e696;
 }
 
 .add-left-border {

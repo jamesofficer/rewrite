@@ -35,6 +35,7 @@ let row = {
 export default {
     type: "Row",
     selected: false,
+    visible: true,
 
     columns: [defaultColumn],
 

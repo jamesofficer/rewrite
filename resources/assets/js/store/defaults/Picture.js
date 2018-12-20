@@ -37,6 +37,7 @@ let picture = {
 export default {
     type: "Picture",
     selected: false,
+    visible: true,
 
     sm: picture,
     md: picture,

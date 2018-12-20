@@ -34,6 +34,7 @@ let horizontalLine = {
 export default {
     type: 'HorizontalLine',
     selected: false,
+    visible: true,
 
     sm: horizontalLine,
     md: horizontalLine,

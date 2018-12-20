@@ -11,6 +11,7 @@
             :rowIndex="rowIndex"
             @click.native.stop="selectElement(rowIndex)"
             class="selectable-element"
+            v-show="row.visible"
         ></row>
 
         <!-- TOP BAR -->

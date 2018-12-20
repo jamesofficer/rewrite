@@ -1,6 +1,7 @@
 import defaults from "./defaults/_defaults";
 import {
-    duplicateObject, getSelectedElement, getSelectedRootElement, getSiblingElements, resetSelection
+    duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
+    getSiblingElements, resetSelection
 } from "./helpers";
 
 /**
@@ -219,6 +220,19 @@ export const selectElement = (state, i) => {
         window.Vue.set(state.selected.element, 'components', state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex].components);
     }
 };
+
+/**
+ * Makes an element visible or hidden (flips it's current state).
+ * 
+ */
+export const toggleElementVisibility = (state, elementIndexes) => {
+    const element = getRootElementByIndexes(state, elementIndexes);
+
+    console.log('elememnt is:');
+    console.log(element);
+
+    element.visible = !element.visible;
+}
 
 /**
  * Sets the title of the article.

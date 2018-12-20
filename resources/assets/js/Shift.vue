@@ -21,12 +21,23 @@
             </b-row>
 
             <b-row>
-                <b-col :cols="12">
+                <b-col cols="12">
                     <!-- Notification Message -->
                     <notification></notification>
 
-                    <!-- Article Name -->
-                    <article-title></article-title>
+                    <div 
+                        class="article-name-container"
+                        :class="{
+                            'sm-device-size': getDeviceSize === 'sm',
+                            'md-device-size': getDeviceSize === 'md',
+                            'lg-device-size': getDeviceSize === 'lg',
+                            'xl-device-size': getDeviceSize === 'xl',
+                            'fw-device-size': getDeviceSize === 'fw',
+                        }"
+                    >
+                        <!-- Article Name -->
+                        <article-title></article-title>
+                    </div>
                 </b-col>
             </b-row>
 
@@ -42,12 +53,15 @@
                         'fw-device-size': getDeviceSize === 'fw',
                     }"
                 >
+                
+
                     <canvas v-for="(canvas, canvasIndex) in canvases"
                         is="Canvas"
                         :key="canvasIndex"
                         :canvasIndex="canvasIndex"
                         @click.native.stop="selectElement(canvasIndex)"
                         class="selectable-canvas"
+                        v-show="canvas.visible"
                     ></canvas>
                 </div>
             </b-container>
@@ -195,4 +209,10 @@ export default {
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
 }
+
+.article-name-container {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
 </style>

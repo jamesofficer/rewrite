@@ -15,6 +15,7 @@ let canvas = {
 export default {
     type: "Canvas",
     selected: false,
+    visible: true,
 
     rows: [defaultRow],
 

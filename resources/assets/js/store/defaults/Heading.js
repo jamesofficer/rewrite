@@ -42,6 +42,7 @@ let heading = {
 export default {
     type: 'Heading',
     selected: false,
+    visible: true,
 
     sm: heading,
     md: heading,

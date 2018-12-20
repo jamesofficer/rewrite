@@ -10,6 +10,7 @@
                 :columnIndex="columnIndex"
                 @click.native.stop="selectElement(columnIndex)"
                 class="selectable-element"
+                v-show="column.visible"
         ></column>
 
         <!-- TOP BAR -->
