@@ -25679,7 +25679,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n.fw-device-size[data-v-667f58a0] {\n    width: 100%;\n}\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-wrapper[data-v-667f58a0] {\n    position: fixed;\n    top: 0;\n    z-index: 99;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-header-container[data-v-667f58a0] {\n    margin-top: 75px;\n    padding: 0 25px;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n\n", ""]);
+exports.push([module.i, "\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n.fw-device-size[data-v-667f58a0] {\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -25756,8 +25756,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__);
-//
-//
 //
 //
 //
@@ -27097,7 +27095,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.device-size-heading[data-v-7870e431] {\n    text-transform: uppercase;\n    font-weight: 400;\n    font-size: 0.9em;\n    color: #aaa;\n    margin-left: 10px;\n}\n.device-size-controls[data-v-7870e431] {\n    margin-left: 5px;\n    margin-bottom: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.device-size-controls[data-v-7870e431] {\n    position: fixed;\n    bottom: 5px;\n    right: 5px;\n}\n", ""]);
 
 // exports
 
@@ -27108,8 +27106,6 @@ exports.push([module.i, "\n.device-size-heading[data-v-7870e431] {\n    text-tra
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -27165,8 +27161,6 @@ var render = function() {
     "div",
     { staticClass: "device-size-controls" },
     [
-      _c("h5", { staticClass: "device-size-heading" }, [_vm._v("Device Size")]),
-      _vm._v(" "),
       _c(
         "b-button-group",
         { staticClass: "device-size-btn-group", attrs: { size: "md" } },
@@ -27373,7 +27367,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\nul[data-v-f9ee2f1e] {\n    margin: 0;\n}\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 5px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 300px;\n    height: 300px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
+exports.push([module.i, "\nul[data-v-f9ee2f1e] {\n    margin: 0;\n}\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 50px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 280px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
 
 // exports
 

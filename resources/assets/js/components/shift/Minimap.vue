@@ -154,12 +154,11 @@ ul {
 
 .minimap {
     position: fixed;
-    bottom: 5px;
+    bottom: 50px;
     right: 5px;
     background: white;
     border-radius: 5px;
-    width: 300px;
-    height: 300px;
+    width: 280px;
     box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);
     overflow: hidden;
 }

@@ -53,8 +53,6 @@
                         'fw-device-size': getDeviceSize === 'fw',
                     }"
                 >
-                
-
                     <canvas v-for="(canvas, canvasIndex) in canvases"
                         is="Canvas"
                         :key="canvasIndex"
@@ -149,6 +147,48 @@ export default {
 </script>
 
 <style scoped>
+.article-name-container {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.shift-canvas {
+    background: green !important;
+    cursor: pointer;
+}
+
+.shift-canvas:hover {
+    background: darkgreen !important;
+}
+
+.top-bar-styles {
+    z-index: 100;
+    background: white;
+    padding: 10px 15px;
+    border-top: 5px solid #38c172;
+    border-bottom: 1px dashed gray;
+    box-shadow: 0 0 20px #ccc;
+}
+
+.top-bar-portal-target {
+    display: inline-flex;
+}
+
+.shift-workspace {
+    height: fit-content;
+    margin: 0 auto;
+    padding: 0;
+    box-shadow: 0 0 20px #ccc;
+    overflow: hidden;
+}
+
+.fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 .sm-device-size {
     width: 576px;
 }
@@ -168,51 +208,4 @@ export default {
 .fw-device-size {
     width: 100%;
 }
-
-.shift-canvas {
-    background: green !important;
-    cursor: pointer;
-}
-
-.shift-canvas:hover {
-    background: darkgreen !important;
-}
-
-.top-bar-wrapper {
-    position: fixed;
-    top: 0;
-    z-index: 99;
-}
-
-.top-bar-styles {
-    z-index: 100;
-    background: white;
-    padding: 10px 15px;
-    border-top: 5px solid #38c172;
-    border-bottom: 1px dashed gray;
-    box-shadow: 0 0 20px #ccc;
-}
-
-.top-bar-portal-target {
-    display: inline-flex;
-}
-
-.shift-header-container {
-    margin-top: 75px;
-    padding: 0 25px;
-}
-
-.shift-workspace {
-    height: fit-content;
-    margin: 0 auto;
-    padding: 0;
-    box-shadow: 0 0 20px #ccc;
-    overflow: hidden;
-}
-
-.article-name-container {
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
 </style>

@@ -1,7 +1,5 @@
 <template>
     <div class="device-size-controls">
-        <h5 class="device-size-heading">Device Size</h5>
-
         <b-button-group size="md" class="device-size-btn-group">
             <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="success" v-b-tooltip.top="'Devices <576px wide'">
                 Small
@@ -45,16 +43,9 @@ export default {
 </script>
 
 <style scoped>
-.device-size-heading {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 0.9em;
-    color: #aaa;
-    margin-left: 10px;
-}
-
 .device-size-controls {
-    margin-left: 5px;
-    margin-bottom: 5px;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
 }
 </style>
