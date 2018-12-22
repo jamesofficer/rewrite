@@ -90,7 +90,7 @@ export default {
         },
 
         buildHtml() {
-            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
+            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.innerHTML);
         },
 
         previewArticleInNewWindow() {

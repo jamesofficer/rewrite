@@ -16,10 +16,6 @@
             <b-button @click="setDeviceSize('xl')" :pressed="getDeviceSize === 'xl'" variant="success" v-b-tooltip.top="'Devices ≥992px wide'">
                 X Large
             </b-button>
-
-            <!--<b-button @click="setDeviceSize('fw')" :pressed="getDeviceSize === 'fw'" variant="secondary" v-b-tooltip.top="'Matches window width'">-->
-                <!--Full Width-->
-            <!--</b-button>-->
         </b-button-group>
     </div>
 </template>

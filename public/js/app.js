@@ -1372,6 +1372,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 componentIndex: this.componentIndex
             }
         };
+    },
+    created: function created() {
+        this.$store.commit('createElementIdentifier', this.indexes);
     }
 });
 
@@ -18463,13 +18466,14 @@ module.exports = Component.exports
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return duplicateObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getSelectedElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getElementByIndexes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getSelectedRootElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getRootElementByIndexes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getSiblingElements; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getSelectedElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getElementByIndexes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getSelectedRootElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getRootElementByIndexes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getSiblingElements; });
 /* unused harmony export getSiblingsElementByIndexes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return resetSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return resetSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return generateIdentifer; });
 var duplicateObject = function duplicateObject(object) {
     return JSON.parse(JSON.stringify(object));
 };
@@ -18541,22 +18545,24 @@ var getElementByIndexes = function getElementByIndexes(state) {
 var getSelectedRootElement = function getSelectedRootElement(state) {
     var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-    // Return a Canvas
-    if (state.selected.type === 'Canvas') {
-        return state.canvases[state.selected.canvas + position];
-    }
-    // Return a Row
-    else if (state.selected.type === 'Row') {
-            return state.canvases[state.selected.canvas].rows[state.selected.row + position];
+    if (state.selected.type !== undefined) {
+        // Return a Canvas
+        if (state.selected.type === 'Canvas') {
+            return state.canvases[state.selected.canvas + position];
         }
-        // Return a Column
-        else if (state.selected.type === 'Column') {
-                return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
+        // Return a Row
+        else if (state.selected.type === 'Row') {
+                return state.canvases[state.selected.canvas].rows[state.selected.row + position];
             }
-            // Return a Component
-            else {
-                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
+            // Return a Column
+            else if (state.selected.type === 'Column') {
+                    return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column + position];
                 }
+                // Return a Component
+                else {
+                        return state.canvases[state.selected.canvas].rows[state.selected.row].columns[state.selected.column].components[state.selected.component + position];
+                    }
+    }
 };
 
 /**
@@ -18625,6 +18631,17 @@ var resetSelection = function resetSelection(state) {
     window.Vue.set(state.selected, "column", undefined);
     window.Vue.set(state.selected, "row", undefined);
     window.Vue.set(state.selected, "canvas", undefined);
+};
+
+var generateIdentifer = function generateIdentifer(length) {
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+
+    for (var i = length; i > 0; --i) {
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+    }
+
+    return result;
 };
 
 /***/ }),
@@ -21103,6 +21120,9 @@ module.exports = Component.exports
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Row__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__GenerateIdentifier__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__GenerateIdentifier___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__GenerateIdentifier__);
+
 
 
 var canvas = {
@@ -25679,7 +25699,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n.fw-device-size[data-v-667f58a0] {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n.shift-canvas[data-v-667f58a0] {\n    background: green !important;\n    cursor: pointer;\n}\n.shift-canvas[data-v-667f58a0]:hover {\n    background: darkgreen !important;\n}\n.top-bar-styles[data-v-667f58a0] {\n    z-index: 100;\n    background: white;\n    padding: 10px 15px;\n    border-top: 5px solid #38c172;\n    border-bottom: 1px dashed gray;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\n    display: -webkit-inline-box;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n}\n.shift-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n", ""]);
 
 // exports
 
@@ -25756,6 +25776,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__);
+//
 //
 //
 //
@@ -26103,7 +26124,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         buildHtml: function buildHtml() {
-            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
+            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.innerHTML);
         },
         previewArticleInNewWindow: function previewArticleInNewWindow() {
             this.buildHtml();
@@ -27128,10 +27149,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "DeviceSizeControls",
@@ -27551,7 +27568,9 @@ var render = function() {
     [
       _c("div", { staticClass: "minimap-header" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-6" }, [
+            _vm._v("\n                Layout Map\n            ")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6 text-right" }, [
             _c(
@@ -27826,16 +27845,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("strong", [_vm._v("Layout Map")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -28878,6 +28888,8 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TopBarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__TopBarControl__);
+//
+//
 //
 //
 //
@@ -42068,9 +42080,8 @@ var render = function() {
     "b-container",
     {
       class: { "selected-element": _vm.elementIsSelected },
-      staticStyle: { padding: "100px 0" },
       style: _vm.getElementStyles,
-      attrs: { fluid: "" }
+      attrs: { fluid: "", id: _vm.getElementIdentifier }
     },
     [
       _vm._l(_vm.rows, function(row, rowIndex) {
@@ -43770,8 +43781,7 @@ var render = function() {
                         "sm-device-size": _vm.getDeviceSize === "sm",
                         "md-device-size": _vm.getDeviceSize === "md",
                         "lg-device-size": _vm.getDeviceSize === "lg",
-                        "xl-device-size": _vm.getDeviceSize === "xl",
-                        "fw-device-size": _vm.getDeviceSize === "fw"
+                        "xl-device-size": _vm.getDeviceSize === "xl"
                       }
                     },
                     [_c("article-title")],
@@ -43794,8 +43804,7 @@ var render = function() {
                   "sm-device-size": _vm.getDeviceSize === "sm",
                   "md-device-size": _vm.getDeviceSize === "md",
                   "lg-device-size": _vm.getDeviceSize === "lg",
-                  "xl-device-size": _vm.getDeviceSize === "xl",
-                  "fw-device-size": _vm.getDeviceSize === "fw"
+                  "xl-device-size": _vm.getDeviceSize === "xl"
                 }
               },
               _vm._l(_vm.canvases, function(canvas, canvasIndex) {
@@ -43917,7 +43926,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 
-    // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
+    // The currently selected device size. Can be small, medium, large, or extra-large.
     deviceSizes: ['sm', 'md', 'lg', 'xl'],
     deviceSize: 'xl',
 
@@ -43971,6 +43980,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "notification", function() { return notification; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableKeyBindings", function() { return enableKeyBindings; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontsUsed", function() { return fontsUsed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getColumnWidthForDeviceSize", function() { return getColumnWidthForDeviceSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "totalColumnWidth", function() { return totalColumnWidth; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementUp", function() { return canMoveElementUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canMoveElementDown", function() { return canMoveElementDown; });
@@ -44029,7 +44039,7 @@ var components = function components(state) {
  *
  */
 var getSpecifiedElement = function getSpecifiedElement(state, i) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["b" /* getElementByIndexes */])(state, i);
+    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["c" /* getElementByIndexes */])(state, i);
 };
 
 /**
@@ -44043,6 +44053,7 @@ var getSelectedElement = function getSelectedElement(state) {
 
 /**
  * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
+ * 
  */
 var getSelectedElementType = function getSelectedElementType(state) {
     return state.selected.type;
@@ -44050,9 +44061,12 @@ var getSelectedElementType = function getSelectedElementType(state) {
 
 /**
  * Returns the type of the selected component, e.g. 'Heading', 'Paragraph', 'Picture' etc.
+ * 
  */
 var getSelectedComponentType = function getSelectedComponentType(state) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["e" /* getSelectedRootElement */])(state).type;
+    if (state.selected.type !== undefined) {
+        return Object(__WEBPACK_IMPORTED_MODULE_0__helpers__["f" /* getSelectedRootElement */])(state).type;
+    }
 };
 
 /**
@@ -44103,6 +44117,20 @@ var fontsUsed = function fontsUsed(state) {
     return state.fontsUsed;
 };
 
+var getColumnWidthForDeviceSize = function getColumnWidthForDeviceSize(state) {
+    return function (deviceSize, i) {
+        console.log('deviceSize');
+        console.log(deviceSize);
+
+        console.log('indexes');
+        console.log(i);
+
+        // console.log('getting col width for ' + deviceSize);
+
+        return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex][deviceSize].columnWidth;
+    };
+};
+
 /**
  * Returns the total widths of all the columns on the current canvas.
  *
@@ -44112,7 +44140,7 @@ var totalColumnWidth = function totalColumnWidth(state) {
         var _totalColumnWidth = 0;
 
         state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(function (column) {
-            _totalColumnWidth += column.columnWidth;
+            _totalColumnWidth += column[state.deviceSize].columnWidth;
         });
 
         return _totalColumnWidth;
@@ -44149,6 +44177,7 @@ var elementIsSelected = function elementIsSelected(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementIdentifier", function() { return createElementIdentifier; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableGlobalComponentStyles", function() { return enableGlobalComponentStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRow", function() { return addRow; });
@@ -44182,6 +44211,16 @@ var _this = this;
 
 
 /**
+ * Generates a unique identifier for each element. Used as CSS class.
+ * 
+ */
+var createElementIdentifier = function createElementIdentifier(state, indexes) {
+    var element = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getRootElementByIndexes */])(state, indexes);
+
+    element.identifier = element.type + '-' + Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["b" /* generateIdentifer */])(8);
+};
+
+/**
  * Toggle Global Component styles on or off.
  *
  */
@@ -44211,7 +44250,10 @@ var addRow = function addRow(state) {
  */
 var addColumn = function addColumn(state, columnWidth) {
     var newColumn = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_defaults__["a" /* default */].column);
-    newColumn.columnWidth = columnWidth;
+
+    state.deviceSizes.forEach(function (deviceSize) {
+        newColumn[deviceSize].columnWidth = columnWidth;
+    });
 
     state.selected.element.columns.push(newColumn);
 };
@@ -44245,12 +44287,12 @@ var setComponentProperty = function setComponentProperty(state, component) {
     // Update this component at all sizes.
     if (state.enableGlobalComponentStyles === true) {
         state.deviceSizes.forEach(function (size) {
-            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedElement */])(state, 0, size), component.property, component.value);
+            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedElement */])(state, 0, size), component.property, component.value);
         });
     }
     // Only update the component for the current device size.
     else {
-            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedElement */])(state), component.property, component.value);
+            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedElement */])(state), component.property, component.value);
         }
 };
 
@@ -44262,12 +44304,12 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
     // Update this component at all sizes.
     if (state.enableGlobalComponentStyles === true) {
         state.deviceSizes.forEach(function (size) {
-            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedElement */])(state, 0, size)[component.property], component.subproperty, component.value);
+            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedElement */])(state, 0, size)[component.property], component.subproperty, component.value);
         });
     }
     // Only update the component for the current device size.
     else {
-            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedElement */])(state)[component.property], component.subproperty, component.value);
+            window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedElement */])(state)[component.property], component.subproperty, component.value);
         }
 };
 
@@ -44283,9 +44325,9 @@ var deleteElement = function deleteElement(state) {
         'Component': state.selected.component
     };
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["h" /* resetSelection */])(state);
 };
 
 /**
@@ -44297,7 +44339,7 @@ var cloneElement = function cloneElement(state, i) {
         return;
     }
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedRootElement */])(state)));
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSelectedRootElement */])(state)));
 };
 
 /**
@@ -44330,12 +44372,12 @@ var enoughSpaceToCloneColumn = function enoughSpaceToCloneColumn(state, i) {
  */
 var moveElement = function moveElement(state, direction) {
     var directionIndex = direction === 'up' ? -1 : 1;
-    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedRootElement */])(state, directionIndex);
+    var elementAboveOrBelow = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSelectedRootElement */])(state, directionIndex);
     var selectedElement = state.selected[state.selected.type.toLowerCase()];
 
     // Swap positions around:
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSiblingElements */])(state), [selectedElement + directionIndex], Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedRootElement */])(state));
-    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSiblingElements */])(state), [selectedElement], elementAboveOrBelow);
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* getSiblingElements */])(state), [selectedElement + directionIndex], Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSelectedRootElement */])(state));
+    window.Vue.set(Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* getSiblingElements */])(state), [selectedElement], elementAboveOrBelow);
 
     // Reselect the moved element:
     state.selected[state.selected.type.toLowerCase()] += directionIndex;
@@ -44354,7 +44396,7 @@ var moveElement = function moveElement(state, direction) {
  */
 var selectElement = function selectElement(state, i) {
     if (state.selected.type !== undefined) {
-        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedRootElement */])(state).selected = false;
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSelectedRootElement */])(state).selected = false;
     }
 
     if (i.componentIndex !== undefined) {
@@ -44371,9 +44413,9 @@ var selectElement = function selectElement(state, i) {
     window.Vue.set(state.selected, 'row', i.rowIndex);
     window.Vue.set(state.selected, 'column', i.columnIndex);
     window.Vue.set(state.selected, 'component', i.componentIndex);
-    window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getSelectedElement */])(state));
+    window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedElement */])(state));
 
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["e" /* getSelectedRootElement */])(state).selected = true;
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["f" /* getSelectedRootElement */])(state).selected = true;
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -44394,10 +44436,7 @@ var selectElement = function selectElement(state, i) {
  * 
  */
 var toggleElementVisibility = function toggleElementVisibility(state, elementIndexes) {
-    var element = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["c" /* getRootElementByIndexes */])(state, elementIndexes);
-
-    console.log('elememnt is:');
-    console.log(element);
+    var element = Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["d" /* getRootElementByIndexes */])(state, elementIndexes);
 
     element.visible = !element.visible;
 };
@@ -44466,9 +44505,8 @@ var buildHtml = function buildHtml(state, html) {
  */
 var createHtmlHead = function createHtmlHead(state, html, title) {
     var fonts = _this.getUniqueFontList(state.fontsUsed);
-    var head = '';
+    var head = "<!DOCTYPE html>";
 
-    head += "<!DOCTYPE html>";
     head += "<html>";
     head += "<head>";
     head += "<meta charset=\"UTF-8\">";
@@ -44546,7 +44584,7 @@ var cleanHtml = function cleanHtml(html) {
  */
 var loadArticle = function loadArticle(state, article) {
     // Reset selection first (prevents a bug that breaks element selection).
-    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["g" /* resetSelection */])(state);
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["h" /* resetSelection */])(state);
 
     // Now load in the article itself.
     window.Vue.set(state, "articleTitle", article.title);
@@ -56982,6 +57020,25 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 543 */,
+/* 544 */,
+/* 545 */
+/***/ (function(module, exports) {
+
+function generateIdentifer(length) {
+    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+
+    for (var i = length; i > 0; --i) {
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+    }
+
+    console.log(result);
+
+    return result;
+}
 
 /***/ })
 /******/ ]);

@@ -32,7 +32,6 @@
                             'md-device-size': getDeviceSize === 'md',
                             'lg-device-size': getDeviceSize === 'lg',
                             'xl-device-size': getDeviceSize === 'xl',
-                            'fw-device-size': getDeviceSize === 'fw',
                         }"
                     >
                         <!-- Article Name -->
@@ -50,7 +49,6 @@
                         'md-device-size': getDeviceSize === 'md',
                         'lg-device-size': getDeviceSize === 'lg',
                         'xl-device-size': getDeviceSize === 'xl',
-                        'fw-device-size': getDeviceSize === 'fw',
                     }"
                 >
                     <canvas v-for="(canvas, canvasIndex) in canvases"
@@ -69,6 +67,9 @@
         <!-- End of Shift Container -->
 
         <div class="fixed-footer">
+            <!-- Element Styles Panel -->
+            <!-- <element-styles-panel></element-styles-panel> -->
+
             <!-- Device Size Buttons -->
             <device-size-controls></device-size-controls>
 
@@ -203,9 +204,5 @@ export default {
 
 .xl-device-size {
     width: 1200px;
-}
-
-.fw-device-size {
-    width: 100%;
 }
 </style>

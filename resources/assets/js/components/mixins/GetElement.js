@@ -77,4 +77,8 @@ export default {
             }
         }
     },
+
+    created() {
+        this.$store.commit('createElementIdentifier', this.indexes);
+    }
 }

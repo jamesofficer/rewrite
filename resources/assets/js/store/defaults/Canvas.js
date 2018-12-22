@@ -1,4 +1,5 @@
 import defaultRow from "./Row";
+import { getIdentifier } from "./GenerateIdentifier";
 
 let canvas = {
     backgroundSize: 'Auto',

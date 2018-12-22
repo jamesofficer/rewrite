@@ -3,7 +3,7 @@
         <div class="minimap-header">
             <div class="row">
                 <div class="col-6">
-                    <strong>Layout Map</strong>
+                    Layout Map
                 </div>
 
                 <div class="col-6 text-right">

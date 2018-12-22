@@ -1,8 +1,18 @@
 import defaults from "./defaults/_defaults";
 import {
     duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
-    getSiblingElements, resetSelection
+    getSiblingElements, resetSelection, generateIdentifer
 } from "./helpers";
+
+/**
+ * Generates a unique identifier for each element. Used as CSS class.
+ * 
+ */
+export const createElementIdentifier = (state, indexes) => {
+    const element = getRootElementByIndexes(state, indexes);
+
+    element.identifier = element.type + '-' + generateIdentifer(8);
+}
 
 /**
  * Toggle Global Component styles on or off.
@@ -34,7 +44,10 @@ export const addRow = state => {
  */
 export const addColumn = (state, columnWidth) => {
     const newColumn = duplicateObject(defaults.column);
-    newColumn.columnWidth = columnWidth;
+
+    state.deviceSizes.forEach(function(deviceSize) {
+        newColumn[deviceSize].columnWidth = columnWidth;
+    });
 
     state.selected.element.columns.push(newColumn);
 };
@@ -228,9 +241,6 @@ export const selectElement = (state, i) => {
 export const toggleElementVisibility = (state, elementIndexes) => {
     const element = getRootElementByIndexes(state, elementIndexes);
 
-    console.log('elememnt is:');
-    console.log(element);
-
     element.visible = !element.visible;
 }
 
@@ -298,9 +308,8 @@ export const buildHtml = (state, html) => {
  */
 export const createHtmlHead = (state, html, title) => {
     let fonts = this.getUniqueFontList(state.fontsUsed);
-    let head  = '';
+    let head  = "<!DOCTYPE html>";
 
-    head += "<!DOCTYPE html>";
     head += "<html>";
     head += "<head>";
     head += "<meta charset=\"UTF-8\">";

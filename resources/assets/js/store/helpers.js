@@ -65,23 +65,25 @@ export const getElementByIndexes = state => i => {
  * 
  */
 export const getSelectedRootElement = (state, position = 0) => {
-    // Return a Canvas
-    if (state.selected.type === 'Canvas') {
-        return state.canvases[state.selected.canvas + (position)];
-    }
-    // Return a Row
-    else if (state.selected.type === 'Row') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row + (position)];
-    }
-    // Return a Column
-    else if (state.selected.type === 'Column') {
-        return state.canvases[state.selected.canvas].rows[state.selected.row]
-            .columns[state.selected.column + (position)];
-    }
-    // Return a Component
-    else {
-        return state.canvases[state.selected.canvas].rows[state.selected.row]
-            .columns[state.selected.column].components[state.selected.component + (position)];
+    if (state.selected.type !== undefined) {
+        // Return a Canvas
+        if (state.selected.type === 'Canvas') {
+            return state.canvases[state.selected.canvas + (position)];
+        }
+        // Return a Row
+        else if (state.selected.type === 'Row') {
+            return state.canvases[state.selected.canvas].rows[state.selected.row + (position)];
+        }
+        // Return a Column
+        else if (state.selected.type === 'Column') {
+            return state.canvases[state.selected.canvas].rows[state.selected.row]
+                .columns[state.selected.column + (position)];
+        }
+        // Return a Component
+        else {
+            return state.canvases[state.selected.canvas].rows[state.selected.row]
+                .columns[state.selected.column].components[state.selected.component + (position)];
+        }
     }
 }
 
@@ -155,4 +157,15 @@ export const resetSelection = state => {
     window.Vue.set(state.selected, "column", undefined);
     window.Vue.set(state.selected, "row", undefined);
     window.Vue.set(state.selected, "canvas", undefined);
+}
+
+export const generateIdentifer = length => {
+    const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result  = '';
+
+    for (let i = length; i > 0; --i) {
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+    }
+
+    return result;
 }

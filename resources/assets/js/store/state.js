@@ -11,7 +11,7 @@ export default {
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 
-    // The currently selected device size. Can be sm, md, lg, xl, fw (full width).
+    // The currently selected device size. Can be small, medium, large, or extra-large.
     deviceSizes: ['sm', 'md', 'lg', 'xl'],
     deviceSize: 'xl',
 

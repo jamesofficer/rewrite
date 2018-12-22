@@ -1,4 +1,4 @@
-import { getElementByIndexes, getSelectedRootElement } from "./helpers";
+import { getElementByIndexes, getSelectedRootElement, getRootElementByIndexes } from "./helpers";
 
 /**
  * Returns the value of the enableGlobalComponentStyles variable.
@@ -59,6 +59,7 @@ export const getSelectedElement = state => {
 
 /**
  * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
+ * 
  */
 export const getSelectedElementType = state => {
     return state.selected.type;
@@ -66,9 +67,12 @@ export const getSelectedElementType = state => {
 
 /**
  * Returns the type of the selected component, e.g. 'Heading', 'Paragraph', 'Picture' etc.
+ * 
  */
 export const getSelectedComponentType = state => {
-    return getSelectedRootElement(state).type;
+    if (state.selected.type !== undefined) {
+        return getSelectedRootElement(state).type;        
+    }
 };
 
 /**
@@ -119,6 +123,20 @@ export const fontsUsed = state => {
     return state.fontsUsed;
 };
 
+export const getColumnWidthForDeviceSize = state => (deviceSize, i) => {
+    console.log('deviceSize');
+    console.log(deviceSize);
+
+    console.log('indexes');
+    console.log(i);
+
+
+    // console.log('getting col width for ' + deviceSize);
+    
+    return state.canvases[i.canvasIndex].rows[i.rowIndex]
+            .columns[i.columnIndex][deviceSize].columnWidth;
+}
+
 /**
  * Returns the total widths of all the columns on the current canvas.
  *
@@ -128,7 +146,7 @@ export const totalColumnWidth = state => {
         let totalColumnWidth = 0;
 
         state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(column => {
-            totalColumnWidth += column.columnWidth;
+            totalColumnWidth += column[state.deviceSize].columnWidth;
         });
 
         return totalColumnWidth;
@@ -155,7 +173,7 @@ export const canMoveElementDown = state => {
  */
 export const elementIsSelected = state => i => {
     return state.selected.canvas    === i.canvasIndex &&
-           state.selected.row       === i.rowIndex &&
+           state.selected.row       === i.rowIndex    &&
            state.selected.column    === i.columnIndex &&
            state.selected.component === i.componentIndex;
 };
