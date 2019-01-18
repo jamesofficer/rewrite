@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="{ textAlign: element.textAlign }"
+    >
         <div :style="getElementStyles"></div>
 
         <!-- TOP BAR -->

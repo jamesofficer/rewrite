@@ -1,5 +1,5 @@
 import defaultRow from "./Row";
-import { getIdentifier } from "./GenerateIdentifier";
+// import { getIdentifier } from "./GenerateIdentifier";
 
 let canvas = {
     backgroundSize: 'Auto',
@@ -17,6 +17,7 @@ export default {
     type: "Canvas",
     selected: false,
     visible: true,
+    identifier: undefined,
 
     rows: [defaultRow],
 

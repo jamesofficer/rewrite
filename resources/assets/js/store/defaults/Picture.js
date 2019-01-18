@@ -38,6 +38,7 @@ export default {
     type: "Picture",
     selected: false,
     visible: true,
+    identifier: undefined,
 
     sm: picture,
     md: picture,

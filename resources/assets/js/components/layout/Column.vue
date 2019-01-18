@@ -1,8 +1,9 @@
 <template>
     <b-col
-        :cols="element.columnWidth"
-        :style="getElementStyles"
+        :id="getElementIdentifier"
         :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+        :cols="element.columnWidth"
     >
         <component v-for="(component, componentIndex) in components"
             :is="component.type"

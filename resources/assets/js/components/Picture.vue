@@ -1,10 +1,16 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }">
+        <!-- If there is no image, show the missing image icon. -->
         <div v-if="! element.src">
             <icon name="image" scale="5" style="color: gray"></icon>
         </div>
 
-        <div v-else :style="{ textAlign: element.textAlign }">
+        <!-- Otherwise, show the image. -->
+        <div
+            v-else
+            :id="getElementIdentifier"
+            :style="{ textAlign: element.textAlign }"
+        >
             <img :src="element.src" :style="getElementStyles">
         </div>
 

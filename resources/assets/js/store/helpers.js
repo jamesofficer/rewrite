@@ -7,7 +7,7 @@ export const duplicateObject = object => {
  * that is higher or lower than the selected element if we want to. This is usually used when
  * moving an element around the workspace, to the element above or below the current one.
  *
- * @param {*} state 
+ * @param {*} state
  * @param {*} position - position is usually 1, 0, or -1, i.e. current element (0), one above (1), or one below (-1).
  * @param {*} size - if we want to get the element for a specific size, we can pass that in here (e.g. 'xl', or 'sm').
  */
@@ -59,10 +59,10 @@ export const getElementByIndexes = state => i => {
 };
 
 /**
- * When an element is selected, it doesn't actually select the "entire" element, only the 
+ * When an element is selected, it doesn't actually select the "entire" element, only the
  * parts that need to be styled for the current device size. By getting the "root"
  * element we are getting the entire element with all device sizes as well.
- * 
+ *
  */
 export const getSelectedRootElement = (state, position = 0) => {
     if (state.selected.type !== undefined) {
@@ -88,18 +88,18 @@ export const getSelectedRootElement = (state, position = 0) => {
 }
 
 /**
- * Gets the root element, but based off the indexes that are passed in, and not the currently selected element. 
- * 
+ * Gets the root element, but based off the indexes that are passed in, and not the currently selected element.
+ *
  */
 export const getRootElementByIndexes = (state, i) => {
     if (i.rowIndex === undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex];
     }
-    
+
     if (i.rowIndex !== undefined && i.columnIndex === undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex].rows[i.rowIndex];
     }
-    
+
     if (i.rowIndex !== undefined && i.columnIndex !== undefined && i.componentIndex === undefined) {
         return state.canvases[i.canvasIndex].rows[i.rowIndex].columns[i.columnIndex];
     }
@@ -159,13 +159,16 @@ export const resetSelection = state => {
     window.Vue.set(state.selected, "canvas", undefined);
 }
 
-export const generateIdentifer = length => {
-    const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let result  = '';
+export const generateIdentifer = () => {
+    const length = 8;
+    const chars  = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result   = '';
 
     for (let i = length; i > 0; --i) {
         result += chars[Math.round(Math.random() * (chars.length - 1))];
     }
+
+    // TODO: Check the identifier doesn't already exist.
 
     return result;
 }

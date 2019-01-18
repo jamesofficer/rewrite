@@ -49,6 +49,7 @@ export default {
     type: "Column",
     selected: false,
     visible: true,
+    identifier: undefined,
 
     components: [defaultHeading, defaultParagraph, defaultPicture],
 

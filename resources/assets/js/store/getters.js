@@ -59,7 +59,7 @@ export const getSelectedElement = state => {
 
 /**
  * Returns the type of the selected element, e.g. 'Canvas', 'Row' etc.
- * 
+ *
  */
 export const getSelectedElementType = state => {
     return state.selected.type;
@@ -67,12 +67,20 @@ export const getSelectedElementType = state => {
 
 /**
  * Returns the type of the selected component, e.g. 'Heading', 'Paragraph', 'Picture' etc.
- * 
+ *
  */
 export const getSelectedComponentType = state => {
     if (state.selected.type !== undefined) {
-        return getSelectedRootElement(state).type;        
+        return getSelectedRootElement(state).type;
     }
+};
+
+/**
+ * Returns the 'identifier' property for the current element.
+ *
+ */
+export const getElementIdentifier = state => indexes => {
+    return getRootElementByIndexes(state, indexes).identifier;
 };
 
 /**
@@ -124,15 +132,6 @@ export const fontsUsed = state => {
 };
 
 export const getColumnWidthForDeviceSize = state => (deviceSize, i) => {
-    console.log('deviceSize');
-    console.log(deviceSize);
-
-    console.log('indexes');
-    console.log(i);
-
-
-    // console.log('getting col width for ' + deviceSize);
-    
     return state.canvases[i.canvasIndex].rows[i.rowIndex]
             .columns[i.columnIndex][deviceSize].columnWidth;
 }

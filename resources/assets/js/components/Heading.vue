@@ -1,7 +1,12 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }" :style="{ width: element.width + '%' }">
         <!-- COMPONENT -->
-        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
+        <h1
+            :id="getElementIdentifier"
+            :style="getElementStyles"
+            v-if="! editingText"
+            @dblclick="selectInput"
+        >
             {{ element.content }}
         </h1>
 

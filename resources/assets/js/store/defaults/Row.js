@@ -36,6 +36,7 @@ export default {
     type: "Row",
     selected: false,
     visible: true,
+    identifier: undefined,
 
     columns: [defaultColumn],
 

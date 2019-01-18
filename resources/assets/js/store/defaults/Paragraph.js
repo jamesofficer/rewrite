@@ -43,6 +43,7 @@ export default {
     type: 'Paragraph',
     selected: false,
     visible: true,
+    identifier: undefined,
 
     sm: paragraph,
     md: paragraph,

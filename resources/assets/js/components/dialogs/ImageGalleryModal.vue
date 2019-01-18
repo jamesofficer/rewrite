@@ -1,7 +1,9 @@
 <template>
     <b-modal @shown="getImages" :id="'imageGalleryModal'" title="My Images" size="lg" ref="imageGalleryModal">
-        <b-form-checkbox id="show-all-images-checkbox"
-                     v-model="showAllImages">
+        <b-form-checkbox
+            id="show-all-images-checkbox"
+            v-model="showAllImages"
+        >
             Show all images
         </b-form-checkbox>
 
@@ -13,7 +15,7 @@
                 <img :src="image.url" :key="index" class="gallery-image" @click="selectImage(index)">
             </div>
         </template>
-        
+
         <p v-else>You haven't uploaded any images yet...</p>
     </b-modal>
 </template>

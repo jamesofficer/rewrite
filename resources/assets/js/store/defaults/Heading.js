@@ -43,6 +43,7 @@ export default {
     type: 'Heading',
     selected: false,
     visible: true,
+    identifier: undefined,
 
     sm: heading,
     md: heading,

@@ -1,11 +1,12 @@
 <template>
     <!-- CANVAS -->
     <b-container fluid
-        :style="getElementStyles"
-        :class="{ 'selected-element' : elementIsSelected }"
         :id="getElementIdentifier"
+        :class="{ 'selected-element' : elementIsSelected }"
+        :style="getElementStyles"
     >
-        <row v-for="(row, rowIndex) in rows"
+        <row
+            v-for="(row, rowIndex) in rows"
             :key="rowIndex"
             :canvasIndex="canvasIndex"
             :rowIndex="rowIndex"
@@ -66,7 +67,8 @@ export default {
     components: {
         TopBar, Row,
         DeleteCloneMoveElement, AddRow,
-        ClearImage, AlignColumns, BackgroundSize, Padding, BackgroundColor, BackgroundGradient, BackgroundPosition, ImageSelector,
+        ClearImage, AlignColumns, BackgroundSize, Padding, BackgroundColor, BackgroundGradient,
+        BackgroundPosition, ImageSelector,
     },
 
     mixins: [GetElement],

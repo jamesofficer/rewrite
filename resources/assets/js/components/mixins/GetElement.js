@@ -24,6 +24,10 @@ export default {
     },
 
     computed: {
+        getElementIdentifier() {
+            return this.$store.getters.getElementIdentifier(this.indexes);
+        },
+
         element() {
             return this.$store.getters.getSpecifiedElement(this.indexes);
         },

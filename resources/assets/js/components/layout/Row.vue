@@ -1,16 +1,18 @@
 <template>
     <b-row
-        :style="getElementStyles"
+        :id="getElementIdentifier"
         :class="{ 'selected-element' : elementIsSelected }"
+        :style="getElementStyles"
     >
-        <column v-for="(column, columnIndex) in columns"
-                :key="columnIndex"
-                :canvasIndex="canvasIndex"
-                :rowIndex="rowIndex"
-                :columnIndex="columnIndex"
-                @click.native.stop="selectElement(columnIndex)"
-                class="selectable-element"
-                v-show="column.visible"
+        <column
+            v-for="(column, columnIndex) in columns"
+            :key="columnIndex"
+            :canvasIndex="canvasIndex"
+            :rowIndex="rowIndex"
+            :columnIndex="columnIndex"
+            @click.native.stop="selectElement(columnIndex)"
+            class="selectable-element"
+            v-show="column.visible"
         ></column>
 
         <!-- TOP BAR -->

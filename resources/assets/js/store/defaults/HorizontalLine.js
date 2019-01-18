@@ -35,6 +35,7 @@ export default {
     type: 'HorizontalLine',
     selected: false,
     visible: true,
+    identifier: undefined,
 
     sm: horizontalLine,
     md: horizontalLine,
