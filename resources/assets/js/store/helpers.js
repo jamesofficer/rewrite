@@ -160,15 +160,15 @@ export const resetSelection = state => {
 }
 
 export const generateIdentifer = () => {
-    const length = 8;
-    const chars  = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let result   = '';
+    const length   = 8;
+    const chars    = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let identifier = '';
 
     for (let i = length; i > 0; --i) {
-        result += chars[Math.round(Math.random() * (chars.length - 1))];
+        identifier += chars[Math.round(Math.random() * (chars.length - 1))];
     }
 
     // TODO: Check the identifier doesn't already exist.
 
-    return result;
+    return identifier;
 }

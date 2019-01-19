@@ -1,5 +1,6 @@
 <template>
     <div class="footer-logo-wrapper">
+        <b-btn @click="createHtml" variant="primary">Create HTML</b-btn>
         <b-btn @click="createStylesheet" variant="success">Create Stylesheet</b-btn>
 
         <br>
@@ -17,6 +18,10 @@ export default {
     name: "ShiftFooter",
 
     methods: {
+        createHtml() {
+            this.$store.commit('createHtml');
+        },
+
         createStylesheet() {
             this.$store.commit('createStylesheet');
         }

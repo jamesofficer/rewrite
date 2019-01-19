@@ -18636,15 +18636,15 @@ var resetSelection = function resetSelection(state) {
 var generateIdentifer = function generateIdentifer() {
     var length = 8;
     var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var result = '';
+    var identifier = '';
 
     for (var i = length; i > 0; --i) {
-        result += chars[Math.round(Math.random() * (chars.length - 1))];
+        identifier += chars[Math.round(Math.random() * (chars.length - 1))];
     }
 
     // TODO: Check the identifier doesn't already exist.
 
-    return result;
+    return identifier;
 };
 
 /***/ }),
@@ -26400,11 +26400,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ShiftFooter",
 
     methods: {
+        createHtml: function createHtml() {
+            this.$store.commit('createHtml');
+        },
         createStylesheet: function createStylesheet() {
             this.$store.commit('createStylesheet');
         }
@@ -26423,6 +26427,12 @@ var render = function() {
     "div",
     { staticClass: "footer-logo-wrapper" },
     [
+      _c(
+        "b-btn",
+        { attrs: { variant: "primary" }, on: { click: _vm.createHtml } },
+        [_vm._v("Create HTML")]
+      ),
+      _vm._v(" "),
       _c(
         "b-btn",
         { attrs: { variant: "success" }, on: { click: _vm.createStylesheet } },
@@ -27421,7 +27431,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\nul[data-v-f9ee2f1e] {\n    margin: 0;\n}\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 50px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 280px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
+exports.push([module.i, "\nul[data-v-f9ee2f1e] {\n    margin: 0;\n}\n.minimap[data-v-f9ee2f1e] {\n    position: fixed;\n    bottom: 50px;\n    right: 5px;\n    background: white;\n    border-radius: 5px;\n    width: 280px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\n    cursor: pointer;\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
 
 // exports
 
@@ -27603,33 +27613,37 @@ var render = function() {
       style: { height: _vm.minimapVisible ? "300px" : "35px" }
     },
     [
-      _c("div", { staticClass: "minimap-header" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6" }, [
-            _vm._v("\n                Layout Map\n            ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 text-right" }, [
-            _c(
-              "span",
-              {
-                staticClass: "minimap-minimise-button",
-                on: {
-                  click: function($event) {
-                    _vm.minimapVisible = !_vm.minimapVisible
-                  }
-                }
-              },
-              [
-                _c("icon", {
-                  attrs: { name: _vm.minimapVisible ? "minus" : "plus" }
-                })
-              ],
-              1
-            )
+      _c(
+        "div",
+        {
+          staticClass: "minimap-header",
+          on: {
+            click: function($event) {
+              _vm.minimapVisible = !_vm.minimapVisible
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-6" }, [
+              _vm._v("\n                Layout Map\n            ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 text-right" }, [
+              _c(
+                "span",
+                { staticClass: "minimap-minimise-button" },
+                [
+                  _c("icon", {
+                    attrs: { name: _vm.minimapVisible ? "minus" : "plus" }
+                  })
+                ],
+                1
+              )
+            ])
           ])
-        ])
-      ]),
+        ]
+      ),
       _vm._v(" "),
       _vm.minimapVisible
         ? _c(
@@ -44020,6 +44034,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 
+    // Sometimes we want to disable keybindings, such as when we are editing a text element.
+    enableKeyBindings: true,
+
     // The currently selected device size. Can be small, medium, large, or extra-large.
     deviceSizes: ['sm', 'md', 'lg', 'xl'],
     deviceSize: 'xl',
@@ -44030,7 +44047,8 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         row: undefined,
         column: undefined,
         component: undefined,
-        type: undefined
+        type: undefined,
+        identifer: undefined
     },
 
     // The content of the workspace. The full list of Canvases and everything within them.
@@ -44043,9 +44061,6 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         dismissSecs: 5,
         dismissCountDown: 0
     },
-
-    // Sometimes we want to disable keybindings, such as when we are editing a text element.
-    enableKeyBindings: true,
 
     // Holds an array of all the Fonts used in the article. We do this so we can append the
     // needed stylesheets to the document head when exporting the article. Each object
@@ -44303,7 +44318,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addFontToFontsUsed", function() { return addFontToFontsUsed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStylesheet", function() { return createStylesheet; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults_defaults__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generate__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_generator__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers__ = __webpack_require__(59);
 var _this = this;
 
@@ -44318,7 +44333,13 @@ var _this = this;
 var createElementIdentifier = function createElementIdentifier(state, indexes) {
     var element = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["d" /* getRootElementByIndexes */])(state, indexes);
 
-    element.identifier = element.type.toLowerCase() + '-' + Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* generateIdentifer */])();
+    // TODO: Fix this. For some reason, when an element is deleted this method is called,
+    // even if this element already exists on the workspace (why Vue??).
+    if (element.identifier === undefined) {
+        var identifier = element.type.toLowerCase() + '-' + Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* generateIdentifer */])();
+
+        element.identifier = identifier;
+    }
 };
 
 /**
@@ -44415,10 +44436,12 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
 };
 
 /**
- * Deletes the selected Element
+ * Deletes the selected Element.
  *
  */
 var deleteElement = function deleteElement(state) {
+    var elementIdentifier = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).identifier;
+
     var elementType = {
         'Canvas': state.selected.canvas,
         'Row': state.selected.row,
@@ -44428,7 +44451,19 @@ var deleteElement = function deleteElement(state) {
 
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["g" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
 
+    deleteElementIdentifier(state, elementIdentifier);
+
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["h" /* resetSelection */])(state);
+};
+
+/**
+ * Deletes the passed in identifier from the state's identifier list.
+ *
+ */
+var deleteElementIdentifier = function deleteElementIdentifier(state, identifier) {
+    var elementIndex = state.identifiers.indexOf(identifier);
+
+    state.identifiers.splice(elementIndex, 1);
 };
 
 /**
@@ -44616,6 +44651,9 @@ var createHtmlHead = function createHtmlHead(state, html, title) {
     head += "<title>" + title + "</title>";
     head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
     head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+    head += "<style>";
+    head += Object(__WEBPACK_IMPORTED_MODULE_1__css_generator__["a" /* createArticleStylesheet */])(state);
+    head += "</style>";
 
     // Append the needed fonts.
     fonts.forEach(function (font) {
@@ -44672,9 +44710,11 @@ var appendImageUrlsToHtml = function appendImageUrlsToHtml(html) {
 var cleanHtml = function cleanHtml(html) {
     var matchDataVText = /(data-v-\w*=""\s)/g;
     var matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
+    var matchInlineStyles = /(style="[^"]*")/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
+    html = html.replace(matchInlineStyles, "");
 
     return html;
 };
@@ -44708,7 +44748,7 @@ var addFontToFontsUsed = function addFontToFontsUsed(state, font) {
 };
 
 var createStylesheet = function createStylesheet(state) {
-    var css = Object(__WEBPACK_IMPORTED_MODULE_1__generate__["a" /* createArticleStylesheet */])(state);
+    var css = Object(__WEBPACK_IMPORTED_MODULE_1__css_generator__["a" /* createArticleStylesheet */])(state);
 
     console.log(css);
 };
@@ -57131,7 +57171,65 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ }),
 /* 544 */,
 /* 545 */,
-/* 546 */
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */,
+/* 595 */,
+/* 596 */,
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */,
+/* 603 */,
+/* 604 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57157,7 +57255,9 @@ var createArticleStylesheet = function createArticleStylesheet(state) {
     var canvases = state.canvases;
 
     state.deviceSizes.forEach(function (size) {
-        stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
+        if (size !== 'sm') {
+            stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
+        }
 
         canvases.forEach(function (canvas) {
             convertElementToCSS(canvas[size], canvas.identifier);
@@ -57175,7 +57275,9 @@ var createArticleStylesheet = function createArticleStylesheet(state) {
             });
         });
 
-        stylesheet += '} \n \n';
+        if (size !== 'sm') {
+            stylesheet += '} \n \n';
+        }
     });
 
     return stylesheet;
@@ -57187,7 +57289,7 @@ var createArticleStylesheet = function createArticleStylesheet(state) {
  */
 var convertElementToCSS = function convertElementToCSS(element, elementIdentifier) {
     var properties = Object.keys(element);
-    var elementCSS = '\t.' + elementIdentifier + ' { \n';
+    var elementCSS = '\t#' + elementIdentifier + ' { \n';
 
     properties.forEach(function (property) {
         if (!propertiesToIgnore.includes(property)) {

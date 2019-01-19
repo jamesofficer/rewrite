@@ -11,6 +11,9 @@ export default {
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 
+    // Sometimes we want to disable keybindings, such as when we are editing a text element.
+    enableKeyBindings: true,
+
     // The currently selected device size. Can be small, medium, large, or extra-large.
     deviceSizes: ['sm', 'md', 'lg', 'xl'],
     deviceSize: 'xl',
@@ -22,6 +25,7 @@ export default {
         column: undefined,
         component: undefined,
         type: undefined,
+        identifer: undefined,
     },
 
     // The content of the workspace. The full list of Canvases and everything within them.
@@ -36,9 +40,6 @@ export default {
         dismissSecs: 5,
         dismissCountDown: 0,
     },
-
-    // Sometimes we want to disable keybindings, such as when we are editing a text element.
-    enableKeyBindings: true,
 
     // Holds an array of all the Fonts used in the article. We do this so we can append the
     // needed stylesheets to the document head when exporting the article. Each object

@@ -1,13 +1,13 @@
 <template>
     <div class="minimap" :style="{ 'height' : minimapVisible ? '300px' : '35px' }">
-        <div class="minimap-header">
+        <div class="minimap-header" @click="minimapVisible = ! minimapVisible">
             <div class="row">
                 <div class="col-6">
                     Layout Map
                 </div>
 
                 <div class="col-6 text-right">
-                    <span class="minimap-minimise-button" @click="minimapVisible = ! minimapVisible">
+                    <span class="minimap-minimise-button">
                         <icon :name="minimapVisible ? 'minus' : 'plus'"></icon>
                     </span>
                 </div>
@@ -17,7 +17,7 @@
         <div class="minimap-body" v-if="minimapVisible">
             <!-- Loop Canvases -->
             <ul
-                v-for="(canvas, canvasIndex) in canvases" 
+                v-for="(canvas, canvasIndex) in canvases"
                 :key="canvasIndex"
                 class="minimap-ul"
             >
@@ -164,6 +164,7 @@ ul {
 }
 
 .minimap-header {
+    cursor: pointer;
     background: #38c172;
     color: white;
     padding: 7px 10px;

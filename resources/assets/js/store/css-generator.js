@@ -21,7 +21,9 @@ export const createArticleStylesheet = (state) => {
     const canvases = state.canvases;
 
     state.deviceSizes.forEach(function (size) {
-        stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
+        if (size !== 'sm') {
+            stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
+        }
 
         canvases.forEach(function (canvas) {
             convertElementToCSS(canvas[size], canvas.identifier);
@@ -39,7 +41,9 @@ export const createArticleStylesheet = (state) => {
             });
         });
 
-        stylesheet += '} \n \n';
+        if (size !== 'sm') {
+            stylesheet += '} \n \n';
+        }
     });
 
     return stylesheet;
@@ -51,7 +55,7 @@ export const createArticleStylesheet = (state) => {
  */
 const convertElementToCSS = (element, elementIdentifier) => {
     const properties = Object.keys(element);
-    let elementCSS   = '\t.' + elementIdentifier + ' { \n'
+    let elementCSS   = '\t#' + elementIdentifier + ' { \n'
 
     properties.forEach(function (property) {
         if (! propertiesToIgnore.includes(property)) {

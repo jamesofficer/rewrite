@@ -1,8 +1,8 @@
 import defaults from "./defaults/_defaults";
-import { createArticleStylesheet } from "./generate";
+import { createArticleStylesheet } from "./css-generator";
 import {
     duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
-    getSiblingElements, resetSelection, generateIdentifer
+    getSiblingElements, resetSelection, generateIdentifer, getElementByIndexes
 } from "./helpers";
 
 /**
@@ -12,7 +12,13 @@ import {
 export const createElementIdentifier = (state, indexes) => {
     const element = getRootElementByIndexes(state, indexes);
 
-    element.identifier = element.type.toLowerCase() + '-' + generateIdentifer();
+    // TODO: Fix this. For some reason, when an element is deleted this method is called,
+    // even if this element already exists on the workspace (why Vue??).
+    if (element.identifier === undefined) {
+        const identifier = element.type.toLowerCase() + '-' + generateIdentifer();
+
+        element.identifier = identifier;
+    }
 }
 
 /**
@@ -111,10 +117,12 @@ export const setComponentSubProperty = (state, component) => {
 };
 
 /**
- * Deletes the selected Element
+ * Deletes the selected Element.
  *
  */
 export const deleteElement = state => {
+    const elementIdentifier = getSelectedRootElement(state).identifier;
+
     const elementType = {
         'Canvas': state.selected.canvas,
         'Row': state.selected.row,
@@ -124,8 +132,20 @@ export const deleteElement = state => {
 
     getSiblingElements(state).splice(elementType[state.selected.type], 1);
 
+    deleteElementIdentifier(state, elementIdentifier);
+
     resetSelection(state);
 };
+
+/**
+ * Deletes the passed in identifier from the state's identifier list.
+ *
+ */
+const deleteElementIdentifier = (state, identifier) => {
+    const elementIndex = state.identifiers.indexOf(identifier);
+
+    state.identifiers.splice(elementIndex, 1);
+}
 
 /**
  * Clones the selected Canvas below it's current position.
@@ -319,6 +339,9 @@ export const createHtmlHead = (state, html, title) => {
     head += "<title>" + title + "</title>";
     head += "<link rel='stylesheet' href='https://unpkg.com/normalize.css@8.0.0/normalize.css'>";
     head += "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>";
+    head += "<style>";
+    head += createArticleStylesheet(state);
+    head += "</style>";
 
     // Append the needed fonts.
     fonts.forEach(function (font) {
@@ -373,11 +396,13 @@ export const appendImageUrlsToHtml = html => {
  *
  */
 export const cleanHtml = html => {
-    const matchDataVText   = /(data-v-\w*=""\s)/g;
-    const matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
+    const matchDataVText    = /(data-v-\w*=""\s)/g;
+    const matchBoilerplate  = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
+    const matchInlineStyles = /(style="[^"]*")/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
+    html = html.replace(matchInlineStyles, "");
 
     return html;
 };
