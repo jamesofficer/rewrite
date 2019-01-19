@@ -57193,42 +57193,46 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return generateHTML; });
-// const propertyList = [
-//     padding = {
-//         functionName: getBackgroundColorCSS,
-//     },
-
-//     backgroundColor = {
-//         functionName: getBackgroundColorCSS,
-//     },
-// ];
-
-var generateHTML = function generateHTML(state) {
-    var canvases = state.canvases;
-
-    canvases.forEach(function (canvas) {
-        state.deviceSizes.forEach(function (size) {
-            convertElementToCSS(canvas[size]);
-        });
-    });
+var deviceSizeToPx = {
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px'
 };
 
 var camelCaseToDash = function camelCaseToDash(str) {
     return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
 };
 
-var convertElementToCSS = function convertElementToCSS(element) {
-    var properties = Object.keys(element);
-    var elementCSS = '';
+var generateHTML = function generateHTML(state) {
+    var canvases = state.canvases;
 
-    properties.forEach(function (property) {
-        getPropertyCSS(element, property);
+    canvases.forEach(function (canvas) {
+        state.deviceSizes.forEach(function (size) {
+            convertElementToCSS(canvas[size], canvas.identifier, deviceSizeToPx[size]);
+        });
     });
 };
 
+var convertElementToCSS = function convertElementToCSS(element, elementIdentifier, mediaQueryWidth) {
+    var properties = Object.keys(element);
+    var elementCSS = '@media (min-width: ' + mediaQueryWidth + ') { \n';
+
+    elementCSS += '.' + elementIdentifier + ' { \n';
+
+    properties.forEach(function (property) {
+        elementCSS += getPropertyCSS(element, property) + '\n';
+    });
+
+    elementCSS += '} \n } \n';
+
+    console.log(elementCSS);
+};
+
 /**
- * Dynamically calls the appropriate method to generate css.
- * If propertyName parameter is 'padding', then paddingCSS function is called.
+ * Dynamically calls the appropriate method to generate css. If propertyName
+ * parameter is 'padding', then paddingCSS function is called.
+ *
  */
 var getPropertyCSS = function getPropertyCSS(element, propertyName) {
     var funcName = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
@@ -57236,21 +57240,21 @@ var getPropertyCSS = function getPropertyCSS(element, propertyName) {
     return eval(funcName + '(element[propertyName])');
 };
 
-var getBackgroundSizeCSS = function getBackgroundSizeCSS(size) {
+function getBackgroundSizeCSS(size) {
     return 'background-size: ' + size.toLowerCase() + ';';
-};
+}
 
-var getBackgroundPositionCSS = function getBackgroundPositionCSS(position) {
+function getBackgroundPositionCSS(position) {
     return 'background-position: ' + position.toLowerCase() + ';';
-};
+}
 
-var getBackgroundColorCSS = function getBackgroundColorCSS(colors) {
+function getBackgroundColorCSS(colors) {
     return 'background-color: rgba(' + colors.r + ', ' + colors.g + ', ' + colors.b + ', ' + colors.a + ');';
-};
+}
 
-var getPaddingCSS = function getPaddingCSS(padding) {
-    return 'padding: ' + padding.top + ', ' + padding.right + ', ' + padding.bottom + ', ' + padding.left + ';';
-};
+function getPaddingCSS(padding) {
+    return 'padding: ' + padding.top + 'px ' + padding.right + 'px ' + padding.bottom + 'px ' + padding.left + 'px;';
+}
 
 /***/ })
 /******/ ]);

@@ -1,39 +1,43 @@
-// const propertyList = [
-//     padding = {
-//         functionName: getBackgroundColorCSS,
-//     },
+const deviceSizeToPx = {
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+};
 
-//     backgroundColor = {
-//         functionName: getBackgroundColorCSS,
-//     },
-// ];
+const camelCaseToDash = (str) => {
+    return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
+}
 
 export const generateHTML = (state) => {
     const canvases = state.canvases;
 
     canvases.forEach(function (canvas) {
         state.deviceSizes.forEach(function (size) {
-            convertElementToCSS(canvas[size]);
+            convertElementToCSS(canvas[size], canvas.identifier, deviceSizeToPx[size]);
         });
     });
 }
 
-const camelCaseToDash = (str) => {
-    return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
-  }
-
-const convertElementToCSS = (element) => {
+const convertElementToCSS = (element, elementIdentifier, mediaQueryWidth) => {
     const properties = Object.keys(element);
-    let elementCSS   = '';
+    let elementCSS   = '@media (min-width: ' + mediaQueryWidth + ') { \n';
+
+    elementCSS += '.' + elementIdentifier + ' { \n'
 
     properties.forEach(function (property) {
-        getPropertyCSS(element, property);
+        elementCSS += getPropertyCSS(element, property) + '\n';
     });
+
+    elementCSS += '} \n } \n';
+
+    console.log(elementCSS);
 }
 
 /**
- * Dynamically calls the appropriate method to generate css.
- * If propertyName parameter is 'padding', then paddingCSS function is called.
+ * Dynamically calls the appropriate method to generate css. If propertyName
+ * parameter is 'padding', then paddingCSS function is called.
+ *
  */
 const getPropertyCSS = (element, propertyName) => {
     const funcName  = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
@@ -41,19 +45,19 @@ const getPropertyCSS = (element, propertyName) => {
     return eval(`${funcName}(element[propertyName])`);
 }
 
-const getBackgroundSizeCSS = size => {
+function getBackgroundSizeCSS (size) {
     return `background-size: ${size.toLowerCase()};`;
 }
 
-const getBackgroundPositionCSS = position => {
+function getBackgroundPositionCSS (position) {
     return `background-position: ${position.toLowerCase()};`;
 }
 
-const getBackgroundColorCSS = colors => {
+function getBackgroundColorCSS (colors) {
     return `background-color: rgba(${colors.r}, ${colors.g}, ${colors.b}, ${colors.a});`;
 }
 
-const getPaddingCSS = padding => {
-    return `padding: ${padding.top}, ${padding.right}, ${padding.bottom}, ${padding.left};`;
+function getPaddingCSS (padding) {
+    return `padding: ${padding.top}px ${padding.right}px ${padding.bottom}px ${padding.left}px;`;
 }
 
