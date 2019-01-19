@@ -9,12 +9,13 @@
 
         <b-row>
             <b-col cols="10">
-                <b-form-input type="text"
-                            v-model="newFoodName"
-                            id="foodInput"
-                            placeholder="Food Name (e.g. Pastry)"
-                            size="sm"
-                            :state="foodInputState"
+                <b-form-input
+                    type="text"
+                    v-model="newFoodName"
+                    id="foodInput"
+                    placeholder="Food Name (e.g. Pastry)"
+                    size="sm"
+                    :state="foodInputState"
                 ></b-form-input>
 
                 <b-form-invalid-feedback id="foodInputFeedback">
@@ -68,7 +69,7 @@
         </b-row>
     </b-modal>
 
-    
+
 </template>
 
 <script>
@@ -122,7 +123,7 @@ export default {
                 property: 'foods',
                 value: this.foods,
             });
-            
+
             this.$store.commit('setComponentProperty', {
                 property: 'cooksNotes',
                 value: this.cooksNotes,

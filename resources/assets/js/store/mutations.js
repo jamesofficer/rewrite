@@ -1,5 +1,5 @@
 import defaults from "./defaults/_defaults";
-import { generateHTML } from "./generate";
+import { createArticleStylesheet } from "./generate";
 import {
     duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
     getSiblingElements, resetSelection, generateIdentifer
@@ -12,7 +12,7 @@ import {
 export const createElementIdentifier = (state, indexes) => {
     const element = getRootElementByIndexes(state, indexes);
 
-    element.identifier = element.type + '-' + generateIdentifer();
+    element.identifier = element.type.toLowerCase() + '-' + generateIdentifer();
 }
 
 /**
@@ -410,54 +410,8 @@ export const addFontToFontsUsed = (state, font) => {
     state.fontsUsed.push(font);
 };
 
-export const generateElementHtml = (state) => {
-    const indexes = {
-        canvasIndex: 0,
-        rowIndex: 0,
-        columnIndex: 0,
-        componentIndex: 0,
-    }
+export const createStylesheet = state => {
+    const css = createArticleStylesheet(state);
 
-    const htmlList = [];
-    const element     = getRootElementByIndexes(state, indexes);
-    // const elementHTML = document.getElementById(element.identifier);
-    const elementCSS  = '';
-
-    // for (let i = 0; i < state.deviceSizes.length; i++) {
-
-    const originalDeviceSize = state.deviceSize;
-
-
-    setTimeout(function() {
-        console.log('setting size to xl');
-        setDeviceSize(state, 'xl');
-        console.log(document.getElementById(element.identifier));
-
-        setTimeout(function() {
-            console.log('setting size to lg');
-            setDeviceSize(state, 'lg');
-            console.log(document.getElementById(element.identifier));
-
-            setTimeout(function() {
-                console.log('setting size to md');
-                setDeviceSize(state, 'md');
-                console.log(document.getElementById(element.identifier));
-
-                setTimeout(function() {
-                    console.log('setting size to sm');
-                    setDeviceSize(state, 'sm');
-                    console.log(document.getElementById(element.identifier));
-
-                    setTimeout(function() {
-                        setDeviceSize(state, originalDeviceSize);
-                    }, 250);
-
-                }, 250);
-            }, 250);
-        }, 250);
-    }, 250);
-}
-
-export const generateNewHtml = state => {
-    generateHTML(state);
+    console.log(css);
 }

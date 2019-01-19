@@ -11,7 +11,13 @@ const deviceSizeToPx = {
     xl: '1200px',
 };
 
-export const generateHTML = (state) => {
+/**
+ * Loops through all Canvases, Rows, Columns, and Components in the workspace and generates
+ * a stylesheet for all elements. As we have four primary device sizes we create four
+ * seperate media queries, and each element has properties generated for each size.
+ *
+ */
+export const createArticleStylesheet = (state) => {
     const canvases = state.canvases;
 
     state.deviceSizes.forEach(function (size) {
@@ -36,9 +42,13 @@ export const generateHTML = (state) => {
         stylesheet += '} \n \n';
     });
 
-    console.log(stylesheet);
+    return stylesheet;
 }
 
+/**
+ * Creates a CSS class and gets the relevant CSS for the element that is passed in.
+ *
+ */
 const convertElementToCSS = (element, elementIdentifier) => {
     const properties = Object.keys(element);
     let elementCSS   = '\t.' + elementIdentifier + ' { \n'
@@ -54,18 +64,14 @@ const convertElementToCSS = (element, elementIdentifier) => {
 }
 
 /**
- * Dynamically calls the appropriate method to generate css. If propertyName
- * parameter is 'padding', then paddingCSS function is called.
+ * Dynamically calls the appropriate method to generate css. For example, if the
+ * propertyName parameter is 'padding', then the paddingCSS function is called.
  *
  */
 const getPropertyCSS = (element, propertyName) => {
     const funcName  = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
 
-    const result = eval(`${funcName}(element[propertyName])`);
-
-    // console.log(result);
-
-    return result;
+    return eval(`${funcName}(element[propertyName])`);
 }
 
 function getBackgroundSizeCSS (size) {

@@ -1,6 +1,6 @@
 <template>
     <div class="device-size-controls">
-        <b-button-group size="md" class="device-size-btn-group">
+        <b-button-group class="device-size-btn-group">
             <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="success" v-b-tooltip.top="'Devices <576px wide'">
                 Small
             </b-button>

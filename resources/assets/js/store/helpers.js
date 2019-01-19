@@ -172,7 +172,3 @@ export const generateIdentifer = () => {
 
     return result;
 }
-
-export const generateElementHTML = (state, indexes) => {
-    alert('generating...');
-}
