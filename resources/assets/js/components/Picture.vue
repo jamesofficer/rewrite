@@ -11,7 +11,7 @@
             :id="getElementIdentifier"
             :style="{ textAlign: element.textAlign }"
         >
-            <img :src="element.src" :style="getElementStyles">
+            <img :src="element.src" :style="getElementStyles" style="width: inherit">
         </div>
 
         <!-- TOP BAR -->

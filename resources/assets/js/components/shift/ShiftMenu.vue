@@ -98,6 +98,7 @@ export default {
 
             const newWindow = window.open('', "Title", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top=" + (800) + ",left=" + (600));
 
+            newWindow.document.title = 'Article Preview';
             newWindow.document.write(this.$store.getters.articleHtml);
         },
 

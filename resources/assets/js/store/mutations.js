@@ -2,7 +2,7 @@ import defaults from "./defaults/_defaults";
 import { createArticleStylesheet } from "./css-generator";
 import {
     duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
-    getSiblingElements, resetSelection, generateIdentifer, getElementByIndexes
+    getSiblingElements, resetSelection, generateIdentifer
 } from "./helpers";
 
 /**
@@ -15,10 +15,12 @@ export const createElementIdentifier = (state, indexes) => {
     // TODO: Fix this. For some reason, when an element is deleted this method is called,
     // even if this element already exists on the workspace (why Vue??).
     if (element.identifier === undefined) {
-        const identifier = element.type.toLowerCase() + '-' + generateIdentifer();
-
-        element.identifier = identifier;
+        element.identifier = createIdentifier(element.type);
     }
+}
+
+export const createIdentifier = elementType => {
+    return elementType.toLowerCase() + '-' + generateIdentifer()
 }
 
 /**
@@ -132,23 +134,11 @@ export const deleteElement = state => {
 
     getSiblingElements(state).splice(elementType[state.selected.type], 1);
 
-    deleteElementIdentifier(state, elementIdentifier);
-
     resetSelection(state);
 };
 
 /**
- * Deletes the passed in identifier from the state's identifier list.
- *
- */
-const deleteElementIdentifier = (state, identifier) => {
-    const elementIndex = state.identifiers.indexOf(identifier);
-
-    state.identifiers.splice(elementIndex, 1);
-}
-
-/**
- * Clones the selected Canvas below it's current position.
+ * Clones the selected Canvas below it's current position. The cloned element must be given a new identifier.
  *
  */
 export const cloneElement = (state, i) => {
@@ -156,10 +146,12 @@ export const cloneElement = (state, i) => {
         return;
     }
 
+    const clonedElement = duplicateObject(getSelectedRootElement(state));
+
+    clonedElement.identifier = createIdentifier(clonedElement.type);;
+
     getSiblingElements(state).splice(
-        state.selected[state.selected.type.toLowerCase()] + 1,
-        0,
-        duplicateObject(getSelectedRootElement(state))
+        state.selected[state.selected.type.toLowerCase()] + 1, 0, duplicateObject(clonedElement)
     );
 };
 
@@ -384,8 +376,8 @@ export const getUniqueFontList = fontsUsed => {
  *
  */
 export const appendImageUrlsToHtml = html => {
-    const regex  = /(\/storage\/user-images)/g;
-    const subst  = location.protocol + '//' + window.location.hostname + `\$1`;
+    const regex = /(\/storage\/user-images)/g;
+    const subst = location.protocol + '//' + window.location.hostname + `\$1`;
 
     return html.replace(regex, subst);
 };
@@ -397,12 +389,14 @@ export const appendImageUrlsToHtml = html => {
  */
 export const cleanHtml = html => {
     const matchDataVText    = /(data-v-\w*=""\s)/g;
-    const matchBoilerplate  = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
+    const matchBoilerplate  = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|selectable-element|selectable-canvas\s|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
     const matchInlineStyles = /(style="[^"]*")/g;
+    const leftoverClassTags = /(\sclass="")/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
     html = html.replace(matchInlineStyles, "");
+    html = html.replace(leftoverClassTags, "");
 
     return html;
 };

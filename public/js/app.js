@@ -21274,7 +21274,7 @@ var column = {
     visible: true,
     identifier: undefined,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
 
     sm: column,
     md: column,
@@ -26142,6 +26142,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var newWindow = window.open('', "Title", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top=" + 800 + ",left=" + 600);
 
+            newWindow.document.title = 'Article Preview';
             newWindow.document.write(this.$store.getters.articleHtml);
         },
         showExportArticleModal: function showExportArticleModal() {
@@ -26395,24 +26396,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "ShiftFooter",
-
-    methods: {
-        createHtml: function createHtml() {
-            this.$store.commit('createHtml');
-        },
-        createStylesheet: function createStylesheet() {
-            this.$store.commit('createStylesheet');
-        }
-    }
+    name: "ShiftFooter"
 });
 
 /***/ }),
@@ -26423,26 +26409,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "footer-logo-wrapper" },
-    [
-      _c(
-        "b-btn",
-        { attrs: { variant: "primary" }, on: { click: _vm.createHtml } },
-        [_vm._v("Create HTML")]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-btn",
-        { attrs: { variant: "success" }, on: { click: _vm.createStylesheet } },
-        [_vm._v("Create Stylesheet")]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer-logo-wrapper" }, [
       _c("img", {
         staticClass: "footer-logo",
         attrs: { src: "/img/shift_logo_white.png", alt: "Shift Logo" }
@@ -26456,18 +26430,9 @@ var render = function() {
         _vm._v("Found a bug? Have a feature request?")
       ]),
       _vm._v(" "),
-      _vm._m(0)
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "contact-text" }, [
-      _c("strong", [_vm._v("writewithshift@gmail.com")])
+      _c("p", { staticClass: "contact-text" }, [
+        _c("strong", [_vm._v("writewithshift@gmail.com")])
+      ])
     ])
   }
 ]
@@ -33798,6 +33763,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -38494,8 +38460,9 @@ var render = function() {
     "div",
     { style: _vm.getElementStyles },
     [
-      _c("div", {
+      _c("p", {
         class: { "selected-element": _vm.elementIsSelected },
+        style: _vm.getElementStyles,
         attrs: { id: _vm.getElementIdentifier },
         domProps: { innerHTML: _vm._s(_vm.element.content) },
         on: { dblclick: _vm.showEditTextModal }
@@ -39115,6 +39082,7 @@ var render = function() {
             },
             [
               _c("img", {
+                staticStyle: { width: "inherit" },
                 style: _vm.getElementStyles,
                 attrs: { src: _vm.element.src }
               })
@@ -44047,8 +44015,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         row: undefined,
         column: undefined,
         component: undefined,
-        type: undefined,
-        identifer: undefined
+        type: undefined
     },
 
     // The content of the workspace. The full list of Canvases and everything within them.
@@ -44291,6 +44258,7 @@ var elementIsSelected = function elementIsSelected(state) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementIdentifier", function() { return createElementIdentifier; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createIdentifier", function() { return createIdentifier; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableGlobalComponentStyles", function() { return enableGlobalComponentStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRow", function() { return addRow; });
@@ -44336,10 +44304,12 @@ var createElementIdentifier = function createElementIdentifier(state, indexes) {
     // TODO: Fix this. For some reason, when an element is deleted this method is called,
     // even if this element already exists on the workspace (why Vue??).
     if (element.identifier === undefined) {
-        var identifier = element.type.toLowerCase() + '-' + Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* generateIdentifer */])();
-
-        element.identifier = identifier;
+        element.identifier = createIdentifier(element.type);
     }
+};
+
+var createIdentifier = function createIdentifier(elementType) {
+    return elementType.toLowerCase() + '-' + Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["b" /* generateIdentifer */])();
 };
 
 /**
@@ -44451,23 +44421,11 @@ var deleteElement = function deleteElement(state) {
 
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["g" /* getSiblingElements */])(state).splice(elementType[state.selected.type], 1);
 
-    deleteElementIdentifier(state, elementIdentifier);
-
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["h" /* resetSelection */])(state);
 };
 
 /**
- * Deletes the passed in identifier from the state's identifier list.
- *
- */
-var deleteElementIdentifier = function deleteElementIdentifier(state, identifier) {
-    var elementIndex = state.identifiers.indexOf(identifier);
-
-    state.identifiers.splice(elementIndex, 1);
-};
-
-/**
- * Clones the selected Canvas below it's current position.
+ * Clones the selected Canvas below it's current position. The cloned element must be given a new identifier.
  *
  */
 var cloneElement = function cloneElement(state, i) {
@@ -44475,7 +44433,11 @@ var cloneElement = function cloneElement(state, i) {
         return;
     }
 
-    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["g" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state)));
+    var clonedElement = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* duplicateObject */])(Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state));
+
+    clonedElement.identifier = createIdentifier(clonedElement.type);;
+
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["g" /* getSiblingElements */])(state).splice(state.selected[state.selected.type.toLowerCase()] + 1, 0, Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* duplicateObject */])(clonedElement));
 };
 
 /**
@@ -44709,12 +44671,14 @@ var appendImageUrlsToHtml = function appendImageUrlsToHtml(html) {
  */
 var cleanHtml = function cleanHtml(html) {
     var matchDataVText = /(data-v-\w*=""\s)/g;
-    var matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
+    var matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|selectable-element|selectable-canvas\s|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
     var matchInlineStyles = /(style="[^"]*")/g;
+    var leftoverClassTags = /(\sclass="")/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
     html = html.replace(matchInlineStyles, "");
+    html = html.replace(leftoverClassTags, "");
 
     return html;
 };
@@ -57236,7 +57200,7 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createArticleStylesheet; });
 var stylesheet = '';
 
-var propertiesToIgnore = ['componentAlignment', 'columnWidth', 'columnOffset', 'content', 'fontWeights', 'src'];
+var propertiesToIgnore = ['componentAlignment', 'columnWidth', 'columnOffset', 'content', 'fontWeights', 'src', 'rows', 'columns', 'components'];
 
 var deviceSizeToPx = {
     sm: '576px',
@@ -57255,6 +57219,7 @@ var createArticleStylesheet = function createArticleStylesheet(state) {
     var canvases = state.canvases;
 
     state.deviceSizes.forEach(function (size) {
+        // Default styles are mobile first, so we don't use a media query at that size.
         if (size !== 'sm') {
             stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
         }

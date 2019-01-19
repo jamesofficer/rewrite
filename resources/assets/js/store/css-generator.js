@@ -1,7 +1,7 @@
 let stylesheet = '';
 
 const propertiesToIgnore = [
-    'componentAlignment', 'columnWidth', 'columnOffset', 'content', 'fontWeights', 'src',
+    'componentAlignment', 'columnWidth', 'columnOffset', 'content', 'fontWeights', 'src', 'rows', 'columns', 'components'
 ];
 
 const deviceSizeToPx = {
@@ -21,6 +21,7 @@ export const createArticleStylesheet = (state) => {
     const canvases = state.canvases;
 
     state.deviceSizes.forEach(function (size) {
+        // Default styles are mobile first, so we don't use a media query at that size.
         if (size !== 'sm') {
             stylesheet += '@media (min-width: ' + deviceSizeToPx[size] + ') { \n';
         }
