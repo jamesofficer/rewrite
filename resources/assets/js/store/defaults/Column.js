@@ -9,13 +9,9 @@ import defaultYouTubeEmbed from "./YouTubeEmbed";
 import defaultRecipeSummary from "./RecipeSummary";
 import defaultRecipeIngredients from "./RecipeIngredients";
 
-export default {
-    type: "Column",
-    selected: false,
-
-    components: [defaultHeading, defaultParagraph],
+// The default attributes for each breakpoint.
+let column = {
     componentAlignment: 'start',
-
     columnWidth: 12,
     columnOffset: 0,
 
@@ -47,4 +43,18 @@ export default {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
+};
+
+export default {
+    type: "Column",
+    selected: false,
+    visible: true,
+    identifier: undefined,
+
+    components: [defaultHeading, defaultParagraph, defaultPicture],
+
+    sm: column,
+    md: column,
+    lg: column,
+    xl: column,
 };

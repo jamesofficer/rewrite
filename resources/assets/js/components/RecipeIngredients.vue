@@ -1,15 +1,5 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{
-        marginTop: element.margin.top + 'px',
-        marginRight: element.margin.right + 'px',
-        marginBottom: element.margin.bottom + 'px',
-        marginLeft: element.margin.left + 'px',
-        paddingTop: element.padding.top + 'px',
-        paddingRight: element.padding.right + 'px',
-        paddingBottom: element.padding.bottom + 'px',
-        paddingLeft: element.padding.left + 'px',
-        color: 'rgba(' + element.textColor.r + ', ' + element.textColor.g + ', ' + element.textColor.b + ', ' + element.textColor.a + ')',
-    }">
+    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
 
         <!-- Ingredients Heading -->
         <b-row>
@@ -59,7 +49,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <recipe-ingredients-button></recipe-ingredients-button>
 
@@ -79,8 +69,7 @@
 import GetElement from "./mixins/GetElement";
 
 import TopBar                  from "./topbar/TopBar";
-import DeleteCloneMove         from "./topbar/DeleteCloneMove";
-import DeleteComponentButton   from "./topbar/DeleteComponent";
+import DeleteCloneMoveElement  from "./topbar/DeleteCloneMoveElement";
 import RecipeIngredientsButton from "./topbar/RecipeIngredientsButton";
 
 import Margin     from "./core/Margin";
@@ -94,7 +83,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMove, DeleteComponentButton, RecipeIngredientsButton,
+        TopBar, DeleteCloneMoveElement, RecipeIngredientsButton,
         Margin, Padding, TextColor, FontFamily
     },
 

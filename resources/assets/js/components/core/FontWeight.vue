@@ -4,7 +4,7 @@
                    :options="fontWeights"
                    v-b-tooltip.hover
                    title="Font Weight"
-                   class="top-bar-btn"
+                   class="top-bar-sm-input"
     ></b-form-select>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     computed: {
         fontWeight: {
             get () {
-                return this.$store.getters.getCurrentElement.fontWeight;
+                return this.$store.getters.getSelectedElement.fontWeight;
             },
             set (weight) {
                 this.$store.commit('setComponentProperty', { property: 'fontWeight', value: weight });
@@ -23,7 +23,7 @@ export default {
         },
 
         fontWeights() {
-            return this.$store.getters.getCurrentElement.fontWeights;
+            return this.$store.getters.getSelectedElement.fontWeights;
         }
     },
 }

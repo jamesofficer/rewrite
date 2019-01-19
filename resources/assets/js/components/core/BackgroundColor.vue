@@ -19,7 +19,7 @@ export default {
 
     computed: {
         backgroundColor() {
-            return this.$store.getters.getCurrentElement.backgroundColor;
+            return this.$store.getters.getSelectedElement.backgroundColor;
         },
     },
 

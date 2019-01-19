@@ -1,6 +1,6 @@
 <template>
     <b-modal :id="'editTextModal'" title="Edit Paragraph Text" size="lg" ref="editTextModal" hide-footer lazy>
-        <trix-vue v-model="content"></trix-vue>
+        <trix-vue v-model="content" />
     </b-modal>
 </template>
 
@@ -15,11 +15,9 @@ export default {
     computed: {
         content: {
             get () {
-                if (this.$store.getters.getCurrentElement) {
-                    return this.$store.getters.getCurrentElement.content;
+                if (this.$store.getters.getSelectedElement !== undefined) {
+                    return this.$store.getters.getSelectedElement.content;
                 }
-
-                return '';
             },
             set (text) {
                 this.$store.commit('setComponentProperty', { property: 'content', value: text });

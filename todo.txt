@@ -1,5 +1,44 @@
-NEW COMPONENTS:
-- Other Social Media Components (Pinterest, Twitter)
+------------------------------
+Version 1 ROADMAP:
+------------------------------
+- (DONE) Add Rows into grid system.
+- (DONE) Reduce Move Element into single component.
+- (DONE) Reduce Delete Element into single component.
+- (DONE) Simplify the Clone Element component.
+- (DONE) Add multiple breakpoints.
+- (DONE) Move element styles into object.
+- (FIXED) Move Up/Down broken.
+
+- Clone element is broken.
+- Move Component controls into a floating/movable panel.
+- Move control palette to left hand side of window.
+- Add a warning when switching global styles onto an element that has individual styles.
+- Create Minimap Component.
+- Undo/Redo function.
+- Refactor helpers?
+- Bug: Moving elements with arrow keys scrolls the window.
+- Load font previews on font family selector.
+- Add delete element confirmation dialog.
+- More hotkeys.
+- Give articles a version number when they are saved.
+- Add backend unit tests.
+- Add frontend unit tests.
+- Implement column offset functionality.
+- Allow uploading of multiple images.
+- Implement loading bar when uploading images.
+- Add Pinterest Component.
+- Add Twitter Component.
+- Drag and drop to rearrange elements.
+- Move article saving methods to actions.
+- Allow layering of backgrounds (image over color).
+- setComponentProperty method is called many times when a component is selected. May be unavoidable though.
+- Add functioning transparency to background gradients.
+- Add CSS filters to background images.
+- Create a tutorial video.
+- Rework home page.
+
+
+===================================================================================================
 
 BUGS:
 - Clean extra fonts from html export.
@@ -9,14 +48,3 @@ BUGS:
 - Instagram Component is fussy.
 - Remove duplicate fonts from fontsUsed when saving an article.
 
-FEATURES:
-- Implement column offset functionality.
-- Undo/Redo lol.
-- Add a "last selected column" state property, and have add component modal use that when summoned via hotkey.
-    ^ Have the "Add Component" button permanently visible, and remember last selected column.
-- Have a pre-loaded "Tutorial" article.
-- Implement loading bar when uploading images.
-- Move article saving methods to actions.
-- Improve backend validation and error output (article names etc).
-- Users can drag and rearrange columns?
-- Move all styles on a component into a "styles" object.

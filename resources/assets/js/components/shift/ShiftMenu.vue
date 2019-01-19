@@ -39,7 +39,7 @@
         <b-dropdown-item variant="warning" @click="signOut">
             <icon name="sign-out-alt"></icon> &nbsp; Logout
         </b-dropdown-item>
-    </b-dropdown>    
+    </b-dropdown>
 </template>
 
 <script>
@@ -90,7 +90,7 @@ export default {
         },
 
         buildHtml() {
-            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.$el.innerHTML);
+            this.$store.commit('buildHtml', this.$parent.$refs.shiftArticle.innerHTML);
         },
 
         previewArticleInNewWindow() {

@@ -1,28 +1,26 @@
+// Laravel Bootstrap, includes Axios.
+require("./bootstrap");
+
+// Core
+import Vue from "vue";
 import Vuex from "vuex";
-import PortalVue from "portal-vue";
-import BootstrapVue from "bootstrap-vue";
 import Shift from "./Shift.vue";
+import { store } from "./store/index";
+import './vue-bootstrap.js';
+
+// Libraries
+import PortalVue from "portal-vue";
 import Icon from "vue-awesome/components/Icon";
-import VueAutosize from "vue-autosize";
 import './icons.js';
 
-Vue.use(VueAutosize)
-import { store } from "./store/index";
-import "axios/dist/axios.min.js";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-
-require("./bootstrap");
+Vue.use(Vuex);
+Vue.use(PortalVue);
+Vue.component("icon", Icon);
 
 window.Vue = require("vue");
 
-Vue.use(Vuex);
-Vue.use(BootstrapVue);
-Vue.use(PortalVue);
-Vue.use(VueAutosize);
-Vue.component("icon", Icon);
-
-Vue.config.productionTip = false;
+// Supress error message about "unknown custom element: trix-editor".
+Vue.config.ignoredElements = ['trix-editor'];
 
 // The Shift Article creation application.
 new Vue({

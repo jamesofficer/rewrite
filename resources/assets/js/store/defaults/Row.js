@@ -1,14 +1,8 @@
 import defaultColumn from "./Column";
 
-export default {
-    type: "Row",
-    selected: false,
-
-    columns: [defaultColumn],
-
-    // Properties:
+let row = {
     backgroundSize: 'Auto',
-    backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
+    backgroundColor: { r: 255, g: 255, b: 255, a: 0 },
     backgroundPosition: 'Center',
     margin: {
         top: 20,
@@ -23,10 +17,10 @@ export default {
         left: 20
     },
     border: {
-        top: 1,
-        right: 1,
-        bottom: 1,
-        left: 1,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
         style: 'solid',
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
@@ -36,4 +30,18 @@ export default {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 1 },
     },
+};
+
+export default {
+    type: "Row",
+    selected: false,
+    visible: true,
+    identifier: undefined,
+
+    columns: [defaultColumn],
+
+    sm: row,
+    md: row,
+    lg: row,
+    xl: row,
 }

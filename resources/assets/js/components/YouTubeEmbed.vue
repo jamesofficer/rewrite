@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+    >
         <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
 
         <!-- COMPONENT -->
@@ -11,7 +15,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <b-input size="sm"
                     v-model="videoUrl"
@@ -32,7 +36,7 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMove   from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import TextInput         from './core/TextInput'
 import ImageAlignment    from './core/ImageAlignment'
@@ -45,7 +49,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         TextInput, ImageAlignment, Margin,
     },
 

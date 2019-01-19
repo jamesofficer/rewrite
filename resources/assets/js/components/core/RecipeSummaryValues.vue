@@ -41,7 +41,7 @@ export default {
     computed: {
         serves: {
             get() {
-                return this.$store.getters.getCurrentElement.contentServes;
+                return this.$store.getters.getSelectedElement.contentServes;
             },
             set (amount) {
                 this.$store.commit('setComponentProperty', { property: 'contentServes', value: amount });
@@ -50,7 +50,7 @@ export default {
 
         preparation: {
            get() {
-                return this.$store.getters.getCurrentElement.contentPreparation;
+                return this.$store.getters.getSelectedElement.contentPreparation;
             },
             set (amount) {
 
@@ -102,7 +102,7 @@ export default {
 
         cooking: {
             get() {
-                return this.$store.getters.getCurrentElement.contentCooking;
+                return this.$store.getters.getSelectedElement.contentCooking;
             },
             set (amount) {
 /*
@@ -150,7 +150,7 @@ export default {
 
         difficulty: {
             get () {
-                return this.$store.getters.getCurrentElement.contentDifficulty;
+                return this.$store.getters.getSelectedElement.contentDifficulty;
             },
             set (textValue) {
                 this.$store.commit('setComponentProperty', { property: 'contentDifficulty', value: textValue });

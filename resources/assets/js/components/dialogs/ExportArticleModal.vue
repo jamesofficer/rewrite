@@ -1,13 +1,13 @@
 <template>
-    <b-modal @shown="copiedToClipboard = false"
-            :id="'exportArticleModal'"
-            title="Export Article"
-            size="lg"
-            ref="exportArticleModal"
-            hide-footer
-            centered
+    <b-modal
+        @shown="copiedToClipboard = false"
+        :id="'exportArticleModal'"
+        title="Export Article"
+        size="lg"
+        ref="exportArticleModal"
+        hide-footer
+        centered
     >
-
         <b-alert v-if="copiedToClipboard" variant="success" dismissible show>
             Copied to clipboard!
         </b-alert>

@@ -2,89 +2,49 @@ export default {
     mounted() {
         const self = this;
 
-        window.addEventListener('keyup', function(ev) {
-            /**
-             * Pressing the UP ARROW key moves a Component, Column, or Canvas up.
-             * 
-             */
-            if (ev.key === "ArrowUp") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('moveComponentUp');                    
+        window.addEventListener('keydown', function(ev) {
+            if (self.$store.getters.enableKeyBindings === true) {
+                // Move an Element Up.
+                if (ev.key === "ArrowUp" && self.$store.getters.canMoveElementUp) {
+                    ev.preventDefault();
+                    self.$store.commit('moveElement', 'up');
                     return;
                 }
 
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnRight');
+                // Move an Element Down.
+                if (ev.key === "ArrowDown" && self.$store.getters.canMoveElementDown) {
+                    ev.preventDefault();
+                    self.$store.commit('moveElement', 'down');
                     return;
                 }
 
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('moveCanvasUp');                    
-                    return;
-                }
-            }
-
-            /**
-             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
-             * 
-             */
-            if (ev.key === "ArrowDown") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('moveComponentDown');                    
+                // Move a Column Left
+                if (ev.key === "ArrowLeft" && self.$store.getters.getSelectedElementType === 'Column' && self.$store.getters.canMoveElementUp) {
+                    self.$store.commit('moveElement', 'up');
                     return;
                 }
 
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnLeft');
+                // Move a Column Right
+                if (ev.key === "ArrowRight" && self.$store.getters.getSelectedElementType === 'Column' && self.$store.getters.canMoveElementDown) {
+                    self.$store.commit('moveElement', 'down');
                     return;
                 }
 
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('moveCanvasDown');                    
-                    return;
-                }
-            }
-
-            /**
-             * Pressing the DOWN ARROW key moves a Component, Column, or Canvas down.
-             * 
-             */
-            if (ev.key === "ArrowLeft" && self.$store.getters.aColumnIsSelected) {
-                self.$store.commit('moveColumnLeft');
-                return;
-            }
-
-            if (ev.key === "ArrowRight" && self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('moveColumnRight');
-                    return;
-            }
-
-            /**
-             * The PLUS (+) key (numpad plus) opens the Add Component modal window.
-             * 
-             */
-            if (ev.key === "+" && self.$store.getters.aColumnIsSelected) {
-                self.$root.$emit('bv::show::modal', 'addComponentModal');
-                return;
-            }
-
-            /**
-             * The DELETE key can delete Components, Columns or Canvases.
-             * 
-             */
-            if (ev.key === "Delete") {
-                if (self.$store.getters.aComponentIsSelected) {
-                    self.$store.commit('deleteComponent');                    
+                /**
+                 * The PLUS (+) key (numpad plus) opens the Add Component modal window.
+                 * 
+                 */
+                if ((ev.key === "+" || ev.key === "=") && self.$store.getters.getSelectedElementType === 'Column') {
+                    self.$root.$emit('bv::show::modal', 'addComponentModal');
                     return;
                 }
 
-                if (self.$store.getters.aColumnIsSelected) {
-                    self.$store.commit('deleteColumn');
-                    return;
-                }
-
-                if (self.$store.getters.aCanvasIsSelected) {
-                    self.$store.commit('deleteCanvas');                    
+                /**
+                 * The DELETE key can delete Components, Columns, Rows or Canvases.
+                 * 
+                 */
+                if (ev.metaKey && (ev.key === "Delete" || ev.key === "Backspace")) {
+                    self.$store.commit('deleteElement');
                     return;
                 }
             }

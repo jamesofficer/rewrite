@@ -1,7 +1,9 @@
 <template>
     <b-modal @shown="getImages" :id="'imageGalleryModal'" title="My Images" size="lg" ref="imageGalleryModal">
-        <b-form-checkbox id="show-all-images-checkbox"
-                     v-model="showAllImages">
+        <b-form-checkbox
+            id="show-all-images-checkbox"
+            v-model="showAllImages"
+        >
             Show all images
         </b-form-checkbox>
 
@@ -9,11 +11,11 @@
         <br>
 
         <template v-if="images.length > 0">
-            <div v-for="(image, index) in images" :key="index" style="display: inline;">
+            <div v-for="(image, index) in images" :key="index" class="image-wrapper">
                 <img :src="image.url" :key="index" class="gallery-image" @click="selectImage(index)">
             </div>
         </template>
-        
+
         <p v-else>You haven't uploaded any images yet...</p>
     </b-modal>
 </template>
@@ -34,7 +36,7 @@ export default {
 
     methods: {
         selectImage(index) {
-            if (this.$store.getters.getCurrentElement.type === 'Picture') {
+            if (this.$store.getters.getSelectedComponentType === 'Picture') {
                 this.$store.commit('setComponentProperty', { property: 'src', value: this.images[index].url });
             } else {
                 this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: 'url(' + this.images[index].url + ')' });
@@ -51,5 +53,9 @@ export default {
     cursor: pointer;
     background: #38c172;
     border: 1px solid green;
+}
+
+.image-wrapper {
+    display: inline;
 }
 </style>

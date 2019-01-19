@@ -1,6 +1,7 @@
 export default {
     type: 'InstagramEmbed',
     selected: false,
+    identifier: undefined,
 
     // Properties:
     url: undefined,

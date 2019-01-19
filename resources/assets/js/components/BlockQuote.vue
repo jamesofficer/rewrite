@@ -1,14 +1,26 @@
 <template>
     <div>
-        <blockquote v-if="! editingText" @dblclick="selectInput" :style="getElementStyles" :class="{ 'selected-element': elementIsSelected }" id="text-input" >
+        <blockquote
+            v-if="! editingText"
+            @dblclick="selectInput"
+            :style="getElementStyles"
+            :class="{ 'selected-element': elementIsSelected }"
+            id="text-input"
+        >
             {{ element.content }}
         </blockquote>
 
-        <text-input v-else @focusout.native="editingText = false" :style="getElementStyles" size="lg" id="text-input"></text-input>
+        <text-input
+            v-else
+            @focusout.native="editingText = false"
+            :style="getElementStyles"
+            size="lg"
+            id="text-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <margin></margin>
 
@@ -42,7 +54,7 @@ import GetElement      from './mixins/GetElement'
 import EditableText    from './mixins/EditableText'
 
 import TopBar          from './topbar/TopBar'
-import DeleteCloneMove from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import Margin          from './core/Margin'
 import Padding         from './core/Padding'
@@ -65,7 +77,7 @@ export default {
     mixins: [GetElement, EditableText],
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         BackgroundColor, Margin, Padding, Border,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow, LineHeight, LetterSpacing, Width
     },

@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+    >
         <icon v-if="! instagramUrl" name="brands/instagram" scale="8"></icon>
 
         <!-- COMPONENT -->
@@ -9,7 +13,7 @@
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <b-input size="sm"
                     v-model="instagramUrl"
@@ -30,7 +34,7 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMove   from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import TextInput         from './core/TextInput'
 import ImageAlignment    from './core/ImageAlignment'
@@ -42,14 +46,16 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         TextInput, ImageAlignment, Margin,
     },
 
     computed: {
         instagramUrl: {
             get() {
-                return this.$store.getters.getElement(this.indexes).originalUrl;
+                if (this.elementIsSelected) {
+                    return this.$store.getters.getSelectedElement.originalUrl;
+                }
             },
             set(url) {
                 this.$store.commit('setComponentProperty', { property: 'originalUrl', value: url });

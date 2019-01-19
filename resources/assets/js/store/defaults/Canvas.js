@@ -1,12 +1,7 @@
 import defaultRow from "./Row";
+// import { getIdentifier } from "./GenerateIdentifier";
 
-export default {
-    type: "Canvas",
-    selected: false,
-
-    rows: [defaultRow, defaultRow],
-
-    // Properties:
+let canvas = {
     backgroundSize: 'Auto',
     backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
     backgroundPosition: 'Center',
@@ -16,4 +11,18 @@ export default {
         bottom: 20,
         left: 20
     }
+};
+
+export default {
+    type: "Canvas",
+    selected: false,
+    visible: true,
+    identifier: undefined,
+
+    rows: [defaultRow],
+
+    sm: canvas,
+    md: canvas,
+    lg: canvas,
+    xl: canvas,
 };

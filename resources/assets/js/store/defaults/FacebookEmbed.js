@@ -1,6 +1,7 @@
 export default {
     type: 'FacebookEmbed',
     selected: false,
+    identifier: undefined,
 
     // Properties:
     url: undefined,

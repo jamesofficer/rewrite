@@ -1,28 +1,25 @@
 <template>
-    <b-col :cols="element.columnWidth"
-           :style="getElementStyles"
-           :align-self="element.componentAlignment"
-           :class="{ 'selected-element': elementIsSelected }"
+    <b-col
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+        :cols="element.columnWidth"
     >
-
-        <!--<component v-for="(component, componentIndex) in columnComponents"-->
-                   <!--:is="component.type"-->
-                   <!--:key="componentIndex"-->
-                   <!--:canvasIndex="canvasIndex"-->
-                   <!--:rowIndex="rowIndex"-->
-                   <!--:columnIndex="columnIndex"-->
-                   <!--:componentIndex="componentIndex"-->
-                   <!--@click.native.stop="selectComponent(componentIndex)"-->
-                   <!--class="shift-component"-->
-        <!--&gt;</component>-->
+        <component v-for="(component, componentIndex) in components"
+            :is="component.type"
+            :key="componentIndex"
+            :canvasIndex="canvasIndex"
+            :rowIndex="rowIndex"
+            :columnIndex="columnIndex"
+            :componentIndex="componentIndex"
+            @click.native.stop="selectElement(componentIndex)"
+            class="selectable-element"
+            v-show="component.visible"
+        ></component>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-column></delete-column>
-
-            <clone-column></clone-column>
-
-            <move-column></move-column>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <add-component-button></add-component-button>
 
@@ -63,11 +60,9 @@
 import GetElement          from '../mixins/GetElement'
 
 import TopBar              from '../topbar/TopBar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 import AddComponentButton  from '../topbar/AddComponentButton'
 import AlignComponents     from '../topbar/AlignComponents'
-import DeleteColumn        from '../topbar/DeleteColumn'
-import CloneColumn         from '../topbar/CloneColumn'
-import MoveColumn          from '../topbar/MoveColumn'
 import ClearImage          from '../topbar/ClearImage'
 import BackgroundSize      from '../core/BackgroundSize'
 
@@ -96,7 +91,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, AlignComponents, DeleteColumn, CloneColumn, MoveColumn, ClearImage,
+        TopBar, AddComponentButton, AlignComponents, DeleteCloneMoveElement, ClearImage,
         ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
@@ -106,14 +101,14 @@ export default {
     mixins: [GetElement],
 
     computed: {
-        columnComponents() {
-            return this.$store.getters.getComponentsForColumn(this.indexes);
+        components() {
+            return this.$store.getters.components(this.indexes);
         },
     },
 
     methods: {
-        selectComponent(componentIndex) {
-            this.$store.commit('selectComponent', {
+        selectElement(componentIndex) {
+            this.$store.commit('selectElement', {
                 canvasIndex: this.canvasIndex,
                 rowIndex: this.rowIndex,
                 columnIndex: this.columnIndex,

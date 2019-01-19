@@ -1,15 +1,27 @@
 <template>
     <div :class="{ 'selected-element': elementIsSelected }" :style="{ width: element.width + '%' }">
         <!-- COMPONENT -->
-        <h1 v-if="! editingText" @dblclick="selectInput" :style="getElementStyles">
+        <h1
+            :id="getElementIdentifier"
+            :style="getElementStyles"
+            v-if="! editingText"
+            @dblclick="selectInput"
+        >
             {{ element.content }}
         </h1>
 
-        <text-input v-else @focusout.native="editingText = false" :style="getElementStyles" size="lg" id="heading-input"></text-input>
+        <text-input
+            v-else
+            @focusout.native="deselectInput"
+            :style="getElementStyles"
+            style="background: none"
+            size="lg"
+            id="heading-input"
+        ></text-input>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <margin></margin>
 
@@ -33,7 +45,7 @@
 
             <letter-spacing></letter-spacing>
 
-            <width></width>   
+            <width></width>
         </top-bar>
     </div>
 </template>
@@ -42,7 +54,7 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMove   from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
 
 import TextInput         from './core/TextInput'
 import Margin            from './core/Margin'
@@ -64,7 +76,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight,
         FontSize, TextColor, TextShadow, LetterSpacing, Width
     },
@@ -77,6 +89,7 @@ export default {
 
     methods: {
         selectInput() {
+            this.$store.commit('enableKeyBindings', false);
             this.editingText = true;
 
             this.$nextTick(function () {
@@ -87,6 +100,11 @@ export default {
                 input.setSelectionRange(strLength, strLength);
             });
         },
+
+        deselectInput() {
+            this.editingText = false;
+            this.$store.commit('enableKeyBindings', true);
+        }
     },
 }
 </script>

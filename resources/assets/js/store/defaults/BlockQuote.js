@@ -1,9 +1,6 @@
-export default {
-    type: "BlockQuote",
-    selected: false,
-
-    // Properties:
+let blockquote = {
     content: '"Your quote goes here..."',
+
     width: 100,
     fontFamily: "Times New Roman",
     fontWeights: [400, 700],
@@ -41,4 +38,15 @@ export default {
         blurRadius: 0,
         color: { r: 0, g: 0, b: 0, a: 0 },
     },
+}
+
+export default {
+    type: "BlockQuote",
+    selected: false,
+    visible: true,
+
+    sm: blockquote,
+    md: blockquote,
+    lg: blockquote,
+    xl: blockquote,
 };

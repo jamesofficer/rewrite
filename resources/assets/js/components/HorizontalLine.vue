@@ -1,10 +1,14 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="{ textAlign: element.textAlign }"
+    >
         <div :style="getElementStyles"></div>
 
         <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
-            <delete-clone-move></delete-clone-move>
+            <delete-clone-move-element></delete-clone-move-element>
 
             <margin></margin>
 
@@ -26,7 +30,7 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMove   from './topbar/DeleteCloneMove'
+import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
 
 import Margin            from './core/Margin'
 import Padding           from './core/Padding'
@@ -39,7 +43,7 @@ export default {
     name: "HorizontalLine",
 
     components: {
-        TopBar, DeleteCloneMove,
+        TopBar, DeleteCloneMoveElement,
         Margin, Padding, Border, BackgroundColor, BoxShadow, Width
     },
 

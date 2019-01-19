@@ -16,7 +16,7 @@ export default {
     computed: {
         columnAlignment: {
             get() {
-                return this.$store.getters.getCurrentElement.columnAlignment;
+                return this.$store.getters.getSelectedElement.columnAlignment;
             },
             set(alignment) {
                 this.$store.commit('setComponentProperty', { property: 'columnAlignment', value: alignment });
