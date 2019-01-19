@@ -39,7 +39,7 @@
         <b-dropdown-item variant="warning" @click="signOut">
             <icon name="sign-out-alt"></icon> &nbsp; Logout
         </b-dropdown-item>
-    </b-dropdown>    
+    </b-dropdown>
 </template>
 
 <script>

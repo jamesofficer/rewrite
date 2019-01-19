@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+    >
         <icon v-if="! instagramUrl" name="brands/instagram" scale="8"></icon>
 
         <!-- COMPONENT -->
@@ -50,7 +54,7 @@ export default {
         instagramUrl: {
             get() {
                 if (this.elementIsSelected) {
-                    return this.$store.getters.getSelectedElement.originalUrl;                    
+                    return this.$store.getters.getSelectedElement.originalUrl;
                 }
             },
             set(url) {

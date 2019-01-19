@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="getElementStyles">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="getElementStyles"
+    >
         <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
 
         <!-- COMPONENT -->

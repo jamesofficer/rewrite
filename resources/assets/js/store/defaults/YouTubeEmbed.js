@@ -1,6 +1,7 @@
 export default {
     type: 'YouTubeEmbed',
     selected: false,
+    identifier: undefined,
 
     // Properties:
     url: undefined,

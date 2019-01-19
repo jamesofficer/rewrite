@@ -25,7 +25,7 @@
                     <!-- Notification Message -->
                     <notification></notification>
 
-                    <div 
+                    <div
                         class="article-name-container"
                         :class="{
                             'sm-device-size': getDeviceSize === 'sm',

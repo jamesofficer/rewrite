@@ -1,4 +1,5 @@
 import defaults from "./defaults/_defaults";
+import { generateHTML } from "./generate";
 import {
     duplicateObject, getSelectedElement, getSelectedRootElement, getRootElementByIndexes,
     getSiblingElements, resetSelection, generateIdentifer
@@ -6,12 +7,12 @@ import {
 
 /**
  * Generates a unique identifier for each element. Used as CSS class.
- * 
+ *
  */
 export const createElementIdentifier = (state, indexes) => {
     const element = getRootElementByIndexes(state, indexes);
 
-    element.identifier = element.type + '-' + generateIdentifer(8);
+    element.identifier = element.type + '-' + generateIdentifer();
 }
 
 /**
@@ -217,7 +218,7 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'column', i.columnIndex);
     window.Vue.set(state.selected, 'component', i.componentIndex);
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
-    
+
     getSelectedRootElement(state).selected = true;
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
@@ -236,7 +237,7 @@ export const selectElement = (state, i) => {
 
 /**
  * Makes an element visible or hidden (flips it's current state).
- * 
+ *
  */
 export const toggleElementVisibility = (state, elementIndexes) => {
     const element = getRootElementByIndexes(state, elementIndexes);
@@ -408,3 +409,55 @@ export const loadArticle = (state, article) => {
 export const addFontToFontsUsed = (state, font) => {
     state.fontsUsed.push(font);
 };
+
+export const generateElementHtml = (state) => {
+    const indexes = {
+        canvasIndex: 0,
+        rowIndex: 0,
+        columnIndex: 0,
+        componentIndex: 0,
+    }
+
+    const htmlList = [];
+    const element     = getRootElementByIndexes(state, indexes);
+    // const elementHTML = document.getElementById(element.identifier);
+    const elementCSS  = '';
+
+    // for (let i = 0; i < state.deviceSizes.length; i++) {
+
+    const originalDeviceSize = state.deviceSize;
+
+
+    setTimeout(function() {
+        console.log('setting size to xl');
+        setDeviceSize(state, 'xl');
+        console.log(document.getElementById(element.identifier));
+
+        setTimeout(function() {
+            console.log('setting size to lg');
+            setDeviceSize(state, 'lg');
+            console.log(document.getElementById(element.identifier));
+
+            setTimeout(function() {
+                console.log('setting size to md');
+                setDeviceSize(state, 'md');
+                console.log(document.getElementById(element.identifier));
+
+                setTimeout(function() {
+                    console.log('setting size to sm');
+                    setDeviceSize(state, 'sm');
+                    console.log(document.getElementById(element.identifier));
+
+                    setTimeout(function() {
+                        setDeviceSize(state, originalDeviceSize);
+                    }, 250);
+
+                }, 250);
+            }, 250);
+        }, 250);
+    }, 250);
+}
+
+export const generateNewHtml = state => {
+    generateHTML(state);
+}

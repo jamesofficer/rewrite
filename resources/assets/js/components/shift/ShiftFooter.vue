@@ -1,5 +1,11 @@
 <template>
     <div class="footer-logo-wrapper">
+        <b-btn @click="generateElementHtml">Generate HTML</b-btn>
+        <b-btn @click="generateNewHtml" variant="success">Generate HTML NEW</b-btn>
+
+        <br>
+        <br>
+
         <img src="/img/shift_logo_white.png" alt="Shift Logo" class="footer-logo">
         <p class="version-text">v0.1.1 - Alpha Version</p>
         <p class="contact-text">Found a bug? Have a feature request?</p>
@@ -10,6 +16,16 @@
 <script>
 export default {
     name: "ShiftFooter",
+
+    methods: {
+        generateElementHtml() {
+            this.$store.commit('generateElementHtml');
+        },
+
+        generateNewHtml() {
+            this.$store.commit('generateNewHtml');
+        }
+    },
 }
 </script>
 

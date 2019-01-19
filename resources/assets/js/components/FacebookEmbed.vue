@@ -1,5 +1,9 @@
 <template>
-    <div :class="{ 'selected-element': elementIsSelected }" :style="{ textAlign: element.textAlign }">
+    <div
+        :id="getElementIdentifier"
+        :class="{ 'selected-element': elementIsSelected }"
+        :style="{ textAlign: element.textAlign }"
+    >
         <icon v-if="! facebookUrl" name="brands/facebook" scale="8"></icon>
 
         <!-- COMPONENT -->
