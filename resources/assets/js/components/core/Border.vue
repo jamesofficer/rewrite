@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="sidebar-control">
         <top-bar-control icon="regular/square" tooltip="Borders" id="border-popover"></top-bar-control>
 
-        <b-popover target="border-popover" placement="rightbottom">
+        <b-popover target="border-popover" placement="right">
             <b-row style="width: 225px">
                 <b-col>
                     <label class="sub-label">Top</label>

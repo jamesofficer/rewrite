@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="sidebar-control">
         <top-bar-control icon="paint-roller" tooltip="Text Colour" id="text-color-popover"></top-bar-control>
 
-        <b-popover target="text-color-popover" placement="bottom">
+        <b-popover target="text-color-popover" placement="right">
             <color-picker :value="textColor" @input="updateValue"></color-picker>
         </b-popover>
     </div>

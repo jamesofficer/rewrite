@@ -1,5 +1,5 @@
 <template>
-    <div style="display: inherit">
+    <div>
         <delete-element></delete-element>
 
         <clone-element></clone-element>
@@ -21,7 +21,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-
-</style>

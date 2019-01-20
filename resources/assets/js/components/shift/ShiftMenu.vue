@@ -1,7 +1,7 @@
 <template>
-    <b-dropdown variant="success" size="sm" right>
+    <b-dropdown variant="success">
         <template slot="button-content">
-            <icon name="bars"></icon> Menu
+            <icon name="bars"></icon>
         </template>
 
         <b-dropdown-item @click="addCanvas">

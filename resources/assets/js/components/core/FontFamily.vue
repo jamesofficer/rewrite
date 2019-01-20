@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <b-dropdown :text="selectedFont" size="sm" variant="outline-primary" style="margin-right: 5px">
+    <div class="sidebar-control">
+        <b-dropdown :text="selectedFont" variant="outline-primary">
             <div class="font-family-dropdown">
                 <b-dropdown-item v-for="(font, index) in fonts" :key="index" @click="selectFont(font)">
                     <span :style="'font-family: ' + font.name">{{ font.name }}</span>
@@ -42,7 +42,7 @@ export default {
 
         /**
          * When selecting a custom font, we need to put it's stylesheet in the head to render the font properly.
-         * 
+         *
          */
         appendStylesheetToHead(font) {
             font = font.replace(/\s/g, '+');

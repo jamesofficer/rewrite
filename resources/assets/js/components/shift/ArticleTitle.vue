@@ -67,7 +67,7 @@ export default {
 .shift-article-name {
     padding-bottom: 10px;
     color: #38c172;
-    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Inter UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 .shift-article-name-input[type='text'] {
@@ -75,7 +75,7 @@ export default {
     padding: 15px;
     background: none;
     color: #38c172;
-    font-family: "Muli", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Inter UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1.8rem;
     font-weight: 500;
     font-style: italic;

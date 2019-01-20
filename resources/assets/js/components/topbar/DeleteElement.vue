@@ -1,5 +1,7 @@
 <template>
-    <top-bar-control @click.native="deleteElement" variant="outline-danger" icon="times" tooltip="Delete"></top-bar-control>
+    <div class="sidebar-control">
+        <top-bar-control @click.native="deleteElement" variant="danger" icon="times" tooltip="Delete"></top-bar-control>
+    </div>
 </template>
 
 <script>

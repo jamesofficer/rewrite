@@ -1,20 +1,24 @@
 <template>
-    <div class="move-element-wrapper">
-        <top-bar-control
-            @click.native="moveElement('up')"
-            variant="outline-info"
-            :icon="elementType === 'Column' ? 'arrow-left' : 'arrow-up'"
-            tooltip="Move Up"
-            :disabled="! canMoveElementUp"
-        ></top-bar-control>
+    <div>
+        <div class="sidebar-control">
+            <top-bar-control
+                @click.native="moveElement('up')"
+                variant="outline-info"
+                :icon="elementType === 'Column' ? 'arrow-left' : 'arrow-up'"
+                tooltip="Move Up"
+                :disabled="! canMoveElementUp"
+            ></top-bar-control>
+        </div>
 
-        <top-bar-control
-            @click.native="moveElement('down')"
-            variant="outline-info"
-            :icon="elementType === 'Column' ? 'arrow-right' : 'arrow-down'"
-            tooltip="Move Down"
-            :disabled="! canMoveElementDown"
-        ></top-bar-control>
+        <div class="sidebar-control">
+            <top-bar-control
+                @click.native="moveElement('down')"
+                variant="outline-info"
+                :icon="elementType === 'Column' ? 'arrow-right' : 'arrow-down'"
+                tooltip="Move Down"
+                :disabled="! canMoveElementDown"
+            ></top-bar-control>
+        </div>
     </div>
 </template>
 
@@ -47,11 +51,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.move-element-wrapper {
-    display: inherit;
-    margin-right: 10px;
-}
-</style>
-

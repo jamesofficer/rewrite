@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="sidebar-control">
         <top-bar-control icon="expand" tooltip="Margins" id="margin-popover"></top-bar-control>
 
-        <b-popover target="margin-popover" placement="bottom">
+        <b-popover target="margin-popover" placement="right">
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>

@@ -1,5 +1,7 @@
 <template>
-    <top-bar-control v-b-modal.editTextModal variant="outline-success" icon="font" tooltip="Edit Text"></top-bar-control>
+    <div class="sidebar-control">
+        <top-bar-control v-b-modal.editTextModal variant="outline-success" icon="font" tooltip="Edit Text"></top-bar-control>
+    </div>
 </template>
 
 <script>

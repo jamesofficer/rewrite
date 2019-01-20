@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="sidebar-control">
         <top-bar-control icon="sun" tooltip="Text Shadow" id="text-shadow-popover"></top-bar-control>
 
-        <b-popover target="text-shadow-popover" placement="bottom">
+        <b-popover target="text-shadow-popover" placement="right">
             <b-row>
                 <b-col>
                     <label class="sub-label">Offset X</label>
@@ -16,7 +16,7 @@
                     ></b-form-input>
                 </b-col>
             </b-row>
-            
+
             <b-row>
                 <b-col>
                     <label class="sub-label">Offset Y</label>
@@ -41,7 +41,7 @@
                         :min="0"
                         :max="100"
                         @focusout.native="ensureValueIsNotEmpty('blurRadius')"
-                    ></b-form-input>                    
+                    ></b-form-input>
                 </b-col>
             </b-row>
 

@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <img src="{{ asset('img/shift_logo_white.png') }}" alt="Shift Logo" class="login-page-logo">
+    <img src="{{ asset('img/rewrite_logo_white.svg') }}" alt="Rewrite Logo" class="login-page-logo">
     <h4 class="text-white">Amazing articles, for everyone!</h4>
 
     <p class="text-white">

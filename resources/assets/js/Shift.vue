@@ -1,75 +1,56 @@
 <template>
-    <div id="app">
-        <b-container fluid>
-            <!-- Top Bar -->
-            <b-row class="top-bar-styles">
-                <b-col :cols="9">
-                    <portal-target name="top-bar" class="top-bar-portal-target">
-                        <!-- Top Bar settings will appear here. -->
-                    </portal-target>
-                </b-col>
+    <div id="rewrite-container">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <shift-menu ref="menu"></shift-menu>
 
-                <!-- Global Styles Switch -->
-                <b-col :cols="2" class="text-right">
-                    <global-styles-switch></global-styles-switch>
-                </b-col>
+            <global-styles-switch></global-styles-switch>
 
-                <!-- Menu -->
-                <b-col :cols="1" class="text-right">
-                    <shift-menu ref="menu"></shift-menu>
-                </b-col>
-            </b-row>
+            <portal-target name="top-bar"></portal-target>
+        </div>
 
-            <b-row>
-                <b-col cols="12">
-                    <!-- Notification Message -->
-                    <notification></notification>
+        <!-- Main Content Area -->
+        <div id="rewrite-content-area">
+            <notification></notification>
 
-                    <div
-                        class="article-name-container"
-                        :class="{
-                            'sm-device-size': getDeviceSize === 'sm',
-                            'md-device-size': getDeviceSize === 'md',
-                            'lg-device-size': getDeviceSize === 'lg',
-                            'xl-device-size': getDeviceSize === 'xl',
-                        }"
-                    >
-                        <!-- Article Name -->
-                        <article-title></article-title>
-                    </div>
-                </b-col>
-            </b-row>
+            <!-- Article Name -->
+            <div
+                class="article-name-container"
+                :class="{
+                    'sm-device-size': getDeviceSize === 'sm',
+                    'md-device-size': getDeviceSize === 'md',
+                    'lg-device-size': getDeviceSize === 'lg',
+                    'xl-device-size': getDeviceSize === 'xl',
+                }"
+            >
+                <article-title></article-title>
+            </div>
 
             <!-- Main Workspace -->
-            <b-container fluid>
-                <div ref="shiftArticle"
-                    class="shift-workspace"
-                    :class="{
-                        'sm-device-size': getDeviceSize === 'sm',
-                        'md-device-size': getDeviceSize === 'md',
-                        'lg-device-size': getDeviceSize === 'lg',
-                        'xl-device-size': getDeviceSize === 'xl',
-                    }"
-                >
-                    <canvas v-for="(canvas, canvasIndex) in canvases"
-                        is="Canvas"
-                        :key="canvasIndex"
-                        :canvasIndex="canvasIndex"
-                        @click.native.stop="selectElement(canvasIndex)"
-                        class="selectable-canvas"
-                        v-show="canvas.visible"
-                    ></canvas>
-                </div>
-            </b-container>
+            <div ref="shiftArticle"
+                class="shift-workspace"
+                :class="{
+                    'sm-device-size': getDeviceSize === 'sm',
+                    'md-device-size': getDeviceSize === 'md',
+                    'lg-device-size': getDeviceSize === 'lg',
+                    'xl-device-size': getDeviceSize === 'xl',
+                }"
+            >
+                <canvas v-for="(canvas, canvasIndex) in canvases"
+                    is="Canvas"
+                    :key="canvasIndex"
+                    :canvasIndex="canvasIndex"
+                    @click.native.stop="selectElement(canvasIndex)"
+                    class="selectable-canvas"
+                    v-show="canvas.visible"
+                ></canvas>
+            </div>
 
-            <shift-footer></shift-footer>
-        </b-container>
-        <!-- End of Shift Container -->
+                <shift-footer></shift-footer>
+            <!-- End of Shift Container -->
+        </div>
 
         <div class="fixed-footer">
-            <!-- Element Styles Panel -->
-            <!-- <element-styles-panel></element-styles-panel> -->
-
             <!-- Device Size Buttons -->
             <device-size-controls></device-size-controls>
 
@@ -148,31 +129,39 @@ export default {
 </script>
 
 <style scoped>
+#rewrite-container {
+    display: flex;
+    align-items: stretch;
+    border-top: 5px solid #38c172;
+}
+
+#sidebar {
+    background: white;
+    height: 100vh;
+    padding: 10px;
+    top: 0;
+    border-right: 1px dashed gray;
+}
+
+#rewrite-content-area {
+    width: 100%;
+}
+
 .article-name-container {
     margin: 0 auto;
     padding-top: 20px;
-}
-
-.shift-canvas {
-    background: green !important;
-    cursor: pointer;
-}
-
-.shift-canvas:hover {
-    background: darkgreen !important;
 }
 
 .top-bar-styles {
     z-index: 100;
     background: white;
     padding: 10px 15px;
-    border-top: 5px solid #38c172;
     border-bottom: 1px dashed gray;
     box-shadow: 0 0 20px #ccc;
 }
 
 .top-bar-portal-target {
-    display: inline-flex;
+    display: block;
 }
 
 .shift-workspace {

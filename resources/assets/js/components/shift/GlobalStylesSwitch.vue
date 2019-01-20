@@ -32,9 +32,3 @@ export default {
     }
 }
 </script>
-
-<style>
-#global-styles-switch-wrapper {
-    margin-top: 3px;
-}
-</style>

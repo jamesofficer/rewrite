@@ -9,7 +9,6 @@
         step="0.1"
         v-b-tooltip.hover
         title="Letter Spacing"
-        class="top-bar-sm-input"
     ></b-form-input>
 </template>
 

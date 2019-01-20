@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="sidebar-control">
         <top-bar-control icon="expand-arrows-alt" tooltip="Padding" id="padding-popover"></top-bar-control>
 
-        <b-popover target="padding-popover" placement="bottom">
+        <b-popover target="padding-popover" placement="right">
             <b-row>
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
                         type="number"
                         v-model.number="paddingTop"
-                        :min="0" 
+                        :min="0"
                         :max="500"
                         size="sm"
                         @focusout.native="ensureValueIsNotEmpty('paddingTop')"
@@ -21,7 +21,7 @@
                     <b-form-input
                         type="number"
                         v-model.number="paddingBottom"
-                        :min="0" 
+                        :min="0"
                         :max="500"
                         size="sm"
                         @focusout.native="ensureValueIsNotEmpty('paddingBottom')"
@@ -35,7 +35,7 @@
                     <b-form-input
                         type="number"
                         v-model.number="paddingLeft"
-                        :min="0" 
+                        :min="0"
                         :max="500"
                         size="sm"
                         @focusout.native="ensureValueIsNotEmpty('paddingLeft')"
@@ -47,7 +47,7 @@
                     <b-form-input
                         type="number"
                         v-model.number="paddingRight"
-                        :min="0" 
+                        :min="0"
                         :max="500"
                         size="sm"
                         @focusout.native="ensureValueIsNotEmpty('paddingRight')"

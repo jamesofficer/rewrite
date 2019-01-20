@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Shift') }}</title>
+    <title>{{ config('app.name', 're:write') }}</title>
 
     <!-- Scripts -->
     @if (str_contains(url()->current(), 'article/create'))
@@ -17,12 +17,11 @@
     @endif
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700" rel="stylesheet">
+    <link href="{{ asset('fonts/inter_ui/inter-ui.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/shift.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/rewrite.css') }}" rel="stylesheet">
 
     <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>

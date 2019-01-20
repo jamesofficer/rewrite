@@ -1,21 +1,29 @@
 <template>
-    <b-button-group size="sm" class="top-bar-control">
-        <b-button variant="outline-primary" @click="alignText('left')" v-b-tooltip.hover title="Align Left">
-            <icon name="align-left"></icon>
-        </b-button>
+    <div>
+        <div class="sidebar-control">
+            <b-button variant="outline-primary" @click="alignText('left')" v-b-tooltip.hover title="Align Left">
+                <icon name="align-left"></icon>
+            </b-button>
+        </div>
 
-        <b-button variant="outline-primary" @click="alignText('center')" v-b-tooltip.hover title="Align Center">
-            <icon name="align-center"></icon>
-        </b-button>
+        <div class="sidebar-control">
+            <b-button variant="outline-primary" @click="alignText('center')" v-b-tooltip.hover title="Align Center">
+                <icon name="align-center"></icon>
+            </b-button>
+        </div>
 
-        <b-button variant="outline-primary" @click="alignText('right')" v-b-tooltip.hover title="Align Right">
-            <icon name="align-right"></icon>
-        </b-button>
+        <div class="sidebar-control">
+            <b-button variant="outline-primary" @click="alignText('right')" v-b-tooltip.hover title="Align Right">
+                <icon name="align-right"></icon>
+            </b-button>
+        </div>
 
-        <b-button variant="outline-primary" @click="alignText('justify')" v-b-tooltip.hover title="Justify">
-            <icon name="align-justify"></icon>
-        </b-button>
-    </b-button-group>
+        <div class="sidebar-control">
+            <b-button variant="outline-primary" @click="alignText('justify')" v-b-tooltip.hover title="Justify">
+                <icon name="align-justify"></icon>
+            </b-button>
+        </div>
+    </div>
 </template>
 
 <script>
