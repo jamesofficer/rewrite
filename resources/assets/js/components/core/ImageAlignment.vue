@@ -1,5 +1,5 @@
 <template>
-    <b-button-group size="sm" class="top-bar-control">
+    <b-button-group>
         <b-button variant="outline-success" @click="alignImage('left')" v-b-tooltip.hover title="Align Left">
             Left
         </b-button>

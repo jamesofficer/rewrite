@@ -13,13 +13,13 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <b-input size="sm"
-                    v-model="facebookUrl"
-                    @blur.native="updateFacebookUrl"
-                    placeholder="Paste Facebook Embed Code here..."
-                    v-b-tooltip.hover title="Facebook Embed Code"
-                    class="top-bar-control">
-            </b-input>
+            <b-input
+                size="sm"
+                v-model="facebookUrl"
+                @blur.native="updateFacebookUrl"
+                placeholder="Paste Facebook Embed Code here..."
+                v-b-tooltip.hover title="Facebook Embed Code"
+            ></b-input>
 
             <margin></margin>
 

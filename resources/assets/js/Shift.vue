@@ -6,6 +6,8 @@
 
             <global-styles-switch></global-styles-switch>
 
+            <device-size-controls></device-size-controls>
+
             <portal-target name="top-bar"></portal-target>
         </div>
 
@@ -51,10 +53,8 @@
         </div>
 
         <div class="fixed-footer">
-            <!-- Device Size Buttons -->
-            <device-size-controls></device-size-controls>
+            <element-controls></element-controls>
 
-            <!-- Bottom Corner Minimap -->
             <minimap></minimap>
         </div>
 
@@ -86,6 +86,7 @@ import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
 import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
+import ElementControls         from "./components/shift/ElementControls";
 import Minimap                 from "./components/shift/Minimap";
 
 import Canvas                  from "./components/layout/Canvas";
@@ -104,7 +105,7 @@ export default {
 
     components: {
         KeyBindings, ShiftMenu, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
+        ElementControls, Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 
@@ -136,10 +137,11 @@ export default {
 }
 
 #sidebar {
+    position: fixed;
+    top: 5px;
     background: white;
     height: 100vh;
     padding: 10px;
-    top: 0;
     border-right: 1px dashed gray;
 }
 

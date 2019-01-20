@@ -65,7 +65,7 @@
             <b-row>
                 <b-col>
                     <label class="sub-label">Style</label>
-                    <b-form-select size="sm" v-model="borderStyle" :options="borderStyles" v-b-tooltip.hover title="Border Style" class="top-bar-control"></b-form-select>
+                    <b-form-select size="sm" v-model="borderStyle" :options="borderStyles"></b-form-select>
                 </b-col>
             </b-row>
 

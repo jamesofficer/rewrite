@@ -18,8 +18,7 @@ p,
 input,
 button,
 .btn,
-.btn-group,
-.top-bar-control {
+.btn-group {
   font-family: "Inter UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -101,10 +100,6 @@ button,
 .login-page-logo {
   max-width: 250px;
   margin-bottom: 25px;
-}
-
-.top-bar-control {
-  margin-right: 5px;
 }
 
 .sub-label {

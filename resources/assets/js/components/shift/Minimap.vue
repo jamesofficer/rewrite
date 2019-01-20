@@ -1,20 +1,8 @@
 <template>
-    <div class="minimap" :style="{ 'height' : minimapVisible ? '300px' : '35px' }">
-        <div class="minimap-header" @click="minimapVisible = ! minimapVisible">
-            <div class="row">
-                <div class="col-6">
-                    Layout Map
-                </div>
+    <floating-panel style="bottom: 5px; right: 5px">
+        <template slot="title">Layout</template>
 
-                <div class="col-6 text-right">
-                    <span class="minimap-minimise-button">
-                        <icon :name="minimapVisible ? 'minus' : 'plus'"></icon>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="minimap-body" v-if="minimapVisible">
+        <template slot="content">
             <!-- Loop Canvases -->
             <ul
                 v-for="(canvas, canvasIndex) in canvases"
@@ -105,13 +93,17 @@
                     </ul>
                 </ul>
             </ul>
-        </div>
-    </div>
+        </template>
+    </floating-panel>
 </template>
 
 <script>
+import FloatingPanel from './FloatingPanel';
+
 export default {
     name: "Minimap",
+
+    components: { FloatingPanel },
 
     computed: {
         canvases() {
@@ -121,7 +113,7 @@ export default {
 
     data() {
         return {
-            minimapVisible: false,
+            minimapVisible: true,
         }
     },
 
@@ -150,34 +142,6 @@ export default {
 <style scoped>
 ul {
     margin: 0;
-}
-
-.minimap {
-    position: fixed;
-    bottom: 50px;
-    right: 5px;
-    background: white;
-    border-radius: 5px;
-    width: 280px;
-    box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);
-    overflow: hidden;
-}
-
-.minimap-header {
-    cursor: pointer;
-    background: #38c172;
-    color: white;
-    padding: 7px 10px;
-    border-bottom: 1px solid #24b161;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    z-index: 10;
-}
-
-.minimap-body {
-    height: 100%;
-    overflow-y: scroll;
-    z-index: 5;
 }
 
 .minimap-minimise-button {

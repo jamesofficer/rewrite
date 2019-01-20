@@ -1,0 +1,73 @@
+<template>
+    <!-- A div must wrap this component (usually the parent component) with position styles (e.g. style="bottom: 5px; right: 5px") for it display correctly. -->
+    <div class="panel" :style="{ height : panelVisible ? '300px' : '35px' }">
+        <div class="panel-header" @click="panelVisible = ! panelVisible">
+            <div class="row">
+                <div class="col-9">
+                    <!-- Panel Title -->
+                    <slot name="title"></slot>
+                </div>
+
+                <div class="col-3 text-right">
+                    <span class="panel-minimise-button">
+                        <icon :name="panelVisible ? 'minus' : 'plus'"></icon>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body" v-if="panelVisible">
+            <!-- Panel Content goes here... -->
+            <slot name="content"></slot>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "FloatingPanel",
+
+    data() {
+        return {
+            panelVisible: true,
+        }
+    },
+}
+</script>
+
+<style scoped>
+.panel {
+    position: fixed;
+    background: white;
+    border-radius: 5px;
+    width: 280px;
+    box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);
+    overflow: hidden;
+}
+
+.panel-header {
+    cursor: pointer;
+    background: #38c172;
+    color: white;
+    padding: 7px 10px;
+    border-bottom: 1px solid #24b161;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    z-index: 10;
+}
+
+.panel-body {
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 5;
+}
+
+.panel-minimise-button {
+    cursor: pointer;
+}
+
+.panel-minimise-button:hover {
+    color: #dddddd;
+}
+</style>
+

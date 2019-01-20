@@ -1,5 +1,5 @@
 <template>
-    <b-dropdown variant="success">
+    <b-dropdown variant="success" no-caret>
         <template slot="button-content">
             <icon name="bars"></icon>
         </template>

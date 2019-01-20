@@ -15,13 +15,13 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <b-input size="sm"
-                    v-model="instagramUrl"
-                    @blur.native="updateInstagramUrl"
-                    placeholder="Paste Instagram url here..."
-                    class="top-bar-control"
-                    v-b-tooltip.hover title="Instagram URL">
-            </b-input>
+            <b-input
+                size="sm"
+                v-model="instagramUrl"
+                @blur.native="updateInstagramUrl"
+                placeholder="Paste Instagram url here..."
+                v-b-tooltip.hover title="Instagram URL"
+            ></b-input>
 
             <margin></margin>
 

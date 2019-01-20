@@ -17,12 +17,12 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <b-input size="sm"
-                    v-model="videoUrl"
-                    @blur.native="updateYouTubeUrl"
-                    placeholder="Paste video url here..."
-                    class="top-bar-control"
-                    v-b-tooltip.hover title="YouTube Video URL"
+            <b-input
+                size="sm"
+                v-model="videoUrl"
+                @blur.native="updateYouTubeUrl"
+                placeholder="Paste video url here..."
+                v-b-tooltip.hover title="YouTube Video URL"
             ></b-input>
 
             <margin></margin>

@@ -25706,7 +25706,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#rewrite-container[data-v-667f58a0] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\r\n    border-top: 5px solid #38c172;\n}\n#sidebar[data-v-667f58a0] {\r\n    background: white;\r\n    height: 100vh;\r\n    padding: 10px;\r\n    top: 0;\r\n    border-right: 1px dashed gray;\n}\n#rewrite-content-area[data-v-667f58a0] {\r\n    width: 100%;\n}\n.article-name-container[data-v-667f58a0] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: block;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\r\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\r\n    width: 1200px;\n}\r\n", ""]);
+exports.push([module.i, "\n#rewrite-container[data-v-667f58a0] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\r\n    border-top: 5px solid #38c172;\n}\n#sidebar[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 5px;\r\n    background: white;\r\n    height: 100vh;\r\n    padding: 10px;\r\n    border-right: 1px dashed gray;\n}\n#rewrite-content-area[data-v-667f58a0] {\r\n    width: 100%;\n}\n.article-name-container[data-v-667f58a0] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n.top-bar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.top-bar-portal-target[data-v-667f58a0] {\r\n    display: block;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\r\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\r\n    width: 1200px;\n}\r\n", ""]);
 
 // exports
 
@@ -25763,26 +25763,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_shift_Notification__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_Minimap__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_shift_Minimap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_layout_Canvas__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_layout_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_layout_Canvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_AddComponentModal__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_EditTextModal__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_EditTextModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_LoadArticleModal__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_LoadArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MyImagesModal__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_MyImagesModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_ImageGalleryModal__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_ImageGalleryModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ExportArticleModal__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_ExportArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementControls__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementControls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_shift_ElementControls__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal__);
 //
 //
 //
@@ -25862,6 +25864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -25888,9 +25891,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Shift",
 
     components: {
-        KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */], ShiftMenu: __WEBPACK_IMPORTED_MODULE_1__components_shift_ShiftMenu___default.a, ShiftFooter: __WEBPACK_IMPORTED_MODULE_2__components_shift_ShiftFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_shift_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_shift_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_7__components_shift_Minimap___default.a,
-        Notification: __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_8__components_layout_Canvas___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_9__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MyImagesModal___default.a,
-        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_BackgroundGradientModal___default.a
+        KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */], ShiftMenu: __WEBPACK_IMPORTED_MODULE_1__components_shift_ShiftMenu___default.a, ShiftFooter: __WEBPACK_IMPORTED_MODULE_2__components_shift_ShiftFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_shift_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_shift_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap___default.a,
+        ElementControls: __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementControls___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal___default.a,
+        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
@@ -26145,7 +26148,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-dropdown",
-    { attrs: { variant: "success" } },
+    { attrs: { variant: "success", "no-caret": "" } },
     [
       _c(
         "template",
@@ -26982,21 +26985,17 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(178)
-}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(180)
 /* template */
-var __vue_template__ = __webpack_require__(181)
+var __vue_template__ = __webpack_require__(548)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-7870e431"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -27029,51 +27028,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 178 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(179);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(6)("7abdd362", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7870e431\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DeviceSizeControls.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7870e431\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DeviceSizeControls.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.device-size-controls[data-v-7870e431] {\r\n    position: fixed;\r\n    bottom: 5px;\r\n    right: 5px;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 178 */,
+/* 179 */,
 /* 180 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -27114,138 +27081,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "device-size-controls" },
-    [
-      _c(
-        "b-button-group",
-        { staticClass: "device-size-btn-group" },
-        [
-          _c(
-            "b-button",
-            {
-              directives: [
-                {
-                  name: "b-tooltip",
-                  rawName: "v-b-tooltip.top",
-                  value: "Devices <576px wide",
-                  expression: "'Devices <576px wide'",
-                  modifiers: { top: true }
-                }
-              ],
-              attrs: {
-                pressed: _vm.getDeviceSize === "sm",
-                variant: "success"
-              },
-              on: {
-                click: function($event) {
-                  _vm.setDeviceSize("sm")
-                }
-              }
-            },
-            [_vm._v("\n            Small\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              directives: [
-                {
-                  name: "b-tooltip",
-                  rawName: "v-b-tooltip.top",
-                  value: "Devices ≥576px wide",
-                  expression: "'Devices ≥576px wide'",
-                  modifiers: { top: true }
-                }
-              ],
-              attrs: {
-                pressed: _vm.getDeviceSize === "md",
-                variant: "success"
-              },
-              on: {
-                click: function($event) {
-                  _vm.setDeviceSize("md")
-                }
-              }
-            },
-            [_vm._v("\n            Medium\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              directives: [
-                {
-                  name: "b-tooltip",
-                  rawName: "v-b-tooltip.top",
-                  value: "Devices ≥768px wide",
-                  expression: "'Devices ≥768px wide'",
-                  modifiers: { top: true }
-                }
-              ],
-              attrs: {
-                pressed: _vm.getDeviceSize === "lg",
-                variant: "success"
-              },
-              on: {
-                click: function($event) {
-                  _vm.setDeviceSize("lg")
-                }
-              }
-            },
-            [_vm._v("\n            Large\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              directives: [
-                {
-                  name: "b-tooltip",
-                  rawName: "v-b-tooltip.top",
-                  value: "Devices ≥992px wide",
-                  expression: "'Devices ≥992px wide'",
-                  modifiers: { top: true }
-                }
-              ],
-              attrs: {
-                pressed: _vm.getDeviceSize === "xl",
-                variant: "success"
-              },
-              on: {
-                click: function($event) {
-                  _vm.setDeviceSize("xl")
-                }
-              }
-            },
-            [_vm._v("\n            X Large\n        ")]
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7870e431", module.exports)
-  }
-}
-
-/***/ }),
+/* 181 */,
 /* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27331,7 +27167,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\nul[data-v-f9ee2f1e] {\r\n    margin: 0;\n}\n.minimap[data-v-f9ee2f1e] {\r\n    position: fixed;\r\n    bottom: 50px;\r\n    right: 5px;\r\n    background: white;\r\n    border-radius: 5px;\r\n    width: 280px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n    overflow: hidden;\n}\n.minimap-header[data-v-f9ee2f1e] {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    color: white;\r\n    padding: 7px 10px;\r\n    border-bottom: 1px solid #24b161;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.minimap-body[data-v-f9ee2f1e] {\r\n    height: 100%;\r\n    overflow-y: scroll;\r\n    z-index: 5;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\r\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\r\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\r\n    width: 100%;\r\n    padding: 2px 5px;\r\n    border-bottom: 1px solid #dddddd;\r\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\r\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\r\n    cursor: pointer;\r\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\r\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\r\n    color: white;\r\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\r\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\r\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\r\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\r\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\r\n    float: right;\r\n    margin-right: 5px\n}\r\n", ""]);
+exports.push([module.i, "\nul[data-v-f9ee2f1e] {\r\n    margin: 0;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\r\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\r\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\r\n    list-style-type: none;\r\n    padding: 0;\r\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\r\n    width: 100%;\r\n    padding: 2px 5px;\r\n    border-bottom: 1px solid #dddddd;\r\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\r\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\r\n    cursor: pointer;\r\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\r\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\r\n    color: white;\r\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\r\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\r\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\r\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\r\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\r\n    float: right;\r\n    margin-right: 5px\n}\r\n", ""]);
 
 // exports
 
@@ -27342,18 +27178,8 @@ exports.push([module.i, "\nul[data-v-f9ee2f1e] {\r\n    margin: 0;\n}\n.minimap[
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
 //
 //
 //
@@ -27454,8 +27280,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Minimap",
+
+    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a },
 
     computed: {
         canvases: function canvases() {
@@ -27465,7 +27295,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            minimapVisible: false
+            minimapVisible: true
         };
     },
 
@@ -27507,293 +27337,249 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    {
-      staticClass: "minimap",
-      style: { height: _vm.minimapVisible ? "300px" : "35px" }
-    },
+    "floating-panel",
+    { staticStyle: { bottom: "5px", right: "5px" } },
     [
-      _c(
-        "div",
-        {
-          staticClass: "minimap-header",
-          on: {
-            click: function($event) {
-              _vm.minimapVisible = !_vm.minimapVisible
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-6" }, [
-              _vm._v("\n                Layout Map\n            ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6 text-right" }, [
-              _c(
-                "span",
-                { staticClass: "minimap-minimise-button" },
-                [
-                  _c("icon", {
-                    attrs: { name: _vm.minimapVisible ? "minus" : "plus" }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
-        ]
-      ),
+      _c("template", { slot: "title" }, [_vm._v("Layout")]),
       _vm._v(" "),
-      _vm.minimapVisible
-        ? _c(
-            "div",
-            { staticClass: "minimap-body" },
-            _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-              return _c(
-                "ul",
-                { key: canvasIndex, staticClass: "minimap-ul" },
+      _c(
+        "template",
+        { slot: "content" },
+        _vm._l(_vm.canvases, function(canvas, canvasIndex) {
+          return _c(
+            "ul",
+            { key: canvasIndex, staticClass: "minimap-ul" },
+            [
+              _c(
+                "li",
+                {
+                  staticClass: "minimap-element-row",
+                  class: { "element-selected": canvas.selected },
+                  on: {
+                    click: function($event) {
+                      _vm.selectElement(canvasIndex)
+                    }
+                  }
+                },
                 [
                   _c(
-                    "li",
-                    {
-                      staticClass: "minimap-element-row",
-                      class: { "element-selected": canvas.selected },
-                      on: {
-                        click: function($event) {
-                          _vm.selectElement(canvasIndex)
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "collapse-icon-container" },
-                        [_c("icon", { attrs: { name: "caret-down" } })],
-                        1
-                      ),
-                      _vm._v(
-                        "\n\n                Canvas " +
-                          _vm._s(canvasIndex + 1) +
-                          "\n\n                "
-                      ),
-                      _c(
-                        "span",
-                        { staticClass: "eye-icon-container" },
-                        [
-                          _c("icon", {
-                            attrs: {
-                              name: canvas.visible ? "eye" : "eye-slash"
-                            },
-                            nativeOn: {
-                              click: function($event) {
-                                _vm.toggleElementVisibility(canvasIndex)
-                              }
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ]
+                    "span",
+                    { staticClass: "collapse-icon-container" },
+                    [_c("icon", { attrs: { name: "caret-down" } })],
+                    1
                   ),
-                  _vm._v(" "),
-                  _vm._l(canvas.rows, function(row, rowIndex) {
-                    return _c(
-                      "ul",
-                      { key: rowIndex, staticClass: "minimap-ul" },
+                  _vm._v(
+                    "\n\n                Canvas " +
+                      _vm._s(canvasIndex + 1) +
+                      "\n\n                "
+                  ),
+                  _c(
+                    "span",
+                    { staticClass: "eye-icon-container" },
+                    [
+                      _c("icon", {
+                        attrs: { name: canvas.visible ? "eye" : "eye-slash" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.toggleElementVisibility(canvasIndex)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(canvas.rows, function(row, rowIndex) {
+                return _c(
+                  "ul",
+                  { key: rowIndex, staticClass: "minimap-ul" },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass:
+                          "minimap-element-row add-left-border pad-row",
+                        class: { "element-selected": row.selected },
+                        on: {
+                          click: function($event) {
+                            _vm.selectElement(canvasIndex, rowIndex)
+                          }
+                        }
+                      },
                       [
                         _c(
-                          "li",
-                          {
-                            staticClass:
-                              "minimap-element-row add-left-border pad-row",
-                            class: { "element-selected": row.selected },
-                            on: {
-                              click: function($event) {
-                                _vm.selectElement(canvasIndex, rowIndex)
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "span",
-                              { staticClass: "collapse-icon-container" },
-                              [_c("icon", { attrs: { name: "caret-down" } })],
-                              1
-                            ),
-                            _vm._v(
-                              "\n\n                    Row " +
-                                _vm._s(rowIndex + 1) +
-                                "\n\n                    "
-                            ),
-                            _c(
-                              "span",
-                              { staticClass: "eye-icon-container" },
-                              [
-                                _c("icon", {
-                                  attrs: {
-                                    name: row.visible ? "eye" : "eye-slash"
-                                  },
-                                  nativeOn: {
-                                    click: function($event) {
-                                      _vm.toggleElementVisibility(
-                                        canvasIndex,
-                                        rowIndex
-                                      )
-                                    }
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
+                          "span",
+                          { staticClass: "collapse-icon-container" },
+                          [_c("icon", { attrs: { name: "caret-down" } })],
+                          1
                         ),
-                        _vm._v(" "),
-                        _vm._l(row.columns, function(column, columnIndex) {
-                          return _c(
-                            "ul",
-                            { key: columnIndex, staticClass: "minimap-ul" },
+                        _vm._v(
+                          "\n\n                    Row " +
+                            _vm._s(rowIndex + 1) +
+                            "\n\n                    "
+                        ),
+                        _c(
+                          "span",
+                          { staticClass: "eye-icon-container" },
+                          [
+                            _c("icon", {
+                              attrs: {
+                                name: row.visible ? "eye" : "eye-slash"
+                              },
+                              nativeOn: {
+                                click: function($event) {
+                                  _vm.toggleElementVisibility(
+                                    canvasIndex,
+                                    rowIndex
+                                  )
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(row.columns, function(column, columnIndex) {
+                      return _c(
+                        "ul",
+                        { key: columnIndex, staticClass: "minimap-ul" },
+                        [
+                          _c(
+                            "li",
+                            {
+                              staticClass:
+                                "minimap-element-row add-left-border pad-column",
+                              class: { "element-selected": column.selected },
+                              on: {
+                                click: function($event) {
+                                  _vm.selectElement(
+                                    canvasIndex,
+                                    rowIndex,
+                                    columnIndex
+                                  )
+                                }
+                              }
+                            },
                             [
                               _c(
-                                "li",
-                                {
-                                  staticClass:
-                                    "minimap-element-row add-left-border pad-column",
-                                  class: {
-                                    "element-selected": column.selected
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.selectElement(
-                                        canvasIndex,
-                                        rowIndex,
-                                        columnIndex
-                                      )
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    { staticClass: "collapse-icon-container" },
-                                    [
-                                      _c("icon", {
-                                        attrs: { name: "caret-down" }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(
-                                    "\n\n                        Column " +
-                                      _vm._s(columnIndex + 1) +
-                                      "\n\n                        "
-                                  ),
-                                  _c(
-                                    "span",
-                                    { staticClass: "eye-icon-container" },
-                                    [
-                                      _c("icon", {
-                                        attrs: {
-                                          name: column.visible
-                                            ? "eye"
-                                            : "eye-slash"
-                                        },
-                                        nativeOn: {
-                                          click: function($event) {
-                                            _vm.toggleElementVisibility(
-                                              canvasIndex,
-                                              rowIndex,
-                                              columnIndex
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ]
+                                "span",
+                                { staticClass: "collapse-icon-container" },
+                                [_c("icon", { attrs: { name: "caret-down" } })],
+                                1
                               ),
-                              _vm._v(" "),
-                              _vm._l(column.components, function(
-                                component,
-                                componentIndex
-                              ) {
-                                return _c(
-                                  "ul",
+                              _vm._v(
+                                "\n\n                        Column " +
+                                  _vm._s(columnIndex + 1) +
+                                  "\n\n                        "
+                              ),
+                              _c(
+                                "span",
+                                { staticClass: "eye-icon-container" },
+                                [
+                                  _c("icon", {
+                                    attrs: {
+                                      name: column.visible ? "eye" : "eye-slash"
+                                    },
+                                    nativeOn: {
+                                      click: function($event) {
+                                        _vm.toggleElementVisibility(
+                                          canvasIndex,
+                                          rowIndex,
+                                          columnIndex
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(column.components, function(
+                            component,
+                            componentIndex
+                          ) {
+                            return _c(
+                              "ul",
+                              {
+                                key: componentIndex,
+                                staticClass: "minimap-ul"
+                              },
+                              [
+                                _c(
+                                  "li",
                                   {
-                                    key: componentIndex,
-                                    staticClass: "minimap-ul"
+                                    staticClass:
+                                      "minimap-element-row add-left-border pad-component",
+                                    class: {
+                                      "element-selected": component.selected
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.selectElement(
+                                          canvasIndex,
+                                          rowIndex,
+                                          columnIndex,
+                                          componentIndex
+                                        )
+                                      }
+                                    }
                                   },
                                   [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(component.type) +
+                                        "\n\n                            "
+                                    ),
                                     _c(
-                                      "li",
-                                      {
-                                        staticClass:
-                                          "minimap-element-row add-left-border pad-component",
-                                        class: {
-                                          "element-selected": component.selected
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.selectElement(
-                                              canvasIndex,
-                                              rowIndex,
-                                              columnIndex,
-                                              componentIndex
-                                            )
-                                          }
-                                        }
-                                      },
+                                      "span",
+                                      { staticClass: "eye-icon-container" },
                                       [
-                                        _vm._v(
-                                          "\n                            " +
-                                            _vm._s(component.type) +
-                                            "\n\n                            "
-                                        ),
-                                        _c(
-                                          "span",
-                                          { staticClass: "eye-icon-container" },
-                                          [
-                                            _c("icon", {
-                                              attrs: {
-                                                name: component.visible
-                                                  ? "eye"
-                                                  : "eye-slash"
-                                              },
-                                              nativeOn: {
-                                                click: function($event) {
-                                                  _vm.toggleElementVisibility(
-                                                    canvasIndex,
-                                                    rowIndex,
-                                                    columnIndex,
-                                                    componentIndex
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ]
+                                        _c("icon", {
+                                          attrs: {
+                                            name: component.visible
+                                              ? "eye"
+                                              : "eye-slash"
+                                          },
+                                          nativeOn: {
+                                            click: function($event) {
+                                              _vm.toggleElementVisibility(
+                                                canvasIndex,
+                                                rowIndex,
+                                                columnIndex,
+                                                componentIndex
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ],
+                                      1
                                     )
                                   ]
                                 )
-                              })
-                            ],
-                            2
-                          )
-                        })
-                      ],
-                      2
-                    )
-                  })
-                ],
-                2
-              )
-            })
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    })
+                  ],
+                  2
+                )
+              })
+            ],
+            2
           )
-        : _vm._e()
-    ]
+        })
+      )
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -28365,8 +28151,8 @@ var render = function() {
       directives: [
         {
           name: "b-tooltip",
-          rawName: "v-b-tooltip.hover",
-          modifiers: { hover: true }
+          rawName: "v-b-tooltip.hover.right",
+          modifiers: { hover: true, right: true }
         }
       ],
       attrs: {
@@ -29544,11 +29330,10 @@ var render = function() {
     directives: [
       {
         name: "b-tooltip",
-        rawName: "v-b-tooltip.hover",
-        modifiers: { hover: true }
+        rawName: "v-b-tooltip.hover.right",
+        modifiers: { hover: true, right: true }
       }
     ],
-    staticClass: "top-bar-control",
     attrs: { size: "sm", options: _vm.positions, title: "Background Position" },
     model: {
       value: _vm.backgroundPosition,
@@ -29613,11 +29398,10 @@ var render = function() {
     directives: [
       {
         name: "b-tooltip",
-        rawName: "v-b-tooltip.hover",
-        modifiers: { hover: true }
+        rawName: "v-b-tooltip.hover.right",
+        modifiers: { hover: true, right: true }
       }
     ],
-    staticClass: "top-bar-control",
     attrs: {
       size: "sm",
       options: _vm.backgroundSizes,
@@ -31398,19 +31182,7 @@ var render = function() {
                   _c("label", { staticClass: "sub-label" }, [_vm._v("Style")]),
                   _vm._v(" "),
                   _c("b-form-select", {
-                    directives: [
-                      {
-                        name: "b-tooltip",
-                        rawName: "v-b-tooltip.hover",
-                        modifiers: { hover: true }
-                      }
-                    ],
-                    staticClass: "top-bar-control",
-                    attrs: {
-                      size: "sm",
-                      options: _vm.borderStyles,
-                      title: "Border Style"
-                    },
+                    attrs: { size: "sm", options: _vm.borderStyles },
                     model: {
                       value: _vm.borderStyle,
                       callback: function($$v) {
@@ -32545,8 +32317,8 @@ var render = function() {
             directives: [
               {
                 name: "b-tooltip",
-                rawName: "v-b-tooltip.hover",
-                modifiers: { hover: true }
+                rawName: "v-b-tooltip.hover.right",
+                modifiers: { hover: true, right: true }
               }
             ],
             attrs: { variant: "outline-primary", title: "Align Left" },
@@ -32573,8 +32345,8 @@ var render = function() {
             directives: [
               {
                 name: "b-tooltip",
-                rawName: "v-b-tooltip.hover",
-                modifiers: { hover: true }
+                rawName: "v-b-tooltip.hover.right",
+                modifiers: { hover: true, right: true }
               }
             ],
             attrs: { variant: "outline-primary", title: "Align Center" },
@@ -32601,8 +32373,8 @@ var render = function() {
             directives: [
               {
                 name: "b-tooltip",
-                rawName: "v-b-tooltip.hover",
-                modifiers: { hover: true }
+                rawName: "v-b-tooltip.hover.right",
+                modifiers: { hover: true, right: true }
               }
             ],
             attrs: { variant: "outline-primary", title: "Align Right" },
@@ -32629,8 +32401,8 @@ var render = function() {
             directives: [
               {
                 name: "b-tooltip",
-                rawName: "v-b-tooltip.hover",
-                modifiers: { hover: true }
+                rawName: "v-b-tooltip.hover.right",
+                modifiers: { hover: true, right: true }
               }
             ],
             attrs: { variant: "outline-primary", title: "Justify" },
@@ -38803,7 +38575,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-button-group",
-    { staticClass: "top-bar-control", attrs: { size: "sm" } },
     [
       _c(
         "b-button",
@@ -39314,7 +39085,6 @@ var render = function() {
                     modifiers: { hover: true }
                   }
                 ],
-                staticClass: "top-bar-control",
                 attrs: {
                   size: "sm",
                   placeholder: "Paste Instagram url here...",
@@ -39524,7 +39294,6 @@ var render = function() {
                     modifiers: { hover: true }
                   }
                 ],
-                staticClass: "top-bar-control",
                 attrs: {
                   size: "sm",
                   placeholder: "Paste Facebook Embed Code here...",
@@ -39786,7 +39555,6 @@ var render = function() {
                     modifiers: { hover: true }
                   }
                 ],
-                staticClass: "top-bar-control",
                 attrs: {
                   size: "sm",
                   placeholder: "Paste video url here...",
@@ -43638,6 +43406,8 @@ var render = function() {
           _vm._v(" "),
           _c("global-styles-switch"),
           _vm._v(" "),
+          _c("device-size-controls"),
+          _vm._v(" "),
           _c("portal-target", { attrs: { name: "top-bar" } })
         ],
         1
@@ -43708,7 +43478,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "fixed-footer" },
-        [_c("device-size-controls"), _vm._v(" "), _c("minimap")],
+        [_c("element-controls"), _vm._v(" "), _c("minimap")],
         1
       ),
       _vm._v(" "),
@@ -57163,6 +56933,490 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4c32a17a", module.exports)
+  }
+}
+
+/***/ }),
+/* 548 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "device-size-controls" }, [
+    _c(
+      "div",
+      { staticClass: "sidebar-control" },
+      [
+        _c(
+          "b-button",
+          {
+            directives: [
+              {
+                name: "b-tooltip",
+                rawName: "v-b-tooltip.hover.right",
+                value: "Devices <576px wide",
+                expression: "'Devices <576px wide'",
+                modifiers: { hover: true, right: true }
+              }
+            ],
+            attrs: { pressed: _vm.getDeviceSize === "sm", variant: "success" },
+            on: {
+              click: function($event) {
+                _vm.setDeviceSize("sm")
+              }
+            }
+          },
+          [_vm._v("\n            SM\n        ")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "sidebar-control" },
+      [
+        _c(
+          "b-button",
+          {
+            directives: [
+              {
+                name: "b-tooltip",
+                rawName: "v-b-tooltip.hover.right",
+                value: "Devices ≥576px wide",
+                expression: "'Devices ≥576px wide'",
+                modifiers: { hover: true, right: true }
+              }
+            ],
+            attrs: { pressed: _vm.getDeviceSize === "md", variant: "success" },
+            on: {
+              click: function($event) {
+                _vm.setDeviceSize("md")
+              }
+            }
+          },
+          [_vm._v("\n            MD\n        ")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "sidebar-control" },
+      [
+        _c(
+          "b-button",
+          {
+            directives: [
+              {
+                name: "b-tooltip",
+                rawName: "v-b-tooltip.hover.right",
+                value: "Devices ≥768px wide",
+                expression: "'Devices ≥768px wide'",
+                modifiers: { hover: true, right: true }
+              }
+            ],
+            attrs: { pressed: _vm.getDeviceSize === "lg", variant: "success" },
+            on: {
+              click: function($event) {
+                _vm.setDeviceSize("lg")
+              }
+            }
+          },
+          [_vm._v("\n            LG\n        ")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "sidebar-control" },
+      [
+        _c(
+          "b-button",
+          {
+            directives: [
+              {
+                name: "b-tooltip",
+                rawName: "v-b-tooltip.hover.right",
+                value: "Devices ≥992px wide",
+                expression: "'Devices ≥992px wide'",
+                modifiers: { hover: true, right: true }
+              }
+            ],
+            attrs: { pressed: _vm.getDeviceSize === "xl", variant: "success" },
+            on: {
+              click: function($event) {
+                _vm.setDeviceSize("xl")
+              }
+            }
+          },
+          [_vm._v("\n            XL\n        ")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7870e431", module.exports)
+  }
+}
+
+/***/ }),
+/* 549 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(550)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(552)
+/* template */
+var __vue_template__ = __webpack_require__(553)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/shift/ElementControls.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2fc4d3c4", Component.options)
+  } else {
+    hotAPI.reload("data-v-2fc4d3c4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 550 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(551);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("0736bf1e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fc4d3c4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementControls.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2fc4d3c4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementControls.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 551 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.element-controls-panel {\r\n    position: fixed;\r\n    bottom: 5px;\r\n    left: 200px;\r\n    background: white;\r\n    border-radius: 5px;\r\n    width: 280px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n    overflow: hidden;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 552 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ElementControls",
+
+    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a }
+});
+
+/***/ }),
+/* 553 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "floating-panel",
+    { staticStyle: { bottom: "5px", left: "205px" } },
+    [
+      _c("template", { slot: "title" }, [_vm._v("Component Styles")]),
+      _vm._v(" "),
+      _c("template", { slot: "content" }, [
+        _c("p", [
+          _vm._v(
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga officiis optio nostrum enim iure minus? Ullam laboriosam officiis adipisci expedita numquam fugit quam, labore minima, molestiae quisquam debitis asperiores dolores?"
+          )
+        ])
+      ])
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2fc4d3c4", module.exports)
+  }
+}
+
+/***/ }),
+/* 554 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(555)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(557)
+/* template */
+var __vue_template__ = __webpack_require__(558)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-43c604ea"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/shift/FloatingPanel.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43c604ea", Component.options)
+  } else {
+    hotAPI.reload("data-v-43c604ea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 555 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(556);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("1bf356ae", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43c604ea\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43c604ea\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 556 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.panel[data-v-43c604ea] {\r\n    position: fixed;\r\n    background: white;\r\n    border-radius: 5px;\r\n    width: 280px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n    overflow: hidden;\n}\n.panel-header[data-v-43c604ea] {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    color: white;\r\n    padding: 7px 10px;\r\n    border-bottom: 1px solid #24b161;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.panel-body[data-v-43c604ea] {\r\n    height: 100%;\r\n    overflow-y: scroll;\r\n    z-index: 5;\n}\n.panel-minimise-button[data-v-43c604ea] {\r\n    cursor: pointer;\n}\n.panel-minimise-button[data-v-43c604ea]:hover {\r\n    color: #dddddd;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 557 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "FloatingPanel",
+
+    data: function data() {
+        return {
+            panelVisible: true
+        };
+    }
+});
+
+/***/ }),
+/* 558 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "panel",
+      style: { height: _vm.panelVisible ? "300px" : "35px" }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "panel-header",
+          on: {
+            click: function($event) {
+              _vm.panelVisible = !_vm.panelVisible
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-9" }, [_vm._t("title")], 2),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-3 text-right" }, [
+              _c(
+                "span",
+                { staticClass: "panel-minimise-button" },
+                [
+                  _c("icon", {
+                    attrs: { name: _vm.panelVisible ? "minus" : "plus" }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm.panelVisible
+        ? _c("div", { staticClass: "panel-body" }, [_vm._t("content")], 2)
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43c604ea", module.exports)
   }
 }
 
