@@ -5,23 +5,6 @@ import {
     getSiblingElements, resetSelection, generateIdentifer
 } from "./helpers";
 
-/**
- * Generates a unique identifier for each element. Used as CSS class.
- *
- */
-export const createElementIdentifier = (state, indexes) => {
-    const element = getRootElementByIndexes(state, indexes);
-
-    // TODO: Fix this. For some reason, when an element is deleted this method is called,
-    // even if this element already exists on the workspace (why Vue??).
-    if (element.identifier === undefined) {
-        element.identifier = createIdentifier(element.type);
-    }
-}
-
-export const createIdentifier = elementType => {
-    return elementType.toLowerCase() + '-' + generateIdentifer()
-}
 
 /**
  * Toggle Global Component styles on or off.
@@ -83,6 +66,31 @@ export const addComponent = (state, componentType) => {
         .components.push(components[componentType]);
 };
 
+/**
+ * Sets the state's 'selectedElementStyle' to the name of the element that is passed in.
+ *
+ */
+export const setSelectedElementStyle = (state, elementStyleName) => {
+    state.selectedElementStyle = elementStyleName;
+}
+
+/**
+ * Generates a unique identifier for each element. Used as CSS class.
+ *
+ */
+export const createElementIdentifier = (state, indexes) => {
+    const element = getRootElementByIndexes(state, indexes);
+
+    // TODO: Fix this. For some reason, when an element is deleted this method is called,
+    // even if this element already exists on the workspace (why Vue??).
+    if (element.identifier === undefined) {
+        element.identifier = createIdentifier(element.type);
+    }
+}
+
+export const createIdentifier = elementType => {
+    return elementType.toLowerCase() + '-' + generateIdentifer()
+}
 
 /**
  * Used to set CSS properties on components.
@@ -232,6 +240,7 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
 
     getSelectedRootElement(state).selected = true;
+    setSelectedElementStyle(state, null);
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {

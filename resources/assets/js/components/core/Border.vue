@@ -1,81 +1,77 @@
 <template>
-    <div class="sidebar-control">
-        <top-bar-control icon="regular/square" tooltip="Borders" id="border-popover"></top-bar-control>
+    <div>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Top</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="borderTop"
+                    :min="0"
+                    :max="50"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('borderTop')"
+                ></b-form-input>
+            </b-col>
 
-        <b-popover target="border-popover" placement="right">
-            <b-row style="width: 225px">
-                <b-col>
-                    <label class="sub-label">Top</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="borderTop"
-                        :min="0"
-                        :max="50"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('borderTop')"
-                    ></b-form-input>
-                </b-col>
+            <b-col>
+                <label class="sub-label">Bottom</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="borderBottom"
+                    :min="0"
+                    :max="50"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('borderBottom')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-                <b-col>
-                    <label class="sub-label">Bottom</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="borderBottom"
-                        :min="0"
-                        :max="50"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('borderBottom')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Left</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="borderLeft"
+                    :min="0"
+                    :max="50"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('borderLeft')"
+                ></b-form-input>
+            </b-col>
 
-            <b-row style="width: 225px">
-                <b-col>
-                    <label class="sub-label">Left</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="borderLeft"
-                        :min="0"
-                        :max="50"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('borderLeft')"
-                    ></b-form-input>
-                </b-col>
+            <b-col>
+                <label class="sub-label">Right</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="borderRight"
+                    :min="0"
+                    :max="50"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('borderRight')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-                <b-col>
-                    <label class="sub-label">Right</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="borderRight"
-                        :min="0"
-                        :max="50"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('borderRight')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Border Radius</label>
+                <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
+            </b-col>
+        </b-row>
 
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Border Radius</label>
-                    <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
-                </b-col>
-            </b-row>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Style</label>
+                <b-form-select size="sm" v-model="borderStyle" :options="borderStyles"></b-form-select>
+            </b-col>
+        </b-row>
 
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Style</label>
-                    <b-form-select size="sm" v-model="borderStyle" :options="borderStyles"></b-form-select>
-                </b-col>
-            </b-row>
-
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Colour</label>
-                    <color-picker :value="colors" @input="setColor"></color-picker>
-                </b-col>
-            </b-row>
-        </b-popover>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Colour</label>
+                <color-picker :value="colors" @input="setColor"></color-picker>
+            </b-col>
+        </b-row>
     </div>
 </template>
 

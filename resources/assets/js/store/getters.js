@@ -9,6 +9,15 @@ export const globalComponentStyles = state => {
 };
 
 /**
+ * Returns the value of the selectedElementStyle variable.
+ *
+ */
+export const selectedElementStyle = state => {
+    console.log('returning element style: ' + state.selectedElementStyle);
+    return state.selectedElementStyle;
+};
+
+/**
  * Returns the list of Canvases on the state. Used to populate the main workspace.
  *
  */

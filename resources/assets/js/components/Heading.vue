@@ -23,11 +23,9 @@
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
-            <margin></margin>
+            <element-positioning></element-positioning>
 
-            <padding></padding>
-
-            <border></border>
+            <element-borders></element-borders>
 
             <text-color></text-color>
 
@@ -54,11 +52,12 @@
 import GetElement        from './mixins/GetElement'
 
 import TopBar            from './topbar/TopBar'
-import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+
+import ElementPositioning from './panels/ElementPositioning'
+import ElementBorders     from './panels/ElementBorders'
 
 import TextInput         from './core/TextInput'
-import Margin            from './core/Margin'
-import Padding           from './core/Padding'
 import Border            from './core/Border'
 import TextColor         from './core/TextColor'
 import TextShadow        from './core/TextShadow'
@@ -77,7 +76,8 @@ export default {
 
     components: {
         TopBar, DeleteCloneMoveElement,
-        Margin, Padding, Border, TextInput, FontFamily, TextAlignment, LineHeight, FontWeight,
+        ElementPositioning, ElementBorders,
+        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight,
         FontSize, TextColor, TextShadow, LetterSpacing, Width
     },
 

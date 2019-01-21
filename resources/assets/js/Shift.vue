@@ -53,7 +53,7 @@
         </div>
 
         <div class="fixed-footer">
-            <element-controls></element-controls>
+            <element-styles-panel></element-styles-panel>
 
             <minimap></minimap>
         </div>
@@ -86,7 +86,7 @@ import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
 import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
-import ElementControls         from "./components/shift/ElementControls";
+import ElementStylesPanel         from "./components/shift/ElementStylesPanel";
 import Minimap                 from "./components/shift/Minimap";
 
 import Canvas                  from "./components/layout/Canvas";
@@ -105,7 +105,7 @@ export default {
 
     components: {
         KeyBindings, ShiftMenu, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        ElementControls, Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
+        ElementStylesPanel, Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
         ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 

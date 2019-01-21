@@ -1,60 +1,59 @@
 <template>
-    <div class="sidebar-control">
-        <top-bar-control icon="expand" tooltip="Margins" id="margin-popover"></top-bar-control>
+    <div>
+        <h6 class="text-uppercase">Margin</h6>
 
-        <b-popover target="margin-popover" placement="right">
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Top</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="marginTop"
-                        :min="0"
-                        :max="500"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('marginTop')"
-                    ></b-form-input>
-                </b-col>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Top</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="marginTop"
+                    :min="0"
+                    :max="500"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('marginTop')"
+                ></b-form-input>
+            </b-col>
 
-                <b-col>
-                    <label class="sub-label">Bottom</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="marginBottom"
-                        :min="0"
-                        :max="500"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('marginBottom')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
+            <b-col>
+                <label class="sub-label">Bottom</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="marginBottom"
+                    :min="0"
+                    :max="500"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('marginBottom')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Left</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="marginLeft"
-                        :min="0"
-                        :max="500"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('marginLeft')"
-                    ></b-form-input>
-                </b-col>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Left</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="marginLeft"
+                    :min="0"
+                    :max="500"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('marginLeft')"
+                ></b-form-input>
+            </b-col>
 
-                <b-col>
-                    <label class="sub-label">Right</label>
-                    <b-form-input
-                        type="number"
-                        v-model.number="marginRight"
-                        :min="0"
-                        :max="500"
-                        size="sm"
-                        @focusout.native="ensureValueIsNotEmpty('marginRight')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
-        </b-popover>
+            <b-col>
+                <label class="sub-label">Right</label>
+                <b-form-input
+                    type="number"
+                    v-model.number="marginRight"
+                    :min="0"
+                    :max="500"
+                    size="sm"
+                    @focusout.native="ensureValueIsNotEmpty('marginRight')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
+
     </div>
 </template>
 
@@ -70,6 +69,14 @@ export default {
     mixins: [NoEmptyValues],
 
     computed: {
+        elementStyleIsSelected() {
+            const selected = this.$store.getters.selectedElementStyle === 'margin';
+
+            console.log(selected);
+
+            return selected;
+        },
+
         marginTop: {
             get() {
                 return this.$store.getters.getSelectedElement.margin.top;
@@ -122,6 +129,12 @@ export default {
             }
         },
     },
+
+    methods: {
+        setSelectedElementStyle(elementStyleName) {
+            this.$store.commit('setSelectedElementStyle', elementStyleName);
+        }
+    }
 }
 </script>
 
