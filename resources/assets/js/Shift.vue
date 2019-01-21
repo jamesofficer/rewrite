@@ -6,13 +6,15 @@
 
             <global-styles-switch></global-styles-switch>
 
-            <device-size-controls></device-size-controls>
-
             <portal-target name="top-bar"></portal-target>
         </div>
 
         <!-- Main Content Area -->
         <div id="rewrite-content-area">
+            <div class="device-size-controls-container">
+                <device-size-controls></device-size-controls>
+            </div>
+
             <notification></notification>
 
             <!-- Article Name -->
@@ -152,6 +154,12 @@ export default {
 .article-name-container {
     margin: 0 auto;
     padding-top: 20px;
+}
+
+.device-size-controls-container {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 .top-bar-styles {

@@ -13,7 +13,6 @@ export const globalComponentStyles = state => {
  *
  */
 export const selectedElementStyle = state => {
-    console.log('returning element style: ' + state.selectedElementStyle);
     return state.selectedElementStyle;
 };
 

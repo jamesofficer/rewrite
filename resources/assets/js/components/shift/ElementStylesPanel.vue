@@ -1,16 +1,16 @@
 <template>
-    <floating-panel style="bottom: 5px; left: 205px">
-            <template slot="title">{{ selectedElementStyleName }} Controls</template>
+    <floating-panel style="bottom: 5px; left: 205px; overflow-y: scroll;">
+        <template slot="title">{{ selectedElementStyleName }} Controls</template>
 
-            <template slot="content">
-                <div style="padding: 10px">
-                    <div v-if="selectedElementStyleName === ''">
-                        <p>No style selected.</p>
-                    </div>
-
-                    <portal-target v-else name="element-styles-panel"></portal-target>
+        <template slot="content">
+            <div style="padding: 10px">
+                <div v-if="selectedElementStyleName === ''">
+                    <p>No style selected.</p>
                 </div>
-            </template>
+
+                <portal-target v-else name="element-styles-panel"></portal-target>
+            </div>
+        </template>
     </floating-panel>
 </template>
 

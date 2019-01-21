@@ -27,23 +27,9 @@
 
             <element-borders></element-borders>
 
-            <text-color></text-color>
+            <element-text-formatting></element-text-formatting>
 
-            <text-shadow></text-shadow>
-
-            <text-alignment></text-alignment>
-
-            <font-family></font-family>
-
-            <font-size></font-size>
-
-            <font-weight></font-weight>
-
-            <line-height></line-height>
-
-            <letter-spacing></letter-spacing>
-
-            <width></width>
+            <element-text-shadow></element-text-shadow>
         </top-bar>
     </div>
 </template>
@@ -54,20 +40,12 @@ import GetElement        from './mixins/GetElement'
 import TopBar            from './topbar/TopBar'
 import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
-import ElementPositioning from './panels/ElementPositioning'
-import ElementBorders     from './panels/ElementBorders'
+import ElementPositioning    from './panels/ElementPositioning'
+import ElementBorders        from './panels/ElementBorders'
+import ElementTextFormatting from './panels/ElementTextFormatting'
+import ElementTextShadow     from './panels/ElementTextShadow'
 
 import TextInput         from './core/TextInput'
-import Border            from './core/Border'
-import TextColor         from './core/TextColor'
-import TextShadow        from './core/TextShadow'
-import TextAlignment     from './core/TextAlignment'
-import FontFamily        from './core/FontFamily'
-import FontWeight        from './core/FontWeight'
-import FontSize          from './core/FontSize'
-import LineHeight        from './core/LineHeight'
-import LetterSpacing     from './core/LetterSpacing'
-import Width             from './core/Width'
 
 export default {
     name: "Heading",
@@ -75,10 +53,8 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMoveElement,
-        ElementPositioning, ElementBorders,
-        TextInput, FontFamily, TextAlignment, LineHeight, FontWeight,
-        FontSize, TextColor, TextShadow, LetterSpacing, Width
+        TopBar, DeleteCloneMoveElement, TextInput,
+        ElementPositioning, ElementBorders, ElementTextFormatting, ElementTextShadow,
     },
 
     data() {

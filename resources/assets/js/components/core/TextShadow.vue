@@ -1,57 +1,53 @@
 <template>
-    <div class="sidebar-control">
-        <top-bar-control icon="sun" tooltip="Text Shadow" id="text-shadow-popover"></top-bar-control>
+    <div>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Offset X</label>
+                <b-form-input
+                    size="sm"
+                    type="number"
+                    v-model.number="offsetX"
+                    :min="0"
+                    :max="100"
+                    @focusout.native="ensureValueIsNotEmpty('offsetX')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-        <b-popover target="text-shadow-popover" placement="right">
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Offset X</label>
-                    <b-form-input
-                        size="sm"
-                        type="number"
-                        v-model.number="offsetX"
-                        :min="0"
-                        :max="100"
-                        @focusout.native="ensureValueIsNotEmpty('offsetX')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Offset Y</label>
+                <b-form-input
+                    size="sm"
+                    type="number"
+                    v-model.number="offsetY"
+                    :min="0"
+                    :max="100"
+                    @focusout.native="ensureValueIsNotEmpty('offsetY')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Offset Y</label>
-                    <b-form-input
-                        size="sm"
-                        type="number"
-                        v-model.number="offsetY"
-                        :min="0"
-                        :max="100"
-                        @focusout.native="ensureValueIsNotEmpty('offsetY')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Blur Radius</label>
+                <b-form-input
+                    size="sm"
+                    type="number"
+                    v-model.number="blurRadius"
+                    :min="0"
+                    :max="100"
+                    @focusout.native="ensureValueIsNotEmpty('blurRadius')"
+                ></b-form-input>
+            </b-col>
+        </b-row>
 
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Blur Radius</label>
-                    <b-form-input
-                        size="sm"
-                        type="number"
-                        v-model.number="blurRadius"
-                        :min="0"
-                        :max="100"
-                        @focusout.native="ensureValueIsNotEmpty('blurRadius')"
-                    ></b-form-input>
-                </b-col>
-            </b-row>
-
-            <b-row>
-                <b-col>
-                    <label class="sub-label">Colour</label>
-                    <color-picker :value="colors" @input="setColor"></color-picker>
-                </b-col>
-            </b-row>
-        </b-popover>
+        <b-row>
+            <b-col>
+                <label class="sub-label">Colour</label>
+                <color-picker :value="colors" @input="setColor"></color-picker>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
