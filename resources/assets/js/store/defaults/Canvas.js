@@ -1,10 +1,10 @@
 import defaultRow from "./Row";
-// import { getIdentifier } from "./GenerateIdentifier";
 
 let canvas = {
     backgroundSize: 'Auto',
     backgroundColor: { r: 255, g: 255, b: 255, a: 1 },
     backgroundPosition: 'Center',
+    backgroundImage: undefined,
     padding: {
         top: 20,
         right: 20,

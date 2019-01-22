@@ -1,6 +1,6 @@
 <template>
     <!-- A div must wrap this component (usually the parent component) with position styles (e.g. style="bottom: 5px; right: 5px") for it display correctly. -->
-    <div class="panel" :style="{ height : panelVisible ? '300px' : '35px' }">
+    <div class="panel" :style="[{ height : panelVisible ? height : '35px' }, { width: width }, { minWidth: '250px' }]">
         <div class="panel-header" @click="panelVisible = ! panelVisible">
             <div class="row">
                 <div class="col-9">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="panel-body" v-if="panelVisible">
-            <!-- Panel Content goes here... -->
+            <!-- Panel Content will appear in here. -->
             <slot name="content"></slot>
         </div>
     </div>
@@ -26,6 +26,20 @@
 <script>
 export default {
     name: "FloatingPanel",
+
+    props: {
+        height: {
+            type: String,
+            required: false,
+            default: '300px',
+        },
+
+        width: {
+            type: String,
+            required: false,
+            default: '280px',
+        }
+    },
 
     data() {
         return {
@@ -40,7 +54,6 @@ export default {
     position: fixed;
     background: white;
     border-radius: 5px;
-    width: 280px;
     box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);
     overflow: hidden;
 }

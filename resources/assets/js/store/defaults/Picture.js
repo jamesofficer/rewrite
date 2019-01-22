@@ -1,7 +1,7 @@
 // This element is named 'Picture' as 'Image' is a reserved tag.
 
 let picture = {
-    src: null,
+    src: undefined,
 
     textAlign: "left",
     width: 75,

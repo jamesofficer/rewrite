@@ -20,33 +20,33 @@
 
             <image-selector></image-selector>
 
-            <template v-if="element.src">
-                <margin></margin>
+            <template v-if="element.src !== undefined">
+                <element-positioning :showImageAlignment="true"></element-positioning>
 
-                <border></border>
+                <element-borders></element-borders>
 
-                <box-shadow></box-shadow>
-
-                <width></width>
-
-                <image-alignment></image-alignment>
+                <element-box-shadow></element-box-shadow>
             </template>
         </top-bar>
     </div>
 </template>
 
 <script>
-import GetElement      from './mixins/GetElement'
+import GetElement         from './mixins/GetElement'
 
-import TopBar          from './topbar/TopBar'
+import TopBar             from './topbar/TopBar'
 import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
-import ImageSelector   from './core/ImageSelector'
-import ImageAlignment  from './core/ImageAlignment'
-import Margin          from './core/Margin'
-import Width           from './core/Width'
-import Border          from './core/Border'
-import BoxShadow       from './core/BoxShadow'
+import ElementPositioning from './panels/ElementPositioning'
+import ElementBorders     from './panels/ElementBorders'
+import ElementBoxShadow   from './panels/ElementBoxShadow'
+
+import ImageSelector      from './core/ImageSelector'
+import ImageAlignment     from './core/ImageAlignment'
+import Margin             from './core/Margin'
+import Width              from './core/Width'
+import Border             from './core/Border'
+import BoxShadow          from './core/BoxShadow'
 
 export default {
     name: "Picture",
@@ -54,8 +54,9 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMoveElement,
-        ImageSelector, ImageAlignment, Margin, Width, Border, BoxShadow,
+        TopBar, DeleteCloneMoveElement, ImageSelector,
+        ElementPositioning, ElementBorders, ElementBoxShadow,
+        ImageAlignment, Margin, Width, Border, BoxShadow,
     },
 }
 </script>

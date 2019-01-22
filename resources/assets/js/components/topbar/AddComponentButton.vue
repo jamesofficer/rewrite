@@ -1,5 +1,12 @@
 <template>
-    <top-bar-control @click.native="showAddComponentModal" variant="outline-success" icon="sitemap" label="Add Component"></top-bar-control>
+    <div class="sidebar-control">
+        <top-bar-control
+            @click.native="showAddComponentModal"
+            variant="outline-success"
+            icon="sitemap"
+            tooltip="Add Component to Column"
+        ></top-bar-control>
+    </div>
 </template>
 
 <script>

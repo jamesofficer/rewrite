@@ -15,7 +15,6 @@
             v-show="row.visible"
         ></row>
 
-        <!-- TOP BAR -->
         <top-bar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
@@ -23,21 +22,7 @@
 
             <element-positioning :showMargins="false" :showWidth="false"></element-positioning>
 
-            <element-background></element-background>
-
-            <image-selector></image-selector>
-
-            <!-- Only need these for background images -->
-            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
-                <background-size></background-size>
-
-                <background-position></background-position>
-            </template>
-
-            <!-- Clearing a background image also clears a background gradient -->
-            <template v-if="element.backgroundImage">
-                <clear-image></clear-image>
-            </template>
+            <element-background :element="element"></element-background>
         </top-bar>
     </b-container>
 </template>

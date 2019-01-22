@@ -1,21 +1,21 @@
 <template>
-    <top-bar-control
-        v-if="! reachedMaxColumns"
-        @click.native="addColumn"
-        variant="outline-success"
-        icon="columns"
-        label="Add Column"
-        tooltip="Add Column to Canvas"
-    ></top-bar-control>
-
-    <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
-    <div v-else v-b-tooltip.hover title="Can't add column as there is not enough room.">
-        <top-bar-control 
+    <div class="sidebar-control">
+        <top-bar-control
+            v-if="! reachedMaxColumns"
+            @click.native="addColumn"
             variant="outline-success"
             icon="columns"
-            label="Add Column"
-            :disabled="true"
+            tooltip="Add Column to Canvas"
         ></top-bar-control>
+
+        <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
+        <div v-else v-b-tooltip.hover.right title="Can't add column as there is not enough room.">
+            <top-bar-control
+                variant="outline-success"
+                icon="columns"
+                :disabled="true"
+            ></top-bar-control>
+        </div>
     </div>
 </template>
 

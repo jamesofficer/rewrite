@@ -23,35 +23,15 @@
 
             <add-component-button></add-component-button>
 
-            <margin></margin>
+            <element-positioning :showWidth="false"></element-positioning>
 
-            <padding></padding>
+            <element-background :element="element"></element-background>
 
-            <background-color></background-color>
+            <element-borders></element-borders>
 
-            <background-gradient></background-gradient>
+            <element-box-shadow></element-box-shadow>
 
-            <image-selector></image-selector>
-
-            <border></border>
-
-            <box-shadow></box-shadow>
-
-            <!-- Only need these for background images -->
-            <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
-                <background-size></background-size>
-
-                <background-position></background-position>
-            </template>
-
-            <!-- Clearing a background image also clears a background gradient -->
-            <template v-if="element.backgroundImage">
-                <clear-image></clear-image>
-            </template>
-
-            <column-width></column-width>
-
-            <align-components></align-components>
+            <column-settings></column-settings>
         </top-bar>
     </b-col>
 </template>
@@ -62,37 +42,31 @@ import GetElement          from '../mixins/GetElement'
 import TopBar              from '../topbar/TopBar'
 import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 import AddComponentButton  from '../topbar/AddComponentButton'
-import AlignComponents     from '../topbar/AlignComponents'
 import ClearImage          from '../topbar/ClearImage'
-import BackgroundSize      from '../core/BackgroundSize'
 
-import ColumnWidth         from '../core/ColumnWidth'
-import Margin              from '../core/Margin'
-import Padding             from '../core/Padding'
-import BackgroundColor     from '../core/BackgroundColor'
-import BackgroundGradient  from '../core/BackgroundGradient'
-import BackgroundPosition  from '../core/BackgroundPosition'
-import ImageSelector       from '../core/ImageSelector'
-import Border              from '../core/Border'
-import BoxShadow           from '../core/BoxShadow'
+import ElementPositioning from '../panels/ElementPositioning'
+import ElementBackground  from '../panels/ElementBackground'
+import ElementBorders     from '../panels/ElementBorders'
+import ElementBoxShadow   from '../panels/ElementBoxShadow'
+import ColumnSettings     from '../panels/ColumnSettings'
 
-import Heading             from '../Heading'
-import Paragraph           from '../Paragraph'
-import BlockQuote          from '../BlockQuote'
-import Picture             from '../Picture'
-import HorizontalLine      from '../HorizontalLine'
-import InstagramEmbed      from '../InstagramEmbed'
-import FacebookEmbed       from '../FacebookEmbed'
-import YouTubeEmbed        from '../YouTubeEmbed'
-import RecipeSummary       from '../RecipeSummary'
-import RecipeIngredients   from '../RecipeIngredients'
+import Heading            from '../Heading'
+import Paragraph          from '../Paragraph'
+import BlockQuote         from '../BlockQuote'
+import Picture            from '../Picture'
+import HorizontalLine     from '../HorizontalLine'
+import InstagramEmbed     from '../InstagramEmbed'
+import FacebookEmbed      from '../FacebookEmbed'
+import YouTubeEmbed       from '../YouTubeEmbed'
+import RecipeSummary      from '../RecipeSummary'
+import RecipeIngredients  from '../RecipeIngredients'
 
 export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, AlignComponents, DeleteCloneMoveElement, ClearImage,
-        ColumnWidth, Margin, Padding, BackgroundColor, BackgroundGradient, ImageSelector, Border, BoxShadow, BackgroundPosition, BackgroundSize,
+        TopBar, AddComponentButton, DeleteCloneMoveElement, ClearImage,
+        ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow, ColumnSettings,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, FacebookEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
@@ -118,9 +92,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.component-button-group {
-    margin: 3px 0;
-}
-</style>

@@ -51,7 +51,7 @@ export default {
     visible: true,
     identifier: undefined,
 
-    components: [defaultHeading, defaultParagraph],
+    components: [defaultHeading, defaultParagraph, defaultPicture],
 
     sm: column,
     md: column,

@@ -1,6 +1,7 @@
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
 import "vue-awesome/icons/bars";
+import "vue-awesome/icons/cogs";
 import "vue-awesome/icons/palette";
 import "vue-awesome/icons/columns";
 import "vue-awesome/icons/arrows-alt-h";

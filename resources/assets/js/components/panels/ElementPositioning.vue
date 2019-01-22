@@ -12,6 +12,10 @@
             <hr v-if="showPadding">
 
             <width v-if="showWidth"></width>
+
+            <hr v-if="showImageAlignment">
+
+            <image-alignment v-if="showImageAlignment"></image-alignment>
         </portal>
     </div>
 </template>
@@ -23,11 +27,14 @@ import TopBarControl  from '../topbar/TopBarControl';
 import Margin         from '../core/Margin';
 import Padding        from '../core/Padding';
 import Width          from '../core/Width';
+import ImageAlignment from '../core/ImageAlignment';
 
 export default {
     name: "ElementPositioning",
 
-    components: { TopBarControl, Margin, Padding, Width },
+    components: {
+        TopBarControl, Margin, Padding, Width, ImageAlignment
+    },
 
     mixins: [SelectedElementStyle],
 
@@ -48,6 +55,12 @@ export default {
             type: Boolean,
             required: false,
             default: true,
+        },
+
+        showImageAlignment: {
+            type: Boolean,
+            required: false,
+            default: false,
         }
     },
 
