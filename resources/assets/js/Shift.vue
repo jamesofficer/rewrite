@@ -15,6 +15,7 @@
                 <device-size-controls></device-size-controls>
             </div>
 
+            <!-- NOTIFCATION IS CAUSING EXTRA PIXELS TO BE ADDED TO RIGHT OF WINDOW -->
             <notification></notification>
 
             <!-- Article Name -->
@@ -50,8 +51,7 @@
                 ></canvas>
             </div>
 
-                <shift-footer></shift-footer>
-            <!-- End of Shift Container -->
+            <shift-footer></shift-footer>
         </div>
 
         <div class="fixed-footer">

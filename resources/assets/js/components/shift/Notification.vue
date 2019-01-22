@@ -1,17 +1,19 @@
 <template>
-    <b-row class="session-alert-message">
-        <b-col>
-            <b-alert :variant="notification.type" dismissible fade :show="notification.dismissCountDown" @dismissed="notification.dismissCountDown = 0" @dismiss-count-down="dismissCountDown">
-                <p>{{ notification.message }}</p>
+    <b-container>
+        <b-row class="session-alert-message">
+            <b-col>
+                <b-alert :variant="notification.type" dismissible fade :show="notification.dismissCountDown" @dismissed="notification.dismissCountDown = 0" @dismiss-count-down="dismissCountDown">
+                    <p>{{ notification.message }}</p>
 
-                <b-progress :variant="notification.type"
-                            :max="notification.dismissSecs"
-                            :value="notification.dismissCountDown"
-                            height="4px"
-                ></b-progress>
-            </b-alert>
-        </b-col>
-    </b-row>
+                    <b-progress :variant="notification.type"
+                                :max="notification.dismissSecs"
+                                :value="notification.dismissCountDown"
+                                height="4px"
+                    ></b-progress>
+                </b-alert>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>

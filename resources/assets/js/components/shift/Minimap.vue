@@ -1,5 +1,5 @@
 <template>
-    <floating-panel style="bottom: 5px; right: 5px">
+    <floating-panel style="bottom: 5px; right: 15px">
         <template slot="title">Layout</template>
 
         <template slot="content">

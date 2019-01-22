@@ -26964,6 +26964,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Notification",
@@ -26990,39 +26992,45 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-row",
-    { staticClass: "session-alert-message" },
+    "b-container",
     [
       _c(
-        "b-col",
+        "b-row",
+        { staticClass: "session-alert-message" },
         [
           _c(
-            "b-alert",
-            {
-              attrs: {
-                variant: _vm.notification.type,
-                dismissible: "",
-                fade: "",
-                show: _vm.notification.dismissCountDown
-              },
-              on: {
-                dismissed: function($event) {
-                  _vm.notification.dismissCountDown = 0
-                },
-                "dismiss-count-down": _vm.dismissCountDown
-              }
-            },
+            "b-col",
             [
-              _c("p", [_vm._v(_vm._s(_vm.notification.message))]),
-              _vm._v(" "),
-              _c("b-progress", {
-                attrs: {
-                  variant: _vm.notification.type,
-                  max: _vm.notification.dismissSecs,
-                  value: _vm.notification.dismissCountDown,
-                  height: "4px"
-                }
-              })
+              _c(
+                "b-alert",
+                {
+                  attrs: {
+                    variant: _vm.notification.type,
+                    dismissible: "",
+                    fade: "",
+                    show: _vm.notification.dismissCountDown
+                  },
+                  on: {
+                    dismissed: function($event) {
+                      _vm.notification.dismissCountDown = 0
+                    },
+                    "dismiss-count-down": _vm.dismissCountDown
+                  }
+                },
+                [
+                  _c("p", [_vm._v(_vm._s(_vm.notification.message))]),
+                  _vm._v(" "),
+                  _c("b-progress", {
+                    attrs: {
+                      variant: _vm.notification.type,
+                      max: _vm.notification.dismissSecs,
+                      value: _vm.notification.dismissCountDown,
+                      height: "4px"
+                    }
+                  })
+                ],
+                1
+              )
             ],
             1
           )
@@ -27866,7 +27874,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "floating-panel",
-    { staticStyle: { bottom: "5px", right: "5px" } },
+    { staticStyle: { bottom: "5px", right: "15px" } },
     [
       _c("template", { slot: "title" }, [_vm._v("Layout")]),
       _vm._v(" "),
