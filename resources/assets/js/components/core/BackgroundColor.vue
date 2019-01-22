@@ -1,11 +1,5 @@
 <template>
-    <div>
-        <top-bar-control icon="fill" tooltip="Background Colour" id="background-color-popover"></top-bar-control>
-
-        <b-popover target="background-color-popover" placement="bottom">
-            <color-picker :value="backgroundColor" @input="updateValue"></color-picker>
-        </b-popover>
-    </div>
+    <color-picker :value="backgroundColor" @input="updateValue"></color-picker>
 </template>
 
 <script>

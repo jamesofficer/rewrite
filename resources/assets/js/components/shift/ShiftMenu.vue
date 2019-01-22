@@ -1,45 +1,47 @@
 <template>
-    <b-dropdown variant="success" no-caret>
-        <template slot="button-content">
-            <icon name="bars"></icon>
-        </template>
+    <div class="sidebar-control">
+        <b-dropdown variant="success" no-caret>
+            <template slot="button-content">
+                <icon name="bars"></icon>
+            </template>
 
-        <b-dropdown-item @click="addCanvas">
-            <icon name="palette"></icon> &nbsp; Add Canvas
-        </b-dropdown-item>
+            <b-dropdown-item @click="addCanvas">
+                <icon name="palette"></icon> &nbsp; Add Canvas
+            </b-dropdown-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-divider></b-dropdown-divider>
 
-        <b-dropdown-item v-b-modal.myImagesModal>
-            <icon name="images"></icon> &nbsp; My Images
-        </b-dropdown-item>
+            <b-dropdown-item v-b-modal.myImagesModal>
+                <icon name="images"></icon> &nbsp; My Images
+            </b-dropdown-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-divider></b-dropdown-divider>
 
-        <b-dropdown-item @click="saveArticle">
-            <icon name="save"></icon> &nbsp; Save Article
-        </b-dropdown-item>
+            <b-dropdown-item @click="saveArticle">
+                <icon name="save"></icon> &nbsp; Save Article
+            </b-dropdown-item>
 
-        <b-dropdown-item v-b-modal.loadArticleModal>
-            <icon name="folder-open"></icon> &nbsp; Load Article
-        </b-dropdown-item>
+            <b-dropdown-item v-b-modal.loadArticleModal>
+                <icon name="folder-open"></icon> &nbsp; Load Article
+            </b-dropdown-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-divider></b-dropdown-divider>
 
-        <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
-            <icon name="eye"></icon> &nbsp; Preview Article
-        </b-dropdown-item>
+            <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
+                <icon name="eye"></icon> &nbsp; Preview Article
+            </b-dropdown-item>
 
-        <b-dropdown-item variant="warning" @click="showExportArticleModal">
-            <icon name="file-export"></icon> &nbsp; Export Article
-        </b-dropdown-item>
+            <b-dropdown-item variant="warning" @click="showExportArticleModal">
+                <icon name="file-export"></icon> &nbsp; Export Article
+            </b-dropdown-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-divider></b-dropdown-divider>
 
-        <b-dropdown-item variant="warning" @click="signOut">
-            <icon name="sign-out-alt"></icon> &nbsp; Logout
-        </b-dropdown-item>
-    </b-dropdown>
+            <b-dropdown-item variant="warning" @click="signOut">
+                <icon name="sign-out-alt"></icon> &nbsp; Logout
+            </b-dropdown-item>
+        </b-dropdown>
+    </div>
 </template>
 
 <script>

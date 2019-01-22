@@ -14,29 +14,13 @@
 
             <edit-text-button ref="editTextButton"></edit-text-button>
 
-            <margin></margin>
+            <element-positioning></element-positioning>
 
-            <padding></padding>
+            <element-borders></element-borders>
 
-            <border></border>
+            <element-text-formatting></element-text-formatting>
 
-            <text-color></text-color>
-
-            <text-shadow></text-shadow>
-
-            <text-alignment></text-alignment>
-
-            <font-family></font-family>
-
-            <font-size></font-size>
-
-            <font-weight></font-weight>
-
-            <line-height></line-height>
-
-            <letter-spacing></letter-spacing>
-
-            <width></width>
+            <element-text-shadow></element-text-shadow>
         </top-bar>
     </div>
 </template>
@@ -50,19 +34,12 @@ import TopBar            from './topbar/TopBar'
 import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
 import EditTextButton    from './topbar/EditTextButton'
 
-import Margin            from './core/Margin'
-import Padding           from './core/Padding'
-import Border            from './core/Border'
+import ElementPositioning    from './panels/ElementPositioning'
+import ElementBorders        from './panels/ElementBorders'
+import ElementTextFormatting from './panels/ElementTextFormatting'
+import ElementTextShadow     from './panels/ElementTextShadow'
+
 import TextInput         from './core/TextInput'
-import FontFamily        from './core/FontFamily'
-import TextAlignment     from './core/TextAlignment'
-import FontWeight        from './core/FontWeight'
-import FontSize          from './core/FontSize'
-import TextColor         from './core/TextColor'
-import TextShadow        from './core/TextShadow'
-import LineHeight        from './core/LineHeight'
-import LetterSpacing     from './core/LetterSpacing'
-import Width             from './core/Width'
 
 export default {
     name: "Paragraph",
@@ -71,9 +48,8 @@ export default {
 
     components: {
         EditTextModal,
-        TopBar, EditTextButton, DeleteCloneMoveElement,
-        Margin, Padding, Border,
-        TextInput, FontFamily, TextAlignment, FontWeight, FontSize, LineHeight, TextColor, TextShadow, LetterSpacing, Width
+        TopBar, EditTextButton, DeleteCloneMoveElement, TextInput,
+        ElementPositioning, ElementBorders, ElementTextFormatting, ElementTextShadow,
     },
 
     data() {

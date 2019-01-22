@@ -1,10 +1,12 @@
 <template>
-    <top-bar-control @click.native="addRow"
-                     variant="outline-success"
-                     icon="columns"
-                     label="Add Row"
-                     tooltip="Add Row to Canvas"
-    ></top-bar-control>
+    <div class="sidebar-control">
+        <top-bar-control
+            @click.native="addRow"
+            variant="outline-success"
+            icon="columns"
+            tooltip="Add Row to Canvas"
+        ></top-bar-control>
+    </div>
 </template>
 
 <script>

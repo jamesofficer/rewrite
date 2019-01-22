@@ -1,34 +1,32 @@
 <template>
-    <div id="global-styles-switch-wrapper">
-        <b-form-checkbox
-            v-model="enableGlobalStyles"
-            :value="true"
-            :unchecked-value="false"
-            v-b-tooltip.hover title="Keeps component styling the same between device sizes."
-            id="global-styles-switch"
-        >
-            Global Styles
-        </b-form-checkbox>
+    <div class="sidebar-control">
+        <top-bar-control
+            icon="sitemap"
+            tooltip="Enable Global Styles"
+            :variant="getGlobalStylesStatus ? 'success' : 'danger'"
+            @click.native="setGlobalComponentStyles(! getGlobalStylesStatus)"
+        ></top-bar-control>
     </div>
 </template>
 
 <script>
+import TopBarControl from '../topbar/TopBarControl';
+
 export default {
     name: "GlobalStylesSwitch",
 
+    components: { TopBarControl },
+
     computed: {
-        enableGlobalStyles: {
-            get() {
-                return this.$store.getters.getGlobalComponentStyles;
-            },
-            set(toggle) {
-                this.$store.commit('enableGlobalComponentStyles', toggle);
-            }
+        getGlobalStylesStatus() {
+            return this.$store.getters.globalComponentStyles;
         },
     },
 
-    mounted() {
-        document.getElementById('global-styles-switch').checked = true;
-    }
+    methods: {
+        setGlobalComponentStyles(toggle) {
+            this.$store.commit('enableGlobalComponentStyles', toggle);
+        }
+    },
 }
 </script>

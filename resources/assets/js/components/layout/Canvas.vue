@@ -21,11 +21,9 @@
 
             <add-row></add-row>
 
-            <padding></padding>
+            <element-positioning :showMargins="false" :showWidth="false"></element-positioning>
 
-            <background-color></background-color>
-
-            <background-gradient></background-gradient>
+            <element-background></element-background>
 
             <image-selector></image-selector>
 
@@ -51,12 +49,14 @@ import Row                from './Row'
 import TopBar             from '../topbar/TopBar'
 import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 import AddRow             from '../topbar/AddRow'
+
+import ElementPositioning from '../panels/ElementPositioning'
+import ElementBackground  from '../panels/ElementBackground'
+
 import AlignColumns       from '../topbar/AlignColumns'
 import ClearImage         from '../topbar/ClearImage'
 
 import Padding            from '../core/Padding'
-import BackgroundColor    from '../core/BackgroundColor'
-import BackgroundGradient from '../core/BackgroundGradient'
 import BackgroundPosition from '../core/BackgroundPosition'
 import BackgroundSize     from '../core/BackgroundSize'
 import ImageSelector      from '../core/ImageSelector'
@@ -65,9 +65,9 @@ export default {
     name: "Canvas",
 
     components: {
-        TopBar, Row,
-        DeleteCloneMoveElement, AddRow,
-        ClearImage, AlignColumns, BackgroundSize, Padding, BackgroundColor, BackgroundGradient,
+        TopBar, Row, DeleteCloneMoveElement, AddRow,
+        ElementPositioning, ElementBackground,
+        ClearImage, AlignColumns, BackgroundSize,
         BackgroundPosition, ImageSelector,
     },
 

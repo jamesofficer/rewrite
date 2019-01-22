@@ -3,15 +3,15 @@
         <top-bar-control icon="expand" tooltip="Positioning" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></top-bar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <margin></margin>
+            <margin v-if="showMargins"></margin>
 
-            <hr>
+            <hr v-if="showMargins">
 
-            <padding></padding>
+            <padding v-if="showPadding"></padding>
 
-            <hr>
+            <hr v-if="showPadding">
 
-            <width></width>
+            <width v-if="showWidth"></width>
         </portal>
     </div>
 </template>
@@ -30,6 +30,26 @@ export default {
     components: { TopBarControl, Margin, Padding, Width },
 
     mixins: [SelectedElementStyle],
+
+    props: {
+        showMargins: {
+            type: Boolean,
+            required: false,
+            default: true,
+        },
+
+        showPadding: {
+            type: Boolean,
+            required: false,
+            default: true,
+        },
+
+        showWidth: {
+            type: Boolean,
+            required: false,
+            default: true,
+        }
+    },
 
     data() {
         return {
