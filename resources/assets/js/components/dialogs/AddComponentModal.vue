@@ -72,16 +72,6 @@
 
                 <div class="modal-card">
                     <b-card class="mb-2 text-center component-card"
-                            @click="addComponent('FacebookEmbed')"
-                    >
-                        <icon name="brands/facebook" scale="3.5"></icon>
-                        <hr>
-                        <p>Facebook</p>
-                    </b-card>
-                </div>
-
-                <div class="modal-card">
-                    <b-card class="mb-2 text-center component-card"
                             @click="addComponent('YouTubeEmbed')"
                     >
                         <icon name="brands/youtube" scale="3.5"></icon>
@@ -90,7 +80,7 @@
                     </b-card>
                 </div>
             </b-tab>
-            
+
             <!-- Food Recipe Components -->
             <b-tab title="Food/Recipes">
                 <br>
@@ -113,7 +103,7 @@
                         <hr>
                         <p>Recipe Ingredients</p>
                     </b-card>
-                </div>                
+                </div>
             </b-tab>
         </b-tabs>
     </b-modal>

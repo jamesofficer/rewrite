@@ -7,7 +7,7 @@
 
             <background-gradient></background-gradient>
 
-            <image-selector></image-selector>
+            <image-selector v-if="allowImage"></image-selector>
 
             <!-- Only need these for background images -->
             <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
@@ -16,8 +16,7 @@
                 <background-position></background-position>
             </template>
 
-            <!-- Clearing a background image also clears a background gradient -->
-            <template v-if="element.backgroundImage">
+            <template v-if="element.backgroundImage !== undefined">
                 <clear-image></clear-image>
             </template>
         </portal>
@@ -50,6 +49,12 @@ export default {
             type: Object,
             required: true,
         },
+
+        allowImage: {
+            type: Boolean,
+            required: false,
+            default: true,
+        }
     },
 
     data() {

@@ -1,6 +1,11 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control @click.native="deleteElement" variant="danger" icon="times" tooltip="Delete"></top-bar-control>
+        <top-bar-control
+            @click.native="deleteElement"
+            variant="danger"
+            icon="times"
+            tooltip="Delete Element"
+        ></top-bar-control>
     </div>
 </template>
 

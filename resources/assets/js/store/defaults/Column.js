@@ -4,7 +4,6 @@ import defaultPicture from "./Picture";
 import defaultHorizontalLine from "./HorizontalLine";
 import defaultBlockQuote from "./BlockQuote";
 import defaultInstagramEmbed from "./InstagramEmbed";
-import defaultFacebookEmbed from "./FacebookEmbed";
 import defaultYouTubeEmbed from "./YouTubeEmbed";
 import defaultRecipeSummary from "./RecipeSummary";
 import defaultRecipeIngredients from "./RecipeIngredients";
@@ -51,7 +50,7 @@ export default {
     visible: true,
     identifier: undefined,
 
-    components: [defaultHeading, defaultParagraph, defaultPicture],
+    components: [defaultHeading, defaultParagraph, defaultPicture, defaultHorizontalLine],
 
     sm: column,
     md: column,

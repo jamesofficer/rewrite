@@ -56,7 +56,6 @@ import BlockQuote         from '../BlockQuote'
 import Picture            from '../Picture'
 import HorizontalLine     from '../HorizontalLine'
 import InstagramEmbed     from '../InstagramEmbed'
-import FacebookEmbed      from '../FacebookEmbed'
 import YouTubeEmbed       from '../YouTubeEmbed'
 import RecipeSummary      from '../RecipeSummary'
 import RecipeIngredients  from '../RecipeIngredients'
@@ -68,7 +67,7 @@ export default {
         TopBar, AddComponentButton, DeleteCloneMoveElement, ClearImage,
         ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow, ColumnSettings,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
-        InstagramEmbed, FacebookEmbed, YouTubeEmbed,
+        InstagramEmbed, YouTubeEmbed,
         RecipeSummary, RecipeIngredients,
     },
 

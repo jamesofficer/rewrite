@@ -7,10 +7,12 @@
         <icon v-if="! videoUrl" name="brands/youtube" scale="8"></icon>
 
         <!-- COMPONENT -->
-        <iframe v-else :src="element.url"
-               :width="560"
-               :height="315"
-               :frameborder="0"
+        <iframe
+            v-else
+            :src="element.url"
+            :width="560"
+            :height="315"
+            :frameborder="0"
         ></iframe>
 
         <!-- TOP BAR -->

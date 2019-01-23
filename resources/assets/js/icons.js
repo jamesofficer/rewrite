@@ -51,6 +51,5 @@ import "vue-awesome/icons/caret-down";
 import "vue-awesome/icons/caret-right";
 import "vue-awesome/icons/regular/square";
 import "vue-awesome/icons/brands/instagram";
-import "vue-awesome/icons/brands/facebook";
 import "vue-awesome/icons/brands/youtube";
 import "vue-awesome/icons/brands/pinterest";
