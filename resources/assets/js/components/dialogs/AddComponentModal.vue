@@ -87,16 +87,6 @@
 
                 <div class="modal-card">
                     <b-card class="mb-2 text-center component-card"
-                            @click="addComponent('RecipeSummary')"
-                    >
-                        <icon name="stopwatch" scale="3.5"></icon>
-                        <hr>
-                        <p>Recipe Summary</p>
-                    </b-card>
-                </div>
-
-                <div class="modal-card">
-                    <b-card class="mb-2 text-center component-card"
                             @click="addComponent('RecipeIngredients')"
                     >
                         <icon name="utensils" scale="3.5"></icon>

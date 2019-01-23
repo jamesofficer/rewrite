@@ -5,7 +5,6 @@ import defaultHorizontalLine from "./HorizontalLine";
 import defaultBlockQuote from "./BlockQuote";
 import defaultInstagramEmbed from "./InstagramEmbed";
 import defaultYouTubeEmbed from "./YouTubeEmbed";
-import defaultRecipeSummary from "./RecipeSummary";
 import defaultRecipeIngredients from "./RecipeIngredients";
 
 // The default attributes for each breakpoint.

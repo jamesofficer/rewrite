@@ -57,7 +57,6 @@ import Picture            from '../Picture'
 import HorizontalLine     from '../HorizontalLine'
 import InstagramEmbed     from '../InstagramEmbed'
 import YouTubeEmbed       from '../YouTubeEmbed'
-import RecipeSummary      from '../RecipeSummary'
 import RecipeIngredients  from '../RecipeIngredients'
 
 export default {
@@ -67,8 +66,7 @@ export default {
         TopBar, AddComponentButton, DeleteCloneMoveElement, ClearImage,
         ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow, ColumnSettings,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
-        InstagramEmbed, YouTubeEmbed,
-        RecipeSummary, RecipeIngredients,
+        InstagramEmbed, YouTubeEmbed, RecipeIngredients,
     },
 
     mixins: [GetElement],

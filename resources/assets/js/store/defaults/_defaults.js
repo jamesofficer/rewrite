@@ -14,7 +14,6 @@ import picture            from "./Picture";
 import horizontalLine     from "./HorizontalLine";
 import instagram          from "./InstagramEmbed";
 import youtube            from "./YouTubeEmbed";
-import recipeSummary      from "./RecipeSummary";
 import recipeIngredients  from "./RecipeIngredients";
 
 export default {
@@ -28,6 +27,5 @@ export default {
     horizontalLine,
     instagram,
     youtube,
-    recipeSummary,
     recipeIngredients,
 };

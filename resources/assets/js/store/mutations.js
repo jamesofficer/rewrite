@@ -57,7 +57,6 @@ export const addComponent = (state, componentType) => {
         "HorizontalLine": duplicateObject(defaults.horizontalLine),
         "InstagramEmbed": duplicateObject(defaults.instagram),
         "YouTubeEmbed": duplicateObject(defaults.youtube),
-        "RecipeSummary": duplicateObject(defaults.recipeSummary),
         "RecipeIngredients": duplicateObject(defaults.recipeIngredients),
     };
 
