@@ -139,16 +139,18 @@ export default {
 }
 
 #sidebar {
+    height: 100vh;
+    width: 65px;
     position: fixed;
     top: 5px;
     background: white;
-    height: 100vh;
     padding: 10px;
     border-right: 1px dashed gray;
 }
 
 #rewrite-content-area {
     width: 100%;
+    margin-left: 65px;
 }
 
 .article-name-container {
@@ -157,9 +159,9 @@ export default {
 }
 
 .device-size-controls-container {
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 10px;
+    position: fixed;
+    top: 10px;
+    left: 70px;
 }
 
 .sidebar-styles {

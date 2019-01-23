@@ -25944,7 +25944,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n#rewrite-container[data-v-667f58a0] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\r\n    border-top: 5px solid #38c172;\n}\n#sidebar[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 5px;\r\n    background: white;\r\n    height: 100vh;\r\n    padding: 10px;\r\n    border-right: 1px dashed gray;\n}\n#rewrite-content-area[data-v-667f58a0] {\r\n    width: 100%;\n}\n.article-name-container[data-v-667f58a0] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n.device-size-controls-container[data-v-667f58a0] {\r\n    width: 400px;\r\n    margin: 0 auto;\r\n    margin-top: 10px;\n}\n.sidebar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.sidebar-portal-target[data-v-667f58a0] {\r\n    display: block;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\r\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\r\n    width: 1200px;\n}\r\n", ""]);
+exports.push([module.i, "\n#rewrite-container[data-v-667f58a0] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\r\n    border-top: 5px solid #38c172;\n}\n#sidebar[data-v-667f58a0] {\r\n    height: 100vh;\r\n    width: 65px;\r\n    position: fixed;\r\n    top: 5px;\r\n    background: white;\r\n    padding: 10px;\r\n    border-right: 1px dashed gray;\n}\n#rewrite-content-area[data-v-667f58a0] {\r\n    width: 100%;\r\n    margin-left: 65px;\n}\n.article-name-container[data-v-667f58a0] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n.device-size-controls-container[data-v-667f58a0] {\r\n    position: fixed;\r\n    top: 10px;\r\n    left: 70px;\n}\n.sidebar-styles[data-v-667f58a0] {\r\n    z-index: 100;\r\n    background: white;\r\n    padding: 10px 15px;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\n}\n.sidebar-portal-target[data-v-667f58a0] {\r\n    display: block;\n}\n.shift-workspace[data-v-667f58a0] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\n}\n.fixed-footer[data-v-667f58a0] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\r\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\r\n    width: 1200px;\n}\r\n", ""]);
 
 // exports
 
@@ -44683,7 +44683,7 @@ function getMarginCSS(margin) {
     var marginBottom = margin.bottom > 0 ? margin.bottom + 'px' : '0';
     var marginLeft = margin.left > 0 ? margin.left + 'px' : '0';
 
-    if (marginTop === '0' && marginTop === '0' && marginTop === '0' && marginTop === '0') {
+    if (marginTop === '0' && marginRight === '0' && marginBottom === '0' && marginLeft === '0') {
         return undefined;
     }
 
@@ -44696,24 +44696,26 @@ function getPaddingCSS(padding) {
     var paddingBottom = padding.bottom > 0 ? padding.bottom + 'px' : '0';
     var paddingLeft = padding.left > 0 ? padding.left + 'px' : '0';
 
-    if (paddingTop === '0' && paddingTop === '0' && paddingTop === '0' && paddingTop === '0') {
+    if (paddingTop === '0' && paddingRight === '0' && paddingBottom === '0' && paddingLeft === '0') {
         return undefined;
     }
 
     return 'padding: ' + paddingTop + ' ' + paddingRight + ' ' + paddingBottom + ' ' + paddingLeft + ';';
 }
 
+// TODO: The output of this function slightly breaks the idententation of the final CSS.
 function getBorderCSS(border) {
     var borderTop = border.top > 0 ? border.top + 'px' : '0';
     var borderRight = border.right > 0 ? border.right + 'px' : '0';
     var borderBottom = border.bottom > 0 ? border.bottom + 'px' : '0';
     var borderLeft = border.left > 0 ? border.left + 'px' : '0';
+    var borderRadius = border.radius > 0 ? border.radius + 'px' : '0';
 
-    if (borderTop === '0' && borderTop === '0' && borderTop === '0' && borderTop === '0') {
+    if (borderTop === '0' && borderRight === '0' && borderBottom === '0' && borderLeft === '0') {
         return undefined;
     }
 
-    return 'border: ' + borderTop + ' ' + borderRight + ' ' + borderBottom + ' ' + borderLeft + ' ' + border.style + ' rgba(' + border.color.r + ', ' + border.color.g + ', ' + border.color.b + ', ' + border.color.a + ');';
+    return '\n        border-width: ' + borderTop + ' ' + borderRight + ' ' + borderBottom + ' ' + borderLeft + ';\n        border-style: ' + border.style + ';\n        border-color: rgba(' + border.color.r + ', ' + border.color.g + ', ' + border.color.b + ', ' + border.color.a + ');\n        border-radius: ' + borderRadius + ';\n    ';
 }
 
 function getBoxShadowCSS(shadow) {

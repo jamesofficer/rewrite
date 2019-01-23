@@ -115,7 +115,7 @@ function getMarginCSS (margin) {
     const marginBottom = margin.bottom > 0 ? `${margin.bottom}px` : '0';
     const marginLeft   = margin.left > 0 ? `${margin.left}px` : '0';
 
-    if (marginTop === '0' && marginTop === '0' && marginTop === '0' && marginTop === '0') {
+    if (marginTop === '0' && marginRight === '0' && marginBottom === '0' && marginLeft === '0') {
         return undefined;
     }
 
@@ -128,24 +128,31 @@ function getPaddingCSS (padding) {
     const paddingBottom = padding.bottom > 0 ? `${padding.bottom}px` : '0';
     const paddingLeft   = padding.left > 0 ? `${padding.left}px` : '0';
 
-    if (paddingTop === '0' && paddingTop === '0' && paddingTop === '0' && paddingTop === '0') {
+    if (paddingTop === '0' && paddingRight === '0' && paddingBottom === '0' && paddingLeft === '0') {
         return undefined;
     }
 
     return `padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};`;
 }
 
+// TODO: The output of this function slightly breaks the idententation of the final CSS.
 function getBorderCSS (border) {
     const borderTop    = border.top > 0 ? `${border.top}px` : '0';
     const borderRight  = border.right > 0 ? `${border.right}px` : '0';
     const borderBottom = border.bottom > 0 ? `${border.bottom}px` : '0';
     const borderLeft   = border.left > 0 ? `${border.left}px` : '0';
+    const borderRadius = border.radius > 0 ? `${border.radius}px` : '0';
 
-    if (borderTop === '0' && borderTop === '0' && borderTop === '0' && borderTop === '0') {
+    if (borderTop === '0' && borderRight === '0' && borderBottom === '0' && borderLeft === '0') {
         return undefined;
     }
 
-    return `border: ${borderTop} ${borderRight} ${borderBottom} ${borderLeft} ${border.style} rgba(${border.color.r}, ${border.color.g}, ${border.color.b}, ${border.color.a});`;
+    return `
+        border-width: ${borderTop} ${borderRight} ${borderBottom} ${borderLeft};
+        border-style: ${border.style};
+        border-color: rgba(${border.color.r}, ${border.color.g}, ${border.color.b}, ${border.color.a});
+        border-radius: ${borderRadius};
+    `;
 }
 
 function getBoxShadowCSS (shadow) {
