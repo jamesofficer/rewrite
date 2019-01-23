@@ -3,9 +3,9 @@
         size="sm"
         v-model="columnAlignment"
         :options="alignmentOptions"
-        v-b-tooltip.hover 
-        title="Column Alignment" 
-        class="top-bar-btn"
+        v-b-tooltip.hover
+        title="Column Alignment"
+        class="sidebar-btn"
     ></b-form-select>
 </template>
 
@@ -23,7 +23,7 @@ export default {
             }
         },
     },
-    
+
     data() {
         return {
             alignmentOptions: [

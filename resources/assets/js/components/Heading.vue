@@ -20,7 +20,7 @@
         ></text-input>
 
         <!-- TOP BAR -->
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <element-positioning></element-positioning>
@@ -30,15 +30,15 @@
             <element-text-formatting></element-text-formatting>
 
             <element-text-shadow></element-text-shadow>
-        </top-bar>
+        </sidebar>
     </div>
 </template>
 
 <script>
 import GetElement        from './mixins/GetElement'
 
-import TopBar            from './topbar/TopBar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar            from './sidebar/Sidebar'
+import DeleteCloneMoveElement from './sidebar/DeleteCloneMoveElement'
 
 import ElementPositioning    from './panels/ElementPositioning'
 import ElementBorders        from './panels/ElementBorders'
@@ -53,7 +53,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMoveElement, TextInput,
+        Sidebar, DeleteCloneMoveElement, TextInput,
         ElementPositioning, ElementBorders, ElementTextFormatting, ElementTextShadow,
     },
 

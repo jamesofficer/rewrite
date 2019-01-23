@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control icon="font" tooltip="Text Formatting" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></top-bar-control>
+        <sidebar-control icon="font" tooltip="Text Formatting" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <font-family></font-family>
@@ -23,7 +23,7 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import TopBarControl  from '../topbar/TopBarControl';
+import SidebarControl  from '../sidebar/SidebarControl';
 import TextAlignment  from '../core/TextAlignment';
 import FontFamily     from '../core/FontFamily';
 
@@ -38,7 +38,7 @@ export default {
     name: "ElementTextFormatting",
 
     components: {
-        TopBarControl, TextAlignment, FontFamily, TextColor, TextShadow,
+        SidebarControl, TextAlignment, FontFamily, TextColor, TextShadow,
         FontSize, FontWeight, LineHeight, LetterSpacing
     },
 

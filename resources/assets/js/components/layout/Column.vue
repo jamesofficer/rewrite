@@ -18,7 +18,7 @@
         ></component>
 
         <!-- TOP BAR -->
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <add-component-button></add-component-button>
@@ -32,17 +32,17 @@
             <element-box-shadow></element-box-shadow>
 
             <column-settings></column-settings>
-        </top-bar>
+        </sidebar>
     </b-col>
 </template>
 
 <script>
 import GetElement          from '../mixins/GetElement'
 
-import TopBar              from '../topbar/TopBar'
-import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
-import AddComponentButton  from '../topbar/AddComponentButton'
-import ClearImage          from '../topbar/ClearImage'
+import Sidebar              from '../sidebar/Sidebar'
+import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
+import AddComponentButton  from '../sidebar/AddComponentButton'
+import ClearImage          from '../sidebar/ClearImage'
 
 import ElementPositioning from '../panels/ElementPositioning'
 import ElementBackground  from '../panels/ElementBackground'
@@ -63,7 +63,7 @@ export default {
     name: "Column",
 
     components: {
-        TopBar, AddComponentButton, DeleteCloneMoveElement, ClearImage,
+        Sidebar, AddComponentButton, DeleteCloneMoveElement, ClearImage,
         ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow, ColumnSettings,
         Heading, Paragraph, BlockQuote, Picture, HorizontalLine,
         InstagramEmbed, YouTubeEmbed, RecipeIngredients,

@@ -19,7 +19,7 @@
         ></text-input>
 
         <!-- TOP BAR -->
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <margin></margin>
@@ -45,7 +45,7 @@
             <letter-spacing></letter-spacing>
 
             <width></width>
-        </top-bar>
+        </sidebar>
     </div>
 </template>
 
@@ -53,8 +53,8 @@
 import GetElement      from './mixins/GetElement'
 import EditableText    from './mixins/EditableText'
 
-import TopBar          from './topbar/TopBar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar          from './sidebar/Sidebar'
+import DeleteCloneMoveElement from './sidebar/DeleteCloneMoveElement'
 
 import Margin          from './core/Margin'
 import Padding         from './core/Padding'
@@ -77,7 +77,7 @@ export default {
     mixins: [GetElement, EditableText],
 
     components: {
-        TopBar, DeleteCloneMoveElement,
+        Sidebar, DeleteCloneMoveElement,
         BackgroundColor, Margin, Padding, Border,
         TextInput, FontFamily, TextAlignment, FontWeight, FontSize, TextColor, TextShadow, LineHeight, LetterSpacing, Width
     },

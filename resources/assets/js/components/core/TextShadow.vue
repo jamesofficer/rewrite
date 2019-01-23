@@ -52,14 +52,14 @@
 </template>
 
 <script>
-import TopBarControl from "../topbar/TopBarControl";
+import SidebarControl from "../sidebar/SidebarControl";
 import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
 import { Chrome as ColorPicker } from 'vue-color'
 
 export default {
     name: "TextShadow",
 
-    components: { TopBarControl, ColorPicker },
+    components: { SidebarControl, ColorPicker },
 
     mixins: [NoEmptyValues],
 

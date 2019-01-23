@@ -1,13 +1,13 @@
 <template>
-    <top-bar-control v-b-modal.backgroundGradientModal icon="brush" tooltip="Background Gradient"></top-bar-control>
+    <sidebar-control v-b-modal.backgroundGradientModal icon="brush" tooltip="Background Gradient"></sidebar-control>
 </template>
 
 <script>
-import TopBarControl from '../topbar/TopBarControl';
+import SidebarControl from '../sidebar/SidebarControl';
 
 export default {
     name: "BackgroundGradient",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 }
 </script>

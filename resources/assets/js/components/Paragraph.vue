@@ -9,7 +9,7 @@
         ></p>
 
         <!-- TOP BAR -->
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <edit-text-button ref="editTextButton"></edit-text-button>
@@ -21,7 +21,7 @@
             <element-text-formatting></element-text-formatting>
 
             <element-text-shadow></element-text-shadow>
-        </top-bar>
+        </sidebar>
     </div>
 </template>
 
@@ -30,9 +30,9 @@ import EditTextModal     from './dialogs/EditTextModal'
 
 import GetElement        from './mixins/GetElement'
 
-import TopBar            from './topbar/TopBar'
-import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
-import EditTextButton    from './topbar/EditTextButton'
+import Sidebar            from './sidebar/Sidebar'
+import DeleteCloneMoveElement   from './sidebar/DeleteCloneMoveElement'
+import EditTextButton    from './sidebar/EditTextButton'
 
 import ElementPositioning    from './panels/ElementPositioning'
 import ElementBorders        from './panels/ElementBorders'
@@ -48,7 +48,7 @@ export default {
 
     components: {
         EditTextModal,
-        TopBar, EditTextButton, DeleteCloneMoveElement, TextInput,
+        Sidebar, EditTextButton, DeleteCloneMoveElement, TextInput,
         ElementPositioning, ElementBorders, ElementTextFormatting, ElementTextShadow,
     },
 

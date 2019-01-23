@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control icon="sun" tooltip="Box Shadow" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></top-bar-control>
+        <sidebar-control icon="sun" tooltip="Box Shadow" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <box-shadow></box-shadow>
@@ -11,13 +11,13 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import TopBarControl from '../topbar/TopBarControl';
+import SidebarControl from '../sidebar/SidebarControl';
 import BoxShadow     from '../core/BoxShadow';
 
 export default {
     name: "ElementBoxShadow",
 
-    components: { TopBarControl, BoxShadow },
+    components: { SidebarControl, BoxShadow },
 
     mixins: [SelectedElementStyle],
 

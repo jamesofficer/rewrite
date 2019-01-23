@@ -1,5 +1,5 @@
 <template>
-    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm" v-b-tooltip.hover title="Column Width" class="top-bar-btn">
+    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm" v-b-tooltip.hover title="Column Width" class="sidebar-btn">
         <option v-for="(width, index) in widths" :value="width.value" :disabled="checkColumnWidth(width.value)" :key="index">
             {{ width.text }}
         </option>

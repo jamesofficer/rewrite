@@ -1,21 +1,21 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control
+        <sidebar-control
             icon="sitemap"
             tooltip="Enable Global Styles"
             :variant="getGlobalStylesStatus ? 'success' : 'danger'"
             @click.native="setGlobalComponentStyles(! getGlobalStylesStatus)"
-        ></top-bar-control>
+        ></sidebar-control>
     </div>
 </template>
 
 <script>
-import TopBarControl from '../topbar/TopBarControl';
+import SidebarControl from '../sidebar/SidebarControl';
 
 export default {
     name: "GlobalStylesSwitch",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     computed: {
         getGlobalStylesStatus() {

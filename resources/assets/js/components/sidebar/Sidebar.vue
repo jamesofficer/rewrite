@@ -1,11 +1,11 @@
 <template>
-    <portal to="top-bar">
+    <portal to="sidebar">
         <slot></slot>
     </portal>
 </template>
 
 <script>
 export default {
-    name: "TopBar",
+    name: "Sidebar",
 }
 </script>

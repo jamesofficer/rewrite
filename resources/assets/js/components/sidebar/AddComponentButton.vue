@@ -1,23 +1,23 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control
+        <sidebar-control
             @click.native="showAddComponentModal"
             variant="outline-success"
             icon="sitemap"
             tooltip="Add Component to Column"
-        ></top-bar-control>
+        ></sidebar-control>
     </div>
 </template>
 
 <script>
 import AddComponentModal from '../dialogs/AddComponentModal'
-import TopBarControl     from './TopBarControl';
+import SidebarControl     from './SidebarControl';
 
 export default {
     name: "AddComponentButton",
 
     components: {
-        AddComponentModal, TopBarControl,
+        AddComponentModal, SidebarControl,
     },
 
     methods: {

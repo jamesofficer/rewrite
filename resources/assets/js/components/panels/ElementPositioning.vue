@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control icon="expand" tooltip="Positioning" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></top-bar-control>
+        <sidebar-control icon="expand" tooltip="Positioning" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <margin v-if="showMargins"></margin>
@@ -23,7 +23,7 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import TopBarControl  from '../topbar/TopBarControl';
+import SidebarControl  from '../sidebar/SidebarControl';
 import Margin         from '../core/Margin';
 import Padding        from '../core/Padding';
 import Width          from '../core/Width';
@@ -33,7 +33,7 @@ export default {
     name: "ElementPositioning",
 
     components: {
-        TopBarControl, Margin, Padding, Width, ImageAlignment
+        SidebarControl, Margin, Padding, Width, ImageAlignment
     },
 
     mixins: [SelectedElementStyle],

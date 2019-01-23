@@ -1,31 +1,31 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control
+        <sidebar-control
             v-if="! reachedMaxColumns"
             @click.native="addColumn"
             variant="outline-success"
             icon="columns"
             tooltip="Add Column to Canvas"
-        ></top-bar-control>
+        ></sidebar-control>
 
         <!-- Have to wrap this in a div as tooltips don't render on disabled items. -->
         <div v-else v-b-tooltip.hover.right title="Can't add column as there is not enough room.">
-            <top-bar-control
+            <sidebar-control
                 variant="outline-success"
                 icon="columns"
                 :disabled="true"
-            ></top-bar-control>
+            ></sidebar-control>
         </div>
     </div>
 </template>
 
 <script>
-import TopBarControl from './TopBarControl';
+import SidebarControl from './SidebarControl';
 
 export default {
     name: "AddColumn",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     computed: {
         reachedMaxColumns() {

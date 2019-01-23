@@ -8,12 +8,12 @@
 
 <script>
 import { Chrome as ColorPicker } from 'vue-color'
-import TopBarControl from '../topbar/TopBarControl'
+import SidebarControl from '../sidebar/SidebarControl'
 
 export default {
     name: "TextColor",
 
-    components: { TopBarControl, ColorPicker },
+    components: { SidebarControl, ColorPicker },
 
     computed: {
         textColor() {

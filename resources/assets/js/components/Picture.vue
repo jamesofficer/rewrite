@@ -15,7 +15,7 @@
         </div>
 
         <!-- TOP BAR -->
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <image-selector></image-selector>
@@ -27,15 +27,15 @@
 
                 <element-box-shadow></element-box-shadow>
             </template>
-        </top-bar>
+        </sidebar>
     </div>
 </template>
 
 <script>
 import GetElement         from './mixins/GetElement'
 
-import TopBar             from './topbar/TopBar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar             from './sidebar/Sidebar'
+import DeleteCloneMoveElement from './sidebar/DeleteCloneMoveElement'
 
 import ElementPositioning from './panels/ElementPositioning'
 import ElementBorders     from './panels/ElementBorders'
@@ -54,7 +54,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, DeleteCloneMoveElement, ImageSelector,
+        Sidebar, DeleteCloneMoveElement, ImageSelector,
         ElementPositioning, ElementBorders, ElementBoxShadow,
         ImageAlignment, Margin, Width, Border, BoxShadow,
     },

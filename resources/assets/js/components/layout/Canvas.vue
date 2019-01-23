@@ -15,7 +15,7 @@
             v-show="row.visible"
         ></row>
 
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <add-row></add-row>
@@ -23,7 +23,7 @@
             <element-positioning :showMargins="false" :showWidth="false"></element-positioning>
 
             <element-background :element="element"></element-background>
-        </top-bar>
+        </sidebar>
     </b-container>
 </template>
 
@@ -31,15 +31,15 @@
 import GetElement         from '../mixins/GetElement'
 
 import Row                from './Row'
-import TopBar             from '../topbar/TopBar'
-import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
-import AddRow             from '../topbar/AddRow'
+import Sidebar             from '../sidebar/Sidebar'
+import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
+import AddRow             from '../sidebar/AddRow'
 
 import ElementPositioning from '../panels/ElementPositioning'
 import ElementBackground  from '../panels/ElementBackground'
 
-import AlignColumns       from '../topbar/AlignColumns'
-import ClearImage         from '../topbar/ClearImage'
+import AlignColumns       from '../sidebar/AlignColumns'
+import ClearImage         from '../sidebar/ClearImage'
 
 import Padding            from '../core/Padding'
 import BackgroundPosition from '../core/BackgroundPosition'
@@ -50,7 +50,7 @@ export default {
     name: "Canvas",
 
     components: {
-        TopBar, Row, DeleteCloneMoveElement, AddRow,
+        Sidebar, Row, DeleteCloneMoveElement, AddRow,
         ElementPositioning, ElementBackground,
         ClearImage, AlignColumns, BackgroundSize,
         BackgroundPosition, ImageSelector,

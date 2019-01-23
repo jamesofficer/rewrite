@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control icon="cogs" tooltip="Column Settings" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></top-bar-control>
+        <sidebar-control icon="cogs" tooltip="Column Settings" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <column-width></column-width>
@@ -15,7 +15,7 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import TopBarControl        from '../topbar/TopBarControl';
+import SidebarControl        from '../sidebar/SidebarControl';
 
 import AlignComponents      from '../core/AlignComponents'
 import ColumnWidth          from '../core/ColumnWidth'
@@ -23,7 +23,7 @@ import ColumnWidth          from '../core/ColumnWidth'
 export default {
     name: "ElementTextShadow",
 
-    components: { TopBarControl, ColumnWidth, AlignComponents },
+    components: { SidebarControl, ColumnWidth, AlignComponents },
 
     mixins: [SelectedElementStyle],
 

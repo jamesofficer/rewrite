@@ -1,17 +1,17 @@
 <template>
     <div class="move-component-wrapper">
-        <top-bar-control @click.native="moveComponentUp" variant="outline-info" icon="arrow-up" tooltip="Move Up" :disabled="! canMoveUp"></top-bar-control>
-        <top-bar-control @click.native="moveComponentDown" variant="outline-info" icon="arrow-down" tooltip="Move Down" :disabled="! canMoveDown"></top-bar-control>
+        <sidebar-control @click.native="moveComponentUp" variant="outline-info" icon="arrow-up" tooltip="Move Up" :disabled="! canMoveUp"></sidebar-control>
+        <sidebar-control @click.native="moveComponentDown" variant="outline-info" icon="arrow-down" tooltip="Move Down" :disabled="! canMoveDown"></sidebar-control>
     </div>
 </template>
 
 <script>
-import TopBarControl from './TopBarControl';
+import SidebarControl from './SidebarControl';
 
 export default {
     name: "MoveComponent",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     computed: {
         canMoveDown() {

@@ -15,7 +15,7 @@
             v-show="column.visible"
         ></column>
 
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <add-column></add-column>
@@ -27,16 +27,16 @@
             <element-borders></element-borders>
 
             <element-box-shadow></element-box-shadow>
-        </top-bar>
+        </sidebar>
     </b-row>
 </template>
 
 <script>
 import GetElement             from '../mixins/GetElement'
 
-import TopBar                 from '../topbar/TopBar'
-import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
-import AddColumn              from '../topbar/AddColumn'
+import Sidebar                 from '../sidebar/Sidebar'
+import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
+import AddColumn              from '../sidebar/AddColumn'
 
 import Column                 from './Column'
 
@@ -51,7 +51,7 @@ export default {
     mixins: [GetElement],
 
     components: {
-        TopBar, Column, DeleteCloneMoveElement, AddColumn,
+        Sidebar, Column, DeleteCloneMoveElement, AddColumn,
         ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow
     },
 

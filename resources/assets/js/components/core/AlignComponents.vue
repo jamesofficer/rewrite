@@ -3,9 +3,9 @@
         size="sm"
         v-model="componentAlignment"
         :options="alignmentOptions"
-        v-b-tooltip.hover 
+        v-b-tooltip.hover
         title="Component Alignment"
-        class="top-bar-btn"
+        class="sidebar-btn"
     ></b-form-select>
 </template>
 
@@ -23,7 +23,7 @@ export default {
             }
         },
     },
-    
+
     data() {
         return {
             alignmentOptions: [

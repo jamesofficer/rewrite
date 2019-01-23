@@ -1,14 +1,14 @@
 <template>
-    <top-bar-control @click.native="clearImage" variant="outline-danger" icon="ban" tooltip="Clear Image"></top-bar-control>
+    <sidebar-control @click.native="clearImage" variant="outline-danger" icon="ban" tooltip="Clear Image"></sidebar-control>
 </template>
 
 <script>
-import TopBarControl from './TopBarControl';
+import SidebarControl from './SidebarControl';
 
 export default {
     name: "ClearImage",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     methods: {
         clearImage() {

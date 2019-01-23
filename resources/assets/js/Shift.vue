@@ -6,7 +6,7 @@
 
             <global-styles-switch></global-styles-switch>
 
-            <portal-target name="top-bar"></portal-target>
+            <portal-target name="sidebar"></portal-target>
         </div>
 
         <!-- Main Content Area -->
@@ -162,7 +162,7 @@ export default {
     margin-top: 10px;
 }
 
-.top-bar-styles {
+.sidebar-styles {
     z-index: 100;
     background: white;
     padding: 10px 15px;
@@ -170,7 +170,7 @@ export default {
     box-shadow: 0 0 20px #ccc;
 }
 
-.top-bar-portal-target {
+.sidebar-portal-target {
     display: block;
 }
 

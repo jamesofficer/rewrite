@@ -1,16 +1,16 @@
 <template>
     <div class="sidebar-control">
-        <top-bar-control @click.native="cloneElement" variant="outline-info" icon="clone" tooltip="Clone"></top-bar-control>
+        <sidebar-control @click.native="cloneElement" variant="outline-info" icon="clone" tooltip="Clone"></sidebar-control>
     </div>
 </template>
 
 <script>
-import TopBarControl from './TopBarControl';
+import SidebarControl from './SidebarControl';
 
 export default {
     name: "CloneElement",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     methods: {
         cloneElement() {

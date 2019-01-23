@@ -58,13 +58,13 @@
 </template>
 
 <script>
-import TopBarControl from '../topbar/TopBarControl';
+import SidebarControl from '../sidebar/SidebarControl';
 import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
 
 export default {
     name: "Margin",
 
-    components: { TopBarControl },
+    components: { SidebarControl },
 
     mixins: [NoEmptyValues],
 

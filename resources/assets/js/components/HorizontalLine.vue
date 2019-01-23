@@ -6,7 +6,7 @@
     >
         <div :style="getElementStyles"></div>
 
-        <top-bar v-if="elementIsSelected">
+        <sidebar v-if="elementIsSelected">
             <delete-clone-move-element></delete-clone-move-element>
 
             <element-positioning></element-positioning>
@@ -16,7 +16,7 @@
             <element-borders></element-borders>
 
             <element-box-shadow></element-box-shadow>
-        </top-bar>
+        </sidebar>
     </div>
 </template>
 
@@ -24,8 +24,8 @@
 <script>
 import GetElement        from './mixins/GetElement'
 
-import TopBar            from './topbar/TopBar'
-import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
+import Sidebar            from './sidebar/Sidebar'
+import DeleteCloneMoveElement   from './sidebar/DeleteCloneMoveElement'
 
 import ElementPositioning    from './panels/ElementPositioning'
 import ElementBackground     from './panels/ElementBackground'
@@ -36,7 +36,7 @@ export default {
     name: "HorizontalLine",
 
     components: {
-        TopBar, DeleteCloneMoveElement,
+        Sidebar, DeleteCloneMoveElement,
         ElementPositioning, ElementBackground, ElementBorders, ElementBoxShadow
     },
 
