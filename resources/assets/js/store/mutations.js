@@ -238,7 +238,6 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
 
     getSelectedRootElement(state).selected = true;
-    setSelectedElementStyle(state, null);
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -313,6 +312,8 @@ export const enableKeyBindings = (state, boolean) => {
  *
  */
 export const buildHtml = (state, html) => {
+    state.articleHtml = undefined;
+
     html = this.createHtmlHead(state, html, state.articleTitle);
     html = this.cleanHtml(html);
     html = this.appendImageUrlsToHtml(html);

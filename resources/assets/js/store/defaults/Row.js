@@ -18,7 +18,7 @@ let row = {
         left: 20
     },
     border: {
-        top: 0,
+        top: 20,
         right: 0,
         bottom: 0,
         left: 0,

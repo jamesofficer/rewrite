@@ -65,4 +65,8 @@ export default {
     height: 350px;
     overflow-y: scroll;
 }
+
+button {
+    width: 100%;
+}
 </style>

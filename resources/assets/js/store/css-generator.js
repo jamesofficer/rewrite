@@ -60,7 +60,12 @@ const convertElementToCSS = (element, elementIdentifier) => {
 
     properties.forEach(function (property) {
         if (! propertiesToIgnore.includes(property)) {
-            elementCSS += '\t \t' + getPropertyCSS(element, property) + '\n';
+            const css = getPropertyCSS(element, property);
+
+            // Sometimes we may not need to append any css, typically when we are using the default css value.
+            if (css !== undefined) {
+                elementCSS += '\t \t' + css + '\n';
+            }
         }
     });
 
@@ -74,49 +79,99 @@ const convertElementToCSS = (element, elementIdentifier) => {
  *
  */
 const getPropertyCSS = (element, propertyName) => {
-    const funcName  = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
+    const cssFunctionName = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
 
-    return eval(`${funcName}(element[propertyName])`);
+    return eval(`${cssFunctionName}(element[propertyName])`);
 }
 
 function getBackgroundSizeCSS (size) {
-    return `background-size: ${size.toLowerCase()};`;
+    if (size !== 'Auto') {
+        return `background-size: ${size.toLowerCase()};`;
+    }
 }
 
+// TODO: Update the default value for backgroundPosition. 'center' should NOT be the default.
 function getBackgroundPositionCSS (position) {
-    return `background-position: ${position.toLowerCase()};`;
+    if (position !== 'Center') {
+        return `background-position: ${position.toLowerCase()};`;
+    }
 }
 
-function getBackgroundColorCSS (colors) {
-    return `background-color: rgba(${colors.r}, ${colors.g}, ${colors.b}, ${colors.a});`;
+function getBackgroundColorCSS (color) {
+    if (color.r === 255 && color.g === 255 && color.b === 255 && color.a === 1) {
+        return undefined;
+    }
+
+    return `background-color: rgba(${color.r}, ${color.g}, ${color.b}, ${color.a});`;
+}
+
+function getBackgroundImageCSS (image) {
+    return `background-image: ${image};`;
 }
 
 function getMarginCSS (margin) {
-    return `margin: ${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px;`;
+    const marginTop    = margin.top > 0 ? `${margin.top}px` : '0';
+    const marginRight  = margin.right > 0 ? `${margin.right}px` : '0';
+    const marginBottom = margin.bottom > 0 ? `${margin.bottom}px` : '0';
+    const marginLeft   = margin.left > 0 ? `${margin.left}px` : '0';
+
+    if (marginTop === '0' && marginTop === '0' && marginTop === '0' && marginTop === '0') {
+        return undefined;
+    }
+
+    return `margin: ${marginTop} ${marginRight} ${marginBottom} ${marginLeft};`;
 }
 
 function getPaddingCSS (padding) {
-    return `padding: ${padding.top}px ${padding.right}px ${padding.bottom}px ${padding.left}px;`;
+    const paddingTop    = padding.top > 0 ? `${padding.top}px` : '0';
+    const paddingRight  = padding.right > 0 ? `${padding.right}px` : '0';
+    const paddingBottom = padding.bottom > 0 ? `${padding.bottom}px` : '0';
+    const paddingLeft   = padding.left > 0 ? `${padding.left}px` : '0';
+
+    if (paddingTop === '0' && paddingTop === '0' && paddingTop === '0' && paddingTop === '0') {
+        return undefined;
+    }
+
+    return `padding: ${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft};`;
 }
 
 function getBorderCSS (border) {
-    return `border: ${border.top}px ${border.right}px ${border.bottom}px ${border.left}px ${border.style} rgba(${border.color.r}, ${border.color.g}, ${border.color.b}, ${border.color.a});`;
+    const borderTop    = border.top > 0 ? `${border.top}px` : '0';
+    const borderRight  = border.right > 0 ? `${border.right}px` : '0';
+    const borderBottom = border.bottom > 0 ? `${border.bottom}px` : '0';
+    const borderLeft   = border.left > 0 ? `${border.left}px` : '0';
+
+    if (borderTop === '0' && borderTop === '0' && borderTop === '0' && borderTop === '0') {
+        return undefined;
+    }
+
+    return `border: ${borderTop} ${borderRight} ${borderBottom} ${borderLeft} ${border.style} rgba(${border.color.r}, ${border.color.g}, ${border.color.b}, ${border.color.a});`;
 }
 
 function getBoxShadowCSS (shadow) {
+    if (shadow.offsetX === 0 && shadow.offsetY === 0 && shadow.blurRadius === 0) {
+        return undefined;
+    }
+
     return `box-shadow: ${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px rgba(${shadow.color.r}, ${shadow.color.g}, ${shadow.color.b}, ${shadow.color.a});`;
 }
 
 function getTextShadowCSS (shadow) {
+    if (shadow.offsetX === 0 && shadow.offsetY === 0 && shadow.blurRadius === 0) {
+        return undefined;
+    }
+
     return `text-shadow: ${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blurRadius}px rgba(${shadow.color.r}, ${shadow.color.g}, ${shadow.color.b}, ${shadow.color.a});`;
 }
 
 function getWidthCSS (width) {
-    return `width: ${width}%;`;
+    if (width !== 100) {
+        return `width: ${width}%;`;
+    }
 }
 
 function getFontFamilyCSS (fontFamily) {
-    return `font-family: ${fontFamily}, Helvetica, Arial, sans-serif;`;
+    return `font-family: '${fontFamily}', 'Helvetica', 'Arial', sans-serif;`;
 }
 
 function getFontWeightCSS (fontWeight) {
@@ -124,21 +179,31 @@ function getFontWeightCSS (fontWeight) {
 }
 
 function getFontSizeCSS (fontSize) {
-    return `font-size: ${fontSize};`;
+    return `font-size: ${fontSize}pt;`;
 }
 
 function getLineHeightCSS (lineHeight) {
-    return `line-height: ${lineHeight};`;
+    if (lineHeight !== 1) {
+        return `line-height: ${lineHeight};`;
+    }
 }
 
 function getLetterSpacingCSS (letterSpacing) {
-    return `letter-spacing: ${letterSpacing}px;`;
+    if (letterSpacing !== 0) {
+        return `letter-spacing: ${letterSpacing}px;`;
+    }
 }
 
 function getTextAlignCSS (textAlign) {
-    return `text-align: ${textAlign};`;
+    if (textAlign !== 'left') {
+        return `text-align: ${textAlign};`;
+    }
 }
 
 function getTextColorCSS (color) {
+    if (color.r === 0 && color.g === 0 && color.b === 0 && color.a === 1) {
+        return undefined;
+    }
+
     return `color: rgba(${color.r}, ${color.g}, ${color.b}, ${color.a});`;
 }

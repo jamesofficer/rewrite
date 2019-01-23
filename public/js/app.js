@@ -21476,7 +21476,7 @@ var row = {
         left: 20
     },
     border: {
-        top: 0,
+        top: 20,
         right: 0,
         bottom: 0,
         left: 0,
@@ -21569,7 +21569,7 @@ var column = {
     visible: true,
     identifier: undefined,
 
-    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2__Picture__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__HorizontalLine__["a" /* default */]],
+    components: [__WEBPACK_IMPORTED_MODULE_0__Heading__["a" /* default */], __WEBPACK_IMPORTED_MODULE_1__Paragraph__["a" /* default */]],
 
     sm: column,
     md: column,
@@ -27421,7 +27421,7 @@ var render = function() {
     [
       _c(
         "b-button-group",
-        { staticClass: "device-size-btn-group", attrs: { size: "md" } },
+        { staticClass: "device-size-btn-group" },
         [
           _c(
             "b-button",
@@ -33457,7 +33457,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.font-family-dropdown[data-v-3f0ceadc] {\r\n    height: 350px;\r\n    overflow-y: scroll;\n}\r\n", ""]);
+exports.push([module.i, "\n.font-family-dropdown[data-v-3f0ceadc] {\r\n    height: 350px;\r\n    overflow-y: scroll;\n}\nbutton[data-v-3f0ceadc] {\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -44309,7 +44309,6 @@ var selectElement = function selectElement(state, i) {
     window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["e" /* getSelectedElement */])(state));
 
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).selected = true;
-    setSelectedElementStyle(state, null);
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -44384,6 +44383,8 @@ var enableKeyBindings = function enableKeyBindings(state, boolean) {
  *
  */
 var buildHtml = function buildHtml(state, html) {
+    state.articleHtml = undefined;
+
     html = _this.createHtmlHead(state, html, state.articleTitle);
     html = _this.cleanHtml(html);
     html = _this.appendImageUrlsToHtml(html);
@@ -44627,7 +44628,12 @@ var convertElementToCSS = function convertElementToCSS(element, elementIdentifie
 
     properties.forEach(function (property) {
         if (!propertiesToIgnore.includes(property)) {
-            elementCSS += '\t \t' + getPropertyCSS(element, property) + '\n';
+            var css = getPropertyCSS(element, property);
+
+            // Sometimes we may not need to append any css, typically when we are using the default css value.
+            if (css !== undefined) {
+                elementCSS += '\t \t' + css + '\n';
+            }
         }
     });
 
@@ -44641,49 +44647,99 @@ var convertElementToCSS = function convertElementToCSS(element, elementIdentifie
  *
  */
 var getPropertyCSS = function getPropertyCSS(element, propertyName) {
-    var funcName = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
+    var cssFunctionName = 'get' + propertyName.charAt(0).toUpperCase() + propertyName.slice(1) + 'CSS';
 
-    return eval(funcName + '(element[propertyName])');
+    return eval(cssFunctionName + '(element[propertyName])');
 };
 
 function getBackgroundSizeCSS(size) {
-    return 'background-size: ' + size.toLowerCase() + ';';
+    if (size !== 'Auto') {
+        return 'background-size: ' + size.toLowerCase() + ';';
+    }
 }
 
+// TODO: Update the default value for backgroundPosition. 'center' should NOT be the default.
 function getBackgroundPositionCSS(position) {
-    return 'background-position: ' + position.toLowerCase() + ';';
+    if (position !== 'Center') {
+        return 'background-position: ' + position.toLowerCase() + ';';
+    }
 }
 
-function getBackgroundColorCSS(colors) {
-    return 'background-color: rgba(' + colors.r + ', ' + colors.g + ', ' + colors.b + ', ' + colors.a + ');';
+function getBackgroundColorCSS(color) {
+    if (color.r === 255 && color.g === 255 && color.b === 255 && color.a === 1) {
+        return undefined;
+    }
+
+    return 'background-color: rgba(' + color.r + ', ' + color.g + ', ' + color.b + ', ' + color.a + ');';
+}
+
+function getBackgroundImageCSS(image) {
+    return 'background-image: ' + image + ';';
 }
 
 function getMarginCSS(margin) {
-    return 'margin: ' + margin.top + 'px ' + margin.right + 'px ' + margin.bottom + 'px ' + margin.left + 'px;';
+    var marginTop = margin.top > 0 ? margin.top + 'px' : '0';
+    var marginRight = margin.right > 0 ? margin.right + 'px' : '0';
+    var marginBottom = margin.bottom > 0 ? margin.bottom + 'px' : '0';
+    var marginLeft = margin.left > 0 ? margin.left + 'px' : '0';
+
+    if (marginTop === '0' && marginTop === '0' && marginTop === '0' && marginTop === '0') {
+        return undefined;
+    }
+
+    return 'margin: ' + marginTop + ' ' + marginRight + ' ' + marginBottom + ' ' + marginLeft + ';';
 }
 
 function getPaddingCSS(padding) {
-    return 'padding: ' + padding.top + 'px ' + padding.right + 'px ' + padding.bottom + 'px ' + padding.left + 'px;';
+    var paddingTop = padding.top > 0 ? padding.top + 'px' : '0';
+    var paddingRight = padding.right > 0 ? padding.right + 'px' : '0';
+    var paddingBottom = padding.bottom > 0 ? padding.bottom + 'px' : '0';
+    var paddingLeft = padding.left > 0 ? padding.left + 'px' : '0';
+
+    if (paddingTop === '0' && paddingTop === '0' && paddingTop === '0' && paddingTop === '0') {
+        return undefined;
+    }
+
+    return 'padding: ' + paddingTop + ' ' + paddingRight + ' ' + paddingBottom + ' ' + paddingLeft + ';';
 }
 
 function getBorderCSS(border) {
-    return 'border: ' + border.top + 'px ' + border.right + 'px ' + border.bottom + 'px ' + border.left + 'px ' + border.style + ' rgba(' + border.color.r + ', ' + border.color.g + ', ' + border.color.b + ', ' + border.color.a + ');';
+    var borderTop = border.top > 0 ? border.top + 'px' : '0';
+    var borderRight = border.right > 0 ? border.right + 'px' : '0';
+    var borderBottom = border.bottom > 0 ? border.bottom + 'px' : '0';
+    var borderLeft = border.left > 0 ? border.left + 'px' : '0';
+
+    if (borderTop === '0' && borderTop === '0' && borderTop === '0' && borderTop === '0') {
+        return undefined;
+    }
+
+    return 'border: ' + borderTop + ' ' + borderRight + ' ' + borderBottom + ' ' + borderLeft + ' ' + border.style + ' rgba(' + border.color.r + ', ' + border.color.g + ', ' + border.color.b + ', ' + border.color.a + ');';
 }
 
 function getBoxShadowCSS(shadow) {
+    if (shadow.offsetX === 0 && shadow.offsetY === 0 && shadow.blurRadius === 0) {
+        return undefined;
+    }
+
     return 'box-shadow: ' + shadow.offsetX + 'px ' + shadow.offsetY + 'px ' + shadow.blurRadius + 'px rgba(' + shadow.color.r + ', ' + shadow.color.g + ', ' + shadow.color.b + ', ' + shadow.color.a + ');';
 }
 
 function getTextShadowCSS(shadow) {
+    if (shadow.offsetX === 0 && shadow.offsetY === 0 && shadow.blurRadius === 0) {
+        return undefined;
+    }
+
     return 'text-shadow: ' + shadow.offsetX + 'px ' + shadow.offsetY + 'px ' + shadow.blurRadius + 'px rgba(' + shadow.color.r + ', ' + shadow.color.g + ', ' + shadow.color.b + ', ' + shadow.color.a + ');';
 }
 
 function getWidthCSS(width) {
-    return 'width: ' + width + '%;';
+    if (width !== 100) {
+        return 'width: ' + width + '%;';
+    }
 }
 
 function getFontFamilyCSS(fontFamily) {
-    return 'font-family: ' + fontFamily + ', Helvetica, Arial, sans-serif;';
+    return 'font-family: \'' + fontFamily + '\', \'Helvetica\', \'Arial\', sans-serif;';
 }
 
 function getFontWeightCSS(fontWeight) {
@@ -44691,22 +44747,32 @@ function getFontWeightCSS(fontWeight) {
 }
 
 function getFontSizeCSS(fontSize) {
-    return 'font-size: ' + fontSize + ';';
+    return 'font-size: ' + fontSize + 'pt;';
 }
 
 function getLineHeightCSS(lineHeight) {
-    return 'line-height: ' + lineHeight + ';';
+    if (lineHeight !== 1) {
+        return 'line-height: ' + lineHeight + ';';
+    }
 }
 
 function getLetterSpacingCSS(letterSpacing) {
-    return 'letter-spacing: ' + letterSpacing + 'px;';
+    if (letterSpacing !== 0) {
+        return 'letter-spacing: ' + letterSpacing + 'px;';
+    }
 }
 
 function getTextAlignCSS(textAlign) {
-    return 'text-align: ' + textAlign + ';';
+    if (textAlign !== 'left') {
+        return 'text-align: ' + textAlign + ';';
+    }
 }
 
 function getTextColorCSS(color) {
+    if (color.r === 0 && color.g === 0 && color.b === 0 && color.a === 1) {
+        return undefined;
+    }
+
     return 'color: rgba(' + color.r + ', ' + color.g + ', ' + color.b + ', ' + color.a + ');';
 }
 

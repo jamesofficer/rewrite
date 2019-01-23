@@ -49,7 +49,7 @@ export default {
     visible: true,
     identifier: undefined,
 
-    components: [defaultHeading, defaultParagraph, defaultPicture, defaultHorizontalLine],
+    components: [defaultHeading, defaultParagraph],
 
     sm: column,
     md: column,
