@@ -3,19 +3,39 @@
         <sidebar-control icon="font" tooltip="Text Formatting" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <font-family></font-family>
+            <div class="element-style-panel-container">
+                <div class="style-panel-input-container">
+                    <font-family></font-family>
+                </div>
 
-            <text-alignment></text-alignment>
+                <div class="style-panel-input-container">
+                    <text-alignment></text-alignment>
+                </div>
 
-            <text-color></text-color>
+                <b-row class="style-panel-input-container">
+                    <b-col>
+                        <font-size></font-size>
+                    </b-col>
 
-            <font-size></font-size>
+                    <b-col>
+                        <font-weight></font-weight>
+                    </b-col>
+                </b-row>
 
-            <font-weight></font-weight>
+                <b-row class="style-panel-input-container">
+                    <b-col>
+                        <line-height></line-height>
+                    </b-col>
 
-            <line-height></line-height>
+                    <b-col>
+                        <letter-spacing></letter-spacing>
+                    </b-col>
+                </b-row>
 
-            <letter-spacing></letter-spacing>
+                <div class="style-panel-input-container">
+                    <text-color></text-color>
+                </div>
+            </div>
         </portal>
     </div>
 </template>

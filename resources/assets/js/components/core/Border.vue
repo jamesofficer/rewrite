@@ -1,75 +1,73 @@
 <template>
     <div>
-        <b-row>
+        <label class="style-panel-label">Border Widths</label>
+
+        <div class="style-panel-input-container">
+            <b-row>
+                <b-col>
+                    <label class="sub-label">Top</label>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderTop"
+                        :min="0"
+                        :max="50"
+                        @focusout.native="ensureValueIsNotEmpty('borderTop')"
+                    ></b-form-input>
+                </b-col>
+
+                <b-col>
+                    <label class="sub-label">Bottom</label>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderBottom"
+                        :min="0"
+                        :max="50"
+                        @focusout.native="ensureValueIsNotEmpty('borderBottom')"
+                    ></b-form-input>
+                </b-col>
+            </b-row>
+
+            <b-row>
+                <b-col>
+                    <label class="sub-label">Left</label>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderLeft"
+                        :min="0"
+                        :max="50"
+                        @focusout.native="ensureValueIsNotEmpty('borderLeft')"
+                    ></b-form-input>
+                </b-col>
+
+                <b-col>
+                    <label class="sub-label">Right</label>
+                    <b-form-input
+                        type="number"
+                        v-model.number="borderRight"
+                        :min="0"
+                        :max="50"
+                        @focusout.native="ensureValueIsNotEmpty('borderRight')"
+                    ></b-form-input>
+                </b-col>
+            </b-row>
+        </div>
+
+        <b-row class="style-panel-input-container">
             <b-col>
-                <label class="sub-label">Top</label>
-                <b-form-input
-                    type="number"
-                    v-model.number="borderTop"
-                    :min="0"
-                    :max="50"
-                    size="sm"
-                    @focusout.native="ensureValueIsNotEmpty('borderTop')"
-                ></b-form-input>
+                <label class="style-panel-label">Border Radius</label>
+                <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500"></b-form-input>
             </b-col>
 
             <b-col>
-                <label class="sub-label">Bottom</label>
-                <b-form-input
-                    type="number"
-                    v-model.number="borderBottom"
-                    :min="0"
-                    :max="50"
-                    size="sm"
-                    @focusout.native="ensureValueIsNotEmpty('borderBottom')"
-                ></b-form-input>
-            </b-col>
-        </b-row>
-
-        <b-row>
-            <b-col>
-                <label class="sub-label">Left</label>
-                <b-form-input
-                    type="number"
-                    v-model.number="borderLeft"
-                    :min="0"
-                    :max="50"
-                    size="sm"
-                    @focusout.native="ensureValueIsNotEmpty('borderLeft')"
-                ></b-form-input>
-            </b-col>
-
-            <b-col>
-                <label class="sub-label">Right</label>
-                <b-form-input
-                    type="number"
-                    v-model.number="borderRight"
-                    :min="0"
-                    :max="50"
-                    size="sm"
-                    @focusout.native="ensureValueIsNotEmpty('borderRight')"
-                ></b-form-input>
-            </b-col>
-        </b-row>
-
-        <b-row>
-            <b-col>
-                <label class="sub-label">Border Radius</label>
-                <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500" size="sm"></b-form-input>
-            </b-col>
-        </b-row>
-
-        <b-row>
-            <b-col>
-                <label class="sub-label">Style</label>
-                <b-form-select size="sm" v-model="borderStyle" :options="borderStyles"></b-form-select>
+                <p class="style-panel-label">Border Style</p>
+                <b-form-select v-model="borderStyle" :options="borderStyles"></b-form-select>
             </b-col>
         </b-row>
 
-        <b-row>
+        <b-row class="style-panel-input-container">
             <b-col>
-                <label class="sub-label">Colour</label>
-                <color-picker :value="colors" @input="setColor"></color-picker>
+                <label class="style-panel-label">Border Colour</label>
+                <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
             </b-col>
         </b-row>
     </div>

@@ -1,8 +1,8 @@
 <template>
     <div class="sidebar-control">
         <sidebar-control
-            icon="sitemap"
             tooltip="Enable Global Styles"
+            :icon="getGlobalStyleStatus ? 'toggle-off' : 'toggle-on'"
             :variant="getGlobalStylesStatus ? 'success' : 'danger'"
             @click.native="setGlobalComponentStyles(! getGlobalStylesStatus)"
         ></sidebar-control>

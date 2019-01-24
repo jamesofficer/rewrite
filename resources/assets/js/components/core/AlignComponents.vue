@@ -1,12 +1,12 @@
 <template>
-    <b-form-select
-        size="sm"
-        v-model="componentAlignment"
-        :options="alignmentOptions"
-        v-b-tooltip.hover
-        title="Component Alignment"
-        class="sidebar-btn"
-    ></b-form-select>
+    <div class="style-panel-input-container">
+        <label class="style-panel-label">Column Width</label>
+
+        <b-form-select
+            v-model="componentAlignment"
+            :options="alignmentOptions"
+        ></b-form-select>
+    </div>
 </template>
 
 <script>

@@ -3,19 +3,15 @@
         <sidebar-control icon="expand" tooltip="Positioning" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <margin v-if="showMargins"></margin>
+            <div class="element-style-panel-container">
+                <margin v-if="showMargins"></margin>
 
-            <hr v-if="showMargins">
+                <padding v-if="showPadding"></padding>
 
-            <padding v-if="showPadding"></padding>
+                <width v-if="showWidth"></width>
 
-            <hr v-if="showPadding">
-
-            <width v-if="showWidth"></width>
-
-            <hr v-if="showImageAlignment">
-
-            <image-alignment v-if="showImageAlignment"></image-alignment>
+                <image-alignment v-if="showImageAlignment"></image-alignment>
+            </div>
         </portal>
     </div>
 </template>
@@ -71,4 +67,3 @@ export default {
     }
 }
 </script>
-

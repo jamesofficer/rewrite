@@ -3,7 +3,9 @@
         <sidebar-control icon="regular/square" tooltip="Border Controls" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <border></border>
+            <div class="element-style-panel-container">
+                <border></border>
+            </div>
         </portal>
     </div>
 </template>
@@ -28,4 +30,3 @@ export default {
     }
 }
 </script>
-

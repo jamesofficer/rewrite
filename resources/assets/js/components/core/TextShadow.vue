@@ -1,10 +1,11 @@
 <template>
     <div>
-        <b-row>
+        <label class="style-panel-label">Offsets</label>
+
+        <b-row class="style-panel-input-container">
             <b-col>
                 <label class="sub-label">Offset X</label>
                 <b-form-input
-                    size="sm"
                     type="number"
                     v-model.number="offsetX"
                     :min="0"
@@ -12,13 +13,10 @@
                     @focusout.native="ensureValueIsNotEmpty('offsetX')"
                 ></b-form-input>
             </b-col>
-        </b-row>
 
-        <b-row>
             <b-col>
                 <label class="sub-label">Offset Y</label>
                 <b-form-input
-                    size="sm"
                     type="number"
                     v-model.number="offsetY"
                     :min="0"
@@ -28,11 +26,11 @@
             </b-col>
         </b-row>
 
-        <b-row>
+        <label class="style-panel-label">Blur</label>
+
+        <b-row class="style-panel-input-container">
             <b-col>
-                <label class="sub-label">Blur Radius</label>
                 <b-form-input
-                    size="sm"
                     type="number"
                     v-model.number="blurRadius"
                     :min="0"
@@ -42,10 +40,11 @@
             </b-col>
         </b-row>
 
-        <b-row>
+        <label class="style-panel-label">Shadow Colour</label>
+
+        <b-row class="style-panel-input-container">
             <b-col>
-                <label class="sub-label">Colour</label>
-                <color-picker :value="colors" @input="setColor"></color-picker>
+                <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
             </b-col>
         </b-row>
     </div>

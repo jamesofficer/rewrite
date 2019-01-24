@@ -1,14 +1,16 @@
 <template>
-    <b-form-input
-        size="sm"
-        type="number"
-        v-model.number="fontSize"
-        @focusout.native="ensureValueIsNotEmpty('fontSize', 12)"
-        :min="10"
-        :max="64"
-        v-b-tooltip.hover
-        title="Font Size"
-    ></b-form-input>
+    <div>
+        <label class="style-panel-label">Font Size</label>
+
+        <b-form-input
+            type="number"
+            v-model.number="fontSize"
+            @focusout.native="ensureValueIsNotEmpty('fontSize', 12)"
+            :min="10"
+            :max="64"
+        ></b-form-input>
+    </div>
+
 </template>
 
 <script>

@@ -3,7 +3,9 @@
         <sidebar-control icon="sun" tooltip="Box Shadow" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <box-shadow></box-shadow>
+            <div class="element-style-panel-container">
+                <box-shadow></box-shadow>
+            </div>
         </portal>
     </div>
 </template>

@@ -1,12 +1,19 @@
 <template>
-    <div class="sidebar-control">
-        <b-dropdown :text="selectedFont" variant="outline-primary">
-            <div class="font-family-dropdown">
-                <b-dropdown-item v-for="(font, index) in fonts" :key="index" @click="selectFont(font)">
-                    <span :style="'font-family: ' + font.name">{{ font.name }}</span>
-                </b-dropdown-item>
-            </div>
-        </b-dropdown>
+    <div>
+        <label class="style-panel-label">Font Family</label>
+
+        <b-row>
+            <b-col>
+                <b-dropdown :text="selectedFont" variant="outline-primary">
+
+                <div class="font-family-dropdown">
+                    <b-dropdown-item v-for="(font, index) in fonts" :key="index" @click="selectFont(font)">
+                        <span :style="'font-family: ' + font.name">{{ font.name }}</span>
+                    </b-dropdown-item>
+                </div>
+            </b-dropdown>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -64,9 +71,5 @@ export default {
 .font-family-dropdown {
     height: 350px;
     overflow-y: scroll;
-}
-
-button {
-    width: 100%;
 }
 </style>

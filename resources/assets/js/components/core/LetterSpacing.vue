@@ -1,15 +1,16 @@
 <template>
-    <b-form-input
-        size="sm"
-        type="number"
-        v-model="letterSpacing"
-        @focusout.native="ensureValueIsNotEmpty('letterSpacing')"
-        :min="-5"
-        :max="100"
-        step="0.1"
-        v-b-tooltip.hover
-        title="Letter Spacing"
-    ></b-form-input>
+    <div>
+        <label class="style-panel-label">Letter Spacing</label>
+
+        <b-form-input
+            type="number"
+            v-model="letterSpacing"
+            @focusout.native="ensureValueIsNotEmpty('letterSpacing')"
+            :min="-5"
+            :max="100"
+            step="0.1"
+        ></b-form-input>
+    </div>
 </template>
 
 <script>

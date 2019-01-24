@@ -1,15 +1,18 @@
 <template>
-    <b-form-input
-        size="sm"
-        type="number"
-        v-model="lineHeight"
-        @focusout.native="ensureValueIsNotEmpty('lineHeight', 1)"
-        :min="0"
-        :max="25"
-        step="0.1"
-        v-b-tooltip.hover
-        title="Line Height"
-    ></b-form-input>
+    <div>
+        <label class="style-panel-label">Line Height</label>
+
+        <b-form-input
+            type="number"
+            v-model="lineHeight"
+            @focusout.native="ensureValueIsNotEmpty('lineHeight', 1)"
+            :min="0"
+            :max="25"
+            step="0.1"
+        ></b-form-input>
+
+    </div>
+
 </template>
 
 <script>

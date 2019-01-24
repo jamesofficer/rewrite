@@ -5,8 +5,6 @@
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <column-width></column-width>
 
-            <hr>
-
             <align-components></align-components>
         </portal>
     </div>

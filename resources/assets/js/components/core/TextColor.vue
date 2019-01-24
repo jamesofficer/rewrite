@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h6>Text Color</h6>
+        <label class="style-panel-label">Text Colour</label>
 
-        <color-picker :value="textColor" @input="updateValue"></color-picker>
+        <color-picker :value="textColor" @input="updateValue" class="color-picker"></color-picker>
     </div>
 </template>
 

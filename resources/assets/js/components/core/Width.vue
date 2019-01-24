@@ -1,16 +1,14 @@
 <template>
     <div>
-        <label class="sub-label">Width</label>
+        <p class="style-panel-label">Width (%)</p>
 
         <b-form-input
-            size="sm"
             type="number"
             v-model.number="width"
             @focusout.native="ensureValueIsNotEmpty('width', 100)"
             :min="1"
             :max="100"
             v-b-tooltip.hover
-            title="Width (%)"
         ></b-form-input>
     </div>
 </template>

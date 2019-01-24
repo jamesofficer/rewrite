@@ -1,11 +1,12 @@
 <template>
-    <b-form-select
-        size="sm"
-        v-model="fontWeight"
-        :options="fontWeights"
-        v-b-tooltip.hover
-        title="Font Weight"
-    ></b-form-select>
+    <div>
+        <label class="style-panel-label">Font Weight</label>
+
+        <b-form-select
+            v-model="fontWeight"
+            :options="fontWeights"
+        ></b-form-select>
+    </div>
 </template>
 
 <script>

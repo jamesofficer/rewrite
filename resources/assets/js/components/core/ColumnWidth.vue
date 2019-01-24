@@ -1,9 +1,13 @@
 <template>
-    <b-form-select v-model="selectedWidth" @change="setColumnWidth" size="sm" v-b-tooltip.hover title="Column Width" class="sidebar-btn">
-        <option v-for="(width, index) in widths" :value="width.value" :disabled="checkColumnWidth(width.value)" :key="index">
-            {{ width.text }}
-        </option>
-    </b-form-select>
+    <div class="style-panel-input-container">
+        <label class="style-panel-label">Column Width</label>
+
+        <b-form-select v-model="selectedWidth" @change="setColumnWidth">
+            <option v-for="(width, index) in widths" :value="width.value" :disabled="checkColumnWidth(width.value)" :key="index">
+                {{ width.text }}
+            </option>
+        </b-form-select>
+    </div>
 </template>
 
 <script>

@@ -18,27 +18,8 @@ p,
 input,
 button,
 .btn,
-.btn-group,
-.top-bar-control {
+.btn-group {
   font-family: "Inter UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-.top-bar-btn {
-  margin-right: 5px;
-}
-
-.sidebar-control {
-  margin-bottom: 5px;
-}
-
-.top-bar-input {
-  width: 150px !important;
-  margin-right: 5px;
-}
-
-.top-bar-sm-input {
-  width: 75px !important;
-  margin-right: 5px;
 }
 
 .selectable-canvas:hover {
@@ -121,10 +102,6 @@ button,
   margin-bottom: 25px;
 }
 
-.top-bar-control {
-  margin-right: 5px;
-}
-
 .sub-label {
   display: block;
   margin: 0;
@@ -150,5 +127,27 @@ button,
   font-weight: 400;
   font-size: 0.8em;
   color: #aaa;
+}
+
+.style-panel-label {
+  color: #888;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.sidebar-control {
+  margin-bottom: 5px;
+}
+
+.color-picker {
+  margin-bottom: 25px;
+}
+
+.element-style-panel-container {
+  width: 300px;
+}
+
+.style-panel-input-container {
+  margin-bottom: 15px;
 }
 
