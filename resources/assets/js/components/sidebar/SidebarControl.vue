@@ -1,7 +1,13 @@
 <template>
-    <b-btn :variant="variant" v-b-tooltip.hover.right :title="tooltip" :disabled="disabled" :pressed="pressed">
+    <b-button
+        :variant="variant"
+        v-b-tooltip.hover.right
+        :title="tooltip"
+        :disabled="disabled"
+        :pressed="pressed"
+    >
         <icon :name="icon"></icon> {{ label }}
-    </b-btn>
+    </b-button>
 </template>
 
 <script>

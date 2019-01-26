@@ -1,5 +1,5 @@
 <template>
-    <floating-panel style="bottom: 5px; left: 75px;" :height="'500px'" :width="'auto'">
+    <floating-panel style="bottom: 5px; left: 75px;" :height="'300px'" :width="'auto'">
         <template slot="title">{{ selectedElementStyleName }} Controls</template>
 
         <template slot="content">

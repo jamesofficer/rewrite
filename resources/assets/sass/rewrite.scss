@@ -112,11 +112,15 @@ h1, h2, h3, h4, h5, h6, p, input, button, .btn, .btn-group {
 .style-panel-label {
     color: #888;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .sidebar-control {
     margin-bottom: 5px;
+}
+
+.sidebar-control > .btn {
+    width: 100%;
 }
 
 .color-picker {
@@ -128,5 +132,9 @@ h1, h2, h3, h4, h5, h6, p, input, button, .btn, .btn-group {
 }
 
 .style-panel-input-container {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.style-panel-sm-input {
+    margin-right: 1px;
 }

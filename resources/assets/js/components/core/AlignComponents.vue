@@ -1,6 +1,6 @@
 <template>
-    <div class="style-panel-input-container">
-        <label class="style-panel-label">Column Width</label>
+    <div class="mb-2">
+        <label class="style-panel-label">Component Alignment</label>
 
         <b-form-select
             v-model="componentAlignment"

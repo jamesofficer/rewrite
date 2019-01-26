@@ -1,5 +1,5 @@
 <template>
-    <div class="style-panel-input-container">
+    <div class="mb-2">
         <label class="style-panel-label">Column Width</label>
 
         <b-form-select v-model="selectedWidth" @change="setColumnWidth">

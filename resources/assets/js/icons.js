@@ -2,6 +2,10 @@
 // Reference: https://fontawesome.com/icons?d=gallery
 import "vue-awesome/icons/toggle-on";
 import "vue-awesome/icons/toggle-off";
+import "vue-awesome/icons/mobile-alt";
+import "vue-awesome/icons/tablet-alt";
+import "vue-awesome/icons/laptop";
+import "vue-awesome/icons/desktop";
 import "vue-awesome/icons/bars";
 import "vue-awesome/icons/cogs";
 import "vue-awesome/icons/palette";

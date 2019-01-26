@@ -1,9 +1,9 @@
 <template>
     <div>
-        <label class="style-panel-label">Border Widths</label>
+        <label class="style-panel-label">Widths</label>
 
-        <div class="style-panel-input-container">
-            <b-row>
+        <div class="mb-2">
+            <b-form-row>
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
@@ -25,9 +25,7 @@
                         @focusout.native="ensureValueIsNotEmpty('borderBottom')"
                     ></b-form-input>
                 </b-col>
-            </b-row>
 
-            <b-row>
                 <b-col>
                     <label class="sub-label">Left</label>
                     <b-form-input
@@ -49,27 +47,27 @@
                         @focusout.native="ensureValueIsNotEmpty('borderRight')"
                     ></b-form-input>
                 </b-col>
-            </b-row>
+            </b-form-row>
         </div>
 
-        <b-row class="style-panel-input-container">
+        <b-form-row class="mb-2">
             <b-col>
-                <label class="style-panel-label">Border Radius</label>
+                <label class="style-panel-label">Radius</label>
                 <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500"></b-form-input>
             </b-col>
 
             <b-col>
-                <p class="style-panel-label">Border Style</p>
+                <p class="style-panel-label">Style</p>
                 <b-form-select v-model="borderStyle" :options="borderStyles"></b-form-select>
             </b-col>
-        </b-row>
+        </b-form-row>
 
-        <b-row class="style-panel-input-container">
+        <b-form-row class="mb-2">
             <b-col>
-                <label class="style-panel-label">Border Colour</label>
+                <label class="style-panel-label">Colour</label>
                 <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
             </b-col>
-        </b-row>
+        </b-form-row>
     </div>
 </template>
 

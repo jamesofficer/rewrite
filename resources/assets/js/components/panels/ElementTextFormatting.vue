@@ -4,15 +4,15 @@
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <div class="element-style-panel-container">
-                <div class="style-panel-input-container">
+                <div class="mb-2">
                     <font-family></font-family>
                 </div>
 
-                <div class="style-panel-input-container">
+                <div class="mb-2">
                     <text-alignment></text-alignment>
                 </div>
 
-                <b-row class="style-panel-input-container">
+                <b-row class="mb-2">
                     <b-col>
                         <font-size></font-size>
                     </b-col>
@@ -22,7 +22,7 @@
                     </b-col>
                 </b-row>
 
-                <b-row class="style-panel-input-container">
+                <b-row class="mb-2">
                     <b-col>
                         <line-height></line-height>
                     </b-col>
@@ -32,7 +32,7 @@
                     </b-col>
                 </b-row>
 
-                <div class="style-panel-input-container">
+                <div class="mb-2">
                     <text-color></text-color>
                 </div>
             </div>

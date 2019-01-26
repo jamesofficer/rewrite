@@ -2,8 +2,8 @@
     <div>
         <p class="style-panel-label">Margins</p>
 
-        <div class="style-panel-input-container">
-            <b-row>
+        <div class="mb-2">
+            <b-form-row>
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
@@ -25,9 +25,7 @@
                         @focusout.native="ensureValueIsNotEmpty('marginBottom')"
                     ></b-form-input>
                 </b-col>
-            </b-row>
 
-            <b-row>
                 <b-col>
                     <label class="sub-label">Left</label>
                     <b-form-input
@@ -49,7 +47,7 @@
                         @focusout.native="ensureValueIsNotEmpty('marginRight')"
                     ></b-form-input>
                 </b-col>
-            </b-row>
+            </b-form-row>
         </div>
     </div>
 </template>

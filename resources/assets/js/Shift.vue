@@ -7,14 +7,12 @@
             <global-styles-switch></global-styles-switch>
 
             <portal-target name="sidebar"></portal-target>
+
+            <device-size-controls></device-size-controls>
         </div>
 
         <!-- Main Content Area -->
         <div id="rewrite-content-area">
-            <div class="device-size-controls-container">
-                <device-size-controls></device-size-controls>
-            </div>
-
             <!-- NOTIFCATION IS CAUSING EXTRA PIXELS TO BE ADDED TO RIGHT OF WINDOW -->
             <notification></notification>
 
@@ -156,24 +154,6 @@ export default {
 .article-name-container {
     margin: 0 auto;
     padding-top: 20px;
-}
-
-.device-size-controls-container {
-    position: fixed;
-    top: 10px;
-    left: 70px;
-}
-
-.sidebar-styles {
-    z-index: 100;
-    background: white;
-    padding: 10px 15px;
-    border-bottom: 1px dashed gray;
-    box-shadow: 0 0 20px #ccc;
-}
-
-.sidebar-portal-target {
-    display: block;
 }
 
 .shift-workspace {

@@ -1,22 +1,28 @@
 <template>
-    <div class="device-size-controls">
-        <b-button-group class="device-size-btn-group">
-            <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="success" v-b-tooltip.top="'Devices <576px wide'">
-                Small
+    <div>
+        <div class="sidebar-control">
+            <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="primary" v-b-tooltip.right="'Mobiles'">
+                <icon name="mobile-alt"></icon>
             </b-button>
+        </div>
 
-            <b-button @click="setDeviceSize('md')" :pressed="getDeviceSize === 'md'" variant="success" v-b-tooltip.top="'Devices ≥576px wide'">
-                Medium
+        <div class="sidebar-control">
+            <b-button @click="setDeviceSize('md')" :pressed="getDeviceSize === 'md'" variant="primary" v-b-tooltip.right="'Tablets'">
+                <icon name="tablet-alt"></icon>
             </b-button>
+        </div>
 
-            <b-button @click="setDeviceSize('lg')" :pressed="getDeviceSize === 'lg'" variant="success" v-b-tooltip.top="'Devices ≥768px wide'">
-                Large
+        <div class="sidebar-control">
+            <b-button @click="setDeviceSize('lg')" :pressed="getDeviceSize === 'lg'" variant="primary" v-b-tooltip.right="'Laptops'">
+                <icon name="laptop"></icon>
             </b-button>
+        </div>
 
-            <b-button @click="setDeviceSize('xl')" :pressed="getDeviceSize === 'xl'" variant="success" v-b-tooltip.top="'Devices ≥992px wide'">
-                X Large
+        <div class="sidebar-control">
+            <b-button @click="setDeviceSize('xl')" :pressed="getDeviceSize === 'xl'" variant="primary" v-b-tooltip.right="'Desktops'">
+                <icon name="desktop"></icon>
             </b-button>
-        </b-button-group>
+        </div>
     </div>
 </template>
 

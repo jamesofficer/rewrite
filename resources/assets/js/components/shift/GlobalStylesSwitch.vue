@@ -1,11 +1,13 @@
 <template>
     <div class="sidebar-control">
-        <sidebar-control
-            tooltip="Enable Global Styles"
-            :icon="getGlobalStyleStatus ? 'toggle-off' : 'toggle-on'"
+        <b-button
             :variant="getGlobalStylesStatus ? 'success' : 'danger'"
-            @click.native="setGlobalComponentStyles(! getGlobalStylesStatus)"
-        ></sidebar-control>
+            v-b-tooltip.hover.right
+            title="Enable Global Styles"
+            @click="setGlobalComponentStyles(! getGlobalStylesStatus)"
+        >
+            <icon :name="getGlobalStylesStatus ? 'toggle-on' : 'toggle-off'"></icon>
+        </b-button>
     </div>
 </template>
 
