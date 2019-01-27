@@ -12,7 +12,25 @@ import {
  */
 export const enableGlobalComponentStyles = (state, toggle) => {
     state.enableGlobalComponentStyles = toggle;
-}
+};
+
+export const showColorPicker = (state, toggle) => {
+    state.showColorPicker = toggle;
+};
+
+export const setColorPickerProperty = (state, property) => {
+    state.colorPickerProperty = property;
+};
+
+export const setColorPickerSubProperty = (state, subProperty) => {
+    state.colorPickerSubProperty = subProperty;
+};
+
+export const resetColorPicker = state => {
+    state.colorPickerProperty = undefined;
+    state.colorPickerSubProperty = undefined;
+    state.showColorPicker = false;
+};
 
 /**
  * Adds another Canvas to the Workspace.
@@ -238,6 +256,7 @@ export const selectElement = (state, i) => {
     window.Vue.set(state.selected, 'element', getSelectedElement(state));
 
     getSelectedRootElement(state).selected = true;
+    resetColorPicker(state);
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -436,9 +455,3 @@ export const loadArticle = (state, article) => {
 export const addFontToFontsUsed = (state, font) => {
     state.fontsUsed.push(font);
 };
-
-export const createStylesheet = state => {
-    const css = createArticleStylesheet(state);
-
-    console.log(css);
-}

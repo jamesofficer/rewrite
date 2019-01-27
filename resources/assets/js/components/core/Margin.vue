@@ -65,11 +65,7 @@ export default {
 
     computed: {
         elementStyleIsSelected() {
-            const selected = this.$store.getters.selectedElementStyle === 'margin';
-
-            console.log(selected);
-
-            return selected;
+            return this.$store.getters.selectedElementStyle === 'margin';
         },
 
         marginTop: {

@@ -5,6 +5,7 @@
         :title="tooltip"
         :disabled="disabled"
         :pressed="pressed"
+        @click="hideColorPicker()"
     >
         <icon :name="icon"></icon> {{ label }}
     </b-button>
@@ -46,6 +47,12 @@ export default {
             type: Boolean,
             required: false,
             default: false,
+        }
+    },
+
+    methods: {
+        hideColorPicker() {
+            this.$store.commit('resetColorPicker');
         }
     }
 }

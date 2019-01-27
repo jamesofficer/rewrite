@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label class="style-panel-label">Offsets</label>
+        <label class="style-panel-label">Offsets &amp; Blur</label>
 
         <b-form-row class="mb-2">
             <b-col>
@@ -37,25 +37,25 @@
             </b-col>
         </b-form-row>
 
-        <label class="style-panel-label">Shadow Colour</label>
-
-        <b-form-row class="mb-2">
+        <b-form-row>
             <b-col>
-                <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
+                <label class="style-panel-label">Colour</label>
+                <color-picker-button propertyName="textShadow" subPropertyName="color"></color-picker-button>
+                <!-- <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker> -->
             </b-col>
         </b-form-row>
     </div>
 </template>
 
 <script>
-import SidebarControl from "../sidebar/SidebarControl";
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
-import { Chrome as ColorPicker } from 'vue-color'
+import SidebarControl    from '../sidebar/SidebarControl';
+import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
+import ColorPickerButton from './ColorPickerButton';
 
 export default {
     name: "TextShadow",
 
-    components: { SidebarControl, ColorPicker },
+    components: { SidebarControl, ColorPickerButton },
 
     mixins: [NoEmptyValues],
 
@@ -99,24 +99,6 @@ export default {
             }
         },
     },
-
-    data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 0, g: 0, b: 0, a: 1 },
-        }
-    },
-
-    methods: {
-        setColor(color) {
-            this.$store.commit('setComponentSubProperty', {
-                property: 'textShadow',
-                subproperty: 'color',
-                value: color.rgba,
-            });
-        },
-    }
-
 }
 </script>
 

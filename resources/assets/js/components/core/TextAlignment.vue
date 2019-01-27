@@ -1,27 +1,24 @@
 <template>
     <div>
-        <label class="style-panel-label">Text Alignment</label>
+        <label class="style-panel-label d-block">Text Alignment</label>
 
-        <b-row>
-            <b-col>
-                <b-button variant="outline-primary" @click="alignText('left')" v-b-tooltip.hover.right title="Align Left">
-                    <icon name="align-left"></icon>
-                </b-button>
+        <b-button-group>
+            <b-button variant="outline-primary" @click="alignText('left')">
+                <icon name="align-left"></icon>
+            </b-button>
 
-                <b-button variant="outline-primary" @click="alignText('center')" v-b-tooltip.hover.right title="Align Center">
-                    <icon name="align-center"></icon>
-                </b-button>
+            <b-button variant="outline-primary" @click="alignText('center')">
+                <icon name="align-center"></icon>
+            </b-button>
 
-                <b-button variant="outline-primary" @click="alignText('right')" v-b-tooltip.hover.right title="Align Right">
-                    <icon name="align-right"></icon>
-                </b-button>
+            <b-button variant="outline-primary" @click="alignText('right')">
+                <icon name="align-right"></icon>
+            </b-button>
 
-                <b-button variant="outline-primary" @click="alignText('justify')" v-b-tooltip.hover.right title="Justify">
-                    <icon name="align-justify"></icon>
-                </b-button>
-            </b-col>
-        </b-row>
-
+            <b-button variant="outline-primary" @click="alignText('justify')">
+                <icon name="align-justify"></icon>
+            </b-button>
+        </b-button-group>
     </div>
 </template>
 

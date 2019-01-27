@@ -1,5 +1,5 @@
 <template>
-    <floating-panel style="bottom: 5px; left: 75px;" :height="'300px'" :width="'auto'">
+    <floating-panel style="bottom: 5px; left: 75px;" :height="'307px'" :width="'auto'">
         <template slot="title">{{ selectedElementStyleName }} Controls</template>
 
         <template slot="content">
@@ -16,11 +16,12 @@
 
 <script>
 import FloatingPanel from './FloatingPanel';
+import ColorPickerButton from '../core/ColorPickerButton';
 
 export default {
     name: "ElementStylesPanel",
 
-    components: { FloatingPanel },
+    components: { FloatingPanel, ColorPickerButton },
 
     computed: {
         selectedElementStyleName() {

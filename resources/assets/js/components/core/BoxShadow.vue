@@ -37,25 +37,24 @@
             </b-col>
         </b-form-row>
 
-        <label class="style-panel-label">Shadow Colour</label>
-
-        <b-row>
+        <b-form-row>
             <b-col>
-                <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
+                <label class="style-panel-label">Colour</label>
+                <color-picker-button propertyName="boxShadow" subPropertyName="color"></color-picker-button>
             </b-col>
-        </b-row>
+        </b-form-row>
     </div>
 </template>
 
 <script>
-import SidebarControl from "../sidebar/SidebarControl";
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
-import { Chrome as ColorPicker } from 'vue-color'
+import SidebarControl    from '../sidebar/SidebarControl';
+import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
+import ColorPickerButton from  './ColorPickerButton';
 
 export default {
     name: "BoxShadow",
 
-    components: { SidebarControl, ColorPicker },
+    components: { SidebarControl, ColorPickerButton },
 
     mixins: [NoEmptyValues],
 
@@ -99,24 +98,6 @@ export default {
             }
         },
     },
-
-    data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 0, g: 0, b: 0, a: 1 },
-        }
-    },
-
-    methods: {
-        setColor(color) {
-            this.$store.commit('setComponentSubProperty', {
-                property: 'boxShadow',
-                subproperty: 'color',
-                value: color.rgba,
-            });
-        },
-    }
-
 }
 </script>
 

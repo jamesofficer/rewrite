@@ -8,6 +8,13 @@ export default {
     // When the user exports HTML, it will be held here.
     articleHtml: undefined,
 
+    // Hide or show the Colour Picker.
+    showColorPicker: false,
+
+    // The property and optional subProperty the Colour Picker should update.
+    colorPickerProperty: undefined,
+    colorPickerSubProperty: undefined,
+
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 

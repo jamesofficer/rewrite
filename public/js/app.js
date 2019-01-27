@@ -20715,57 +20715,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(189)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(191)
-/* template */
-var __vue_template__ = __webpack_require__(192)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-43c604ea"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/shift/FloatingPanel.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-43c604ea", Component.options)
-  } else {
-    hotAPI.reload("data-v-43c604ea", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 73 */,
 /* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26003,28 +25953,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_shift_Notification__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementStylesPanel__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_shift_ElementStylesPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_layout_Canvas__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_layout_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_layout_Canvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__ = __webpack_require__(569);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__ = __webpack_require__(579);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_AddComponentModal__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_EditTextModal__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_EditTextModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_LoadArticleModal__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_MyImagesModal__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_MyImagesModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ImageGalleryModal__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_ImageGalleryModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ExportArticleModal__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_ExportArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_BackgroundGradientModal__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_dialogs_BackgroundGradientModal__);
 //
 //
 //
@@ -26104,6 +26056,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+
+
 
 
 
@@ -26131,9 +26089,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "Shift",
 
     components: {
-        KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */], ShiftMenu: __WEBPACK_IMPORTED_MODULE_1__components_shift_ShiftMenu___default.a, ShiftFooter: __WEBPACK_IMPORTED_MODULE_2__components_shift_ShiftFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_shift_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_shift_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_8__components_shift_Minimap___default.a,
-        ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_7__components_shift_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_9__components_layout_Canvas___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_10__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_EditTextModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MyImagesModal___default.a,
-        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_BackgroundGradientModal___default.a
+        KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */], ShiftMenu: __WEBPACK_IMPORTED_MODULE_1__components_shift_ShiftMenu___default.a, ShiftFooter: __WEBPACK_IMPORTED_MODULE_2__components_shift_ShiftFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_shift_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_shift_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_6__components_shift_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default.a,
+        ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_shift_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_7__components_layout_Canvas___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_EditTextModal___default.a,
+        LoadArticleModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_RecipeIngredientsModal___default.a,
+        BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_BackgroundGradientModal___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
@@ -26781,6 +26740,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "SidebarControl",
@@ -26818,6 +26778,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             required: false,
             default: false
         }
+    },
+
+    methods: {
+        hideColorPicker: function hideColorPicker() {
+            this.$store.commit('resetColorPicker');
+        }
     }
 });
 
@@ -26844,6 +26810,11 @@ var render = function() {
         title: _vm.tooltip,
         disabled: _vm.disabled,
         pressed: _vm.pressed
+      },
+      on: {
+        click: function($event) {
+          _vm.hideColorPicker()
+        }
       }
     },
     [
@@ -27463,7 +27434,7 @@ var render = function() {
                 modifiers: { right: true }
               }
             ],
-            attrs: { pressed: _vm.getDeviceSize === "sm", variant: "primary" },
+            attrs: { pressed: _vm.getDeviceSize === "sm", variant: "success" },
             on: {
               click: function($event) {
                 _vm.setDeviceSize("sm")
@@ -27493,7 +27464,7 @@ var render = function() {
                 modifiers: { right: true }
               }
             ],
-            attrs: { pressed: _vm.getDeviceSize === "md", variant: "primary" },
+            attrs: { pressed: _vm.getDeviceSize === "md", variant: "success" },
             on: {
               click: function($event) {
                 _vm.setDeviceSize("md")
@@ -27523,7 +27494,7 @@ var render = function() {
                 modifiers: { right: true }
               }
             ],
-            attrs: { pressed: _vm.getDeviceSize === "lg", variant: "primary" },
+            attrs: { pressed: _vm.getDeviceSize === "lg", variant: "success" },
             on: {
               click: function($event) {
                 _vm.setDeviceSize("lg")
@@ -27553,7 +27524,7 @@ var render = function() {
                 modifiers: { right: true }
               }
             ],
-            attrs: { pressed: _vm.getDeviceSize === "xl", variant: "primary" },
+            attrs: { pressed: _vm.getDeviceSize === "xl", variant: "success" },
             on: {
               click: function($event) {
                 _vm.setDeviceSize("xl")
@@ -27579,859 +27550,20 @@ if (false) {
 }
 
 /***/ }),
-/* 185 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(186)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(188)
-/* template */
-var __vue_template__ = __webpack_require__(193)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/shift/ElementStylesPanel.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6c4dc60a", Component.options)
-  } else {
-    hotAPI.reload("data-v-6c4dc60a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(187);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(8)("76048abe", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6c4dc60a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementStylesPanel.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6c4dc60a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementStylesPanel.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 187 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.element-controls-panel {\n    position: fixed;\n    bottom: 5px;\n    left: 200px;\n    width: 280px;\n    background: white;\n    border-radius: 5px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 188 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "ElementStylesPanel",
-
-    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a },
-
-    computed: {
-        selectedElementStyleName: function selectedElementStyleName() {
-            var elementStyleName = this.$store.getters.selectedElementStyle;
-
-            if (elementStyleName === null) {
-                return '';
-            }
-
-            return elementStyleName.charAt(0).toUpperCase() + elementStyleName.slice(1);
-        }
-    }
-});
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(190);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(8)("9e8c04d4", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43c604ea\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43c604ea\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.panel[data-v-43c604ea] {\n    position: fixed;\n    background: white;\n    border-radius: 5px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.panel-header[data-v-43c604ea] {\n    cursor: pointer;\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.panel-body[data-v-43c604ea] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.panel-minimise-button[data-v-43c604ea] {\n    cursor: pointer;\n}\n.panel-minimise-button[data-v-43c604ea]:hover {\n    color: #dddddd;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 191 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "FloatingPanel",
-
-    props: {
-        height: {
-            type: String,
-            required: false,
-            default: '300px'
-        },
-
-        width: {
-            type: String,
-            required: false,
-            default: '280px'
-        }
-    },
-
-    data: function data() {
-        return {
-            panelVisible: true
-        };
-    }
-});
-
-/***/ }),
-/* 192 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "panel",
-      style: [
-        { height: _vm.panelVisible ? _vm.height : "35px" },
-        { width: _vm.width },
-        { minWidth: "250px" }
-      ]
-    },
-    [
-      _c(
-        "div",
-        {
-          staticClass: "panel-header",
-          on: {
-            click: function($event) {
-              _vm.panelVisible = !_vm.panelVisible
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-9" }, [_vm._t("title")], 2),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-3 text-right" }, [
-              _c(
-                "span",
-                { staticClass: "panel-minimise-button" },
-                [
-                  _c("icon", {
-                    attrs: { name: _vm.panelVisible ? "minus" : "plus" }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _vm.panelVisible
-        ? _c("div", { staticClass: "panel-body" }, [_vm._t("content")], 2)
-        : _vm._e()
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-43c604ea", module.exports)
-  }
-}
-
-/***/ }),
-/* 193 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "floating-panel",
-    {
-      staticStyle: { bottom: "5px", left: "75px" },
-      attrs: { height: "300px", width: "auto" }
-    },
-    [
-      _c("template", { slot: "title" }, [
-        _vm._v(_vm._s(_vm.selectedElementStyleName) + " Controls")
-      ]),
-      _vm._v(" "),
-      _c("template", { slot: "content" }, [
-        _c(
-          "div",
-          { staticStyle: { padding: "10px" } },
-          [
-            _vm.selectedElementStyleName === ""
-              ? _c("div", [_c("p", [_vm._v("No style selected.")])])
-              : _c("portal-target", { attrs: { name: "element-styles-panel" } })
-          ],
-          1
-        )
-      ])
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6c4dc60a", module.exports)
-  }
-}
-
-/***/ }),
-/* 194 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(195)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(197)
-/* template */
-var __vue_template__ = __webpack_require__(198)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-f9ee2f1e"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/shift/Minimap.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f9ee2f1e", Component.options)
-  } else {
-    hotAPI.reload("data-v-f9ee2f1e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 195 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(196);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(8)("02331ddf", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f9ee2f1e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Minimap.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f9ee2f1e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Minimap.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nul[data-v-f9ee2f1e] {\n    margin: 0;\n}\n.minimap-minimise-button[data-v-f9ee2f1e] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-f9ee2f1e]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-f9ee2f1e] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-f9ee2f1e] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-f9ee2f1e]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-f9ee2f1e]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-f9ee2f1e] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-f9ee2f1e] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-f9ee2f1e] {\n    padding-left: 15px;\n}\n.pad-column[data-v-f9ee2f1e] {\n    padding-left: 25px;\n}\n.pad-component[data-v-f9ee2f1e] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-f9ee2f1e] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-f9ee2f1e] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 197 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Minimap",
-
-    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a },
-
-    computed: {
-        canvases: function canvases() {
-            return this.$store.getters.canvases;
-        }
-    },
-
-    data: function data() {
-        return {
-            minimapVisible: true
-        };
-    },
-
-
-    methods: {
-        selectElement: function selectElement(canvasIndex) {
-            var rowIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-            var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-            var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
-
-            this.$store.commit('selectElement', {
-                canvasIndex: canvasIndex,
-                rowIndex: rowIndex,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex
-            });
-        },
-        toggleElementVisibility: function toggleElementVisibility(canvasIndex) {
-            var rowIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-            var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-            var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
-
-            this.$store.commit('toggleElementVisibility', {
-                canvasIndex: canvasIndex,
-                rowIndex: rowIndex,
-                columnIndex: columnIndex,
-                componentIndex: componentIndex
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 198 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "floating-panel",
-    { staticStyle: { bottom: "5px", right: "15px" } },
-    [
-      _c("template", { slot: "title" }, [_vm._v("Layout")]),
-      _vm._v(" "),
-      _c(
-        "template",
-        { slot: "content" },
-        _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-          return _c(
-            "ul",
-            { key: canvasIndex, staticClass: "minimap-ul" },
-            [
-              _c(
-                "li",
-                {
-                  staticClass: "minimap-element-row",
-                  class: { "element-selected": canvas.selected },
-                  on: {
-                    click: function($event) {
-                      _vm.selectElement(canvasIndex)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "span",
-                    { staticClass: "collapse-icon-container" },
-                    [_c("icon", { attrs: { name: "caret-down" } })],
-                    1
-                  ),
-                  _vm._v(
-                    "\n\n                Canvas " +
-                      _vm._s(canvasIndex + 1) +
-                      "\n\n                "
-                  ),
-                  _c(
-                    "span",
-                    { staticClass: "eye-icon-container" },
-                    [
-                      _c("icon", {
-                        attrs: { name: canvas.visible ? "eye" : "eye-slash" },
-                        nativeOn: {
-                          click: function($event) {
-                            _vm.toggleElementVisibility(canvasIndex)
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm._l(canvas.rows, function(row, rowIndex) {
-                return _c(
-                  "ul",
-                  { key: rowIndex, staticClass: "minimap-ul" },
-                  [
-                    _c(
-                      "li",
-                      {
-                        staticClass:
-                          "minimap-element-row add-left-border pad-row",
-                        class: { "element-selected": row.selected },
-                        on: {
-                          click: function($event) {
-                            _vm.selectElement(canvasIndex, rowIndex)
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "span",
-                          { staticClass: "collapse-icon-container" },
-                          [_c("icon", { attrs: { name: "caret-down" } })],
-                          1
-                        ),
-                        _vm._v(
-                          "\n\n                    Row " +
-                            _vm._s(rowIndex + 1) +
-                            "\n\n                    "
-                        ),
-                        _c(
-                          "span",
-                          { staticClass: "eye-icon-container" },
-                          [
-                            _c("icon", {
-                              attrs: {
-                                name: row.visible ? "eye" : "eye-slash"
-                              },
-                              nativeOn: {
-                                click: function($event) {
-                                  _vm.toggleElementVisibility(
-                                    canvasIndex,
-                                    rowIndex
-                                  )
-                                }
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(row.columns, function(column, columnIndex) {
-                      return _c(
-                        "ul",
-                        { key: columnIndex, staticClass: "minimap-ul" },
-                        [
-                          _c(
-                            "li",
-                            {
-                              staticClass:
-                                "minimap-element-row add-left-border pad-column",
-                              class: { "element-selected": column.selected },
-                              on: {
-                                click: function($event) {
-                                  _vm.selectElement(
-                                    canvasIndex,
-                                    rowIndex,
-                                    columnIndex
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "span",
-                                { staticClass: "collapse-icon-container" },
-                                [_c("icon", { attrs: { name: "caret-down" } })],
-                                1
-                              ),
-                              _vm._v(
-                                "\n\n                        Column " +
-                                  _vm._s(columnIndex + 1) +
-                                  "\n\n                        "
-                              ),
-                              _c(
-                                "span",
-                                { staticClass: "eye-icon-container" },
-                                [
-                                  _c("icon", {
-                                    attrs: {
-                                      name: column.visible ? "eye" : "eye-slash"
-                                    },
-                                    nativeOn: {
-                                      click: function($event) {
-                                        _vm.toggleElementVisibility(
-                                          canvasIndex,
-                                          rowIndex,
-                                          columnIndex
-                                        )
-                                      }
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._l(column.components, function(
-                            component,
-                            componentIndex
-                          ) {
-                            return _c(
-                              "ul",
-                              {
-                                key: componentIndex,
-                                staticClass: "minimap-ul"
-                              },
-                              [
-                                _c(
-                                  "li",
-                                  {
-                                    staticClass:
-                                      "minimap-element-row add-left-border pad-component",
-                                    class: {
-                                      "element-selected": component.selected
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.selectElement(
-                                          canvasIndex,
-                                          rowIndex,
-                                          columnIndex,
-                                          componentIndex
-                                        )
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            " +
-                                        _vm._s(component.type) +
-                                        "\n\n                            "
-                                    ),
-                                    _c(
-                                      "span",
-                                      { staticClass: "eye-icon-container" },
-                                      [
-                                        _c("icon", {
-                                          attrs: {
-                                            name: component.visible
-                                              ? "eye"
-                                              : "eye-slash"
-                                          },
-                                          nativeOn: {
-                                            click: function($event) {
-                                              _vm.toggleElementVisibility(
-                                                canvasIndex,
-                                                rowIndex,
-                                                columnIndex,
-                                                componentIndex
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    })
-                  ],
-                  2
-                )
-              })
-            ],
-            2
-          )
-        })
-      )
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f9ee2f1e", module.exports)
-  }
-}
-
-/***/ }),
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
 /* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30143,6 +29275,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -30167,14 +29304,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("sidebar-control", {
-    attrs: { variant: "outline-danger", icon: "ban", tooltip: "Clear Image" },
-    nativeOn: {
-      click: function($event) {
-        return _vm.clearImage($event)
-      }
-    }
-  })
+  return _c(
+    "div",
+    { staticClass: "sidebar-control" },
+    [
+      _c("label", { staticClass: "style-panel-label" }, [_vm._v("Image")]),
+      _vm._v(" "),
+      _c(
+        "b-button",
+        {
+          directives: [
+            {
+              name: "b-tooltip",
+              rawName: "v-b-tooltip.hover.right",
+              modifiers: { hover: true, right: true }
+            }
+          ],
+          attrs: { variant: "danger", tooltip: "Clear Image" }
+        },
+        [_c("icon", { attrs: { name: "ban" } })],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -30348,11 +29501,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         elementStyleIsSelected: function elementStyleIsSelected() {
-            var selected = this.$store.getters.selectedElementStyle === 'margin';
-
-            console.log(selected);
-
-            return selected;
+            return this.$store.getters.selectedElementStyle === 'margin';
         },
 
 
@@ -31160,6 +30309,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -31207,10 +30364,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_color__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__);
+//
+//
+//
 //
 //
 //
@@ -31222,19 +30382,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BackgroundColor",
 
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Chrome"] },
-
-    computed: {
-        backgroundColor: function backgroundColor() {
-            return this.$store.getters.getSelectedElement.backgroundColor;
-        }
-    },
-
-    methods: {
-        updateValue: function updateValue(color) {
-            this.$store.commit('setComponentProperty', { property: 'backgroundColor', value: color.rgba });
-        }
-    }
+    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPickerButton: __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default.a }
 });
 
 /***/ }),
@@ -31245,10 +30393,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("color-picker", {
-    attrs: { value: _vm.backgroundColor },
-    on: { input: _vm.updateValue }
-  })
+  return _c(
+    "div",
+    [
+      _c("label", { staticClass: "style-panel-label" }, [_vm._v("Colour")]),
+      _vm._v(" "),
+      _c("color-picker-button", { attrs: { propertyName: "backgroundColor" } })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -31319,6 +30472,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -31336,16 +30494,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("sidebar-control", {
-    directives: [
-      {
-        name: "b-modal",
-        rawName: "v-b-modal.backgroundGradientModal",
-        modifiers: { backgroundGradientModal: true }
-      }
+  return _c(
+    "div",
+    { staticClass: "sidebar-control" },
+    [
+      _c("label", { staticClass: "style-panel-label" }, [_vm._v("Gradient")]),
+      _vm._v(" "),
+      _c(
+        "b-button",
+        {
+          directives: [
+            {
+              name: "b-modal",
+              rawName: "v-b-modal.backgroundGradientModal",
+              modifiers: { backgroundGradientModal: true }
+            }
+          ],
+          attrs: { variant: "outline-primary", tooltip: "Select Image" }
+        },
+        [_c("icon", { attrs: { name: "brush" } })],
+        1
+      )
     ],
-    attrs: { icon: "brush", tooltip: "Background Gradient" }
-  })
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -31365,6 +30537,9 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
+//
+//
+//
 //
 //
 //
@@ -31394,20 +30569,23 @@ var render = function() {
     "div",
     { staticClass: "sidebar-control" },
     [
-      _c("sidebar-control", {
-        directives: [
-          {
-            name: "b-modal",
-            rawName: "v-b-modal.imageGalleryModal",
-            modifiers: { imageGalleryModal: true }
-          }
-        ],
-        attrs: {
-          variant: "outline-primary",
-          icon: "image",
-          tooltip: "Select Image"
-        }
-      })
+      _c("label", { staticClass: "style-panel-label" }, [_vm._v("Image")]),
+      _vm._v(" "),
+      _c(
+        "b-button",
+        {
+          directives: [
+            {
+              name: "b-modal",
+              rawName: "v-b-modal.imageGalleryModal",
+              modifiers: { imageGalleryModal: true }
+            }
+          ],
+          attrs: { variant: "outline-primary", tooltip: "Select Image" }
+        },
+        [_c("icon", { attrs: { name: "image" } })],
+        1
+      )
     ],
     1
   )
@@ -31592,11 +30770,21 @@ var render = function() {
             "portal",
             { attrs: { to: "element-styles-panel" } },
             [
-              _c("background-color"),
-              _vm._v(" "),
-              _c("background-gradient"),
-              _vm._v(" "),
-              _vm.allowImage ? _c("image-selector") : _vm._e(),
+              _c(
+                "b-form-row",
+                [
+                  _c("b-col", [_c("background-color")], 1),
+                  _vm._v(" "),
+                  _c("b-col", [_c("background-gradient")], 1),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    [_vm.allowImage ? _c("image-selector") : _vm._e()],
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _vm.element.backgroundImage !== undefined &&
               _vm.element.backgroundImage.includes("url")
@@ -31706,7 +30894,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -31717,11 +30905,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__);
 //
 //
 //
@@ -31794,8 +30980,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-
 
 
 
@@ -31803,9 +30987,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Border",
 
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+    components: { ColorPickerButton: __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default.a },
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
     computed: {
         borderStyle: {
@@ -32084,15 +31268,8 @@ var render = function() {
               })
             ],
             1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-form-row",
-        { staticClass: "mb-2" },
-        [
+          ),
+          _vm._v(" "),
           _c(
             "b-col",
             [
@@ -32100,10 +31277,8 @@ var render = function() {
                 _vm._v("Colour")
               ]),
               _vm._v(" "),
-              _c("color-picker", {
-                staticClass: "color-picker",
-                attrs: { value: _vm.colors },
-                on: { input: _vm.setColor }
+              _c("color-picker-button", {
+                attrs: { propertyName: "border", subPropertyName: "color" }
               })
             ],
             1
@@ -32226,9 +31401,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__ColorPickerButton__);
 //
 //
 //
@@ -32285,7 +31459,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "BoxShadow",
 
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPickerButton: __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton___default.a },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
@@ -32328,26 +31502,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         }
-    },
-
-    data: function data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 0, g: 0, b: 0, a: 1 }
-        };
-    },
-
-
-    methods: {
-        setColor: function setColor(color) {
-            this.$store.commit('setComponentSubProperty', {
-                property: 'boxShadow',
-                subproperty: 'color',
-                value: color.rgba
-            });
-        }
     }
-
 });
 
 /***/ }),
@@ -32442,20 +31597,18 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("label", { staticClass: "style-panel-label" }, [
-        _vm._v("Shadow Colour")
-      ]),
-      _vm._v(" "),
       _c(
-        "b-row",
+        "b-form-row",
         [
           _c(
             "b-col",
             [
-              _c("color-picker", {
-                staticClass: "color-picker",
-                attrs: { value: _vm.colors },
-                on: { input: _vm.setColor }
+              _c("label", { staticClass: "style-panel-label" }, [
+                _vm._v("Colour")
+              ]),
+              _vm._v(" "),
+              _c("color-picker-button", {
+                attrs: { propertyName: "boxShadow", subPropertyName: "color" }
               })
             ],
             1
@@ -33327,9 +32480,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextAlignment",
@@ -33352,100 +32502,66 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("label", { staticClass: "style-panel-label" }, [
+      _c("label", { staticClass: "style-panel-label d-block" }, [
         _vm._v("Text Alignment")
       ]),
       _vm._v(" "),
       _c(
-        "b-row",
+        "b-button-group",
         [
           _c(
-            "b-col",
-            [
-              _c(
-                "b-button",
-                {
-                  directives: [
-                    {
-                      name: "b-tooltip",
-                      rawName: "v-b-tooltip.hover.right",
-                      modifiers: { hover: true, right: true }
-                    }
-                  ],
-                  attrs: { variant: "outline-primary", title: "Align Left" },
-                  on: {
-                    click: function($event) {
-                      _vm.alignText("left")
-                    }
-                  }
-                },
-                [_c("icon", { attrs: { name: "align-left" } })],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  directives: [
-                    {
-                      name: "b-tooltip",
-                      rawName: "v-b-tooltip.hover.right",
-                      modifiers: { hover: true, right: true }
-                    }
-                  ],
-                  attrs: { variant: "outline-primary", title: "Align Center" },
-                  on: {
-                    click: function($event) {
-                      _vm.alignText("center")
-                    }
-                  }
-                },
-                [_c("icon", { attrs: { name: "align-center" } })],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  directives: [
-                    {
-                      name: "b-tooltip",
-                      rawName: "v-b-tooltip.hover.right",
-                      modifiers: { hover: true, right: true }
-                    }
-                  ],
-                  attrs: { variant: "outline-primary", title: "Align Right" },
-                  on: {
-                    click: function($event) {
-                      _vm.alignText("right")
-                    }
-                  }
-                },
-                [_c("icon", { attrs: { name: "align-right" } })],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  directives: [
-                    {
-                      name: "b-tooltip",
-                      rawName: "v-b-tooltip.hover.right",
-                      modifiers: { hover: true, right: true }
-                    }
-                  ],
-                  attrs: { variant: "outline-primary", title: "Justify" },
-                  on: {
-                    click: function($event) {
-                      _vm.alignText("justify")
-                    }
-                  }
-                },
-                [_c("icon", { attrs: { name: "align-justify" } })],
-                1
-              )
-            ],
+            "b-button",
+            {
+              attrs: { variant: "outline-primary" },
+              on: {
+                click: function($event) {
+                  _vm.alignText("left")
+                }
+              }
+            },
+            [_c("icon", { attrs: { name: "align-left" } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "outline-primary" },
+              on: {
+                click: function($event) {
+                  _vm.alignText("center")
+                }
+              }
+            },
+            [_c("icon", { attrs: { name: "align-center" } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "outline-primary" },
+              on: {
+                click: function($event) {
+                  _vm.alignText("right")
+                }
+              }
+            },
+            [_c("icon", { attrs: { name: "align-right" } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              attrs: { variant: "outline-primary" },
+              on: {
+                click: function($event) {
+                  _vm.alignText("justify")
+                }
+              }
+            },
+            [_c("icon", { attrs: { name: "align-justify" } })],
             1
           )
         ],
@@ -33500,7 +32616,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.font-family-dropdown[data-v-3f0ceadc] {\n    height: 350px;\n    overflow-y: scroll;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .font-family-dropdown {\n    height: 350px;\n    overflow-y: scroll;\n} */\n", ""]);
 
 // exports
 
@@ -33512,6 +32628,7 @@ exports.push([module.i, "\n.font-family-dropdown[data-v-3f0ceadc] {\n    height:
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_FontList__ = __webpack_require__(284);
+//
 //
 //
 //
@@ -33683,51 +32800,37 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("label", { staticClass: "style-panel-label" }, [
+      _c("label", { staticClass: "style-panel-label d-block" }, [
         _vm._v("Font Family")
       ]),
       _vm._v(" "),
       _c(
-        "b-row",
-        [
-          _c(
-            "b-col",
+        "b-dropdown",
+        {
+          attrs: {
+            boundary: "viewport",
+            text: _vm.selectedFont,
+            variant: "outline-primary"
+          }
+        },
+        _vm._l(_vm.fonts, function(font, index) {
+          return _c(
+            "b-dropdown-item-button",
+            {
+              key: index,
+              on: {
+                click: function($event) {
+                  _vm.selectFont(font)
+                }
+              }
+            },
             [
-              _c(
-                "b-dropdown",
-                {
-                  attrs: { text: _vm.selectedFont, variant: "outline-primary" }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "font-family-dropdown" },
-                    _vm._l(_vm.fonts, function(font, index) {
-                      return _c(
-                        "b-dropdown-item",
-                        {
-                          key: index,
-                          on: {
-                            click: function($event) {
-                              _vm.selectFont(font)
-                            }
-                          }
-                        },
-                        [
-                          _c("span", { style: "font-family: " + font.name }, [
-                            _vm._v(_vm._s(font.name))
-                          ])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
-            ],
-            1
+              _c("span", { style: "font-family: " + font.name }, [
+                _vm._v(_vm._s(font.name))
+              ])
+            ]
           )
-        ],
-        1
+        })
       )
     ],
     1
@@ -33749,11 +32852,10 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_color__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl__);
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ColorPickerButton__);
 //
 //
 //
@@ -33768,19 +32870,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextColor",
 
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_1__sidebar_SidebarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Chrome"] },
-
-    computed: {
-        textColor: function textColor() {
-            return this.$store.getters.getSelectedElement.textColor;
-        }
-    },
-
-    methods: {
-        updateValue: function updateValue(color) {
-            this.$store.commit('setComponentProperty', { property: 'textColor', value: color.rgba });
-        }
-    }
+    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPickerButton: __WEBPACK_IMPORTED_MODULE_1__ColorPickerButton___default.a }
 });
 
 /***/ }),
@@ -33798,11 +32888,7 @@ var render = function() {
         _vm._v("Text Colour")
       ]),
       _vm._v(" "),
-      _c("color-picker", {
-        staticClass: "color-picker",
-        attrs: { value: _vm.textColor },
-        on: { input: _vm.updateValue }
-      })
+      _c("color-picker-button", { attrs: { propertyName: "textColor" } })
     ],
     1
   )
@@ -33826,8 +32912,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__ColorPickerButton__);
 //
 //
 //
@@ -33885,7 +32971,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "TextShadow",
 
-    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_2_vue_color__["Chrome"] },
+    components: { SidebarControl: __WEBPACK_IMPORTED_MODULE_0__sidebar_SidebarControl___default.a, ColorPickerButton: __WEBPACK_IMPORTED_MODULE_2__ColorPickerButton___default.a },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_1__mixins_EnsureNoEmptyValues__["a" /* default */]],
 
@@ -33928,26 +33014,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
             }
         }
-    },
-
-    data: function data() {
-        return {
-            showColorPicker: false,
-            colors: { r: 0, g: 0, b: 0, a: 1 }
-        };
-    },
-
-
-    methods: {
-        setColor: function setColor(color) {
-            this.$store.commit('setComponentSubProperty', {
-                property: 'textShadow',
-                subproperty: 'color',
-                value: color.rgba
-            });
-        }
     }
-
 });
 
 /***/ }),
@@ -33961,7 +33028,9 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("label", { staticClass: "style-panel-label" }, [_vm._v("Offsets")]),
+      _c("label", { staticClass: "style-panel-label" }, [
+        _vm._v("Offsets & Blur")
+      ]),
       _vm._v(" "),
       _c(
         "b-form-row",
@@ -34042,21 +33111,18 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("label", { staticClass: "style-panel-label" }, [
-        _vm._v("Shadow Colour")
-      ]),
-      _vm._v(" "),
       _c(
         "b-form-row",
-        { staticClass: "mb-2" },
         [
           _c(
             "b-col",
             [
-              _c("color-picker", {
-                staticClass: "color-picker",
-                attrs: { value: _vm.colors },
-                on: { input: _vm.setColor }
+              _c("label", { staticClass: "style-panel-label" }, [
+                _vm._v("Colour")
+              ]),
+              _vm._v(" "),
+              _c("color-picker-button", {
+                attrs: { propertyName: "textShadow", subPropertyName: "color" }
               })
             ],
             1
@@ -34438,42 +33504,47 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.elementStyleIsSelected()
-        ? _c("portal", { attrs: { to: "element-styles-panel" } }, [
-            _c(
-              "div",
-              { staticClass: "element-style-panel-container" },
-              [
-                _c("div", { staticClass: "mb-2" }, [_c("font-family")], 1),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-2" }, [_c("text-alignment")], 1),
-                _vm._v(" "),
-                _c(
-                  "b-row",
-                  { staticClass: "mb-2" },
-                  [
-                    _c("b-col", [_c("font-size")], 1),
-                    _vm._v(" "),
-                    _c("b-col", [_c("font-weight")], 1)
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-row",
-                  { staticClass: "mb-2" },
-                  [
-                    _c("b-col", [_c("line-height")], 1),
-                    _vm._v(" "),
-                    _c("b-col", [_c("letter-spacing")], 1)
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-2" }, [_c("text-color")], 1)
-              ],
-              1
-            )
-          ])
+        ? _c(
+            "portal",
+            { attrs: { to: "element-styles-panel" } },
+            [
+              _c(
+                "b-form-row",
+                { staticClass: "mb-2" },
+                [
+                  _c("b-col", [_c("font-family")], 1),
+                  _vm._v(" "),
+                  _c("b-col", [_c("text-alignment")], 1)
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-row",
+                { staticClass: "mb-2" },
+                [
+                  _c("b-col", [_c("font-size")], 1),
+                  _vm._v(" "),
+                  _c("b-col", [_c("font-weight")], 1),
+                  _vm._v(" "),
+                  _c("b-col", [_c("line-height")], 1)
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-row",
+                { staticClass: "mb-2" },
+                [
+                  _c("b-col", [_c("letter-spacing")], 1),
+                  _vm._v(" "),
+                  _c("b-col", [_c("text-color")], 1)
+                ],
+                1
+              )
+            ],
+            1
+          )
         : _vm._e()
     ],
     1
@@ -43700,7 +42771,12 @@ var render = function() {
           _vm._v(" "),
           _c("portal-target", { attrs: { name: "sidebar" } }),
           _vm._v(" "),
-          _c("device-size-controls")
+          _c(
+            "div",
+            { staticStyle: { position: "fixed", bottom: "5px" } },
+            [_c("device-size-controls")],
+            1
+          )
         ],
         1
       ),
@@ -43770,7 +42846,13 @@ var render = function() {
       _c(
         "div",
         { staticClass: "fixed-footer" },
-        [_c("element-styles-panel"), _vm._v(" "), _c("minimap")],
+        [
+          _c("element-styles-panel"),
+          _vm._v(" "),
+          _c("minimap"),
+          _vm._v(" "),
+          _c("color-picker-panel")
+        ],
         1
       ),
       _vm._v(" "),
@@ -43853,6 +42935,13 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     // When the user exports HTML, it will be held here.
     articleHtml: undefined,
 
+    // Hide or show the Colour Picker.
+    showColorPicker: false,
+
+    // The property and optional subProperty the Colour Picker should update.
+    colorPickerProperty: undefined,
+    colorPickerSubProperty: undefined,
+
     // If true, when the styles of a component are updated the change will apply at all device sizes.
     enableGlobalComponentStyles: true,
 
@@ -43899,6 +42988,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "globalComponentStyles", function() { return globalComponentStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showColorPicker", function() { return showColorPicker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colorPickerProperty", function() { return colorPickerProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colorPickerSubProperty", function() { return colorPickerSubProperty; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectedElementStyle", function() { return selectedElementStyle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canvases", function() { return canvases; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rows", function() { return rows; });
@@ -43929,6 +43021,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 var globalComponentStyles = function globalComponentStyles(state) {
     return state.enableGlobalComponentStyles;
+};
+
+var showColorPicker = function showColorPicker(state) {
+    return state.showColorPicker;
+};
+
+var colorPickerProperty = function colorPickerProperty(state) {
+    return state.colorPickerProperty;
+};
+
+var colorPickerSubProperty = function colorPickerSubProperty(state) {
+    return state.colorPickerSubProperty;
 };
 
 /**
@@ -44123,6 +43227,10 @@ var elementIsSelected = function elementIsSelected(state) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableGlobalComponentStyles", function() { return enableGlobalComponentStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showColorPicker", function() { return showColorPicker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setColorPickerProperty", function() { return setColorPickerProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setColorPickerSubProperty", function() { return setColorPickerSubProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetColorPicker", function() { return resetColorPicker; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRow", function() { return addRow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addColumn", function() { return addColumn; });
@@ -44150,7 +43258,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanHtml", function() { return cleanHtml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadArticle", function() { return loadArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addFontToFontsUsed", function() { return addFontToFontsUsed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStylesheet", function() { return createStylesheet; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaults_defaults__ = __webpack_require__(381);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_generator__ = __webpack_require__(382);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers__ = __webpack_require__(53);
@@ -44166,6 +43273,24 @@ var _this = this;
  */
 var enableGlobalComponentStyles = function enableGlobalComponentStyles(state, toggle) {
     state.enableGlobalComponentStyles = toggle;
+};
+
+var showColorPicker = function showColorPicker(state, toggle) {
+    state.showColorPicker = toggle;
+};
+
+var setColorPickerProperty = function setColorPickerProperty(state, property) {
+    state.colorPickerProperty = property;
+};
+
+var setColorPickerSubProperty = function setColorPickerSubProperty(state, subProperty) {
+    state.colorPickerSubProperty = subProperty;
+};
+
+var resetColorPicker = function resetColorPicker(state) {
+    state.colorPickerProperty = undefined;
+    state.colorPickerSubProperty = undefined;
+    state.showColorPicker = false;
 };
 
 /**
@@ -44386,6 +43511,7 @@ var selectElement = function selectElement(state, i) {
     window.Vue.set(state.selected, 'element', Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["e" /* getSelectedElement */])(state));
 
     Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).selected = true;
+    resetColorPicker(state);
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {
@@ -44583,12 +43709,6 @@ var loadArticle = function loadArticle(state, article) {
  */
 var addFontToFontsUsed = function addFontToFontsUsed(state, font) {
     state.fontsUsed.push(font);
-};
-
-var createStylesheet = function createStylesheet(state) {
-    var css = Object(__WEBPACK_IMPORTED_MODULE_1__css_generator__["a" /* createArticleStylesheet */])(state);
-
-    console.log(css);
 };
 
 /***/ }),
@@ -57299,6 +56419,1288 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 561 */,
+/* 562 */,
+/* 563 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(586)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(564)
+/* template */
+var __vue_template__ = __webpack_require__(565)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/core/ColorPickerButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3931b9ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-3931b9ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 564 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ColourPickerButton",
+
+    props: {
+        propertyName: {
+            type: String,
+            required: true
+        },
+
+        subPropertyName: {
+            type: String,
+            required: false
+        }
+    },
+
+    computed: {
+        getShowColorPicker: function getShowColorPicker() {
+            return this.$store.getters.showColorPicker;
+        },
+        getPropertyColor: function getPropertyColor() {
+            if (this.subPropertyName) {
+                return this.$store.getters.getSelectedElement[this.propertyName][this.subPropertyName];
+            }
+
+            return this.$store.getters.getSelectedElement[this.propertyName];
+        }
+    },
+
+    methods: {
+        showColorPicker: function showColorPicker(toggle) {
+            this.$store.commit('setColorPickerProperty', this.propertyName);
+
+            if (this.subPropertyName) {
+                this.$store.commit('setColorPickerSubProperty', this.subPropertyName);
+            }
+
+            this.$store.commit('showColorPicker', toggle);
+        }
+    }
+});
+
+/***/ }),
+/* 565 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {
+    staticClass: "form-control color-picker-button",
+    style: {
+      backgroundColor:
+        "rgba(" +
+        _vm.getPropertyColor.r +
+        ", " +
+        _vm.getPropertyColor.g +
+        ", " +
+        _vm.getPropertyColor.b +
+        ", " +
+        _vm.getPropertyColor.a +
+        ")"
+    },
+    on: {
+      click: function($event) {
+        _vm.showColorPicker(!_vm.getShowColorPicker)
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3931b9ac", module.exports)
+  }
+}
+
+/***/ }),
+/* 566 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(584)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(567)
+/* template */
+var __vue_template__ = __webpack_require__(568)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/panels/ColorPickerPanel.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-332dd2ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-332dd2ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 567 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_color__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FloatingPanel__ = __webpack_require__(574);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__FloatingPanel__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ColorPickerPanel",
+
+    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_1__FloatingPanel___default.a, ColorPicker: __WEBPACK_IMPORTED_MODULE_0_vue_color__["Sketch"] },
+
+    computed: {
+        color: function color() {
+            if (this.$store.getters.colorPickerSubProperty) {
+                return this.$store.getters.getSelectedElement[this.propertyName][this.subPropertyName];
+            }
+
+            return this.$store.getters.getSelectedElement[this.propertyName];
+        },
+        propertyName: function propertyName() {
+            return this.$store.getters.colorPickerProperty;
+        },
+        subPropertyName: function subPropertyName() {
+            return this.$store.getters.colorPickerSubProperty;
+        },
+        showColorPicker: function showColorPicker() {
+            return this.$store.getters.showColorPicker;
+        }
+    },
+
+    methods: {
+        updateValue: function updateValue(color) {
+            if (this.subPropertyName) {
+                this.$store.commit('setComponentSubProperty', {
+                    property: this.propertyName,
+                    subproperty: this.subPropertyName,
+                    value: color.rgba
+                });
+            } else {
+                this.$store.commit('setComponentProperty', { property: this.propertyName, value: color.rgba });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 568 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.showColorPicker
+    ? _c(
+        "div",
+        { attrs: { id: "color-picker-panel" } },
+        [
+          _c("color-picker", {
+            staticClass: "color-picker",
+            attrs: { value: _vm.color },
+            on: { input: _vm.updateValue }
+          })
+        ],
+        1
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-332dd2ac", module.exports)
+  }
+}
+
+/***/ }),
+/* 569 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(570)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(572)
+/* template */
+var __vue_template__ = __webpack_require__(573)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6ad789bc"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/panels/Minimap.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6ad789bc", Component.options)
+  } else {
+    hotAPI.reload("data-v-6ad789bc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 570 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(571);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("83530b2e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ad789bc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Minimap.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ad789bc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Minimap.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 571 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nul[data-v-6ad789bc] {\n    margin: 0;\n}\n.minimap-minimise-button[data-v-6ad789bc] {\n    cursor: pointer;\n}\n.minimap-minimise-button[data-v-6ad789bc]:hover {\n    color: #dddddd;\n}\n.minimap-ul[data-v-6ad789bc] {\n    list-style-type: none;\n    padding: 0;\n    width: 100%;\n}\n.minimap-element-row[data-v-6ad789bc] {\n    width: 100%;\n    padding: 2px 5px;\n    border-bottom: 1px solid #dddddd;\n    background: rgb(250, 250, 250);\n}\n.minimap-element-row[data-v-6ad789bc]:nth-child(even) {\n    background: rgb(240, 240, 240);\n}\n.minimap-element-row[data-v-6ad789bc]:hover {\n    cursor: pointer;\n    background: #59e696;\n}\n.add-left-border[data-v-6ad789bc] {\n    border-left: 1px solid #dddddd;\n}\n.element-selected[data-v-6ad789bc] {\n    color: white;\n    background: #38c172;\n}\n.pad-row[data-v-6ad789bc] {\n    padding-left: 15px;\n}\n.pad-column[data-v-6ad789bc] {\n    padding-left: 25px;\n}\n.pad-component[data-v-6ad789bc] {\n    padding-left: 60px;\n}\n.collapse-icon-container[data-v-6ad789bc] {\n    padding: 0 5px;\n}\n.eye-icon-container[data-v-6ad789bc] {\n    float: right;\n    margin-right: 5px\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 572 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(574);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "Minimap",
+
+    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a },
+
+    computed: {
+        canvases: function canvases() {
+            return this.$store.getters.canvases;
+        }
+    },
+
+    data: function data() {
+        return {
+            minimapVisible: true
+        };
+    },
+
+
+    methods: {
+        selectElement: function selectElement(canvasIndex) {
+            var rowIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+            var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+            var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+
+            this.$store.commit('selectElement', {
+                canvasIndex: canvasIndex,
+                rowIndex: rowIndex,
+                columnIndex: columnIndex,
+                componentIndex: componentIndex
+            });
+        },
+        toggleElementVisibility: function toggleElementVisibility(canvasIndex) {
+            var rowIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+            var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
+            var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+
+            this.$store.commit('toggleElementVisibility', {
+                canvasIndex: canvasIndex,
+                rowIndex: rowIndex,
+                columnIndex: columnIndex,
+                componentIndex: componentIndex
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 573 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "floating-panel",
+    { staticStyle: { bottom: "5px", right: "15px" } },
+    [
+      _c("template", { slot: "title" }, [_vm._v("Layout")]),
+      _vm._v(" "),
+      _c(
+        "template",
+        { slot: "content" },
+        _vm._l(_vm.canvases, function(canvas, canvasIndex) {
+          return _c(
+            "ul",
+            { key: canvasIndex, staticClass: "minimap-ul" },
+            [
+              _c(
+                "li",
+                {
+                  staticClass: "minimap-element-row",
+                  class: { "element-selected": canvas.selected },
+                  on: {
+                    click: function($event) {
+                      _vm.selectElement(canvasIndex)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "span",
+                    { staticClass: "collapse-icon-container" },
+                    [_c("icon", { attrs: { name: "caret-down" } })],
+                    1
+                  ),
+                  _vm._v(
+                    "\n\n                Canvas " +
+                      _vm._s(canvasIndex + 1) +
+                      "\n\n                "
+                  ),
+                  _c(
+                    "span",
+                    { staticClass: "eye-icon-container" },
+                    [
+                      _c("icon", {
+                        attrs: { name: canvas.visible ? "eye" : "eye-slash" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.toggleElementVisibility(canvasIndex)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(canvas.rows, function(row, rowIndex) {
+                return _c(
+                  "ul",
+                  { key: rowIndex, staticClass: "minimap-ul" },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass:
+                          "minimap-element-row add-left-border pad-row",
+                        class: { "element-selected": row.selected },
+                        on: {
+                          click: function($event) {
+                            _vm.selectElement(canvasIndex, rowIndex)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "collapse-icon-container" },
+                          [_c("icon", { attrs: { name: "caret-down" } })],
+                          1
+                        ),
+                        _vm._v(
+                          "\n\n                    Row " +
+                            _vm._s(rowIndex + 1) +
+                            "\n\n                    "
+                        ),
+                        _c(
+                          "span",
+                          { staticClass: "eye-icon-container" },
+                          [
+                            _c("icon", {
+                              attrs: {
+                                name: row.visible ? "eye" : "eye-slash"
+                              },
+                              nativeOn: {
+                                click: function($event) {
+                                  _vm.toggleElementVisibility(
+                                    canvasIndex,
+                                    rowIndex
+                                  )
+                                }
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(row.columns, function(column, columnIndex) {
+                      return _c(
+                        "ul",
+                        { key: columnIndex, staticClass: "minimap-ul" },
+                        [
+                          _c(
+                            "li",
+                            {
+                              staticClass:
+                                "minimap-element-row add-left-border pad-column",
+                              class: { "element-selected": column.selected },
+                              on: {
+                                click: function($event) {
+                                  _vm.selectElement(
+                                    canvasIndex,
+                                    rowIndex,
+                                    columnIndex
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                { staticClass: "collapse-icon-container" },
+                                [_c("icon", { attrs: { name: "caret-down" } })],
+                                1
+                              ),
+                              _vm._v(
+                                "\n\n                        Column " +
+                                  _vm._s(columnIndex + 1) +
+                                  "\n\n                        "
+                              ),
+                              _c(
+                                "span",
+                                { staticClass: "eye-icon-container" },
+                                [
+                                  _c("icon", {
+                                    attrs: {
+                                      name: column.visible ? "eye" : "eye-slash"
+                                    },
+                                    nativeOn: {
+                                      click: function($event) {
+                                        _vm.toggleElementVisibility(
+                                          canvasIndex,
+                                          rowIndex,
+                                          columnIndex
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(column.components, function(
+                            component,
+                            componentIndex
+                          ) {
+                            return _c(
+                              "ul",
+                              {
+                                key: componentIndex,
+                                staticClass: "minimap-ul"
+                              },
+                              [
+                                _c(
+                                  "li",
+                                  {
+                                    staticClass:
+                                      "minimap-element-row add-left-border pad-component",
+                                    class: {
+                                      "element-selected": component.selected
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.selectElement(
+                                          canvasIndex,
+                                          rowIndex,
+                                          columnIndex,
+                                          componentIndex
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(component.type) +
+                                        "\n\n                            "
+                                    ),
+                                    _c(
+                                      "span",
+                                      { staticClass: "eye-icon-container" },
+                                      [
+                                        _c("icon", {
+                                          attrs: {
+                                            name: component.visible
+                                              ? "eye"
+                                              : "eye-slash"
+                                          },
+                                          nativeOn: {
+                                            click: function($event) {
+                                              _vm.toggleElementVisibility(
+                                                canvasIndex,
+                                                rowIndex,
+                                                columnIndex,
+                                                componentIndex
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    })
+                  ],
+                  2
+                )
+              })
+            ],
+            2
+          )
+        })
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6ad789bc", module.exports)
+  }
+}
+
+/***/ }),
+/* 574 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(575)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(577)
+/* template */
+var __vue_template__ = __webpack_require__(578)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-38697c16"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/panels/FloatingPanel.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-38697c16", Component.options)
+  } else {
+    hotAPI.reload("data-v-38697c16", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 575 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(576);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("1dcfe822", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-38697c16\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-38697c16\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FloatingPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 576 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.panel[data-v-38697c16] {\n    position: fixed;\n    background: white;\n    border-radius: 5px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n.panel-header[data-v-38697c16] {\n    cursor: pointer;\n    background: #38c172;\n    color: white;\n    padding: 7px 10px;\n    border-bottom: 1px solid #24b161;\n    border-top-right-radius: 5px;\n    border-top-left-radius: 5px;\n    z-index: 10;\n}\n.panel-body[data-v-38697c16] {\n    height: 100%;\n    overflow-y: scroll;\n    z-index: 5;\n}\n.panel-minimise-button[data-v-38697c16] {\n    cursor: pointer;\n}\n.panel-minimise-button[data-v-38697c16]:hover {\n    color: #dddddd;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 577 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "FloatingPanel",
+
+    props: {
+        height: {
+            type: String,
+            required: false,
+            default: '300px'
+        },
+
+        width: {
+            type: String,
+            required: false,
+            default: '280px'
+        }
+    },
+
+    data: function data() {
+        return {
+            panelVisible: true
+        };
+    }
+});
+
+/***/ }),
+/* 578 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "panel",
+      style: [
+        { height: _vm.panelVisible ? _vm.height : "35px" },
+        { width: _vm.width },
+        { minWidth: "250px" }
+      ]
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "panel-header",
+          on: {
+            click: function($event) {
+              _vm.panelVisible = !_vm.panelVisible
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-9" }, [_vm._t("title")], 2),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-3 text-right" }, [
+              _c(
+                "span",
+                { staticClass: "panel-minimise-button" },
+                [
+                  _c("icon", {
+                    attrs: { name: _vm.panelVisible ? "minus" : "plus" }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm.panelVisible
+        ? _c("div", { staticClass: "panel-body" }, [_vm._t("content")], 2)
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-38697c16", module.exports)
+  }
+}
+
+/***/ }),
+/* 579 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(580)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(582)
+/* template */
+var __vue_template__ = __webpack_require__(583)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/panels/ElementStylesPanel.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-31cbf7df", Component.options)
+  } else {
+    hotAPI.reload("data-v-31cbf7df", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 580 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(581);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("11d7af8c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31cbf7df\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementStylesPanel.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31cbf7df\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ElementStylesPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 581 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.element-controls-panel {\n    position: fixed;\n    bottom: 5px;\n    left: 200px;\n    width: 280px;\n    background: white;\n    border-radius: 5px;\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\n    overflow: hidden;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 582 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel__ = __webpack_require__(574);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__FloatingPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_ColorPickerButton__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_ColorPickerButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__core_ColorPickerButton__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "ElementStylesPanel",
+
+    components: { FloatingPanel: __WEBPACK_IMPORTED_MODULE_0__FloatingPanel___default.a, ColorPickerButton: __WEBPACK_IMPORTED_MODULE_1__core_ColorPickerButton___default.a },
+
+    computed: {
+        selectedElementStyleName: function selectedElementStyleName() {
+            var elementStyleName = this.$store.getters.selectedElementStyle;
+
+            if (elementStyleName === null) {
+                return '';
+            }
+
+            return elementStyleName.charAt(0).toUpperCase() + elementStyleName.slice(1);
+        }
+    }
+});
+
+/***/ }),
+/* 583 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "floating-panel",
+    {
+      staticStyle: { bottom: "5px", left: "75px" },
+      attrs: { height: "307px", width: "auto" }
+    },
+    [
+      _c("template", { slot: "title" }, [
+        _vm._v(_vm._s(_vm.selectedElementStyleName) + " Controls")
+      ]),
+      _vm._v(" "),
+      _c("template", { slot: "content" }, [
+        _c(
+          "div",
+          { staticStyle: { padding: "10px" } },
+          [
+            _vm.selectedElementStyleName === ""
+              ? _c("div", [_c("p", [_vm._v("No style selected.")])])
+              : _c("portal-target", { attrs: { name: "element-styles-panel" } })
+          ],
+          1
+        )
+      ])
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-31cbf7df", module.exports)
+  }
+}
+
+/***/ }),
+/* 584 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(585);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("fa9e8168", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-332dd2ac\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorPickerPanel.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-332dd2ac\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorPickerPanel.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 585 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#color-picker-panel {\n    position: fixed;\n    left: 440px;\n    bottom: 5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 586 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(587);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("5e37fc93", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3931b9ac\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorPickerButton.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3931b9ac\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorPickerButton.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 587 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(6)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.color-picker-button {\n    cursor: pointer;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

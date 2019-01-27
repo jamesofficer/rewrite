@@ -1,26 +1,17 @@
 <template>
-    <color-picker :value="backgroundColor" @input="updateValue"></color-picker>
+    <div>
+        <label class="style-panel-label">Colour</label>
+        <color-picker-button :propertyName="'backgroundColor'"></color-picker-button>
+    </div>
 </template>
 
 <script>
-import { Chrome as ColorPicker } from 'vue-color'
-import SidebarControl from '../sidebar/SidebarControl';
+import SidebarControl    from '../sidebar/SidebarControl';
+import ColorPickerButton from './ColorPickerButton';
 
 export default {
     name: "BackgroundColor",
 
-    components: { SidebarControl, ColorPicker },
-
-    computed: {
-        backgroundColor() {
-            return this.$store.getters.getSelectedElement.backgroundColor;
-        },
-    },
-
-    methods: {
-        updateValue(color) {
-            this.$store.commit('setComponentProperty', { property: 'backgroundColor', value: color.rgba });
-        }
-    }
+    components: { SidebarControl, ColorPickerButton },
 }
 </script>

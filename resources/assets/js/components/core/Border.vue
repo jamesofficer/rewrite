@@ -60,26 +60,24 @@
                 <p class="style-panel-label">Style</p>
                 <b-form-select v-model="borderStyle" :options="borderStyles"></b-form-select>
             </b-col>
-        </b-form-row>
 
-        <b-form-row class="mb-2">
             <b-col>
                 <label class="style-panel-label">Colour</label>
-                <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker>
+                <color-picker-button propertyName="border" subPropertyName="color"></color-picker-button>
+                <!-- <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker> -->
             </b-col>
         </b-form-row>
     </div>
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl';
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
-import { Chrome as ColorPicker } from 'vue-color'
+import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
+import ColorPickerButton from './ColorPickerButton'
 
 export default {
     name: "Border",
 
-    components: { SidebarControl, ColorPicker },
+    components: { ColorPickerButton },
 
     mixins: [NoEmptyValues],
 

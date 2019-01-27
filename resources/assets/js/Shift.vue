@@ -8,7 +8,9 @@
 
             <portal-target name="sidebar"></portal-target>
 
-            <device-size-controls></device-size-controls>
+            <div style="position: fixed; bottom: 5px;">
+                <device-size-controls></device-size-controls>
+            </div>
         </div>
 
         <!-- Main Content Area -->
@@ -56,6 +58,8 @@
             <element-styles-panel></element-styles-panel>
 
             <minimap></minimap>
+
+            <color-picker-panel></color-picker-panel>
         </div>
 
         <!-- Modal Windows -->
@@ -86,10 +90,12 @@ import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
 import Notification            from "./components/shift/Notification";
 import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
-import ElementStylesPanel         from "./components/shift/ElementStylesPanel";
-import Minimap                 from "./components/shift/Minimap";
 
 import Canvas                  from "./components/layout/Canvas";
+
+import Minimap                 from "./components/panels/Minimap";
+import ColorPickerPanel        from "./components/panels/ColorPickerPanel";
+import ElementStylesPanel      from "./components/panels/ElementStylesPanel";
 
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
@@ -105,8 +111,9 @@ export default {
 
     components: {
         KeyBindings, ShiftMenu, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        ElementStylesPanel, Notification, Canvas, AddComponentModal, EditTextModal, LoadArticleModal, MyImagesModal,
-        ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
+        ColorPickerPanel, ElementStylesPanel, Notification, Canvas, AddComponentModal, EditTextModal,
+        LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
+        BackgroundGradientModal,
     },
 
     mixins: [KeyBindings],

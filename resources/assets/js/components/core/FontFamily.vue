@@ -1,19 +1,20 @@
 <template>
     <div>
-        <label class="style-panel-label">Font Family</label>
+        <label class="style-panel-label d-block">Font Family</label>
 
-        <b-row>
-            <b-col>
-                <b-dropdown :text="selectedFont" variant="outline-primary">
-
-                <div class="font-family-dropdown">
-                    <b-dropdown-item v-for="(font, index) in fonts" :key="index" @click="selectFont(font)">
-                        <span :style="'font-family: ' + font.name">{{ font.name }}</span>
-                    </b-dropdown-item>
-                </div>
-            </b-dropdown>
-            </b-col>
-        </b-row>
+        <b-dropdown
+            boundary="viewport"
+            :text="selectedFont"
+            variant="outline-primary"
+        >
+            <b-dropdown-item-button
+                v-for="(font, index) in fonts"
+                :key="index"
+                @click="selectFont(font)"
+            >
+                <span :style="'font-family: ' + font.name">{{ font.name }}</span>
+            </b-dropdown-item-button>
+        </b-dropdown>
     </div>
 </template>
 
@@ -68,8 +69,8 @@ export default {
 </script>
 
 <style scoped>
-.font-family-dropdown {
+/* .font-family-dropdown {
     height: 350px;
     overflow-y: scroll;
-}
+} */
 </style>

@@ -1,6 +1,9 @@
 <template>
     <div class="sidebar-control">
-        <sidebar-control v-b-modal.imageGalleryModal variant="outline-primary" icon="image" tooltip="Select Image"></sidebar-control>
+        <label class="style-panel-label">Image</label>
+        <b-button v-b-modal.imageGalleryModal variant="outline-primary" tooltip="Select Image">
+            <icon name="image"></icon>
+        </b-button>
     </div>
 </template>
 

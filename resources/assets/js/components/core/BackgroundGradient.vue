@@ -1,5 +1,10 @@
 <template>
-    <sidebar-control v-b-modal.backgroundGradientModal icon="brush" tooltip="Background Gradient"></sidebar-control>
+    <div class="sidebar-control">
+        <label class="style-panel-label">Gradient</label>
+        <b-button v-b-modal.backgroundGradientModal variant="outline-primary" tooltip="Select Image">
+            <icon name="brush"></icon>
+        </b-button>
+    </div>
 </template>
 
 <script>

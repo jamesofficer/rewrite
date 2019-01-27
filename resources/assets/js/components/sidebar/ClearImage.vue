@@ -1,5 +1,10 @@
 <template>
-    <sidebar-control @click.native="clearImage" variant="outline-danger" icon="ban" tooltip="Clear Image"></sidebar-control>
+    <div class="sidebar-control">
+        <label class="style-panel-label">Image</label>
+        <b-button variant="danger" v-b-tooltip.hover.right tooltip="Clear Image">
+            <icon name="ban"></icon>
+        </b-button>
+    </div>
 </template>
 
 <script>
