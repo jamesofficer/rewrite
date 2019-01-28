@@ -1,5 +1,9 @@
 <template>
-    <b-form-select size="sm" v-model="backgroundPosition" :options="positions" v-b-tooltip.hover.right title="Background Position"></b-form-select>
+    <div>
+        <label class="style-panel-label">Size</label>
+
+        <b-form-select v-model="backgroundPosition" :options="positions" v-b-tooltip.hover.right title="Background Position"></b-form-select>
+    </div>
 </template>
 
 <script>

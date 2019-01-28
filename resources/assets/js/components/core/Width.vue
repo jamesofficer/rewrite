@@ -8,7 +8,6 @@
             @focusout.native="ensureValueIsNotEmpty('width', 100)"
             :min="1"
             :max="100"
-            v-b-tooltip.hover
         ></b-form-input>
     </div>
 </template>

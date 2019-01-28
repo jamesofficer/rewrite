@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar-control">
-        <label class="style-panel-label">Image</label>
+        <label class="style-panel-label">Clear</label>
         <b-button variant="danger" v-b-tooltip.hover.right tooltip="Clear Image">
             <icon name="ban"></icon>
         </b-button>

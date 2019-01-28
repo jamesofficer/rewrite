@@ -3,7 +3,7 @@
         <sidebar-control icon="brush" tooltip="Background Controls" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <b-form-row>
+            <b-form-row class="mb-2">
                 <b-col>
                     <background-color></background-color>
                 </b-col>
@@ -19,13 +19,23 @@
 
             <!-- Only need these for background images -->
             <template v-if="element.backgroundImage !== undefined && element.backgroundImage.includes('url')">
-                <background-size></background-size>
+                <b-form-row class="mb-2">
+                    <b-col>
+                        <background-size></background-size>
+                    </b-col>
 
-                <background-position></background-position>
+                    <b-col>
+                        <background-position></background-position>
+                    </b-col>
+                </b-form-row>
             </template>
 
             <template v-if="element.backgroundImage !== undefined">
-                <clear-image></clear-image>
+                <b-form-row class="mb-2">
+                    <b-col cols="6">
+                        <clear-image></clear-image>
+                    </b-col>
+                </b-form-row>
             </template>
         </portal>
     </div>

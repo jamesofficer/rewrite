@@ -3,7 +3,7 @@
         <label class="style-panel-label">Column Width</label>
 
         <b-form-select v-model="selectedWidth" @change="setColumnWidth">
-            <option v-for="(width, index) in widths" :value="width.value" :disabled="checkColumnWidth(width.value)" :key="index">
+            <option v-for="(width, index) in widths" :value="width.value" :key="index">
                 {{ width.text }}
             </option>
         </b-form-select>
@@ -83,19 +83,6 @@ export default {
     methods: {
         isSelected(width) {
             return this.$store.getters.getSelectedElement.columnWidth === width;
-        },
-
-        checkColumnWidth(newWidth) {
-            const currentTotalWidth = this.$store.getters.totalColumnWidth;
-            const oldWidth = this.$store.getters.getSelectedElement.columnWidth;
-
-            const newTotalWidth = (currentTotalWidth - oldWidth) + newWidth;
-
-            if (newTotalWidth > 12) {
-                return true;
-            }
-
-            return false;
         },
 
         setColumnWidth(value) {
