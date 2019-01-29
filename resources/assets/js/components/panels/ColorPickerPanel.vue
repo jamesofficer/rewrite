@@ -19,7 +19,7 @@ export default {
 
     computed: {
         color() {
-            if (this.$store.getters.colorPickerSubProperty) {
+            if (this.$store.getters['colorpicker/colorPickerSubProperty']) {
                 return this.$store.getters.getSelectedElement[this.propertyName][this.subPropertyName];
             }
 
@@ -27,15 +27,15 @@ export default {
         },
 
         propertyName() {
-            return this.$store.getters.colorPickerProperty;
+            return this.$store.getters['colorpicker/colorPickerProperty'];
         },
 
         subPropertyName() {
-            return this.$store.getters.colorPickerSubProperty;
+            return this.$store.getters['colorpicker/colorPickerSubProperty'];
         },
 
         showColorPicker() {
-            return this.$store.getters.showColorPicker;
+            return this.$store.getters['colorpicker/showColorPicker'];
         }
     },
 

@@ -24,7 +24,7 @@ export default {
 
     computed: {
         getShowColorPicker() {
-            return this.$store.getters.showColorPicker;
+            return this.$store.getters['colorpicker/showColorPicker'];
         },
 
         getPropertyColor() {
@@ -38,13 +38,13 @@ export default {
 
     methods: {
         showColorPicker(toggle) {
-            this.$store.commit('setColorPickerProperty', this.propertyName);
+            this.$store.commit('colorpicker/setColorPickerProperty', this.propertyName);
 
             if (this.subPropertyName) {
-                this.$store.commit('setColorPickerSubProperty', this.subPropertyName);
+                this.$store.commit('colorpicker/setColorPickerSubProperty', this.subPropertyName);
             }
 
-            this.$store.commit('showColorPicker', toggle);
+            this.$store.commit('colorpicker/showColorPicker', toggle);
         }
     },
 }

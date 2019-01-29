@@ -4,6 +4,12 @@
         <div id="sidebar">
             <shift-menu ref="menu"></shift-menu>
 
+            <div class="sidebar-control">
+                <b-button v-b-modal.menuModal variant="success">
+                    <icon name="bars"></icon>
+                </b-button>
+            </div>
+
             <global-styles-switch></global-styles-switch>
 
             <portal-target name="sidebar"></portal-target>
@@ -15,7 +21,6 @@
 
         <!-- Main Content Area -->
         <div id="rewrite-content-area">
-            <!-- NOTIFCATION IS CAUSING EXTRA PIXELS TO BE ADDED TO RIGHT OF WINDOW -->
             <notification></notification>
 
             <!-- Article Name -->
@@ -63,6 +68,8 @@
         </div>
 
         <!-- Modal Windows -->
+        <menu-modal></menu-modal>
+
         <add-component-modal></add-component-modal>
 
         <edit-text-modal></edit-text-modal>
@@ -84,7 +91,6 @@
 <script>
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 
-import ShiftMenu               from "./components/shift/ShiftMenu";
 import ShiftFooter             from "./components/shift/ShiftFooter";
 import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
 import ArticleTitle            from "./components/shift/ArticleTitle";
@@ -97,6 +103,7 @@ import Minimap                 from "./components/panels/Minimap";
 import ColorPickerPanel        from "./components/panels/ColorPickerPanel";
 import ElementStylesPanel      from "./components/panels/ElementStylesPanel";
 
+import MenuModal               from './components/dialogs/MenuModal';
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
 import LoadArticleModal        from './components/dialogs/LoadArticleModal';
@@ -110,10 +117,10 @@ export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftMenu, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        ColorPickerPanel, ElementStylesPanel, Notification, Canvas, AddComponentModal, EditTextModal,
-        LoadArticleModal, MyImagesModal, ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
-        BackgroundGradientModal,
+        KeyBindings, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
+        ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
+        AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
+        ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
     },
 
     mixins: [KeyBindings],
@@ -140,16 +147,14 @@ export default {
 #rewrite-container {
     display: flex;
     align-items: stretch;
-    border-top: 5px solid #38c172;
 }
 
 #sidebar {
+    position: fixed;
     height: 100vh;
     width: 65px;
-    position: fixed;
-    top: 5px;
-    background: white;
     padding: 10px;
+    background: white;
     border-right: 1px dashed gray;
 }
 
@@ -169,6 +174,7 @@ export default {
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .fixed-footer {

@@ -10,9 +10,7 @@
             :max="25"
             step="0.1"
         ></b-form-input>
-
     </div>
-
 </template>
 
 <script>

@@ -52,7 +52,7 @@ export default {
 
     methods: {
         hideColorPicker() {
-            this.$store.commit('resetColorPicker');
+            this.$store.commit('colorpicker/resetColorPicker');
         }
     }
 }

@@ -8,18 +8,6 @@ export const globalComponentStyles = state => {
     return state.enableGlobalComponentStyles;
 };
 
-export const showColorPicker = state => {
-    return state.showColorPicker;
-};
-
-export const colorPickerProperty = state => {
-    return state.colorPickerProperty;
-};
-
-export const colorPickerSubProperty = state => {
-    return state.colorPickerSubProperty;
-};
-
 /**
  * Returns the value of the selectedElementStyle variable.
  *
