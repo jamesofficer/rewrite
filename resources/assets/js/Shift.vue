@@ -2,8 +2,7 @@
     <div id="rewrite-container">
         <!-- Sidebar -->
         <div id="sidebar">
-            <shift-menu ref="menu"></shift-menu>
-
+            <!-- TODO: Extract this to its own component. -->
             <div class="sidebar-control">
                 <b-button v-b-modal.menuModal variant="success">
                     <icon name="bars"></icon>

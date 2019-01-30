@@ -3,7 +3,7 @@ export const duplicateObject = object => {
 };
 
 /**
- * By default this returns the currently selected element. We can specify an index array position
+ * By default this returns the currently selected element but we can specify an index array position
  * that is higher or lower than the selected element if we want to. This is usually used when
  * moving an element around the workspace, to the element above or below the current one.
  *

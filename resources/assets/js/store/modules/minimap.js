@@ -1,7 +1,0 @@
-const getters = {
-
-}
-
-const mutations = {
-
-}

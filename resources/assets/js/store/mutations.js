@@ -209,6 +209,29 @@ export const moveElement = (state, direction) => {
 }
 
 /**
+ * Moves the current selection up or down, depending on if the up or down arrow is pressed.
+ *
+ */
+export const moveSelection = (state, direction) => {
+    const directionIndex = direction === 'up' ? -1 : 1;
+    const currentSelection = getSelectedRootElement(state);
+
+    // If nothing is selected, select the first Canvas (regardless of direction pressed).
+    if (state.selected.type === undefined) {
+        this.selectElement(state, { canvasIndex: 0 });
+        return;
+    }
+
+    // HOW THIS FUNCTION SHOULD WORK:
+    // -- If the Up or Down arrow key is pressed we want to move the selection up/down to the element OF THE SAME TYPE.
+    //      e.g. Only move from Canvas to Canvas or Component to Component.
+    // -- If the Left or Right arrow key is pressed we will move further into the current selection.
+    //      e.g. If a Row is selected, we will move into the first Column of this row.
+    //      e.g. If a If a Column is selected we will move into the first Component in this Column.
+
+}
+
+/**
  * Sets the currently selected component to whatever the user clicked on.
  *
  */
@@ -239,9 +262,9 @@ export const selectElement = (state, i) => {
     getSelectedRootElement(state).selected = true;
 
     // Reset the Colour Picker.
-    state.colorPickerProperty = undefined;
-    state.colorPickerSubProperty = undefined;
-    state.showColorPicker = false;
+    state.colorpicker.colorPickerProperty = undefined;
+    state.colorpicker.colorPickerSubProperty = undefined;
+    state.colorpicker.showColorPicker = false;
 
     // Depending on what is selected, we need to push on the Rows/Columns/Components.
     if (state.selected.type === 'Canvas') {

@@ -3,23 +3,23 @@
  *
  * Up Arrow = moves selection up.
  * Down Arrow = moves selection down.
- * Meta + Up Arrow = moves the current element up - DONE
- * Meta + Down Arrow = moves the current element down - DONE
- * Meta + Left Arrow = moves the column left in its row - DONE
- * Meta + Right Arrow = moves the current column right in its row - DONE
+ * Ctrl + Up Arrow = moves the current element up - DONE
+ * Ctrl + Down Arrow = moves the current element down - DONE
+ * Ctrl + Left Arrow = moves the column left in its row - DONE
+ * Ctrl + Right Arrow = moves the current column right in its row - DONE
  * Left Arrow = select input to the left in the currently open element panel.
  * Right Arrow = select input to the right in the currently open element panel.
- * Meta + Delete = deletes the current element - DONE
- * Meta + Z = Undo.
- * Meta + Y = Redo.
- * P = Open Element Positioning panel.
- * B = Open Element Borders panel.
- * O = Open Box Shadow panel.
- * S = Open Text Shadow panel.
- * P = Open Element Positioning panel.
- * C = Open Column Settings panel.
- * H = Hide the currently selected element.
- * Meta + Plus = Opens Add Component modal window.
+ * Ctrl + Delete = deletes the current element - DONE
+ * Ctrl + Plus = Opens Add Component modal window.
+ * Ctrl + H = Hide the currently selected element.
+ * Meta/Ctrl + Z = Undo.
+ * Meta/Ctrl + Y = Redo.
+ * P = Open Element Positioning panel - DONE
+ * B = Open Element Background panel - DONE
+ * O = Open Element Borders panel - DONE
+ * X = Open Box Shadow panel - DONE
+ * S = Open Text Shadow panel - DONE
+ * C = Open Column Settings panel - DONE
  * > = Decreases the current device size.
  * > = Increases the current device size.
  * [ = Decreases the current column size.
@@ -69,14 +69,53 @@ export default {
                     }
 
                     // The DELETE key can delete Components, Columns, Rows or Canvases.
-                    if ((ev.key === "Delete" || ev.key === "Backspace")) {
+                    if (ev.key === "Delete" || ev.key === "Backspace") {
                         self.$store.commit('deleteElement');
                         return;
                     }
                 }
-                //
+                // Keybindings that don't rely on the CTRL key.
                 else {
-                    // add other keybndings here...
+                    if (ev.key === "ArrowUp") {
+                        self.$store.commit('moveSelection', 'up');
+                        return;
+                    }
+
+                    if (ev.key === "ArrowDown") {
+                        self.$store.commit('moveSelection', 'down');
+                        return;
+                    }
+
+                    if (ev.key === "p" || ev.key === "P") {
+                        self.$store.commit('setSelectedElementStyle', 'positioning');
+                        return;
+                    }
+
+                    if (ev.key === "b" || ev.key === "B") {
+                        self.$store.commit('setSelectedElementStyle', 'background');
+                        return;
+                    }
+
+                    if (ev.key === "o" || ev.key === "O") {
+                        self.$store.commit('setSelectedElementStyle', 'borders');
+                        return;
+                    }
+
+                    if (ev.key === "x" || ev.key === "X") {
+                        self.$store.commit('setSelectedElementStyle', 'box-shadow');
+                        return;
+                    }
+
+                    if (ev.key === "s" || ev.key === "S") {
+                        self.$store.commit('setSelectedElementStyle', 'text-shadow');
+                        return;
+                    }
+
+                    if (ev.key === "c" || ev.key === "C") {
+                        self.$store.commit('setSelectedElementStyle', 'column');
+                        return;
+                    }
+
                 }
 
             }
