@@ -6,7 +6,7 @@ let heading = {
     fontWeights: [400, 700],
     fontWeight: 400,
     fontSize: 24,
-    lineHeight: 1,
+    lineHeight: 'normal',
     letterSpacing: 0,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },

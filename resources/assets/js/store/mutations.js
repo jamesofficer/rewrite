@@ -232,6 +232,21 @@ export const moveSelection = (state, direction) => {
 }
 
 /**
+ * Increases or decrease the device size depending on what hotkey is pressed.
+ *
+ */
+export const changeDeviceSize = (state, direction) => {
+    const currentDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize);
+    const newDeviceSizeIndex = currentDeviceSizeIndex + direction;
+
+    if (newDeviceSizeIndex < 0 || newDeviceSizeIndex > state.deviceSizes.length - 1) {
+        return;
+    }
+
+    state.deviceSize = state.deviceSizes[newDeviceSizeIndex];
+}
+
+/**
  * Sets the currently selected component to whatever the user clicked on.
  *
  */

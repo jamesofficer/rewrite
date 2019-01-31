@@ -21643,7 +21643,7 @@ var heading = {
     fontWeights: [400, 700],
     fontWeight: 400,
     fontSize: 24,
-    lineHeight: 1,
+    lineHeight: 'normal',
     letterSpacing: 0,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
@@ -21701,7 +21701,7 @@ var paragraph = {
     fontWeights: [400, 700],
     fontWeight: 400,
     fontSize: 12,
-    lineHeight: 1,
+    lineHeight: 'normal',
     letterSpacing: 0,
     textAlign: 'left',
     textColor: { r: 0, g: 0, b: 0, a: 1 },
@@ -21862,7 +21862,7 @@ var blockquote = {
     fontWeights: [400, 700],
     fontWeight: 400,
     fontSize: 14,
-    lineHeight: 1,
+    lineHeight: 'normal',
     letterSpacing: 0,
     textAlign: "left",
     textColor: { r: 0, g: 0, b: 0, a: 1 },
@@ -26237,18 +26237,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * Left Arrow = select input to the left in the currently open element panel.
  * Right Arrow = select input to the right in the currently open element panel.
  * Ctrl + Delete = deletes the current element - DONE
- * Ctrl + Plus = Opens Add Component modal window.
+ * Ctrl + Plus = Opens Add Component modal window - DONE
  * Ctrl + H = Hide the currently selected element.
  * Meta/Ctrl + Z = Undo.
  * Meta/Ctrl + Y = Redo.
+ * G = Toggle global component styles on or off - DONE
  * P = Open Element Positioning panel - DONE
  * B = Open Element Background panel - DONE
  * O = Open Element Borders panel - DONE
  * X = Open Box Shadow panel - DONE
  * S = Open Text Shadow panel - DONE
  * C = Open Column Settings panel - DONE
- * > = Decreases the current device size.
- * > = Increases the current device size.
+ * + = Decreases the current device size - DONE
+ * - = Increases the current device size - DONE
  * [ = Decreases the current column size.
  * ] = Increases the current column size.
  *
@@ -26313,8 +26314,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             return;
                         }
 
+                        if (ev.key === "=") {
+                            self.$store.commit('changeDeviceSize', 1);
+                            return;
+                        }
+
+                        if (ev.key === "-") {
+                            self.$store.commit('changeDeviceSize', -1);
+                            return;
+                        }
+
+                        if (ev.key === "G" || ev.key === 'g') {
+                            self.$store.commit('enableGlobalComponentStyles', !self.$store.getters.globalComponentStyles);
+                        }
+
                         if (ev.key === "p" || ev.key === "P") {
                             self.$store.commit('setSelectedElementStyle', 'positioning');
+                            return;
+                        }
+
+                        if (ev.key === "t" || ev.key === "T") {
+                            self.$store.commit('setSelectedElementStyle', 'text-formatting');
                             return;
                         }
 
@@ -32402,6 +32422,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -33485,47 +33507,49 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.elementStyleIsSelected()
-        ? _c(
-            "portal",
-            { attrs: { to: "element-styles-panel" } },
-            [
-              _c(
-                "b-form-row",
-                { staticClass: "mb-2" },
-                [
-                  _c("b-col", [_c("font-family")], 1),
-                  _vm._v(" "),
-                  _c("b-col", [_c("text-alignment")], 1)
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-row",
-                { staticClass: "mb-2" },
-                [
-                  _c("b-col", [_c("font-size")], 1),
-                  _vm._v(" "),
-                  _c("b-col", [_c("font-weight")], 1),
-                  _vm._v(" "),
-                  _c("b-col", [_c("line-height")], 1)
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-row",
-                { staticClass: "mb-2" },
-                [
-                  _c("b-col", [_c("letter-spacing")], 1),
-                  _vm._v(" "),
-                  _c("b-col", [_c("text-color")], 1)
-                ],
-                1
-              )
-            ],
-            1
-          )
+        ? _c("portal", { attrs: { to: "element-styles-panel" } }, [
+            _c(
+              "div",
+              { staticStyle: { width: "350px" } },
+              [
+                _c(
+                  "b-form-row",
+                  { staticClass: "mb-2" },
+                  [
+                    _c("b-col", [_c("font-family")], 1),
+                    _vm._v(" "),
+                    _c("b-col", [_c("text-alignment")], 1)
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-form-row",
+                  { staticClass: "mb-2" },
+                  [
+                    _c("b-col", [_c("font-size")], 1),
+                    _vm._v(" "),
+                    _c("b-col", [_c("font-weight")], 1),
+                    _vm._v(" "),
+                    _c("b-col", [_c("line-height")], 1)
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-form-row",
+                  { staticClass: "mb-2" },
+                  [
+                    _c("b-col", [_c("letter-spacing")], 1),
+                    _vm._v(" "),
+                    _c("b-col", [_c("text-color")], 1)
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
         : _vm._e()
     ],
     1
@@ -44567,6 +44591,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enoughSpaceToCloneColumn", function() { return enoughSpaceToCloneColumn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveElement", function() { return moveElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveSelection", function() { return moveSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeDeviceSize", function() { return changeDeviceSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectElement", function() { return selectElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleElementVisibility", function() { return toggleElementVisibility; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateArticleTitle", function() { return updateArticleTitle; });
@@ -44810,6 +44835,21 @@ var moveSelection = function moveSelection(state, direction) {
     // -- If the Left or Right arrow key is pressed we will move further into the current selection.
     //      e.g. If a Row is selected, we will move into the first Column of this row.
     //      e.g. If a If a Column is selected we will move into the first Component in this Column.
+};
+
+/**
+ * Increases or decrease the device size depending on what hotkey is pressed.
+ *
+ */
+var changeDeviceSize = function changeDeviceSize(state, direction) {
+    var currentDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize);
+    var newDeviceSizeIndex = currentDeviceSizeIndex + direction;
+
+    if (newDeviceSizeIndex < 0 || newDeviceSizeIndex > state.deviceSizes.length - 1) {
+        return;
+    }
+
+    state.deviceSize = state.deviceSizes[newDeviceSizeIndex];
 };
 
 /**

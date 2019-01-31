@@ -10,18 +10,19 @@
  * Left Arrow = select input to the left in the currently open element panel.
  * Right Arrow = select input to the right in the currently open element panel.
  * Ctrl + Delete = deletes the current element - DONE
- * Ctrl + Plus = Opens Add Component modal window.
+ * Ctrl + Plus = Opens Add Component modal window - DONE
  * Ctrl + H = Hide the currently selected element.
  * Meta/Ctrl + Z = Undo.
  * Meta/Ctrl + Y = Redo.
+ * G = Toggle global component styles on or off - DONE
  * P = Open Element Positioning panel - DONE
  * B = Open Element Background panel - DONE
  * O = Open Element Borders panel - DONE
  * X = Open Box Shadow panel - DONE
  * S = Open Text Shadow panel - DONE
  * C = Open Column Settings panel - DONE
- * > = Decreases the current device size.
- * > = Increases the current device size.
+ * + = Decreases the current device size - DONE
+ * - = Increases the current device size - DONE
  * [ = Decreases the current column size.
  * ] = Increases the current column size.
  *
@@ -86,8 +87,27 @@ export default {
                         return;
                     }
 
+                    if (ev.key === "=") {
+                        self.$store.commit('changeDeviceSize', 1)
+                        return;
+                    }
+
+                    if (ev.key === "-") {
+                        self.$store.commit('changeDeviceSize', -1)
+                        return;
+                    }
+
+                    if (ev.key === "G" || ev.key === 'g') {
+                        self.$store.commit('enableGlobalComponentStyles', (! self.$store.getters.globalComponentStyles));
+                    }
+
                     if (ev.key === "p" || ev.key === "P") {
                         self.$store.commit('setSelectedElementStyle', 'positioning');
+                        return;
+                    }
+
+                    if (ev.key === "t" || ev.key === "T") {
+                        self.$store.commit('setSelectedElementStyle', 'text-formatting');
                         return;
                     }
 
@@ -115,7 +135,6 @@ export default {
                         self.$store.commit('setSelectedElementStyle', 'column');
                         return;
                     }
-
                 }
 
             }
