@@ -184,3 +184,15 @@ export const elementIsSelected = state => i => {
            state.selected.column    === i.columnIndex &&
            state.selected.component === i.componentIndex;
 };
+
+export const getColumnSizesPerDeviceSize = state => indexes => {
+    let columnsString = '';
+    const column      = getRootElementByIndexes(state, indexes);
+    const deviceSizes = state.deviceSizes;
+
+    deviceSizes.forEach(deviceSize => {
+        columnsString += `col-${deviceSize}-${column[deviceSize].columnWidth} `;
+    });
+
+    return columnsString;
+}

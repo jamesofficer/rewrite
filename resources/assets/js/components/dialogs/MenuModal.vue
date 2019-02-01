@@ -1,40 +1,34 @@
 <template>
     <b-modal :id="'menuModal'" size="sm" ref="menuModal" hide-footer hide-header lazy centered>
-        <b-dropdown-item @click="addCanvas">
-            <icon name="palette"></icon> &nbsp; Add Canvas
-        </b-dropdown-item>
+        <b-list-group class="menu-list-group">
+            <b-list-group-item button @click="addCanvas">
+                <icon name="palette"></icon> &nbsp; Add Canvas
+            </b-list-group-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-list-group-item button v-b-modal.myImagesModal>
+                <icon name="images"></icon> &nbsp; My Images
+            </b-list-group-item>
 
-        <b-dropdown-item v-b-modal.myImagesModal>
-            <icon name="images"></icon> &nbsp; My Images
-        </b-dropdown-item>
+            <b-list-group-item button @click="saveArticle">
+                <icon name="save"></icon> &nbsp; Save Article
+            </b-list-group-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
+            <b-list-group-item button v-b-modal.loadArticleModal>
+                <icon name="folder-open"></icon> &nbsp; Load Article
+            </b-list-group-item>
 
-        <b-dropdown-item @click="saveArticle">
-            <icon name="save"></icon> &nbsp; Save Article
-        </b-dropdown-item>
+            <b-list-group-item button v-b-modal @click="previewArticleInNewWindow">
+                <icon name="eye"></icon> &nbsp; Preview Article
+            </b-list-group-item>
 
-        <b-dropdown-item v-b-modal.loadArticleModal>
-            <icon name="folder-open"></icon> &nbsp; Load Article
-        </b-dropdown-item>
+            <b-list-group-item button @click="showExportArticleModal">
+                <icon name="file-export"></icon> &nbsp; Export Article
+            </b-list-group-item>
 
-        <b-dropdown-divider></b-dropdown-divider>
-
-        <b-dropdown-item v-b-modal @click="previewArticleInNewWindow">
-            <icon name="eye"></icon> &nbsp; Preview Article
-        </b-dropdown-item>
-
-        <b-dropdown-item variant="warning" @click="showExportArticleModal">
-            <icon name="file-export"></icon> &nbsp; Export Article
-        </b-dropdown-item>
-
-        <b-dropdown-divider></b-dropdown-divider>
-
-        <b-dropdown-item variant="warning" @click="signOut">
-            <icon name="sign-out-alt"></icon> &nbsp; Logout
-        </b-dropdown-item>
+            <b-list-group-item button @click="signOut">
+                <icon name="sign-out-alt"></icon> &nbsp; Logout
+            </b-list-group-item>
+        </b-list-group>
     </b-modal>
 </template>
 
@@ -112,3 +106,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.menu-list-group > .list-group-item {
+    cursor: pointer;
+}
+</style>

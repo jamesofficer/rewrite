@@ -23,8 +23,8 @@
  * C = Open Column Settings panel - DONE
  * + = Decreases the current device size - DONE
  * - = Increases the current device size - DONE
- * [ = Decreases the current column size.
- * ] = Increases the current column size.
+ * [ = Decreases the current column size - DONE
+ * ] = Increases the current column size - DONE
  *
  */
 
@@ -133,6 +133,16 @@ export default {
 
                     if (ev.key === "c" || ev.key === "C") {
                         self.$store.commit('setSelectedElementStyle', 'column');
+                        return;
+                    }
+
+                    if (ev.key === "[" && self.$store.getters.getSelectedElementType === 'Column') {
+                        self.$store.commit('changeColumnSize', -1)
+                        return;
+                    }
+
+                    if (ev.key === "]" && self.$store.getters.getSelectedElementType === 'Column') {
+                        self.$store.commit('changeColumnSize', 1)
                         return;
                     }
                 }

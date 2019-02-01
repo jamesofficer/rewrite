@@ -37,7 +37,7 @@
 
             <!-- Main Workspace -->
             <div ref="shiftArticle"
-                class="shift-workspace"
+                class="rewrite-workspace"
                 :class="{
                     'sm-device-size': getDeviceSize === 'sm',
                     'md-device-size': getDeviceSize === 'md',
@@ -143,11 +143,6 @@ export default {
 </script>
 
 <style scoped>
-#rewrite-container {
-    display: flex;
-    align-items: stretch;
-}
-
 #sidebar {
     position: fixed;
     height: 100vh;
@@ -157,17 +152,22 @@ export default {
     border-right: 1px dashed gray;
 }
 
-#rewrite-content-area {
-    width: 100%;
-    margin-left: 65px;
-}
-
 .article-name-container {
     margin: 0 auto;
     padding-top: 20px;
 }
 
-.shift-workspace {
+#rewrite-container {
+    display: flex;
+    align-items: stretch;
+}
+
+#rewrite-content-area {
+    width: 100%;
+    margin-left: 65px;
+}
+
+.rewrite-workspace {
     height: fit-content;
     margin: 0 auto;
     padding: 0;

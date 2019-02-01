@@ -4,6 +4,7 @@
         :class="{ 'selected-element': elementIsSelected }"
         :style="getElementStyles"
         :cols="element.columnWidth"
+        :data-columns="columnSizesString"
     >
         <component v-for="(component, componentIndex) in components"
             :is="component.type"
@@ -74,6 +75,10 @@ export default {
     computed: {
         components() {
             return this.$store.getters.components(this.indexes);
+        },
+
+        columnSizesString() {
+            return this.$store.getters.getColumnSizesPerDeviceSize(this.indexes);
         },
     },
 

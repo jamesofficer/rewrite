@@ -232,7 +232,7 @@ export const moveSelection = (state, direction) => {
 }
 
 /**
- * Increases or decrease the device size depending on what hotkey is pressed.
+ * Increases or decreases the device size depending on which hotkey is pressed.
  *
  */
 export const changeDeviceSize = (state, direction) => {
@@ -244,6 +244,33 @@ export const changeDeviceSize = (state, direction) => {
     }
 
     state.deviceSize = state.deviceSizes[newDeviceSizeIndex];
+}
+
+/**
+ * If a Column is selected, this increases or decreases its size depending on which hotkey is pressed.
+ *
+ */
+export const changeColumnSize = (state, direction) => {
+    const column          = getSelectedRootElement(state);
+    const currentColWidth = state.selected.element.columnWidth;
+    const deviceSizes     = state.deviceSizes;
+
+    // TODO: Fix this! When switching between global styles and local styles there is a variance of 1 between the column sizes.
+    if (state.enableGlobalComponentStyles) {
+        deviceSizes.forEach(deviceSize => {
+            if ((currentColWidth + direction) >= 1 && (currentColWidth + direction) <= 12) {
+                column[deviceSize].columnWidth = (currentColWidth + direction);
+            }
+        });
+    }
+
+    if (direction === 1 && state.selected.element.columnWidth < 12) {
+        state.selected.element.columnWidth++;
+    }
+
+    if (direction === -1 && state.selected.element.columnWidth > 1) {
+        state.selected.element.columnWidth--;
+    }
 }
 
 /**
