@@ -4,7 +4,7 @@
         :class="{ 'selected-element': elementIsSelected }"
         :style="getElementStyles"
         :cols="element.columnWidth"
-        :data-columns="columnSizesString"
+        :data-column-widths="columnSizesString"
     >
         <component v-for="(component, componentIndex) in components"
             :is="component.type"

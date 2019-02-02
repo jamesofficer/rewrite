@@ -160,6 +160,10 @@ export const totalColumnWidth = state => {
     }
 };
 
+/**
+ * Checks to see if the current element can be moved UP the workspace.
+ *
+ */
 export const canMoveElementUp = state => {
     if (state.selected.type === 'Canvas')    return state.selected.canvas > 0;
     if (state.selected.type === 'Row')       return state.selected.row > 0;
@@ -167,6 +171,10 @@ export const canMoveElementUp = state => {
     if (state.selected.type === 'Component') return state.selected.component > 0;
 };
 
+/**
+ * Checks to see if the current element can be moved DOWN the workspace.
+ *
+ */
 export const canMoveElementDown = state => {
     if (state.selected.type === 'Canvas')    return state.selected.canvas    !== (state.canvases.length - 1);
     if (state.selected.type === 'Row')       return state.selected.row       !== (state.canvases[state.selected.canvas].rows.length - 1);
@@ -185,6 +193,12 @@ export const elementIsSelected = state => i => {
            state.selected.component === i.componentIndex;
 };
 
+/**
+ * Returns the full list of column widths for each device size for this column.
+ * This list is inserted into the 'data-column-sizes' property on the column
+ * which we can extract from when exporting out the articles html.
+ *
+ */
 export const getColumnSizesPerDeviceSize = state => indexes => {
     let columnsString = '';
     const column      = getRootElementByIndexes(state, indexes);

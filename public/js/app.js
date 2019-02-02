@@ -40733,7 +40733,7 @@ var render = function() {
       attrs: {
         id: _vm.getElementIdentifier,
         cols: _vm.element.columnWidth,
-        "data-columns": _vm.columnSizesString
+        "data-column-widths": _vm.columnSizesString
       }
     },
     [
@@ -44605,6 +44605,10 @@ var totalColumnWidth = function totalColumnWidth(state) {
     }
 };
 
+/**
+ * Checks to see if the current element can be moved UP the workspace.
+ *
+ */
 var canMoveElementUp = function canMoveElementUp(state) {
     if (state.selected.type === 'Canvas') return state.selected.canvas > 0;
     if (state.selected.type === 'Row') return state.selected.row > 0;
@@ -44612,6 +44616,10 @@ var canMoveElementUp = function canMoveElementUp(state) {
     if (state.selected.type === 'Component') return state.selected.component > 0;
 };
 
+/**
+ * Checks to see if the current element can be moved DOWN the workspace.
+ *
+ */
 var canMoveElementDown = function canMoveElementDown(state) {
     if (state.selected.type === 'Canvas') return state.selected.canvas !== state.canvases.length - 1;
     if (state.selected.type === 'Row') return state.selected.row !== state.canvases[state.selected.canvas].rows.length - 1;
@@ -44629,6 +44637,12 @@ var elementIsSelected = function elementIsSelected(state) {
     };
 };
 
+/**
+ * Returns the full list of column widths for each device size for this column.
+ * This list is inserted into the 'data-column-sizes' property on the column
+ * which we can extract from when exporting out the articles html.
+ *
+ */
 var getColumnSizesPerDeviceSize = function getColumnSizesPerDeviceSize(state) {
     return function (indexes) {
         var columnsString = '';
@@ -44932,24 +44946,20 @@ var changeDeviceSize = function changeDeviceSize(state, direction) {
  */
 var changeColumnSize = function changeColumnSize(state, direction) {
     var column = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state);
-    var currentColWidth = state.selected.element.columnWidth;
-    var deviceSizes = state.deviceSizes;
+    var currentColWidth = column[state.deviceSize].columnWidth;
+    var newColumnSize = currentColWidth + direction;
+    var withinColumnLimits = currentColWidth + direction >= 1 && currentColWidth + direction <= 12;
 
-    // TODO: Fix this! When switching between global styles and local styles there is a variance of 1 between the column sizes.
     if (state.enableGlobalComponentStyles) {
-        deviceSizes.forEach(function (deviceSize) {
-            if (currentColWidth + direction >= 1 && currentColWidth + direction <= 12) {
-                column[deviceSize].columnWidth = currentColWidth + direction;
+        state.deviceSizes.forEach(function (deviceSize) {
+            if (withinColumnLimits) {
+                column[deviceSize].columnWidth = newColumnSize;
             }
         });
-    }
-
-    if (direction === 1 && state.selected.element.columnWidth < 12) {
-        state.selected.element.columnWidth++;
-    }
-
-    if (direction === -1 && state.selected.element.columnWidth > 1) {
-        state.selected.element.columnWidth--;
+    } else {
+        if (withinColumnLimits) {
+            column[state.deviceSize].columnWidth = newColumnSize;
+        }
     }
 };
 
@@ -45146,11 +45156,15 @@ var cleanHtml = function cleanHtml(html) {
     var matchBoilerplate = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|selectable-element|selectable-canvas\s|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
     var matchInlineStyles = /(style="[^"]*")/g;
     var leftoverClassTags = /(\sclass="")/g;
+    var removeColumnClass = /(class="\s?col-\d\d?\s?")/g;
+    var convertDataColumnPropertyToClass = /(data-column-widths)/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
     html = html.replace(matchInlineStyles, "");
     html = html.replace(leftoverClassTags, "");
+    html = html.replace(removeColumnClass, "");
+    html = html.replace(convertDataColumnPropertyToClass, "class");
 
     return html;
 };

@@ -251,25 +251,21 @@ export const changeDeviceSize = (state, direction) => {
  *
  */
 export const changeColumnSize = (state, direction) => {
-    const column          = getSelectedRootElement(state);
-    const currentColWidth = state.selected.element.columnWidth;
-    const deviceSizes     = state.deviceSizes;
+    const column             = getSelectedRootElement(state);
+    const currentColWidth    = column[state.deviceSize].columnWidth;
+    const newColumnSize      = (currentColWidth + direction);
+    const withinColumnLimits = (currentColWidth + direction) >= 1 && (currentColWidth + direction) <= 12;
 
-    // TODO: Fix this! When switching between global styles and local styles there is a variance of 1 between the column sizes.
     if (state.enableGlobalComponentStyles) {
-        deviceSizes.forEach(deviceSize => {
-            if ((currentColWidth + direction) >= 1 && (currentColWidth + direction) <= 12) {
-                column[deviceSize].columnWidth = (currentColWidth + direction);
+        state.deviceSizes.forEach(deviceSize => {
+            if (withinColumnLimits) {
+                column[deviceSize].columnWidth = newColumnSize;
             }
         });
-    }
-
-    if (direction === 1 && state.selected.element.columnWidth < 12) {
-        state.selected.element.columnWidth++;
-    }
-
-    if (direction === -1 && state.selected.element.columnWidth > 1) {
-        state.selected.element.columnWidth--;
+    } else {
+        if (withinColumnLimits) {
+            column[state.deviceSize].columnWidth = newColumnSize;
+        }
     }
 }
 
@@ -469,11 +465,15 @@ export const cleanHtml = html => {
     const matchBoilerplate  = /(\sshift-canvas|class="shift-component"|shift-column\s|\sselected-canvas|shift-component|selected-element|selectable-element|selectable-canvas\s|\sclass="\s?"|\sclass="v-portal"|<!-*>)/g;
     const matchInlineStyles = /(style="[^"]*")/g;
     const leftoverClassTags = /(\sclass="")/g;
+    const removeColumnClass = /(class="\s?col-\d\d?\s?")/g;
+    const convertDataColumnPropertyToClass = /(data-column-widths)/g;
 
     html = html.replace(matchDataVText, "");
     html = html.replace(matchBoilerplate, "");
     html = html.replace(matchInlineStyles, "");
     html = html.replace(leftoverClassTags, "");
+    html = html.replace(removeColumnClass, "");
+    html = html.replace(convertDataColumnPropertyToClass, "class");
 
     return html;
 };
