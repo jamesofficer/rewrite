@@ -3,7 +3,7 @@
         <sidebar-control
             @click.native="deleteElement"
             variant="danger"
-            icon="times"
+            icon="trash-alt"
             tooltip="Delete Element"
         ></sidebar-control>
     </div>

@@ -78,11 +78,13 @@ export default {
                 // Keybindings that don't rely on the CTRL key.
                 else {
                     if (ev.key === "ArrowUp") {
+                        ev.preventDefault();
                         self.$store.commit('moveSelection', 'up');
                         return;
                     }
 
                     if (ev.key === "ArrowDown") {
+                        ev.preventDefault();
                         self.$store.commit('moveSelection', 'down');
                         return;
                     }

@@ -44,7 +44,6 @@ export default {
         saveArticle() {
             const title = this.$store.getters.articleTitle;
 
-            // Don't let users save an article that doesn't have a title.
             if (title === null || title === undefined || title === 'Untitled article...') {
                 this.$store.commit('setNotification', {
                     message: 'You must give your article a title first.',

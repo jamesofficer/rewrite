@@ -147,41 +147,14 @@ export const deleteElement = state => {
  *
  */
 export const cloneElement = (state, i) => {
-    if ((state.selected.type === 'Column') && (! this.enoughSpaceToCloneColumn(state))) {
-        return;
-    }
-
     const clonedElement = duplicateObject(getSelectedRootElement(state));
 
-    clonedElement.identifier = createIdentifier(clonedElement.type);;
+    clonedElement.identifier = createIdentifier(clonedElement.type);
+    clonedElement.selected   = false;
 
     getSiblingElements(state).splice(
-        state.selected[state.selected.type.toLowerCase()] + 1, 0, duplicateObject(clonedElement)
+        state.selected[state.selected.type.toLowerCase()] + 1, 0, clonedElement
     );
-};
-
-/**
- * Checks whether there is enough space in the current Row to clone a Column.
- *
- */
-export const enoughSpaceToCloneColumn = (state, i) => {
-    let availableSpaceInRow   = 12;
-    const selectedColumnWidth = state.selected.element.columnWidth;
-
-    state.canvases[state.selected.canvas].rows[state.selected.row].columns.forEach(function (column) {
-        availableSpaceInRow -= column.columnWidth;
-    });
-
-    if (selectedColumnWidth > availableSpaceInRow) {
-        this.setNotification(state, {
-            message: 'Not enough room to clone column. Reduce the size of it and try again.',
-            type: 'warning',
-        });
-
-        return false;
-    }
-
-    return true;
 };
 
 /**
@@ -212,23 +185,95 @@ export const moveElement = (state, direction) => {
  * Moves the current selection up or down, depending on if the up or down arrow is pressed.
  *
  */
-export const moveSelection = (state, direction) => {
-    const directionIndex = direction === 'up' ? -1 : 1;
-    const currentSelection = getSelectedRootElement(state);
-
-    // If nothing is selected, select the first Canvas (regardless of direction pressed).
-    if (state.selected.type === undefined) {
-        this.selectElement(state, { canvasIndex: 0 });
-        return;
-    }
-
-    // HOW THIS FUNCTION SHOULD WORK:
+// HOW THIS FUNCTION SHOULD WORK:
     // -- If the Up or Down arrow key is pressed we want to move the selection up/down to the element OF THE SAME TYPE.
     //      e.g. Only move from Canvas to Canvas or Component to Component.
     // -- If the Left or Right arrow key is pressed we will move further into the current selection.
     //      e.g. If a Row is selected, we will move into the first Column of this row.
     //      e.g. If a If a Column is selected we will move into the first Component in this Column.
+export const moveSelection = (state, direction) => {
+    const directionIndex = direction === 'up' ? -1 : 1;
+    const currentSelection = getSelectedRootElement(state);
+    const indexes = {};
 
+    // If nothing is selected, select the first Canvas (regardless of direction pressed).
+    if (state.selected.type === undefined) {
+        return selectElement(state, { canvasIndex: 0 });
+    } else {
+        return direction === 'down' ? moveSelectionDown(state) : moveSelectionUp(state);
+    }
+}
+
+/**
+ * Moves the current selection to the sibling elment above this one.
+ *
+ */
+function moveSelectionUp(state) {
+    if (state.selected.type === 'Component' && state.selected.component > 0) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row,
+            columnIndex: state.selected.column,
+            componentIndex: state.selected.component - 1,
+        });
+    }
+
+    if (state.selected.type === 'Column' && state.selected.column > 0) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row,
+            columnIndex: state.selected.column - 1,
+        });
+    }
+
+    if (state.selected.type === 'Row' && state.selected.row > 0) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row - 1,
+        });
+    }
+
+    if (state.selected.type === 'Canvas' && state.selected.canvas > 0) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas - 1,
+        });
+    }
+}
+
+/**
+ * Moves the current selection to the sibling elment below this one.
+ *
+ */
+function moveSelectionDown(state) {
+    if (state.selected.type === 'Component' && state.selected.component < getSiblingElements(state).length - 1) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row,
+            columnIndex: state.selected.column,
+            componentIndex: state.selected.component + 1,
+        });
+    }
+
+    if (state.selected.type === 'Column' && state.selected.column < getSiblingElements(state).length - 1) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row,
+            columnIndex: state.selected.column + 1,
+        });
+    }
+
+    if (state.selected.type === 'Row' && state.selected.row < getSiblingElements(state).length - 1) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas,
+            rowIndex: state.selected.row + 1,
+        });
+    }
+
+    if (state.selected.type === 'Canvas' && state.selected.canvas < state.canvases.length - 1) {
+        return selectElement(state, {
+            canvasIndex: state.selected.canvas + 1,
+        });
+    }
 }
 
 /**
@@ -457,7 +502,7 @@ export const appendImageUrlsToHtml = html => {
 
 /**
  * When getting an articles html, we want to strip out unnecessary text such as Vue's
- * 'data-v' properties, and any comments in the html (in the form of "<!-- -->");
+ * 'data-v' properties, comments in the html (in the form of "<!-- -->"), etc.
  *
  */
 export const cleanHtml = html => {
