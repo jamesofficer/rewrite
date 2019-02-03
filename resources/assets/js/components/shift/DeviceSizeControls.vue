@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="display: inline-block">
         <div class="sidebar-control">
             <b-button @click="setDeviceSize('sm')" :pressed="getDeviceSize === 'sm'" variant="success" v-b-tooltip.right="'Mobiles'">
                 <icon name="mobile-alt"></icon>

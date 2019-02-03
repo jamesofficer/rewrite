@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="display: inline">
         <delete-element></delete-element>
 
         <clone-element></clone-element>

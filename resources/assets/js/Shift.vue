@@ -1,89 +1,95 @@
 <template>
-    <div id="rewrite-container">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <!-- TODO: Extract this to its own component. -->
-            <div class="sidebar-control">
-                <b-button v-b-modal.menuModal variant="success">
-                    <icon name="bars"></icon>
-                </b-button>
-            </div>
+    <div>
+        <!-- TopBar -->
+        <div id="topbar">
+            <b-row>
+                <b-col cols="8">
+                    <global-styles-switch></global-styles-switch>
 
-            <global-styles-switch></global-styles-switch>
+                    <portal-target name="sidebar" style="display: inline"></portal-target>
+                </b-col>
 
-            <portal-target name="sidebar"></portal-target>
+                <b-col cols="4" class="text-right">
+                    <device-size-controls></device-size-controls>
 
-            <div style="position: fixed; bottom: 5px;">
-                <device-size-controls></device-size-controls>
-            </div>
+                    <!-- TODO: Extract this to its own component. -->
+                    <div class="sidebar-control">
+                        <b-button v-b-modal.menuModal variant="success">
+                            <icon name="bars"></icon>
+                        </b-button>
+                    </div>
+                </b-col>
+            </b-row>
         </div>
 
-        <!-- Main Content Area -->
-        <div id="rewrite-content-area">
-            <notification></notification>
+        <div id="rewrite-container">
+            <!-- Main Content Area -->
+            <div id="rewrite-content-area">
+                <notification></notification>
 
-            <!-- Article Name -->
-            <div
-                class="article-name-container"
-                :class="{
-                    'sm-device-size': getDeviceSize === 'sm',
-                    'md-device-size': getDeviceSize === 'md',
-                    'lg-device-size': getDeviceSize === 'lg',
-                    'xl-device-size': getDeviceSize === 'xl',
-                }"
-            >
-                <article-title></article-title>
+                <!-- Article Name -->
+                <div
+                    class="article-name-container"
+                    :class="{
+                        'sm-device-size': getDeviceSize === 'sm',
+                        'md-device-size': getDeviceSize === 'md',
+                        'lg-device-size': getDeviceSize === 'lg',
+                        'xl-device-size': getDeviceSize === 'xl',
+                    }"
+                >
+                    <article-title></article-title>
+                </div>
+
+                <!-- Main Workspace -->
+                <div ref="shiftArticle"
+                    class="rewrite-workspace"
+                    :class="{
+                        'sm-device-size': getDeviceSize === 'sm',
+                        'md-device-size': getDeviceSize === 'md',
+                        'lg-device-size': getDeviceSize === 'lg',
+                        'xl-device-size': getDeviceSize === 'xl',
+                    }"
+                >
+                    <canvas v-for="(canvas, canvasIndex) in canvases"
+                        is="Canvas"
+                        :key="canvasIndex"
+                        :canvasIndex="canvasIndex"
+                        @click.native.stop="selectElement(canvasIndex)"
+                        class="selectable-canvas"
+                        v-show="canvas.visible"
+                    ></canvas>
+                </div>
+
+                <shift-footer></shift-footer>
             </div>
 
-            <!-- Main Workspace -->
-            <div ref="shiftArticle"
-                class="rewrite-workspace"
-                :class="{
-                    'sm-device-size': getDeviceSize === 'sm',
-                    'md-device-size': getDeviceSize === 'md',
-                    'lg-device-size': getDeviceSize === 'lg',
-                    'xl-device-size': getDeviceSize === 'xl',
-                }"
-            >
-                <canvas v-for="(canvas, canvasIndex) in canvases"
-                    is="Canvas"
-                    :key="canvasIndex"
-                    :canvasIndex="canvasIndex"
-                    @click.native.stop="selectElement(canvasIndex)"
-                    class="selectable-canvas"
-                    v-show="canvas.visible"
-                ></canvas>
+            <div class="fixed-footer">
+                <element-styles-panel></element-styles-panel>
+
+                <minimap></minimap>
+
+                <color-picker-panel></color-picker-panel>
             </div>
 
-            <shift-footer></shift-footer>
+            <!-- Modal Windows -->
+            <menu-modal></menu-modal>
+
+            <add-component-modal></add-component-modal>
+
+            <edit-text-modal></edit-text-modal>
+
+            <load-article-modal></load-article-modal>
+
+            <my-images-modal></my-images-modal>
+
+            <image-gallery-modal></image-gallery-modal>
+
+            <export-article-modal ref="exportArticleModal"></export-article-modal>
+
+            <recipe-ingredients-modal></recipe-ingredients-modal>
+
+            <background-gradient-modal></background-gradient-modal>
         </div>
-
-        <div class="fixed-footer">
-            <element-styles-panel></element-styles-panel>
-
-            <minimap></minimap>
-
-            <color-picker-panel></color-picker-panel>
-        </div>
-
-        <!-- Modal Windows -->
-        <menu-modal></menu-modal>
-
-        <add-component-modal></add-component-modal>
-
-        <edit-text-modal></edit-text-modal>
-
-        <load-article-modal></load-article-modal>
-
-        <my-images-modal></my-images-modal>
-
-        <image-gallery-modal></image-gallery-modal>
-
-        <export-article-modal ref="exportArticleModal"></export-article-modal>
-
-        <recipe-ingredients-modal></recipe-ingredients-modal>
-
-        <background-gradient-modal></background-gradient-modal>
     </div>
 </template>
 
@@ -143,13 +149,13 @@ export default {
 </script>
 
 <style scoped>
-#sidebar {
-    position: fixed;
-    height: 100vh;
-    width: 65px;
+#topbar {
+    height: 65px;
+    width: 100%;
     padding: 10px;
     background: white;
-    border-right: 1px dashed gray;
+    border-top: 3px solid #38c172;
+    border-bottom: 1px dashed gray;
 }
 
 .article-name-container {

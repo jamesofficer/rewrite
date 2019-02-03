@@ -25997,7 +25997,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#sidebar[data-v-667f58a0] {\n    position: fixed;\n    height: 100vh;\n    width: 65px;\n    padding: 10px;\n    background: white;\n    border-right: 1px dashed gray;\n}\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n#rewrite-container[data-v-667f58a0] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: stretch;\n        -ms-flex-align: stretch;\n            align-items: stretch;\n}\n#rewrite-content-area[data-v-667f58a0] {\n    width: 100%;\n    margin-left: 65px;\n}\n.rewrite-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n    border-radius: 10px;\n}\n.fixed-footer[data-v-667f58a0] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n", ""]);
+exports.push([module.i, "\n#topbar[data-v-667f58a0] {\n    height: 65px;\n    width: 100%;\n    padding: 10px;\n    background: white;\n    border-top: 3px solid #38c172;\n    border-bottom: 1px dashed gray;\n}\n.article-name-container[data-v-667f58a0] {\n    margin: 0 auto;\n    padding-top: 20px;\n}\n#rewrite-container[data-v-667f58a0] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: stretch;\n        -ms-flex-align: stretch;\n            align-items: stretch;\n}\n#rewrite-content-area[data-v-667f58a0] {\n    width: 100%;\n    margin-left: 65px;\n}\n.rewrite-workspace[data-v-667f58a0] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n    border-radius: 10px;\n}\n.fixed-footer[data-v-667f58a0] {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n}\n.sm-device-size[data-v-667f58a0] {\n    width: 576px;\n}\n.md-device-size[data-v-667f58a0] {\n    width: 768px;\n}\n.lg-device-size[data-v-667f58a0] {\n    width: 992px;\n}\n.xl-device-size[data-v-667f58a0] {\n    width: 1200px;\n}\n", ""]);
 
 // exports
 
@@ -26167,6 +26167,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26228,14 +26234,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /**
  * KEY BINDING REFERENCE:
  *
- * Up Arrow = moves selection up.
- * Down Arrow = moves selection down.
+ * Up Arrow = moves selection up - DONE
+ * Down Arrow = moves selection down - DONE
  * Ctrl + Up Arrow = moves the current element up - DONE
  * Ctrl + Down Arrow = moves the current element down - DONE
  * Ctrl + Left Arrow = moves the column left in its row - DONE
  * Ctrl + Right Arrow = moves the current column right in its row - DONE
- * Left Arrow = select input to the left in the currently open element panel.
- * Right Arrow = select input to the right in the currently open element panel.
+ * Left Arrow = select input to the left in the currently open element panel - DONE
+ * Right Arrow = select input to the right in the currently open element panel - DONE
  * Ctrl + Delete = deletes the current element - DONE
  * Ctrl + Plus = Opens Add Component modal window - DONE
  * Ctrl + H = Hide the currently selected element.
@@ -27331,7 +27337,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticStyle: { display: "inline-block" } }, [
     _c(
       "div",
       { staticClass: "sidebar-control" },
@@ -28149,6 +28155,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -28184,16 +28196,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticStyle: { display: "inline" } }, [
     _c(
       "div",
-      { staticClass: "sidebar-control" },
+      {
+        directives: [
+          {
+            name: "b-tooltip",
+            rawName: "v-b-tooltip.hover.right",
+            modifiers: { hover: true, right: true }
+          }
+        ],
+        staticClass: "sidebar-control",
+        attrs: { title: _vm.elementType === "Column" ? "Move Left" : "Move Up" }
+      },
       [
         _c("sidebar-control", {
           attrs: {
             variant: "outline-info",
             icon: _vm.elementType === "Column" ? "arrow-left" : "arrow-up",
-            tooltip: "Move Up",
             disabled: !_vm.canMoveElementUp
           },
           nativeOn: {
@@ -28208,13 +28229,24 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "sidebar-control" },
+      {
+        directives: [
+          {
+            name: "b-tooltip",
+            rawName: "v-b-tooltip.hover.right",
+            modifiers: { hover: true, right: true }
+          }
+        ],
+        staticClass: "sidebar-control",
+        attrs: {
+          title: _vm.elementType === "Column" ? "Move Right" : "Move Down"
+        }
+      },
       [
         _c("sidebar-control", {
           attrs: {
             variant: "outline-info",
             icon: _vm.elementType === "Column" ? "arrow-right" : "arrow-down",
-            tooltip: "Move Down",
             disabled: !_vm.canMoveElementDown
           },
           nativeOn: {
@@ -28248,6 +28280,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticStyle: { display: "inline" } },
     [
       _c("delete-element"),
       _vm._v(" "),
@@ -41641,7 +41674,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "floating-panel",
-    { staticStyle: { bottom: "5px", right: "15px" } },
+    { staticStyle: { bottom: "5px", right: "5px" } },
     [
       _c("template", { slot: "title" }, [_vm._v("Layout")]),
       _vm._v(" "),
@@ -42232,7 +42265,7 @@ var render = function() {
   return _c(
     "floating-panel",
     {
-      staticStyle: { bottom: "5px", left: "75px" },
+      staticStyle: { bottom: "5px", left: "5px" },
       attrs: { height: "307px", width: "auto" }
     },
     [
@@ -44176,146 +44209,166 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "rewrite-container" } },
-    [
-      _c(
-        "div",
-        { attrs: { id: "sidebar" } },
-        [
-          _c(
-            "div",
-            { staticClass: "sidebar-control" },
-            [
-              _c(
-                "b-button",
-                {
+  return _c("div", [
+    _c(
+      "div",
+      { attrs: { id: "topbar" } },
+      [
+        _c(
+          "b-row",
+          [
+            _c(
+              "b-col",
+              { attrs: { cols: "8" } },
+              [
+                _c("global-styles-switch"),
+                _vm._v(" "),
+                _c("portal-target", {
+                  staticStyle: { display: "inline" },
+                  attrs: { name: "sidebar" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-col",
+              { staticClass: "text-right", attrs: { cols: "4" } },
+              [
+                _c("device-size-controls"),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "sidebar-control" },
+                  [
+                    _c(
+                      "b-button",
+                      {
+                        directives: [
+                          {
+                            name: "b-modal",
+                            rawName: "v-b-modal.menuModal",
+                            modifiers: { menuModal: true }
+                          }
+                        ],
+                        attrs: { variant: "success" }
+                      },
+                      [_c("icon", { attrs: { name: "bars" } })],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "rewrite-container" } },
+      [
+        _c(
+          "div",
+          { attrs: { id: "rewrite-content-area" } },
+          [
+            _c("notification"),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "article-name-container",
+                class: {
+                  "sm-device-size": _vm.getDeviceSize === "sm",
+                  "md-device-size": _vm.getDeviceSize === "md",
+                  "lg-device-size": _vm.getDeviceSize === "lg",
+                  "xl-device-size": _vm.getDeviceSize === "xl"
+                }
+              },
+              [_c("article-title")],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "shiftArticle",
+                staticClass: "rewrite-workspace",
+                class: {
+                  "sm-device-size": _vm.getDeviceSize === "sm",
+                  "md-device-size": _vm.getDeviceSize === "md",
+                  "lg-device-size": _vm.getDeviceSize === "lg",
+                  "xl-device-size": _vm.getDeviceSize === "xl"
+                }
+              },
+              _vm._l(_vm.canvases, function(canvas, canvasIndex) {
+                return _c("Canvas", {
                   directives: [
                     {
-                      name: "b-modal",
-                      rawName: "v-b-modal.menuModal",
-                      modifiers: { menuModal: true }
+                      name: "show",
+                      rawName: "v-show",
+                      value: canvas.visible,
+                      expression: "canvas.visible"
                     }
                   ],
-                  attrs: { variant: "success" }
-                },
-                [_c("icon", { attrs: { name: "bars" } })],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("global-styles-switch"),
-          _vm._v(" "),
-          _c("portal-target", { attrs: { name: "sidebar" } }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticStyle: { position: "fixed", bottom: "5px" } },
-            [_c("device-size-controls")],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { id: "rewrite-content-area" } },
-        [
-          _c("notification"),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "article-name-container",
-              class: {
-                "sm-device-size": _vm.getDeviceSize === "sm",
-                "md-device-size": _vm.getDeviceSize === "md",
-                "lg-device-size": _vm.getDeviceSize === "lg",
-                "xl-device-size": _vm.getDeviceSize === "xl"
-              }
-            },
-            [_c("article-title")],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              ref: "shiftArticle",
-              staticClass: "rewrite-workspace",
-              class: {
-                "sm-device-size": _vm.getDeviceSize === "sm",
-                "md-device-size": _vm.getDeviceSize === "md",
-                "lg-device-size": _vm.getDeviceSize === "lg",
-                "xl-device-size": _vm.getDeviceSize === "xl"
-              }
-            },
-            _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-              return _c("Canvas", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: canvas.visible,
-                    expression: "canvas.visible"
+                  key: canvasIndex,
+                  tag: "canvas",
+                  staticClass: "selectable-canvas",
+                  attrs: { canvasIndex: canvasIndex },
+                  nativeOn: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      _vm.selectElement(canvasIndex)
+                    }
                   }
-                ],
-                key: canvasIndex,
-                tag: "canvas",
-                staticClass: "selectable-canvas",
-                attrs: { canvasIndex: canvasIndex },
-                nativeOn: {
-                  click: function($event) {
-                    $event.stopPropagation()
-                    _vm.selectElement(canvasIndex)
-                  }
-                }
+                })
               })
-            })
-          ),
-          _vm._v(" "),
-          _c("shift-footer")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "fixed-footer" },
-        [
-          _c("element-styles-panel"),
-          _vm._v(" "),
-          _c("minimap"),
-          _vm._v(" "),
-          _c("color-picker-panel")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("menu-modal"),
-      _vm._v(" "),
-      _c("add-component-modal"),
-      _vm._v(" "),
-      _c("edit-text-modal"),
-      _vm._v(" "),
-      _c("load-article-modal"),
-      _vm._v(" "),
-      _c("my-images-modal"),
-      _vm._v(" "),
-      _c("image-gallery-modal"),
-      _vm._v(" "),
-      _c("export-article-modal", { ref: "exportArticleModal" }),
-      _vm._v(" "),
-      _c("recipe-ingredients-modal"),
-      _vm._v(" "),
-      _c("background-gradient-modal")
-    ],
-    1
-  )
+            ),
+            _vm._v(" "),
+            _c("shift-footer")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "fixed-footer" },
+          [
+            _c("element-styles-panel"),
+            _vm._v(" "),
+            _c("minimap"),
+            _vm._v(" "),
+            _c("color-picker-panel")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("menu-modal"),
+        _vm._v(" "),
+        _c("add-component-modal"),
+        _vm._v(" "),
+        _c("edit-text-modal"),
+        _vm._v(" "),
+        _c("load-article-modal"),
+        _vm._v(" "),
+        _c("my-images-modal"),
+        _vm._v(" "),
+        _c("image-gallery-modal"),
+        _vm._v(" "),
+        _c("export-article-modal", { ref: "exportArticleModal" }),
+        _vm._v(" "),
+        _c("recipe-ingredients-modal"),
+        _vm._v(" "),
+        _c("background-gradient-modal")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

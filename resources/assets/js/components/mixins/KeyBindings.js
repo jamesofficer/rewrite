@@ -1,14 +1,14 @@
 /**
  * KEY BINDING REFERENCE:
  *
- * Up Arrow = moves selection up.
- * Down Arrow = moves selection down.
+ * Up Arrow = moves selection up - DONE
+ * Down Arrow = moves selection down - DONE
  * Ctrl + Up Arrow = moves the current element up - DONE
  * Ctrl + Down Arrow = moves the current element down - DONE
  * Ctrl + Left Arrow = moves the column left in its row - DONE
  * Ctrl + Right Arrow = moves the current column right in its row - DONE
- * Left Arrow = select input to the left in the currently open element panel.
- * Right Arrow = select input to the right in the currently open element panel.
+ * Left Arrow = select input to the left in the currently open element panel - DONE
+ * Right Arrow = select input to the right in the currently open element panel - DONE
  * Ctrl + Delete = deletes the current element - DONE
  * Ctrl + Plus = Opens Add Component modal window - DONE
  * Ctrl + H = Hide the currently selected element.
