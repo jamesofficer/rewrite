@@ -200,7 +200,14 @@ export const moveSelection = (state, direction) => {
     if (state.selected.type === undefined) {
         return selectElement(state, { canvasIndex: 0 });
     } else {
-        return direction === 'down' ? moveSelectionDown(state) : moveSelectionUp(state);
+        const indexes = {
+            canvasIndex: state.selected.type === 'Canvas' ? state.selected.canvas + directionIndex : state.selected.canvas,
+            rowIndex: state.selected.type === 'Row' ? state.selected.row + directionIndex : state.selected.row,
+            columnIndex: state.selected.type === 'Column' ? state.selected.column + directionIndex : state.selected.column,
+            componentIndex: state.selected.type === 'Component' ? state.selected.component + directionIndex : state.selected.component,
+        };
+
+        return direction === 'down' ? moveSelectionDown(state, indexes) : moveSelectionUp(state, indexes);
     }
 }
 
@@ -208,35 +215,21 @@ export const moveSelection = (state, direction) => {
  * Moves the current selection to the sibling elment above this one.
  *
  */
-function moveSelectionUp(state) {
+function moveSelectionUp(state, indexes) {
     if (state.selected.type === 'Component' && state.selected.component > 0) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row,
-            columnIndex: state.selected.column,
-            componentIndex: state.selected.component - 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Column' && state.selected.column > 0) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row,
-            columnIndex: state.selected.column - 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Row' && state.selected.row > 0) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row - 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Canvas' && state.selected.canvas > 0) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas - 1,
-        });
+        return selectElement(state, indexes);
     }
 }
 
@@ -244,35 +237,21 @@ function moveSelectionUp(state) {
  * Moves the current selection to the sibling elment below this one.
  *
  */
-function moveSelectionDown(state) {
+function moveSelectionDown(state, indexes) {
     if (state.selected.type === 'Component' && state.selected.component < getSiblingElements(state).length - 1) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row,
-            columnIndex: state.selected.column,
-            componentIndex: state.selected.component + 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Column' && state.selected.column < getSiblingElements(state).length - 1) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row,
-            columnIndex: state.selected.column + 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Row' && state.selected.row < getSiblingElements(state).length - 1) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas,
-            rowIndex: state.selected.row + 1,
-        });
+        return selectElement(state, indexes);
     }
 
     if (state.selected.type === 'Canvas' && state.selected.canvas < state.canvases.length - 1) {
-        return selectElement(state, {
-            canvasIndex: state.selected.canvas + 1,
-        });
+        return selectElement(state, indexes);
     }
 }
 
