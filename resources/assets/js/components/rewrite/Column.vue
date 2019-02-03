@@ -51,14 +51,14 @@ import ElementBorders     from '../panels/ElementBorders'
 import ElementBoxShadow   from '../panels/ElementBoxShadow'
 import ColumnSettings     from '../panels/ColumnSettings'
 
-import Heading            from '../Heading'
-import Paragraph          from '../Paragraph'
-import BlockQuote         from '../BlockQuote'
-import Picture            from '../Picture'
-import HorizontalLine     from '../HorizontalLine'
-import InstagramEmbed     from '../InstagramEmbed'
-import YouTubeEmbed       from '../YouTubeEmbed'
-import RecipeIngredients  from '../RecipeIngredients'
+import Heading            from '../core/Heading'
+import Paragraph          from '../core/Paragraph'
+import BlockQuote         from '../core/BlockQuote'
+import Picture            from '../core/Picture'
+import HorizontalLine     from '../core/HorizontalLine'
+import InstagramEmbed     from '../core/InstagramEmbed'
+import YouTubeEmbed       from '../core/YouTubeEmbed'
+import RecipeIngredients  from '../core/RecipeIngredients'
 
 export default {
     name: "Column",

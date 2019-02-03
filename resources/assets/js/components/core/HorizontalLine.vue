@@ -22,15 +22,15 @@
 
 
 <script>
-import GetElement        from './mixins/GetElement'
+import GetElement             from '../mixins/GetElement'
 
-import Sidebar            from './topbar/Topbar'
-import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
+import Sidebar                from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 
-import ElementPositioning    from './panels/ElementPositioning'
-import ElementBackground     from './panels/ElementBackground'
-import ElementBorders        from './panels/ElementBorders'
-import ElementBoxShadow      from './panels/ElementBoxShadow'
+import ElementPositioning      from '../panels/ElementPositioning'
+import ElementBackground       from '../panels/ElementBackground'
+import ElementBorders          from '../panels/ElementBorders'
+import ElementBoxShadow        from '../panels/ElementBoxShadow'
 
 export default {
     name: "HorizontalLine",

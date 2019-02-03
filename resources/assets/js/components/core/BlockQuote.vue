@@ -50,26 +50,26 @@
 </template>
 
 <script>
-import GetElement      from './mixins/GetElement'
-import EditableText    from './mixins/EditableText'
+import GetElement      from '../mixins/GetElement'
+import EditableText    from '../mixins/EditableText'
 
-import Sidebar          from './topbar/Topbar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar          from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 
-import Margin          from './core/Margin'
-import Padding         from './core/Padding'
-import Border          from './core/Border'
-import TextInput       from './core/TextInput'
-import BackgroundColor from './core/BackgroundColor'
-import TextAlignment   from './core/TextAlignment'
-import FontFamily      from './core/FontFamily'
-import FontWeight      from './core/FontWeight'
-import FontSize        from './core/FontSize'
-import TextColor       from './core/TextColor'
-import TextShadow      from './core/TextShadow'
-import LineHeight      from './core/LineHeight'
-import LetterSpacing   from './core/LetterSpacing'
-import Width           from './core/Width'
+import Margin          from '../properties/Margin'
+import Padding         from '../properties/Padding'
+import Border          from '../properties/Border'
+import TextInput       from '../properties/TextInput'
+import BackgroundColor from '../properties/BackgroundColor'
+import TextAlignment   from '../properties/TextAlignment'
+import FontFamily      from '../properties/FontFamily'
+import FontWeight      from '../properties/FontWeight'
+import FontSize        from '../properties/FontSize'
+import TextColor       from '../properties/TextColor'
+import TextShadow      from '../properties/TextShadow'
+import LineHeight      from '../properties/LineHeight'
+import LetterSpacing   from '../properties/LetterSpacing'
+import Width           from '../properties/Width'
 
 export default {
     name: "BlockQuote",

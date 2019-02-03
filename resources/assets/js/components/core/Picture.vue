@@ -32,21 +32,21 @@
 </template>
 
 <script>
-import GetElement         from './mixins/GetElement'
+import GetElement         from '../mixins/GetElement'
 
-import Sidebar             from './topbar/Topbar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar             from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 
-import ElementPositioning from './panels/ElementPositioning'
-import ElementBorders     from './panels/ElementBorders'
-import ElementBoxShadow   from './panels/ElementBoxShadow'
+import ElementPositioning from '../panels/ElementPositioning'
+import ElementBorders     from '../panels/ElementBorders'
+import ElementBoxShadow   from '../panels/ElementBoxShadow'
 
-import ImageSelector      from './core/ImageSelector'
-import ImageAlignment     from './core/ImageAlignment'
-import Margin             from './core/Margin'
-import Width              from './core/Width'
-import Border             from './core/Border'
-import BoxShadow          from './core/BoxShadow'
+import ImageSelector      from '../properties/ImageSelector'
+import ImageAlignment     from '../properties/ImageAlignment'
+import Margin             from '../properties/Margin'
+import Width              from '../properties/Width'
+import Border             from '../properties/Border'
+import BoxShadow          from '../properties/BoxShadow'
 
 export default {
     name: "Picture",

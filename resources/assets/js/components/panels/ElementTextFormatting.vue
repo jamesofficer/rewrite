@@ -46,15 +46,15 @@
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton from '../topbar/TopbarButton';
-import TextAlignment  from '../core/TextAlignment';
-import FontFamily     from '../core/FontFamily';
+import TextAlignment  from '../properties/TextAlignment';
+import FontFamily     from '../properties/FontFamily';
 
-import TextColor      from '../core/TextColor';
-import TextShadow     from '../core/TextShadow';
-import FontSize       from '../core/FontSize';
-import FontWeight     from '../core/FontWeight';
-import LineHeight     from '../core/LineHeight';
-import LetterSpacing  from '../core/LetterSpacing';
+import TextColor      from '../properties/TextColor';
+import TextShadow     from '../properties/TextShadow';
+import FontSize       from '../properties/FontSize';
+import FontWeight     from '../properties/FontWeight';
+import LineHeight     from '../properties/LineHeight';
+import LetterSpacing  from '../properties/LetterSpacing';
 
 export default {
     name: "ElementTextFormatting",

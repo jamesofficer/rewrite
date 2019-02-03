@@ -22,7 +22,7 @@
 
 <script>
 import getImages     from '../mixins/GetImages'
-import ImageUploader from '../core/ImageUploader'
+import ImageUploader from '../properties/ImageUploader'
 
 export default {
     name: "MyImagesModal",

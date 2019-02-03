@@ -14,7 +14,7 @@
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton from '../topbar/TopbarButton';
-import BoxShadow     from '../core/BoxShadow';
+import BoxShadow     from '../properties/BoxShadow';
 
 export default {
     name: "ElementBoxShadow",

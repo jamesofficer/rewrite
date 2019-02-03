@@ -41,10 +41,10 @@ import ElementBackground  from '../panels/ElementBackground'
 import AlignColumns       from '../topbar/AlignColumns'
 import ClearImage         from '../topbar/ClearImage'
 
-import Padding            from '../core/Padding'
-import BackgroundPosition from '../core/BackgroundPosition'
-import BackgroundSize     from '../core/BackgroundSize'
-import ImageSelector      from '../core/ImageSelector'
+import Padding            from '../properties/Padding'
+import BackgroundPosition from '../properties/BackgroundPosition'
+import BackgroundSize     from '../properties/BackgroundSize'
+import ImageSelector      from '../properties/ImageSelector'
 
 export default {
     name: "Canvas",

@@ -47,11 +47,11 @@ import SelectedElementStyle from '../mixins/SelectedElementStyle';
 import TopbarButton      from '../topbar/TopbarButton';
 import ClearImage         from '../topbar/ClearImage';
 
-import BackgroundColor    from '../core/BackgroundColor';
-import BackgroundGradient from '../core/BackgroundGradient';
-import ImageSelector      from '../core/ImageSelector';
-import BackgroundSize     from '../core/BackgroundSize';
-import BackgroundPosition from '../core/BackgroundPosition';
+import BackgroundColor    from '../properties/BackgroundColor';
+import BackgroundGradient from '../properties/BackgroundGradient';
+import ImageSelector      from '../properties/ImageSelector';
+import BackgroundSize     from '../properties/BackgroundSize';
+import BackgroundPosition from '../properties/BackgroundPosition';
 
 export default {
     name: "ElementBackground",

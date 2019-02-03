@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import GetElement        from './mixins/GetElement'
+import GetElement        from '../mixins/GetElement'
 
-import Sidebar            from './topbar/Topbar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar            from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 
-import TextInput         from './core/TextInput'
-import ImageAlignment    from './core/ImageAlignment'
-import Margin            from './core/Margin'
+import TextInput         from '../properties/TextInput'
+import ImageAlignment    from '../properties/ImageAlignment'
+import Margin            from '../properties/Margin'
 
 export default {
     name: "InstagramEmbed",

@@ -20,10 +20,10 @@
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton  from '../topbar/TopbarButton';
-import Margin         from '../core/Margin';
-import Padding        from '../core/Padding';
-import Width          from '../core/Width';
-import ImageAlignment from '../core/ImageAlignment';
+import Margin         from '../properties/Margin';
+import Padding        from '../properties/Padding';
+import Width          from '../properties/Width';
+import ImageAlignment from '../properties/ImageAlignment';
 
 export default {
     name: "ElementPositioning",

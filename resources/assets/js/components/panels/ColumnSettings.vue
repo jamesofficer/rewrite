@@ -15,8 +15,8 @@ import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton        from '../topbar/TopbarButton';
 
-import AlignComponents      from '../core/AlignComponents'
-import ColumnWidth          from '../core/ColumnWidth'
+import AlignComponents      from '../properties/AlignComponents'
+import ColumnWidth          from '../properties/ColumnWidth'
 
 export default {
     name: "ElementTextShadow",

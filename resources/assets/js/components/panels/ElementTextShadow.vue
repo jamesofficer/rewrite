@@ -19,7 +19,7 @@
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton from '../topbar/TopbarButton';
-import TextShadow    from '../core/TextShadow';
+import TextShadow    from '../properties/TextShadow';
 
 export default {
     name: "ElementTextShadow",

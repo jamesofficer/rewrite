@@ -16,7 +16,7 @@
 
 <script>
 import FloatingPanel from './FloatingPanel';
-import ColorPickerButton from '../core/ColorPickerButton';
+import ColorPickerButton from '../properties/ColorPickerButton';
 
 export default {
     name: "ElementStylesPanel",

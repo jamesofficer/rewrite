@@ -96,13 +96,13 @@
 <script>
 import KeyBindings             from "./components/mixins/KeyBindings.js";
 
-import ShiftFooter             from "./components/shift/ShiftFooter";
-import GlobalStylesSwitch      from "./components/shift/GlobalStylesSwitch";
-import ArticleTitle            from "./components/shift/ArticleTitle";
-import Notification            from "./components/shift/Notification";
-import DeviceSizeControls      from "./components/shift/DeviceSizeControls";
+import ShiftFooter             from "./components/rewrite/ShiftFooter";
+import GlobalStylesSwitch      from "./components/rewrite/GlobalStylesSwitch";
+import ArticleTitle            from "./components/rewrite/ArticleTitle";
+import Notification            from "./components/rewrite/Notification";
+import DeviceSizeControls      from "./components/rewrite/DeviceSizeControls";
 
-import Canvas                  from "./components/layout/Canvas";
+import Canvas                  from "./components/rewrite/Canvas";
 
 import Minimap                 from "./components/panels/Minimap";
 import ColorPickerPanel        from "./components/panels/ColorPickerPanel";

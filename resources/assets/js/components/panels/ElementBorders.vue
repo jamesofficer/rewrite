@@ -14,7 +14,7 @@
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
 import TopbarButton  from '../topbar/TopbarButton';
-import Border         from '../core/Border';
+import Border         from '../properties/Border';
 
 export default {
     name: "ElementBorders",

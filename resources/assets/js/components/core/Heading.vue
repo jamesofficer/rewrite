@@ -35,17 +35,17 @@
 </template>
 
 <script>
-import GetElement        from './mixins/GetElement'
+import GetElement        from '../mixins/GetElement'
 
-import Sidebar            from './topbar/Topbar'
-import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
+import Sidebar            from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
 
-import ElementPositioning    from './panels/ElementPositioning'
-import ElementBorders        from './panels/ElementBorders'
-import ElementTextFormatting from './panels/ElementTextFormatting'
-import ElementTextShadow     from './panels/ElementTextShadow'
+import ElementPositioning    from '../panels/ElementPositioning'
+import ElementBorders        from '../panels/ElementBorders'
+import ElementTextFormatting from '../panels/ElementTextFormatting'
+import ElementTextShadow     from '../panels/ElementTextShadow'
 
-import TextInput         from './core/TextInput'
+import TextInput         from '../properties/TextInput'
 
 export default {
     name: "Heading",

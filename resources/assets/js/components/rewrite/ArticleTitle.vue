@@ -47,7 +47,7 @@ export default {
 
             // We can't focus the input until it has rendered on the next tick.
             this.$nextTick(function() {
-                let input = document.querySelector('.shift-article-name-input');
+                let input = document.querySelector('.rewrite-article-name-input');
                 let strLength = input.value.length;
 
                 input.focus();

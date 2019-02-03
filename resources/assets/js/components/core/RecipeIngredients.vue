@@ -66,16 +66,16 @@
 </template>
 
 <script>
-import GetElement from "./mixins/GetElement";
+import GetElement from "../mixins/GetElement";
 
-import Sidebar                  from "./topbar/Topbar";
-import DeleteCloneMoveElement  from "./topbar/DeleteCloneMoveElement";
-import RecipeIngredientsButton from "./topbar/RecipeIngredientsButton";
+import Sidebar                  from "../topbar/Topbar";
+import DeleteCloneMoveElement  from "../topbar/DeleteCloneMoveElement";
+import RecipeIngredientsButton from "../topbar/RecipeIngredientsButton";
 
-import Margin     from "./core/Margin";
-import Padding    from "./core/Padding";
-import TextColor  from "./core/TextColor";
-import FontFamily from "./core/FontFamily";
+import Margin     from "../properties/Margin";
+import Padding    from "../properties/Padding";
+import TextColor  from "../properties/TextColor";
+import FontFamily from "../properties/FontFamily";
 
 export default {
     name: "RecipeIngredients",
