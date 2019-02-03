@@ -1,9 +1,9 @@
 <template>
-    <div class="sidebar-control">
+    <div class="topbar-button">
         <b-button
             @click="addColumn"
             variant="outline-success"
-            v-b-tooltip.hover.right
+            v-b-tooltip.hover.bottom
             title="Add Column to Canvas"
         >
             <icon name="columns"></icon>
@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
     name: "AddColumn",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     methods: {
         addColumn() {

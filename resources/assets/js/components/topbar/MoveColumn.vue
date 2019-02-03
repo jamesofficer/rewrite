@@ -1,17 +1,17 @@
 <template>
     <div class="move-column-wrapper">
-        <sidebar-control @click.native="moveColumnLeft" variant="outline-info" icon="arrow-left" tooltip="Move Left" :disabled="! canMoveLeft"></sidebar-control>
-        <sidebar-control @click.native="moveColumnRight" variant="outline-info" icon="arrow-right" tooltip="Move Right" :disabled="! canMoveRight"></sidebar-control>
+        <topbar-button @click.native="moveColumnLeft" variant="outline-info" icon="arrow-left" tooltip="Move Left" :disabled="! canMoveLeft"></topbar-button>
+        <topbar-button @click.native="moveColumnRight" variant="outline-info" icon="arrow-right" tooltip="Move Right" :disabled="! canMoveRight"></topbar-button>
     </div>
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
-    name: "moveColumn",
+    name: "MoveColumn",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     computed: {
         canMoveLeft() {

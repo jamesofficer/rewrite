@@ -41,21 +41,20 @@
             <b-col>
                 <label class="style-panel-label">Colour</label>
                 <color-picker-button propertyName="textShadow" subPropertyName="color"></color-picker-button>
-                <!-- <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker> -->
             </b-col>
         </b-form-row>
     </div>
 </template>
 
 <script>
-import SidebarControl    from '../sidebar/SidebarControl';
+import TopbarButton    from '../topbar/TopbarButton';
 import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
 import ColorPickerButton from './ColorPickerButton';
 
 export default {
     name: "TextShadow",
 
-    components: { SidebarControl, ColorPickerButton },
+    components: { TopbarButton, ColorPickerButton },
 
     mixins: [NoEmptyValues],
 

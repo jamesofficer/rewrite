@@ -1,6 +1,11 @@
 <template>
-    <div class="sidebar-control">
-        <sidebar-control icon="sun" tooltip="Text Shadow" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
+    <div class="topbar-button">
+        <topbar-button
+            icon="sun"
+            tooltip="Text Shadow"
+            @click.native="setSelectedElementStyle()"
+            :pressed="elementStyleIsSelected()"
+        ></topbar-button>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <div class="element-style-panel-container">
@@ -13,13 +18,13 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import SidebarControl from '../sidebar/SidebarControl';
+import TopbarButton from '../topbar/TopbarButton';
 import TextShadow    from '../core/TextShadow';
 
 export default {
     name: "ElementTextShadow",
 
-    components: { SidebarControl, TextShadow },
+    components: { TopbarButton, TextShadow },
 
     mixins: [SelectedElementStyle],
 

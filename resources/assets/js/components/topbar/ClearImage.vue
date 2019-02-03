@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-control">
+    <div class="topbar-button">
         <label class="style-panel-label">Clear</label>
         <b-button variant="danger" v-b-tooltip.hover.right tooltip="Clear Image">
             <icon name="ban"></icon>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
     name: "ClearImage",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     methods: {
         clearImage() {

@@ -47,14 +47,14 @@
 </template>
 
 <script>
-import SidebarControl    from '../sidebar/SidebarControl';
+import TopbarButton    from '../topbar/TopbarButton';
 import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
 import ColorPickerButton from  './ColorPickerButton';
 
 export default {
     name: "BoxShadow",
 
-    components: { SidebarControl, ColorPickerButton },
+    components: { TopbarButton, ColorPickerButton },
 
     mixins: [NoEmptyValues],
 

@@ -1,21 +1,21 @@
 <template>
-    <div class="sidebar-control">
-        <sidebar-control
+    <div class="topbar-button">
+        <topbar-button
             @click.native="deleteElement"
             variant="danger"
             icon="trash-alt"
             tooltip="Delete Element"
-        ></sidebar-control>
+        ></topbar-button>
     </div>
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
     name: "DeleteElement",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     methods: {
         deleteElement() {

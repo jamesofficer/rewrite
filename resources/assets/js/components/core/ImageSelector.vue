@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-control">
+    <div class="topbar-button">
         <label class="style-panel-label">Image</label>
         <b-button v-b-modal.imageGalleryModal variant="outline-primary" tooltip="Select Image">
             <icon name="image"></icon>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl'
+import TopbarButton from '../topbar/TopbarButton'
 
 export default {
     name: "ImageSelector",
 
     components: {
-        SidebarControl,
+        TopbarButton,
     }
 }
 </script>

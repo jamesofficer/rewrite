@@ -13,7 +13,7 @@
                     <device-size-controls></device-size-controls>
 
                     <!-- TODO: Extract this to its own component. -->
-                    <div class="sidebar-control">
+                    <div class="topbar-button">
                         <b-button v-b-modal.menuModal variant="success">
                             <icon name="bars"></icon>
                         </b-button>
@@ -150,12 +150,12 @@ export default {
 
 <style scoped>
 #topbar {
-    height: 65px;
     width: 100%;
-    padding: 10px;
+    padding: 8px 10px;
     background: white;
     border-top: 3px solid #38c172;
     border-bottom: 1px dashed gray;
+    box-shadow: 0 5px 10px #ccc;
 }
 
 .article-name-container {
@@ -170,7 +170,6 @@ export default {
 
 #rewrite-content-area {
     width: 100%;
-    margin-left: 65px;
 }
 
 .rewrite-workspace {

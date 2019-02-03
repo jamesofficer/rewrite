@@ -125,11 +125,11 @@ button,
   margin-bottom: 2px;
 }
 
-.sidebar-control {
+.topbar-button {
   display: inline-block;
 }
 
-.sidebar-control > .btn {
+.topbar-button > .btn {
   height: 40px;
   width: 45px;
 }

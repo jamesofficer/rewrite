@@ -68,9 +68,9 @@
 <script>
 import GetElement from "./mixins/GetElement";
 
-import Sidebar                  from "./sidebar/Sidebar";
-import DeleteCloneMoveElement  from "./sidebar/DeleteCloneMoveElement";
-import RecipeIngredientsButton from "./sidebar/RecipeIngredientsButton";
+import Sidebar                  from "./topbar/Topbar";
+import DeleteCloneMoveElement  from "./topbar/DeleteCloneMoveElement";
+import RecipeIngredientsButton from "./topbar/RecipeIngredientsButton";
 
 import Margin     from "./core/Margin";
 import Padding    from "./core/Padding";

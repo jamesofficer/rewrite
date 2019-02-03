@@ -34,9 +34,9 @@
 <script>
 import GetElement             from '../mixins/GetElement'
 
-import Sidebar                 from '../sidebar/Sidebar'
-import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
-import AddColumn              from '../sidebar/AddColumn'
+import Sidebar                 from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
+import AddColumn              from '../topbar/AddColumn'
 
 import Column                 from './Column'
 

@@ -30,9 +30,9 @@ import EditTextModal     from './dialogs/EditTextModal'
 
 import GetElement        from './mixins/GetElement'
 
-import Sidebar            from './sidebar/Sidebar'
-import DeleteCloneMoveElement   from './sidebar/DeleteCloneMoveElement'
-import EditTextButton    from './sidebar/EditTextButton'
+import Sidebar            from './topbar/Topbar'
+import DeleteCloneMoveElement   from './topbar/DeleteCloneMoveElement'
+import EditTextButton    from './topbar/EditTextButton'
 
 import ElementPositioning    from './panels/ElementPositioning'
 import ElementBorders        from './panels/ElementBorders'

@@ -1,40 +1,40 @@
 <template>
     <div style="display: inline;">
         <div
-            class="sidebar-control"
-            v-b-tooltip.hover.right
+            class="topbar-button"
+            v-b-tooltip.hover.bottom
             :title="elementType === 'Column' ? 'Move Left' : 'Move Up'"
         >
-            <sidebar-control
+            <topbar-button
                 @click.native="moveElement('up')"
                 variant="outline-info"
                 :icon="elementType === 'Column' ? 'arrow-left' : 'arrow-up'"
                 :disabled="! canMoveElementUp"
-            ></sidebar-control>
+            ></topbar-button>
         </div>
 
         <div
-            class="sidebar-control"
-            v-b-tooltip.hover.right
+            class="topbar-button"
+            v-b-tooltip.hover.bottom
             :title="elementType === 'Column' ? 'Move Right' : 'Move Down'"
         >
-            <sidebar-control
+            <topbar-button
                 @click.native="moveElement('down')"
                 variant="outline-info"
                 :icon="elementType === 'Column' ? 'arrow-right' : 'arrow-down'"
                 :disabled="! canMoveElementDown"
-            ></sidebar-control>
+            ></topbar-button>
         </div>
     </div>
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
     name: "MoveElement",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     computed: {
         elementType() {

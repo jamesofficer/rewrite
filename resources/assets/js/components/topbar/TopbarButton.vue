@@ -1,7 +1,7 @@
 <template>
     <b-button
         :variant="variant"
-        v-b-tooltip.hover.right
+        v-b-tooltip.hover.bottom
         :title="tooltip"
         :disabled="disabled"
         :pressed="pressed"
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name: "SidebarControl",
+    name: "TopbarButton",
 
     props: {
         icon: {

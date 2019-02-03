@@ -27,7 +27,7 @@ export default {
         type: undefined,
     },
 
-    // The sidebar icon (element style) that is currently clicked on, e.g. 'Layout', 'Text Controls', etc.
+    // The topbar icon (element style) that is currently clicked on, e.g. 'Layout', 'Text Controls', etc.
     selectedElementStyle: null,
 
     // The content of the workspace. The full list of Canvases and everything within them.

@@ -31,15 +31,15 @@
 import GetElement         from '../mixins/GetElement'
 
 import Row                from './Row'
-import Sidebar             from '../sidebar/Sidebar'
-import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
-import AddRow             from '../sidebar/AddRow'
+import Sidebar             from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
+import AddRow             from '../topbar/AddRow'
 
 import ElementPositioning from '../panels/ElementPositioning'
 import ElementBackground  from '../panels/ElementBackground'
 
-import AlignColumns       from '../sidebar/AlignColumns'
-import ClearImage         from '../sidebar/ClearImage'
+import AlignColumns       from '../topbar/AlignColumns'
+import ClearImage         from '../topbar/ClearImage'
 
 import Padding            from '../core/Padding'
 import BackgroundPosition from '../core/BackgroundPosition'

@@ -53,8 +53,8 @@
 import GetElement      from './mixins/GetElement'
 import EditableText    from './mixins/EditableText'
 
-import Sidebar          from './sidebar/Sidebar'
-import DeleteCloneMoveElement from './sidebar/DeleteCloneMoveElement'
+import Sidebar          from './topbar/Topbar'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import Margin          from './core/Margin'
 import Padding         from './core/Padding'

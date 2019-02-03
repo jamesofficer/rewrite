@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar-control">
-        <sidebar-control icon="brush" tooltip="Background Controls" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></sidebar-control>
+    <div class="topbar-button">
+        <topbar-button icon="brush" tooltip="Background Controls" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></topbar-button>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
             <b-form-row class="mb-2">
@@ -44,8 +44,8 @@
 <script>
 import SelectedElementStyle from '../mixins/SelectedElementStyle';
 
-import SidebarControl      from '../sidebar/SidebarControl';
-import ClearImage         from '../sidebar/ClearImage';
+import TopbarButton      from '../topbar/TopbarButton';
+import ClearImage         from '../topbar/ClearImage';
 
 import BackgroundColor    from '../core/BackgroundColor';
 import BackgroundGradient from '../core/BackgroundGradient';
@@ -57,7 +57,7 @@ export default {
     name: "ElementBackground",
 
     components: {
-        SidebarControl, BackgroundColor, BackgroundGradient, ImageSelector, BackgroundSize, BackgroundPosition, ClearImage
+        TopbarButton, BackgroundColor, BackgroundGradient, ImageSelector, BackgroundSize, BackgroundPosition, ClearImage
     },
 
     mixins: [SelectedElementStyle],

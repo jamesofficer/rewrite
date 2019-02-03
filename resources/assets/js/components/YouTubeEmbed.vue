@@ -37,8 +37,8 @@
 <script>
 import GetElement        from './mixins/GetElement'
 
-import Sidebar            from './sidebar/Sidebar'
-import DeleteCloneMoveElement from './sidebar/DeleteCloneMoveElement'
+import Sidebar            from './topbar/Topbar'
+import DeleteCloneMoveElement from './topbar/DeleteCloneMoveElement'
 
 import TextInput         from './core/TextInput'
 import ImageAlignment    from './core/ImageAlignment'

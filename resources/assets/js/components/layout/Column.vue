@@ -40,10 +40,10 @@
 <script>
 import GetElement          from '../mixins/GetElement'
 
-import Sidebar              from '../sidebar/Sidebar'
-import DeleteCloneMoveElement from '../sidebar/DeleteCloneMoveElement'
-import AddComponentButton  from '../sidebar/AddComponentButton'
-import ClearImage          from '../sidebar/ClearImage'
+import Sidebar              from '../topbar/Topbar'
+import DeleteCloneMoveElement from '../topbar/DeleteCloneMoveElement'
+import AddComponentButton  from '../topbar/AddComponentButton'
+import ClearImage          from '../topbar/ClearImage'
 
 import ElementPositioning from '../panels/ElementPositioning'
 import ElementBackground  from '../panels/ElementBackground'

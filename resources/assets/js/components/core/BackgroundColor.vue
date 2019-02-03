@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import SidebarControl    from '../sidebar/SidebarControl';
+import TopbarButton    from '../topbar/TopbarButton';
 import ColorPickerButton from './ColorPickerButton';
 
 export default {
     name: "BackgroundColor",
 
-    components: { SidebarControl, ColorPickerButton },
+    components: { TopbarButton, ColorPickerButton },
 }
 </script>

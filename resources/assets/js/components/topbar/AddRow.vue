@@ -1,21 +1,21 @@
 <template>
-    <div class="sidebar-control">
-        <sidebar-control
+    <div class="topbar-button">
+        <topbar-button
             @click.native="addRow"
             variant="outline-success"
             icon="columns"
             tooltip="Add Row to Canvas"
-        ></sidebar-control>
+        ></topbar-button>
     </div>
 </template>
 
 <script>
-import SidebarControl from './SidebarControl';
+import TopbarButton from './TopbarButton';
 
 export default {
     name: "AddColumn",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     methods: {
         addRow() {

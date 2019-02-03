@@ -1,8 +1,8 @@
 <template>
-    <div class="sidebar-control">
+    <div class="topbar-button">
         <b-button
             :variant="getGlobalStylesStatus ? 'success' : 'danger'"
-            v-b-tooltip.hover.right
+            v-b-tooltip.hover.bottom
             title="Enable Global Styles"
             @click="setGlobalComponentStyles(! getGlobalStylesStatus)"
         >
@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import SidebarControl from '../sidebar/SidebarControl';
+import TopbarButton from '../topbar/TopbarButton';
 
 export default {
     name: "GlobalStylesSwitch",
 
-    components: { SidebarControl },
+    components: { TopbarButton },
 
     computed: {
         getGlobalStylesStatus() {
