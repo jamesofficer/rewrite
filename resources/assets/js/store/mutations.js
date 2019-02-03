@@ -128,8 +128,6 @@ export const setComponentSubProperty = (state, component) => {
  *
  */
 export const deleteElement = state => {
-    const elementIdentifier = getSelectedRootElement(state).identifier;
-
     const elementType = {
         'Canvas': state.selected.canvas,
         'Row': state.selected.row,
@@ -183,32 +181,25 @@ export const moveElement = (state, direction) => {
 
 /**
  * Moves the current selection up or down, depending on if the up or down arrow is pressed.
+ * If nothing is selected, select the first Canvas (regardless of direction pressed).
  *
+ * @param {*} state
+ * @param {*} direction - Either 1 or -1. 1 moves the selection down, -1 moves the selection up.
  */
-// HOW THIS FUNCTION SHOULD WORK:
-    // -- If the Up or Down arrow key is pressed we want to move the selection up/down to the element OF THE SAME TYPE.
-    //      e.g. Only move from Canvas to Canvas or Component to Component.
-    // -- If the Left or Right arrow key is pressed we will move further into the current selection.
-    //      e.g. If a Row is selected, we will move into the first Column of this row.
-    //      e.g. If a If a Column is selected we will move into the first Component in this Column.
-export const moveSelection = (state, direction) => {
-    const directionIndex = direction === 'up' ? -1 : 1;
-    const currentSelection = getSelectedRootElement(state);
-    const indexes = {};
-
-    // If nothing is selected, select the first Canvas (regardless of direction pressed).
+export const moveSelectionUpOrDown = (state, direction) => {
     if (state.selected.type === undefined) {
         return selectElement(state, { canvasIndex: 0 });
-    } else {
-        const indexes = {
-            canvasIndex: state.selected.type === 'Canvas' ? state.selected.canvas + directionIndex : state.selected.canvas,
-            rowIndex: state.selected.type === 'Row' ? state.selected.row + directionIndex : state.selected.row,
-            columnIndex: state.selected.type === 'Column' ? state.selected.column + directionIndex : state.selected.column,
-            componentIndex: state.selected.type === 'Component' ? state.selected.component + directionIndex : state.selected.component,
-        };
-
-        return direction === 'down' ? moveSelectionDown(state, indexes) : moveSelectionUp(state, indexes);
     }
+
+    // We only want to increment the selected element type, otherwise keep its value the same.
+    const indexes = {
+        canvasIndex:    state.selected.type === 'Canvas'    ? state.selected.canvas + direction    : state.selected.canvas,
+        rowIndex:       state.selected.type === 'Row'       ? state.selected.row + direction       : state.selected.row,
+        columnIndex:    state.selected.type === 'Column'    ? state.selected.column + direction    : state.selected.column,
+        componentIndex: state.selected.type === 'Component' ? state.selected.component + direction : state.selected.component,
+    };
+
+    return direction === 1 ? moveSelectionDown(state, indexes) : moveSelectionUp(state, indexes);
 }
 
 /**
@@ -256,12 +247,71 @@ function moveSelectionDown(state, indexes) {
 }
 
 /**
+ * Moves the current selection further into the workspace tree, e.g. from Canvas to Row, or Column to Component.
+ *
+ */
+export const moveSelectionIn = state => {
+    if (state.selected.type === 'Canvas' && getSelectedRootElement(state).rows.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': 0,
+        });
+    }
+
+    if (state.selected.type === 'Row' && getSelectedRootElement(state).columns.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': 0,
+        });
+    }
+
+    if (state.selected.type === 'Column' && getSelectedRootElement(state).components.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': state.selected.column,
+            'componentIndex': 0,
+        });
+    }
+}
+
+/**
+ * Moves the current selection further out of the workspace tree, e.g. from Column to Row, or Row to Canvas.
+ *
+ */
+export const moveSelectionOut = state => {
+    if (state.selected.type === 'Row') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': undefined,
+        });
+    }
+
+    if (state.selected.type === 'Column') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': undefined,
+        });
+    }
+
+    if (state.selected.type === 'Component') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': state.selected.column,
+            'componentIndex': undefined,
+        });
+    }
+}
+
+/**
  * Increases or decreases the device size depending on which hotkey is pressed.
  *
  */
 export const changeDeviceSize = (state, direction) => {
-    const currentDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize);
-    const newDeviceSizeIndex = currentDeviceSizeIndex + direction;
+    const newDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize) + direction;
 
     if (newDeviceSizeIndex < 0 || newDeviceSizeIndex > state.deviceSizes.length - 1) {
         return;

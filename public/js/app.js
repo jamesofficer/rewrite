@@ -26306,13 +26306,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 else {
                         if (ev.key === "ArrowUp") {
                             ev.preventDefault();
-                            self.$store.commit('moveSelection', 'up');
+                            self.$store.commit('moveSelectionUpOrDown', -1);
                             return;
                         }
 
                         if (ev.key === "ArrowDown") {
                             ev.preventDefault();
-                            self.$store.commit('moveSelection', 'down');
+                            self.$store.commit('moveSelectionUpOrDown', 1);
+                            return;
+                        }
+
+                        if (ev.key === "ArrowRight") {
+                            ev.preventDefault();
+                            self.$store.commit('moveSelectionIn');
+                            return;
+                        }
+
+                        if (ev.key === "ArrowLeft") {
+                            ev.preventDefault();
+                            self.$store.commit('moveSelectionOut');
                             return;
                         }
 
@@ -44681,7 +44693,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteElement", function() { return deleteElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneElement", function() { return cloneElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveElement", function() { return moveElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveSelection", function() { return moveSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveSelectionUpOrDown", function() { return moveSelectionUpOrDown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveSelectionIn", function() { return moveSelectionIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "moveSelectionOut", function() { return moveSelectionOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeDeviceSize", function() { return changeDeviceSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeColumnSize", function() { return changeColumnSize; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectElement", function() { return selectElement; });
@@ -44829,8 +44843,6 @@ var setComponentSubProperty = function setComponentSubProperty(state, component)
  *
  */
 var deleteElement = function deleteElement(state) {
-    var elementIdentifier = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).identifier;
-
     var elementType = {
         'Canvas': state.selected.canvas,
         'Row': state.selected.row,
@@ -44882,32 +44894,25 @@ var moveElement = function moveElement(state, direction) {
 
 /**
  * Moves the current selection up or down, depending on if the up or down arrow is pressed.
+ * If nothing is selected, select the first Canvas (regardless of direction pressed).
  *
+ * @param {*} state
+ * @param {*} direction - Either 1 or -1. 1 moves the selection down, -1 moves the selection up.
  */
-// HOW THIS FUNCTION SHOULD WORK:
-// -- If the Up or Down arrow key is pressed we want to move the selection up/down to the element OF THE SAME TYPE.
-//      e.g. Only move from Canvas to Canvas or Component to Component.
-// -- If the Left or Right arrow key is pressed we will move further into the current selection.
-//      e.g. If a Row is selected, we will move into the first Column of this row.
-//      e.g. If a If a Column is selected we will move into the first Component in this Column.
-var moveSelection = function moveSelection(state, direction) {
-    var directionIndex = direction === 'up' ? -1 : 1;
-    var currentSelection = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state);
-    var indexes = {};
-
-    // If nothing is selected, select the first Canvas (regardless of direction pressed).
+var moveSelectionUpOrDown = function moveSelectionUpOrDown(state, direction) {
     if (state.selected.type === undefined) {
         return selectElement(state, { canvasIndex: 0 });
-    } else {
-        var _indexes = {
-            canvasIndex: state.selected.type === 'Canvas' ? state.selected.canvas + directionIndex : state.selected.canvas,
-            rowIndex: state.selected.type === 'Row' ? state.selected.row + directionIndex : state.selected.row,
-            columnIndex: state.selected.type === 'Column' ? state.selected.column + directionIndex : state.selected.column,
-            componentIndex: state.selected.type === 'Component' ? state.selected.component + directionIndex : state.selected.component
-        };
-
-        return direction === 'down' ? moveSelectionDown(state, _indexes) : moveSelectionUp(state, _indexes);
     }
+
+    // We only want to increment the selected element type, otherwise keep its value the same.
+    var indexes = {
+        canvasIndex: state.selected.type === 'Canvas' ? state.selected.canvas + direction : state.selected.canvas,
+        rowIndex: state.selected.type === 'Row' ? state.selected.row + direction : state.selected.row,
+        columnIndex: state.selected.type === 'Column' ? state.selected.column + direction : state.selected.column,
+        componentIndex: state.selected.type === 'Component' ? state.selected.component + direction : state.selected.component
+    };
+
+    return direction === 1 ? moveSelectionDown(state, indexes) : moveSelectionUp(state, indexes);
 };
 
 /**
@@ -44955,12 +44960,71 @@ function moveSelectionDown(state, indexes) {
 }
 
 /**
+ * Moves the current selection further into the workspace tree, e.g. from Canvas to Row, or Column to Component.
+ *
+ */
+var moveSelectionIn = function moveSelectionIn(state) {
+    if (state.selected.type === 'Canvas' && Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).rows.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': 0
+        });
+    }
+
+    if (state.selected.type === 'Row' && Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).columns.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': 0
+        });
+    }
+
+    if (state.selected.type === 'Column' && Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["f" /* getSelectedRootElement */])(state).components.length > 0) {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': state.selected.column,
+            'componentIndex': 0
+        });
+    }
+};
+
+/**
+ * Moves the current selection further out of the workspace tree, e.g. from Column to Row, or Row to Canvas.
+ *
+ */
+var moveSelectionOut = function moveSelectionOut(state) {
+    if (state.selected.type === 'Row') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': undefined
+        });
+    }
+
+    if (state.selected.type === 'Column') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': undefined
+        });
+    }
+
+    if (state.selected.type === 'Component') {
+        return selectElement(state, {
+            'canvasIndex': state.selected.canvas,
+            'rowIndex': state.selected.row,
+            'columnIndex': state.selected.column,
+            'componentIndex': undefined
+        });
+    }
+};
+
+/**
  * Increases or decreases the device size depending on which hotkey is pressed.
  *
  */
 var changeDeviceSize = function changeDeviceSize(state, direction) {
-    var currentDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize);
-    var newDeviceSizeIndex = currentDeviceSizeIndex + direction;
+    var newDeviceSizeIndex = state.deviceSizes.indexOf(state.deviceSize) + direction;
 
     if (newDeviceSizeIndex < 0 || newDeviceSizeIndex > state.deviceSizes.length - 1) {
         return;

@@ -79,13 +79,25 @@ export default {
                 else {
                     if (ev.key === "ArrowUp") {
                         ev.preventDefault();
-                        self.$store.commit('moveSelection', 'up');
+                        self.$store.commit('moveSelectionUpOrDown', -1);
                         return;
                     }
 
                     if (ev.key === "ArrowDown") {
                         ev.preventDefault();
-                        self.$store.commit('moveSelection', 'down');
+                        self.$store.commit('moveSelectionUpOrDown', 1);
+                        return;
+                    }
+
+                    if (ev.key === "ArrowRight") {
+                        ev.preventDefault();
+                        self.$store.commit('moveSelectionIn');
+                        return;
+                    }
+
+                    if (ev.key === "ArrowLeft") {
+                        ev.preventDefault();
+                        self.$store.commit('moveSelectionOut');
                         return;
                     }
 
