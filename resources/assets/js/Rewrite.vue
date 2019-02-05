@@ -2,24 +2,21 @@
     <div>
         <!-- TopBar -->
         <div id="topbar">
-            <b-row>
-                <b-col cols="8">
-                    <global-styles-switch></global-styles-switch>
+            <b-container fluid>
+                <b-row>
+                    <b-col cols="8">
+                        <global-styles-switch></global-styles-switch>
 
-                    <portal-target name="sidebar" style="display: inline"></portal-target>
-                </b-col>
+                        <portal-target name="sidebar" style="display: inline"></portal-target>
+                    </b-col>
 
-                <b-col cols="4" class="text-right">
-                    <device-size-controls></device-size-controls>
+                    <b-col cols="4" class="text-right">
+                        <device-size-controls></device-size-controls>
 
-                    <!-- TODO: Extract this to its own component. -->
-                    <div class="topbar-button">
-                        <b-button v-b-modal.menuModal variant="success">
-                            <icon name="bars"></icon>
-                        </b-button>
-                    </div>
-                </b-col>
-            </b-row>
+                        <menu-button></menu-button>
+                    </b-col>
+                </b-row>
+            </b-container>
         </div>
 
         <div id="rewrite-container">
@@ -60,7 +57,7 @@
                     ></canvas>
                 </div>
 
-                <shift-footer></shift-footer>
+                <rewrite-footer></rewrite-footer>
             </div>
 
             <div class="fixed-footer">
@@ -89,24 +86,26 @@
             <recipe-ingredients-modal></recipe-ingredients-modal>
 
             <background-gradient-modal></background-gradient-modal>
+
+            <font-select-modal></font-select-modal>
         </div>
     </div>
 </template>
 
 <script>
-import KeyBindings             from "./components/mixins/KeyBindings.js";
+import KeyBindings             from './components/mixins/KeyBindings.js';
 
-import ShiftFooter             from "./components/rewrite/ShiftFooter";
-import GlobalStylesSwitch      from "./components/rewrite/GlobalStylesSwitch";
-import ArticleTitle            from "./components/rewrite/ArticleTitle";
-import Notification            from "./components/rewrite/Notification";
-import DeviceSizeControls      from "./components/rewrite/DeviceSizeControls";
+import MenuButton              from './components/rewrite/MenuButton';
+import GlobalStylesSwitch      from './components/rewrite/GlobalStylesSwitch';
+import DeviceSizeControls      from './components/rewrite/DeviceSizeControls';
+import ArticleTitle            from './components/rewrite/ArticleTitle';
+import Notification            from './components/rewrite/Notification';
+import RewriteFooter           from './components/rewrite/RewriteFooter';
+import Canvas                  from './components/rewrite/Canvas';
 
-import Canvas                  from "./components/rewrite/Canvas";
-
-import Minimap                 from "./components/panels/Minimap";
-import ColorPickerPanel        from "./components/panels/ColorPickerPanel";
-import ElementStylesPanel      from "./components/panels/ElementStylesPanel";
+import Minimap                 from './components/panels/Minimap';
+import ColorPickerPanel        from './components/panels/ColorPickerPanel';
+import ElementStylesPanel      from './components/panels/ElementStylesPanel';
 
 import MenuModal               from './components/dialogs/MenuModal';
 import AddComponentModal       from './components/dialogs/AddComponentModal';
@@ -117,15 +116,17 @@ import ImageGalleryModal       from './components/dialogs/ImageGalleryModal';
 import ExportArticleModal      from './components/dialogs/ExportArticleModal';
 import RecipeIngredientsModal  from './components/dialogs/RecipeIngredientsModal';
 import BackgroundGradientModal from './components/dialogs/BackgroundGradientModal';
+import FontSelectModal         from './components/dialogs/FontSelectModal';
 
 export default {
     name: "Shift",
 
     components: {
-        KeyBindings, ShiftFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
+        KeyBindings,
+        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
         ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
         AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
-        ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal,
+        ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal, FontSelectModal
     },
 
     mixins: [KeyBindings],

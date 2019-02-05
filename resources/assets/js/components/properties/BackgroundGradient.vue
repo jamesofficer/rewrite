@@ -1,6 +1,7 @@
 <template>
     <div class="topbar-button">
         <label class="style-panel-label">Gradient</label>
+
         <b-button v-b-modal.backgroundGradientModal variant="outline-primary" tooltip="Select Image">
             <icon name="brush"></icon>
         </b-button>
