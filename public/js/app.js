@@ -26259,7 +26259,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#topbar[data-v-7d15ff2a] {\r\n    width: 100%;\r\n    padding: 8px 10px;\r\n    background: white;\r\n    border-top: 3px solid #38c172;\r\n    border-bottom: 1px dashed gray;\r\n    -webkit-box-shadow: 0 5px 10px #ccc;\r\n            box-shadow: 0 5px 10px #ccc;\n}\n.article-name-container[data-v-7d15ff2a] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n#rewrite-container[data-v-7d15ff2a] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\n}\n#rewrite-content-area[data-v-7d15ff2a] {\r\n    width: 100%;\n}\n.rewrite-workspace[data-v-7d15ff2a] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\r\n    border-radius: 10px;\n}\n.fixed-footer[data-v-7d15ff2a] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-7d15ff2a] {\r\n    width: 576px;\n}\n.md-device-size[data-v-7d15ff2a] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-7d15ff2a] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-7d15ff2a] {\r\n    width: 1200px;\n}\r\n", ""]);
+exports.push([module.i, "\n#top-bar[data-v-7d15ff2a] {\r\n    width: 100%;\r\n    padding: 8px 10px;\r\n    background: white;\r\n    border-top: 3px solid black;\r\n    border-bottom: 1px dashed #666;\r\n    -webkit-box-shadow: 0 5px 10px #ccc;\r\n            box-shadow: 0 5px 10px #ccc;\n}\n.article-name-container[data-v-7d15ff2a] {\r\n    margin: 0 auto;\r\n    padding-top: 20px;\n}\n#rewrite-container[data-v-7d15ff2a] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\n}\n#rewrite-content-area[data-v-7d15ff2a] {\r\n    width: 100%;\n}\n.rewrite-workspace[data-v-7d15ff2a] {\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: 0 auto;\r\n    padding: 0;\r\n    -webkit-box-shadow: 0 0 20px #ccc;\r\n            box-shadow: 0 0 20px #ccc;\r\n    overflow: hidden;\r\n    border-radius: 10px;\n}\n.fixed-footer[data-v-7d15ff2a] {\r\n    position: fixed;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 100%;\n}\n.sm-device-size[data-v-7d15ff2a] {\r\n    width: 576px;\n}\n.md-device-size[data-v-7d15ff2a] {\r\n    width: 768px;\n}\n.lg-device-size[data-v-7d15ff2a] {\r\n    width: 992px;\n}\n.xl-device-size[data-v-7d15ff2a] {\r\n    width: 1200px;\n}\r\n", ""]);
 
 // exports
 
@@ -26318,32 +26318,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_NewMinimap__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_NewMinimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_panels_NewMinimap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MenuModal__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MenuModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_MenuModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_AddComponentModal__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_EditTextModal__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_EditTextModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_LoadArticleModal__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_MyImagesModal__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_MyImagesModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ImageGalleryModal__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_ImageGalleryModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ExportArticleModal__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_dialogs_ExportArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_BackgroundGradientModal__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_dialogs_BackgroundGradientModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_dialogs_FontSelectModal__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_dialogs_FontSelectModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_dialogs_FontSelectModal__);
 //
 //
 //
@@ -26438,6 +26440,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
@@ -26469,10 +26474,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */],
-        MenuButton: __WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton___default.a, RewriteFooter: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default.a,
-        ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas___default.a,
-        AddComponentModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal___default.a, MenuModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal___default.a,
-        ExportArticleModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal___default.a, FontSelectModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal___default.a
+        MenuButton: __WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton___default.a, RewriteFooter: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default.a, NewMinimap: __WEBPACK_IMPORTED_MODULE_8__components_panels_NewMinimap___default.a,
+        ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas___default.a,
+        AddComponentModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_EditTextModal___default.a, MenuModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_MenuModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ImageGalleryModal___default.a,
+        ExportArticleModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_BackgroundGradientModal___default.a, FontSelectModal: __WEBPACK_IMPORTED_MODULE_21__components_dialogs_FontSelectModal___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
@@ -27372,7 +27377,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.article-title-container[data-v-10768a48] {\r\n    margin: 20px 0 10px 0;\n}\n.shift-article-name[data-v-10768a48] {\r\n    padding-bottom: 10px;\r\n    color: #38c172;\r\n    font-family: \"Inter UI\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.shift-article-name-input[type='text'][data-v-10768a48] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Inter UI\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.shift-article-name-input[type='text'][data-v-10768a48]:focus {\r\n    outline: 0;\n}\n.shift-article-name[data-v-10768a48]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\r\n", ""]);
+exports.push([module.i, "\n.article-title-container[data-v-10768a48] {\r\n    margin: 20px 0 10px 0;\n}\n.rewrite-article-name[data-v-10768a48] {\r\n    padding-bottom: 10px;\r\n    color: black;\r\n    font-family: \"Inter UI\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-weight: 700;\n}\n.rewrite-article-name-input[type='text'][data-v-10768a48] {\r\n    margin: 20px 0 30px 0;\r\n    padding: 15px;\r\n    background: none;\r\n    color: #38c172;\r\n    font-family: \"Inter UI\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    font-style: italic;\r\n    line-height: 1.2;\n}\n.rewrite-article-name-input[type='text'][data-v-10768a48]:focus {\r\n    outline: 0;\n}\n.rewrite-article-name[data-v-10768a48]:hover {\r\n    cursor: pointer;\r\n    color: gray;\r\n    border-bottom: 1px dashed gray;\n}\r\n", ""]);
 
 // exports
 
@@ -27459,16 +27464,16 @@ var render = function() {
       _c(
         "b-col",
         [
-          _c("h6", { staticClass: "shift-small-heading" }, [
+          _c("h6", { staticClass: "rewrite-small-heading" }, [
             _vm._v("Article Name")
           ]),
           _vm._v(" "),
           !_vm.settingArticleTitle
-            ? _c("em", [
+            ? _c("span", [
                 _c(
                   "h2",
                   {
-                    staticClass: "shift-article-name",
+                    staticClass: "rewrite-article-name",
                     on: { click: _vm.setArticleTitle }
                   },
                   [_vm._v(_vm._s(_vm.articleTitle))]
@@ -27476,7 +27481,7 @@ var render = function() {
               ])
             : _c("b-input", {
                 ref: "articleTitleInput",
-                staticClass: "shift-article-name-input",
+                staticClass: "rewrite-article-name-input",
                 attrs: { size: "lg" },
                 nativeOn: {
                   blur: function($event) {
@@ -41749,7 +41754,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.panel[data-v-38697c16] {\r\n    position: fixed;\r\n    background: white;\r\n    border-radius: 5px;\r\n    -webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);\r\n    overflow: hidden;\n}\n.panel-header[data-v-38697c16] {\r\n    cursor: pointer;\r\n    background: #38c172;\r\n    color: white;\r\n    padding: 7px 10px;\r\n    border-bottom: 1px solid #24b161;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.panel-body[data-v-38697c16] {\r\n    height: 100%;\r\n    overflow-y: scroll;\r\n    z-index: 5;\n}\n.panel-minimise-button[data-v-38697c16] {\r\n    cursor: pointer;\n}\n.panel-minimise-button[data-v-38697c16]:hover {\r\n    color: #dddddd;\n}\r\n", ""]);
+exports.push([module.i, "\n.panel[data-v-38697c16] {\r\n    position: fixed;\r\n    background: white;\r\n    border-radius: 5px;\r\n    -webkit-box-shadow: 0 0 10px rgba(150, 150, 150, 0.75);\r\n            box-shadow: 0 0 10px rgba(150, 150, 150, 0.75);\r\n    overflow: hidden;\n}\n.panel-header[data-v-38697c16] {\r\n    cursor: pointer;\r\n    background: black;\r\n    color: white;\r\n    padding: 7px 10px;\r\n    border-bottom: 1px solid gray;\r\n    border-top-right-radius: 5px;\r\n    border-top-left-radius: 5px;\r\n    z-index: 10;\n}\n.panel-body[data-v-38697c16] {\r\n    height: 100%;\r\n    overflow-y: auto;\r\n    z-index: 5;\n}\n.panel-minimise-button[data-v-38697c16] {\r\n    cursor: pointer;\n}\n.panel-minimise-button[data-v-38697c16]:hover {\r\n    color: #dddddd;\n}\r\n", ""]);
 
 // exports
 
@@ -44835,7 +44840,7 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { attrs: { id: "topbar" } },
+      { attrs: { id: "top-bar" } },
       [
         _c(
           "b-container",
@@ -44948,6 +44953,8 @@ var render = function() {
             _c("element-styles-panel"),
             _vm._v(" "),
             _c("minimap"),
+            _vm._v(" "),
+            _c("new-minimap"),
             _vm._v(" "),
             _c("color-picker-panel")
           ],
@@ -58677,6 +58684,164 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(587)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(582)
+/* template */
+var __vue_template__ = __webpack_require__(586)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-3413079e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/panels/NewMinimap.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3413079e", Component.options)
+  } else {
+    hotAPI.reload("data-v-3413079e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 582 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'NewMinimap'
+});
+
+/***/ }),
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { attrs: { id: "minimap" } }, [
+    _c(
+      "div",
+      { attrs: { id: "minimap-header" } },
+      [
+        _c("h6", [_vm._v("Minimap")]),
+        _vm._v(" "),
+        _c("icon", { attrs: { name: "minus" } })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto distinctio est fugiat fugit illo libero nesciunt nobis officia optio saepe, sed suscipit temporibus. Ad aliquid dolor magni provident soluta?"
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3413079e", module.exports)
+  }
+}
+
+/***/ }),
+/* 587 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(588);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("4bb36e4c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3413079e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewMinimap.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3413079e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewMinimap.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 588 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#minimap[data-v-3413079e] {\n  display: grid;\n  grid-template-rows: 50px 1fr;\n  background: red;\n  margin: auto;\n  height: 300px;\n  width: 300px;\n}\n#minimap #minimap-header[data-v-3413079e] {\n    background: black;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n#minimap h6[data-v-3413079e] {\n    color: white;\n}\n#minimap .fa-icon[data-v-3413079e] {\n    color: white;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

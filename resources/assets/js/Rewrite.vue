@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- TopBar -->
-        <div id="topbar">
+        <div id="top-bar">
             <b-container fluid>
                 <b-row>
                     <b-col cols="8">
@@ -65,6 +65,8 @@
 
                 <minimap></minimap>
 
+                <new-minimap></new-minimap>
+
                 <color-picker-panel></color-picker-panel>
             </div>
 
@@ -103,6 +105,7 @@ import Notification            from './components/rewrite/Notification';
 import RewriteFooter           from './components/rewrite/RewriteFooter';
 import Canvas                  from './components/rewrite/Canvas';
 
+import NewMinimap              from './components/panels/NewMinimap';
 import Minimap                 from './components/panels/Minimap';
 import ColorPickerPanel        from './components/panels/ColorPickerPanel';
 import ElementStylesPanel      from './components/panels/ElementStylesPanel';
@@ -123,7 +126,7 @@ export default {
 
     components: {
         KeyBindings,
-        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
+        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap, NewMinimap,
         ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
         AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
         ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal, FontSelectModal
@@ -150,12 +153,12 @@ export default {
 </script>
 
 <style scoped>
-#topbar {
+#top-bar {
     width: 100%;
     padding: 8px 10px;
     background: white;
-    border-top: 3px solid #38c172;
-    border-bottom: 1px dashed gray;
+    border-top: 3px solid black;
+    border-bottom: 1px dashed #666;
     box-shadow: 0 5px 10px #ccc;
 }
 

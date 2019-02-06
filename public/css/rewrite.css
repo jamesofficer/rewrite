@@ -32,66 +32,6 @@ button,
   outline: 1px dashed #38c172 !important;
 }
 
-.login-page-bg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-  background: radial-gradient(#6FCF97, #219653);
-}
-
-.login-page-bg-img {
-  height: inherit;
-  position: absolute;
-  height: 600px;
-  width: 850px;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.login-page-container {
-  margin-top: 20px;
-}
-
-.login-page-form {
-  margin-top: 25px;
-}
-
-.login-page-form .card {
-  background: none;
-  border: 1px solid white;
-  -webkit-box-shadow: 0 0 20px #265339;
-          box-shadow: 0 0 20px #265339;
-}
-
-.login-page-form .card .card-header {
-  background: #eee;
-  border-bottom: 1px solid white;
-}
-
-.login-page-form .card .card-body {
-  background: rgba(56, 193, 114, 0.8);
-}
-
-.login-page-form .remember-me-label {
-  text-transform: lowercase;
-  margin: 10px 0 0 5px;
-  color: white;
-}
-
-.login-page-logo {
-  max-width: 250px;
-  margin-bottom: 25px;
-}
-
 .sub-label {
   display: block;
   margin: 0;
@@ -112,9 +52,9 @@ button,
   display: none;
 }
 
-.shift-small-heading {
+.rewrite-small-heading {
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 0.8em;
   color: #aaa;
 }

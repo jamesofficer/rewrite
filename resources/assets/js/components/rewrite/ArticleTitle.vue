@@ -1,18 +1,18 @@
 <template>
     <b-row class="article-title-container">
         <b-col>
-            <h6 class="shift-small-heading">Article Name</h6>
+            <h6 class="rewrite-small-heading">Article Name</h6>
 
-            <em v-if="! settingArticleTitle">
-                <h2 class="shift-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
-            </em>
+            <span v-if="! settingArticleTitle">
+                <h2 class="rewrite-article-name" @click="setArticleTitle">{{ articleTitle }}</h2>
+            </span>
 
             <b-input v-else
                 size="lg"
                 v-model="articleTitle"
                 @blur.native="settingArticleTitle = false"
                 ref="articleTitleInput"
-                class="shift-article-name-input"
+                class="rewrite-article-name-input"
             ></b-input>
         </b-col>
     </b-row>
@@ -64,13 +64,14 @@ export default {
     margin: 20px 0 10px 0;
 }
 
-.shift-article-name {
+.rewrite-article-name {
     padding-bottom: 10px;
-    color: #38c172;
+    color: black;
     font-family: "Inter UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 700;
 }
 
-.shift-article-name-input[type='text'] {
+.rewrite-article-name-input[type='text'] {
     margin: 20px 0 30px 0;
     padding: 15px;
     background: none;
@@ -82,11 +83,11 @@ export default {
     line-height: 1.2;
 }
 
-.shift-article-name-input[type='text']:focus {
+.rewrite-article-name-input[type='text']:focus {
     outline: 0;
 }
 
-.shift-article-name:hover {
+.rewrite-article-name:hover {
     cursor: pointer;
     color: gray;
     border-bottom: 1px dashed gray;

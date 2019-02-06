@@ -54,16 +54,16 @@ export default {
     position: fixed;
     background: white;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(150, 150, 150, 0.75);
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.75);
     overflow: hidden;
 }
 
 .panel-header {
     cursor: pointer;
-    background: #38c172;
+    background: black;
     color: white;
     padding: 7px 10px;
-    border-bottom: 1px solid #24b161;
+    border-bottom: 1px solid gray;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     z-index: 10;
@@ -71,7 +71,7 @@ export default {
 
 .panel-body {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 5;
 }
 

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="home-container">
         <nav>
             <img src="{{ asset('img/rewrite_logo_black.svg') }}" alt="Rewrite Logo" class="rewrite-nav-logo">
 
-            <button class="login-button" data-micromodal-trigger="modal-1">login</button>
+            <button class="login-button" data-micromodal-trigger="login-modal">login</button>
         </nav>
 
         <div class="hero-content">
@@ -24,13 +25,14 @@
                     technologies, in your hands.
                 </p>
 
-                <button class="sign-up-button">
+                <button class="sign-up-button" data-micromodal-trigger="register-modal">
                     sign up
                 </button>
             </div>
         </div>
     </div>
 
-    @include('home.login-modal');
+    @include('auth.login-modal')
+    @include('auth.register-modal')
 
 @endsection
