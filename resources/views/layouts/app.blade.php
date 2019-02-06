@@ -6,32 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 're:write') }}</title>
 
-    <!-- Scripts -->
+    {{-- Scripts --}}
     @if (str_contains(url()->current(), 'article/create'))
         <script src="{{ asset('js/app.js') }}" defer></script>
     @endif
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link href="{{ asset('fonts/inter_ui/inter-ui.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/rewrite.css') }}" rel="stylesheet">
+    {{-- Home Page Stylesheets and Scripts --}}
+    @if (Route::currentRouteName() === 'home')
+        <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+        <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    @endif
+
+    {{-- Editor/App Stylesheets and Scripts --}}
+    @if (Route::currentRouteName() !== 'home')
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/rewrite.css') }}" rel="stylesheet">
+    @endif
 
     <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>
 <body>
-    <main @if (Route::currentRouteName() === "login" || Route::currentRouteName() === "register" || Route::currentRouteName() === "password.request" || Route::currentRouteName() === "password.reset") class="login-page-bg" @endif>
-        @if (Route::currentRouteName() === "login"||Route::currentRouteName() === "register" || Route::currentRouteName() === "password.request")
-            <div class="login-page-bg-img"></div>
-        @endif
-
+    <main>
         @yield('content')
     </main>
+
+    {{-- Initialise MicroModal (for the home page only) --}}
+    @if (Route::currentRouteName() === 'home')
+        <script>
+            MicroModal.init();
+        </script>
+    @endif
 </body>
 </html>

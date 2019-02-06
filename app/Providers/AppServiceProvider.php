@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift\Providers;
+namespace Rewrite\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Shift\Providers\AppServiceProvider::class,
-        Shift\Providers\AuthServiceProvider::class,
-        // Shift\Providers\BroadcastServiceProvider::class,
-        Shift\Providers\EventServiceProvider::class,
-        Shift\Providers\RouteServiceProvider::class,
+        Rewrite\Providers\AppServiceProvider::class,
+        Rewrite\Providers\AuthServiceProvider::class,
+        // Rewrite\Providers\BroadcastServiceProvider::class,
+        Rewrite\Providers\EventServiceProvider::class,
+        Rewrite\Providers\RouteServiceProvider::class,
 
     ],
 

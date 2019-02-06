@@ -23,7 +23,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "Shift\\": "app/"
+            "Rewrite\\": "app/"
         }
     },
     "autoload-dev": {

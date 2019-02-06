@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift\Providers;
+namespace Rewrite\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Shift\Model' => 'Shift\Policies\ModelPolicy',
+        'Rewrite\Model' => 'Rewrite\Policies\ModelPolicy',
     ];
 
     /**

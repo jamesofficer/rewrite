@@ -1,8 +1,8 @@
 <?php
 
-namespace Shift\Http\Controllers\Auth;
+namespace Rewrite\Http\Controllers\Auth;
 
-use Shift\Http\Controllers\Controller;
+use Rewrite\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller

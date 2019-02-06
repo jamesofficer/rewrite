@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Shift\User::class,
+            'model' => Rewrite\User::class,
         ],
 
         // 'users' => [

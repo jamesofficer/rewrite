@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift\Http\Middleware;
+namespace Rewrite\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

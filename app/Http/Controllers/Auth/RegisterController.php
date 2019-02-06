@@ -1,9 +1,9 @@
 <?php
 
-namespace Shift\Http\Controllers\Auth;
+namespace Rewrite\Http\Controllers\Auth;
 
-use Shift\User;
-use Shift\Http\Controllers\Controller;
+use Rewrite\User;
+use Rewrite\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Shift\User
+     * @return \Rewrite\User
      */
     protected function create(array $data)
     {

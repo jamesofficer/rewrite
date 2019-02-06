@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift;
+namespace Rewrite;
 
 use Illuminate\Database\Eloquent\Model;
 

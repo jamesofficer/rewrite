@@ -12,5 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/rewrite.scss', 'public/css')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .sass('resources/assets/sass/home/home.scss', 'public/css')
+    .sass('resources/assets/sass/rewrite.scss', 'public/css')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .js('node_modules/micromodal/dist/micromodal.min.js', 'public/js');

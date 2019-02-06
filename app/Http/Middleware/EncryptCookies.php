@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift\Http\Middleware;
+namespace Rewrite\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

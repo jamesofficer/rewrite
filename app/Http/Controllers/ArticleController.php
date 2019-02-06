@@ -1,10 +1,10 @@
 <?php
 
-namespace Shift\Http\Controllers;
+namespace Rewrite\Http\Controllers;
 
 use Auth;
 use Session;
-use Shift\Article;
+use Rewrite\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller

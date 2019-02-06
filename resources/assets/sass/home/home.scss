@@ -1,0 +1,106 @@
+@import "login-modal";
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+$button-padding: 10px 65px;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button {
+    font-family: 'Inter UI', 'Roboto', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+.home-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    background-image: linear-gradient(to bottom right, white, #82FFE3);
+    animation: rotate-hue 30s infinite;
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 10%;
+
+        .rewrite-nav-logo {
+            height: 50px;
+            padding: 15px 0;
+        }
+
+        .login-button {
+            background: none;
+            color: black;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: $button-padding;
+            border: 2px solid black;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            color: white;
+            background: black;
+        }
+    }
+
+    .hero-content {
+        display: flex;
+        margin: 0 10%;
+        align-items: center;
+        padding: 100px 0;
+
+        .hero-text {
+            h1 {
+                max-width: 60%;
+                font-size: 3.75rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                max-width: 70%;
+                font-size: 1.25rem;
+                font-family: 'IBM Plex Mono', 'Menlo', 'Consolas', monospace;
+                line-height: 2rem;
+            }
+
+            .sign-up-button {
+                background: black;
+                color: white;
+                padding: $button-padding;
+                border-radius: 15px;
+                border: none;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-top: 1.5rem;
+                cursor: pointer;
+            }
+
+            .sign-up-button:hover {
+                background: white;
+                color: black;
+            }
+        }
+    }
+}
+
+// Background Gradient animation:
+@keyframes rotate-hue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(100deg);
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}

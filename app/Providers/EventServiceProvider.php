@@ -1,6 +1,6 @@
 <?php
 
-namespace Shift\Providers;
+namespace Rewrite\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Shift\Events\Event' => [
-            'Shift\Listeners\EventListener',
+        'Rewrite\Events\Event' => [
+            'Rewrite\Listeners\EventListener',
         ],
     ];
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Shift\Http\Controllers;
+namespace Rewrite\Http\Controllers;
 
 use Auth;
 use File;
 use Storage;
 use Carbon\Carbon;
-use Shift\ArticleImage;
+use Rewrite\ArticleImage;
 use Illuminate\Http\Request;
 
 class ArticleImageController extends Controller

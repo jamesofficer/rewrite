@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/home.css": "/css/home.css",
     "/css/rewrite.css": "/css/rewrite.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/micromodal.min.js": "/js/micromodal.min.js"
 }
