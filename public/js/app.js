@@ -17674,6 +17674,10 @@ var getSiblingsElementByIndexes = function getSiblingsElementByIndexes(state, i)
  *
  */
 var resetSelection = function resetSelection(state) {
+    var element = getSelectedRootElement(state);
+
+    element.selected = false;
+
     window.Vue.set(state.selected, "type", undefined);
     window.Vue.set(state.selected, "component", undefined);
     window.Vue.set(state.selected, "column", undefined);
@@ -26438,8 +26442,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -26579,6 +26581,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
                 // Keybindings that don't rely on the CTRL key.
                 else {
+                        if (ev.key === "Escape") {
+                            ev.preventDefault();
+                            self.$store.commit('clearSelection');
+                            return;
+                        }
+
                         if (ev.key === "ArrowUp") {
                             ev.preventDefault();
                             self.$store.commit('moveSelectionUpOrDown', -1);
@@ -44885,8 +44893,6 @@ var render = function() {
             _vm._v(" "),
             _c("minimap"),
             _vm._v(" "),
-            _c("new-minimap"),
-            _vm._v(" "),
             _c("color-picker-panel")
           ],
           1
@@ -45279,6 +45285,7 @@ var getColumnSizesPerDeviceSize = function getColumnSizesPerDeviceSize(state) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearSelection", function() { return clearSelection; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableGlobalComponentStyles", function() { return enableGlobalComponentStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCanvas", function() { return addCanvas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRow", function() { return addRow; });
@@ -45319,6 +45326,14 @@ var _this = this;
 
 
 
+
+/**
+ * Clears the current selection (selects nothing).
+ * 
+ */
+var clearSelection = function clearSelection(state) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["h" /* resetSelection */])(state);
+};
 
 /**
  * Toggle Global Component styles on or off.

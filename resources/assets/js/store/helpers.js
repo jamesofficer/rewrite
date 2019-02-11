@@ -152,6 +152,10 @@ export const getSiblingsElementByIndexes = (state, i) => {
  *
  */
 export const resetSelection = state => {
+    const element = getSelectedRootElement(state);
+
+    element.selected = false;
+
     window.Vue.set(state.selected, "type", undefined);
     window.Vue.set(state.selected, "component", undefined);
     window.Vue.set(state.selected, "column", undefined);

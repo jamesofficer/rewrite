@@ -18,7 +18,7 @@
                 </b-row>
             </b-container>
         </div>
-
+ 
         <div id="rewrite-container">
             <!-- Main Content Area -->
             <div id="rewrite-content-area">
@@ -64,8 +64,6 @@
                 <element-styles-panel></element-styles-panel>
 
                 <minimap></minimap>
-
-                <new-minimap></new-minimap>
 
                 <color-picker-panel></color-picker-panel>
             </div>

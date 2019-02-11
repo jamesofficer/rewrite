@@ -6,6 +6,14 @@ import {
 } from "./helpers";
 
 /**
+ * Clears the current selection (selects nothing).
+ * 
+ */
+export const clearSelection = state => {
+    resetSelection(state);
+}
+
+/**
  * Toggle Global Component styles on or off.
  *
  */
