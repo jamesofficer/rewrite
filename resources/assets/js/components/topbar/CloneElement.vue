@@ -1,6 +1,10 @@
 <template>
     <div class="topbar-button">
-        <topbar-button @click.native="cloneElement" variant="outline-info" icon="clone" tooltip="Clone"></topbar-button>
+        <topbar-button
+            @click.native="cloneElement"
+            icon="clone"
+            tooltip="Clone"
+        ></topbar-button>
     </div>
 </template>
 

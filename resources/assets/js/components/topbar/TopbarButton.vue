@@ -24,7 +24,7 @@ export default {
         variant: {
             type: String,
             required: false,
-            default: 'outline-primary',
+            default: 'secondary',
         },
 
         tooltip: {

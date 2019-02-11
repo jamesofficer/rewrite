@@ -3,6 +3,10 @@
 
 $button-padding: 10px 65px;
 
+html, body {
+    height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -18,7 +22,7 @@ label {
 }
 
 .home-container {
-    height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-rows: 100px 1fr;
     background-image: linear-gradient(to bottom right, white, #82FFE3);
@@ -60,7 +64,7 @@ label {
 
         .hero-text {
             h1 {
-                max-width: 60%;
+                max-width: 70%;
                 font-size: 3.75rem;
                 font-weight: 600;
                 margin-bottom: 2rem;

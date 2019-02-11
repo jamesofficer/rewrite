@@ -242,6 +242,11 @@ input[type='password'] {
   will-change: transform;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -257,7 +262,7 @@ label {
 }
 
 .home-container {
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-rows: 100px 1fr;
   background-image: -webkit-gradient(linear, left top, right bottom, from(white), to(#82FFE3));
@@ -312,7 +317,7 @@ label {
 }
 
 .home-container .hero-content .hero-text h1 {
-  max-width: 60%;
+  max-width: 70%;
   font-size: 3.75rem;
   font-weight: 600;
   margin-bottom: 2rem;

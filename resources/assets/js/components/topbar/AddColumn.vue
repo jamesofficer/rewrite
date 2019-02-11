@@ -2,7 +2,7 @@
     <div class="topbar-button">
         <b-button
             @click="addColumn"
-            variant="outline-success"
+            variant="primary"
             v-b-tooltip.hover.bottom
             title="Add Column to Canvas"
         >

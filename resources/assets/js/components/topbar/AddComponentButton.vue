@@ -2,7 +2,7 @@
     <div class="topbar-button">
         <topbar-button
             @click.native="showAddComponentModal"
-            variant="outline-success"
+            variant="primary"
             icon="sitemap"
             tooltip="Add Component to Column"
         ></topbar-button>

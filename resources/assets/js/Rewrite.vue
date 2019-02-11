@@ -105,7 +105,6 @@ import Notification            from './components/rewrite/Notification';
 import RewriteFooter           from './components/rewrite/RewriteFooter';
 import Canvas                  from './components/rewrite/Canvas';
 
-import NewMinimap              from './components/panels/NewMinimap';
 import Minimap                 from './components/panels/Minimap';
 import ColorPickerPanel        from './components/panels/ColorPickerPanel';
 import ElementStylesPanel      from './components/panels/ElementStylesPanel';
@@ -126,7 +125,7 @@ export default {
 
     components: {
         KeyBindings,
-        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap, NewMinimap,
+        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
         ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
         AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
         ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal, FontSelectModal
@@ -154,17 +153,16 @@ export default {
 
 <style scoped>
 #top-bar {
+    position: fixed;
     width: 100%;
     padding: 8px 10px;
-    background: white;
-    border-top: 3px solid black;
-    border-bottom: 1px dashed #666;
-    box-shadow: 0 5px 10px #ccc;
+    background: #222;
+    z-index: 100;
 }
 
 .article-name-container {
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 75px;
 }
 
 #rewrite-container {

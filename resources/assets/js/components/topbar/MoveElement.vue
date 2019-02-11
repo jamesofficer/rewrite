@@ -7,7 +7,6 @@
         >
             <topbar-button
                 @click.native="moveElement('up')"
-                variant="outline-info"
                 :icon="elementType === 'Column' ? 'arrow-left' : 'arrow-up'"
                 :disabled="! canMoveElementUp"
             ></topbar-button>
@@ -20,7 +19,6 @@
         >
             <topbar-button
                 @click.native="moveElement('down')"
-                variant="outline-info"
                 :icon="elementType === 'Column' ? 'arrow-right' : 'arrow-down'"
                 :disabled="! canMoveElementDown"
             ></topbar-button>

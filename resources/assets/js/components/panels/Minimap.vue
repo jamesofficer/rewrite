@@ -171,16 +171,16 @@ ul {
 
 .minimap-element-row:hover {
     cursor: pointer;
-    background: #59e696;
+    background: #ccc;
 }
 
 .add-left-border {
-    border-left: 1px solid #dddddd;
+    border-left: 1px solid #ddd;
 }
 
 .element-selected {
     color: white;
-    background: #38c172;
+    background: #999;
 }
 
 .pad-row {

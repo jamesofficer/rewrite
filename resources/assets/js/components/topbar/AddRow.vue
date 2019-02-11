@@ -2,8 +2,8 @@
     <div class="topbar-button">
         <topbar-button
             @click.native="addRow"
-            variant="outline-success"
-            icon="columns"
+            variant="primary"
+            icon="align-justify"
             tooltip="Add Row to Canvas"
         ></topbar-button>
     </div>
