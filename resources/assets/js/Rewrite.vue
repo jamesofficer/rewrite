@@ -5,6 +5,8 @@
             <b-container fluid>
                 <b-row>
                     <b-col cols="8">
+                        <grid-creator-button></grid-creator-button>
+
                         <global-styles-switch></global-styles-switch>
 
                         <portal-target name="sidebar" style="display: inline"></portal-target>
@@ -18,7 +20,7 @@
                 </b-row>
             </b-container>
         </div>
- 
+
         <div id="rewrite-container">
             <!-- Main Content Area -->
             <div id="rewrite-content-area">
@@ -69,6 +71,8 @@
             </div>
 
             <!-- Modal Windows -->
+            <grid-creator></grid-creator>
+
             <menu-modal></menu-modal>
 
             <add-component-modal></add-component-modal>
@@ -95,6 +99,7 @@
 <script>
 import KeyBindings             from './components/mixins/KeyBindings.js';
 
+import GridCreatorButton       from './components/topbar/GridCreatorButton';
 import MenuButton              from './components/rewrite/MenuButton';
 import GlobalStylesSwitch      from './components/rewrite/GlobalStylesSwitch';
 import DeviceSizeControls      from './components/rewrite/DeviceSizeControls';
@@ -107,6 +112,7 @@ import Minimap                 from './components/panels/Minimap';
 import ColorPickerPanel        from './components/panels/ColorPickerPanel';
 import ElementStylesPanel      from './components/panels/ElementStylesPanel';
 
+import GridCreator             from './components/dialogs/GridCreator';
 import MenuModal               from './components/dialogs/MenuModal';
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
@@ -123,10 +129,11 @@ export default {
 
     components: {
         KeyBindings,
-        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
-        AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
-        ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal, FontSelectModal
+        GridCreatorButton, MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle,
+        DeviceSizeControls, Minimap, ColorPickerPanel, ElementStylesPanel, Notification,
+        Canvas, GridCreator, AddComponentModal, EditTextModal, MenuModal, LoadArticleModal,
+        MyImagesModal, ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
+        BackgroundGradientModal, FontSelectModal
     },
 
     mixins: [KeyBindings],
@@ -146,6 +153,10 @@ export default {
             this.$store.commit('selectElement', { canvasIndex: canvasIndex });
         },
     },
+
+    mounted() {
+        this.$root.$emit('bv::show::modal', 'createGridModal');
+    }
 };
 </script>
 
