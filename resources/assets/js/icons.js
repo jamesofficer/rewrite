@@ -1,5 +1,6 @@
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+import "vue-awesome/icons/th-large";
 import "vue-awesome/icons/toggle-on";
 import "vue-awesome/icons/toggle-off";
 import "vue-awesome/icons/mobile-alt";

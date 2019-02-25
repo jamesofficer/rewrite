@@ -26026,46 +26026,50 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal__ = __webpack_require__(370);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator__ = __webpack_require__(586);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal__);
 //
 //
 //
@@ -26158,6 +26162,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -26189,10 +26214,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */],
-        MenuButton: __WEBPACK_IMPORTED_MODULE_1__components_rewrite_MenuButton___default.a, RewriteFooter: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_RewriteFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_ArticleTitle___default.a, DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_8__components_panels_Minimap___default.a,
-        ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_9__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_Notification___default.a, Canvas: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_Canvas___default.a,
-        AddComponentModal: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_EditTextModal___default.a, MenuModal: __WEBPACK_IMPORTED_MODULE_11__components_dialogs_MenuModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_LoadArticleModal___default.a, MyImagesModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_ImageGalleryModal___default.a,
-        ExportArticleModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_RecipeIngredientsModal___default.a, BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_BackgroundGradientModal___default.a, FontSelectModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_FontSelectModal___default.a
+        GridCreatorButton: __WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton___default.a, MenuButton: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton___default.a, RewriteFooter: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle___default.a,
+        DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default.a, ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification___default.a,
+        Canvas: __WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas___default.a, GridCreator: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal___default.a, MenuModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal___default.a,
+        MyImagesModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal___default.a,
+        BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal___default.a, FontSelectModal: __WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
@@ -26210,6 +26236,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         selectElement: function selectElement(canvasIndex) {
             this.$store.commit('selectElement', { canvasIndex: canvasIndex });
         }
+    },
+
+    mounted: function mounted() {
+        this.$root.$emit('bv::show::modal', 'createGridModal');
     }
 });
 
@@ -44721,140 +44751,7 @@ if (false) {
 /* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { height: "100%" } }, [
-    _c("div", { attrs: { id: "top-bar" } }, [
-      _c(
-        "div",
-        { staticStyle: { display: "inherit" }, attrs: { id: "top-bar-left" } },
-        [
-          _c("global-styles-switch"),
-          _vm._v(" "),
-          _c("portal-target", { attrs: { name: "topbar" } })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { id: "top-bar-right" } },
-        [_c("device-size-controls"), _vm._v(" "), _c("menu-button")],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "rewrite-container" } }, [
-      _c(
-        "div",
-        { attrs: { id: "sidebar" } },
-        [
-          _c("element-styles-panel"),
-          _vm._v(" "),
-          _c("minimap"),
-          _vm._v(" "),
-          _c("color-picker-panel")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { id: "rewrite-article-container" } },
-        [
-          _c(
-            "div",
-            { attrs: { id: "rewrite-content-area" } },
-            [
-              _c("notification"),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "article-name-container",
-                  class: {
-                    "sm-device-size": _vm.getDeviceSize === "sm",
-                    "md-device-size": _vm.getDeviceSize === "md",
-                    "lg-device-size": _vm.getDeviceSize === "lg",
-                    "xl-device-size": _vm.getDeviceSize === "xl"
-                  }
-                },
-                [_c("article-title")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  ref: "rewriteArticle",
-                  staticClass: "rewrite-workspace",
-                  class: {
-                    "sm-device-size": _vm.getDeviceSize === "sm",
-                    "md-device-size": _vm.getDeviceSize === "md",
-                    "lg-device-size": _vm.getDeviceSize === "lg",
-                    "xl-device-size": _vm.getDeviceSize === "xl"
-                  }
-                },
-                _vm._l(_vm.canvases, function(canvas, canvasIndex) {
-                  return _c("Canvas", {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: canvas.visible,
-                        expression: "canvas.visible"
-                      }
-                    ],
-                    key: canvasIndex,
-                    tag: "canvas",
-                    staticClass: "selectable-canvas",
-                    attrs: { canvasIndex: canvasIndex },
-                    nativeOn: {
-                      click: function($event) {
-                        $event.stopPropagation()
-                        _vm.selectElement(canvasIndex)
-                      }
-                    }
-                  })
-                }),
-                1
-              ),
-              _vm._v(" "),
-              _c("rewrite-footer")
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("menu-modal"),
-          _vm._v(" "),
-          _c("add-component-modal"),
-          _vm._v(" "),
-          _c("edit-text-modal"),
-          _vm._v(" "),
-          _c("load-article-modal"),
-          _vm._v(" "),
-          _c("my-images-modal"),
-          _vm._v(" "),
-          _c("image-gallery-modal"),
-          _vm._v(" "),
-          _c("export-article-modal", { ref: "exportArticleModal" }),
-          _vm._v(" "),
-          _c("recipe-ingredients-modal"),
-          _vm._v(" "),
-          _c("background-gradient-modal"),
-          _vm._v(" "),
-          _c("font-select-modal")
-        ],
-        1
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
+module.exports={render:function(){},staticRenderFns:[]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
@@ -57809,61 +57706,63 @@ function getId() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_icons_toggle_on__ = __webpack_require__(521);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_icons_toggle_off__ = __webpack_require__(522);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_awesome_icons_mobile_alt__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_awesome_icons_tablet_alt__ = __webpack_require__(524);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_awesome_icons_laptop__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_awesome_icons_desktop__ = __webpack_require__(526);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_awesome_icons_bars__ = __webpack_require__(527);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_awesome_icons_cogs__ = __webpack_require__(528);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_awesome_icons_palette__ = __webpack_require__(529);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_awesome_icons_columns__ = __webpack_require__(530);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_awesome_icons_sitemap__ = __webpack_require__(531);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_vue_awesome_icons_align_left__ = __webpack_require__(532);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_awesome_icons_align_center__ = __webpack_require__(533);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_awesome_icons_align_right__ = __webpack_require__(534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_awesome_icons_align_justify__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_awesome_icons_minus__ = __webpack_require__(536);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_awesome_icons_plus__ = __webpack_require__(537);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_vue_awesome_icons_trash_alt__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_vue_awesome_icons_arrow_up__ = __webpack_require__(539);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_vue_awesome_icons_arrow_down__ = __webpack_require__(540);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_vue_awesome_icons_arrow_left__ = __webpack_require__(541);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_vue_awesome_icons_arrow_right__ = __webpack_require__(542);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vue_awesome_icons_eye__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vue_awesome_icons_save__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_vue_awesome_icons_folder_open__ = __webpack_require__(544);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_awesome_icons_file_export__ = __webpack_require__(545);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_vue_awesome_icons_image__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_vue_awesome_icons_images__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_vue_awesome_icons_heading__ = __webpack_require__(548);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_vue_awesome_icons_paragraph__ = __webpack_require__(549);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_awesome_icons_quote_right__ = __webpack_require__(550);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_vue_awesome_icons_font__ = __webpack_require__(551);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_vue_awesome_icons_fill__ = __webpack_require__(552);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_vue_awesome_icons_expand__ = __webpack_require__(553);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_vue_awesome_icons_expand_arrows_alt__ = __webpack_require__(554);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_awesome_icons_paint_roller__ = __webpack_require__(555);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_awesome_icons_fish__ = __webpack_require__(556);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_awesome_icons_pencil_alt__ = __webpack_require__(557);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_awesome_icons_ban__ = __webpack_require__(558);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_utensils__ = __webpack_require__(559);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_minus_square__ = __webpack_require__(560);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_clone__ = __webpack_require__(561);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_file_alt__ = __webpack_require__(562);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_sun__ = __webpack_require__(563);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_sign_out_alt__ = __webpack_require__(564);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_brush__ = __webpack_require__(565);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_eye_slash__ = __webpack_require__(566);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_caret_down__ = __webpack_require__(567);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48_vue_awesome_icons_caret_right__ = __webpack_require__(568);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49_vue_awesome_icons_regular_square__ = __webpack_require__(569);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50_vue_awesome_icons_brands_instagram__ = __webpack_require__(570);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_vue_awesome_icons_brands_youtube__ = __webpack_require__(571);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52_vue_awesome_icons_brands_pinterest__ = __webpack_require__(572);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_awesome_icons_th_large__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_awesome_icons_toggle_on__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_awesome_icons_toggle_off__ = __webpack_require__(522);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_awesome_icons_mobile_alt__ = __webpack_require__(523);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_awesome_icons_tablet_alt__ = __webpack_require__(524);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_awesome_icons_laptop__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_awesome_icons_desktop__ = __webpack_require__(526);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_awesome_icons_bars__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_awesome_icons_cogs__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_awesome_icons_palette__ = __webpack_require__(529);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_awesome_icons_columns__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_vue_awesome_icons_sitemap__ = __webpack_require__(531);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_vue_awesome_icons_align_left__ = __webpack_require__(532);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_awesome_icons_align_center__ = __webpack_require__(533);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_awesome_icons_align_right__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_awesome_icons_align_justify__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_awesome_icons_minus__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_vue_awesome_icons_plus__ = __webpack_require__(537);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_vue_awesome_icons_trash_alt__ = __webpack_require__(538);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_vue_awesome_icons_arrow_up__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_vue_awesome_icons_arrow_down__ = __webpack_require__(540);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_vue_awesome_icons_arrow_left__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vue_awesome_icons_arrow_right__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_vue_awesome_icons_eye__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_vue_awesome_icons_save__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_vue_awesome_icons_folder_open__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_vue_awesome_icons_file_export__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_vue_awesome_icons_image__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_vue_awesome_icons_images__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_vue_awesome_icons_heading__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_awesome_icons_paragraph__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_vue_awesome_icons_quote_right__ = __webpack_require__(550);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_vue_awesome_icons_font__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_vue_awesome_icons_fill__ = __webpack_require__(552);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_vue_awesome_icons_expand__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_awesome_icons_expand_arrows_alt__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_awesome_icons_paint_roller__ = __webpack_require__(555);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_awesome_icons_fish__ = __webpack_require__(556);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_awesome_icons_pencil_alt__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_awesome_icons_ban__ = __webpack_require__(558);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40_vue_awesome_icons_utensils__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41_vue_awesome_icons_minus_square__ = __webpack_require__(560);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42_vue_awesome_icons_clone__ = __webpack_require__(561);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43_vue_awesome_icons_file_alt__ = __webpack_require__(562);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44_vue_awesome_icons_sun__ = __webpack_require__(563);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45_vue_awesome_icons_sign_out_alt__ = __webpack_require__(564);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46_vue_awesome_icons_brush__ = __webpack_require__(565);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47_vue_awesome_icons_eye_slash__ = __webpack_require__(566);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48_vue_awesome_icons_caret_down__ = __webpack_require__(567);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49_vue_awesome_icons_caret_right__ = __webpack_require__(568);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50_vue_awesome_icons_regular_square__ = __webpack_require__(569);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51_vue_awesome_icons_brands_instagram__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52_vue_awesome_icons_brands_youtube__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53_vue_awesome_icons_brands_pinterest__ = __webpack_require__(572);
 // Icon Imports
 // Reference: https://fontawesome.com/icons?d=gallery
+
 
 
 
@@ -58560,6 +58459,397 @@ __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"brands/p
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(584)
+/* template */
+var __vue_template__ = __webpack_require__(585)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/topbar/GridCreatorButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-175a29c4", Component.options)
+  } else {
+    hotAPI.reload("data-v-175a29c4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 584 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "GridCreatorButton"
+});
+
+/***/ }),
+/* 585 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "topbar-button" },
+    [
+      _c(
+        "b-button",
+        {
+          directives: [
+            {
+              name: "b-modal",
+              rawName: "v-b-modal.createGridModal",
+              modifiers: { createGridModal: true }
+            }
+          ],
+          attrs: { variant: "primary" }
+        },
+        [_c("icon", { attrs: { name: "th-large" } })],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-175a29c4", module.exports)
+  }
+}
+
+/***/ }),
+/* 586 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(587)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(589)
+/* template */
+var __vue_template__ = __webpack_require__(590)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-689473bb"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/dialogs/GridCreator.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-689473bb", Component.options)
+  } else {
+    hotAPI.reload("data-v-689473bb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 587 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(588);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("0aa5bf68", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-689473bb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./GridCreator.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-689473bb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./GridCreator.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 588 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#createGridModal[data-v-689473bb] {\n  display: 'grid';\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: repeat(2, 1fr);\n}\n#createGridModal #grid-preview[data-v-689473bb] {\n    display: grid;\n    height: 500px;\n    width: 500px;\n    background: lightgray;\n    border-radius: 5px;\n}\n#createGridModal .grid-item[data-v-689473bb] {\n    background: cadetblue;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 589 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var GridColumn = function GridColumn(index) {
+    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
+    var unit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'fr';
+
+    _classCallCheck(this, GridColumn);
+
+    this.index = index;
+    this.width = width;
+    this.unit = unit;
+};
+
+var GridRow = function GridRow(index) {
+    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
+    var unit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'fr';
+
+    _classCallCheck(this, GridRow);
+
+    this.index = index;
+    this.width = width;
+    this.unit = unit;
+};
+
+var GridItem = function GridItem(text) {
+    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
+    var height = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'auto';
+    var alignSelf = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'stretch';
+    var justifySelf = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'stretch';
+
+    _classCallCheck(this, GridItem);
+
+    this.text = text;
+    this.width = width;
+    this.height = height;
+    this.alignSelf = alignSelf;
+    this.justifySelf = justifySelf;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "GridCreator",
+
+    data: function data() {
+        return {
+            grid: {
+                columns: [],
+                rows: [],
+                gap: 10,
+                justifyContent: 'auto',
+                alignContent: 'auto',
+                justifyItems: 'auto',
+                alignItems: 'auto'
+            },
+
+            items: [],
+            selected: undefined
+        };
+    },
+
+
+    methods: {
+        addColumn: function addColumn() {
+            this.grid.columns.push(new GridColumn(this.grid.columns.length));
+        },
+        addRow: function addRow() {
+            this.grid.rows.push(new GridRow(this.grid.rows.length));
+        },
+        addGridItem: function addGridItem() {
+            this.items.push(new GridItem(this.items.length + 1));
+        }
+    }
+
+});
+
+/***/ }),
+/* 590 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-modal",
+    {
+      ref: "createGridModal",
+      attrs: {
+        id: "createGridModal",
+        size: "lg",
+        "hide-header": "",
+        "hide-footer": ""
+      }
+    },
+    [
+      _c("b-btn", { on: { click: _vm.addColumn } }, [_vm._v("Add Column")]),
+      _vm._v(" "),
+      _c("b-btn", { on: { click: _vm.addRow } }, [_vm._v("Add Row")]),
+      _vm._v(" "),
+      _c("b-btn", { on: { click: _vm.addGridItem } }, [_vm._v("Add Item")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          style: {
+            gridGap: _vm.grid.gap + "px",
+            gridTemplateColumns: "repeat(" + _vm.grid.columns.length + ", 1fr)",
+            gridTemplateRows: "repeat(" + _vm.grid.rows.length + ", 1fr)"
+          },
+          attrs: { id: "grid-preview" }
+        },
+        _vm._l(_vm.items, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "grid-item",
+              style: {
+                height: item.height === "auto" ? "auto" : item.height + "px",
+                width: item.width === "auto" ? "auto" : item.width + "px"
+              }
+            },
+            [_vm._v("\n            " + _vm._s(item.text) + "\n        ")]
+          )
+        }),
+        0
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-689473bb", module.exports)
+  }
+}
+
+/***/ }),
+/* 591 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_0__components_Icon_vue___default.a.register({"th-large":{"width":512,"height":512,"paths":[{"d":"M296 32H488C501.3 32 512 42.7 512 56V216C512 229.3 501.3 240 488 240H296C282.7 240 272 229.3 272 216V56C272 42.7 282.7 32 296 32zM216 32H24C10.7 32 0 42.7 0 56V216C0 229.3 10.7 240 24 240H216C229.3 240 240 229.3 240 216V56C240 42.7 229.3 32 216 32zM0 296V456C0 469.3 10.7 480 24 480H216C229.3 480 240 469.3 240 456V296C240 282.7 229.3 272 216 272H24C10.7 272 0 282.7 0 296zM296 480H488C501.3 480 512 469.3 512 456V296C512 282.7 501.3 272 488 272H296C282.7 272 272 282.7 272 296V456C272 469.3 282.7 480 296 480z"}]}})
+
 
 /***/ })
 /******/ ]);

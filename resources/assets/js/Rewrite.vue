@@ -1,5 +1,4 @@
 <template>
-    <div style="height: 100%">
         <!-- TopBar -->
         <div id="top-bar">
             <div id="top-bar-left" style="display: inherit">
@@ -14,7 +13,7 @@
                 <menu-button></menu-button>
             </div>
         </div>
- 
+
         <div id="rewrite-container">
             <div id="sidebar">
                 <element-styles-panel></element-styles-panel>
@@ -93,6 +92,7 @@
 <script>
 import KeyBindings             from './components/mixins/KeyBindings.js';
 
+import GridCreatorButton       from './components/topbar/GridCreatorButton';
 import MenuButton              from './components/rewrite/MenuButton';
 import GlobalStylesSwitch      from './components/rewrite/GlobalStylesSwitch';
 import DeviceSizeControls      from './components/rewrite/DeviceSizeControls';
@@ -105,6 +105,7 @@ import Minimap                 from './components/panels/Minimap';
 import ColorPickerPanel        from './components/panels/ColorPickerPanel';
 import ElementStylesPanel      from './components/panels/ElementStylesPanel';
 
+import GridCreator             from './components/dialogs/GridCreator';
 import MenuModal               from './components/dialogs/MenuModal';
 import AddComponentModal       from './components/dialogs/AddComponentModal';
 import EditTextModal           from './components/dialogs/EditTextModal';
@@ -121,10 +122,11 @@ export default {
 
     components: {
         KeyBindings,
-        MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle, DeviceSizeControls, Minimap,
-        ColorPickerPanel, ElementStylesPanel, Notification, Canvas,
-        AddComponentModal, EditTextModal, MenuModal, LoadArticleModal, MyImagesModal, ImageGalleryModal,
-        ExportArticleModal, RecipeIngredientsModal, BackgroundGradientModal, FontSelectModal
+        GridCreatorButton, MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle,
+        DeviceSizeControls, Minimap, ColorPickerPanel, ElementStylesPanel, Notification,
+        Canvas, GridCreator, AddComponentModal, EditTextModal, MenuModal, LoadArticleModal,
+        MyImagesModal, ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
+        BackgroundGradientModal, FontSelectModal
     },
 
     mixins: [KeyBindings],
@@ -144,6 +146,10 @@ export default {
             this.$store.commit('selectElement', { canvasIndex: canvasIndex });
         },
     },
+
+    mounted() {
+        this.$root.$emit('bv::show::modal', 'createGridModal');
+    }
 };
 </script>
 
