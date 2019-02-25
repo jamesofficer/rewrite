@@ -26162,25 +26162,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -44751,7 +44732,140 @@ if (false) {
 /* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { attrs: { id: "top-bar" } }, [
+      _c(
+        "div",
+        { staticStyle: { display: "inherit" }, attrs: { id: "top-bar-left" } },
+        [
+          _c("global-styles-switch"),
+          _vm._v(" "),
+          _c("portal-target", { attrs: { name: "topbar" } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { id: "top-bar-right" } },
+        [_c("device-size-controls"), _vm._v(" "), _c("menu-button")],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "rewrite-container" } }, [
+      _c(
+        "div",
+        { attrs: { id: "sidebar" } },
+        [
+          _c("element-styles-panel"),
+          _vm._v(" "),
+          _c("minimap"),
+          _vm._v(" "),
+          _c("color-picker-panel")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { id: "rewrite-article-container" } },
+        [
+          _c(
+            "div",
+            { attrs: { id: "rewrite-content-area" } },
+            [
+              _c("notification"),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "article-name-container",
+                  class: {
+                    "sm-device-size": _vm.getDeviceSize === "sm",
+                    "md-device-size": _vm.getDeviceSize === "md",
+                    "lg-device-size": _vm.getDeviceSize === "lg",
+                    "xl-device-size": _vm.getDeviceSize === "xl"
+                  }
+                },
+                [_c("article-title")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  ref: "rewriteArticle",
+                  staticClass: "rewrite-workspace",
+                  class: {
+                    "sm-device-size": _vm.getDeviceSize === "sm",
+                    "md-device-size": _vm.getDeviceSize === "md",
+                    "lg-device-size": _vm.getDeviceSize === "lg",
+                    "xl-device-size": _vm.getDeviceSize === "xl"
+                  }
+                },
+                _vm._l(_vm.canvases, function(canvas, canvasIndex) {
+                  return _c("Canvas", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: canvas.visible,
+                        expression: "canvas.visible"
+                      }
+                    ],
+                    key: canvasIndex,
+                    tag: "canvas",
+                    staticClass: "selectable-canvas",
+                    attrs: { canvasIndex: canvasIndex },
+                    nativeOn: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        _vm.selectElement(canvasIndex)
+                      }
+                    }
+                  })
+                }),
+                1
+              ),
+              _vm._v(" "),
+              _c("rewrite-footer")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("menu-modal"),
+          _vm._v(" "),
+          _c("add-component-modal"),
+          _vm._v(" "),
+          _c("edit-text-modal"),
+          _vm._v(" "),
+          _c("load-article-modal"),
+          _vm._v(" "),
+          _c("my-images-modal"),
+          _vm._v(" "),
+          _c("image-gallery-modal"),
+          _vm._v(" "),
+          _c("export-article-modal", { ref: "exportArticleModal" }),
+          _vm._v(" "),
+          _c("recipe-ingredients-modal"),
+          _vm._v(" "),
+          _c("background-gradient-modal"),
+          _vm._v(" "),
+          _c("font-select-modal")
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

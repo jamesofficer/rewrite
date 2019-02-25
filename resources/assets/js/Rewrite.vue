@@ -1,4 +1,5 @@
 <template>
+    <div>
         <!-- TopBar -->
         <div id="top-bar">
             <div id="top-bar-left" style="display: inherit">
