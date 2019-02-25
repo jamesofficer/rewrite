@@ -57,7 +57,6 @@ export default {
 
 <style>
 #color-picker-panel {
-    position: fixed;
     left: 440px;
     bottom: 5px;
 }

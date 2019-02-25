@@ -51,7 +51,6 @@ export default {
 
 <style scoped>
 .panel {
-    position: fixed;
     background: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(150, 150, 150, 0.75);

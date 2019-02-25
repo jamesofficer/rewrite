@@ -36,7 +36,7 @@
     <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>
 <body>
-    <main>
+    <main style="height: 100%;">
         @yield('content')
     </main>
 

@@ -22,8 +22,8 @@ window.Vue = require("vue");
 // Suppress error message about "unknown custom element: trix-editor".
 Vue.config.ignoredElements = ['trix-editor'];
 
-// The Shift Article creation application.
+// The Rewrite app.
 new Vue({
     store: store,
     render: h => h(Rewrite)
-}).$mount("#shift");
+}).$mount("#rewrite");

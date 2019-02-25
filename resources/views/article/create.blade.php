@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="shift">
-        <Shift></Shift>
+    <div id="rewrite">
+        <Rewrite></Rewrite>
     </div>
 @endsection
 

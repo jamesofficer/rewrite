@@ -1,66 +1,22 @@
 <template>
-    <div>
+    <div style="height: 100%">
         <!-- TopBar -->
         <div id="top-bar">
-            <b-container fluid>
-                <b-row>
-                    <b-col cols="8">
-                        <global-styles-switch></global-styles-switch>
+            <div id="top-bar-left" style="display: inherit">
+                <global-styles-switch></global-styles-switch>
+                
+                <portal-target name="topbar"></portal-target>
+            </div>
 
-                        <portal-target name="sidebar" style="display: inline"></portal-target>
-                    </b-col>
+            <div id="top-bar-right">
+                <device-size-controls></device-size-controls>
 
-                    <b-col cols="4" class="text-right">
-                        <device-size-controls></device-size-controls>
-
-                        <menu-button></menu-button>
-                    </b-col>
-                </b-row>
-            </b-container>
+                <menu-button></menu-button>
+            </div>
         </div>
  
         <div id="rewrite-container">
-            <!-- Main Content Area -->
-            <div id="rewrite-content-area">
-                <notification></notification>
-
-                <!-- Article Name -->
-                <div
-                    class="article-name-container"
-                    :class="{
-                        'sm-device-size': getDeviceSize === 'sm',
-                        'md-device-size': getDeviceSize === 'md',
-                        'lg-device-size': getDeviceSize === 'lg',
-                        'xl-device-size': getDeviceSize === 'xl',
-                    }"
-                >
-                    <article-title></article-title>
-                </div>
-
-                <!-- Main Workspace -->
-                <div ref="shiftArticle"
-                    class="rewrite-workspace"
-                    :class="{
-                        'sm-device-size': getDeviceSize === 'sm',
-                        'md-device-size': getDeviceSize === 'md',
-                        'lg-device-size': getDeviceSize === 'lg',
-                        'xl-device-size': getDeviceSize === 'xl',
-                    }"
-                >
-                    <canvas v-for="(canvas, canvasIndex) in canvases"
-                        is="Canvas"
-                        :key="canvasIndex"
-                        :canvasIndex="canvasIndex"
-                        @click.native.stop="selectElement(canvasIndex)"
-                        class="selectable-canvas"
-                        v-show="canvas.visible"
-                    ></canvas>
-                </div>
-
-                <rewrite-footer></rewrite-footer>
-            </div>
-
-            <div class="fixed-footer">
+            <div id="sidebar">
                 <element-styles-panel></element-styles-panel>
 
                 <minimap></minimap>
@@ -68,26 +24,68 @@
                 <color-picker-panel></color-picker-panel>
             </div>
 
-            <!-- Modal Windows -->
-            <menu-modal></menu-modal>
+            <div id="rewrite-article-container">
+                <!-- Main Content Area -->
+                <div id="rewrite-content-area">
+                    <notification></notification>
 
-            <add-component-modal></add-component-modal>
+                    <!-- Article Name -->
+                    <div
+                        class="article-name-container"
+                        :class="{
+                            'sm-device-size': getDeviceSize === 'sm',
+                            'md-device-size': getDeviceSize === 'md',
+                            'lg-device-size': getDeviceSize === 'lg',
+                            'xl-device-size': getDeviceSize === 'xl',
+                        }"
+                    >
+                        <article-title></article-title>
+                    </div>
 
-            <edit-text-modal></edit-text-modal>
+                    <!-- Main Workspace -->
+                    <div ref="rewriteArticle"
+                        class="rewrite-workspace"
+                        :class="{
+                            'sm-device-size': getDeviceSize === 'sm',
+                            'md-device-size': getDeviceSize === 'md',
+                            'lg-device-size': getDeviceSize === 'lg',
+                            'xl-device-size': getDeviceSize === 'xl',
+                        }"
+                    >
+                        <canvas v-for="(canvas, canvasIndex) in canvases"
+                            is="Canvas"
+                            :key="canvasIndex"
+                            :canvasIndex="canvasIndex"
+                            @click.native.stop="selectElement(canvasIndex)"
+                            class="selectable-canvas"
+                            v-show="canvas.visible"
+                        ></canvas>
+                    </div>
 
-            <load-article-modal></load-article-modal>
+                    <rewrite-footer></rewrite-footer>
+                </div>
 
-            <my-images-modal></my-images-modal>
+                <!-- Modal Windows -->
+                <menu-modal></menu-modal>
 
-            <image-gallery-modal></image-gallery-modal>
+                <add-component-modal></add-component-modal>
 
-            <export-article-modal ref="exportArticleModal"></export-article-modal>
+                <edit-text-modal></edit-text-modal>
 
-            <recipe-ingredients-modal></recipe-ingredients-modal>
+                <load-article-modal></load-article-modal>
 
-            <background-gradient-modal></background-gradient-modal>
+                <my-images-modal></my-images-modal>
 
-            <font-select-modal></font-select-modal>
+                <image-gallery-modal></image-gallery-modal>
+
+                <export-article-modal ref="exportArticleModal"></export-article-modal>
+
+                <recipe-ingredients-modal></recipe-ingredients-modal>
+
+                <background-gradient-modal></background-gradient-modal>
+
+                <font-select-modal></font-select-modal>
+            </div>
         </div>
     </div>
 </template>
@@ -119,7 +117,7 @@ import BackgroundGradientModal from './components/dialogs/BackgroundGradientModa
 import FontSelectModal         from './components/dialogs/FontSelectModal';
 
 export default {
-    name: "Shift",
+    name: "Rewrite",
 
     components: {
         KeyBindings,
@@ -152,10 +150,23 @@ export default {
 <style scoped>
 #top-bar {
     position: fixed;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     padding: 8px 10px;
     background: #222;
     z-index: 100;
+}
+
+#rewrite-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 325px 1fr;
+}
+
+#sidebar {
+    background: #111;
+    margin-top: 55px;
 }
 
 .article-name-container {
@@ -163,9 +174,10 @@ export default {
     padding-top: 75px;
 }
 
-#rewrite-container {
+#rewrite-article-container {
     display: flex;
     align-items: stretch;
+    padding: 25px;
 }
 
 #rewrite-content-area {
@@ -179,13 +191,6 @@ export default {
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
     border-radius: 10px;
-}
-
-.fixed-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
 }
 
 .sm-device-size {

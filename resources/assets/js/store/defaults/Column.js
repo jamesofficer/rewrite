@@ -50,7 +50,7 @@ export default {
     visible: true,
     identifier: undefined,
 
-    components: [defaultHeading, defaultParagraph, defaultBlockQuote],
+    components: [defaultHeading, defaultParagraph],
 
     sm: column,
     md: column,

@@ -1,5 +1,5 @@
 <template>
-    <portal to="sidebar">
+    <portal to="topbar">
         <slot></slot>
     </portal>
 </template>

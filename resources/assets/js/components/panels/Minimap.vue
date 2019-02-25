@@ -1,100 +1,96 @@
 <template>
-    <floating-panel style="bottom: 5px; right: 5px">
-        <template slot="title">Layout</template>
+    <div>
+        <!-- Loop Canvases -->
+        <ul
+            v-for="(canvas, canvasIndex) in canvases"
+            :key="canvasIndex"
+            class="minimap-ul"
+        >
+            <li
+                class="minimap-element-row"
+                :class="{ 'element-selected' : canvas.selected }"
+                @click="selectElement(canvasIndex)"
+            >
+                <span class="collapse-icon-container">
+                    <icon name="caret-down"></icon>
+                </span>
 
-        <template slot="content">
-            <!-- Loop Canvases -->
+                Canvas {{ canvasIndex + 1 }}
+
+                <span class="eye-icon-container">
+                    <icon :name="canvas.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex)"></icon>
+                </span>
+            </li>
+
+
+            <!-- Loop Rows -->
             <ul
-                v-for="(canvas, canvasIndex) in canvases"
-                :key="canvasIndex"
+                v-for="(row, rowIndex) in canvas.rows"
+                :key="rowIndex"
                 class="minimap-ul"
             >
                 <li
-                    class="minimap-element-row"
-                    :class="{ 'element-selected' : canvas.selected }"
-                    @click="selectElement(canvasIndex)"
+                    class="minimap-element-row add-left-border pad-row"
+                    :class="{ 'element-selected' : row.selected }"
+                    @click="selectElement(canvasIndex, rowIndex)"
                 >
                     <span class="collapse-icon-container">
                         <icon name="caret-down"></icon>
                     </span>
 
-                    Canvas {{ canvasIndex + 1 }}
+                    Row {{ rowIndex + 1 }}
 
                     <span class="eye-icon-container">
-                        <icon :name="canvas.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex)"></icon>
+                        <icon :name="row.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex)"></icon>
                     </span>
                 </li>
 
 
-                <!-- Loop Rows -->
+                <!-- Loop Columns -->
                 <ul
-                    v-for="(row, rowIndex) in canvas.rows"
-                    :key="rowIndex"
+                    v-for="(column, columnIndex) in row.columns"
+                    :key="columnIndex"
                     class="minimap-ul"
                 >
                     <li
-                        class="minimap-element-row add-left-border pad-row"
-                        :class="{ 'element-selected' : row.selected }"
-                        @click="selectElement(canvasIndex, rowIndex)"
+                        class="minimap-element-row add-left-border pad-column"
+                        :class="{ 'element-selected' : column.selected }"
+                        @click="selectElement(canvasIndex, rowIndex, columnIndex)"
                     >
                         <span class="collapse-icon-container">
                             <icon name="caret-down"></icon>
                         </span>
 
-                        Row {{ rowIndex + 1 }}
+                        Column {{ columnIndex + 1 }}
 
                         <span class="eye-icon-container">
-                            <icon :name="row.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex)"></icon>
+                            <icon :name="column.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex)"></icon>
                         </span>
                     </li>
 
 
-                    <!-- Loop Columns -->
+                    <!-- Loop Components -->
                     <ul
-                        v-for="(column, columnIndex) in row.columns"
-                        :key="columnIndex"
+                        v-for="(component, componentIndex) in column.components"
+                        :key="componentIndex"
                         class="minimap-ul"
                     >
                         <li
-                            class="minimap-element-row add-left-border pad-column"
-                            :class="{ 'element-selected' : column.selected }"
-                            @click="selectElement(canvasIndex, rowIndex, columnIndex)"
+                            class="minimap-element-row add-left-border pad-component"
+                            :class="{ 'element-selected' : component.selected }"
+                            @click="selectElement(canvasIndex, rowIndex, columnIndex, componentIndex)"
                         >
-                            <span class="collapse-icon-container">
-                                <icon name="caret-down"></icon>
-                            </span>
-
-                            Column {{ columnIndex + 1 }}
+                            {{ component.type }}
 
                             <span class="eye-icon-container">
-                                <icon :name="column.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex)"></icon>
+                                <icon :name="component.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex, componentIndex)"></icon>
                             </span>
                         </li>
-
-
-                        <!-- Loop Components -->
-                        <ul
-                            v-for="(component, componentIndex) in column.components"
-                            :key="componentIndex"
-                            class="minimap-ul"
-                        >
-                            <li
-                                class="minimap-element-row add-left-border pad-component"
-                                :class="{ 'element-selected' : component.selected }"
-                                @click="selectElement(canvasIndex, rowIndex, columnIndex, componentIndex)"
-                            >
-                                {{ component.type }}
-
-                                <span class="eye-icon-container">
-                                    <icon :name="component.visible ? 'eye' : 'eye-slash'" @click.native="toggleElementVisibility(canvasIndex, rowIndex, columnIndex, componentIndex)"></icon>
-                                </span>
-                            </li>
-                        </ul>
                     </ul>
                 </ul>
             </ul>
-        </template>
-    </floating-panel>
+        </ul>
+    </div>
 </template>
 
 <script>

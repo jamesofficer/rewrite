@@ -3,41 +3,39 @@
         <topbar-button icon="font" tooltip="Text Formatting" @click.native="setSelectedElementStyle()" :pressed="elementStyleIsSelected()"></topbar-button>
 
         <portal to="element-styles-panel" v-if="elementStyleIsSelected()">
-            <div style="width: 350px;">
-                <b-form-row class="mb-2">
-                    <b-col>
-                        <font-family></font-family>
-                    </b-col>
+            <b-form-row class="mb-2">
+                <b-col>
+                    <font-family></font-family>
+                </b-col>
 
-                    <b-col>
-                        <text-alignment></text-alignment>
-                    </b-col>
-                </b-form-row>
+                <b-col>
+                    <text-alignment></text-alignment>
+                </b-col>
+            </b-form-row>
 
-                <b-form-row class="mb-2">
-                    <b-col>
-                        <font-size></font-size>
-                    </b-col>
+            <b-form-row class="mb-2">
+                <b-col>
+                    <font-size></font-size>
+                </b-col>
 
-                    <b-col>
-                        <font-weight></font-weight>
-                    </b-col>
+                <b-col>
+                    <font-weight></font-weight>
+                </b-col>
 
-                    <b-col>
-                        <line-height></line-height>
-                    </b-col>
-                </b-form-row>
+                <b-col>
+                    <line-height></line-height>
+                </b-col>
+            </b-form-row>
 
-                <b-form-row class="mb-2">
-                    <b-col>
-                        <letter-spacing></letter-spacing>
-                    </b-col>
+            <b-form-row class="mb-2">
+                <b-col>
+                    <letter-spacing></letter-spacing>
+                </b-col>
 
-                    <b-col>
-                        <text-color></text-color>
-                    </b-col>
-                </b-form-row>
-            </div>
+                <b-col>
+                    <text-color></text-color>
+                </b-col>
+            </b-form-row>
         </portal>
     </div>
 </template>

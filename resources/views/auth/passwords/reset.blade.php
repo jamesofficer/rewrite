@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col text-center">
-            <img src="{{ asset('img/shift_logo_white.png') }}" alt="Shift Logo" class="login-page-logo">
+            <img src="{{ asset('img/rewrite_logo_white.png') }}" alt="Rewrite Logo" class="login-page-logo">
         </div>
     </div>
 

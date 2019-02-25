@@ -1,5 +1,5 @@
 <template>
-    <div class="topbar-button">
+    <div class="topbar-button" style="width: 50px;">
         <b-button
             :variant="getGlobalStylesStatus ? 'success' : 'danger'"
             v-b-tooltip.hover.bottom
