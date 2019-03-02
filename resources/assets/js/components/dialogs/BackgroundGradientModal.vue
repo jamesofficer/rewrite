@@ -1,6 +1,13 @@
 <template>
-    <b-modal @hidden="setComponentBackgroundGradient" :id="'backgroundGradientModal'" title="Background Gradient" size="lg" ref="backgroundGradientModal" hide-footer lazy>
-
+    <b-modal
+        @hidden="setComponentBackgroundGradient"
+        :id="'backgroundGradientModal'"
+        title="Background Gradient"
+        size="lg"
+        ref="backgroundGradientModal"
+        hide-footer
+        lazy
+    >
         <b-row>
             <b-col>
                 <h6>Gradient Style</h6>
@@ -17,10 +24,12 @@
 
         <b-row>
             <!-- Where our gradient preview is displayed -->
-            <b-col :style="{
+            <b-col
+                :style="{
                 height: '100px',
                 background: getGradientString,
-            }"></b-col>
+            }"
+            ></b-col>
         </b-row>
 
         <hr>
@@ -33,9 +42,14 @@
                     </b-col>
 
                     <b-col>
-                        <b-btn variant="outline-danger" size="sm" class="float-right" @click="deleteColor(index)" :disabled="colors.length <= 2" style="margin-right: 10px">
-                            Delete
-                        </b-btn>
+                        <b-btn
+                            variant="danger"
+                            size="sm"
+                            class="float-right"
+                            @click="deleteColor(index)"
+                            :disabled="colors.length <= 2"
+                            style="margin-right: 10px"
+                        >Delete</b-btn>
                     </b-col>
                 </b-row>
 
@@ -49,17 +63,18 @@
 
         <b-row>
             <b-col>
-                <b-btn variant="success" @click="addColor" :disabled="colors.length === 6">
-                    Add Another Color
-                </b-btn>
+                <b-btn
+                    variant="success"
+                    @click="addColor"
+                    :disabled="colors.length === 6"
+                >Add Another Color</b-btn>
             </b-col>
         </b-row>
-
     </b-modal>
 </template>
 
 <script>
-import { Chrome as ColorPicker } from 'vue-color'
+import { Chrome as ColorPicker } from "vue-color";
 
 export default {
     name: "BackgroundGradientModal",
@@ -70,15 +85,20 @@ export default {
 
     computed: {
         getGradientString() {
-            let selectedGradientString =  this.gradientStyle === 'linear' ? 'linear-gradient(to ' + this.gradientAngle + ', ' : 'radial-gradient(';
+            let selectedGradientString =
+                this.gradientStyle === "linear"
+                    ? "linear-gradient(to " + this.gradientAngle + ", "
+                    : "radial-gradient(";
 
             // Gradient Syntax is fussy, need to make sure we remove that trailing
             for (let i = 0; i < this.colors.length; i++) {
-                i + 1 < this.colors.length ? selectedGradientString += this.colors[i].hex + ', ' : selectedGradientString += this.colors[i].hex;
+                i + 1 < this.colors.length
+                    ? (selectedGradientString += this.colors[i].hex + ", ")
+                    : (selectedGradientString += this.colors[i].hex);
             }
 
-            return selectedGradientString + ')';
-        }
+            return selectedGradientString + ")";
+        },
     },
 
     data() {
@@ -86,36 +106,39 @@ export default {
             // Vue color expands these to larger objects, but initially we only need the hex code.
             colors: [
                 {
-                    hex: '#ffaaaa',
+                    hex: "#ffaaaa",
                 },
                 {
-                    hex: '#aaaaff',
+                    hex: "#aaaaff",
                 },
             ],
-            
-            gradientStyle: 'linear',
-            gradientStyles: [
-                'linear', 'radial',
-            ],
-            gradientAngle: 'left',
+
+            gradientStyle: "linear",
+            gradientStyles: ["linear", "radial"],
+            gradientAngle: "left",
             gradientAngles: [
-                'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right'
+                "top",
+                "bottom",
+                "left",
+                "right",
+                "top left",
+                "top right",
+                "bottom left",
+                "bottom right",
             ],
-        }
+        };
     },
 
     methods: {
         addColor() {
             if (this.colors.length < 6) {
-                this.colors.push(
-                    {
-                        hex: '#194d33',
-                        hsl: { h: 150, s: 0.5, l: 0.2, a: 1 },
-                        hsv: { h: 150, s: 0.66, v: 0.30, a: 1 },
-                        rgba: { r: 25, g: 77, b: 51, a: 1 },
-                        a: 1
-                    }
-                );
+                this.colors.push({
+                    hex: "#194d33",
+                    hsl: { h: 150, s: 0.5, l: 0.2, a: 1 },
+                    hsv: { h: 150, s: 0.66, v: 0.3, a: 1 },
+                    rgba: { r: 25, g: 77, b: 51, a: 1 },
+                    a: 1,
+                });
             }
         },
 
@@ -126,8 +149,11 @@ export default {
         },
 
         setComponentBackgroundGradient() {
-            this.$store.commit('setComponentProperty', { property: 'backgroundImage', value: this.getGradientString });
-        }
+            this.$store.commit("setComponentProperty", {
+                property: "backgroundImage",
+                value: this.getGradientString,
+            });
+        },
     },
-}
+};
 </script>

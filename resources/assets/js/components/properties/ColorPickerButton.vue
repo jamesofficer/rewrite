@@ -53,6 +53,7 @@ export default {
 <style>
 .color-picker-button {
     cursor: pointer;
+    height: 30px;
 }
 </style>
 

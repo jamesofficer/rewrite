@@ -7,7 +7,9 @@
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="paddingTop"
                         :min="0"
                         :max="500"
@@ -18,7 +20,9 @@
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="paddingBottom"
                         :min="0"
                         :max="500"
@@ -29,7 +33,9 @@
                 <b-col>
                     <label class="sub-label">Left</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="paddingLeft"
                         :min="0"
                         :max="500"
@@ -40,7 +46,9 @@
                 <b-col>
                     <label class="sub-label">Right</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="paddingRight"
                         :min="0"
                         :max="500"

@@ -7,7 +7,9 @@
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="marginTop"
                         :min="0"
                         :max="500"
@@ -18,7 +20,9 @@
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="marginBottom"
                         :min="0"
                         :max="500"
@@ -29,7 +33,9 @@
                 <b-col>
                     <label class="sub-label">Left</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="marginLeft"
                         :min="0"
                         :max="500"
@@ -40,7 +46,9 @@
                 <b-col>
                     <label class="sub-label">Right</label>
                     <b-form-input
+                        class="sidebar-text-input"
                         type="number"
+                        size="sm"
                         v-model.number="marginRight"
                         :min="0"
                         :max="500"
@@ -53,8 +61,8 @@
 </template>
 
 <script>
-import TopbarButton from '../topbar/TopbarButton';
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
+import TopbarButton from "../topbar/TopbarButton";
+import NoEmptyValues from "../mixins/EnsureNoEmptyValues";
 
 export default {
     name: "Margin",
@@ -65,7 +73,7 @@ export default {
 
     computed: {
         elementStyleIsSelected() {
-            return this.$store.getters.selectedElementStyle === 'margin';
+            return this.$store.getters.selectedElementStyle === "margin";
         },
 
         marginTop: {
@@ -73,12 +81,12 @@ export default {
                 return this.$store.getters.getSelectedElement.margin.top;
             },
             set(amount) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'margin',
-                    subproperty: 'top',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "margin",
+                    subproperty: "top",
                     value: amount,
                 });
-            }
+            },
         },
 
         marginRight: {
@@ -86,12 +94,12 @@ export default {
                 return this.$store.getters.getSelectedElement.margin.right;
             },
             set(amount) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'margin',
-                    subproperty: 'right',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "margin",
+                    subproperty: "right",
                     value: amount,
                 });
-            }
+            },
         },
 
         marginBottom: {
@@ -99,12 +107,12 @@ export default {
                 return this.$store.getters.getSelectedElement.margin.bottom;
             },
             set(amount) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'margin',
-                    subproperty: 'bottom',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "margin",
+                    subproperty: "bottom",
                     value: amount,
                 });
-            }
+            },
         },
 
         marginLeft: {
@@ -112,20 +120,20 @@ export default {
                 return this.$store.getters.getSelectedElement.margin.left;
             },
             set(amount) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'margin',
-                    subproperty: 'left',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "margin",
+                    subproperty: "left",
                     value: amount,
                 });
-            }
+            },
         },
     },
 
     methods: {
         setSelectedElementStyle(elementStyleName) {
-            this.$store.commit('setSelectedElementStyle', elementStyleName);
-        }
-    }
-}
+            this.$store.commit("setSelectedElementStyle", elementStyleName);
+        },
+    },
+};
 </script>
 

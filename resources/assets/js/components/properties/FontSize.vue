@@ -3,7 +3,9 @@
         <label class="style-panel-label">Font Size</label>
 
         <b-form-input
+            class="sidebar-text-input"
             type="number"
+            size="sm"
             v-model.number="fontSize"
             @focusout.native="ensureValueIsNotEmpty('fontSize', 12)"
             :min="10"

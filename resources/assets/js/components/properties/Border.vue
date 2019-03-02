@@ -7,6 +7,8 @@
                 <b-col>
                     <label class="sub-label">Top</label>
                     <b-form-input
+                        class="sidebar-text-input"
+                        size="sm"
                         type="number"
                         v-model.number="borderTop"
                         :min="0"
@@ -18,6 +20,8 @@
                 <b-col>
                     <label class="sub-label">Bottom</label>
                     <b-form-input
+                        class="sidebar-text-input"
+                        size="sm"
                         type="number"
                         v-model.number="borderBottom"
                         :min="0"
@@ -29,6 +33,8 @@
                 <b-col>
                     <label class="sub-label">Left</label>
                     <b-form-input
+                        class="sidebar-text-input"
+                        size="sm"
                         type="number"
                         v-model.number="borderLeft"
                         :min="0"
@@ -40,6 +46,8 @@
                 <b-col>
                     <label class="sub-label">Right</label>
                     <b-form-input
+                        class="sidebar-text-input"
+                        size="sm"
                         type="number"
                         v-model.number="borderRight"
                         :min="0"
@@ -53,18 +61,33 @@
         <b-form-row class="mb-2">
             <b-col>
                 <label class="style-panel-label">Radius</label>
-                <b-form-input type="number" v-model.number="borderRadius" :min="0" :max="500"></b-form-input>
+                <b-form-input
+                    class="sidebar-text-input"
+                    size="sm"
+                    type="number"
+                    v-model.number="borderRadius"
+                    :min="0"
+                    :max="500"
+                ></b-form-input>
             </b-col>
 
             <b-col>
                 <p class="style-panel-label">Style</p>
-                <b-form-select v-model="borderStyle" :options="borderStyles"></b-form-select>
+                <b-form-select
+                    class="sidebar-text-input"
+                    size="sm"
+                    v-model="borderStyle"
+                    :options="borderStyles"
+                ></b-form-select>
             </b-col>
 
             <b-col>
                 <label class="style-panel-label">Colour</label>
-                <color-picker-button propertyName="border" subPropertyName="color"></color-picker-button>
-                <!-- <color-picker :value="colors" @input="setColor" class="color-picker"></color-picker> -->
+                <color-picker-button
+                    class="sidebar-text-input"
+                    propertyName="border"
+                    subPropertyName="color"
+                ></color-picker-button>
             </b-col>
         </b-form-row>
     </div>

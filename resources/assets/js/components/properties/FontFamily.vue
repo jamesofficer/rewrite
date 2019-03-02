@@ -4,7 +4,8 @@
 
         <b-button
             class="w-100"
-            variant="outline-primary"
+            variant="secondary"
+            size="sm"
             v-b-modal.fontSelectModal
         >
             {{ selectedFont }}

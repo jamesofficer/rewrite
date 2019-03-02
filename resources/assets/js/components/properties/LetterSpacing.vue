@@ -3,7 +3,9 @@
         <label class="style-panel-label">Letter Spacing</label>
 
         <b-form-input
+            class="sidebar-text-input"
             type="number"
+            size="sm"
             v-model="letterSpacing"
             @focusout.native="ensureValueIsNotEmpty('letterSpacing')"
             :min="-5"
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
+import NoEmptyValues from "../mixins/EnsureNoEmptyValues";
 
 export default {
     name: "LineHeight",
@@ -23,13 +25,16 @@ export default {
 
     computed: {
         letterSpacing: {
-            get () {
+            get() {
                 return this.$store.getters.getSelectedElement.letterSpacing;
             },
-            set (spacing) {
-                this.$store.commit('setComponentProperty', { property: 'letterSpacing', value: spacing });
-            }
+            set(spacing) {
+                this.$store.commit("setComponentProperty", {
+                    property: "letterSpacing",
+                    value: spacing,
+                });
+            },
         },
     },
-}
+};
 </script>

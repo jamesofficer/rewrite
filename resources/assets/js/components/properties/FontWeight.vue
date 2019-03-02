@@ -3,6 +3,8 @@
         <label class="style-panel-label">Font Weight</label>
 
         <b-form-select
+            class="sidebar-text-input"
+            size="sm"
             v-model="fontWeight"
             :options="fontWeights"
         ></b-form-select>

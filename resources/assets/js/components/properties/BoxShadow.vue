@@ -7,6 +7,8 @@
                 <label class="sub-label">Offset X</label>
                 <b-form-input
                     type="number"
+                    class="sidebar-text-input"
+                    size="sm"
                     v-model.number="offsetX"
                     @focusout.native="ensureValueIsNotEmpty('offsetX')"
                     :min="0"
@@ -18,6 +20,8 @@
                 <label class="sub-label">Offset Y</label>
                 <b-form-input
                     type="number"
+                    class="sidebar-text-input"
+                    size="sm"
                     v-model.number="offsetY"
                     @focusout.native="ensureValueIsNotEmpty('offsetY')"
                     :min="0"
@@ -29,6 +33,8 @@
                 <label class="sub-label">Blur</label>
                 <b-form-input
                     type="number"
+                    class="sidebar-text-input"
+                    size="sm"
                     v-model.number="blurRadius"
                     @focusout.native="ensureValueIsNotEmpty('blurRadius')"
                     :min="0"

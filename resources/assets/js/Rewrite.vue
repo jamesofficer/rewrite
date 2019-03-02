@@ -1,16 +1,18 @@
 <template>
-    <div>
+    <div style="height: 100%">
         <!-- TopBar -->
         <div id="top-bar">
-            <div id="top-bar-left" style="display: inherit">
+            <div id="top-bar-left">
                 <global-styles-switch></global-styles-switch>
                 
                 <portal-target name="topbar"></portal-target>
             </div>
 
-            <div id="top-bar-right">
+            <div id="top-bar-center">
                 <device-size-controls></device-size-controls>
+            </div>
 
+            <div id="top-bar-right">
                 <menu-button></menu-button>
             </div>
         </div>
@@ -157,12 +159,25 @@ export default {
 <style scoped>
 #top-bar {
     position: fixed;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    align-items: center;
     width: 100%;
     padding: 8px 10px;
-    background: #222;
+    background: #333;
     z-index: 100;
+}
+
+#top-bar-right {
+    display: inline;
+}
+
+#top-bar-center {
+    justify-self: center;
+}
+
+#top-bar-right {
+    justify-self: end;
 }
 
 #rewrite-container {
@@ -172,8 +187,11 @@ export default {
 }
 
 #sidebar {
-    background: #111;
-    margin-top: 55px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 2fr;
+    background: #333;
+    margin-top: 56px;
 }
 
 .article-name-container {

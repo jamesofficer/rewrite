@@ -3,7 +3,9 @@
         <label class="style-panel-label">Line Height</label>
 
         <b-form-input
+            class="sidebar-text-input"
             type="number"
+            size="sm"
             v-model="lineHeight"
             @focusout.native="ensureValueIsNotEmpty('lineHeight', 1)"
             :min="0"
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import NoEmptyValues from '../mixins/EnsureNoEmptyValues';
+import NoEmptyValues from "../mixins/EnsureNoEmptyValues";
 
 export default {
     name: "LineHeight",
@@ -23,13 +25,16 @@ export default {
 
     computed: {
         lineHeight: {
-            get () {
+            get() {
                 return this.$store.getters.getSelectedElement.lineHeight;
             },
-            set (height) {
-                this.$store.commit('setComponentProperty', { property: 'lineHeight', value: height });
-            }
+            set(height) {
+                this.$store.commit("setComponentProperty", {
+                    property: "lineHeight",
+                    value: height,
+                });
+            },
         },
     },
-}
+};
 </script>

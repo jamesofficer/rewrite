@@ -4,10 +4,12 @@
 
         <b-form-input
             type="number"
+            size="sm"
             v-model.number="width"
             @focusout.native="ensureValueIsNotEmpty('width', 100)"
             :min="1"
             :max="100"
+            class="sidebar-text-input"
         ></b-form-input>
     </div>
 </template>
@@ -32,7 +34,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

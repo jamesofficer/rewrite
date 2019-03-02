@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="minimap-heading">
+            <h6>Minimap</h6>
+        </div>
+
         <!-- Loop Canvases -->
         <ul
             v-for="(canvas, canvasIndex) in canvases"
@@ -30,7 +34,7 @@
                 class="minimap-ul"
             >
                 <li
-                    class="minimap-element-row add-left-border pad-row"
+                    class="minimap-element-row pad-row"
                     :class="{ 'element-selected' : row.selected }"
                     @click="selectElement(canvasIndex, rowIndex)"
                 >
@@ -53,7 +57,7 @@
                     class="minimap-ul"
                 >
                     <li
-                        class="minimap-element-row add-left-border pad-column"
+                        class="minimap-element-row pad-column"
                         :class="{ 'element-selected' : column.selected }"
                         @click="selectElement(canvasIndex, rowIndex, columnIndex)"
                     >
@@ -76,7 +80,7 @@
                         class="minimap-ul"
                     >
                         <li
-                            class="minimap-element-row add-left-border pad-component"
+                            class="minimap-element-row pad-component"
                             :class="{ 'element-selected' : component.selected }"
                             @click="selectElement(canvasIndex, rowIndex, columnIndex, componentIndex)"
                         >
@@ -135,7 +139,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.minimap-heading {
+    padding: 10px 5px;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+    background: #222;
+
+    h6 {
+        color: #ccc;
+        margin: 0;
+    }
+}
+
 ul {
     margin: 0;
 }
@@ -157,8 +173,9 @@ ul {
 .minimap-element-row {
     width: 100%;
     padding: 2px 5px;
-    border-bottom: 1px solid #dddddd;
-    background: rgb(250, 250, 250);
+    border-bottom: 1px solid #888;
+    background: #333;
+    color: white;
 }
 
 .minimap-element-row:nth-child(even) {
@@ -167,11 +184,7 @@ ul {
 
 .minimap-element-row:hover {
     cursor: pointer;
-    background: #ccc;
-}
-
-.add-left-border {
-    border-left: 1px solid #ddd;
+    background: #555;
 }
 
 .element-selected {

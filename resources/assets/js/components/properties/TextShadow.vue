@@ -7,6 +7,8 @@
                 <label class="sub-label">Offset X</label>
                 <b-form-input
                     type="number"
+                    size="sm"
+                    class="sidebar-text-input"
                     v-model.number="offsetX"
                     :min="0"
                     :max="100"
@@ -18,6 +20,8 @@
                 <label class="sub-label">Offset Y</label>
                 <b-form-input
                     type="number"
+                    size="sm"
+                    class="sidebar-text-input"
                     v-model.number="offsetY"
                     :min="0"
                     :max="100"
@@ -29,6 +33,8 @@
                 <label class="sub-label">Blur</label>
                 <b-form-input
                     type="number"
+                    size="sm"
+                    class="sidebar-text-input"
                     v-model.number="blurRadius"
                     :min="0"
                     :max="100"
@@ -47,9 +53,9 @@
 </template>
 
 <script>
-import TopbarButton    from '../topbar/TopbarButton';
-import NoEmptyValues     from '../mixins/EnsureNoEmptyValues';
-import ColorPickerButton from './ColorPickerButton';
+import TopbarButton from "../topbar/TopbarButton";
+import NoEmptyValues from "../mixins/EnsureNoEmptyValues";
+import ColorPickerButton from "./ColorPickerButton";
 
 export default {
     name: "TextShadow",
@@ -61,43 +67,46 @@ export default {
     computed: {
         offsetX: {
             get() {
-                return this.$store.getters.getSelectedElement.textShadow.offsetX;
+                return this.$store.getters.getSelectedElement.textShadow
+                    .offsetX;
             },
             set(offset) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'textShadow',
-                    subproperty: 'offsetX',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "textShadow",
+                    subproperty: "offsetX",
                     value: offset,
                 });
-            }
+            },
         },
 
         offsetY: {
             get() {
-                return this.$store.getters.getSelectedElement.textShadow.offsetY;
+                return this.$store.getters.getSelectedElement.textShadow
+                    .offsetY;
             },
             set(offset) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'textShadow',
-                    subproperty: 'offsetY',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "textShadow",
+                    subproperty: "offsetY",
                     value: offset,
                 });
-            }
+            },
         },
 
         blurRadius: {
             get() {
-                return this.$store.getters.getSelectedElement.textShadow.blurRadius;
+                return this.$store.getters.getSelectedElement.textShadow
+                    .blurRadius;
             },
             set(radius) {
-                this.$store.commit('setComponentSubProperty', {
-                    property: 'textShadow',
-                    subproperty: 'blurRadius',
+                this.$store.commit("setComponentSubProperty", {
+                    property: "textShadow",
+                    subproperty: "blurRadius",
                     value: radius,
                 });
-            }
+            },
         },
     },
-}
+};
 </script>
 

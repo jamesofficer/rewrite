@@ -1,10 +1,16 @@
 <template>
-    <div style="padding: 10px">
-        <div v-if="selectedElementStyleName === ''">
-            <p>No style selected.</p>
+    <div>
+        <div class="minimap-heading">
+            <h6>Styles</h6>
         </div>
 
-        <portal-target v-else name="element-styles-panel"></portal-target>
+        <div v-if="selectedElementStyleName === ''">
+            <p style="color: white; padding: 10px;">No style selected.</p>
+        </div>
+
+        <div v-else style="padding: 10px">
+            <portal-target name="element-styles-panel"></portal-target>
+        </div>
     </div>
 </template>
 
@@ -31,10 +37,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.minimap-heading {
+    padding: 10px 5px;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+    background: #222;
+
+    h6 {
+        color: #ccc;
+        margin: 0;
+    }
+}
+
 .element-controls-panel {
     background: white;
     overflow: hidden;
 }
 </style>
-
