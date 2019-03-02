@@ -4,7 +4,7 @@
         <div id="top-bar">
             <div id="top-bar-left">
                 <global-styles-switch></global-styles-switch>
-                
+
                 <portal-target name="topbar"></portal-target>
             </div>
 
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div id="rewrite-container">
+        <div id="sidebar-container">
             <div id="sidebar">
                 <element-styles-panel></element-styles-panel>
 
@@ -25,14 +25,15 @@
 
                 <color-picker-panel></color-picker-panel>
             </div>
+        </div>
 
+        <div id="rewrite-container">
             <div id="rewrite-article-container">
                 <!-- Main Content Area -->
                 <div id="rewrite-content-area">
-                    <notification></notification>
-
+                    <!-- <notification></notification> -->
                     <!-- Article Name -->
-                    <div
+                    <!-- <div
                         class="article-name-container"
                         :class="{
                             'sm-device-size': getDeviceSize === 'sm',
@@ -42,11 +43,11 @@
                         }"
                     >
                         <article-title></article-title>
-                    </div>
-
+                    </div>-->
                     <!-- Main Workspace -->
-                    <div ref="rewriteArticle"
-                        class="rewrite-workspace"
+                    <div
+                        ref="rewriteArticle"
+                        id="rewrite-workspace"
                         :class="{
                             'sm-device-size': getDeviceSize === 'sm',
                             'md-device-size': getDeviceSize === 'md',
@@ -54,7 +55,8 @@
                             'xl-device-size': getDeviceSize === 'xl',
                         }"
                     >
-                        <canvas v-for="(canvas, canvasIndex) in canvases"
+                        <canvas
+                            v-for="(canvas, canvasIndex) in canvases"
                             is="Canvas"
                             :key="canvasIndex"
                             :canvasIndex="canvasIndex"
@@ -93,43 +95,60 @@
 </template>
 
 <script>
-import KeyBindings             from './components/mixins/KeyBindings.js';
+import KeyBindings from "./components/mixins/KeyBindings.js";
 
-import GridCreatorButton       from './components/topbar/GridCreatorButton';
-import MenuButton              from './components/rewrite/MenuButton';
-import GlobalStylesSwitch      from './components/rewrite/GlobalStylesSwitch';
-import DeviceSizeControls      from './components/rewrite/DeviceSizeControls';
-import ArticleTitle            from './components/rewrite/ArticleTitle';
-import Notification            from './components/rewrite/Notification';
-import RewriteFooter           from './components/rewrite/RewriteFooter';
-import Canvas                  from './components/rewrite/Canvas';
+import GridCreatorButton from "./components/topbar/GridCreatorButton";
+import MenuButton from "./components/rewrite/MenuButton";
+import GlobalStylesSwitch from "./components/rewrite/GlobalStylesSwitch";
+import DeviceSizeControls from "./components/rewrite/DeviceSizeControls";
+import ArticleTitle from "./components/rewrite/ArticleTitle";
+import Notification from "./components/rewrite/Notification";
+import RewriteFooter from "./components/rewrite/RewriteFooter";
+import Canvas from "./components/rewrite/Canvas";
 
-import Minimap                 from './components/panels/Minimap';
-import ColorPickerPanel        from './components/panels/ColorPickerPanel';
-import ElementStylesPanel      from './components/panels/ElementStylesPanel';
+import Minimap from "./components/panels/Minimap";
+import ColorPickerPanel from "./components/panels/ColorPickerPanel";
+import ElementStylesPanel from "./components/panels/ElementStylesPanel";
 
-import GridCreator             from './components/dialogs/GridCreator';
-import MenuModal               from './components/dialogs/MenuModal';
-import AddComponentModal       from './components/dialogs/AddComponentModal';
-import EditTextModal           from './components/dialogs/EditTextModal';
-import LoadArticleModal        from './components/dialogs/LoadArticleModal';
-import MyImagesModal           from './components/dialogs/MyImagesModal';
-import ImageGalleryModal       from './components/dialogs/ImageGalleryModal';
-import ExportArticleModal      from './components/dialogs/ExportArticleModal';
-import RecipeIngredientsModal  from './components/dialogs/RecipeIngredientsModal';
-import BackgroundGradientModal from './components/dialogs/BackgroundGradientModal';
-import FontSelectModal         from './components/dialogs/FontSelectModal';
+import GridCreator from "./components/dialogs/GridCreator";
+import MenuModal from "./components/dialogs/MenuModal";
+import AddComponentModal from "./components/dialogs/AddComponentModal";
+import EditTextModal from "./components/dialogs/EditTextModal";
+import LoadArticleModal from "./components/dialogs/LoadArticleModal";
+import MyImagesModal from "./components/dialogs/MyImagesModal";
+import ImageGalleryModal from "./components/dialogs/ImageGalleryModal";
+import ExportArticleModal from "./components/dialogs/ExportArticleModal";
+import RecipeIngredientsModal from "./components/dialogs/RecipeIngredientsModal";
+import BackgroundGradientModal from "./components/dialogs/BackgroundGradientModal";
+import FontSelectModal from "./components/dialogs/FontSelectModal";
 
 export default {
     name: "Rewrite",
 
     components: {
         KeyBindings,
-        GridCreatorButton, MenuButton, RewriteFooter, GlobalStylesSwitch, ArticleTitle,
-        DeviceSizeControls, Minimap, ColorPickerPanel, ElementStylesPanel, Notification,
-        Canvas, GridCreator, AddComponentModal, EditTextModal, MenuModal, LoadArticleModal,
-        MyImagesModal, ImageGalleryModal, ExportArticleModal, RecipeIngredientsModal,
-        BackgroundGradientModal, FontSelectModal
+        GridCreatorButton,
+        MenuButton,
+        RewriteFooter,
+        GlobalStylesSwitch,
+        ArticleTitle,
+        DeviceSizeControls,
+        Minimap,
+        ColorPickerPanel,
+        ElementStylesPanel,
+        Notification,
+        Canvas,
+        GridCreator,
+        AddComponentModal,
+        EditTextModal,
+        MenuModal,
+        LoadArticleModal,
+        MyImagesModal,
+        ImageGalleryModal,
+        ExportArticleModal,
+        RecipeIngredientsModal,
+        BackgroundGradientModal,
+        FontSelectModal,
     },
 
     mixins: [KeyBindings],
@@ -141,22 +160,22 @@ export default {
 
         getDeviceSize() {
             return this.$store.getters.deviceSize;
-        }
+        },
     },
 
     methods: {
         selectElement(canvasIndex) {
-            this.$store.commit('selectElement', { canvasIndex: canvasIndex });
+            this.$store.commit("selectElement", { canvasIndex: canvasIndex });
         },
     },
 
     mounted() {
-        this.$root.$emit('bv::show::modal', 'createGridModal');
-    }
+        this.$root.$emit("bv::show::modal", "createGridModal");
+    },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #top-bar {
     position: fixed;
     display: grid;
@@ -181,17 +200,28 @@ export default {
 }
 
 #rewrite-container {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 325px 1fr;
+    position: relative;
+    // left: 325px;
+
+    #rewrite-article-container {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
 }
 
-#sidebar {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 3fr 2fr;
-    background: #333;
-    margin-top: 56px;
+#sidebar-container {
+    position: fixed;
+    width: 325px;
+    z-index: 10;
+
+    #sidebar {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 2fr;
+        background: #333;
+        margin-top: 56px;
+    }
 }
 
 .article-name-container {
@@ -209,13 +239,12 @@ export default {
     width: 100%;
 }
 
-.rewrite-workspace {
+#rewrite-workspace {
     height: fit-content;
-    margin: 0 auto;
+    margin-top: 40px;
     padding: 0;
     box-shadow: 0 0 20px #ccc;
     overflow: hidden;
-    border-radius: 10px;
 }
 
 .sm-device-size {

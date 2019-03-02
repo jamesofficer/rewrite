@@ -15,8 +15,8 @@ export default {
     enableKeyBindings: true,
 
     // The currently selected device size. Can be small, medium, large, or extra-large.
-    deviceSizes: ['sm', 'md', 'lg', 'xl'],
-    deviceSize: 'xl',
+    deviceSizes: ["sm", "md", "lg", "xl"],
+    deviceSize: "md",
 
     // The indexes of the element that is currently selected by the user.
     selected: {
@@ -31,14 +31,12 @@ export default {
     selectedElementStyle: null,
 
     // The content of the workspace. The full list of Canvases and everything within them.
-    canvases: [
-        duplicateObject(defaultCanvas),
-    ],
+    canvases: [duplicateObject(defaultCanvas), duplicateObject(defaultCanvas)],
 
     // The notification dialog box that appears above the article title.
     notification: {
-        message: '',
-        type: 'success',
+        message: "",
+        type: "success",
         dismissSecs: 5,
         dismissCountDown: 0,
     },

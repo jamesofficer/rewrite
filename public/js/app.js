@@ -25898,7 +25898,7 @@ module.exports = function spread(callback) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(150)
+  __webpack_require__(596)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -25943,46 +25943,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(151);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(7)("01ae8cbe", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d15ff2a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Rewrite.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d15ff2a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Rewrite.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(5)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n#top-bar[data-v-7d15ff2a] {\n    position: fixed;\n    display: grid;\n    grid-template-columns: 3fr 1fr 3fr;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    padding: 8px 10px;\n    background: #333;\n    z-index: 100;\n}\n#top-bar-right[data-v-7d15ff2a] {\n    display: inline;\n}\n#top-bar-center[data-v-7d15ff2a] {\n    justify-self: center;\n}\n#top-bar-right[data-v-7d15ff2a] {\n    justify-self: end;\n}\n#rewrite-container[data-v-7d15ff2a] {\n    height: 100%;\n    display: grid;\n    grid-template-columns: 325px 1fr;\n}\n#sidebar[data-v-7d15ff2a] {\n    display: grid;\n    grid-template-columns: 1fr;\n    grid-template-rows: 3fr 2fr;\n    background: #333;\n    margin-top: 56px;\n}\n.article-name-container[data-v-7d15ff2a] {\n    margin: 0 auto;\n    padding-top: 75px;\n}\n#rewrite-article-container[data-v-7d15ff2a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: stretch;\n        -ms-flex-align: stretch;\n            align-items: stretch;\n    padding: 25px;\n}\n#rewrite-content-area[data-v-7d15ff2a] {\n    width: 100%;\n}\n.rewrite-workspace[data-v-7d15ff2a] {\n    height: -webkit-fit-content;\n    height: -moz-fit-content;\n    height: fit-content;\n    margin: 0 auto;\n    padding: 0;\n    -webkit-box-shadow: 0 0 20px #ccc;\n            box-shadow: 0 0 20px #ccc;\n    overflow: hidden;\n    border-radius: 10px;\n}\n.sm-device-size[data-v-7d15ff2a] {\n    width: 576px;\n}\n.md-device-size[data-v-7d15ff2a] {\n    width: 768px;\n}\n.lg-device-size[data-v-7d15ff2a] {\n    width: 992px;\n}\n.xl-device-size[data-v-7d15ff2a] {\n    width: 1200px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 150 */,
+/* 151 */,
 /* 152 */
 /***/ (function(module, exports) {
 
@@ -26160,6 +26122,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -26193,11 +26157,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         KeyBindings: __WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */],
-        GridCreatorButton: __WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton___default.a, MenuButton: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton___default.a, RewriteFooter: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter___default.a, GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch___default.a, ArticleTitle: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle___default.a,
-        DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls___default.a, Minimap: __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default.a, ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default.a, ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default.a, Notification: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification___default.a,
-        Canvas: __WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas___default.a, GridCreator: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator___default.a, AddComponentModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal___default.a, EditTextModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal___default.a, MenuModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal___default.a, LoadArticleModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal___default.a,
-        MyImagesModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal___default.a, ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal___default.a, ExportArticleModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal___default.a, RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal___default.a,
-        BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal___default.a, FontSelectModal: __WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal___default.a
+        GridCreatorButton: __WEBPACK_IMPORTED_MODULE_1__components_topbar_GridCreatorButton___default.a,
+        MenuButton: __WEBPACK_IMPORTED_MODULE_2__components_rewrite_MenuButton___default.a,
+        RewriteFooter: __WEBPACK_IMPORTED_MODULE_7__components_rewrite_RewriteFooter___default.a,
+        GlobalStylesSwitch: __WEBPACK_IMPORTED_MODULE_3__components_rewrite_GlobalStylesSwitch___default.a,
+        ArticleTitle: __WEBPACK_IMPORTED_MODULE_5__components_rewrite_ArticleTitle___default.a,
+        DeviceSizeControls: __WEBPACK_IMPORTED_MODULE_4__components_rewrite_DeviceSizeControls___default.a,
+        Minimap: __WEBPACK_IMPORTED_MODULE_9__components_panels_Minimap___default.a,
+        ColorPickerPanel: __WEBPACK_IMPORTED_MODULE_10__components_panels_ColorPickerPanel___default.a,
+        ElementStylesPanel: __WEBPACK_IMPORTED_MODULE_11__components_panels_ElementStylesPanel___default.a,
+        Notification: __WEBPACK_IMPORTED_MODULE_6__components_rewrite_Notification___default.a,
+        Canvas: __WEBPACK_IMPORTED_MODULE_8__components_rewrite_Canvas___default.a,
+        GridCreator: __WEBPACK_IMPORTED_MODULE_12__components_dialogs_GridCreator___default.a,
+        AddComponentModal: __WEBPACK_IMPORTED_MODULE_14__components_dialogs_AddComponentModal___default.a,
+        EditTextModal: __WEBPACK_IMPORTED_MODULE_15__components_dialogs_EditTextModal___default.a,
+        MenuModal: __WEBPACK_IMPORTED_MODULE_13__components_dialogs_MenuModal___default.a,
+        LoadArticleModal: __WEBPACK_IMPORTED_MODULE_16__components_dialogs_LoadArticleModal___default.a,
+        MyImagesModal: __WEBPACK_IMPORTED_MODULE_17__components_dialogs_MyImagesModal___default.a,
+        ImageGalleryModal: __WEBPACK_IMPORTED_MODULE_18__components_dialogs_ImageGalleryModal___default.a,
+        ExportArticleModal: __WEBPACK_IMPORTED_MODULE_19__components_dialogs_ExportArticleModal___default.a,
+        RecipeIngredientsModal: __WEBPACK_IMPORTED_MODULE_20__components_dialogs_RecipeIngredientsModal___default.a,
+        BackgroundGradientModal: __WEBPACK_IMPORTED_MODULE_21__components_dialogs_BackgroundGradientModal___default.a,
+        FontSelectModal: __WEBPACK_IMPORTED_MODULE_22__components_dialogs_FontSelectModal___default.a
     },
 
     mixins: [__WEBPACK_IMPORTED_MODULE_0__components_mixins_KeyBindings_js__["a" /* default */]],
@@ -26213,12 +26194,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         selectElement: function selectElement(canvasIndex) {
-            this.$store.commit('selectElement', { canvasIndex: canvasIndex });
+            this.$store.commit("selectElement", { canvasIndex: canvasIndex });
         }
     },
 
     mounted: function mounted() {
-        this.$root.$emit('bv::show::modal', 'createGridModal');
+        this.$root.$emit("bv::show::modal", "createGridModal");
     }
 });
 
@@ -32199,6 +32180,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AlignComponents",
@@ -32209,7 +32192,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getSelectedElement.componentAlignment;
             },
             set: function set(alignment) {
-                this.$store.commit('setComponentProperty', { property: 'componentAlignment', value: alignment });
+                this.$store.commit("setComponentProperty", {
+                    property: "componentAlignment",
+                    value: alignment
+                });
             }
         }
     },
@@ -32217,14 +32203,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             alignmentOptions: [{
-                text: 'Top',
-                value: 'start'
+                text: "Top",
+                value: "start"
             }, {
-                text: 'Center',
-                value: 'center'
+                text: "Center",
+                value: "center"
             }, {
-                text: 'Bottom',
-                value: 'end'
+                text: "Bottom",
+                value: "end"
             }]
         };
     }
@@ -32247,7 +32233,8 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("b-form-select", {
-        attrs: { options: _vm.alignmentOptions },
+        staticClass: "sidebar-text-input",
+        attrs: { size: "sm", options: _vm.alignmentOptions },
         model: {
           value: _vm.componentAlignment,
           callback: function($$v) {
@@ -32335,6 +32322,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ColumnWidth",
@@ -32345,7 +32339,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.$store.getters.getSelectedElement.columnWidth;
             },
             set: function set(width) {
-                this.$store.commit('setComponentProperty', { property: 'columnWidth', value: width });
+                this.$store.commit("setComponentProperty", {
+                    property: "columnWidth",
+                    value: width
+                });
             }
         }
     },
@@ -32353,40 +32350,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             widths: [{
-                text: 'Twelve Columns',
+                text: "Twelve Columns",
                 value: 12
             }, {
-                text: 'Eleven Columns',
+                text: "Eleven Columns",
                 value: 11
             }, {
-                text: 'Ten Columns',
+                text: "Ten Columns",
                 value: 10
             }, {
-                text: 'Nine Columns (3/4)',
+                text: "Nine Columns (3/4)",
                 value: 9
             }, {
-                text: 'Eight Columns (2/3)',
+                text: "Eight Columns (2/3)",
                 value: 8
             }, {
-                text: 'Seven Columns',
+                text: "Seven Columns",
                 value: 7
             }, {
-                text: 'Six Columns (1/2)',
+                text: "Six Columns (1/2)",
                 value: 6
             }, {
-                text: 'Five Columns',
+                text: "Five Columns",
                 value: 5
             }, {
-                text: 'Four Columns (1/3)',
+                text: "Four Columns (1/3)",
                 value: 4
             }, {
-                text: 'Three Columns (1/4)',
+                text: "Three Columns (1/4)",
                 value: 3
             }, {
-                text: 'Two Columns',
+                text: "Two Columns",
                 value: 2
             }, {
-                text: 'One Column',
+                text: "One Column",
                 value: 1
             }]
         };
@@ -32398,7 +32395,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getSelectedElement.columnWidth === width;
         },
         setColumnWidth: function setColumnWidth(value) {
-            this.$store.commit('setComponentProperty', { property: 'columnWidth', value: value });
+            this.$store.commit("setComponentProperty", {
+                property: "columnWidth",
+                value: value
+            });
         }
     }
 });
@@ -32422,6 +32422,8 @@ var render = function() {
       _c(
         "b-form-select",
         {
+          staticClass: "sidebar-text-input",
+          attrs: { size: "sm" },
           on: { change: _vm.setColumnWidth },
           model: {
             value: _vm.selectedWidth,
@@ -32435,7 +32437,7 @@ var render = function() {
           return _c(
             "option",
             { key: index, domProps: { value: width.value } },
-            [_vm._v("\n            " + _vm._s(width.text) + "\n        ")]
+            [_vm._v(_vm._s(width.text))]
           )
         }),
         0
@@ -41709,6 +41711,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -41736,7 +41740,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
             var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
 
-            this.$store.commit('selectElement', {
+            this.$store.commit("selectElement", {
                 canvasIndex: canvasIndex,
                 rowIndex: rowIndex,
                 columnIndex: columnIndex,
@@ -41748,7 +41752,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var columnIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
             var componentIndex = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
 
-            this.$store.commit('toggleElementVisibility', {
+            this.$store.commit("toggleElementVisibility", {
                 canvasIndex: canvasIndex,
                 rowIndex: rowIndex,
                 columnIndex: columnIndex,
@@ -41927,11 +41931,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticStyle: { "overflow-y": "scroll", outline: "1px solid red" },
+        attrs: { id: "minimap-container" }
+      },
       _vm._l(_vm.canvases, function(canvas, canvasIndex) {
         return _c(
           "ul",
@@ -41956,9 +41964,9 @@ var render = function() {
                   1
                 ),
                 _vm._v(
-                  "\n\n            Canvas " +
+                  "\n                Canvas " +
                     _vm._s(canvasIndex + 1) +
-                    "\n\n            "
+                    "\n                "
                 ),
                 _c(
                   "span",
@@ -42002,9 +42010,9 @@ var render = function() {
                         1
                       ),
                       _vm._v(
-                        "\n\n                Row " +
+                        "\n                    Row " +
                           _vm._s(rowIndex + 1) +
-                          "\n\n                "
+                          "\n                    "
                       ),
                       _c(
                         "span",
@@ -42055,9 +42063,9 @@ var render = function() {
                               1
                             ),
                             _vm._v(
-                              "\n\n                    Column " +
+                              "\n                        Column " +
                                 _vm._s(columnIndex + 1) +
-                                "\n\n                    "
+                                "\n                        "
                             ),
                             _c(
                               "span",
@@ -42112,9 +42120,9 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                        " +
+                                    "\n                            " +
                                       _vm._s(component.type) +
-                                      "\n\n                        "
+                                      "\n                            "
                                   ),
                                   _c(
                                     "span",
@@ -42156,10 +42164,10 @@ var render = function() {
           ],
           2
         )
-      })
-    ],
-    2
-  )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -45092,7 +45100,7 @@ var render = function() {
       _c("div", { attrs: { id: "top-bar-right" } }, [_c("menu-button")], 1)
     ]),
     _vm._v(" "),
-    _c("div", { attrs: { id: "rewrite-container" } }, [
+    _c("div", { attrs: { id: "sidebar-container" } }, [
       _c(
         "div",
         { attrs: { id: "sidebar" } },
@@ -45104,8 +45112,10 @@ var render = function() {
           _c("color-picker-panel")
         ],
         1
-      ),
-      _vm._v(" "),
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "rewrite-container" } }, [
       _c(
         "div",
         { attrs: { id: "rewrite-article-container" } },
@@ -45114,34 +45124,17 @@ var render = function() {
             "div",
             { attrs: { id: "rewrite-content-area" } },
             [
-              _c("notification"),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "article-name-container",
-                  class: {
-                    "sm-device-size": _vm.getDeviceSize === "sm",
-                    "md-device-size": _vm.getDeviceSize === "md",
-                    "lg-device-size": _vm.getDeviceSize === "lg",
-                    "xl-device-size": _vm.getDeviceSize === "xl"
-                  }
-                },
-                [_c("article-title")],
-                1
-              ),
-              _vm._v(" "),
               _c(
                 "div",
                 {
                   ref: "rewriteArticle",
-                  staticClass: "rewrite-workspace",
                   class: {
                     "sm-device-size": _vm.getDeviceSize === "sm",
                     "md-device-size": _vm.getDeviceSize === "md",
                     "lg-device-size": _vm.getDeviceSize === "lg",
                     "xl-device-size": _vm.getDeviceSize === "xl"
-                  }
+                  },
+                  attrs: { id: "rewrite-workspace" }
                 },
                 _vm._l(_vm.canvases, function(canvas, canvasIndex) {
                   return _c("Canvas", {
@@ -45270,8 +45263,8 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     enableKeyBindings: true,
 
     // The currently selected device size. Can be small, medium, large, or extra-large.
-    deviceSizes: ['sm', 'md', 'lg', 'xl'],
-    deviceSize: 'xl',
+    deviceSizes: ["sm", "md", "lg", "xl"],
+    deviceSize: "md",
 
     // The indexes of the element that is currently selected by the user.
     selected: {
@@ -45286,12 +45279,12 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     selectedElementStyle: null,
 
     // The content of the workspace. The full list of Canvases and everything within them.
-    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
+    canvases: [Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_1__helpers__["a" /* duplicateObject */])(__WEBPACK_IMPORTED_MODULE_0__defaults_Canvas__["a" /* default */])],
 
     // The notification dialog box that appears above the article title.
     notification: {
-        message: '',
-        type: 'success',
+        message: "",
+        type: "success",
         dismissSecs: 5,
         dismissCountDown: 0
     },
@@ -58961,7 +58954,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.minimap-heading[data-v-6ad789bc] {\n  padding: 10px 5px;\n  border-top: 1px solid #888;\n  border-bottom: 1px solid #888;\n  background: #222;\n}\n.minimap-heading h6[data-v-6ad789bc] {\n    color: #ccc;\n    margin: 0;\n}\nul[data-v-6ad789bc] {\n  margin: 0;\n}\n.minimap-minimise-button[data-v-6ad789bc] {\n  cursor: pointer;\n}\n.minimap-minimise-button[data-v-6ad789bc]:hover {\n  color: #dddddd;\n}\n.minimap-ul[data-v-6ad789bc] {\n  list-style-type: none;\n  padding: 0;\n  width: 100%;\n}\n.minimap-element-row[data-v-6ad789bc] {\n  width: 100%;\n  padding: 2px 5px;\n  border-bottom: 1px solid #888;\n  background: #333;\n  color: white;\n}\n.minimap-element-row[data-v-6ad789bc]:nth-child(even) {\n  background: #f0f0f0;\n}\n.minimap-element-row[data-v-6ad789bc]:hover {\n  cursor: pointer;\n  background: #555;\n}\n.element-selected[data-v-6ad789bc] {\n  color: white;\n  background: #999;\n}\n.pad-row[data-v-6ad789bc] {\n  padding-left: 15px;\n}\n.pad-column[data-v-6ad789bc] {\n  padding-left: 25px;\n}\n.pad-component[data-v-6ad789bc] {\n  padding-left: 60px;\n}\n.collapse-icon-container[data-v-6ad789bc] {\n  padding: 0 5px;\n}\n.eye-icon-container[data-v-6ad789bc] {\n  float: right;\n  margin-right: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.minimap-heading[data-v-6ad789bc] {\n  padding: 10px 5px;\n  border-top: 1px solid #888;\n  border-bottom: 1px solid #888;\n  background: #222;\n}\n.minimap-heading h6[data-v-6ad789bc] {\n    color: #ccc;\n    margin: 0;\n}\nul[data-v-6ad789bc] {\n  margin: 0;\n}\n.minimap-ul[data-v-6ad789bc] {\n  list-style-type: none;\n  padding: 0;\n  width: 100%;\n}\n.minimap-element-row[data-v-6ad789bc] {\n  width: 100%;\n  padding: 2px 5px;\n  border-bottom: 1px solid #888;\n  background: #333;\n  color: #ccc;\n}\n.minimap-element-row[data-v-6ad789bc]:nth-child(even) {\n  background: #f0f0f0;\n}\n.minimap-element-row[data-v-6ad789bc]:hover {\n  cursor: pointer;\n  background: #555;\n}\n.element-selected[data-v-6ad789bc] {\n  color: white;\n  background: #999;\n}\n.pad-row[data-v-6ad789bc] {\n  padding-left: 15px;\n}\n.pad-column[data-v-6ad789bc] {\n  padding-left: 25px;\n}\n.pad-component[data-v-6ad789bc] {\n  padding-left: 60px;\n}\n.collapse-icon-container[data-v-6ad789bc] {\n  padding: 0 5px;\n}\n.eye-icon-container[data-v-6ad789bc] {\n  float: right;\n  margin-right: 5px;\n}\n", ""]);
 
 // exports
 
@@ -59092,6 +59085,46 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-5786dee1", module.exports)
   }
 }
+
+/***/ }),
+/* 596 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(597);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(7)("51fa7d10", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d15ff2a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Rewrite.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d15ff2a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Rewrite.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 597 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#top-bar[data-v-7d15ff2a] {\n  position: fixed;\n  display: grid;\n  grid-template-columns: 3fr 1fr 3fr;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 100%;\n  padding: 8px 10px;\n  background: #333;\n  z-index: 100;\n}\n#top-bar-right[data-v-7d15ff2a] {\n  display: inline;\n}\n#top-bar-center[data-v-7d15ff2a] {\n  justify-self: center;\n}\n#top-bar-right[data-v-7d15ff2a] {\n  justify-self: end;\n}\n#rewrite-container[data-v-7d15ff2a] {\n  position: relative;\n}\n#rewrite-container #rewrite-article-container[data-v-7d15ff2a] {\n    display: grid;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    justify-items: center;\n}\n#sidebar-container[data-v-7d15ff2a] {\n  position: fixed;\n  width: 325px;\n  z-index: 10;\n}\n#sidebar-container #sidebar[data-v-7d15ff2a] {\n    display: grid;\n    grid-template-columns: 1fr;\n    grid-template-rows: 3fr 2fr;\n    background: #333;\n    margin-top: 56px;\n}\n.article-name-container[data-v-7d15ff2a] {\n  margin: 0 auto;\n  padding-top: 75px;\n}\n#rewrite-article-container[data-v-7d15ff2a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  padding: 25px;\n}\n#rewrite-content-area[data-v-7d15ff2a] {\n  width: 100%;\n}\n#rewrite-workspace[data-v-7d15ff2a] {\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-top: 40px;\n  padding: 0;\n  -webkit-box-shadow: 0 0 20px #ccc;\n          box-shadow: 0 0 20px #ccc;\n  overflow: hidden;\n}\n.sm-device-size[data-v-7d15ff2a] {\n  width: 576px;\n}\n.md-device-size[data-v-7d15ff2a] {\n  width: 768px;\n}\n.lg-device-size[data-v-7d15ff2a] {\n  width: 992px;\n}\n.xl-device-size[data-v-7d15ff2a] {\n  width: 1200px;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
